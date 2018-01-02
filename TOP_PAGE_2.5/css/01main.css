@@ -1,6 +1,6 @@
 *{
 	box-sizing: border-box;
-	/*outline: 1px solid red;*/
+/*	outline: 1px solid red;*/
 	margin: 0;
   	padding: 0;
 	color: white;
@@ -48,73 +48,7 @@ body{
 		    100% {transform: translateY(0px);}
 	}*/
 		/*-*/
-/*-----header-----*/
-.nav{
-	width: 100%;
-	position: fixed;
-	height: 13%;
-	text-align: center;
-	top:4%;
-	z-index: 1000;
-}
-.logo{
-	display: inline-block;
-	width:15%;
-	min-width: 200px;
-	margin: 0;
-	vertical-align: middle;
-}
-.ul_left,.ul_right,.ul_left li,.ul_right li{
-	display: inline-block;
-	vertical-align: middle;	
-}
-.ul_left{
-	text-align: right;
-	margin-right: 20px;
-}
-.ul_right{
-	text-align: left;
-	margin-left: 20px;
-}
-.ul_left,.ul_right{
-	width:30%;
-}
-.ul_left li,.ul_right li{
-	width:20%;
-	margin: 0 20px 0 20px;
-}
-.ul_left li a,.ul_right li a{
-	display: block;
-	padding: 1%;
-	text-align: center;
-	font-family: "微軟正黑體";
-}
-.header{
-	width: 100%;
-	position: fixed;
-	top:0;
-	height: 4%;
-	text-align: right;
-	z-index: 999;
-}
-.header .ul_top{
-	padding: 1%;
-}
-.header .ul_top li{
-	width: 3%;
 
-	display: inline-block;
-	margin: 0 8px 0 8px;
-	font-family: "微軟正黑體";
-	position: relative;
-	z-index: 999;
-}
-.header .ul_top li a{
-	display: block;
-	padding: 0.5%;
-}
-
-/*-----header end-----*/
 
 /*-----banner-----*/
 		.shipbox{

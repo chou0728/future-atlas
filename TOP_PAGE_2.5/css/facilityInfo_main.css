@@ -1,0 +1,334 @@
+*{
+	text-decoration: none;
+	color: white;
+/*	outline: 1px solid red;*/
+}
+body{
+	background: black;
+}
+body::-webkit-scrollbar {
+    width: 10px;
+}
+body::-webkit-scrollbar-track {
+	-webkit-border-radius: 10px;
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+}
+body::-webkit-scrollbar-thumb {
+  background-color: rgba(100,255,243,1);
+ /* outline: 1px solid rgba(100,255,243,1);*/
+}
+
+
+.fi_wrapper{
+	margin:120px auto 0 auto;
+	/*background: blue;*/
+	width: 100%;
+	max-width: 1920px;
+	position: relative;
+}
+
+.fi_wrapper .icon_subnav{/*--icon absolute--*/
+	width: 50px;
+	position: absolute;
+	top:50px;
+	left: 5%;
+	z-index: 100;
+}
+.fi_wrapper .icon_subnav .i_info{
+	position: relative;
+	margin: 32px 0;
+}
+.fi_wrapper .icon_subnav .i_info img{
+	width: 100%;
+}
+.fi_wrapper .icon_subnav .i_info .i_box{
+	position: absolute;
+	width: 90px;
+	height: 40px;
+	right: -130px;
+	top: -20px;
+	opacity: 0.9;
+	display: none;
+	transition: 0.5s linear;
+	background-color: rgba(0,0,0,0.8);
+
+}
+.fi_wrapper .icon_subnav .i_info .i_box p{
+	color: rgb(222,255,243);
+	padding: 5px;
+}
+.fi_wrapper .icon_subnav .i_info .i_box .i_line{
+	width: 45px;
+	height: 1px;
+	background: rgb(53,255,243);
+	transform: rotate(-52deg);
+	position: absolute;
+	top:15px;
+	left: -35px;
+	box-shadow: 0px 0px 1px rgba(100,255,243,1),0px 0px 2px rgba(155,255,243,0.5),0px 0px 4px rgba(155,255,243,0.3);
+
+}
+.fi_wrapper .icon_subnav .i_info .i_box p{
+	font-size: 14px;
+}
+.fi_wrapper .icon_subnav .i_info .i_box .i_line2{
+	width: 20px;
+	height: 1px;
+	background: rgb(53,255,243);
+	position: absolute;
+	top:-3px;
+	left: 1.2px;
+	box-shadow: 0px 0px 1px rgba(100,255,243,1),0px 0px 2px rgba(155,255,243,0.5),0px 0px 4px rgba(155,255,243,0.3);
+}
+.fi_wrapper .icon_subnav .i_info:hover .i_box{
+	display: block;
+}
+.fi_wrapper .icon_subnav .i_info:hover img{
+	filter: drop-shadow(0px 0px 2px rgba(100,255,243,0.4)) drop-shadow(0px 0px 3px rgba(100,255,243,0.2));
+}/*--icon absolute end--*/
+
+.fi_wrapper .fi_panel{
+	width: 80%;
+	margin: 0 auto;
+	padding-top: 20px;/*未定*/
+	padding-left: 8%;
+
+}
+.fi_wrapper .fi_panel .f_box{
+	width: 20%;
+	overflow: hidden;
+	float: left;
+	margin-top: 3%;
+	margin-bottom: 5%;
+	background-color: rgba(100,255,243,0.8);
+	margin-left: -2%;
+	border: 2px solid rgba(55,255,243,1);
+	box-shadow: 0px 0px 1px rgba(100,255,243,1),0px 0px 2px rgba(255, 193, 22,0.5),0px 0px 4px rgba(155,255,243,0.3);
+	position: relative;
+	-webkit-clip-path: polygon(25% 0%, 100% 0%, 75% 100%, 0% 100%);
+	
+}
+
+.fi_wrapper .fi_panel .f_box .bcover_border{
+	width:99%;
+	margin: 0 auto;
+	overflow: hidden;
+	top:0;
+	left: 0;
+	position: relative;
+	-webkit-clip-path: polygon(25% 0%, 100% 0%, 75% 100%, 0% 100%);
+}
+
+
+.fi_wrapper .fi_panel .f_box .bcover_border .f_mainphoto .fi_caution{
+	position: absolute;
+	width: 0;
+	top:50%;
+	left:50%;
+	transform: translateX(-50%) translateY(-50%) rotate(-20deg);
+	text-align: center;
+	font-size: 22px;
+	font-family: monospace;
+	transition: width .7s ease-in;
+}
+.fi_wrapper .fi_panel .f_box .bcover_border .f_mainphoto .fi_caution a{
+	display: block;
+	width: 100%;
+	padding: 3px;
+	background-color: black;
+	border-top: 2px solid rgba(100,255,243,0.8);
+	border-bottom: 2px solid rgba(100,255,243,0.8);
+	color: rgba(100,255,243,0.9);
+	opacity: 0;
+}
+.fi_wrapper .fi_panel .f_box .bcover_border .f_mainphoto .fi_caution a span{
+	color: rgba(1255, 193, 22,0.9);
+}
+.fi_wrapper .fi_panel .f_box:hover .bcover_border .f_mainphoto img{
+	filter: brightness(25%) hue-rotate(40deg) blur(2px);
+}
+.fi_wrapper .fi_panel .f_box:hover .bcover_border .f_mainphoto .fi_caution{
+	width: 100%;
+	
+}
+.fi_wrapper .fi_panel .f_box:hover .bcover_border .f_mainphoto .fi_caution a{
+	opacity: 1;
+}
+.fi_wrapper .fi_panel .f_box:hover .bcover_border .f_mainphoto .fi_caution a:before{
+	content: "";
+	display: block;
+	width: 50px;
+	height: 50px;
+	border-radius: 100%;
+	border: 1px solid rgba(100,255,243,0.9);
+	position: absolute;
+	top:50%;
+	left:50%;
+	transform: translateX(-50%) translateY(-50%);
+	animation: big_before 1s ease 1;
+	animation-fill-mode: forwards;
+}
+.fi_wrapper .fi_panel .f_box:hover .bcover_border .f_mainphoto .fi_caution a:after{
+	content: "";
+	display: block;
+	width: 1px;
+	height: 1px;
+	border-radius: 100%;
+	border: 2px solid rgba(100,255,243,0.9);
+	position: absolute;
+	top:50%;
+	left:50%;
+	transform: translateX(-50%) translateY(-50%);
+	animation: big 1s ease 1;
+	animation-fill-mode: forwards;
+}
+@keyframes big{
+	0%{width: 1px;height: 1px; border: 2px solid rgba(100,255,243,0.9);}
+	100%{width:400px;height:400px;border: 4px solid rgba(100,255,243,0);}
+}
+@keyframes big_before{
+	0%{width: 50px;height: 50px; border: 1px solid rgba(100,255,243,0.9);}
+	100%{width:250px;height:250px;border: 2px solid rgba(100,255,243,0);}
+}
+/**/
+.fi_wrapper .fi_panel .f_box .bcover_border .f_mainphoto{
+	width: 100%;
+	height:54vh;
+	overflow: hidden;
+	position: relative;
+}
+.fi_wrapper .fi_panel:after{
+	content: '';
+	display: block;
+	clear: both;
+}
+.fi_wrapper .fi_panel .f_box .bcover_border .f_mainphoto img{
+	width: 60vw;
+	transform: translateX(-35%);
+}
+
+.fi_wrapper .fi_panel .f_box h2 {
+	font-size: 20px;
+	padding: 10px 5px 8px 20px;
+	background-image: repeating-linear-gradient(rgba(0,0,0,0.8) 0px, rgba(0,0,0,0.8) 1px,rgba(0,0,0,0.8) 1px,rgba(0,0,0,0.8) 2px,rgba(0, 80, 185,0.8) 2px, rgba(0, 80, 185,0.8) 3px);
+	font-family: "微軟正黑體";
+	color: rgba(120,255,243,0.8);
+	font-weight: bold;
+}
+.fi_wrapper .fi_panel .f_box:hover h2{
+	text-shadow: 0px 0px 2px rgba(150,255,243,0.5),0px 0px 4px rgba(150,255,243,0.3);
+	background-image: repeating-linear-gradient(black 0px, black 1px,black 1px,black 2px,black 2px, black 3px);
+}
+.fi_wrapper .fi_panel .f_box .bcover_border .points{
+	width: 100%;
+	padding: 7px 5px 5px 15px;
+	background-image: repeating-linear-gradient(rgba(0,0,0,0.8) 0px, rgba(0,0,0,0.8) 1px,rgba(0,0,0,0.8) 1px,rgba(0,0,0,0.8) 2px,rgba(0, 80, 185,0.8) 2px, rgba(0, 80, 185,0.8) 3px);
+	z-index: 10;
+	margin: 0;
+}
+.fi_wrapper .fi_panel .f_box:hover .bcover_border .points{
+	background-image: repeating-linear-gradient(black 0px,black 1px);
+	
+}
+.fi_wrapper .fi_panel .bcover_border .points a{
+	display: block;
+	width: 300%;
+	height: 100%;
+}
+.fi_wrapper .fi_panel .f_box .bcover_border .points img{
+	width: 18px;
+	vertical-align: middle;
+	opacity: 0.5;
+	cursor: pointer;
+
+}
+.fi_wrapper .fi_panel .f_box .bcover_border .points img:hover{
+	opacity: 1;
+}
+.fi_wrapper .fi_panel .f_box .bcover_border .points span{
+	vertical-align: middle;
+	color: rgba(200,255,243,0.7);
+}
+.fi_wrapper .fi_panel .f_box .bcover_border .category{
+	padding: 5px;
+	/*width: 100%;*/
+	position: absolute;
+	bottom: 5%;
+	right: 20%;
+	text-align: right;
+}
+.fi_wrapper .fi_panel .f_box .bcover_border .category img{
+	width: 35px;
+	opacity: 0.2;
+
+}
+
+/*人潮跑馬燈*/
+.fi_wrapper .fi_panel .f_box .marquee_crowds{
+	width: 100%;
+  	padding: 5px 0 5px 0;
+  	overflow: hidden;
+ 	background: repeating-linear-gradient(transparent 0px, transparent 1px,transparent 1px, transparent 3px,rgba(55, 55, 55,0.5) 3px, rgba(100, 100, 100,0.8) 3.5px);
+}
+.fi_wrapper .marquee_crowds .marquee{
+ 	width: 800px;
+}
+
+.fi_wrapper .marquee_crowds .marquee:before, .marquee_c .marquee:after {
+  display: inline-block;
+  float: left;
+  width: 50%;
+  content: attr(data-marquee);
+  position: relative;
+  animation: marqueeAnimation 7s linear infinite;
+  color: white;
+  letter-spacing: 5px;
+  font-weight: bold;
+  text-shadow: 0px 0px 2px #99FFFF;
+  font-size: 20px;
+  opacity: 0.8;
+  font-family: "微軟正黑體";
+}
+@keyframes marqueeAnimation {
+  0% {
+    left: -25%;
+  }
+  100% {
+    left: 35%;
+  }
+}
+/*iframe*/
+#facility01{
+	position: fixed;
+	top: 0;
+	left: 0;
+	width:100%;
+	height:0;
+	overflow-x: hidden;
+	overflow-y: auto;
+	z-index: 999999;
+	transition: 0.5s linear;
+	opacity: 0;
+
+}
+
+#close{
+	width: 35px;
+	height: 35px;
+	position: fixed;
+	right: 2%;
+	top:3%;
+	z-index: 999999;
+	display: none;
+	cursor: pointer;
+	background-color: rgba(0,0,0,0.5);
+	
+}
+#close img{
+	width: 100%;
+	opacity: 0.8;
+}
+#close img:hover{
+	opacity: 1;
+	filter: drop-shadow(0px 0px 2px rgba(255, 193, 22,0.4)) drop-shadow(0px 0px 4px rgba(255, 193, 22,0.2));
+}

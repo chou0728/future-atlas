@@ -1,0 +1,105 @@
+body{
+	font-family: 微軟正黑體, arial;
+	font-weight: 900;
+	background-color: #111;
+	color: white;
+}
+
+*{
+	/*border: 1px solid red;*/
+}
+
+h1{
+	width: auto;
+	margin: 20px auto 10px auto;
+	text-align: center;
+}
+
+img{
+	width: 30px;
+}table{
+	width: 70%;
+	margin-left: 15%;
+	text-align: left;
+	border: none;
+}
+th{
+	font-size: 20px;
+	padding: 5px;
+	height: 30px;
+	border: none;
+}
+td{
+	padding: 5px;
+	padding-top: 30px;
+	padding-bottom: 5px;
+	border: none;
+	border-bottom: 1px solid azure;
+}
+
+
+input{
+	/*height: 100px;*/
+	width: 30px;
+	padding: 5px;
+	border: 1px solid navy;
+	box-shadow: none;
+	text-align: center;
+}
+#cart_header{
+	background-color: ivory;
+	color: black;
+	height: 30px;
+}
+#cart_total_row{
+	text-align: right;
+	height: 50px;
+}td:nth-child(6),td:nth-child(7),td:nth-child(8){
+	text-align: right;
+}.fn_td{
+	width: 5%;
+}.icon_td{
+	width: 15%;
+}.full_td{
+	width: 10%;
+	color: lightblue;
+}.half_td{
+	width: 10%;
+	color: orange;
+}#button{
+	width: 250px;
+	margin: 20px auto;
+}.sub_total{
+}
+#cart_total_prev{
+	font-size: 24px;
+	text-align: right;
+}
+#cart_total{
+	font-size: 28px;
+	/*color: red;*/
+}.delete_btn_td{
+	width: 25px;
+	padding-top: 5px;
+	vertical-align: top;
+}.delete_btn{
+	font-size: 16px;
+	/*border-radius: 100%;*/
+	border: none;
+	color: black;
+	background-color: white;
+	box-shadow: 0 0 0 black inset;
+}
+
+#backToShop, #NextStep{
+	font-family: 微軟正黑體;
+	width: 120px;
+	padding: 16px;
+	border: 1px solid orange;
+	background-color: transparent;
+}
+
+#button a {
+	text-decoration: none;
+	color: white;
+}

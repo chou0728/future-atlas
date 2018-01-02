@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="css/buyTTicket.css" />
+    <script src="js/sessionStorage.js"></script>
+    <title>buyTTicket</title>
+</head>
+<body>
+    <!-- header -->
+    <div class="header">
+        <ul class="ul_top">
+            <li>
+                <a href="javascript:void(0)">註冊</a>
+            </li>
+            <li>
+                <a href="javascript:void(0)">登入</a>
+            </li>
+            <li>
+                <a href="javascript:void(0)">購物車</a>
+            </li>
+        </ul>
+    </div>
+    <div class="nav">
+        <ul class="ul_left">
+            <li>
+                <a href="javascript:void(0)">劇場購票</a>
+            </li>
+            <li>
+                <a href="javascript:void(0)">設施購票</a>
+            </li>
+            <li>
+                <a href="javascript:void(0)">設施介紹</a>
+            </li>
+        </ul>
+        <h1 style="display: none">FutureAtlas_未來主題樂園</h1>
+        <a href="javascript:void(0)">
+            <img src="img/LOGO.png" class="logo">
+        </a>
+        <ul class="ul_right">
+            <li>
+                <a href="#map">園區地圖</a>
+            </li>
+            <li>
+                <a href="javascript:void(0)">活動月曆</a>
+            </li>
+            <li>
+                <a href="javascript:void(0)">留言專區</a>
+            </li>
+        </ul>
+    </div>
+    <!-- header end-->
+    
+    <!-- 購買票劵 -->
+    <div class="buyticketarea">
+        <h2>購買票劵</h2>
+        <table>
+            <tr>
+                <td>節目名稱</td>
+                <td>
+                    <input type="radio" name="programName" value="尋找星生命" checked onchange="changeTheaterName()">尋找星生命
+                    <br>
+                    <input type="radio" name="programName" value="末世決戰" onchange="changeTheaterName()">末世決戰
+                </td>
+            </tr>
+            <tr>
+                <td>節目日期</td>
+                <td>
+                    <input type="date" id="programDate" name="programdate" required onchange="changeDate()" style="font-size:23px;">
+                </td>
+            </tr>
+            <tr>
+                <td>場次</td>
+                <td>
+                    <select id="programTime" onchange="changeEvent()" style="width:150px; font-size:23px;">
+                        <option value="10:00">10:00</option>
+                        <option value="11:00">11:00</option>
+                        <option value="14:00">14:00</option>
+                        <option value="15:00">15:00</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td>票價</td>
+                <td>500元</td>
+            </tr>
+            <tr>
+                <td>張數</td>
+                <td>
+                    <!-- <input type="number" min="1" name="ticketNum" value="1"> -->
+                    <input style="width:30px;font-size:23px;" type="number" id="quantity" value="1" min="1" onchange="changeQuantity()" />
+                </td>
+            </tr>
+            <tr>
+                <td>總共金額</td>
+                <td id="total">
+                    500元
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    <a href="Booking_details.html" class="buyticket">確認購買</a>
+                </td>
+            </tr>
+        </table>
+    </div>
+</body>
+</html>
