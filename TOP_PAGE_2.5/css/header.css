@@ -1,4 +1,7 @@
 /*-----header-----*/
+*{
+	text-decoration: none;
+}
 .nav{
 	width: 100%;
 	position: fixed;
@@ -6,6 +9,7 @@
 	text-align: center;
 	top:4%;
 	z-index: 1000;
+
 }
 .logo{
 	display: inline-block;
@@ -17,6 +21,7 @@
 .ul_left,.ul_right,.ul_left li,.ul_right li{
 	display: inline-block;
 	vertical-align: middle;	
+
 }
 .ul_left{
 	text-align: right;
@@ -39,6 +44,7 @@
 	padding: 1%;
 	text-align: center;
 	font-family: "微軟正黑體";
+	color: white;
 }
 .header{
 	width: 100%;
@@ -64,6 +70,7 @@
 .header .ul_top li a{
 	display: block;
 	padding: 0.5%;
+	color: white;
 }
 
 /*-----header end-----*/

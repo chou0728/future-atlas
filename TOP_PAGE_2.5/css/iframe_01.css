@@ -1,6 +1,7 @@
 *{
 	/*outline: 1px solid red;*/
-text-decoration: none;
+	text-decoration: none;
+	box-sizing: border-box;
 }
 
 body {
@@ -25,7 +26,7 @@ body::-webkit-scrollbar-thumb {
 	background-image: ;
 	text-align: center;
 	margin:10px auto;
-	margin-left: 0px;
+	margin-left: -10px;
 	position: relative;
 	display: inline-block;
 	vertical-align: middle;
@@ -46,7 +47,7 @@ body::-webkit-scrollbar-thumb {
 	padding:1%;
 	position: relative;
 	width: 23.5%;
-	right: -5%;
+	right: -8%;
 	color: white;
 	font-size: 20px;
 	font-weight: bold;
@@ -151,6 +152,7 @@ body::-webkit-scrollbar-thumb {
 .wrapper .content{
 	position: relative;
 	margin:20px 0 50px 0;
+	
 }
 
 
@@ -257,42 +259,86 @@ svg {
 	color: rgba(155,255,233,0.8);
 	font-size: 18px;
 	line-height: 1.5;
-	padding: 0 4% 4% 4%;
+	padding:4% 0 4% 4%;
 	text-align: left;
 }
 .wrapper .content .scoreContainer{
 	width: 25%;
 	padding:4% 0 4% 4%;
+	height: 264px;
 	color: white;
 	display: inline-block;
 	text-align: left;
 	font-size: 25px;
+	vertical-align: middle;
+	margin-right: 5%;
 }
-.wrapper .content .scoreContainer .scoreAverage{
-	
+.wrapper .content .scoreContainer li{	
 	letter-spacing: 2px;
-
-
-}
-.wrapper .content .scoreContainer .scoreAverage span{
-	font-size: 40px;
+	padding-bottom: 10px;
 }
 .wrapper .content .scoreContainer .star{
 	font-size: 40px;
 }
-.wrapper .content .scoreContainer .kai span{
+.wrapper .content .scoreContainer li span{
 	font-size: 40px;
 }
 .wrapper .content .scoreContainer .comment{
 	width: 65%;
 }
-.wrapper .content .scoreTitle{
+.scoreTitle{
 	font-size: 30px;
+	width: 190px;
 	padding: 10px 30px 10px 30px;
 	font-weight: bold;
-	position: absolute;
-	top:0;
-	left: -11px;
+	margin-left: -11px;
 	background-color: rgba(100,255,243,0.9);
 	letter-spacing: 2px;
+}
+#comment{
+	width: 66%;
+	height: 195px;
+	overflow-y: auto;
+	display: inline-block;
+	vertical-align: middle;
+	padding: 1%;
+	background-color: rgba(120,255,225,0.1);
+	border: 1px solid rgba(120,255,225,0.8);
+}
+#comment::-webkit-scrollbar {
+    width: 10px;
+}
+#comment::-webkit-scrollbar-track {
+	-webkit-border-radius: 10px;
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+}
+#comment::-webkit-scrollbar-thumb {
+  background-color: rgba(100,255,243,1);
+}
+#comment .memcommentBox{
+	color: white;
+	padding: 5px;
+	margin-bottom: 1%;
+	background-color: rgba(120,255,225,0.1);
+	box-shadow: 0 0 2px rgba(180,255,225,0.9);
+}
+#comment .memcommentBox .memName{
+	display: inline-block;
+	width: 15%;
+	min-width: 120px;
+	padding: 1%;
+	vertical-align: top;
+}
+#comment .memcommentBox .memScore{
+	display: inline-block;
+	width: 10%;
+	min-width: 80px;
+	padding: 1%;
+	vertical-align: top;
+}
+#comment .memcommentBox .memComment{
+	display: inline-block;
+	width: 70%;
+	padding: 1%;
+	vertical-align: top;
 }
