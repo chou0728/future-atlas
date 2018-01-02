@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="css/robot.css">
+    <title>Robot Talk</title>
+
+</head>
+
+<body>
+    <div class="wrapper">
+        <img class="frame" src="img/robot_page/frame.png" alt="">
+        <img class="robot" src="img/robot_page/robot2.png" alt="">
+
+        <div class="conversation">
+            <div class="robot_text">
+                <p id="robot_message"></p>
+            </div>
+            <div class="user_text">
+                <p id="user_message"></p>
+            </div>
+            <div class="robot_answer">
+                <p id="robot_answer"></p>
+            </div>
+
+            <img class="chat_area" src="img/robot_page/chat_block.png" alt="">
+            <img class="brackets" src="img/robot_page/brackets.png" alt="">
+            <input type="text" id="input_box" placeholder="請在這輸入您的疑問">
+            <button class="submit">送出</button>
+        </div>
+
+    </div>
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script>
+        var message = "您好，我是Future Atlas的守護者，有什麼我能協助您的?";
+        var input_box = document.getElementById("input_box");
+        initIdentityResults(0);
+
+        function initIdentityResults(i) {
+            $("#robot_message").addClass("cursor").text(message.substring(0, i));
+            if (i < message.length) {
+                setTimeout(function () {
+                    initIdentityResults(i + 1);
+                }, 100);
+            }
+
+        }
+
+
+        $(".submit").click(function () {
+            $("#robot_message").removeClass("cursor");
+            var user_text = $("#input_box").val();
+            initIdentityResults_user(0);
+
+            function initIdentityResults_user(i) {
+                $("#user_message").addClass("cursor").text(user_text.substring(0, i));
+                if (i < user_text.length) {
+                    setTimeout(function () {
+                        initIdentityResults_user(i + 1);
+                    }, 100);
+                } else {
+                    $("#user_message").removeClass("cursor");
+                    var robot_answer = "你想吃子彈是嗎?";
+                    initIdentityResults_robot_answer(0);
+
+                    function initIdentityResults_robot_answer(i) {
+                        $("#robot_answer").addClass("cursor").text(robot_answer.substring(0, i));
+                        if (i < robot_answer.length) {
+                            setTimeout(function () {
+                                initIdentityResults_robot_answer(i + 1);
+                            }, 100);
+                        }
+
+                    }
+                }
+
+            }
+
+
+
+        })
+    </script>
+
+</body>
+
+
+</html>
