@@ -5,12 +5,55 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" type="text/css" href="css/RESET.css">
+	<link rel="stylesheet" type="text/css" href="css/header.css">
     <link rel="stylesheet" href="css/robot.css">
     <title>Robot Talk</title>
 
 </head>
 
 <body>
+        <div class="header">
+                <ul class="ul_top">
+                    <li>
+                        <a href="javascript:void(0)">註冊</a>
+                    </li>
+                    <li>
+                        <a href="javascript:void(0)">登入</a>
+                    </li>
+                    <li>
+                        <a href="input_cart.html">購物車</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="nav">
+                <ul class="ul_left">
+                    <li>
+                        <a href="javascript:void(0)">劇場購票</a>
+                    </li>
+                    <li>
+                        <a href="javascript:void(0)">設施購票</a>
+                    </li>
+                    <li>
+                        <a href="facilityInfo.html">設施介紹</a>
+                    </li>
+                </ul>
+                <h1 style="display: none">FutureAtlas_未來主題樂園</h1>
+                <a href="index.html#page1">
+                    <img src="img/LOGO.png" class="logo">
+                </a>
+                <ul class="ul_right">
+                    <li>
+                        <a href="index.html#page2">園區地圖</a>
+                    </li>
+                    <li>
+                        <a href="activity.html">活動月曆</a>
+                    </li>
+                    <li>
+                        <a href="robot.html">諮詢專區</a>
+                    </li>
+                </ul>
+            </div>
     <div class="wrapper">
         <img class="frame" src="img/robot_page/frame.png" alt="">
         <img class="robot" src="img/robot_page/robot2.png" alt="">
@@ -63,7 +106,7 @@
                     }, 100);
                 } else {
                     $("#user_message").removeClass("cursor");
-                    var robot_answer = "你想吃子彈是嗎?";
+                    var robot_answer = "園區開放時間為9:00am-9:00pm";
                     initIdentityResults_robot_answer(0);
 
                     function initIdentityResults_robot_answer(i) {
