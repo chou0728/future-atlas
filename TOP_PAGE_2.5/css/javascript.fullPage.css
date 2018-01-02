@@ -146,6 +146,7 @@ html.fp-enabled,
 .fp-slidesNav ul li a.active span,
 #fp-nav ul li:hover a.active span,
 .fp-slidesNav ul li:hover a.active span{
+    background: #fff;
     height: 12px;
     width: 12px;
     margin: -6px 0 0 -6px;
