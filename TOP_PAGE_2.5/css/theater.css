@@ -1,0 +1,116 @@
+
+		.TheaterArea{
+			margin: 150px auto 0 auto;/*需要調整*/
+			width: 100%;
+			max-width: 1200px;
+			height:70vh;
+			overflow: hidden;
+			position: relative;
+			box-shadow: 0px 0px 3px rgba(255,255,255,0.5);
+		}
+		.TheaterArea li{
+			height: 100%;
+			position: relative;
+			left: 0;
+		}
+		/*背景圖=劇場介紹圖*/
+		.TheaterArea #intro{
+			background-image: url("../img/thirdSection/dome_theater.png");
+			background-size: cover;
+			background-repeat: no-repeat;
+		}
+		.TheaterArea li:nth-child(2){
+			background-image: url("../img/thirdSection/nebula_1.jpg");
+			background-size: cover;
+			background-repeat: no-repeat;
+		}
+		.TheaterArea li:nth-child(3){
+			background-image: url("../img/thirdSection/nebula_2.jpg");
+			background-size: cover;
+			background-repeat: no-repeat;
+		}
+		/*背景圖=劇場介紹圖*/
+
+
+		
+		.TheaterArea .Theater{
+			width: 8%;
+			overflow: hidden;
+			float: left;
+			transition: .3s linear;
+		}
+		.TheaterArea .buy{/*前往購票按鈕*/
+			width: 4%;
+			overflow: hidden;
+			float: left;
+			background-color: #ff6600;
+		}
+		.TheaterArea .buy a{
+			display: block;
+			height: 100%;
+			width: 100%;
+			font-size: 25px;
+			color: black;
+			padding: 5px;
+
+		}
+		/*前往購票按鈕*/
+
+
+
+		/*點選後的class(區塊變大)*/
+		.TheaterArea .current{
+			width: 80%;
+			overflow: hidden;
+			z-index: 1000;
+		}
+		/*清除浮動*/
+		.TheaterArea:after{
+			content:"";
+			display: block;
+			clear:both;
+		}
+		
+		.TheaterArea .info{/*各區塊介紹-當父層class不是.current時不會顯示*/
+			position: absolute;
+			width: 45%;
+			right: 5%;
+			bottom: 6%;
+			color:white;
+			background-color: rgba(0,0,0,0.7);
+			display: none;
+			
+		}
+		.current #info{/*顯示各區塊介紹*/
+			display: block;
+			font-size: 20px;
+			padding: 15px;
+		}
+		.TheaterArea .notcurrent{/*非.current時游標提示為可選擇*/
+			cursor: pointer;
+		}
+		.TheaterArea .notcurrent:hover .cover{/*可選擇的提示*/
+			width: 100%;
+			height: 100%;
+			background-image: url(../img/thirdSection/giphy.gif);
+			background-repeat: repeat;
+			opacity: 0.7;
+			position: absolute;
+			top: 0;
+			left: 0;
+		}
+
+		.TheaterArea li .label{/*顯示各區塊小標-可有可無*/
+			position: absolute;
+			top:5px;
+			padding:8px;
+			font-size: 16px;
+			background-color: rgba(0,0,0,1);
+			box-shadow: 1px 1px 0px white;
+			color:white;
+		}
+		.Theater img{
+			position: absolute;
+			top:117px;
+			left:163px;
+		}

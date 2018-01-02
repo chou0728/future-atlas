@@ -1,0 +1,192 @@
+
+.map_wrapper {
+  width: 100%;
+  height: 100vh;
+  /*background-image: url("../images/background.png");*/
+  background-color: black;
+/*  background-size: cover;*/
+  position: relative;
+  overflow: hidden; }
+  .map_wrapper .map {
+    width: 100%;
+    padding: 25%;
+    position: relative;
+    transform: scale(1);
+    -webkit-transition: transform 0.6s; }
+    .map_wrapper .map .map_border {
+      width: 100%;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%); }
+    .map_wrapper .map .facility_icon {
+      width: 10%;
+      position: absolute;
+      cursor: pointer; }
+    .map_wrapper .map .shadow {
+      background: black;
+      position: absolute;
+      filter: blur(12px); }
+    .map_wrapper .map .ferris_wheel {
+      left: 58.5%;
+      top: 10%;
+      animation: ferris_wheel_move 2s linear infinite; }
+
+@keyframes ferris_wheel_move {
+  0% {
+    top: 10%; }
+  50% {
+    top: 9%; }
+  100% {
+    top: 10%; } }
+    .map_wrapper .map .ferris_wheel_shadow {
+      width: 70px;
+      height: 15px;
+      left: 60.5%;
+      top: 30%; }
+    .map_wrapper .map .roller_coaster {
+      left: 15%;
+      top: 30%;
+      animation: roller_coaster_move 2s linear infinite; }
+
+@keyframes roller_coaster_move {
+  0% {
+    top: 30%; }
+  50% {
+    top: 29%; }
+  100% {
+    top: 30%; } }
+    .map_wrapper .map .roller_coaster_shadow {
+      width: 120px;
+      height: 15px;
+      left: 15%;
+      top: 46%; }
+    .map_wrapper .map .carousel {
+      left: 39%;
+      top: 33%;
+      animation: carousel_move 2s linear infinite; }
+
+@keyframes carousel_move {
+  0% {
+    top: 33%; }
+  50% {
+    top: 32%; }
+  100% {
+    top: 33%; } }
+    .map_wrapper .map .carousel_shadow {
+      width: 100px;
+      height: 15px;
+      left: 40%;
+      top: 52%; }
+    .map_wrapper .map .coffee_cup {
+      left: 22%;
+      top: 43%;
+      animation: coffee_cup_move 2s linear infinite; }
+
+@keyframes coffee_cup_move {
+  0% {
+    top: 43%; }
+  50% {
+    top: 42%; }
+  100% {
+    top: 43%; } }
+    .map_wrapper .map .coffee_cup_shadow {
+      width: 100px;
+      height: 15px;
+      left: 22.5%;
+      top: 62%; }
+    .map_wrapper .map .bumper_cars {
+      left: 54%;
+      top: 31%;
+      animation: bumper_cars_move 2s linear infinite; }
+
+@keyframes bumper_cars_move {
+  0% {
+    top: 31%; }
+  50% {
+    top: 30%; }
+  100% {
+    top: 31%; } }
+    .map_wrapper .map .bumper_cars_shadow {
+      width: 100px;
+      height: 15px;
+      left: 55%;
+      top: 48%; }
+    .map_wrapper .map .theater {
+      left: 78%;
+      top: 36%;
+      opacity: 1;
+      transition: opacity 0.55s linear;
+      animation: theater_move 2s linear infinite; }
+
+@keyframes theater_move {
+  0% {
+    top: 36%; }
+  50% {
+    top: 35%; }
+  100% {
+    top: 36%; } }
+    .map_wrapper .map .theater_shadow {
+      width: 100px;
+      height: 20px;
+      left: 79%;
+      top: 51%; }
+    .map_wrapper .map .hidden {
+      opacity: 0; }
+  .map_wrapper .info {
+    width: 99.5%;
+    height: 50vh;
+    position: absolute;
+    top: 100%;
+    left:50%;
+    transform: translateX(-50%);
+    background: transparent;
+    border: 4px solid #fff;
+    box-shadow: 0 0 18px 0px #fff;
+    
+  }
+    .map_wrapper .info .close {
+      width: 50px;
+      height: 50px;
+      cursor: pointer;
+      position: absolute;
+      right: 0; 
+    background: transparent;
+  border:none;}
+    .map_wrapper .info .close::before{
+      content: '';
+      display: block;
+      border-radius: 30px;
+      width: 40px;
+      height: 5px;
+      background: #fff;
+      transform: rotate(45deg) ;
+      filter: blur(1px);
+    }
+    .map_wrapper .info .close::after{
+      content: '';
+      display: block;
+      border-radius: 30px;
+      width: 40px;
+      height: 5px;
+      background: #fff;
+      transform: rotate(-45deg) translate(4px,-2px);
+      filter: blur(1px);
+    }
+    .map_wrapper .info .info_container {
+      width: 100%;
+      height: 80%;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+      .map_wrapper .info .info_container .info_content {
+        width: 100%;
+        height: 100%;
+        text-align: center;
+        display: block; 
+      color: #fff;}
+      .map_wrapper .info .info_container .info_content img{
+        width: 40%;
+      }
+      .map_wrapper .info .info_container .info_content_showup {
+        display: block; }

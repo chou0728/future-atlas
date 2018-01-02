@@ -1,0 +1,312 @@
+#section4{
+    background-color: black;
+    padding-top: 8%;
+}
+.cont{
+    width: 80%;
+    max-width: 1440px;
+    background-color: rgba(75, 74, 74,0.5);
+    margin: 0 auto;
+    height: 70vh;
+    position: relative;
+}
+.cont h3{
+    margin-top:5%;
+    margin-bottom: 5%;
+    font-family: 'Share Tech Mono', monospace;
+
+}
+.cont .bar{
+    width: 100%;
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+
+
+
+
+/* 左邊票卷 */
+.cont .leftBox{
+    width: 33.33%;
+    min-width: 320px;
+    /*max-width: 33.33%;*/
+    float: left;
+    padding: 43px;
+    
+    
+}
+.cont:after{
+    content: "";
+    display: block;
+    clear: both;
+}
+
+.cont .leftBox .leftContent{
+   /* min-width: 100%;*/
+    
+    
+}
+.cont .leftBox h3{
+    text-align: center;
+    color: #fff;
+    text-shadow: 0px 0px 1px rgb(76, 216, 221);
+}
+.cont .leftBox button{
+    font-family: 'Share Tech Mono', monospace;
+    color: rgb(76, 216, 221);
+    background: transparent;
+    padding: 15px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    display: block;
+    width: 100%;
+    margin: 0 20px 20px 0;
+    outline:none;
+    border: 1px solid rgb(76, 216, 221);
+    background-color: rgb(54, 54, 54);
+    box-shadow: 0 0 10px rgba(0,0,255,0.5), rgba(0,0,255,0.5);
+    cursor: pointer;
+}
+.cont .leftBox button:hover{
+    color: #000;
+    border: 1px solid transparent;
+    background-color:rgb(76, 216, 221);
+    /* box-shadow: 0 0 40px rgb(219, 217, 68), inset 0 0 40px rgb(219, 217, 68); */
+}
+/*設施 劇場票券*/
+.cont .leftBox #change{
+    border: 1px solid rgb(253, 229, 17);
+    background-color: rgb(54, 54, 54);
+    box-shadow: 0 0 10px rgb(253, 229, 17), rgb(253, 229, 17);
+}.cont .leftBox #change:hover{
+    animation: flicker2 0.1s infinite alternate;
+    color: #000;
+    border: 1px solid transparent;
+    transform:scale(1.1, 1.1);
+    background-color: rgb(253, 229, 17);
+    box-shadow: 0 0 10px rgb(253, 229, 17), rgb(253, 229, 17);
+}
+
+@media screen and (max-width: 700px) {
+
+.cont .leftBox .leftContent{
+    float: none;
+    display: block;
+    max-width: 100%;
+    }
+
+}
+
+
+
+
+
+
+/* 中間區塊 */
+.cont .midBox{
+    width: 33.33%; 
+    min-width: 320px;
+    float: left;
+    box-sizing: border-box;
+    padding: 43px 0px 50px 0px;
+}
+.cont .midBox .midContent{
+    min-width: 100%;  
+}
+
+.cont .midBox:after{
+    content:"";
+    display: block;
+    clear: both;
+}
+
+.cont .midBox h3{
+    text-align: center;
+    color: #fff;
+    text-shadow: 0px 0px 1px rgb(76, 216, 221);
+}
+
+ .cont .midBox .pic{
+     background-image: url("../img/fifthSection/1474244703_665.png");
+     width: 100%;
+     height: 200px;
+     background-size: cover;
+     background-color: rgb(91, 200, 228);
+ }
+
+ .cont .midBox p{
+     line-height: 30px;
+     font-size: 20px;
+     color: rgb(219, 219, 219);
+ }
+
+ .cont .midBox  hr {
+    position: relative;
+    height: 1em;
+    color: rgb(76, 216, 221);
+    border-color:rgb(76, 216, 221);
+    background-color:rgb(76, 216, 221);
+    margin:15px 0 15px 0;
+   
+}
+ .cont .midBox  hr:after{
+    content: "***********";
+    position: absolute;
+    top: 0;
+    left: 0;
+    color:#000;
+    text-align: center;
+    width: 100%;
+    z-index: 10;
+ }
+
+
+
+
+
+
+ 
+/* 右邊區塊 */
+
+.cont .rightBox{
+    width: 33.333%;
+    min-width: 320px;
+    padding: 5%;
+    float: left;
+    
+}
+.cont .rightBox h3{
+    text-align: center;
+    color: #fff;
+    text-shadow: 0px 0px 1px rgb(76, 216, 221);
+}
+
+/* 掃描 */
+.cont .rightBox .visual1 {
+    width: 100%;
+    height: 200px;
+    border: 1px solid rgb(76, 216, 221);
+    position: relative;
+    margin-bottom: 15px;
+    
+}
+
+.cont .rightBox .visual1:after, .cont .rightBox .visual1:before {
+    position:absolute;
+    top: 0;
+    left: 0;
+}
+.cont .rightBox .visual1 img{
+    position: absolute;
+    width: 50%;
+    transform: translate(-50%,-50%);
+    top: 50%;
+    left: 50%;
+}
+
+.cont .rightBox .visual1:after {
+    content: "";
+    display: block;
+    border-bottom:3px solid rgb(76, 216, 221);
+    width: 100%;
+    height: 1%;
+    animation: scanTwo 8s infinite  linear;
+}
+.cont .rightBox .visual1:before { 
+    content: "";
+    display: block;
+    border-right: 3px solid rgb(76, 216, 221);
+    height: 100%;
+    width: 1%;
+    animation: scanTwo 2s infinite alternate linear;
+}
+.cont .rightBox .visual2 {
+    width: 100%;
+    height: 200px;
+    border: 2px solid  rgb(76, 216, 221);
+    position: relative;
+    margin-bottom: 10px;
+}
+/* 手機 */
+.cont .rightBox .visual2 img{
+    position: absolute;
+    width: 30%;
+    transform: translate(-50%,-50%);
+    top: 50%;
+    left: 50%;
+}
+/* 橢圓 */
+.cont .rightBox .visual2 .circle{
+    top: 50%;
+    left: 5%;
+    width: 90%;
+    z-index: 99;
+    animation: spin 5s infinite  linear;
+}
+
+
+/* s */
+.cont .rightBox .visual2:before{
+    animation: spin 2.5s infinite linear;
+}
+/* .visual2:after{
+    animation: spin 4s infinite linear alternate;
+} */
+
+@keyframes flicker {
+    0% {
+        opacity: 0.8;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes blipIn {
+    0% {
+        height: 0;
+    }
+    100% {
+        height: auto;
+    }
+}
+
+@keyframes spin {
+    0% {
+        transform:  translateY(-60px);
+    }
+    50%{
+        transform:  translateY(40px);
+    }
+    100% {
+        transform:  translateY(-60px);
+    }
+ }
+
+@keyframes scanTwo {
+    0% {
+    }
+    100% {
+        height: 100%;
+        width: 100%;
+    }
+}
+
+@keyframes twitch {
+    0% {
+        padding: 20px;
+    }
+    50% {
+        padding: 20px;
+    }
+    51% {
+        padding: 19px;
+    }
+    50% {
+        padding: 20px;
+    }
+    100% {
+        padding: 20px;
+    }
+}

@@ -1,0 +1,433 @@
+*{
+	box-sizing: border-box;
+	/*outline: 1px solid red;*/
+	margin: 0;
+  	padding: 0;
+	color: white;
+	text-decoration: none;
+	user-select:none;
+}
+body{
+  }
+#stop{
+			-webkit-animation: none !important;
+			 -moz-animation: none !important;
+			 -o-animation: none !important;
+			 -ms-animation: none !important;
+			 animation: none !important;
+	}
+
+/*吉祥物*/
+/*	.drag{
+			position: fixed;
+			bottom: 20px;
+			right: 20px;
+			animation: flo 1.5s infinite;
+			width: 90px;
+			cursor: pointer;
+			z-index: 99999;	
+	}
+	#stop{
+			-webkit-animation: none !important;
+			 -moz-animation: none !important;
+			 -o-animation: none !important;
+			 -ms-animation: none !important;
+			 animation: none !important;
+	}
+	@keyframes flo{
+			0%   {transform: translateY(0px);}
+		    10%  {transform: translateY(10px);}
+		    20%  {transform: translateY(15px);}
+		    30%  {transform: translateY(20px);}
+		    40%  {transform: translateY(15px);}
+		    50%  {transform: translateY(10px);}
+		    60%  {transform: translateY(0px);}
+		    70% {transform: translateY(-5px);}
+		    80% {transform: translateY(-10px);}
+		    90% {transform: translateY(-5px);}
+		    100% {transform: translateY(0px);}
+	}*/
+		/*-*/
+/*-----header-----*/
+.nav{
+	width: 100%;
+	position: fixed;
+	height: 13%;
+	text-align: center;
+	top:4%;
+	z-index: 1000;
+}
+.logo{
+	display: inline-block;
+	width:15%;
+	min-width: 200px;
+	margin: 0;
+	vertical-align: middle;
+}
+.ul_left,.ul_right,.ul_left li,.ul_right li{
+	display: inline-block;
+	vertical-align: middle;	
+}
+.ul_left{
+	text-align: right;
+	margin-right: 20px;
+}
+.ul_right{
+	text-align: left;
+	margin-left: 20px;
+}
+.ul_left,.ul_right{
+	width:30%;
+}
+.ul_left li,.ul_right li{
+	width:20%;
+	margin: 0 20px 0 20px;
+}
+.ul_left li a,.ul_right li a{
+	display: block;
+	padding: 1%;
+	text-align: center;
+	font-family: "微軟正黑體";
+}
+.header{
+	width: 100%;
+	position: fixed;
+	top:0;
+	height: 4%;
+	text-align: right;
+	z-index: 999;
+}
+.header .ul_top{
+	padding: 1%;
+}
+.header .ul_top li{
+	width: 3%;
+
+	display: inline-block;
+	margin: 0 8px 0 8px;
+	font-family: "微軟正黑體";
+	position: relative;
+	z-index: 999;
+}
+.header .ul_top li a{
+	display: block;
+	padding: 0.5%;
+}
+
+/*-----header end-----*/
+
+/*-----banner-----*/
+		.shipbox{
+			position: absolute;
+			width: 30%;
+			top:20vh;
+			left: 6vw;
+			animation: flyship 4s infinite;
+			transition: 0.3s linear;
+		}
+
+		@keyframes flyship{
+			0%   {transform: translateY(0px);}
+		    10%  {transform: translateY(5px);}
+		    20%  {transform: translateY(7px);}
+		    30%  {transform: translateY(9px);}
+		    40%  {transform: translateY(11px);}
+		    50%  {transform: translateY(9px);}
+		    60%  {transform: translateY(3px);}
+		    70% {transform: translateY(-2px);}
+		    80% {transform: translateY(-5px);}
+		    90% {transform: translateY(-3px);}
+		    100% {transform: translateY(0px);}
+		}
+		.shipbox .flyship{
+			width: 100%;
+			transform: translateX(-800px);
+			transition: transform 3s ease;
+		}
+
+		.shipbox .banner {
+		  position: absolute;
+		  top:9%;
+		  left:26%;
+		  border-radius: 20px;
+		  width: 60%;
+		  height: 60%;
+		  font-family: "Space Mono", monospace;
+		  overflow: hidden;
+		  background-color: #121b14;
+		  background-image: linear-gradient(transparent 50%, rgba(10, 15, 8, 0.1) 50%), radial-gradient(transparent 65%, rgba(2, 10, 1, 0.6) 100%);
+		  background-size: 15px, 100%;
+		  opacity: 1;
+		  z-index: 5;
+		  box-shadow: 0 0 2px skyblue;
+		  cursor: pointer;
+		  transform: translateX(-800px);
+		  transition: width .2s linear,height .2s linear,transform 3s ease;
+		  
+
+		}
+
+		.banner:after {
+		  content: " ";
+		  position: absolute;
+		  left: 0;
+		  top: 0;
+		  opacity: 1;
+		  transform: translate3D(0, 0, 0);
+		  width: 100%;
+		  height: 50px;
+		  mix-blend-mode: screen;
+		  background-color: rgba(255,255,255,0.5);
+		  background-image: linear-gradient(transparent 50%, rgba(0, 0, 0, 0.5) 50%), linear-gradient(to top, #050f05, rgba(0, 0, 0, 0) 110%);
+		  background-size: 15px 15px, 100%;
+		  animation: scan 2.5s linear infinite, blink 0.6s infinite;
+		}
+
+		@keyframes blink {
+		  0% {opacity: 0.7;}
+		  15% {opacity: 0.4;}
+		  20% {opacity: 0.7;}
+		  23% {opacity: 0.3;}
+		  27% {opacity: 0.7;}
+		  50% {opacity: 0.8;}
+		  60% {opacity: 0.5;}
+		  61% {opacity: 0.8;}
+		  62% {opacity: 0.6;}
+		  67% {opacity: 0.7;}
+		  69% {opacity: 0.4;}
+		  77% {opacity: 0.7;}
+		  80% {opacity: 0.3;}
+		  100% {opacity: 0.7;}
+		}
+		@keyframes scan {
+		  0% {
+		    transform: translate3D(0, -100px, 0);
+		  }
+		  100% {
+		    transform: translate3D(0, 800px, 0);
+		  }
+		}
+		.banner img{
+			width: 100%;
+			
+		}
+		#all-page{
+			position: absolute;
+			top:0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			background: repeating-linear-gradient(transparent 0px, transparent 1px,transparent 1px, transparent 3px,rgba(0,0, 0,0.5) 3px, rgba(0, 0, 0,0.8) 4px);
+			background-color: #222;
+			display: none;
+			opacity: 0.7;
+		}
+
+/*-----banner end-----*/
+
+/*-----silhouette-----*/
+.t_wrapper{
+	width: 100%;
+	height: 100vh;
+	background-image: radial-gradient(circle at center bottom,#FFFFFF 20%,#C8F4FF 40%, #C8F4FF 47.2%, #000e4f 48% ,#000000 95%);
+}
+.silhouette{
+	width: 100%;
+	min-width: 1200px;/*--暫定--*/
+	height: 100%;
+	position: absolute;
+	bottom: -1px;
+	overflow: hidden;
+	text-align: center;
+}
+.silhouette:after{
+	display: block;
+	content: '';
+}
+/*.silhouette img{
+	width: 100%;	
+}*/
+.silhouette #scene{
+	position: absolute;
+	/*width: 100%;*/
+	/*height: 100%;*/
+	bottom: 0;
+	overflow: hidden;
+}
+
+.silhouette .ed .entrance{
+	width: 100%;
+	transform: translateY(50%);
+	transition: transform 2s ease;
+
+}
+.silhouette .ed #e_canvas_cover{
+	width: 100%;
+	max-width: 1920px;
+	min-width: 1200px;
+	height: 100%;
+	position: absolute;
+	top:0;
+	left: 0;
+	z-index: -1;
+	transform: translateY(50%);
+	transition: transform 2s ease;
+}
+
+#e_light{
+	pointer-events: auto;
+}
+
+.silhouette .roller{
+	width: 100%;
+	bottom: 0;
+	filter: drop-shadow(2px 2px 0px rgba(0, 0, 0,0.5));
+	transform: translateY(60%);
+	transition: transform 2.5s ease;
+}
+.silhouette .rocket{
+	width: 100%;
+	filter: drop-shadow(0px 0px 3px rgba(0, 255, 255,0.15));
+	bottom: 0;
+	transform: translateY(60%);
+	transition: transform 3s ease;
+}
+.silhouette .machi{/*clouds*/
+	width: 110%;
+	transform: translateX(-5%);
+	opacity: 0;/*to 0.8*/
+	filter: drop-shadow(0px 0px 4px rgba(0, 0, 0,0.5));
+	transition: opacity 5s ease;
+
+}
+.silhouette .flyship{
+
+	filter: drop-shadow(0px 0px 2px rgba(0, 255, 255,0.5)) drop-shadow(0px 0px 1px rgba(0, 255, 255,0.5));
+	position: relative;
+}
+
+.silhouette #robo{/*--ㄐ器人--*/
+	width: 14%;
+	position: absolute;
+	bottom:-22%;
+	left:5%;
+	z-index: -1;
+	pointer-events: auto;
+  	cursor: pointer;
+  	transform: translateY(50%);
+  	transition: bottom 4.5s linear,transform 2s ease;
+}
+.silhouette #robo.robolight{
+	animation: robolight 1s linear 3;
+}
+@keyframes robolight{
+	0%{filter:contrast(0);}
+	20%{filter:contrast(50%);}
+	40%{filter:contrast(200%);}
+	60%{filter:contrast(0);}
+	80%{filter:contrast(60%);}
+	100%{filter:grayscale(0);}
+}
+.silhouette #robo img{
+	width: 100%;
+}
+/*--摩天輪上ㄉ字--*/
+.silhouette .ferris_cover #center .fw_motobox{
+	text-align: center;
+	width:180%;
+	position: absolute;
+	bottom: 0;
+  	left:-42%;
+  	pointer-events: auto;
+  	cursor: pointer;
+
+}
+.silhouette .ferris_cover #center .fw_motobox .fw_motoword{
+	font-size: 30px;
+	text-shadow: 0 0 1px #1a417a, 0 0 2px #1a417a, 0 0 2px #1a417a, 0 0 3px #1a417a;
+	color: #1a417a;
+	font-family: monospace;
+}
+
+.silhouette .ferris_cover #center #fw_wordbox{ /*----點擊後:摩天輪上ㄉ文字區塊---*/
+  	animation: huge-flicker 10s infinite;
+}
+.silhouette .ferris_cover #center .fw_motobox #fw_word{/*----點擊後:摩天輪上ㄉ文字---*/
+	color: #54fdfd;
+  	text-shadow: 0 0 2px #44ffff, 0 0 3px #3fafff, 0 0 10px #2dabab, 0 0 15px #84ccff;
+	animation: tiny-annoying-flicker .25s infinite;
+}
+
+@keyframes tiny-annoying-flicker {
+  0% {opacity: 1;}
+  50% {opacity: 0.9;}
+}
+@keyframes huge-flicker {
+  40% {opacity: 1;}
+  41% {opacity: 0.5;}
+  42% {opacity: 1;}
+  69% {opacity: 1;}
+  70% {opacity: 0.2;}
+  71% {opacity: 1;}
+  72% {opacity: 0.2;}
+  73% {opacity: 1;}
+}
+/*--摩天輪上ㄉ字 END--*/
+/*-----silhouette-END-----*/
+
+/*----遮底部用-*/
+.black_bar{ 
+	width: 100%;
+	height: 3%;
+	background: black;
+	position: absolute;
+	bottom: -2px;
+}
+/*----遮底部用-*/
+
+/*----LOADING-*/
+#loading{
+	position: fixed;
+	top:0;
+	left: 0;
+	width: 100vw;
+	height: 100vh;
+	background-color: black;
+	opacity: 1;
+	transition: .6s linear;
+	z-index: 99999;
+}
+#loading .loading{
+	border-radius: 100%;
+	border: 2px solid #3fafff;
+	width: 200px;
+	height: 200px;
+	position: absolute;
+	line-height: 200px;
+	text-align: center;
+	top:50%;
+	left: 50%;
+	transform: translate(-50%,-50%);
+}
+#loading .loading:after {
+  content: '';
+  background: trasparent;
+  width: 140%;
+  height: 140%;
+  position: absolute;
+  border-radius: 100%;
+  top: -20%;
+  left: -20%;
+  opacity: 0.7;
+  box-shadow: rgba(255, 255, 255, 0.6) -4px -5px 3px -3px;
+  animation: rotateA 2s infinite linear;
+}
+@keyframes rotateA {
+  0% {
+    transform: rotateZ(0deg);
+  }
+  100% {
+    transform: rotateZ(360deg);
+  }
+}
+/*----LOADING-*/
