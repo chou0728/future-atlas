@@ -134,7 +134,7 @@
     .map_wrapper .map .hidden {
       opacity: 0; }
   .map_wrapper .info {
-    width: 99.5%;
+    width:90%;
     height: 50vh;
     position: absolute;
     top: 150%;
@@ -151,7 +151,7 @@
       height: 50px;
       cursor: pointer;
       position: absolute;
-      left:0px; 
+      right:0px; 
     background: transparent;
   border:none;
   z-index:200;}

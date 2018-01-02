@@ -44,7 +44,12 @@
 	padding: 1%;
 	text-align: center;
 	font-family: "微軟正黑體";
+<<<<<<< HEAD:TOP_PAGE_2.5/css/header.css
 	color: white;
+=======
+	text-decoration: none;
+	color: #fff;
+>>>>>>> cce11504dd6b3f50621937e1d14178c2eca708bb:css/header.css
 }
 .header{
 	width: 100%;
@@ -70,7 +75,12 @@
 .header .ul_top li a{
 	display: block;
 	padding: 0.5%;
+<<<<<<< HEAD:TOP_PAGE_2.5/css/header.css
 	color: white;
+=======
+	text-decoration: none;
+	color: #fff;
+>>>>>>> cce11504dd6b3f50621937e1d14178c2eca708bb:css/header.css
 }
 
 /*-----header end-----*/
