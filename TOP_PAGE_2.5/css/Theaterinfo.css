@@ -1,0 +1,469 @@
+@charset "UTF-8";
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+/*是從_resit.scss*/
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline; }
+
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+  display: block; }
+
+body {
+  line-height: 1; }
+
+ol, ul {
+  list-style: none;
+  margin: 0;
+  padding: 0; }
+
+blockquote, q {
+  quotes: none; }
+
+blockquote:before, blockquote:after,
+q:before, q:after {
+  content: '';
+  content: none; }
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0; }
+
+/*-----header-----*/
+.nav {
+  width: 100%;
+  position: fixed;
+  height: 13%;
+  text-align: center;
+  padding: 0.6%;
+  margin-top: 25px;
+  top: 0;
+  z-index: 1000; }
+
+.logo {
+  display: inline-block;
+  width: 15%;
+  min-width: 200px;
+  margin: 0;
+  vertical-align: middle; }
+
+.ul_left,
+.ul_right,
+.ul_left li,
+.ul_right li {
+  display: inline-block;
+  vertical-align: middle;
+  margin: 0 20px 0 20px;
+  font-family: "微軟正黑體"; }
+
+.header {
+  width: 100%;
+  position: fixed;
+  top: 0;
+  height: 5%;
+  text-align: right;
+  padding: 0.2%;
+  z-index: 999; }
+
+.header .ul_top {
+  margin: 15px; }
+
+.header .ul_top li {
+  display: inline-block;
+  margin: 0 8px 0 8px;
+  font-family: "微軟正黑體"; }
+
+.header .ul_top li a {
+  text-decoration: none;
+  color: white; }
+
+.nav .ul_left li a {
+  text-decoration: none;
+  color: white; }
+
+.nav .ul_right li a {
+  text-decoration: none;
+  color: white; }
+
+/*-----header end-----*/
+* {
+  margin: 0px;
+  padding: 0px;
+  /*outline: 1px solid red;*/ }
+
+body {
+  font-family: "微軟正黑體", Arial ,sans-serif;
+  background-image: url("../img/Galaxy_1.jpg");
+  background-size: cover; }
+
+.container {
+  width: 70%;
+  margin: 0 auto; }
+
+@media screen and (max-width: 767px) {
+  .container {
+    width: 100%;
+    /*max-width: 700px;*/ }
+  .container .Menu {
+    position: relative;
+    top: 160px;
+    left: 73px; } }
+
+.Menu {
+  width: 50%;
+  position: relative;
+  top: 160px;
+  left: 25%; }
+
+.progressinfoMenu {
+  margin-top: 10px;
+  background-color: #ffc116;
+  width: 200px;
+  height: 40px;
+  background: linear-gradient(-45deg, transparent 40px, #ffc116 0%) bottom right, linear-gradient(130deg, transparent 0px, #ffc116 0%) bottom left, linear-gradient(-135deg, transparent 40px, #ffc116 0%) top right, linear-gradient(135deg, transparent 0px, #ffc116 0%) top left;
+  /*-45度，反方向堆回來，那塊顏色就消失*/
+  background-size: 50% 50%;
+  /*顏色各占一 半*/
+  background-repeat: no-repeat;
+  transform: translate(0);
+  transition: all 1s ease; }
+
+.progressinfoMenu a {
+  position: absolute;
+  top: 5px;
+  left: 20px;
+  color: white;
+  padding: 7px 0px;
+  text-decoration: none;
+  transform: translate(0);
+  transition: all 1s ease; }
+
+.buyticketMenu {
+  margin-top: 10px;
+  background-color: #ffc116;
+  width: 200px;
+  height: 40px;
+  background: linear-gradient(-45deg, transparent 40px, #ffc116 0%) bottom right, linear-gradient(130deg, transparent 0px, #ffc116 0%) bottom left, linear-gradient(-135deg, transparent 40px, #ffc116 0%) top right, linear-gradient(135deg, transparent 0px, #ffc116 0%) top left;
+  /*-45度，反方向堆回來，那塊顏色就消失*/
+  background-size: 50% 50%;
+  /*顏色各占一 半*/
+  background-repeat: no-repeat;
+  transform: translate(0);
+  transition: all 1s ease; }
+
+.buyticketMenu a {
+  position: relative;
+  top: 11px;
+  left: 20px;
+  color: white;
+  padding: 8px 0px;
+  text-decoration: none;
+  transform: translate(0);
+  transition: all 1s ease; }
+
+.sq-one.move {
+  transform: translate(0px, 50px); }
+
+.sq-two.move {
+  transform: translate(0px, -50px); }
+
+/*topright*/
+.topright {
+  width: 50%;
+  position: relative;
+  top: 60px;
+  left: 40%; }
+
+.topright .Recycle_arrows {
+  position: absolute;
+  top: 10px;
+  left: 30px;
+  cursor: pointer; }
+
+@media screen and (max-width: 767px) {
+  .topright .Recycle_arrows {
+    display: none; } }
+
+.topright .Menutitle {
+  position: absolute;
+  top: 10px;
+  left: 100px;
+  color: white;
+  font-size: 32px; }
+
+@media screen and (max-width: 767px) {
+  .topright .Menutitle {
+    width: 119px;
+    margin-top: 28px;
+    margin-left: 20px;
+    font-size: 24px; } }
+
+/*畫線*/
+.toprightcanvas {
+  position: absolute;
+  top: 10px;
+  left: 230px; }
+
+@media screen and (max-width: 767px) {
+  .toprightcanvas {
+    display: none; } }
+
+/*.topright hr{
+      position: absolute;
+      top:20px;
+      left:300px;
+    }
+    .topright .hrRotate{
+      position: absolute;
+      top:56px;
+      left:387px;
+      transform: rotate(45deg);
+    }
+    .topright .hrRotate2{
+      position: absolute;
+      top:143px;
+      left:424px;
+      transform: rotate(90deg);
+    }*/
+/*星球 */
+.topright .planet {
+  position: absolute;
+  top: 200px;
+  left: 230px; }
+
+@media screen and (max-width: 767px) {
+  .topright .planet {
+    display: none; } }
+
+/*太空人*/
+.topright .spaceman {
+  position: absolute;
+  top: 250px;
+  left: 240px;
+  /*transform: rotate(35deg);*/
+  animation: jump 3s linear  infinite normal; }
+
+@media screen and (max-width: 767px) {
+  .topright .spaceman {
+    display: none; } }
+
+@keyframes jump {
+  0% {
+    transform: translateY(0) rotate(0deg); }
+  20% {
+    transform: translateY(-5px) rotate(2deg); }
+  40% {
+    transform: translateY(-10px) rotate(2deg); }
+  50% {
+    transform: translateY(-15px) rotate(0deg); }
+  60% {
+    transform: translateY(-10px) rotate(-2deg); }
+  80% {
+    transform: translateY(-5px) rotate(-2deg); }
+  100% {
+    transform: translateY(0) rotate(0deg); } }
+
+/*節目1*/
+.programone {
+  width: 500px;
+  position: relative;
+  top: 300px;
+  left: 13%; }
+
+@media screen and (max-width: 767px) {
+  .programone {
+    width: 84%;
+    left: 70px; } }
+
+.programone .programonetitle {
+  width: 300px;
+  color: white;
+  font-size: 32px; }
+
+.programone .programoneline {
+  position: absolute;
+  top: 6%;
+  left: 1%;
+  width: 7px;
+  height: 10%;
+  /*border: 1px #7bd3f8 solid;*/
+  /*border-radius: 10px;*/
+  background-color: #35ffba; }
+
+.programonecontent {
+  font-size: 16px;
+  padding: 20px;
+  line-height: 20px;
+  letter-spacing: 1.2px;
+  width: 300px;
+  color: white; }
+
+.programone .programoneline2 {
+  position: absolute;
+  top: 20%;
+  left: 5%;
+  width: 3px;
+  height: 46%;
+  /*border: 1px #7bd3f8 solid;*/
+  /*border-radius: 10px;*/
+  background-color: #35ffba; }
+
+.programone .spaceship {
+  position: relative;
+  top: 220px;
+  left: -200%;
+  width: 500px;
+  height: 500px; }
+
+@media screen and (max-width: 767px) {
+  .programone .spaceship {
+    top: 80px;
+    width: 300px;
+    height: 300px; } }
+
+.programtwoimg2 {
+  position: absolute;
+  top: 130%;
+  left: 60%; }
+
+@media screen and (max-width: 767px) {
+  .programtwoimg2 {
+    display: none; } }
+
+.programtwoimg3 {
+  position: absolute;
+  top: 160%;
+  left: 20%; }
+
+@media screen and (max-width: 767px) {
+  .programtwoimg3 {
+    display: none; } }
+
+/*節目2*/
+.programtwo {
+  width: 30%;
+  position: relative;
+  top: 200px;
+  left: 60%; }
+
+@media screen and (max-width: 767px) {
+  .programtwo {
+    width: 30%;
+    top: 450px;
+    left: 40%; } }
+
+.programtwo .programtwotitle {
+  color: white;
+  font-size: 32px; }
+
+@media screen and (max-width: 767px) {
+  .programtwo .programtwotitle {
+    width: 200px; } }
+
+.programtwo .programtwocontent {
+  font-size: 16px;
+  padding: 20px;
+  line-height: 20px;
+  letter-spacing: 1.2px;
+  width: 300px;
+  color: white; }
+
+@media screen and (max-width: 767px) {
+  .programtwo .programtwocontent {
+    width: 200px;
+    color: white; } }
+
+.programtwo .programtwospan {
+  position: absolute;
+  top: 85%;
+  left: 65%;
+  width: 7px;
+  height: 10%;
+  background-color: #35ffba; }
+
+.programtwo .programtwospan2 {
+  position: absolute;
+  top: 90%;
+  left: 58%;
+  width: 3px;
+  height: 350%;
+  /*border: 1px #7bd3f8 solid;
+      border-radius: 10px;*/
+  background-color: #35ffba; }
+
+@media screen and (max-width: 767px) {
+  .programtwo .programtwospan {
+    top: 88%;
+    height: 1%; }
+  .programtwo .programtwospan2 {
+    height: 200%; } }
+
+.programtwo .programtwoHr {
+  position: absolute;
+  top: 433%;
+  right: 41%;
+  width: 120%;
+  height: 3%;
+  background-color: #35ffba; }
+
+.programtwo .programtwoHr2 {
+  position: absolute;
+  top: 440%;
+  right: 33%;
+  width: 140%;
+  height: 3%;
+  background-color: #35ffba; }
+
+.programtwo .programtwoimg {
+  position: absolute;
+  top: 348%;
+  left: 18%; }
+
+@media screen and (max-width: 767px) {
+  .programtwo .programtwoHr {
+    display: none; }
+  .programtwo .programtwoHr2 {
+    display: none; }
+  .programtwo .programtwoimg {
+    top: 250%;
+    left: -62%;
+    margin-bottom: 15%; } }
+
+/*立即購買按鈕*/
+.buyticketBtn {
+  position: absolute;
+  left: 40%;
+  width: 70px;
+  background-color: #FFC116;
+  padding: 10px 10px;
+  margin: 0 auto;
+  margin-top: 700px; }
+
+.buyticketBtn a {
+  text-decoration: none;
+  color: white; }
+
+@media screen and (max-width: 767px) {
+  .buyticketBtn {
+    top: 130%;
+    left: 13%; } }
