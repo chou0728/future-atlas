@@ -8,10 +8,11 @@
   position: relative;
   overflow: hidden; }
   .map_wrapper .map {
-    width: 100%;
+    width: 90%;
     padding: 25%;
     position: relative;
-    transform: scale(1);
+    left:50%;
+    transform: scale(1) translateX(-50%);
     -webkit-transition: transform 0.6s; }
     .map_wrapper .map .map_border {
       width: 100%;
