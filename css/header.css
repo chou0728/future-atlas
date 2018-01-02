@@ -39,6 +39,8 @@
 	padding: 1%;
 	text-align: center;
 	font-family: "微軟正黑體";
+	text-decoration: none;
+	color: #fff;
 }
 .header{
 	width: 100%;
@@ -64,6 +66,8 @@
 .header .ul_top li a{
 	display: block;
 	padding: 0.5%;
+	text-decoration: none;
+	color: #fff;
 }
 
 /*-----header end-----*/
