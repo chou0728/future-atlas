@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<link rel="stylesheet" type="text/css" href="css/cart.css">
+<title>檢視購物車</title>
+<script type="text/javascript">
+var storage = localStorage;
+var expire_date = "2018/12/31";
+
+window.onload = function(){
+	for( i = 1 ; i < 7 ; i++){
+		var fn = i;
+		if( storage.getItem(i) != null ){
+			var info = storage.getItem(i).split("/");
+			var full_fare_num = info[1];
+			if( full_fare_num > 0 ){
+				var full_fare = info[0];
+				var full_fare_subtotal = full_fare * full_fare_num;			
+				$("table").append("<tr id='full_"+fn+"'><td class='fn_id'>"+fn+"</td><td class='icon_td'>設施icon</td><td>設施名稱</td><td class='full_td'>全票</td><td>"+expire_date+"</td><td id='full_fare_id_"+fn+"'>"+full_fare+"</td><td><input type='number' value="+full_fare_num+" id='full_fare_num_id_"+fn+"'></td><td class='sub_total' id='full_fare_subtotal_id_"+fn+"'>"+full_fare_subtotal+"</td><td class='delete_btn_td'><button class='delete_btn' id='full_fare_delete_btn_id_"+fn+"'>X</button></td></tr>");
+
+				document.getElementById("full_fare_num_id_"+fn).onchange = changeNum;
+				document.getElementById("full_fare_delete_btn_id_"+fn).onclick = deleteRow;
+			}
+			var half_fare_num = info[3];
+			if( half_fare_num > 0){
+				var half_fare = info[2];
+				var half_fare_subtotal = half_fare * half_fare_num;
+				$("table").append("<tr id='falf_"+fn+"'><td class='fn_id'>"+fn+"</td><td class='icon_td'>設施icon</td><td>設施名稱</td><td class='half_td'>半票</td><td>"+expire_date+"</td><td id='half_fare_id_"+fn+"'>"+half_fare+"</td><td><input type='number' value="+half_fare_num+" id='half_fare_num_id_"+fn+"'></td><td class='sub_total' id='half_fare_subtotal_id_"+fn+"'>"+half_fare_subtotal+"</td><td class='delete_btn_td'><button class='delete_btn' id='half_fare_delete_btn_id_"+fn+"'>X</button></td></tr>");
+
+				document.getElementById("half_fare_num_id_"+fn).onchange = changeNum;
+				document.getElementById("half_fare_delete_btn_id_"+fn).onclick = deleteRow;
+			}
+		}
+	}
+	var length = document.getElementsByClassName("sub_total").length;
+	var total = 0;
+	for( i = 0 ; i < length ; i++){
+		var sub_total = parseInt(document.getElementsByClassName("sub_total")[i].innerHTML);
+		total += sub_total;
+	}
+		$("table").append("<tr id='cart_total_row'><td colspan='7' id='cart_total_prev'>"+"總計："+"</td><td name='cart_total' id='cart_total' colspan='2'>"+total+"</td></tr>");	
+		document.getElementById("cart_total").innerHTML = total;
+
+function changeNum(){
+		// 單價
+		var aa = this.id.replace('_num','');
+		var fare = parseInt(document.getElementById(aa).innerHTML);
+		// 新數量
+		var num = this.value;
+		// 新subtotal
+		document.getElementById(this.id.replace('num','subtotal')).innerHTML = fare*num;
+		// 新total
+		var length = document.getElementsByClassName("sub_total").length;
+		var newTotal = 0;
+		for( i = 0 ; i < length ; i++){
+			var sub_total = parseInt(document.getElementsByClassName("sub_total")[i].innerHTML);
+		newTotal += sub_total;
+		document.getElementById("cart_total").innerHTML = newTotal;
+		}
+
+		// 更改localStorage內容
+		if( this.id.search("full") == 0){// 修改為全票
+			var cc = storage.getItem(this.id.substr(this.id.length-1,1)).split("/");
+			cc[1] = this.value;
+			storage.setItem(this.id.substr(this.id.length-1,1),cc.join("/"));
+		}else{// 修改為半票
+			var cc = storage.getItem(this.id.substr(this.id.length-1,1)).split("/");
+			cc[3] = this.value;
+			storage.setItem(this.id.substr(this.id.length-1,1),cc.join("/"));
+		}
+}
+
+function deleteRow(){
+	console.log("123");
+	remove(this.parent());
+}
+};
+</script>
+<body>
+<h1>您的購物車</h1>
+<form>
+	<table border="1" cellspacing="0">
+		<tr id="cart_header">
+			<th>設施編號</th>
+			<th>圖示</th>
+			<th>設施名稱</th>
+			<th>票種</th>
+			<th>使用期限</th>
+			<th>票價</th>
+			<th style='text-align: right'>張數</th>
+			<th colspan="2" style='text-align: center'>小計</th>
+		</tr>
+	</table>
+<div id="button">
+	<button id="backToShop"><a href="buy.html">繼續購物</a></button>
+	<button id="NextStep"><a href="input_cart_detail.html">下一步</a></button>
+</div>
+</form>
+</body>
+</html>
