@@ -8,11 +8,10 @@
   position: relative;
   overflow: hidden; }
   .map_wrapper .map {
-    width: 90%;
+    width: 100%;
     padding: 25%;
     position: relative;
-    left:50%;
-    transform: scale(1) translateX(-50%);
+    transform: scale(0.9);
     -webkit-transition: transform 0.6s; }
     .map_wrapper .map .map_border {
       width: 100%;
@@ -138,7 +137,7 @@
     width: 99.5%;
     height: 50vh;
     position: absolute;
-    top: 100%;
+    top: 150%;
     left:50%;
     transform: translateX(-50%);
     background: transparent;

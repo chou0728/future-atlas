@@ -42,7 +42,7 @@
   				}, 350);
 			  };
 			  function mapBig() {
-				$('.map').css('transform', 'scale(' + 1 + ')');
+				$('.map').css('transform', 'scale(' + 0.9 + ')');
 				$('.map').animate({
 					top: '0%'
 				}, 350);
