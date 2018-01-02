@@ -150,7 +150,7 @@
       height: 50px;
       cursor: pointer;
       position: absolute;
-      right: 0; 
+      right:50px; 
     background: transparent;
   border:none;}
     .map_wrapper .info .close::before{
