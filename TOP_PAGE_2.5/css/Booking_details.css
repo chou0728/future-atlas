@@ -1,0 +1,228 @@
+@charset "UTF-8";
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+/*是從_resit.scss*/
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline; }
+
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+  display: block; }
+
+body {
+  line-height: 1; }
+
+ol, ul {
+  list-style: none;
+  margin: 0;
+  padding: 0; }
+
+blockquote, q {
+  quotes: none; }
+
+blockquote:before, blockquote:after,
+q:before, q:after {
+  content: '';
+  content: none; }
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0; }
+
+/*-----header-----*/
+.nav {
+  width: 100%;
+  position: fixed;
+  height: 13%;
+  text-align: center;
+  padding: 0.6%;
+  margin-top: 25px;
+  top: 0;
+  z-index: 1000; }
+
+.logo {
+  display: inline-block;
+  width: 15%;
+  min-width: 200px;
+  margin: 0;
+  vertical-align: middle; }
+
+.ul_left,
+.ul_right,
+.ul_left li,
+.ul_right li {
+  display: inline-block;
+  vertical-align: middle;
+  margin: 0 20px 0 20px;
+  font-family: "微軟正黑體"; }
+
+.header {
+  width: 100%;
+  position: fixed;
+  top: 0;
+  height: 5%;
+  text-align: right;
+  padding: 0.2%;
+  z-index: 999; }
+
+.header .ul_top {
+  margin: 15px; }
+
+.header .ul_top li {
+  display: inline-block;
+  margin: 0 8px 0 8px;
+  font-family: "微軟正黑體"; }
+
+.header .ul_top li a {
+  text-decoration: none;
+  color: white; }
+
+.nav .ul_left li a {
+  text-decoration: none;
+  color: white; }
+
+.nav .ul_right li a {
+  text-decoration: none;
+  color: white; }
+
+/*-----header end-----*/
+* {
+  margin: 0px;
+  padding: 0px;
+  /*outline: 1px solid red;*/ }
+
+body {
+  font-family: "微軟正黑體", Arial ,sans-serif;
+  background-color: black;
+  /* background-image: url("../img/Galaxy_1.jpg");
+background-size: cover;
+  */
+}
+
+.Bookingh1 {
+  font-size: 48px;
+  text-align: center;
+  margin: 150px 10px;
+  margin-bottom: 31px;
+  color: white; }
+
+@media screen and (max-width: 767px) {
+  .Bookingh1 {
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto; } }
+
+.Bookingh2 {
+  font-size: 32px;
+  margin: 20px 10px;
+  margin-top: 50px;
+  margin-left: 23%;
+  color: white; }
+
+@media screen and (max-width: 767px) {
+  .Bookingh2 {
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto; } }
+
+.memberinfo {
+  text-align: left;
+  margin-left: 23%;
+  font-size: 20px;
+  letter-spacing: 3px;
+  color: white;
+  width: 54%;
+  border: 3px solid #35ffea; }
+
+@media screen and (max-width: 767px) {
+  .memberinfo {
+    width: 85%;
+    margin-left: auto;
+    margin-right: auto; } }
+
+.memberinfo p {
+  margin: 10px 10px;
+  padding: 10px 10px; }
+
+.orderlistsection table {
+  margin: 0 auto;
+  margin-top: 30px;
+  font-size: 20px;
+  letter-spacing: 3px;
+  color: white;
+  border: 3px solid #35ffea;
+  width: 54%; }
+
+@media screen and (max-width: 767px) {
+  .orderlistsection table {
+    width: 85%; } }
+
+th {
+  text-align: center;
+  padding: 20px 10px; }
+
+td {
+  text-align: left;
+  padding: 10px 10px; }
+
+.integral {
+  display: inline-block; }
+
+.creditCardinfo {
+  text-align: left;
+  margin-left: 23%;
+  font-size: 20px;
+  letter-spacing: 3px;
+  color: white;
+  width: 54%;
+  border: 3px solid #35ffea; }
+
+@media screen and (max-width: 767px) {
+  .creditCardinfo {
+    width: 85%;
+    margin-left: auto;
+    margin-right: auto; } }
+
+.creditCardinfo p {
+  margin: 5px 5px;
+  padding: 5px 10px; }
+
+.creditCardinfo input {
+  margin: 10px 10px;
+  padding: 3px 3px; }
+
+.Bookingh3 {
+  font-size: 20px; }
+
+input {
+  font-size: 10px; }
+
+.yesmodifyBtn {
+  text-align: center;
+  margin: 40px 30px; }
+
+.yesmodifyBtn a {
+  text-decoration: none;
+  color: white;
+  border: 1px #35ffba solid;
+  padding: 10px 20px; }
