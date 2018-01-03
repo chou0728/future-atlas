@@ -1,0 +1,32 @@
+@charset "UTF-8";
+body {
+  font-family: "微軟正黑體", Arial ,sans-serif; }
+
+h2 {
+  color: #42d9ff;
+  text-align: center; }
+
+form {
+  margin: 150px auto;
+  width: 500px; }
+
+table {
+  /* border:1px solid black;*/
+  width: 300px;
+  height: auto;
+  margin: 15px auto;
+  /*margin-top:0px;*/
+  border-collapse: collapse; }
+
+td {
+  text-align: left;
+  /*border:1px solid black; */ }
+
+a {
+  color: white;
+  background-color: #FFC116;
+  padding: 5px 10px;
+  margin: 15px;
+  /*border: 1px solid red;
+		border-radius: 30px;*/
+  text-decoration: none; }

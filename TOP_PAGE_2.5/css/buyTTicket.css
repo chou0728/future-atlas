@@ -112,15 +112,18 @@ table {
   /*outline: 1px solid red;*/ }
 
 body {
-  /*outline: 1px solid red;*/
-  background-image: url("../img/Galaxy_1.jpg");
-  background-size: cover; }
+  background-color: black;
+  /* background-image: url("../img/Galaxy_1.jpg");
+background-size: cover;
+  */
+  }
 
 /*購買票劵*/
 .buyticketarea {
   width: 100%;
   font-size: 20px;
-  margin: 150px auto; }
+  margin: 150px auto;
+  margin-bottom:50px;  }
 
 .buyticketarea h2 {
   color: white;
@@ -160,7 +163,7 @@ body {
 
 .buyticketarea a {
   color: white;
-  background-color: #FFC116;
+  border: 1px #35ffba solid;
   padding: 5px 10px;
   text-decoration: none;
   text-align: center; }
@@ -172,3 +175,17 @@ body {
   content: '';
   display: block;
   clear: both; }
+
+.Previouspage {
+  text-align: center;
+  font-size: 23px;
+  margin-bottom: 50px;
+}
+
+.Previouspage a {
+  color: white;
+  border: 1px #35ffba solid;
+  padding: 5px 10px;
+  text-decoration: none;
+  /*text-align: center;*/
+}

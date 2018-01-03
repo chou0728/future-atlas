@@ -1,0 +1,56 @@
+/*-----header-----*/
+.nav{
+	width: 100%;
+	position: fixed;
+	height: 13%;
+	text-align: center;
+	padding: 0.6%;
+	margin-top: 25px;
+	top:0;
+	z-index: 1000;
+}
+.logo{
+	display: inline-block;
+	width:15%;
+	min-width: 200px;
+	margin: 0;
+	vertical-align: middle;
+}
+.ul_left,.ul_right,.ul_left li,.ul_right li{
+	display: inline-block;
+	vertical-align: middle;
+	margin: 0 20px 0 20px;
+	font-family: "微軟正黑體";
+
+}
+.header{
+	width: 100%;
+	position: fixed;
+	top:0;
+	height: 5%;
+	text-align: right;
+	padding: 0.2%;
+	z-index: 999;
+}
+.header .ul_top{
+	margin: 15px;
+}
+.header .ul_top li{
+	display: inline-block;
+	margin: 0 8px 0 8px;
+	font-family: "微軟正黑體";
+
+}
+.header .ul_top li a{
+	text-decoration: none;
+	color: white;
+}
+.nav .ul_left li a{
+	text-decoration: none;
+	color: white;
+}
+.nav .ul_right li a{
+	text-decoration: none;
+	color: white;
+}
+/*-----header end-----*/

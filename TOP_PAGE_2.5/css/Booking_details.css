@@ -113,8 +113,11 @@ table {
 
 body {
   font-family: "微軟正黑體", Arial ,sans-serif;
-  background-image: url("../img/Galaxy_1.jpg");
-  background-size: cover; }
+  background-color: black;
+  /* background-image: url("../img/Galaxy_1.jpg");
+background-size: cover;
+  */
+}
 
 .Bookingh1 {
   font-size: 48px;
@@ -221,5 +224,5 @@ input {
 .yesmodifyBtn a {
   text-decoration: none;
   color: white;
-  background-color: #FFC116;
+  border: 1px #35ffba solid;
   padding: 10px 20px; }

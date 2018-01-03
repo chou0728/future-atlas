@@ -113,8 +113,11 @@ table {
 
 body {
   font-family: "微軟正黑體", Arial, sans-serif;
-  background-image: url("../img/Galaxy_1.jpg");
-  background-size: cover; }
+  background-color: black;
+  /* background-image: url("../img/Galaxy_1.jpg");
+background-size: cover;
+  */
+}
 
 .Bookingh1 {
   font-size: 48px;

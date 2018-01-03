@@ -113,8 +113,11 @@ table {
 
 body {
   font-family: "微軟正黑體", Arial ,sans-serif;
-  background-image: url("../img/Galaxy_1.jpg");
-  background-size: cover; }
+  background-color: black;
+  /* background-image: url("../img/Galaxy_1.jpg");
+background-size: cover;
+  */
+  }
 
 .container {
   width: 70%;
@@ -204,15 +207,15 @@ body {
   .topright .Recycle_arrows {
     display: none; } }
 
-.topright .Menutitle {
+.topright .Menutitle h2{
   position: absolute;
   top: 10px;
   left: 100px;
   color: white;
-  font-size: 32px; }
+  font-size: 23px; }
 
 @media screen and (max-width: 767px) {
-  .topright .Menutitle {
+  .topright .Menutitle h2{
     width: 119px;
     margin-top: 28px;
     margin-left: 20px;
@@ -295,7 +298,8 @@ body {
 .spcial .buyticket {
   float: right;
   color: white;
-  background-color: #FFC116;
+  font-size: 23px;
+  border: 1px #35ffba solid;
   padding: 5px 10px;
   margin: 10px 10px;
   text-decoration: none; }
