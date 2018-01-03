@@ -57,9 +57,6 @@ body{
 
 }
 
-#activityDate{
-    /*margin: 0;*/
-}
 
 #activityDay{
   font-size: 32px; 
@@ -107,36 +104,6 @@ hr {
   font-size: 16px;
   display: inline-block;
   font-family: Inconsolata, 微軟正黑體; }
-
-#unitWrapper {
-  width: 70%;
-  margin: 0 auto;
-  font-family: Inconsolata; }
-  #unitWrapper .activityUnit {
-    width: 23%;
-    height: 350px;
-    /*padding: 10px;*/
-    display: inline-block;
-    /*border: 1px solid #31F5D7FF;*/
-    transition: 0.3s;
-    font-family: Inconsolata;
-    margin: 1%;
-    /*box-shadow: 1px -1px 20px #31F5D7FF;*/; }
-
-.unitTitle{
-  font-size: 22px;
-  margin: 5px 5px 5px 0;
-}.unitIntro{
-  font-size: 16px;
-  font-family: Inconsolata;
-}.unitImage img{
-  width: 100%;
-  margin: 0; 
-  vertical-align: top;
-  transition-delay:0.3s 5s;
-}
-
-
 
 .blocks{
   width: 12px;

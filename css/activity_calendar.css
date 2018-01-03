@@ -27,19 +27,13 @@ h2{
 	margin-left: 15%;
 	margin-bottom: 50px;
 	background-color: #222;
-	border: 25px solid transparent;
-    border-image:url(../img/activity/cal_border_img.png) 20% stretch;
 }
+
 #calRight{
 	width: 20%;
-	height: 120%;
 	display: inline-block;
 	vertical-align: top;
 	padding: 10px 15px 30px 5px;
-	/*background-image: url(../img/tooopen_sy_212449993987.jpg);*/
-	/*background-size: cover;*/
-	background-color: #7d7d7d;
-	filter: brightness(0.99);
 }
 
 #selectActivityClass{
@@ -82,7 +76,7 @@ h2{
 	min-width: 400px;
 	user-select: none;
 	background-image: url(../img/activity/cal_bgi.png);
-	background-size: contain;
+	background-size: 115% 142%;
 	background-position: 0 -150px;
 }
 
@@ -94,10 +88,12 @@ h2{
 }
 
 #calRight ul{
-	width: 200px;
+	width: 100%;
 	list-style: none;
 	text-align: center;
 	display: inline-block;
+}#calRight ul li, #calRight ul li i{
+	display: block;
 }
 
 #calRight #showToday{
