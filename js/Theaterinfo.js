@@ -101,7 +101,7 @@ $(document).ready(function(){
     //延遲一秒後才會跳到Theaterbuyticket.html
 		setTimeout(function(){
 			window.location.href = 'Theaterbuyticket.html';
-		},1000); 
+		},500); 
 	}); 
 });
 

@@ -113,8 +113,11 @@ table {
 
 body {
   font-family: "微軟正黑體", Arial ,sans-serif;
-  background-image: url("../img/Galaxy_1.jpg");
-  background-size: cover; }
+  background-color: black;
+  /* background-image: url("../img/Galaxy_1.jpg");
+    background-size: cover;
+  */
+}
 
 .container {
   width: 70%;
@@ -161,6 +164,7 @@ body {
 .buyticketMenu {
   margin-top: 10px;
   background-color: #ffc116;
+  opacity: 0.6;
   width: 200px;
   height: 40px;
   background: linear-gradient(-45deg, transparent 40px, #ffc116 0%) bottom right, linear-gradient(130deg, transparent 0px, #ffc116 0%) bottom left, linear-gradient(-135deg, transparent 40px, #ffc116 0%) top right, linear-gradient(135deg, transparent 0px, #ffc116 0%) top left;
