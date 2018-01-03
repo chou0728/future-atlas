@@ -1,0 +1,293 @@
+@font-face{
+	font-family: Transformers Movie;
+	src: url("Transformers Movie.ttf");
+}
+
+h6{
+	font-size: 16px;
+}
+body{
+	/*background-color: #333;*/
+	background-image: url(../img/activity/bgi.jpg);
+	background-repeat: no-repeat;
+	background-size: contain;
+}
+h2{
+	text-align: center;
+	font-size: 32px;
+	font-family: "微軟正黑體";
+	margin: 0;
+	font-weight: normal;
+	/*background-color: orange;*/
+}
+
+#calWrapper{
+	width: 70%;
+	padding: 0;	
+	margin-left: 15%;
+	margin-bottom: 50px;
+	background-color: #222;
+	border: 25px solid transparent;
+    border-image:url(../img/activity/cal_border_img.png) 20% stretch;
+}
+#calRight{
+	width: 20%;
+	height: 120%;
+	display: inline-block;
+	vertical-align: top;
+	padding: 10px 15px 30px 5px;
+	/*background-image: url(../img/tooopen_sy_212449993987.jpg);*/
+	/*background-size: cover;*/
+	background-color: #7d7d7d;
+	filter: brightness(0.99);
+}
+
+#selectActivityClass{
+	list-style: none;
+	display: inline;
+}
+
+#selectActivityClass li{
+	width: 10%;
+	margin: 10px 0 40px 20px;
+	display: inline-block;
+}#selectActivityClass li:first-child{
+	margin-left: 40px;
+}
+#selectActivityClass img{
+	width: 40px;
+	color: red;
+	border: 5px solid transparent;
+	border-image: linear-gradient(to bottom right, #3acfd5 0%, #3a4ed5 100%);
+	border-image-slice: 1;
+	padding: 5px;
+	vertical-align: middle;
+
+}#selectActivityClass img + span{
+	font-size: 16px;
+	font-family: 微軟正黑體;
+	margin-left: 5px;
+	vertical-align: middle;
+	color: #0C567F;
+}
+
+
+#cal{
+	width: 80%;
+	height: 100%;
+	display: inline-block;
+	vertical-align: top;
+	text-align: center;
+	position: relative;
+	min-width: 400px;
+	user-select: none;
+	background-image: url(../img/activity/cal_bgi.png);
+	background-size: contain;
+	background-position: 0 -150px;
+}
+
+#icons{
+	background-image: url(../img/activity/cal_shift_mode.png);
+	background-size: 120% 140%;
+	background-position: -20px -10px;
+	text-align: left;
+}
+
+#calRight ul{
+	width: 200px;
+	list-style: none;
+	text-align: center;
+	display: inline-block;
+}
+
+#calRight #showToday{
+	font-size: 28px;
+	color: white;
+	margin: 10px;
+}
+
+#calRight #showMonth{
+	font-size: 20px;
+	margin: 0;
+	font-family: Inconsolata;
+	letter-spacing: 2px;
+	text-align: center;
+	vertical-align: middle;
+	animation: fa 1s ease;
+	animation-iteration-count: infinite;
+}
+
+
+#calRight .fa{
+	display: inline-block;
+	text-align: center;
+	font-size: 30px;
+	margin: 10px;
+	transform: scale(2);
+	cursor: pointer;
+	vertical-align: middle;
+	animation-iteration-count: infinite;
+}
+
+.fa-caret-left{
+	visibility: hidden;
+}
+
+.fa-caret-right{
+	color: white;		
+}
+
+
+#cal #backToToday{
+	cursor: pointer;
+	font-size: 22px;
+	margin-left: 20px;
+	font-family: "微軟正黑體";
+	vertical-align: middle;
+	position: absolute;
+	top: 75px;
+	right: 10px;
+}
+
+#cal table{
+	width: 100%;
+	height: 50vh;
+	text-align: center;
+	margin: 10px auto;
+	user-select: none;
+}
+
+#cal #dayRow td{
+	font-size: 20px;
+	font-family: Transformers Movie;
+	letter-spacing: 2px;
+	height: 35px;
+	width: 14.28571428571429%;
+	color: lightblue;
+	font-weight: 900;
+	border: none;
+	padding-top: 30px;
+}
+
+#cal td{
+	border-left: none;
+	transition: 0.5s;
+}
+
+#cal .daysHere{
+	width: 0.5%;
+	height: 50px;
+	font-size: 20px;
+	padding: 5px;
+	vertical-align: middle;
+	padding-left: 30px;
+	font-family: Transformers Movie;
+	font-weight: 100;
+	letter-spacing: 2px;
+	text-align: left;
+	border-image: linear-gradient(to bottom right, #3a4ed5 0%, #3acfd5 100%);
+	border-image-slice: 1;
+	border-right: none;
+	border-spacing: 10px 0; 
+	cursor: pointer;
+	color: #ccffff;
+	position: relative;
+	transition: .5s;
+}
+
+/*墊在日期下方的光暈，(可是效果很小)*/
+.textShadow{
+	height: 20px;
+	width: 20px;
+	border-radius: 100%;
+	background-color: rgba(255,255,255,0.4);
+	position: absolute;
+	left: 30px;
+	top: 15px;
+	box-shadow: 0 0 15px yellow;
+	z-index: -1;
+	filter: brightness(100);
+}
+
+#cal .claContent{
+	font-size: 16px;
+	width: 10%;
+	min-width: 20px;
+	opacity: 0;
+}
+#cal .claContent span{
+	font-size: 12px;
+	line-height: 5;
+	color: white;
+	border: none;
+	vertical-align: bottom;
+}
+
+#result{
+	width: 100%;
+	margin-top: 30px;
+	text-align: center;
+}
+#result h2{
+	font-size: 16px;
+	display: block;
+	text-align: left;
+	font-family: "微軟正黑體";
+	margin-left: 20px;
+}
+#result img{
+	display: inline-block;
+	transform: scale(2);
+	margin-top: 30px;
+}
+#result + h6{
+	font-size: 12px;
+	margin-left: 20px;
+	margin-top: 20px;
+}
+
+
+#showActivityWrapper{
+	display: inline-block;
+	width: 44%;
+	font-family: "微軟正黑體";
+	font-size: 16px;
+	padding: 0 70px;
+	vertical-align: top;
+}
+#showActivityWrapper h2{
+	font-size: 32px;
+	font-family: "微軟正黑體";
+	margin: 0;
+}
+#showActivityWrapper h3{
+	font-size: 20px;
+	font-family: "微軟正黑體";
+	margin: 0;
+}
+#showActivityWrapper table{
+	width: 100%;
+	margin-top: 30px;
+}
+#showActivityWrapper table td{
+	font-size: 16px;
+	padding: 4px;
+	/*border: 1px solid white;*/
+}
+#showActivityWrapper table th{
+	width: 20%;
+	font-size: 20px;
+	padding: 4px;
+	padding-left: 0;
+	text-align: left;
+}
+
+a.convert{
+	padding: 10px;
+	/*background-color: #f60;*/
+	border: 1px solid #ffc116;
+	/*border-radius: 5%;*/
+	font-size: 16px;
+	color: #42d9ff;
+	cursor: pointer;
+}
