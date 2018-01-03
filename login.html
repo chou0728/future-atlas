@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+		<title>Examples</title>
+		<link rel="stylesheet" href="css/login.css">
+</head>
+
+<body>
+	<div class="header">
+			<div class="nav">
+				<li><a href="">園區地圖</a></li>
+				<li><a href="">園區總攬</a></li>
+				<li class="logo"><img src="../ticketNew/image/logo.png" alt="logo"></li>
+				<li><a href="">設施購票</a></li>
+				<li><a href="">劇場購票</a></li>
+			</div>
+	
+	</div>
+	<div id="singUpBtn"><a href="#">登入</a></div>
+		
+
+	<div id="lightBox">
+		<div id="cancel">關閉</div> 
+		<img class="bar" src="../ticketNew/image/bar.png" alt="bar">                                                            
+		<form class="singUp" action="" method="get">
+			<h2>會員登入</h2>
+			<div class="text">
+				會員帳號：<input type="text" name="" value=""  required placeholder="輸入帳號"><br>
+				會員密碼：<input type="password" name="" value=""  required placeholder="輸入密碼"><br>
+			</div>	
+			<div class="btn">
+				<input type="submit" name="submit" value="登入">
+				<input type="reset" name="reset" value="取消">
+			</div>
+		</form>
+	</div>
+
+	<script>
+		/*註冊登入按鈕*/
+		var singUpBtn = document.getElementById('singUpBtn');
+
+		/*註冊燈箱*/
+		var lightBox = document.getElementById('lightBox');
+
+		/*註冊燈箱關閉按鈕*/
+		var cancel = document.getElementById('cancel');
+
+		/*建立登入按鈕點擊事件聆聽功能*/
+		singUpBtn.addEventListener('click',showLogin,false);
+
+		/*建立關閉登入燈箱按鈕點擊事件聆聽功能*/
+		cancel.addEventListener('click',closeLogin,false);
+
+
+		/*點案登入show出登入燈箱*/
+		function showLogin(){
+				lightBox.style.opacity=1;
+				lightBox.style.visibility='visible';
+		}
+
+
+		/*點案登入關閉登入燈箱*/
+		function closeLogin(){
+				lightBox.style.opacity=0;
+				lightBox.style.visibility='hidden';
+		}
+
+	</script>
+</body>
+</html>

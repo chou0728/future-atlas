@@ -31,6 +31,17 @@ footer, header, hgroup, menu, nav, section {
 
 body {
   line-height: 1; }
+  body::-webkit-scrollbar {
+    width: 10px;
+}
+body::-webkit-scrollbar-track {
+	-webkit-border-radius: 10px;
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+}
+body::-webkit-scrollbar-thumb {
+  background-color: rgba(100,255,243,1);
+ /* outline: 1px solid rgba(100,255,243,1);*/
+}
 
 ol, ul {
   list-style: none;
@@ -113,8 +124,11 @@ table {
 
 body {
   font-family: "微軟正黑體", Arial ,sans-serif;
-  background-image: url("../img/Galaxy_1.jpg");
-  background-size: cover; }
+  background-color: black;
+  /* background-image: url("../img/Galaxy_1.jpg");
+    background-size: cover;
+  */
+}
 
 .container {
   width: 70%;
@@ -422,7 +436,7 @@ body {
   position: absolute;
   top: 433%;
   right: 41%;
-  width: 120%;
+  width: 107%;
   height: 3%;
   background-color: #35ffba; }
 
@@ -430,7 +444,7 @@ body {
   position: absolute;
   top: 440%;
   right: 33%;
-  width: 140%;
+  width: 115%;
   height: 3%;
   background-color: #35ffba; }
 
@@ -452,12 +466,11 @@ body {
 /*立即購買按鈕*/
 .buyticketBtn {
   position: absolute;
-  left: 40%;
-  width: 70px;
-  background-color: #FFC116;
+  left: 40.5%;
+  border: 1px #35ffba solid;
   padding: 10px 10px;
   margin: 0 auto;
-  margin-top: 700px; }
+  margin-top: 695px; }
 
 .buyticketBtn a {
   text-decoration: none;

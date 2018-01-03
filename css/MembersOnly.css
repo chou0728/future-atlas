@@ -1,0 +1,41 @@
+body{
+    background-color: #000;
+}
+.MembersBox{
+    width: 100%;
+    max-width: 1200px;
+    text-align: center;
+    margin: 0 auto;
+}
+.MembersBox .content{
+    width: 100%;
+    
+    
+}
+.MembersBox .content h1{
+    color: aqua;
+}
+.MembersBox .content h2{
+    color:  rgb(224, 224, 224);
+}
+.MembersBox .content h3{
+    color: rgb(224, 224, 224);
+}
+.MembersBox .content th{
+    color:rgb(224, 224, 224);
+}
+.MembersBox .content td{
+    color:rgb(224, 224, 224);
+}
+.MembersBox .content table{
+    width: 100%;
+    text-align: center;
+    margin: 0 auto;
+}
+@media screen and (max-width: 767px) {
+
+.MembersBox .content{
+    max-width: 100%;
+    }
+
+}
