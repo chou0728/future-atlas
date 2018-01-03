@@ -113,11 +113,8 @@ table {
 
 body {
   font-family: "微軟正黑體", Arial ,sans-serif;
-  background-color: black;
-  /* background-image: url("../img/Galaxy_1.jpg");
-    background-size: cover;
-  */
-}
+  background-image: url("../img/Galaxy_1.jpg");
+  background-size: cover; }
 
 .container {
   width: 70%;
@@ -425,7 +422,7 @@ body {
   position: absolute;
   top: 433%;
   right: 41%;
-  width: 107%;
+  width: 120%;
   height: 3%;
   background-color: #35ffba; }
 
@@ -433,7 +430,7 @@ body {
   position: absolute;
   top: 440%;
   right: 33%;
-  width: 115%;
+  width: 140%;
   height: 3%;
   background-color: #35ffba; }
 
@@ -455,11 +452,12 @@ body {
 /*立即購買按鈕*/
 .buyticketBtn {
   position: absolute;
-  left: 40.5%;
-  border: 1px #35ffba solid;
+  left: 40%;
+  width: 70px;
+  background-color: #FFC116;
   padding: 10px 10px;
   margin: 0 auto;
-  margin-top: 695px; }
+  margin-top: 700px; }
 
 .buyticketBtn a {
   text-decoration: none;
