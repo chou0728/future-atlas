@@ -181,20 +181,25 @@
       font-size: 23px;
       margin-bottom: 50px;
     }
-
     .buyTTicketBtn .Previouspage a {
+      color: white;
+      border: 1px #35ffba solid;
+      padding: 5px 10px;
+      text-decoration: none; 
+    }
+    /*.buyTTicketBtn .Previouspage a {
       text-decoration: none;
       display: block;
-      width: 150px;/*依照自己頁面的需求自行調整*/
-      height: 35px;/*依照自己頁面的需求自行調整*/
-      text-align: center;/*文字置中*/
-      line-height: 35px;/*與height等高:文字置中*/
+      width: 150px;
+      height: 35px;
+      text-align: center;
+      line-height: 35px;
       background-color: rgba(255, 193, 22,0.3);
       color: white;
       position: relative;
       transition: background-color .2s linear; 
-    }
-    .Previouspage:after{
+    }*/
+    /*.Previouspage:after{
       content: "";
       position: absolute;
       top:50%;
@@ -213,7 +218,7 @@
       width: 108%;
       height: 125%;
       border: 2px solid rgba(255, 193, 22,0.8);
-    }
+    }*/
     .buyTTicketBtn .buyticket {
         /*margin-right:10%;*/
         display: inline-block;
