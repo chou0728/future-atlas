@@ -115,7 +115,7 @@ function nextMonth(){
 		document.getElementsByClassName("daysHere")[i].innerText = " ";
 		document.getElementsByClassName("daysHere")[i].style.backgroundColor = "transparent";
 		document.getElementsByClassName("claContent")[i].innerText = " ";
-		document.getElementsByClassName("claContent")[i].style.opacity = "0";
+		document.getElementsByClassName("claContent")[i].style.opacity = 0;
 	}
 	for(i = 0 ; i < newdaysofMonth ; i++){
 		var date = " ";
@@ -125,14 +125,13 @@ function nextMonth(){
 		}else{
 			document.getElementsByClassName("daysHere")[newfirstDayofMonth+i].innerText = i+1;
 		}
+		document.getElementsByClassName("claContent")[firstDayofMonth+i].style.opacity = 1;
 	}
-	document.getElementsByClassName("claContent")[firstDayofMonth+i].style.opacity = "1";
 	// 更新#showMonth
 	document.getElementById("showMonth").innerText = new Date(todayYear,todayMonthIndex).toString().substr(4,11).toUpperCase().replace(" 01 "," ");
 }
 
 // 依照日期查看園區活動一覽: 日期
-
 $(document).ready(function(){
 	$(".daysHere").click(function(){
 		var showDate = $(this).text();
@@ -151,17 +150,17 @@ $(document).ready(function(){
 // 切換活動月曆模式
 $(document).ready(function(){
 	$("#icon1").click(function(){
-		$(".sun").html("<img src='img/theater.png' style='width: 25px; height:25px'>");
+		$(".sun").html("<img src='img/activity/theater.png' style='width: 25px; height:25px'>");
 		$(".mon").html("");
-		$(".tue").html("<img src='img/theater.png' style='width: 25px; height:25px'>");
-		$(".wed").html("<img src='img/theater.png' style='width: 25px; height:25px'>");
+		$(".tue").html("<img src='img/activity/theater.png' style='width: 25px; height:25px'>");
+		$(".wed").html("<img src='img/activity/theater.png' style='width: 25px; height:25px'>");
 		$(".thu").html("");
-		$(".fri").html("<img src='img/theater.png' style='width: 25px; height:25px'>");
-		$(".sat").html("<img src='img/theater.png' style='width: 25px; height:25px'>");
+		$(".fri").html("<img src='img/activity/theater.png' style='width: 25px; height:25px'>");
+		$(".sat").html("<img src='img/activity/theater.png' style='width: 25px; height:25px'>");
 	});
 	$("#icon2").click(function(){
 		$(".sun").html("");
-		$(".mon").html("<img src='img/outoforder.png' style='width: 25px; height:25px'>");
+		$(".mon").html("<img src='img/activity/outoforder.png' style='width: 25px; height:25px'>");
 		$(".tue").html("");
 		$(".wed").html("");
 		$(".thu").html("");
@@ -178,20 +177,20 @@ $(document).ready(function(){
 		$(".sat").html("9-24");
 	});
 	$("#icon4").click(function(){
-		$(".sun").html("<img src='img/lecture.png' style='width: 25px; height:25px'>");
+		$(".sun").html("<img src='img/activity/lecture.png' style='width: 25px; height:25px'>");
 		$(".mon").html("");
-		$(".tue").html("<img src='img/lecture.png' style='width: 25px; height:25px'>");
+		$(".tue").html("<img src='img/activity/lecture.png' style='width: 25px; height:25px'>");
 		$(".wed").html("");
-		$(".thu").html("<img src='img/lecture.png' style='width: 25px; height:25px'>");
-		$(".fri").html("<img src='img/lecture.png' style='width: 25px; height:25px'>");
-		$(".sat").html("<img src='img/lecture.png' style='width: 25px; height:25px'>");
+		$(".thu").html("<img src='img/activity/lecture.png' style='width: 25px; height:25px'>");
+		$(".fri").html("<img src='img/activity/lecture.png' style='width: 25px; height:25px'>");
+		$(".sat").html("<img src='img/activity/lecture.png' style='width: 25px; height:25px'>");
 	});
 	$("#clearCal").click(function(){
 		$(".claContent").html("");
 	});
 });
 
-// $().();
+// 於月曆&活動之間滾動
 $(document).ready(function(){
 	$("#toCal").click(function(){
 		$("html,body").animate({scrollTop:$("#calWrapper").offset().top}, 400);

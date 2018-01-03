@@ -4,13 +4,14 @@
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 <title>activity</title>
+<link rel="stylesheet" type="text/css" href="css/header.css">
 <link rel="stylesheet" type="text/css" href="css/style.css" />
 <link rel="stylesheet" type="text/css" href="css/activity.css">
 <link rel="stylesheet" type="text/css" href="css/activity_calendar.css">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
 <script src="js/modernizr.custom.97074.js"></script>
 <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
-<script src="js/lineTo.js"></script>
+<!-- <script src="js/lineTo.js"></script> -->
 <style type="text/css">
 body{
 	position: relative;
@@ -42,34 +43,62 @@ body{
 	50% {filter: brightness(0.5);}
 	100% {filter: brightness(3);}
 }
-.da-thumbs li {
-	float: left;
-	margin: 5px;
-	background: #fff;
-	padding: 8px;
-	position: relative;
-	box-shadow: 0 1px 3px rgba(0,0,0,0.1);
-}
-.da-thumbs li a,
-.da-thumbs li a img {
-	display: block;
-	position: relative;
-}
-.da-thumbs li a {
-	overflow: hidden;
-}
-.da-thumbs li a div {
-	position: absolute;
-	background: rgba(75,75,75,0.7);
-	width: 100%;
-	height: 100%;
-}
 </style>
 </head>
 <body>
 
-<canvas id="canvas1" class="ff" width="500" height="500"></canvas>
-<canvas id="canvas2" class="ff" width="500" height="500"></canvas>
+<!-- <canvas id="canvas1" class="ff" width="500" height="500"></canvas> -->
+<!-- <canvas id="canvas2" class="ff" width="500" height="500"></canvas> -->
+
+<div class="header">
+	<ul class="ul_top">
+		<li>
+			<a href="javascript:void(0)">註冊</a>
+		</li>
+		<li>
+			<a href="javascript:void(0)">登入</a>
+		</li>
+		<li>
+			<a href="input_cart.html">購物車</a>
+		</li>
+	</ul>
+</div>
+<div class="nav">
+	<ul class="ul_left">
+		<li>
+			<a href="javascript:void(0)">劇場購票</a>
+		</li>
+		<li>
+			<a href="facilityBuyTicket.html">設施購票</a>
+		</li>
+		<li>
+			<a href="facilityInfo.html">設施介紹</a>
+		</li>
+	</ul>
+	<h1 style="display: none">FutureAtlas_未來主題樂園</h1>
+<<<<<<< HEAD:TOP_PAGE_2.5/index.html
+	<a href="#page1">
+=======
+	<a href="index.html#page1">
+>>>>>>> cce11504dd6b3f50621937e1d14178c2eca708bb:index.html
+		<img src="img/LOGO.png" class="logo">
+	</a>
+	<ul class="ul_right">
+		<li>
+<<<<<<< HEAD:TOP_PAGE_2.5/index.html
+			<a href="#page2">園區地圖</a>
+=======
+			<a href="index.html#page2">園區地圖</a>
+>>>>>>> cce11504dd6b3f50621937e1d14178c2eca708bb:index.html
+		</li>
+		<li>
+			<a href="activity.html">活動月曆</a>
+		</li>
+		<li>
+			<a href="robot.html">諮詢專區</a>
+		</li>
+	</ul>
+</div>
 
 
 <div id="scrollIcon">
@@ -106,8 +135,8 @@ body{
 		<ul id="selectActivityClass">
 			<li id="icon1">
     			<img src="img/activity/theater.png" style='width: 35px; height:35px'><span>劇場</span>
-    		</li id="icon2">
-			<li>
+    		</li>
+			<li id="icon2">
 				<img src="img/activity/outoforder.png" style='width: 35px; height:35px'><span>維修</span>
 			</li>
 			<li id="icon3">
@@ -247,7 +276,7 @@ body{
 			<div><span>Natalie & Justin Cleaning by Justin Younger</span></div>
 		</a>
 	</li>
-	<li class="block-mode">
+<!-- 	<li class="block-mode">
 		<a href="http://dribbble.com/shots/502538-Natalie-Justin-Cleaning">
 			<img src="img/activity/9.jpg" />
 			<div><span>劇場演出<br>10:00-11:30</span></div>
@@ -270,7 +299,7 @@ body{
 			<img src="img/activity/12.jpg" />
 			<div><span>Natalie & Justin Cleaning by Justin Younger</span></div>
 		</a>
-	</li>
+	</li> -->
 	</ul>
 
 <script type="text/javascript" src="js/calendar.js"></script>
@@ -310,7 +339,7 @@ body{
 	$(document).ready(function(){
 		$("#switchBlock").click(function(){
 			$(".block-mode").toggleClass("li-block-mode");
-			$("img").toggleClass("hahaha");
+			$("#da-thumbs li a img").toggleClass("hahaha");
 			$(this).toggleClass("block_src");
 		});
 	});

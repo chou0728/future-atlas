@@ -1,37 +1,45 @@
 *{
 	box-sizing: border-box;
+	font-size: 0;
 }
-.da-thumbs {
+
+#da-thumbs{
+	width: 70%;
+	margin-left: 15%;
+}
+#da-thumbs ul{
+	width: 100%;
 	list-style: none;
 	width: 70%;
 	position: relative;
 	margin: 20px auto;
 	padding: 0;
 }
-.da-thumbs li {
-	margin: 5px;
-	background: rgba(0,255,255,0.5);
-	padding: 4px;
-	position: relative;
-	box-shadow: 0 1px 3px rgba(0,0,0,0.1);
-	overflow: hidden;
+
+#da-thumbs li {
+  background: #fff;
+  padding: 8px;
+  position: relative;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.1);
 }
-.da-thumbs li a,
-.da-thumbs li a img {
+
+#da-thumbs li a,
+#da-thumbs li a img {
+	height: 100%;
 	display: block;
 	position: relative;
 }
-.da-thumbs li a {
+#da-thumbs li a {
 	overflow: hidden;
 }
-.da-thumbs li a div {
+#da-thumbs li a div {
 	position: absolute;
 	background: #333;
 	background: rgba(75,75,75,0.7);
 	width: 100%;
 	height: 100%;
 }
-.da-thumbs li a div span {
+#da-thumbs li a div span {
 	font-size: 16px;
 	display: block;
 	padding: 10px 0;
@@ -45,19 +53,23 @@
 }
 
 .block-mode{
-	width: 24%;
-	height: 195px;
-}
-img{
-	width: 100%;
-	height: 100%;
+	display: inline-block;
+	width: 23%;
+	height: 23%;
+	margin: 1%;
+	float: left;
 }
 .li-block-mode{
 	display: block;
 	width: 100%;
 	height: 150px;
-}.hahaha{
-	height: 135px;
+}
+img{
+	width: 100%;
+	height: 100%;
+}
+.hahaha{
+	height: 100%;
 	width: auto;
 }.div-block-mode{
 	display: none;
