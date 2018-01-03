@@ -127,8 +127,8 @@
 	min-width: 400px;
 	user-select: none;
 	background-image: url(../img/forthSection/cal_bgi.png);
-	background-size: 115% 142%;
-	background-position: 0 -120px;
+	background-size: contain;
+	background-position: 0 -150px;
 }
 
 #cal table{

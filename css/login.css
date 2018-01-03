@@ -1,0 +1,80 @@
+
+
+
+
+
+
+
+#lightBox{
+    width:450px;
+    background-color: rgba(75, 74, 74,0.5);
+    margin: 0 auto;
+    position: fixed;
+    top:50%;
+    left:50%;
+    transform: translate(-50%,-50%);
+    /* display: none; */
+    opacity: 0;
+    z-index: 999;
+    visibility: hidden;
+    transition: 0.5s ;
+}
+#cancel{
+    width: 33px;
+    height: 16px;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+}
+#cancel:hover{
+    cursor: pointer;
+}
+/*燈箱bar*/
+#lightBox .bar{
+    width:100%;
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+/*燈箱bar結束*/
+
+
+#lightBox .singUp{
+    box-sizing: border-box;
+    padding: 20px;
+}
+#lightBox .singUp h2{
+	color:rgb(10, 242, 250);
+	text-align: center;
+}
+.text{
+	font-size: 20px;
+	color:rgb(10, 242, 250);
+	text-align: center;
+	
+}
+.text input{
+	margin: 10px;
+	height: 25px;
+	border-radius: 10px;
+}
+.btn{
+	text-align: center;
+	display: inline-block;
+	width: 100%;
+	margin-top: 20px;
+}
+.btn input{
+	font-size: 20px;
+	font-family: 'Share Tech Mono', monospace;
+    color: #5F9EA0;
+    background: transparent;
+    /* letter-spacing: 0.1em; */
+    /* text-transform: uppercase; */
+    display: inline-block;
+    margin: 0 20px 10px 0;
+    outline:none;
+    border: 1px solid #5F9EA0;
+    box-shadow: 0 0 10px rgba(0,0,255,0.5), rgba(0,0,255,0.5);
+    cursor: pointer;
+}
