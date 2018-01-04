@@ -34,7 +34,7 @@
 		var shipbox = document.getElementsByClassName('shipbox');
 		var cross = document.getElementsByClassName('cross');
 		banner[0].onclick = bannerOpenClose;
-		document.addEventListener('mousewheel',bannerOpenClose);
+		document.addEventListener('mousewheel',bannerMousewheelClose);
 	//canvas
 		e_light();
 	//roboAppear
@@ -85,6 +85,19 @@ function bannerOpenClose(){
 	allPage.style.display="";
 	}
 	
+}
+function bannerMousewheelClose(){
+	var banner = document.getElementsByClassName('banner');
+	var shipbox = document.getElementsByClassName('shipbox');
+	var cross = document.getElementsByClassName('cross');
+	var allPage = document.getElementById('all-page');
+	if(shipbox[0].id == "stop"){
+		banner[0].style.width = "";
+	banner[0].style.height = "";
+	shipbox[0].style.top = "";
+	shipbox[0].id ="";
+	allPage.style.display="";
+	}
 }
 
 // function NeonLight(){
