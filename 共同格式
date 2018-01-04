@@ -1,0 +1,39 @@
+一、文字：
+
+1.中文字體：微軟正黑體
+2.英文字體：
+3.<p>或<div>段落內文字大小：16px
+4.<h1>主要標題大小：36px
+5.<h2>主要標題大小：24px
+6.一般字體顏色：#5AE6DB
+7.強調字體顏色：#fff 
+8.字元間距(letter-spacing ):2px
+9.段落間距(ine-height):1.5
+
+一般文字字型、顏色、字元間距、段落間距請直接加在body，其他地方的字型顏色再自己另外設定
+body{
+            font-family: "微軟正黑體";
+            color: #5AE6DB;
+            line-height:1.5;
+            letter-spacing: 2px;
+        }
+
+
+
+二、RWD斷點：
+
+768px  414px  
+
+@media screen and (max-width:768px) {　}
+@media screen and (max-width:414px) {　}
+
+
+
+
+三、命名方式：
+
+小寫+底線 ，適用於html檔案、css檔案、js檔案、圖檔、資料夾名稱 (ex: input_cart.html)
+
+
+
+
