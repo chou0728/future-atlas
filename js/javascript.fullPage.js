@@ -1958,16 +1958,16 @@
     * Removes the auto scrolling action fired by the mouse wheel and trackpad.
     * After this function is called, the mousewheel and trackpad movements won't scroll through sections.
     */
-    function removeMouseWheelHandler(){
-        var wrapper = $(WRAPPER_SEL);
+    // function removeMouseWheelHandler(){
+    //     var wrapper = $(WRAPPER_SEL);
 
-        if (document.addEventListener) {
-            wrapper.removeEventListener('mousewheel', MouseWheelHandler, false); //IE9, Chrome, Safari, Oper
-            wrapper.removeEventListener('wheel', MouseWheelHandler, false); //Firefox
-        } else {
-            wrapper.detachEvent('onmousewheel', MouseWheelHandler); //IE 6/7/8
-        }
-    }
+    //     if (document.addEventListener) {
+    //         wrapper.removeEventListener('mousewheel', MouseWheelHandler, false); //IE9, Chrome, Safari, Oper
+    //         wrapper.removeEventListener('wheel', MouseWheelHandler, false); //Firefox
+    //     } else {
+    //         wrapper.detachEvent('onmousewheel', MouseWheelHandler); //IE 6/7/8
+    //     }
+    // }
 
 
     /**
