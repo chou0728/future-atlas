@@ -34,6 +34,7 @@
 		var shipbox = document.getElementsByClassName('shipbox');
 		var cross = document.getElementsByClassName('cross');
 		banner[0].onclick = bannerOpenClose;
+		document.addEventListener('mousewheel',bannerOpenClose);
 	//canvas
 		e_light();
 	//roboAppear
