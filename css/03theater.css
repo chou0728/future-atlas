@@ -18,22 +18,27 @@
 			height: 100%;
 			position: relative;
 			left: 0;
+			font-family: "微軟正黑體";
+
 		}
 		/*背景圖=劇場介紹圖*/
 		.TheaterArea #intro{
 			background-image: url("../img/thirdSection/dome_theater.png");
 			background-size: cover;
 			background-repeat: no-repeat;
+			border: 1px solid #35ffea;
 		}
 		.TheaterArea li:nth-child(2){
 			background-image: url("../img/thirdSection/Galaxy_1.jpg");
 			background-size: cover;
 			background-repeat: no-repeat;
+			border: 1px solid #35ffea;
 		}
 		.TheaterArea li:nth-child(3){
 			background-image: url("../img/thirdSection/ba4ss.jpg");
 			background-size: cover;
 			background-repeat: no-repeat;
+			border: 1px solid #35ffea;
 		}
 		/*背景圖=劇場介紹圖*/
 
@@ -49,16 +54,33 @@
 			width: 4%;
 			overflow: hidden;
 			float: left;
-			background-color: #ff6600;
+			border: 1px solid rgba(255, 141, 20,1);
+			background-color: rgba(255, 141, 20,0.3);
+
+		}
+		.TheaterArea .buy:hover {
+			background-color: rgba(255, 141, 20,1);
+			
 		}
 		.TheaterArea .buy a{
 			display: block;
+			position: relative;
 			height: 100%;
 			width: 100%;
 			font-size: 25px;
 			color: black;
 			padding: 5px;
+			/*vertical-align: bottom;*/
 
+		}
+		.TheaterArea .buy a span{
+			position: absolute;
+			left: 50%;
+			bottom:1%;
+			transform: translateX(-50%);
+		}
+		.TheaterArea .buy:hover a span{
+			color: black;
 		}
 		/*前往購票按鈕*/
 
@@ -83,15 +105,20 @@
 			right: 5%;
 			bottom: 6%;
 			color:white;
-			background-color: rgba(0,0,0,0.7);
+			background-color: rgba(0,0,0,0.8);
 			display: none;
 			
+		}
+		.TheaterArea .theaterInfo p{
+			line-height:1.5;
+			letter-spacing: 3px;
 		}
 		.current #info{/*顯示各區塊介紹*/
 			display: block;
 			font-size: 20px;
 			padding: 15px;
 		}
+		
 		.TheaterArea .notcurrent{/*非.current時游標提示為可選擇*/
 			cursor: pointer;
 		}
@@ -112,7 +139,7 @@
 			padding:8px;
 			font-size: 16px;
 			background-color: rgba(0,0,0,1);
-			box-shadow: 1px 1px 0px white;
+			box-shadow: 1px 1px 0px #35ffea;
 			color:white;
 		}
 		.Theater img{

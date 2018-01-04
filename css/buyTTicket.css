@@ -3,109 +3,7 @@
        v2.0 | 20110126
        License: none (public domain)
     */
-    /*是從_resit.scss*/
-    html, body, div, span, applet, object, iframe,
-    h1, h2, h3, h4, h5, h6, p, blockquote, pre,
-    a, abbr, acronym, address, big, cite, code,
-    del, dfn, em, img, ins, kbd, q, s, samp,
-    small, strike, strong, sub, sup, tt, var,
-    b, u, i, center,
-    dl, dt, dd, ol, ul, li,
-    fieldset, form, label, legend,
-    table, caption, tbody, tfoot, thead, tr, th, td,
-    article, aside, canvas, details, embed,
-    figure, figcaption, footer, header, hgroup,
-    menu, nav, output, ruby, section, summary,
-    time, mark, audio, video {
-      margin: 0;
-      padding: 0;
-      border: 0;
-      font-size: 100%;
-      font: inherit;
-      vertical-align: baseline; }
 
-    /* HTML5 display-role reset for older browsers */
-    article, aside, details, figcaption, figure,
-    footer, header, hgroup, menu, nav, section {
-      display: block; }
-
-    body {
-      line-height: 1; }
-
-    ol, ul {
-      list-style: none;
-      margin: 0;
-      padding: 0; }
-
-    blockquote, q {
-      quotes: none; }
-
-    blockquote:before, blockquote:after,
-    q:before, q:after {
-      content: '';
-      content: none; }
-
-    table {
-      border-collapse: collapse;
-      border-spacing: 0; }
-
-    /*-----header-----*/
-    .nav {
-      width: 100%;
-      position: fixed;
-      height: 13%;
-      text-align: center;
-      padding: 0.6%;
-      margin-top: 25px;
-      top: 0;
-      z-index: 1000; }
-
-    .logo {
-      display: inline-block;
-      width: 15%;
-      min-width: 200px;
-      margin: 0;
-      vertical-align: middle; }
-
-    .ul_left,
-    .ul_right,
-    .ul_left li,
-    .ul_right li {
-      display: inline-block;
-      vertical-align: middle;
-      margin: 0 20px 0 20px;
-      font-family: "微軟正黑體"; }
-
-    .header {
-      width: 100%;
-      position: fixed;
-      top: 0;
-      height: 5%;
-      text-align: right;
-      padding: 0.2%;
-      z-index: 999; }
-
-    .header .ul_top {
-      margin: 15px; }
-
-    .header .ul_top li {
-      display: inline-block;
-      margin: 0 8px 0 8px;
-      font-family: "微軟正黑體"; }
-
-    .header .ul_top li a {
-      text-decoration: none;
-      color: white; }
-
-    .nav .ul_left li a {
-      text-decoration: none;
-      color: white; }
-
-    .nav .ul_right li a {
-      text-decoration: none;
-      color: white; }
-
-    /*-----header end-----*/
     * {
       margin: 0px;
       padding: 0px;
@@ -123,18 +21,22 @@
     .buyticketarea {
       width: 100%;
       font-size: 20px;
-      margin: 150px auto;
-      margin-bottom: 30px ;  
+      padding-top:7%;
     }
-
+    @media screen and (max-width: 767px) {
+      .buyticketarea  {
+        padding-top: 30%;
+      }
+    }
     .buyticketarea h2 {
       color: white;
       text-align: center;
       font-size: 32px;
       margin: 30px 30px; }
-
+    
     .buyticketarea table {
       border: 3px solid #35ffea;
+      position: relative;
       width: 40%;
       height: 300px;
       margin: 0 auto;
@@ -142,6 +44,25 @@
       z-index: 1000;
       color: white; }
 
+    .buyticketarea .verticalh2{
+      position: absolute;
+      width: 10px;
+      height: 300px;
+      top:25%;
+      margin-left:25%;
+      line-height: 2;
+      /*display: inline-block;*/
+    }
+    @media screen and (max-width: 767px) {
+      .buyticketarea .verticalh2 {
+        position: absolute;
+          top:70%;
+          left:50%;
+          color:rgba(53, 255, 234, 0.5);
+          line-height:1.5;
+          z-index: -1;
+        } 
+      }
     @media screen and (max-width: 767px) {
       .buyticketarea table {
         width: 80%; } }
@@ -171,23 +92,23 @@
       text-align: center; }
 
     .buyTTicketBtn{
-      text-align: center;
+      width: 40%;
       font-size: 23px;
-      margin-bottom: 50px;
+      margin:0 auto;
+      margin-top: 30px;
     }
     .buyTTicketBtn .Previouspage {
-      /*margin-left:10%;*/
+      float: left;
       display: inline-block;
       font-size: 23px;
       margin-bottom: 50px;
     }
-    .buyTTicketBtn .Previouspage a {
+    /*.buyTTicketBtn .Previouspage a {
       color: white;
       border: 1px #35ffba solid;
       padding: 5px 10px;
-      text-decoration: none; 
-    }
-    /*.buyTTicketBtn .Previouspage a {
+    }*/
+    .buyTTicketBtn .Previouspage a {
       text-decoration: none;
       display: block;
       width: 150px;
@@ -198,8 +119,8 @@
       color: white;
       position: relative;
       transition: background-color .2s linear; 
-    }*/
-    /*.Previouspage:after{
+    }
+    .buyTTicketBtn .Previouspage a:after{
       content: "";
       position: absolute;
       top:50%;
@@ -210,28 +131,54 @@
       border: 2px solid rgba(255, 193, 22,0.6);
       transition: all .2s linear;
     }
-    .Previouspage:hover{
+    .buyTTicketBtn .Previouspage a:hover{
       background-color: rgba(255, 193, 22,0.9);
       color: black;
     }
-    .Previouspage:hover:after{
+    .buyTTicketBtn .Previouspage a:hover:after{
       width: 108%;
       height: 125%;
       border: 2px solid rgba(255, 193, 22,0.8);
-    }*/
+    }
+
     .buyTTicketBtn .buyticket {
-        /*margin-right:10%;*/
+        float: right;
         display: inline-block;
         font-size: 23px;
     }
     .buyTTicketBtn .buyticket a{
-        color: white;
-        border: 1px #35ffba solid;
-        padding: 5px 10px;
-        text-decoration: none;
+      text-decoration: none;
+      display: block;
+      width: 150px;
+      height: 35px;
+      text-align: center;
+      line-height: 35px;
+      background-color: rgba(255, 193, 22,0.3);
+      color: white;
+      position: relative;
+      transition: background-color .2s linear; 
     }
-
-    .buyTTicketBtn .buyticket:after {
+    .buyTTicketBtn .buyticket a:after{
+      content: "";
+      position: absolute;
+      top:50%;
+      left: 50%;
+      transform: translate(-50%,-50%);
+      width: 100%;
+      height: 100%;
+      border: 2px solid rgba(255, 193, 22,0.6);
+      transition: all .2s linear;
+    }
+    .buyTTicketBtn .buyticket a:hover{
+      background-color: rgba(255, 193, 22,0.9);
+      color: black;
+    }
+    .buyTTicketBtn .buyticket a:hover:after{
+      width: 108%;
+      height: 125%;
+      border: 2px solid rgba(255, 193, 22,0.8);
+    }
+    .buyticketarea .buyTTicketBtn :after {
       content: '';
       display: block;
       clear: both; }

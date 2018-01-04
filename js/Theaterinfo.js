@@ -33,7 +33,7 @@ function doFirst(){
 		};
 	}());
 	context.strokeStyle = '#35ffba';
-	context.lineWidth = 10;
+	context.lineWidth = 5;
 
 
 	// define the path to plot
@@ -63,9 +63,9 @@ function doFirst(){
         var pt1 = vertices[i];
         var dx = pt1.x - pt0.x;
         var dy = pt1.y - pt0.y;
-        for (var j = 0; j < 100; j++) {
-            var x = pt0.x + dx * j / 100;
-            var y = pt0.y + dy * j / 100;
+        for (var j = 0; j < 25; j++) {
+            var x = pt0.x + dx * j / 25;
+            var y = pt0.y + dy * j / 25;
             waypoints.push({
                 x: x,
                 y: y
