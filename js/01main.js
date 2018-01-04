@@ -1,5 +1,6 @@
  window.addEventListener('load', init);
  function init() {
+  console.log(location.hash);
  	//shuffle-text
  		var li = document.getElementsByClassName('shuffle');
  		var effectList = [];
@@ -36,12 +37,23 @@
 		banner[0].onclick = bannerOpenClose;
 		document.addEventListener('mousewheel',bannerMousewheelClose);
 	//canvas
-		e_light();
+  document.addEventListener('mousewheel',canvasRunStop);//待修改--------------------!!
+  if(location.hash=="#page1"||location.hash==""){
+      e_light();
+  }
 	//roboAppear
 	var robo = document.getElementById('robo');
 	robo.onclick = roboAppear;
 
 }
+function canvasRunStop(){//待修改--------------------!!
+  if(location.hash=="#page1"||location.hash==""){
+      e_light();
+  }//如何不在page1時停止function
+}
+
+
+
 function loadUp(){
 	var entrance = document.getElementsByClassName('entrance');
 	var e_canvas_cover =  document.getElementById('e_canvas_cover');
@@ -170,8 +182,7 @@ function e_light(){
 	   	Rect(1469.6/1583*w,423.0/539*h,15/1583*w,10/539*h,"#00ff99");
 	   	Rect(1523/1583*w,465.2/539*h,12/1583*w,10/539*h,"#00fff6");
 		setTimeout(theaterAnimate,300);
-		// console.log("rgb(0,"+g+","+b+")");
-
+		
    }
    theaterAnimate();
 
@@ -227,6 +238,7 @@ function e_light(){
    		
    		Rect(784.9/1583*w,390/539*h,10/1583*w,20/539*h,"rgb("+a+","+b+","+c+")");/*color*/
    		setTimeout(leftAnimate_A,randomTime);
+      console.log(randomTime);
    }
    leftAnimate_A();
 
@@ -245,7 +257,8 @@ function e_light(){
    	setTimeout(leftAnimate_B,randomTime);		
 		
    }
-   leftAnimate_B();
+      leftAnimate_B();
+
   //   function onClick(e) {
          
   //       var rect = e.target.getBoundingClientRect();
