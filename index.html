@@ -558,9 +558,9 @@
 
 
 
-<div id="loading">
+<!-- <div id="loading">
 	<div class="loading">Loading</div>
-</div>
+</div> -->
 
 
 
@@ -585,32 +585,32 @@
 		});
 
 		// LOADING畫面js--------------------------------------
-		var originTime = new Date().getTime();
+		// var originTime = new Date().getTime();
 
-		function loading(){
-			var now = new Date().getTime();
-			console.log(originTime,now);
-		if (now-originTime<=2000) {
-		  	setTimeout('stopload()',3000-(now-originTime));
-		    return;
-		  } else {
-		    stopload();
-		  }
-		}
-		setTimeout('stopload()',3300);
+		// function loading(){
+		// 	var now = new Date().getTime();
+		// 	console.log(originTime,now);
+		// if (now-originTime<=2000) {
+		//   	setTimeout('stopload()',3000-(now-originTime));
+		//     return;
+		//   } else {
+		//     stopload();
+		//   }
+		// }
+		// setTimeout('stopload()',3300);
 
-		function stopload(){
-			loading = document.getElementById('loading');
-			loading.style.opacity="0";
-			setTimeout("loadDisplay()",600);
-			e_light();//canvas重新讀取:因scrollbar寬度影響需要resize
-		}
-		function loadDisplay(){
-			if(loading.style.opacity== 0){
-				loading.style.display="none";
-			}
-		}
-		window.addEventListener('load', loading);
+		// function stopload(){
+		// 	loading = document.getElementById('loading');
+		// 	loading.style.opacity="0";
+		// 	setTimeout("loadDisplay()",600);
+		// 	e_light();//canvas重新讀取:因scrollbar寬度影響需要resize
+		// }
+		// function loadDisplay(){
+		// 	if(loading.style.opacity== 0){
+		// 		loading.style.display="none";
+		// 	}
+		// }
+		// window.addEventListener('load', loading);
 
 		//theater---------------------------------------------------
 		//theater---------------------------------------------------
