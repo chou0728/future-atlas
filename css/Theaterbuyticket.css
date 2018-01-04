@@ -1,328 +1,260 @@
-@charset "UTF-8";
-/* http://meyerweb.com/eric/tools/css/reset/ 
-   v2.0 | 20110126
-   License: none (public domain)
-*/
-/*是從_resit.scss*/
-html, body, div, span, applet, object, iframe,
-h1, h2, h3, h4, h5, h6, p, blockquote, pre,
-a, abbr, acronym, address, big, cite, code,
-del, dfn, em, img, ins, kbd, q, s, samp,
-small, strike, strong, sub, sup, tt, var,
-b, u, i, center,
-dl, dt, dd, ol, ul, li,
-fieldset, form, label, legend,
-table, caption, tbody, tfoot, thead, tr, th, td,
-article, aside, canvas, details, embed,
-figure, figcaption, footer, header, hgroup,
-menu, nav, output, ruby, section, summary,
-time, mark, audio, video {
-  margin: 0;
-  padding: 0;
-  border: 0;
-  font-size: 100%;
-  font: inherit;
-  vertical-align: baseline; }
+    @charset "UTF-8";
+    /* http://meyerweb.com/eric/tools/css/reset/ 
+       v2.0 | 20110126
+       License: none (public domain)
+    */
+    * {
+      margin: 0px;
+      padding: 0px;
+      /*outline: 1px solid red;*/ }
 
-/* HTML5 display-role reset for older browsers */
-article, aside, details, figcaption, figure,
-footer, header, hgroup, menu, nav, section {
-  display: block; }
-
-body {
-  line-height: 1; }
-  body::-webkit-scrollbar {
-    width: 10px;
-}
-body::-webkit-scrollbar-track {
-	-webkit-border-radius: 10px;
-    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
-}
-body::-webkit-scrollbar-thumb {
-  background-color: rgba(100,255,243,1);
- /* outline: 1px solid rgba(100,255,243,1);*/
-}
-ol, ul {
-  list-style: none;
-  margin: 0;
-  padding: 0; }
-
-blockquote, q {
-  quotes: none; }
-
-blockquote:before, blockquote:after,
-q:before, q:after {
-  content: '';
-  content: none; }
-
-table {
-  border-collapse: collapse;
-  border-spacing: 0; }
-
-/*-----header-----*/
-.nav {
-  width: 100%;
-  position: fixed;
-  height: 13%;
-  text-align: center;
-  padding: 0.6%;
-  margin-top: 25px;
-  top: 0;
-  z-index: 1000; }
-
-.logo {
-  display: inline-block;
-  width: 15%;
-  min-width: 200px;
-  margin: 0;
-  vertical-align: middle; }
-
-.ul_left,
-.ul_right,
-.ul_left li,
-.ul_right li {
-  display: inline-block;
-  vertical-align: middle;
-  margin: 0 20px 0 20px;
-  font-family: "微軟正黑體"; }
-
-.header {
-  width: 100%;
-  position: fixed;
-  top: 0;
-  height: 5%;
-  text-align: right;
-  padding: 0.2%;
-  z-index: 999; }
-
-.header .ul_top {
-  margin: 15px; }
-
-.header .ul_top li {
-  display: inline-block;
-  margin: 0 8px 0 8px;
-  font-family: "微軟正黑體"; }
-
-.header .ul_top li a {
-  text-decoration: none;
-  color: white; }
-
-.nav .ul_left li a {
-  text-decoration: none;
-  color: white; }
-
-.nav .ul_right li a {
-  text-decoration: none;
-  color: white; }
-
-/*-----header end-----*/
-* {
-  margin: 0px;
-  padding: 0px;
-  /*outline: 1px solid red;*/ }
-
-body {
-  font-family: "微軟正黑體", Arial ,sans-serif;
-  background-color: black;
-  /* background-image: url("../img/Galaxy_1.jpg");
-background-size: cover;
-  */
-<<<<<<< HEAD
-}
-=======
-  }
->>>>>>> b42036e0bf7adaebefc41036326c3ab532f75789
-
-.container {
-  width: 70%;
-  margin: 0 auto; }
-
-@media screen and (max-width: 767px) {
-  .container {
-    width: 100%;
-    /*max-width: 700px;*/ }
-  .container .Menu {
-    position: relative;
-    top: 160px;
-    left: 73px; } }
-
-.Menu {
-  width: 50%;
-  position: relative;
-  top: 160px;
-  left: 25%; }
-
-.progressinfoMenu {
-  margin-top: 10px;
-  background-color: #ffc116;
-  opacity: 0.6;
-  width: 200px;
-  height: 40px;
-  background: linear-gradient(-45deg, transparent 40px, #ffc116 0%) bottom right, linear-gradient(130deg, transparent 0px, #ffc116 0%) bottom left, linear-gradient(-135deg, transparent 40px, #ffc116 0%) top right, linear-gradient(135deg, transparent 0px, #ffc116 0%) top left;
-  /*-45度，反方向堆回來，那塊顏色就消失*/
-  background-size: 50% 50%;
-  /*顏色各占一 半*/
-  background-repeat: no-repeat;
-  transform: translate(0);
-  transition: all 1s ease; }
-
-.progressinfoMenu a {
-  position: absolute;
-  top: 5px;
-  left: 20px;
-  color: white;
-  padding: 7px 0px;
-  text-decoration: none;
-  transform: translate(0);
-  transition: all 1s ease; }
-
-.buyticketMenu {
-  margin-top: 10px;
-  background-color: #ffc116;
-  width: 200px;
-  height: 40px;
-  background: linear-gradient(-45deg, transparent 40px, #ffc116 0%) bottom right, linear-gradient(130deg, transparent 0px, #ffc116 0%) bottom left, linear-gradient(-135deg, transparent 40px, #ffc116 0%) top right, linear-gradient(135deg, transparent 0px, #ffc116 0%) top left;
-  /*-45度，反方向堆回來，那塊顏色就消失*/
-  background-size: 50% 50%;
-  /*顏色各占一 半*/
-  background-repeat: no-repeat;
-  transform: translate(0);
-  transition: all 1s ease; }
-
-.buyticketMenu a {
-  position: relative;
-  top: 11px;
-  left: 20px;
-  color: white;
-  padding: 8px 0px;
-  text-decoration: none;
-  transform: translate(0);
-  transition: all 1s ease; }
-
-.sq-one.move {
-  transform: translate(0px, 50px); }
-
-.sq-two.move {
-  transform: translate(0px, -50px); }
-
-/*topright*/
-.topright {
-  width: 50%;
-  position: relative;
-  top: 60px;
-  left: 40%; }
-
-.topright .Recycle_arrows {
-  position: absolute;
-  top: 10px;
-  left: 30px;
-  cursor: pointer; }
-
-@media screen and (max-width: 767px) {
-  .topright .Recycle_arrows {
-    display: none; } }
-
-.topright .Menutitle h2{
-  position: absolute;
-  top: 10px;
-  left: 100px;
-  color: white;
-  font-size: 32px; }
-
-@media screen and (max-width: 767px) {
-  .topright .Menutitle h2{
-    width: 119px;
-    margin-top: 28px;
-    margin-left: 20px;
-    font-size: 24px; } }
-
-/*畫線*/
-.toprightcanvas {
-  position: absolute;
-  top: 10px;
-  left: 230px; }
-
-@media screen and (max-width: 767px) {
-  .toprightcanvas {
-    display: none; } }
-
-/*.topright hr{
-      position: absolute;
-      top:20px;
-      left:300px;
+    body {
+      font-family: "微軟正黑體", Arial ,sans-serif;
+      background-color: black;
+      /* background-image: url("../img/Galaxy_1.jpg");
+    background-size: cover;
+      */
     }
-    .topright .hrRotate{
-      position: absolute;
-      top:56px;
-      left:387px;
-      transform: rotate(45deg);
+
+    .container {
+      width: 70%;
+      margin: 0 auto; }
+
+    @media screen and (max-width: 767px) {
+      .container {
+        width: 100%;
+        /*max-width: 700px;*/ }
+      .container .Menu {
+        position: relative;
+        top: 160px;
+        left: 73px; } }
+
+    .Menu {
+      width: 50%;
+      position: relative;
+      top: 160px;
+      left: 25%; }
+
+    .progressinfoMenu {
+      margin-top: 10px;
+      background-color: #ffc116;
+      opacity: 0.6;
+      width: 140px;
+      height: 40px;
+      /*background: linear-gradient(-45deg, transparent 40px, #ffc116 0%) bottom right, linear-gradient(130deg, transparent 0px, #ffc116 0%) bottom left, linear-gradient(-135deg, transparent 40px, #ffc116 0%) top right, linear-gradient(135deg, transparent 0px, #ffc116 0%) top left;*/
+      /*-45度，反方向堆回來，那塊顏色就消失*/
+     /* background-size: 50% 50%;*/
+      /*顏色各占一 半*/
+      background-repeat: no-repeat;
+      transform: translate(0);
+      transition: all 1s ease; }
+    .progressinfoMenu .progressinfotriangle{
+      position:absolute;
+      right:-19px;
+      width: 0;
+      height: 0;
+      border-style: solid;
+      border-width: 20px 0 20px 20px;
+      border-color: transparent transparent transparent #ffc116;
     }
-    .topright .hrRotate2{
+    .progressinfoMenu a {
       position: absolute;
-      top:143px;
-      left:424px;
-      transform: rotate(90deg);
-    }*/
+      top: 5px;
+      left: 20px;
+      color: white;
+      padding: 7px 0px;
+      text-decoration: none;
+      transform: translate(0);
+      transition: all 1s ease; }
 
-/*節目場次*/
-.TheaterEvent {
-  padding: 2em 0 4em 0;
-  margin: 0 auto;
-  margin-top: 180px;
-  z-index: 1000;
-}
+    .buyticketMenu {
+      margin-top: 10px;
+      background-color: #ffc116;
+      width: 140px;
+      height: 40px;
+      /*background: linear-gradient(-45deg, transparent 40px, #ffc116 0%) bottom right, linear-gradient(130deg, transparent 0px, #ffc116 0%) bottom left, linear-gradient(-135deg, transparent 40px, #ffc116 0%) top right, linear-gradient(135deg, transparent 0px, #ffc116 0%) top left;*/
+      /*-45度，反方向堆回來，那塊顏色就消失*/
+      /*background-size: 50% 50%;*/
+      /*顏色各占一 半*/
+      background-repeat: no-repeat;
+      transform: translate(0);
+      transition: all 1s ease; }
 
-@media screen and (max-width: 767px) {
-  .TheaterEvent {
-    margin-top: 200px; } }
+    .buyticketMenu .buytickettriangle{
+      position:absolute;
+      right:-19px;
+      width: 0;
+      height: 0;
+      border-style: solid;
+      border-width: 20px 0 20px 20px;
+      border-color: transparent transparent transparent #ffc116;
+    }
 
-.Theatercounter {
-  margin: 0 auto;
-  text-align: center;
-  width: 100%;
-  max-width: 1068px; }
 
-.Theaterinfo {
-  display: inline-block;
-  margin: 10px 13px;
-  border: 3px solid #42d9ff; }
+    .buyticketMenu a {
+      position: relative;
+      top: 11px;
+      left: 20px;
+      color: white;
+      padding: 8px 0px;
+      text-decoration: none;
+      transform: translate(0);
+      transition: all 1s ease; }
 
-.Theaterinfo .special {
-  float: left;
-  display: inline-block;
-  margin: 10px;
-  /*width:200px;
-      height:auto;*/
-  /*position:relative;*/ }
+    .sq-one.move {
+      transform: translate(0px, 50px); }
 
-.image {
-  /* border-radius: 6px;*/
-  display: block;
-  width: 400px; }
+    .sq-two.move {
+      transform: translate(0px, -50px); }
 
-.spcial h3 {
-  font-size: 20px;
-  color: #ffffff;
-  line-height: 1.8em;
-  /*padding: 10px 10px;*/
-  text-align: center; }
+    /*topright*/
+    .topright {
+      width: 50%;
+      position: relative;
+      top: 60px;
+      left: 40%; }
 
-.spcial p {
-  color: #ffffff;
-  width: 397px;
-  text-align: left;
-  padding: 10px 10px; }
+    .topright .Recycle_arrows {
+      position: absolute;
+      top: 10px;
+      left: 30px;
+      cursor: pointer; }
 
-.spcial .buyticket {
-  float: right;
-  color: white;
-  font-size: 23px;
-  border: 1px #35ffba solid;
-  padding: 5px 10px;
-  margin: 10px 10px;
-  text-decoration: none; }
+    @media screen and (max-width: 767px) {
+      .topright .Recycle_arrows {
+        display: none; } }
 
-.Theaterinfo .spcial:after {
-  content: '';
-  display: block;
-  clear: both; }
+    .topright .Menutitle h2{
+      position: absolute;
+      top: 10px;
+      left: 100px;
+      color: white;
+      font-size: 32px; }
+
+    @media screen and (max-width: 767px) {
+      .topright .Menutitle h2{
+        width: 119px;
+        margin-top: 28px;
+        margin-left: 20px;
+        font-size: 24px; } }
+
+    /*畫線*/
+    .toprightcanvas {
+      position: absolute;
+      top: 10px;
+      left: 230px; }
+
+    @media screen and (max-width: 767px) {
+      .toprightcanvas {
+        display: none; } }
+
+    /*.topright hr{
+          position: absolute;
+          top:20px;
+          left:300px;
+        }
+        .topright .hrRotate{
+          position: absolute;
+          top:56px;
+          left:387px;
+          transform: rotate(45deg);
+        }
+        .topright .hrRotate2{
+          position: absolute;
+          top:143px;
+          left:424px;
+          transform: rotate(90deg);
+        }*/
+
+    /*節目場次*/
+    .TheaterEvent {
+      padding: 2em 0 4em 0;
+      margin: 0 auto;
+      margin-top: 180px;
+      z-index: 1000;
+    }
+
+    @media screen and (max-width: 767px) {
+      .TheaterEvent {
+        margin-top: 200px; } }
+
+    .Theatercounter {
+      margin: 0 auto;
+      text-align: center;
+      width: 100%;
+      max-width: 1068px; }
+
+    .Theaterinfo {
+      display: inline-block;
+      margin: 10px 13px;
+      border: 3px solid #42d9ff; }
+
+    .Theaterinfo .special {
+      float: left;
+      display: inline-block;
+      margin: 10px;
+      /*width:200px;
+          height:auto;*/
+      /*position:relative;*/ }
+
+    .image {
+      /* border-radius: 6px;*/
+      display: block;
+      width: 400px; }
+
+    .spcial h3 {
+      font-size: 20px;
+      color: #ffffff;
+      line-height: 1.8em;
+      /*padding: 10px 10px;*/
+      text-align: center; }
+
+    .spcial p {
+      color: #ffffff;
+      width: 397px;
+      text-align: left;
+      padding: 10px 10px; }
+
+    .spcial .buyticket {
+      float: right;
+      font-size: 23px;
+      /*border: 1px #35ffba solid;
+      padding: 5px 10px;*/
+      margin: 10px 10px; }
+
+    .spcial  a{
+      text-decoration: none;
+      display: block;
+      width: 150px;
+      height: 35px;
+      text-align: center;
+      line-height: 35px;
+      background-color: rgba(255, 193, 22,0.3);
+      color: white;
+      position: relative;
+      transition: background-color .2s linear;  
+    }
+    .spcial  a:after{
+      content: "";
+      position: absolute;
+      top:50%;
+      left: 50%;
+      transform: translate(-50%,-50%);
+      width: 100%;
+      height: 100%;
+      border: 2px solid rgba(255, 193, 22,0.6);
+      transition: all .2s linear;
+    }
+    .spcial  a:hover{
+      background-color: rgba(255, 193, 22,0.9);
+      color: black;
+    }
+    .spcial  a:hover:after{
+      width: 108%;
+      height: 125%;
+      border: 2px solid rgba(255, 193, 22,0.8);
+    }
+    .Theaterinfo .spcial:after {
+      content: '';
+      display: block;
+      clear: both; }
