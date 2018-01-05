@@ -57,6 +57,7 @@ function canvasRunStop(){
     cancelAnimationFrame(timer1);
     clearTimeout(timer2);
     clearTimeout(timer3);
+    
   }
 }
 
@@ -210,6 +211,7 @@ function e_light(){
      		Rect(1078.7/1583*w,275/539*h,10/1583*w,80/539*h,"#00f6ff");
      		Rect(990.9/1583*w,305.2/539*h,10/1583*w,80/539*h,"#00f6ff");
      		timer1 = requestAnimationFrame(doorAnimate);
+        console.log(height);
      }
      doorAnimate();
 
@@ -246,7 +248,7 @@ function e_light(){
      		
      		Rect(784.9/1583*w,390/539*h,10/1583*w,20/539*h,"rgb("+a+","+b+","+c+")");/*color*/
      		timer2 = setTimeout(leftAnimate_A,randomTime);
-        console.log(randomTime);
+        
      }
      leftAnimate_A();
 
