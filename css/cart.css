@@ -1,12 +1,18 @@
+@font-face {
+  font-family: Inconsolata;
+  src: url("Inconsolata-Regular.ttf"); }
+
 body{
 	font-family: 微軟正黑體, arial;
-	font-weight: 900;
 	background-color: #111;
-	color: white;
+	color: azure;
 }
 
 *{
 	/*border: 1px solid red;*/
+	margin: 0;
+	padding: 0;
+	font-family: Inconsolata, 微軟正黑體;
 }
 
 h1{
@@ -22,12 +28,18 @@ img{
 	margin-left: 15%;
 	text-align: left;
 	border: none;
+	/*border: 1px solid red;*/
 }
 th{
 	font-size: 20px;
 	padding: 5px;
 	height: 30px;
 	border: none;
+	/*border: 1px solid red;*/
+}
+
+#fare_th{
+	text-align: right;
 }
 td{
 	padding: 5px;
@@ -35,12 +47,15 @@ td{
 	padding-bottom: 5px;
 	border: none;
 	border-bottom: 1px solid azure;
+	/*border: 1px solid red;*/
 }
 
+title{
+	font-weight: normal;
+}
 
 input{
-	/*height: 100px;*/
-	width: 30px;
+	width: 40px;
 	padding: 5px;
 	border: 1px solid navy;
 	box-shadow: none;
@@ -70,6 +85,7 @@ input{
 	width: 250px;
 	margin: 20px auto;
 }.sub_total{
+
 }
 #cart_total_prev{
 	font-size: 24px;
@@ -77,21 +93,20 @@ input{
 }
 #cart_total{
 	font-size: 28px;
-	/*color: red;*/
+	width: 100px;
 }.delete_btn_td{
 	width: 25px;
 	padding-top: 5px;
 	vertical-align: top;
 }.delete_btn{
 	font-size: 16px;
-	/*border-radius: 100%;*/
 	border: none;
 	color: black;
 	background-color: white;
 	box-shadow: 0 0 0 black inset;
 }
 
-#backToShop, #NextStep{
+#backToShop, #nextStep{
 	font-family: 微軟正黑體;
 	width: 120px;
 	padding: 16px;
@@ -101,5 +116,14 @@ input{
 
 #button a {
 	text-decoration: none;
+	color: white;
+}
+
+.delete_btn{
+	text-align: center;
+	width: 20px;
+	cursor: pointer;
+}#nextStep{
+	font-size: 14px;
 	color: white;
 }
