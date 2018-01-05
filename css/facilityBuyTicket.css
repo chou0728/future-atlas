@@ -28,16 +28,20 @@ body::-webkit-scrollbar-thumb {
   .ctrl {
       display: inline-block;
       vertical-align: middle;
-      width: 180px;
+      width: 45%;
+      max-width: 150px;
       height: 30px;
       background-color: #222;
       border-radius: 3px;
       font-size: 22px;
       position: relative;
+      float: right;
+
     }
     .ctrl-counter {
       position: absolute;
-      width: 100px;
+      width: 53.3%;
+      max-width: 80px;
       height: 30px;
       top:50%;
       left:50%;
@@ -45,6 +49,7 @@ body::-webkit-scrollbar-thumb {
       color: #333C48;
       text-align: center;
       overflow: hidden;
+      border : 1px solid rgba(90, 230, 219,0.5);
     }
 
     .ctrl-counter-input {
@@ -60,7 +65,7 @@ body::-webkit-scrollbar-thumb {
       box-shadow: none;
       outline: none;
       border: none;
-      font-size: 24px;
+      font-size: 20px;
       line-height: 30px;
       text-align: center;
       background-color:rgba(0,0,0,0.5);
@@ -75,7 +80,8 @@ body::-webkit-scrollbar-thumb {
     color: white;
    }
     .ctrl-button {
-      width: 40px;
+      width: 23.3%;
+      max-width: 35px;
       height: 30px;
       line-height: 28px;
       text-align: center;
@@ -115,12 +121,12 @@ body::-webkit-scrollbar-thumb {
 .fbtWrapper{
   width:80%;
   max-width: 1440px;
-  padding: 8% 3% 3% 3%;
+  padding: 8% 2% 2% 2%;
   margin: 0 auto;
 }
 .fbtWrapper .ticketbox{
 	width: 25%;
-/*  min-width: 300px;*/
+  min-width: 250px;
   margin:4.1%;
   float: left;
 
@@ -210,19 +216,16 @@ body::-webkit-scrollbar-thumb {
   color: #42D6CA;
   font-family: "微軟正黑體";
   font-weight: bold;
+  letter-spacing: 1.5px;
 }
 /*ticket icon-rotate end*/
 .ticketbox .shortInfo{
-  font-size: 18px;
+  width: 100%;
+  margin: 10px 0;
+  font-size: 20px;
 }
 
-.t_table{
-	width: 100%;
-  margin: 10px auto;
-}
-.t_table td{
-  padding: 10px 15px 10px 15px;
-}
+
 .f_img{
 	position: relative;
 }
@@ -240,6 +243,24 @@ body::-webkit-scrollbar-thumb {
 }
 
 
+.ticketbox .adult,.ticketbox .child{
+  width: 100%;
+  font-size:18px;
+  margin: 20px 0;
+}
+.ticketbox .adult span,.ticketbox .child span{
+  float: left;
+  padding-top: 5px;
+  letter-spacing: 1.5px;
+}
+.ticketbox .adult span.price,.ticketbox .child span.price{
+  color: #5AE6DB;
+}
+.ticketbox .adult:after,.ticketbox .child:after{
+  content: "";
+  display: block;
+  clear: both;
+}
 
 
 /*btn*/
