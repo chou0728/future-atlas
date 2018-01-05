@@ -46,18 +46,7 @@ body::-webkit-scrollbar-thumb {
       text-align: center;
       overflow: hidden;
     }
-    .ctrl-counter.is-input .ctrl-counter-num {
-      visability: hidden;
-      opacity: 0;
-      -webkit-transition: opacity 100ms ease-in;
-      transition: opacity 100ms ease-in;
-    }
-    .ctrl-counter.is-input .ctrl-counter-input {
-      visability: visible;
-      opacity: 1;
-      -webkit-transition: opacity 100ms ease-in;
-      transition: opacity 100ms ease-in;
-    }
+
     .ctrl-counter-input {
       width: 100%;
       height: 100%;
@@ -71,56 +60,20 @@ body::-webkit-scrollbar-thumb {
       box-shadow: none;
       outline: none;
       border: none;
-      color: #333C48;
       font-size: 24px;
       line-height: 30px;
       text-align: center;
-      visability: hidden;
-      opacity: 0;
-      -webkit-transition: opacity 100ms ease-in;
-      transition: opacity 100ms ease-in;
+      background-color:rgba(0,0,0,0.5);
+      transition: all 0.1s ease-in;
+      color: #5AE6DB;
     }
-    .ctrl-counter-num {
-      position: absolute;
-      z-index: 1;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      line-height: 30px;
-      visability: visible;
-      opacity: 1;
-      -webkit-transition: opacity 100ms ease-in;
-      transition: opacity 100ms ease-in;
-    }
-    .ctrl-counter-num.is-increment-hide {
-      opacity: 0;
-      -webkit-transform: translateY(-50px);
-      transform: translateY(-50px);
-      -webkit-animation: increment-prev 100ms ease-in;
-      animation: increment-prev 100ms ease-in;
-    }
-    .ctrl-counter-num.is-increment-visible {
-      opacity: 1;
-      -webkit-transform: translateY(0);
-      transform: translateY(0);
-      -webkit-animation: increment-next 100ms ease-out;
-      animation: increment-next 100ms ease-out;
-    }
-    .ctrl-counter-num.is-decrement-hide {
-      opacity: 0;
-      -webkit-transform: translateY(50px);
-      transform: translateY(50px);
-      -webkit-animation: decrement-prev 100ms ease-in;
-      animation: decrement-prev 100ms ease-in;
-    }
-    .ctrl-counter-num.is-decrement-visible {
-      opacity: 1;
-      -webkit-transform: translateY(0);
-      transform: translateY(0);
-      -webkit-animation: decrement-next 100ms ease-out;
-      animation: decrement-next 100ms ease-out;
-    }
+   .ctrl-counter-input:active{
+    background-color:rgba(0,0,0,1);
+   }
+   .ctrl-counter-input:focus{
+    background-color:rgba(0,0,0,1);
+    color: white;
+   }
     .ctrl-button {
       width: 40px;
       height: 30px;
@@ -153,55 +106,6 @@ body::-webkit-scrollbar-thumb {
       top:0;
       right:0;
       border-radius: 0 3px 3px 0;
-    }
-    @-webkit-keyframes decrement-prev {
-      from {
-      opacity: 1;
-      -webkit-transform: translateY(0);
-      transform: translateY(0);
-    }
-    } @keyframes decrement-prev {
-      from {
-      opacity: 1;
-      -webkit-transform: translateY(0);
-      transform: translateY(0);
-    }
-    } @-webkit-keyframes decrement-next {
-      from {
-      opacity: 0;
-      -webkit-transform: translateY(-50px);
-      transform: translateY(-50px);
-    }
-    } @keyframes decrement-next {
-      from {
-      opacity: 0;
-      -webkit-transform: translateY(-50px);
-      transform: translateY(-50px);
-    }
-    } @-webkit-keyframes increment-prev {
-      from {
-      opacity: 1;
-      -webkit-transform: translateY(0);
-      transform: translateY(0);
-    }
-    } @keyframes increment-prev {
-      from {
-      opacity: 1;
-      -webkit-transform: translateY(0);
-      transform: translateY(0);
-    }
-    } @-webkit-keyframes increment-next {
-      from {
-      opacity: 0;
-      -webkit-transform: translateY(50px);
-      transform: translateY(50px);
-    }
-    } @keyframes increment-next {
-      from {
-      opacity: 0;
-      -webkit-transform: translateY(50px);
-      transform: translateY(50px);
-    }
     }
 
  /* input-number-end*/
