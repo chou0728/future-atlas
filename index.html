@@ -6,6 +6,7 @@
 	<title>FA</title>
 	<link rel="stylesheet" type="text/css" href="css/RESET.css">
 	<link rel="stylesheet" type="text/css" href="css/header.css">
+	<link rel="stylesheet" type="text/css" href="css/login.css">
 	<link rel="stylesheet" type="text/css" href="css/01main.css">
 	<link rel="stylesheet" type="text/css" href="css/01main_ferris_wheel.css">
 	<link rel="stylesheet" type="text/css" href="css/02map.css">
@@ -19,13 +20,13 @@
 
 <body>
 
-	<div class="header">
+<div class="header">
 	<ul class="ul_top">
 		<li>
 			<a href="javascript:void(0)">註冊</a>
 		</li>
 		<li>
-			<a href="javascript:void(0)">登入</a>
+			<a href="#" id="singUpBtn">登入</a>
 		</li>
 		<li>
 			<a href="input_cart.html">購物車</a>
@@ -35,7 +36,7 @@
 <div class="nav">
 	<ul class="ul_left">
 		<li>
-			<a href="javascript:void(0)">劇場購票</a>
+			<a href="buyTTicket.html">劇場購票</a>
 		</li>
 		<li>
 			<a href="facilityBuyTicket.html">設施購票</a>
@@ -351,6 +352,7 @@
 		    <div id="cal">
 		    <table id="mycal" border="0" cellspacing="0" cellpadding="5">
 		        <tr id="dayRow" fontColor="black" cellspacing="10">
+
 		            <td>SUN</td>
 		            <td>MON</td>
 		            <td>TUE</td>
@@ -563,13 +565,34 @@
         	        </div>
             </div>
     </div>	
-
-
-
 	</section>
 </div>
 
+<!-- 登入燈箱 -->
+<div id="lightBox">
+	<div id="cancel">關閉</div> 
+	<img class="bar" src="img/bar.png" alt="bar">                                                            
+	<form class="singUp" action="" method="get">
+		<h2>會員登入</h2>
+		<div class="text">
+			會員帳號：<input type="text" name="" value=""  required placeholder="輸入帳號"><br>
+			會員密碼：<input type="password" name="" value=""  required placeholder="輸入密碼"><br>
+		</div>	
+		<div class="btn">
+			<input type="submit" name="submit" value="登入">
+			<input type="reset" name="reset" value="取消">
+		</div>
+	</form>
+</div>
+
+
+
+<<<<<<< HEAD
 <!-- <div id="loading">
+=======
+<!-- LOADING畫面 -->
+<div id="loading">
+>>>>>>> 458c9a78774b96f6bab59f18bd3e8fe56d778364
 	<div class="loading">Loading</div>
 </div> -->
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/parallax/3.1.0/parallax.min.js"></script>
@@ -589,6 +612,7 @@
 		});
 
 		// LOADING畫面js--------------------------------------
+<<<<<<< HEAD
 		// var originTime = new Date().getTime();
 
 		// function loading(){
@@ -615,6 +639,38 @@
 		// 	}
 		// }
 		// window.addEventListener('load', loading);
+=======
+		var originTime = new Date().getTime();
+
+		function loading(){
+			var now = new Date().getTime();
+			console.log(originTime,now);
+		if (now-originTime<=2000) {
+		  	setTimeout('stopload()',3000-(now-originTime));
+		    return;
+		  } else {
+		    stopload();
+		  }
+		}
+		setTimeout('stopload()',3300);
+
+		function stopload(){
+			loading = document.getElementById('loading');
+			loading.style.opacity="0";
+			setTimeout("loadDisplay()",600);
+			if(location.hash=="#page1"||location.hash==""){
+      			e_light();
+  			}
+
+			//canvas重新讀取:因scrollbar寬度影響需要resize
+		}
+		function loadDisplay(){
+			if(loading.style.opacity== 0){
+				loading.style.display="none";
+			}
+		}
+		window.addEventListener('load', loading);
+>>>>>>> 458c9a78774b96f6bab59f18bd3e8fe56d778364
 
 		//theater---------------------------------------------------
 		//theater---------------------------------------------------
@@ -642,8 +698,41 @@
 				$("#intro.current").css('background-image', 'url("'+pic[a%=2]+'")');
 				a++;
 			},2800);
+
 		});
 
+		//-登入-----------------------------------
+		window.onload = function(){
+			/*註冊登入按鈕*/
+		var singUpBtn = document.getElementById('singUpBtn');
+
+		/*註冊燈箱*/
+		var lightBox = document.getElementById('lightBox');
+
+		/*註冊燈箱關閉按鈕*/
+		var cancel = document.getElementById('cancel');
+
+		/*建立登入按鈕點擊事件聆聽功能*/
+		singUpBtn.addEventListener('click',showLogin,false);
+
+		/*建立關閉登入燈箱按鈕點擊事件聆聽功能*/
+		cancel.addEventListener('click',closeLogin,false);
+
+
+		/*點案登入show出登入燈箱*/
+		function showLogin(){
+				lightBox.style.opacity=1;
+				lightBox.style.visibility='visible';
+		}
+
+
+		/*點案登入關閉登入燈箱*/
+		function closeLogin(){
+				lightBox.style.opacity=0;
+				lightBox.style.visibility='hidden';
+		}
+		}
+		
 	</script>
 	
 
