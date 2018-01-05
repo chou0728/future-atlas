@@ -101,74 +101,95 @@ $(document).ready(function(){
     //延遲一秒後才會跳到Theaterbuyticket.html
 		setTimeout(function(){
 			window.location.href = 'Theaterbuyticket.html';
-		},500); 
+		},300); 
 	}); 
+});
+
+//太空人、星球動畫
+$(document).ready(function(){
+    setTimeout(function(){
+      $('.planet').animate({
+            left: '30%'
+          },1500);
+      $('.spaceman').animate({
+            left: '30%'
+          },1500);
+      $('.programonetitle').animate({
+            left: '25%'
+          },1500);
+      $('.programonecontent').animate({
+            left: '25%'
+          },1500);
+    },250);  
 });
 
 // programoneline 和 programtwospan、spaceship 的變化
 $(document).ready(function(){
     $(document).scroll(function(){
         var scroll_value = $(document).scrollTop();
-        // programoneline
-        if (scroll_value>40) {
-          $('#programoneline').css({
-            height: '15%'
-          },1000)
-        }
+        // programoneline、programoneline2
 
-        if (scroll_value>80) {
-          $('#programoneline').css({
-            height: '20%'
-          }, 1000)
-        }
-        if (scroll_value>100) {
-          $('#programoneline').css({
-            height: '30%'
-          }, 1500)
-        }
-        if (scroll_value>110) {
-          $('#programoneline').css({
-            height: '40%'
-          }, 1500)
-        }
         if (scroll_value>120) {
           $('#programoneline').css({
+            width:'5',
             height: '60%'
-          },2000)
+          },1000)
+        }
+        if (scroll_value>120) {
+           $('#programoneline2').css({
+             width:'5',
+             height: '60%'
+          }, 1000)
         }
 
         // spaceship
-         if (scroll_value>140) {
-          $('#spaceship').animate({
-          	left: '-20%'
+        if (scroll_value>140) {
+          $('.spaceship').animate({
+          	left: '10%'
           },1500)
+        }
+
+        //programtwotitle
+        if (scroll_value>140) {
+          $('.programtwotitle').animate({
+            left: '1%'
+          },1500)
+        }
+
+        //programtwocontent
+           if (scroll_value>160) {
+             $('.programtwocontent').animate({
+               left: '5%'
+            },1500)
         }
 
         // programtwospan
         if (scroll_value>490) {
-          $('#programtwospan').css({
-            height: '30%'
-          }, 500)
-        }
-        if (scroll_value>520) {
-          $('#programtwospan').css({
-            height: '50%'
-          }, 500)
-        }
-        if (scroll_value>540) {
-          $('#programtwospan').css({
-            height: '70%'
-          }, 500)
-        }
-        if (scroll_value>580) {
-          $('#programtwospan').css({
-            height: '180%'
-          }, 500)
-        }
-        if (scroll_value>640) {
-          $('#programtwospan').css({
-            height: '300%'
-          }, 500)
-        }
+         $('.programtwospan').css({
+            width:'5',
+            height: '355%'
+           }, 500)
+         }
+        if (scroll_value>490) {
+         $('.programtwospan2').css({
+            width:'5',
+            height: '346%'
+           }, 500)
+         }
+         if (scroll_value>700) {
+         $('.programtwoHr').animate({
+            right: '40.7%'
+           }, 500)
+         }
+         if (scroll_value>700) {
+         $('.programtwoHr2').animate({
+            right: '35%'
+           }, 500)
+         }
+         if (scroll_value>700) {
+         $('.programtwoimg').animate({
+            left: '20%'
+           }, 1000)
+         }
     });
 });

@@ -11,6 +11,9 @@
     body {
       font-family: "微軟正黑體", Arial ,sans-serif;
       background-color: black;
+      color: #5AE6DB;
+      line-height:1.5;
+      letter-spacing: 2px;
       /* background-image: url("../img/Galaxy_1.jpg");
     background-size: cover;
       */
@@ -18,23 +21,20 @@
 
     .container {
       width: 70%;
-      margin: 0 auto; }
-
-    @media screen and (max-width: 767px) {
-      .container {
-        width: 100%;
-        /*max-width: 700px;*/ }
-      .container .Menu {
-        position: relative;
-        top: 160px;
-        left: 73px; } }
+      margin: 0 auto;
+      position:relative;
+    }
 
     .Menu {
       width: 50%;
       position: relative;
       top: 160px;
       left: 25%; }
-
+    @media screen and (max-width: 768px){
+      .Menu{
+        width: 90%;
+      }
+    }
     .progressinfoMenu {
       margin-top: 10px;
       background-color: #ffc116;
@@ -47,7 +47,15 @@
       /*顏色各占一 半*/
       background-repeat: no-repeat;
       transform: translate(0);
-      transition: all 1s ease; }
+      transition: all 0.3s ease; 
+    }
+    @media screen and (max-width: 768px){
+      .progressinfoMenu{
+        position:absolute;
+        top:-10px;
+        left:64%;
+      }
+    }
     .progressinfoMenu .progressinfotriangle{
       position:absolute;
       right:-19px;
@@ -57,15 +65,20 @@
       border-width: 20px 0 20px 20px;
       border-color: transparent transparent transparent #ffc116;
     }
+    @media screen and (max-width: 767px){
+      .progressinfoMenu .progressinfotriangle{
+        display: none;
+      }
+    }
     .progressinfoMenu a {
       position: absolute;
-      top: 5px;
+      top:2px;
       left: 20px;
-      color: white;
+      color: black;
       padding: 7px 0px;
       text-decoration: none;
       transform: translate(0);
-      transition: all 1s ease; }
+      transition: all 0.3s ease; }
 
     .buyticketMenu {
       margin-top: 10px;
@@ -78,7 +91,7 @@
       /*顏色各占一 半*/
       background-repeat: no-repeat;
       transform: translate(0);
-      transition: all 1s ease; }
+      transition: all 0.3s ease; }
 
     .buyticketMenu .buytickettriangle{
       position:absolute;
@@ -89,17 +102,21 @@
       border-width: 20px 0 20px 20px;
       border-color: transparent transparent transparent #ffc116;
     }
-
+     @media screen and (max-width: 767px){
+      .buyticketMenu .buytickettriangle{
+        display: none;
+      }
+    }
 
     .buyticketMenu a {
       position: relative;
-      top: 11px;
+      top:9px;
       left: 20px;
-      color: white;
+      color: black;
       padding: 8px 0px;
       text-decoration: none;
       transform: translate(0);
-      transition: all 1s ease; }
+      transition: all 0.3s ease; }
 
     .sq-one.move {
       transform: translate(0px, 50px); }
@@ -124,19 +141,24 @@
       .topright .Recycle_arrows {
         display: none; } }
 
-    .topright .Menutitle h2{
+    .topright .Menutitleh2 {
       position: absolute;
       top: 10px;
-      left: 100px;
+      left: 89px;
       color: white;
-      font-size: 32px; }
+      font-size:24px; }
 
-    @media screen and (max-width: 767px) {
-      .topright .Menutitle h2{
-        width: 119px;
-        margin-top: 28px;
-        margin-left: 20px;
-        font-size: 24px; } }
+    @media screen and (max-width: 768px) {
+      .topright .Menutitleh2{
+        width:300px;
+        position: absolute;
+        top: 40%;
+        left: 30%;
+        /*margin-top: 28px;
+        margin-left: 20px;*/
+        font-size: 24px; 
+        } 
+    }
 
     /*畫線*/
     .toprightcanvas {
@@ -166,6 +188,11 @@
           transform: rotate(90deg);
         }*/
 
+    .spcial  h2{
+      font-size: 24px;
+      color:#fff;
+    }
+
     /*節目場次*/
     .TheaterEvent {
       padding: 2em 0 4em 0;
@@ -173,7 +200,11 @@
       margin-top: 180px;
       z-index: 1000;
     }
-
+    .TheaterEventTitle{
+      text-align: center;
+      font-size: 36px;
+      color:#fff;
+    }
     @media screen and (max-width: 767px) {
       .TheaterEvent {
         margin-top: 200px; } }
@@ -202,15 +233,13 @@
       display: block;
       width: 400px; }
 
-    .spcial h3 {
+    /*.spcial h3 {
       font-size: 20px;
       color: #ffffff;
       line-height: 1.8em;
-      /*padding: 10px 10px;*/
-      text-align: center; }
+      text-align: center; }*/
 
     .spcial p {
-      color: #ffffff;
       width: 397px;
       text-align: left;
       padding: 10px 10px; }
