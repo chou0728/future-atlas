@@ -649,6 +649,35 @@
 			},2800);
 		});
 
+		//-登入-----------------------------------
+				/*註冊登入按鈕*/
+		var singUpBtn = document.getElementById('singUpBtn');
+
+		/*註冊燈箱*/
+		var lightBox = document.getElementById('lightBox');
+
+		/*註冊燈箱關閉按鈕*/
+		var cancel = document.getElementById('cancel');
+
+		/*建立登入按鈕點擊事件聆聽功能*/
+		singUpBtn.addEventListener('click',showLogin,false);
+
+		/*建立關閉登入燈箱按鈕點擊事件聆聽功能*/
+		cancel.addEventListener('click',closeLogin,false);
+
+
+		/*點案登入show出登入燈箱*/
+		function showLogin(){
+				lightBox.style.opacity=1;
+				lightBox.style.visibility='visible';
+		}
+
+
+		/*點案登入關閉登入燈箱*/
+		function closeLogin(){
+				lightBox.style.opacity=0;
+				lightBox.style.visibility='hidden';
+		}
 	</script>
 	
 
