@@ -14,12 +14,13 @@
 	<link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/earlyaccess/thabit.css">
 	<link rel="stylesheet" type="text/css" href="css/04activity_calendar.css">
 	<link rel="stylesheet" type="text/css" href="css/05ticket.css">
+	<link rel="stylesheet" type="text/css" href="css/SignUp.css">
 	<link rel="stylesheet" type="text/css" href="css/javascript.fullPage.css" />
 </head>
 
 <body>
 
-	<div class="header">
+<div class="header">
 	<ul class="ul_top">
 		<li>
 			<a href="javascript:void(0)">註冊</a>
@@ -664,10 +665,12 @@
 				$("#intro.current").css('background-image', 'url("'+pic[a%=2]+'")');
 				a++;
 			},2800);
+
 		});
 
 		//-登入-----------------------------------
-				/*註冊登入按鈕*/
+		window.onload = function(){
+			/*註冊登入按鈕*/
 		var singUpBtn = document.getElementById('singUpBtn');
 
 		/*註冊燈箱*/
@@ -695,6 +698,8 @@
 				lightBox.style.opacity=0;
 				lightBox.style.visibility='hidden';
 		}
+		}
+		
 	</script>
 	
 
