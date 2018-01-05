@@ -25,7 +25,7 @@
 			<a href="javascript:void(0)">註冊</a>
 		</li>
 		<li>
-			<a href="javascript:void(0)">登入</a>
+			<a href="#" id="singUpBtn">登入</a>
 		</li>
 		<li>
 			<a href="input_cart.html">購物車</a>
@@ -35,7 +35,7 @@
 <div class="nav">
 	<ul class="ul_left">
 		<li>
-			<a href="javascript:void(0)">劇場購票</a>
+			<a href="buyTTicket.html">劇場購票</a>
 		</li>
 		<li>
 			<a href="facilityBuyTicket.html">設施購票</a>
@@ -608,7 +608,11 @@
 			loading = document.getElementById('loading');
 			loading.style.opacity="0";
 			setTimeout("loadDisplay()",600);
-			e_light();//canvas重新讀取:因scrollbar寬度影響需要resize
+			if(location.hash=="#page1"||location.hash==""){
+      			e_light();
+  			}
+
+			//canvas重新讀取:因scrollbar寬度影響需要resize
 		}
 		function loadDisplay(){
 			if(loading.style.opacity== 0){
