@@ -24,12 +24,190 @@ body::-webkit-scrollbar-thumb {
  /* outline: 1px solid rgba(100,255,243,1);*/
 }
 
-select,option{
-	padding: 0px 15px 0 15px;
-	color: black;
-	outline: none;
-	border-style: none;
-}
+ /* input-number*/
+  .ctrl {
+      display: inline-block;
+      vertical-align: middle;
+      width: 180px;
+      height: 30px;
+      background-color: #222;
+      border-radius: 3px;
+      font-size: 22px;
+      position: relative;
+    }
+    .ctrl-counter {
+      position: absolute;
+      width: 100px;
+      height: 30px;
+      top:50%;
+      left:50%;
+      transform: translate(-50%,-50%);
+      color: #333C48;
+      text-align: center;
+      overflow: hidden;
+    }
+    .ctrl-counter.is-input .ctrl-counter-num {
+      visability: hidden;
+      opacity: 0;
+      -webkit-transition: opacity 100ms ease-in;
+      transition: opacity 100ms ease-in;
+    }
+    .ctrl-counter.is-input .ctrl-counter-input {
+      visability: visible;
+      opacity: 1;
+      -webkit-transition: opacity 100ms ease-in;
+      transition: opacity 100ms ease-in;
+    }
+    .ctrl-counter-input {
+      width: 100%;
+      height: 100%;
+      margin: 0;
+      padding: 0;
+      position: absolute;
+      top:50%;
+      left:50%;
+      transform: translate(-50%,-50%);
+      z-index: 2;
+      box-shadow: none;
+      outline: none;
+      border: none;
+      color: #333C48;
+      font-size: 24px;
+      line-height: 30px;
+      text-align: center;
+      visability: hidden;
+      opacity: 0;
+      -webkit-transition: opacity 100ms ease-in;
+      transition: opacity 100ms ease-in;
+    }
+    .ctrl-counter-num {
+      position: absolute;
+      z-index: 1;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      line-height: 30px;
+      visability: visible;
+      opacity: 1;
+      -webkit-transition: opacity 100ms ease-in;
+      transition: opacity 100ms ease-in;
+    }
+    .ctrl-counter-num.is-increment-hide {
+      opacity: 0;
+      -webkit-transform: translateY(-50px);
+      transform: translateY(-50px);
+      -webkit-animation: increment-prev 100ms ease-in;
+      animation: increment-prev 100ms ease-in;
+    }
+    .ctrl-counter-num.is-increment-visible {
+      opacity: 1;
+      -webkit-transform: translateY(0);
+      transform: translateY(0);
+      -webkit-animation: increment-next 100ms ease-out;
+      animation: increment-next 100ms ease-out;
+    }
+    .ctrl-counter-num.is-decrement-hide {
+      opacity: 0;
+      -webkit-transform: translateY(50px);
+      transform: translateY(50px);
+      -webkit-animation: decrement-prev 100ms ease-in;
+      animation: decrement-prev 100ms ease-in;
+    }
+    .ctrl-counter-num.is-decrement-visible {
+      opacity: 1;
+      -webkit-transform: translateY(0);
+      transform: translateY(0);
+      -webkit-animation: decrement-next 100ms ease-out;
+      animation: decrement-next 100ms ease-out;
+    }
+    .ctrl-button {
+      width: 40px;
+      height: 30px;
+      line-height: 28px;
+      text-align: center;
+      color: #000;
+      cursor: pointer;
+      background-color: #5AE6DB;
+      -webkit-transition: background-color 100ms ease-in;
+      transition: background-color 100ms ease-in;
+    }
+    .ctrl-button:hover {
+      background-color: #54ebff;
+      -webkit-transition: background-color 100ms ease-in;
+      transition: background-color 100ms ease-in;
+    }
+    .ctrl-button:active {
+      background-color: #008da0;
+      -webkit-transition: background-color 100ms ease-in;
+      transition: background-color 100ms ease-in;
+    }
+    .ctrl-button-decrement {
+      position: absolute;
+      top:0;
+      left:0;
+      border-radius: 3px 0 0 3px;
+    }
+    .ctrl-button-increment {
+      position: absolute;
+      top:0;
+      right:0;
+      border-radius: 0 3px 3px 0;
+    }
+    @-webkit-keyframes decrement-prev {
+      from {
+      opacity: 1;
+      -webkit-transform: translateY(0);
+      transform: translateY(0);
+    }
+    } @keyframes decrement-prev {
+      from {
+      opacity: 1;
+      -webkit-transform: translateY(0);
+      transform: translateY(0);
+    }
+    } @-webkit-keyframes decrement-next {
+      from {
+      opacity: 0;
+      -webkit-transform: translateY(-50px);
+      transform: translateY(-50px);
+    }
+    } @keyframes decrement-next {
+      from {
+      opacity: 0;
+      -webkit-transform: translateY(-50px);
+      transform: translateY(-50px);
+    }
+    } @-webkit-keyframes increment-prev {
+      from {
+      opacity: 1;
+      -webkit-transform: translateY(0);
+      transform: translateY(0);
+    }
+    } @keyframes increment-prev {
+      from {
+      opacity: 1;
+      -webkit-transform: translateY(0);
+      transform: translateY(0);
+    }
+    } @-webkit-keyframes increment-next {
+      from {
+      opacity: 0;
+      -webkit-transform: translateY(50px);
+      transform: translateY(50px);
+    }
+    } @keyframes increment-next {
+      from {
+      opacity: 0;
+      -webkit-transform: translateY(50px);
+      transform: translateY(50px);
+    }
+    }
+
+ /* input-number-end*/
+
+
+
 .fbtWrapper{
   width:80%;
   max-width: 1440px;
@@ -131,7 +309,6 @@ select,option{
 }
 /*ticket icon-rotate end*/
 .ticketbox .shortInfo{
-  padding: 10px;
   font-size: 18px;
 }
 
@@ -162,10 +339,8 @@ select,option{
 
 
 /*btn*/
-input.f_submit{
+.f_submit{
 	outline: none;
-	border:2px solid rgba(255, 193, 22,0.8);
-	padding:1%;
   position: relative;
   color: white;
   width: 100%;
@@ -173,15 +348,17 @@ input.f_submit{
   font-size: 18px;
   font-weight: bold;
   background-color: rgba(255, 193, 22,0.2);
-  /*transition: 0.2s linear;*/
+  transition: 0.2s linear;
+  line-height: 35px;
+  text-align: center;
 
 }
-input.f_submit:hover{
+.f_submit:hover{
   background-color: rgba(255, 193, 22,0.8);
   color: black;
   cursor: pointer;
 }
-input.f_submit:before{
+.f_submit:before{
   content: "";
   display: block;
   position: absolute;
@@ -192,9 +369,11 @@ input.f_submit:before{
   width: 100%;
   height: 100%;
   border:2px solid rgba(255, 193, 22,0.8);
+  transition: 0.2s linear;
 }
-input.f_submit:hover:before{
+.f_submit:hover:before{
+
   width: 103%;
   height: 120%;
-  border: 2px solid rgba(255, 193, 22,0.5);
+  border: 2px solid rgba(255, 193, 22,0.8);
 }
