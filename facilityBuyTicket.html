@@ -59,7 +59,7 @@
 				<figure class="front">
 					<img src="img/facilityBuyTicket/launched-rocket.png" class="icon">
 				</figure>
-				<figure class="back key">1</figure>
+				<figure class="back">1</figure>
 			</div>
 			<h2 class="ticketTitle">宇宙雲霄飛車</h2>
 		</div>
@@ -104,7 +104,7 @@
 				<figure class="front">
 					<img src="img/facilityBuyTicket/launched-rocket.png" class="icon">
 				</figure>
-				<figure class="back key">2</figure>
+				<figure class="back">2</figure>
 			</div>
 			<h2 class="ticketTitle">FA摩天輪</h2>
 		</div>
@@ -149,7 +149,7 @@
 				<figure class="front">
 					<img src="img/facilityBuyTicket/launched-rocket.png" class="icon">
 				</figure>
-				<figure class="back key">3</figure>
+				<figure class="back">3</figure>
 			</div>
 			<h2 class="ticketTitle">宇宙雲霄飛車</h2>
 		</div>
@@ -194,7 +194,7 @@
 				<figure class="front">
 					<img src="img/facilityBuyTicket/launched-rocket.png" class="icon">
 				</figure>
-				<figure class="back key">3</figure>
+				<figure class="back">4</figure>
 			</div>
 			<h2 class="ticketTitle">宇宙雲霄飛車</h2>
 		</div>
@@ -239,7 +239,7 @@
 				<figure class="front">
 					<img src="img/facilityBuyTicket/launched-rocket.png" class="icon">
 				</figure>
-				<figure class="back key">3</figure>
+				<figure class="back">5</figure>
 			</div>
 			<h2 class="ticketTitle">宇宙雲霄飛車</h2>
 		</div>
@@ -284,7 +284,7 @@
 				<figure class="front">
 					<img src="img/facilityBuyTicket/launched-rocket.png" class="icon">
 				</figure>
-				<figure class="back key">3</figure>
+				<figure class="back">6</figure>
 			</div>
 			<h2 class="ticketTitle">宇宙雲霄飛車</h2>
 		</div>
@@ -393,14 +393,8 @@ function l_storage(){
 		var cd = this.previousElementSibling.children[2].children[1].children[0].value;/*半票張數*/
 		var cdp = this.previousElementSibling.dataset.val;/*半票價格*/
 		var addToCart = adp+"/"+ad+"/"+cdp+"/"+cd;
-		if(ad!=0||cd!=0){
-			storage.setItem(fn,addToCart);
-			
-			
-				facility_list += fn+",";
-				storage.setItem("facility_list",facility_list);
-			
-        	
+		if(ad!=0||cd!=0){//判斷全票半票皆不為0張
+			storage.setItem(fn,addToCart);        	
 		}
 	}
 }
