@@ -6,6 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" type="text/css" href="css/RESET.css">
     <link rel="stylesheet" type="text/css" href="css/header.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>																					 
     <link rel="stylesheet" href="css/buyTTicket.css" />
     <script src="js/sessionStorage.js"></script>
     <title>buyTTicket</title>
@@ -60,12 +61,10 @@
        <!--  <h2>購買票劵</h2> -->
         <h2 class="verticalh2">購買票劵</h2>
         <table>
-
             <tr>
                 <td>節目名稱</td>
                 <td>
                     <input type="radio" name="programName" value="尋找星生命" checked onchange="changeTheaterName()">尋找星生命
-                    <br>
                     <br>
                     <input type="radio" name="programName" value="末世決戰" onchange="changeTheaterName()">末世決戰
                 </td>
@@ -73,7 +72,13 @@
             <tr>
                 <td>節目日期</td>
                 <td>
-                    <input type="date" id="programDate" name="programdate" required onchange="changeDate()" style="font-size:23px;">
+                  <!-- <input type="date" id="programDate" name="programdate" required onchange="changeDate()" style="font-size:23px;">-->
+				 <select id="theater1" onchange="changeDate()" style="font-size:23px;">
+					<option>尋找星生命</option>
+				 </select>
+				 <select id="theater2" onchange="changeDate()" style="font-size:23px;">
+					<option>末世決戰</option>
+				 </select>				  
                 </td>
             </tr>
             <tr>
@@ -107,12 +112,8 @@
         </table>
     </div>
     <div class="buyTTicketBtn">
-        <div class="Previouspage">
-            <a href="Theaterbuyticket.html" class="">上一頁</a>
-        </div>
-        <div class="buyticket">
-             <a href="Booking_details.html" class="">確認購買</a>
-        </div>
+            <a href="Theaterbuyticket.html" class="Previouspage">上一頁</a>
+            <a href="Booking_details.html" class="buyticket">確認購買</a>
     </div>
 </body>
 </html>

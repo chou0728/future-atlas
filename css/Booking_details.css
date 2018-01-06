@@ -12,47 +12,72 @@
     body {
       font-family: "微軟正黑體", Arial ,sans-serif;
       background-color: black;
+      color: #5AE6DB;
+      line-height:1.5;
+      letter-spacing: 2px;
       /* background-image: url("../img/Galaxy_1.jpg");
     background-size: cover;
       */
     }
-
+    .container {
+      width:100%;
+      margin: 0 auto;
+      position:relative;
+    }
     .Bookingh1 {
-      font-size: 48px;
+      font-size:32px;
       text-align: center;
-      margin: 150px 10px;
+      margin: 110px 10px;
       margin-bottom: 31px;
       color: white; }
 
-    @media screen and (max-width: 767px) {
+    @media screen and (max-width:414px) {
       .Bookingh1 {
         width: 100%;
         margin-left: auto;
-        margin-right: auto; } }
+        margin-right: auto; 
+        } 
+    }
+    .memberinfosection{
 
+    }
     .Bookingh2 {
-      font-size: 32px;
+      font-size:24px;
       margin: 10px 10px;
       margin-top: 50px;
       margin-left: 27%;
-      color: white; }
-
-    @media screen and (max-width: 767px) {
+      color: white; 
+    }
+    @media screen and (max-width:768px) and (min-width:415px){
+      .Bookingh2{
+        margin-left: 20%;
+      }
+    }
+    @media screen and (max-width: 414px) {
       .Bookingh2 {
         text-align: center;
         margin-left: auto;
-        margin-right: auto; } }
-
+        margin-right: auto; 
+        } 
+    }
+    
     .memberinfo {
       text-align: left;
-      margin-left: 27%;
+      /*margin-left: 27%;*/
+      margin:0 auto;
       font-size: 20px;
       letter-spacing: 3px;
       color: white;
       width: 45.5%;
-      border: 3px solid #35ffea; }
+      border: 3px solid #35ffea; 
+    }
+    @media screen and (max-width:768px) and (min-width:415px){
+      .memberinfo{
+        width: 60.5%;
+      }
+    }
 
-    @media screen and (max-width: 767px) {
+    @media screen and (max-width: 414px) {
       .memberinfo {
         width: 85%;
         margin-left: auto;
@@ -70,10 +95,16 @@
       color: white;
       border: 3px solid #35ffea;
       width: 46%; }
-
-    @media screen and (max-width: 767px) {
+    @media screen and (max-width:768px) and (min-width:415px){
       .orderlistsection table {
-        width: 85%; } }
+        width:60.5%; 
+        } 
+    }
+    @media screen and (max-width: 414px) {
+      .orderlistsection table {
+        width: 85%; 
+        } 
+    }
 
     th {
       text-align: center;
@@ -88,18 +119,26 @@
 
     .creditCardinfo {
       text-align: left;
-      margin-left: 27%;
+      /*margin-left: 27%;*/
+      margin :0 auto;
       font-size: 20px;
       letter-spacing: 3px;
       color: white;
       width: 45.5%;
       border: 3px solid #35ffea; }
-
-    @media screen and (max-width: 767px) {
+    
+    @media screen and (max-width:768px) and (min-width:415px){
+      .creditCardinfo {
+        width: 60.5%;
+      }
+    }
+    @media screen and (max-width: 414px) {
       .creditCardinfo {
         width: 85%;
         margin-left: auto;
-        margin-right: auto; } }
+        margin-right: auto; 
+        } 
+    }
 
     .creditCardinfo p {
       margin: 5px 5px;
@@ -109,7 +148,7 @@
       margin: 10px 10px;
       padding: 3px 3px; }
 
-    @media screen and (max-width: 767px) {
+    @media screen and (max-width:414px) {
       .creditCardinfo input{
         margin: 5px 5px;
         padding: 3px 3px;
