@@ -11,7 +11,7 @@ function doFirst(){
   context.moveTo(62,20); 
   context.lineTo(200,20);
   context.lineTo(250,80);
-  context.lineTo(250,170);
+  context.lineTo(250,208);
   context.stroke();
 }
 
@@ -26,7 +26,7 @@ $(document).ready(function(){
     //延遲一秒後才會跳到TheaterInfo.html
 		setTimeout(function(){
 			window.location.href = 'TheaterInfo.html';
-		},1000); 
+		},300); 
 	}); 
 });
 

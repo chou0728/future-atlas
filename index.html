@@ -15,6 +15,8 @@
 	<link rel="stylesheet" type="text/css" href="css/04activity_calendar.css">
 	<link rel="stylesheet" type="text/css" href="css/05ticket.css">
 	<link rel="stylesheet" type="text/css" href="css/javascript.fullPage.css" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+
 </head>
 
 <body>
@@ -317,14 +319,15 @@
 
 		<div id="calWrapper">
 		<div id="calRight">
-				<div id="showToday"></div>
-		            <div id="prevMonth">
-		                <i class="fa fa-caret-up"></i>
-		            </div>
-		            <div id="showMonth"></div>
-		            <div id="nextMonth">
-		                <i class="fa fa-caret-down"></i>
-		            </div>
+			<div id="showToday">
+	            <div id="prevMonth">
+	                <i class="fa fa-caret-up"></i>
+	            </div>
+	            <div id="showMonth"></div>
+	            <div id="nextMonth">
+	                <i class="fa fa-caret-down"></i>
+	            </div>
+	        </div>
 		    <div id="icons">
 	            <ul id="selectActivityClass">
 	                <li id="icon1" class="icons">
@@ -472,6 +475,9 @@
 		</div>
 
 		<div id="showActivityWrapper">
+			<div id="activityClose">
+				<i class="fa fa-times-circle"></i>
+			</div>
 		    <span id="activityDate">活動表</span>
 		    <span id="activityDay"></span>
 		    <div id="border_bottom"></div>
@@ -506,6 +512,10 @@
 		                <td colspan="2">星際漫遊</td>
 		            </tr>
 		        </table>
+		        <div id="weatherWrapper">
+		        	<div id="result">園區天氣<br>
+		        	</div>
+    			</div>
 		    </div>
 		</div>
 		</div>

@@ -13,6 +13,21 @@
   transform: translateY(90%);
   transition: transform 3s ease;
 }
+#ferrisAppear.ferris_cover{
+  transform: translateY(0);
+}
+@media screen and (max-width:768px) {
+      
+/*.ferris_cover{
+  width: 23%;
+  height: 67.683%;
+  transform: translateY(90%) translateX(-210%);
+}
+#ferrisAppear.ferris_cover{
+  transform: translateY(-15%) translateX(-210%);
+}*/
+
+}
 .silhouette .fd .ferris_cover .fw{/*摩天輪ㄉ支架*/
   width: 23.5%;
   position: absolute;
