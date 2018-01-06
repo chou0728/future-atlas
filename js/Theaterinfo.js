@@ -115,10 +115,10 @@ $(document).ready(function(){
             left: '30%'
           },1500);
       $('.programonetitle').animate({
-            left: '25%'
+            left: '1%'
           },1500);
       $('.programonecontent').animate({
-            left: '25%'
+            left: '3%'
           },1500);
     },250);  
 });
@@ -145,22 +145,22 @@ $(document).ready(function(){
         // spaceship
         if (scroll_value>140) {
           $('.spaceship').animate({
-          	left: '10%'
+            left: '-30%'
           },1500)
         }
 
         //programtwotitle
         if (scroll_value>140) {
           $('.programtwotitle').animate({
-            left: '1%'
+            left: '2%'
           },1500)
         }
 
         //programtwocontent
-           if (scroll_value>160) {
-             $('.programtwocontent').animate({
-               left: '5%'
-            },1500)
+          if (scroll_value>160) {
+            $('.programtwocontent').animate({
+              left: '8%'
+           },1500)
         }
 
         // programtwospan
@@ -178,17 +178,17 @@ $(document).ready(function(){
          }
          if (scroll_value>700) {
          $('.programtwoHr').animate({
-            right: '40.7%'
+            right: '40%'
            }, 500)
          }
          if (scroll_value>700) {
          $('.programtwoHr2').animate({
-            right: '35%'
+            right: '34%'
            }, 500)
          }
          if (scroll_value>700) {
          $('.programtwoimg').animate({
-            left: '20%'
+            left: '18%'
            }, 1000)
          }
     });
