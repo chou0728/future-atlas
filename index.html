@@ -7,6 +7,12 @@
 
 	<title>FA未來主題樂園</title>
 	<link rel="stylesheet" type="text/css" href="css/RESET.css">
+	<style type="text/css">
+		*{
+			text-decoration: none;
+			box-sizing: border-box;
+		}
+	</style>
 	<link rel="stylesheet" type="text/css" href="css/header.css">
 	<link rel="stylesheet" type="text/css" href="css/login.css">
 	<link rel="stylesheet" type="text/css" href="css/01main.css">
@@ -18,20 +24,22 @@
 	<link rel="stylesheet" type="text/css" href="css/04activity_calendar.css">
 	<link rel="stylesheet" type="text/css" href="css/05ticket.css">
 	<link rel="stylesheet" type="text/css" href="css/javascript.fullPage.css" />
+
 </head>
 
 <body>
-
-<div class="header">
+<div class="headerOpenBtn">
 	<img src="img/memberBtn0.png" class="memIcon">
+</div>
+<div class="header">
 	<ul class="ul_top">
-		<li>
+		<li class="li_top">
 			<a href="SignUp.html">註冊</a>
 		</li>
-		<li>
+		<li class="li_top">
 			<a href="#" id="singUpBtn">登入</a>
 		</li>
-		<li>
+		<li class="li_top">
 			<a href="input_cart.html">購物車</a>
 		</li>
 	</ul>
@@ -726,7 +734,25 @@
 			// 	}
 			// }
 			// window.addEventListener('load', loading);
-
+			//-導覽列RWD-----------------------------------
+			//-導覽列RWD-----------------------------------
+			function navOpen(){
+				var headerOpenBtn = document.getElementsByClassName("headerOpenBtn");
+				headerOpenBtn[0].addEventListener("click",navAppear);
+				headerOpenBtn[0].addEventListener("click",bannerMousewheelClose);
+				
+			}
+			function navAppear(){
+				alert();
+					var header = document.getElementsByClassName("header")[0];
+					var li_top = document.getElementsByClassName("li_top");
+					header.setAttribute("id","headerAppear");
+					for(var i =0;i<li_top.length;i++){
+						li_top[i].setAttribute("id","liAppear");
+					}
+					
+				}
+			window.addEventListener('load',navOpen);
 			//theater---------------------------------------------------
 			//theater---------------------------------------------------
 			$(document).ready(function () {
