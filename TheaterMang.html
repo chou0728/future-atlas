@@ -6,6 +6,7 @@
     <title>Theater progress</title>
     <link rel="stylesheet" type="text/css" href="css/reset.css">
     <style type="text/css">
+
     	table {
             border:1px solid black;
            /* width: 300px;*/
@@ -14,6 +15,9 @@
             font-size: 16px;
             /*margin-top:0px;*/
             border-collapse: collapse ;
+        }
+        .Newprogram{
+            /*text-align: right;*/
         }
         .titleh2{
             margin:30px 30px;
@@ -37,21 +41,25 @@
             border-radius: 30px;
             text-decoration:none;
         }
+        .okcancel{
+            margin:0 auto;
+        }
 </style>
 </head>
 <body>
     <form method="get" action="" align="center" enctype="multipart/form-data">
         <h2 class="titleh2">劇場節目</h2>
     	<table>
+            <button onclick="Newprogram"  class="Newprogram">新增</button>
             <tr>
-                <th>節目標號</th>
+                <th>節目編號</th>
                 <th>節目名稱</th>
                 <th>節目介紹</th>
                 <th>節目圖片</th>
                 <!-- <th>節目次要圖片</th> -->
                 <th>票價</th>
                 <th>節目狀態</th>
-                <th>新增/修改</th> 
+                <th>修改</th> 
             </tr>
     		
     		<tr>
@@ -67,7 +75,7 @@
                     　<option value="Off">下架</option>
                     </select></td>
     			<td>
-                    <a href="#">新增</a>
+                    <!-- <a href="#">新增</a> -->
                     <a href="#">修改</a>
                 </td>
     		</tr>
@@ -84,7 +92,7 @@
                     　<option value="Off">下架</option>
                     </select></td>
                 <td>
-                    <a href="#">新增</a>
+                    <!-- <a href="#">新增</a> -->
                     <a href="#">修改</a>
                 </td>
             </tr>
@@ -101,7 +109,7 @@
                     　<option value="Off">下架</option>
                     </select></td>
                 <td>
-                    <a href="#">新增</a>
+                    <!-- <a href="#">新增</a> -->
                     <a href="#">修改</a>
                 </td>
             </tr>
@@ -118,11 +126,21 @@
                     　<option value="Off">下架</option>
                     </select></td>
                 <td>
-                    <a href="#">新增</a>
+                    <!-- <a href="#">新增</a> -->
                     <a href="#">修改</a>
                 </td>
             </tr>
+
+
     	</table>
+        <div class="okcancel">
+            <button class="OKbtn">
+                儲存
+            </button>
+            <button class="cancelbtn">
+                取消
+            </button>
+        </div>
     </form>
 </body>
 </html>
