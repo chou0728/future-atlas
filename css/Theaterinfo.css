@@ -7,7 +7,7 @@
   * {
     margin: 0px;
     padding: 0px;
-    /*outline: 1px solid red; */
+    /*outline: 1px solid red;*/ 
   }
 
   body {
@@ -144,7 +144,7 @@
         display: none;
       }
   }
-  @media screen and (max-width:768px){
+  @media screen and (max-width:768px) and (min-width:415px){
       .buyticketMenu .buytickettriangle{
         display: none;
       }

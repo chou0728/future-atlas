@@ -6,7 +6,7 @@
     * {
       margin: 0px;
       padding: 0px;
-      /*outline: 1px solid red;*/ }
+      /*outline: 1px solid red; */}
 
     body {
       font-family: "微軟正黑體", Arial ,sans-serif;
@@ -18,21 +18,24 @@
     background-size: cover;
       */
     }
-
     .container {
-      width: 70%;
       margin: 0 auto;
       position:relative;
+	    text-align:center;
     }
 
     .Menu {
       width: 50%;
       position: relative;
       top: 160px;
-      left: 25%; }
-    @media screen and (max-width: 768px){
+      left: 32.5%; }
+    @media screen and (max-width:414px){
       .Menu{
-        width: 90%;
+        width:65%;
+		top: 0px;
+		left:0%;
+        margin-left: auto;
+        margin-right: auto;
       }
     }
     .progressinfoMenu {
@@ -49,11 +52,24 @@
       transform: translate(0);
       transition: all 0.3s ease; 
     }
-    @media screen and (max-width: 768px){
+    @media screen and (max-width:768px) and (min-width:415px){
       .progressinfoMenu{
-        position:absolute;
-        top:-10px;
-        left:64%;
+          /*position: absolute;
+          top:-11px;
+          left:-7%;*/
+          position: absolute;
+          top:-11px;
+          left:150px;
+      }
+    }
+    @media screen and (max-width: 414px){
+      .progressinfoMenu{
+        /*position: absolute;
+        top:-11px;
+        left:-7%;*/
+		    position: absolute;
+        top:-60px;
+        left:150px;
       }
     }
     .progressinfoMenu .progressinfotriangle{
@@ -65,7 +81,12 @@
       border-width: 20px 0 20px 20px;
       border-color: transparent transparent transparent #ffc116;
     }
-    @media screen and (max-width: 767px){
+    @media screen and (max-width:768px){
+      .progressinfoMenu .progressinfotriangle{
+        display: none;
+      }
+    }
+    @media screen and (max-width:414px){
       .progressinfoMenu .progressinfotriangle{
         display: none;
       }
@@ -92,7 +113,16 @@
       background-repeat: no-repeat;
       transform: translate(0);
       transition: all 0.3s ease; }
-
+    @media screen and (max-width: 414px){
+      .buyticketMenu{
+	    position: absolute;
+        top:-60px;
+        left:-20px;
+        /*position: absolute;
+        top:-11px;
+        left:142px;*/
+      }
+    }
     .buyticketMenu .buytickettriangle{
       position:absolute;
       right:-19px;
@@ -102,16 +132,20 @@
       border-width: 20px 0 20px 20px;
       border-color: transparent transparent transparent #ffc116;
     }
-     @media screen and (max-width: 767px){
+     @media screen and (max-width: 414px){
       .buyticketMenu .buytickettriangle{
         display: none;
       }
     }
-
+    @media screen and (max-width:768px) and (min-width:415px){
+      .buyticketMenu .buytickettriangle{
+        display: none;
+      }
+    }
     .buyticketMenu a {
       position: relative;
       top:9px;
-      left: 20px;
+      left: 2px;
       color: black;
       padding: 8px 0px;
       text-decoration: none;
@@ -129,17 +163,30 @@
       width: 50%;
       position: relative;
       top: 60px;
-      left: 40%; }
+      left: 43%; }
+    @media screen and (max-width:414px){
+	  .topright {
+      width: 100%;
+      position: relative;
+      top: 0px;
+      left: 0%; }
+	  }
 
     .topright .Recycle_arrows {
       position: absolute;
       top: 10px;
       left: 30px;
       cursor: pointer; }
-
-    @media screen and (max-width: 767px) {
+    @media screen and (max-width:768px) and (min-width:415px){
       .topright .Recycle_arrows {
-        display: none; } }
+        display: none; 
+      }
+    }
+    @media screen and (max-width:414px) {
+      .topright .Recycle_arrows {
+        display: none; 
+        } 
+    }
 
     .topright .Menutitleh2 {
       position: absolute;
@@ -148,16 +195,27 @@
       color: white;
       font-size:24px; }
 
-    @media screen and (max-width: 768px) {
+    @media screen and (max-width: 768px) and (min-width: 415px){
       .topright .Menutitleh2{
         width:300px;
         position: absolute;
-        top: 40%;
-        left: 30%;
+        top:110px;
+        left:-95px;
         /*margin-top: 28px;
         margin-left: 20px;*/
         font-size: 24px; 
-        } 
+    } 
+    }
+	  @media screen and (max-width: 414px) {
+      .topright .Menutitleh2{
+        width:100%;
+        /*position: absolute;*/
+        top: 0px;
+        left: 0%;
+        /*margin-top: 28px;
+        margin-left: 20px;*/
+        font-size: 24px; 
+      } 
     }
 
     /*畫線*/
@@ -165,10 +223,15 @@
       position: absolute;
       top: 10px;
       left: 230px; }
-
+    @media screen and (max-width:768px) and (min-width:415px){
+      .toprightcanvas {
+        display: none; 
+      }
+    }
     @media screen and (max-width: 767px) {
       .toprightcanvas {
-        display: none; } }
+        display: none; } 
+    }
 
     /*.topright hr{
           position: absolute;
@@ -205,6 +268,11 @@
       font-size: 36px;
       color:#fff;
     }
+	@media screen and (max-width: 414px) {
+		.TheaterEventTitle{
+			width:100%;
+		}
+	}
     @media screen and (max-width: 767px) {
       .TheaterEvent {
         margin-top: 200px; } }
@@ -219,7 +287,21 @@
       display: inline-block;
       margin: 10px 13px;
       border: 3px solid #42d9ff; }
+	  
+	@media screen and (max-width: 414px) {
+		.Theatercounter {
+			margin-left:auto;
+			margin-right:auto;
+			
+			/*display:inline-block;*/
+	 }
 
+		.Theaterinfo {
+			display:inline-block;
+			margin-left:auto;
+			margin-right:auto;
+		  border: 3px solid #42d9ff; }
+	}
     .Theaterinfo .special {
       float: left;
       display: inline-block;
@@ -243,7 +325,11 @@
       width: 397px;
       text-align: left;
       padding: 10px 10px; }
-
+	@media screen and (max-width: 414px) {
+	 .spcial p {
+		width:384px;
+	  }
+	}
     .spcial .buyticket {
       float: right;
       font-size: 23px;

@@ -1,7 +1,33 @@
 //儲存到sessionStorage
 var storage = sessionStorage;
-
+//抓取日期
+var programName = "尋找星生命";
 // document.getElementById("quantity").onchange = function() {myFunction()};
+$(document).ready(function(){
+	var today = new Date();
+	var todayMonth = today.getMonth()+1;
+	var todayYear = today.getFullYear();
+	var todayDay = today.getDay();
+	var print = parseInt(today.toString().substr(9,2));
+	var day = ["(日)","(一)","(二)","(三)","(四)","(五)","(六)"];
+
+	// 尋找星生命
+	for(var i = 1 ; i <= 14 ; i++){
+		var today = new Date(todayYear+"-"+todayMonth+"-"+(print+i)).toString().substr(0,3);
+		var Vtoday = (todayYear+"-"+todayMonth+"-"+(print+i)).toString()
+		if( today != "Mon" && today != "Tue" && today != "Thu" && today != "Sat"){
+			$("select#theater1").append("<option value="+Vtoday+">"+new Date(todayYear+"-"+todayMonth+"-"+(print+i)).toString().substr(4,6)+"　"+day[(todayDay+i)%7]+"</option>");
+		}
+	}
+	// 末世決戰
+	for(var i = 1 ; i <= 14 ; i++){
+		var today = new Date(todayYear+"-"+todayMonth+"-"+(print+i)).toString().substr(0,3);
+		var Vtoday = (todayYear+"-"+todayMonth+"-"+(print+i)).toString();
+		if( today != "Sun" && today != "Mon" && today != "Wed" && today != "Thu" && today != "Fri"){
+			$("select#theater2").append("<option value="+Vtoday+">"+new Date(todayYear+"-"+todayMonth+"-"+(print+i)).toString().substr(4,6)+"　"+day[(todayDay+i)%7]+"</option>");
+		}
+	}
+});							 																														  																													 
 
 //改變節目名稱之後，直接存到sessionStorage 
 function changeTheaterName() {
@@ -10,6 +36,13 @@ function changeTheaterName() {
     //儲存到sessionStorage
     var programName = document.querySelector('input[name="programName"]:checked').value;
     storage.setItem("programName", programName);
+	if(programName == "尋找星生命"){
+		$('#theater1').show();
+		$('#theater2').hide();
+	} else {
+		$('#theater1').hide();
+		$('#theater2').show();	
+	}								  																							
 }
 
 //改變日期之後，直接存到sessionStorage
@@ -17,7 +50,12 @@ function changeDate() {
     // document.getElementById("programdate").value;
 
     //儲存到sessionStorage
-    var programDate = document.getElementById("programDate").value;
+    //var programDate = document.getElementById("programDate").value;
+	if(programName == "尋找星生命"){
+		var programDate = document.getElementById("theater1").value;
+	} else {
+		var programDate = document.getElementById("theater2").value;	
+	}	 														  
     storage.setItem("programDate", programDate);
 
 }

@@ -56,70 +56,72 @@
         </ul>
     </div>
     <!-- header end-->
-    
-    <h1 class="Bookingh1">劇場訂票明細<br>(購買成功)</h1>
-    <h2 class="Bookingh2">會員資訊</h2>
-    <div class="memberinfo">
-        <p>帳號:Leon wang</p>
-        <p>Email:Leon wang@gmail.com</p>
-    </div>
+    <div class="container">
+        <h1 class="Bookingh1">劇場訂票明細<br>(購買成功)</h1>
+        <h2 class="Bookingh2">會員資訊</h2>
+        <div class="memberinfo">
+            <p>帳號:Leon wang</p>
+            <p>Email:Leon wang@gmail.com</p>
+        </div>
 
-    <h2 class="Bookingh2">訂單訊息</h2>
-    <div class="orderinfo">
-        <p>訂票編號:CXXXXXXX</p>
-        <p>訂票日期:
-            <span id="orderdate"></span>
-        </p>
+        <h2 class="Bookingh2">訂單訊息</h2>
+        <div class="orderinfo">
+            <p>訂票編號:CXXXXXXX</p>
+            <p>訂票日期:
+                <span id="orderdate"></span>
+            </p>
+        </div>
+        <!-- <table font-weight: bold;>
+            <tr>
+                <td>訂票日期:</td>
+                <td id="orderdate"></td>
+            </tr>
+        </table> -->
+        <div class="orderlistsection">
+            <h2 class="Bookingh2">訂票明細</h2>
+            <table>
+                <tr>
+                    <td>節目名稱</td>
+                    <td id="program_name">尋找星球</td>
+                </tr>
+                <tr>
+                    <td>節目日期</td>
+                    <td id="Time_date">xxxx-xx-xx</td>
+                </tr>
+                <tr>
+                    <td>場次</td>
+                    <td id="Time_Event">xx:xx</td>
+                </tr>
+                <tr>
+                    <td>數量</td>
+                    <td id="unused_ ticket">xx</td>
+                </tr>
+                <tr>
+                    <td>單價</td>
+                    <td>500</td>
+                </tr>
+                <tr>
+                    <td>小計</td>
+                    <td id="unpoints_total">xx</td>
+                </tr>
+                <tr>
+                    <td>
+                        <input type="radio" name="Scorepoints" value="0" onchange="Userpoints()">不使用積分
+                        <br>
+                        <input type="radio" name="Scorepoints" value="1" checked onchange="Userpoints()">使用積分
+                        <!-- <input type="text" id="Scorenumber" value="500" size=10 style="font-size:16px;" onchange="changeScoreNumber()"> -->
+                    </td>
+                    <td style="padding-top: 40px;" id="integral">xx
+                    </td>
+                </tr>
+                <tr>
+                    <td>總計:</td>
+                    <td id="total">xx</td>
+                </tr>
+            </table>
+        </div> 
     </div>
-    <!-- <table font-weight: bold;>
-        <tr>
-            <td>訂票日期:</td>
-            <td id="orderdate"></td>
-        </tr>
-    </table> -->
-    <div class="orderlistsection">
-        <h2 class="Bookingh2">訂票明細</h2>
-        <table>
-            <tr>
-                <td>節目名稱</td>
-                <td id="program_name">尋找星球</td>
-            </tr>
-            <tr>
-                <td>節目日期</td>
-                <td id="Time_date">xxxx-xx-xx</td>
-            </tr>
-            <tr>
-                <td>場次</td>
-                <td id="Time_Event">xx:xx</td>
-            </tr>
-            <tr>
-                <td>數量</td>
-                <td id="unused_ ticket">xx</td>
-            </tr>
-            <tr>
-                <td>單價</td>
-                <td>500</td>
-            </tr>
-            <tr>
-                <td>小計</td>
-                <td id="unpoints_total">xx</td>
-            </tr>
-            <tr>
-                <td>
-                    <input type="radio" name="Scorepoints" value="0" onchange="Userpoints()">不使用積分
-                    <br>
-                    <input type="radio" name="Scorepoints" value="1" checked onchange="Userpoints()">使用積分
-                    <!-- <input type="text" id="Scorenumber" value="500" size=10 style="font-size:16px;" onchange="changeScoreNumber()"> -->
-                </td>
-                <td style="padding-top: 40px;" id="integral">xx
-                </td>
-            </tr>
-            <tr>
-                <td>總計:</td>
-                <td id="total">xx</td>
-            </tr>
-        </table>
-    </div>
+    
 
     <script>
         var now = new Date();

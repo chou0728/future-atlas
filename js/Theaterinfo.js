@@ -176,17 +176,17 @@ $(document).ready(function(){
             height: '346%'
            }, 500)
          }
-         if (scroll_value>700) {
+         if (scroll_value>500) {
          $('.programtwoHr').animate({
             right: '40%'
            }, 500)
          }
-         if (scroll_value>700) {
+         if (scroll_value>500) {
          $('.programtwoHr2').animate({
             right: '34%'
            }, 500)
          }
-         if (scroll_value>700) {
+         if (scroll_value>500) {
          $('.programtwoimg').animate({
             left: '18%'
            }, 1000)
