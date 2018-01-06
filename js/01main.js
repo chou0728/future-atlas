@@ -49,6 +49,18 @@
 
 
 
+<<<<<<< HEAD
+function canvasRunStop(){
+  if(location.hash=="#page1"||location.hash==""){
+      e_light();
+  }else{
+    cancelAnimationFrame(timer1);
+    clearTimeout(timer2);
+    clearTimeout(timer3);
+    
+  }
+}
+=======
 // function canvasRunStop(){
 //   if(location.hash=="#page1"||location.hash==""){
 //       e_light();
@@ -59,6 +71,7 @@
     
 //   }
 // }
+>>>>>>> 53d5060c94d2e09c466ef095ef5e1430125b7728
 
 
 
@@ -151,7 +164,11 @@ window.requestAnimFrame = (function() {
 
 
 /*resize重新取得canvas長寬*/
+<<<<<<< HEAD
+window.addEventListener("resize",canvasRunStop);
+=======
 window.addEventListener("resize",e_light);
+>>>>>>> 53d5060c94d2e09c466ef095ef5e1430125b7728
 function e_light(){
 	canvas = document.getElementById('e_light');
     var ctx = canvas.getContext('2d');

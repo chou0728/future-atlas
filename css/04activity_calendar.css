@@ -2,32 +2,88 @@
 	font-family: Transformers Movie;
 	src: url("Transformers Movie.ttf");
 }
-*{
-	/*outline: 1px solid red;*/
-}
 
+*{
+	border: 1px solid red;
+}
 #section3{
 	background-color: black;
 }
 #wrapper{
 	padding-top: 8%;
+	width: 100%;
+	height: 100%;
 }
+
+
+
+
 
 #calWrapper{
 	width: 80%;
 	max-width: 1440px;
+	min-width: 400px;
 	margin: 0 auto;
 	margin-bottom: 50px;
-	padding: 10px;
+}
+@media screen and (max-width:737px){
+	*{
+	/*outline: 1px solid blue;*/
+	}
+	#calWrapper{
+		width: 100%;
+		height: 100vh;
+		margin-top: 5%;
+		margin-left: 0;
+		position: relative;
+	}
+}
+@media screen and (min-width:737px) and (max-width:1024px){
+	#calWrapper{
+		width: 90%;
+		height: 100vh;
+		margin-top: 5%;
+		margin-left: 2.5%;
+
+	}
+}
+@media screen and (min-width:1024px){
+
 }
 
+/*==========================*/
 #calRight{
 	width: 15%;
 	display: inline-block;
 	text-align: center;
 }
+#showToday{
+	width: 100%;
+}
+@media screen and (max-width:737px){
+	#calRight{
+		width: 100%;
+		height: 15%;
+		padding-top: 120px;
+		position: absolute;
+		left: 0;
+		bottom: 14%;
+		display: inline-block;
+		text-align: center;
+		background-color: #333;
+		padding-bottom: 100px;
+	}
+}
+@media screen and (min-width:737px) and (max-width:1024px){
+	#calRight{
+		width: 10%;
+	}
+}
+@media screen and (min-width:1024px){
 
-#calRight #showMonth{
+}
+
+#showMonth{
 	font-size: 32px;
 	margin: 0;
 	color: white;
@@ -46,12 +102,79 @@
 	cursor: pointer;
 	vertical-align: middle;
 }
+@media screen and (max-width:737px){
+	#showToday{
+		width: 100%;
+		text-align: center;
+		vertical-align: middle;
+	}
+	#showMonth{
+		font-size: 24px;
+		float: left;
+		width: 50%;
+		height: 24px;
+		vertical-align: top;
+		border: 1px solid transparent;
+		margin-top: -5px;
+	}
+	#prevMonth, #nextMonth{
+		width: 10%;
+		float: left;
+		text-align: center;
+		transform: rotate(-90deg);
+		vertical-align: top;
+		height: 20px;
+		border: 1px solid transparent;
+	}#prevMonth{
+		margin-left: 15%;
+		padding-left: 0;
+		text-align: center;
+	}#nextMonth{
+		text-align: center;
+		padding-top: 0;
+	}
+	#calRight .fa{
+		margin: 0;
+		vertical-align: middle;
+		z-index: 4;
+	}
+}
+@media screen and (min-width:737px) and (max-width:1024px){
+	
+}
+@media screen and (min-width:737px) and (max-width:1240px){
+
+}
+@media screen and (min-width:1240px){
+	#showMonth{
+		font-size: 18px;
+		width: 60%;
+	}
+}
 
 #icons{
 	text-align: left;
 	margin-top: 20px;
 	width: 100%;
 }
+@media screen and (max-width:737px){
+	#icons{
+		width: 100%;
+		height: 30%;
+		margin-top: 0;
+		position: absolute;
+		bottom: 0;
+		left: 0;
+		z-index: 3;
+	}
+}
+@media screen and (min-width:737px) and (max-width:1024px){
+	
+}
+@media screen and (min-width:1024px){
+
+}
+
 
 #selectActivityClass{
 	list-style: none;
@@ -60,10 +183,23 @@
 	text-align: center;
 	margin-top: 30px;
 }
+@media screen and (max-width:737px){
+	#selectActivityClass{
+		width: 100%;
+		position: absolute;
+		bottom: 0;
+		left: 0;
+	}
+}
+@media screen and (min-width:737px) and (max-width:1024px){
+	
+}
+@media screen and (min-width:1024px){
+
+}
 
 #selectActivityClass li{
 	width: 80%;
-	display: inline-block;
 	text-align: center;
 	cursor: pointer;
 	box-sizing: border-box;
@@ -71,11 +207,50 @@
 	border: 1px solid transparent;
 	vertical-align: middle;
 }
+@media screen and (max-width:737px){
+	#selectActivityClass li{
+		height: 46px;
+		width: 24%;
+		display: inline-block;
+	}#selectActivityClass li img{
+		width: 30%;
+		vertical-align: middle;
+	}
+}
+@media screen and (min-width:737px) and (max-width:1024px){
+	#selectActivityClass li{
+		height: 46px;
+		width: 100%;
+		display: inline-block;
+	}
+}
+@media screen and (min-width:1024px){
+
+}
 
 #selectActivityClass li span{
-	font-family: 微軟正黑體;
-	margin-left: 5px;
-	color: white;
+	font-size: 18px;
+	font-family: 微軟正黑體;	
+	vertical-align: middle;
+	color: azure;
+}
+@media screen and (max-width:737px){
+	#selectActivityClass li span{
+		display: none;
+	}
+}
+@media screen and (min-width:737px) and (max-width:1024px){
+	#selectActivityClass li span{
+		display: none;
+	}
+}
+@media screen and (min-width:1024px) and (max-width:1240px){
+	#selectActivityClass li span{
+		font-size: 14px;
+	}
+}
+@media screen and (min-width:1240px){
+
 }
 
 #selectActivityClass img{
@@ -83,13 +258,25 @@
 	padding: 5px;
 	vertical-align: middle;
 }
+@media screen and (max-width:737px){
+	#selectActivityClass img{
+		padding: 0;
+	}
+}
+@media screen and (min-width:737px) and (max-width:1024px){
+	
+}
+@media screen and (min-width:1024px) and (max-width:1240px){
+	#selectActivityClass img{
+		width: 30px;
+	}
+}
+@media screen and (min-width:1024px){
 
-#selectActivityClass img + span{
-	font-size: 18px;
-	font-family: 微軟正黑體;	
-	vertical-align: middle;
 }
 
+
+/*========================*/
 #cal{
 	width: 66%;
 	min-width: 400px;
@@ -100,10 +287,24 @@
 	position: relative;
 	user-select: none;
 }
+@media screen and (max-width:737px){
+	#cal{
+		width: 100%;
+		position: absolute;
+		top: 0;
+		left: 0;
+	}
+}
+@media screen and (min-width:737px) and (max-width:1024px){
+	
+}
+@media screen and (min-width:1024px){
+
+}
 
 #cal table{
 	width: 100%;
-	height: 45vh;
+	height: auto;
 	text-align: left;
 	margin: 0 auto;
 	user-select: none;
@@ -163,6 +364,21 @@
 	padding-left: 10px;
 	padding-bottom: 10px;
 }
+@media screen and (max-width:737px){
+	#cal .claContent{
+		padding-left: 1px;
+		padding-bottom: 1px;		
+	}
+}
+@media screen and (min-width:737px) and (max-width:1024px){
+	#cal .claContent{
+		padding-left: 5px;
+		padding-bottom: 5px;		
+	}
+}
+@media screen and (min-width:1024px){
+
+}
 #cal .claContent span{
 	font-size: 12px;
 	line-height: 5;
@@ -171,13 +387,9 @@
 	vertical-align: bottom;
 }
 
-a.convert{
-	padding: 8px;
-	font-size: 16px;
-	color: #ffc116;
-	cursor: pointer;
-}
 
+
+/*============================*/
 #showActivityWrapper{
 	display: inline-block;
 	width: 18%;
@@ -187,7 +399,32 @@ a.convert{
 	padding-right: 0;
 	vertical-align: top;
 	color: lightgray;
+	position: relative;
 }
+@media screen and (max-width:737px){
+	#showActivityWrapper{
+		position: absolute;
+		width: 400px;
+		top: 55px;
+		right: -200%;
+		left: 0;
+		margin: auto;
+		z-index: 2;
+		background-color: #333;
+		border: 2px solid #35ffea;
+		padding: 20px;
+	}
+}
+@media screen and (min-width:737px) and (max-width:1024px){
+	#showActivityWrapper{
+		width: 22%;
+		padding-left: 10px;
+	}
+}
+@media screen and (min-width:1024px){
+
+}
+
 #showActivityWrapper h2{
 	color: lightgray;
 	text-align: left;
@@ -196,33 +433,104 @@ a.convert{
 	margin: 0;
 }
 
+.fa-times-circle{
+	opacity: 0;
+}
+@media screen and (max-width:737px){
+	#activityClose{
+		cursor: pointer;
+		z-index: 3;
+	}
+	.fa-times-circle{
+		opacity: 1;
+		position: absolute;
+		top: 20px;
+		right: 20px;
+		transform: scale(2);
+	}
+}
+@media screen and (min-width:737px) and (max-width:1024px){
+		
+}
+@media screen and (min-width:1024px){
+
+}
 #showActivityWrapper table{
 	width: 100%;
 	margin-top: 10px;
 }
 
+#activity{
+	height: 70%;
+	overflow-y: scroll;
+}
+
 #activity th{
-	width: 70%;
-	height: 35px;
 	font-size: 16px;
 	padding: 2px;
-	padding: 20px 0 5px 0;
+	padding: 10px 0 5px 0;
 	text-align: left;
 }
 #activity th + td{
 	width: 30%;
+	min-width: 50px;
 }
 
 #activity td{
+	width: 100%;
 	font-size: 16px;
 	padding: 2px;
-	width: 80px;
 	color: lightgray;
 }
 
 #activityDate, #activityDay{
 	font-size: 32px;
 }
+
+a.convert{
+	width: 40px;
+	height: 20px;
+	display: block;
+	padding: 4px;
+	font-size: 16px;
+	color: #ffc116;
+	cursor: pointer;
+	text-orientation: sideways;
+}
+
+
+#weatherWrapper{
+	width: 100%;
+	height: 30%;
+	margin-top: 20px;
+	padding-top: 10px;
+	font-size: 24px;
+	border-top: 1px solid azure;
+}
+
+#temperature, #weather{
+		font-size: 18px;
+}
+@media screen and (max-width:737px){
+	#weatherWrapper{
+		display: none;
+	}
+}
+@media screen and (min-width:737px) and (max-width:1024px){
+		
+}
+@media screen and (min-width:1024px){
+
+}
+@media screen and (min-width:737px) and (max-width:1240px){
+	#source{
+		display: none;
+	}
+}
+#source{
+	font-size: 14px;
+}
+
 #border_bottom{
 	height: 1px;
 	width: 80%;
