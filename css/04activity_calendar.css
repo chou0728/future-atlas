@@ -3,12 +3,15 @@
 	src: url("Transformers Movie.ttf");
 }
 
-*{
-	border: 1px solid red;
-}
+
 #section3{
 	background-color: black;
 }
+
+#section3 *{
+	border: 1px solid red;
+}
+
 #wrapper{
 	padding-top: 8%;
 	width: 100%;
