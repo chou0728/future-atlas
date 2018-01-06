@@ -36,7 +36,7 @@
 		banner[0].onclick = bannerOpenClose;
 		document.addEventListener('mousewheel',bannerMousewheelClose);
 	//canvas
-  document.addEventListener('mousewheel',canvasRunStop);//待修改--------------------!!
+  // document.addEventListener('mousewheel',canvasRunStop);//待修改--------------------!!
   if(location.hash=="#page1"||location.hash==""){
 
       e_light();
@@ -49,16 +49,16 @@
 
 
 
-function canvasRunStop(){
-  if(location.hash=="#page1"||location.hash==""){
-      e_light();
-  }else{
-    cancelAnimationFrame(timer1);
-    clearTimeout(timer2);
-    clearTimeout(timer3);
+// function canvasRunStop(){
+//   if(location.hash=="#page1"||location.hash==""){
+//       e_light();
+//   }else{
+//     cancelAnimationFrame(timer1);
+//     clearTimeout(timer2);
+//     clearTimeout(timer3);
     
-  }
-}
+//   }
+// }
 
 
 
@@ -151,7 +151,7 @@ window.requestAnimFrame = (function() {
 
 
 /*resize重新取得canvas長寬*/
-window.addEventListener("resize",canvasRunStop);
+window.addEventListener("resize",e_light);
 function e_light(){
 	canvas = document.getElementById('e_light');
     var ctx = canvas.getContext('2d');
