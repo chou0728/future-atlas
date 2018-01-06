@@ -1,9 +1,3 @@
-*{
-	box-sizing: border-box;
-	color: white;
-	text-decoration: none;
-	user-select:none;
-}
 
 /*#stop{
 			-webkit-animation: none !important;
@@ -192,6 +186,7 @@
 	position: absolute;
 	bottom: 0;
 	overflow: hidden;
+	user-select:none;
 }
 @media screen and (max-width:768px) {
 			

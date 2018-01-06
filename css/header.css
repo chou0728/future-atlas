@@ -1,8 +1,5 @@
 /*-----header-----*/
-*{
-	/*outline: 1px solid red;*/
-	text-decoration: none;
-}
+
 .nav{
 	width: 100%;
 	position: fixed;
@@ -30,13 +27,6 @@
 	vertical-align: middle;
 	height: auto;
 }
-<<<<<<< HEAD
-@media screen and (max-width:768px){
-	.logo{
-		
-	}
-}
-=======
 /*768*------====================================*/
 @media screen and (max-width:768px){
 	.logo{
@@ -49,7 +39,6 @@
 	}
 }
 /*768*------====================================*/
->>>>>>> 53d5060c94d2e09c466ef095ef5e1430125b7728
 .ul_left,.ul_right,.ul_left li,.ul_right li{
 	display: inline-block;
 	vertical-align: middle;	
@@ -81,6 +70,17 @@
 	color: #fff;
 	font-size: 16px;
 }
+/*768*------====================================*/
+@media screen and (max-width:768px){
+	.ul_left,.ul_right,.ul_left li,.ul_right li{
+		display: block;
+
+
+	}
+}
+/*768*------====================================*/
+
+
 .header{/*會員/註冊/購物車*/
 	width: 100%;
 	position: fixed;
@@ -109,28 +109,39 @@
 	color: #fff;
 	font-size: 16px;
 }
-.header .memIcon{
+.headerOpenBtn{
 	display: none;
 }
+
 /*768*------====================================*/
 @media screen and (max-width:768px){
-	.header{
+	.headerOpenBtn{
+		position: fixed;
+		display:block;
 		top:1%;
 		right: 3%;
 		width:6%;
 		min-width: 45px;
+		z-index: 9999;
 	}
-	.header .memIcon{
+	.headerOpenBtn .memIcon{
 		width: 100%;
-		display:block;
+		
+	}
+	.header{
+		width: 40vw;
+		top:6%;
+		right: -100%;
+		position: fixed;
 	}
 	.header .ul_top{
-		width: 40vw;
-		position: fixed;
-		top:6%;
+		width: 100%;
+		
+	}
+	#headerAppear.header{
 		right: 0;
 	}
-	.header .ul_top li{
+	.header .ul_top .li_top{
 		width: 100%;
 		padding: 5%;
 		margin-bottom: 15px;
@@ -139,6 +150,19 @@
 		display: block;
 		font-family: "微軟正黑體";
 		text-align: center;
+		opacity: 0;
+	}
+	.header .ul_top #liAppear.li_top{
+		opacity: 1;
+	}
+	.header .ul_top .li_top:first-child{
+		transition: opacity .3s linear .1s;
+	}
+	.header .ul_top li:nth-child(2){
+		transition: opacity .3s linear .3s;
+	}
+	.header .ul_top li:nth-child(3){
+		transition: opacity .3s linear .5s;
 	}
 
 }
