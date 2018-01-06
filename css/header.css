@@ -1,5 +1,6 @@
 /*-----header-----*/
 *{
+	/*outline: 1px solid red;*/
 	text-decoration: none;
 }
 .nav{
@@ -11,6 +12,16 @@
 	z-index: 1000;
 
 }
+/*768*------====================================*/
+@media screen and (max-width:768px) {
+
+	.nav{
+		top:0;
+		height: 7%;
+		background-color:rgba(0,0,0,0.8);
+	}
+}
+/*768*------====================================*/
 .logo{
 	display: inline-block;
 	width:15%;
@@ -19,11 +30,18 @@
 	vertical-align: middle;
 	height: auto;
 }
+/*768*------====================================*/
 @media screen and (max-width:768px){
 	.logo{
-		
+		display: block;
+		position: absolute;
+		top:50%;
+		left:50%;
+		transform: translate(-50%,-50%);
+
 	}
 }
+/*768*------====================================*/
 .ul_left,.ul_right,.ul_left li,.ul_right li{
 	display: inline-block;
 	vertical-align: middle;	
@@ -55,7 +73,7 @@
 	color: #fff;
 	font-size: 16px;
 }
-.header{
+.header{/*會員/註冊/購物車*/
 	width: 100%;
 	position: fixed;
 	top:0;
@@ -83,5 +101,38 @@
 	color: #fff;
 	font-size: 16px;
 }
+.header .memIcon{
+	display: none;
+}
+/*768*------====================================*/
+@media screen and (max-width:768px){
+	.header{
+		top:1%;
+		right: 3%;
+		width:6%;
+		min-width: 45px;
+	}
+	.header .memIcon{
+		width: 100%;
+		display:block;
+	}
+	.header .ul_top{
+		width: 40vw;
+		position: fixed;
+		top:6%;
+		right: 0;
+	}
+	.header .ul_top li{
+		width: 100%;
+		padding: 5%;
+		margin-bottom: 15px;
+		background-color: black;
+		/*min-width: 52px;*/
+		display: block;
+		font-family: "微軟正黑體";
+		text-align: center;
+	}
 
+}
+/*768*------====================================*/
 /*-----header end-----*/
