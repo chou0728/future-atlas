@@ -57,126 +57,126 @@
         </ul>
     </div>
     <!-- header end-->
-
-    <h1 class="Bookingh1">劇場購票明細</h1>
-
-    <div class="memberinfosection">
-        <h2 class="Bookingh2">會員資訊</h2>
-        <div class="memberinfo">
-            <p>帳號:Leon wang</p>
-            <p>Email:Leon wang@gmail.com</p>
+    <div class="container">
+        <h1 class="Bookingh1">劇場購票明細</h1>
+        <div class="memberinfosection">
+            <h2 class="Bookingh2">會員資訊</h2>
+            <div class="memberinfo">
+                <p>帳號:Leon wang</p>
+                <p>Email:Leon wang@gmail.com</p>
+            </div>
         </div>
-    </div>
 
-
-    <div class="orderlistsection">
-        <h2 class="Bookingh2">購票明細</h2>
-        <table>
-            <tr>
-                <td>節目名稱</td>
-                <td id="program_name"></td>
-            </tr>
-            <tr>
-                <td>節目日期</td>
-                <td id="Time_date"></td>
-            </tr>
-            <tr>
-                <td>場次</td>
-                <td id="Time_Event"></td>
-            </tr>
-            <tr>
-                <td>數量</td>
-                <td id="unused_ ticket"></td>
-            </tr>
-            <tr>
-                <td>票價</td>
-                <td>500</td>
-            </tr>
-            <tr>
-                <td>小計</td>
-                <td id="unpoints_total"></td>
-            </tr>
-            <tr>
-                <td>
-                    <input type="radio" name="Scorepoints" value="0" onchange="Userpoints()">不使用積分
-                    <br>
-                    <input type="radio" name="Scorepoints" value="1" checked onchange="Userpoints()">使用積分
-                    <input type="text" id="Scorenumber" value="500" size=10 style="font-size:16px;" onchange="changeScoreNumber()">
-                </td>
-                <td style="padding-top: 40px;"id="integral"> 
-                </td>
-            </tr>
-            <tr>
-                <td>總計:</td>
-                <td id="total"></td>
-            </tr>
-        </table>
-        <!-- <table>
-                <tr style="font-weight: bold;">
+        <div class="orderlistsection">
+            <h2 class="Bookingh2">購票明細</h2>
+            <table>
+                <tr>
                     <td>節目名稱</td>
-                    <td>節目日期</td>
-                    <td>場次</td>
-                    <td>數量</td>
-                    <td>單價</td>
-                    <td>小計</td>
+                    <td id="program_name"></td>
                 </tr>
                 <tr>
-                    <td id="program_name"></td>
+                    <td>節目日期</td>
                     <td id="Time_date"></td>
+                </tr>
+                <tr>
+                    <td>場次</td>
                     <td id="Time_Event"></td>
+                </tr>
+                <tr>
+                    <td>數量</td>
                     <td id="unused_ ticket"></td>
-                    <td>500元</td>
+                </tr>
+                <tr>
+                    <td>票價</td>
+                    <td>500</td>
+                </tr>
+                <tr>
+                    <td>小計</td>
                     <td id="unpoints_total"></td>
                 </tr>
-
                 <tr>
-                    <td>目前積分:1000元</td>
-                    <td colspan="2">
+                    <td>
                         <input type="radio" name="Scorepoints" value="0" onchange="Userpoints()">不使用積分
                         <br>
-                        <input type="radio" name="Scorepoints" value="1" checked onchange="Userpoints()">使用積分</td>
-                    <td colspan="2" style="padding-top: 40px;">
+                        <input type="radio" name="Scorepoints" value="1" checked onchange="Userpoints()">使用積分
                         <input type="text" id="Scorenumber" value="500" size=10 style="font-size:16px;" onchange="changeScoreNumber()">
                     </td>
-                    <td style="padding-top: 40px;" id="integral"></td>
-                </tr>
-                <tr>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td>總計:</td>
-                    <td id="total">
+                    <td style="padding-top: 40px;"id="integral"> 
                     </td>
                 </tr>
-            </table> -->
-    </div>
+                <tr>
+                    <td>總計:</td>
+                    <td id="total"></td>
+                </tr>
+            </table>
+            <!-- <table>
+                    <tr style="font-weight: bold;">
+                        <td>節目名稱</td>
+                        <td>節目日期</td>
+                        <td>場次</td>
+                        <td>數量</td>
+                        <td>單價</td>
+                        <td>小計</td>
+                    </tr>
+                    <tr>
+                        <td id="program_name"></td>
+                        <td id="Time_date"></td>
+                        <td id="Time_Event"></td>
+                        <td id="unused_ ticket"></td>
+                        <td>500元</td>
+                        <td id="unpoints_total"></td>
+                    </tr>
 
-    <h2 class="Bookingh2">輸入信用卡</h2>
-    <div class="creditCardinfo">
-        <p>信用卡號碼</p>
-        <p style="font-size:10px;">
-            <input type="text" size=2>-
-            <input type="text" size=2>-
-            <input type="text" size=2>-
-            <input type="text" size=2>
-        </p>
-        <p>到期日</p>
-        <p style="font-size:5px;">
-            <input type="text" size=2> /
-            <input type="text" size=2>
-        </p>
-        <!-- size是設定input大小 -->
-        <p>驗證碼</p>
-        <p>
-            <input type="text" size=2>
-        </p>
-    </div>
+                    <tr>
+                        <td>目前積分:1000元</td>
+                        <td colspan="2">
+                            <input type="radio" name="Scorepoints" value="0" onchange="Userpoints()">不使用積分
+                            <br>
+                            <input type="radio" name="Scorepoints" value="1" checked onchange="Userpoints()">使用積分</td>
+                        <td colspan="2" style="padding-top: 40px;">
+                            <input type="text" id="Scorenumber" value="500" size=10 style="font-size:16px;" onchange="changeScoreNumber()">
+                        </td>
+                        <td style="padding-top: 40px;" id="integral"></td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td>總計:</td>
+                        <td id="total">
+                        </td>
+                    </tr>
+                </table> -->
+        </div>
 
-    <div class="yesmodifyBtn">
-        <a href="buyTTicket.html">修改</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        <a href="BookingDone.html">結帳</a>
+        <h2 class="Bookingh2">輸入信用卡</h2>
+        <div class="creditCardinfo">
+            <p>信用卡號碼</p>
+            <p style="font-size:10px;">
+                <input type="text" size=2>-
+                <input type="text" size=2>-
+                <input type="text" size=2>-
+                <input type="text" size=2>
+            </p>
+            <p>到期日</p>
+            <p style="font-size:5px;">
+                <input type="text" size=2> /
+                <input type="text" size=2>
+            </p>
+            <!-- size是設定input大小 -->
+            <p>驗證碼</p>
+            <p>
+                <input type="text" size=2>
+            </p>
+        </div>
+
+        <div class="yesmodifyBtn">
+            <a href="buyTTicket.html">修改</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <a href="BookingDone.html">結帳</a>
+        </div>
     </div>
+    
 
     <script type="text/javascript">
         var storage = sessionStorage;

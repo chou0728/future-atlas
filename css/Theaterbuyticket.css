@@ -6,35 +6,38 @@
     * {
       margin: 0px;
       padding: 0px;
-      /*outline: 1px solid red;*/ }
+      /*outline: 1px solid red; */}
 
     body {
       font-family: "微軟正黑體", Arial ,sans-serif;
       background-color: black;
+      color: #5AE6DB;
+      line-height:1.5;
+      letter-spacing: 2px;
       /* background-image: url("../img/Galaxy_1.jpg");
     background-size: cover;
       */
     }
-
     .container {
-      width: 70%;
-      margin: 0 auto; }
-
-    @media screen and (max-width: 767px) {
-      .container {
-        width: 100%;
-        /*max-width: 700px;*/ }
-      .container .Menu {
-        position: relative;
-        top: 160px;
-        left: 73px; } }
+      margin: 0 auto;
+      position:relative;
+	    text-align:center;
+    }
 
     .Menu {
       width: 50%;
       position: relative;
       top: 160px;
-      left: 25%; }
-
+      left: 32.5%; }
+    @media screen and (max-width:414px){
+      .Menu{
+        width:65%;
+		top: 0px;
+		left:0%;
+        margin-left: auto;
+        margin-right: auto;
+      }
+    }
     .progressinfoMenu {
       margin-top: 10px;
       background-color: #ffc116;
@@ -47,7 +50,28 @@
       /*顏色各占一 半*/
       background-repeat: no-repeat;
       transform: translate(0);
-      transition: all 1s ease; }
+      transition: all 0.3s ease; 
+    }
+    @media screen and (max-width:768px) and (min-width:415px){
+      .progressinfoMenu{
+          /*position: absolute;
+          top:-11px;
+          left:-7%;*/
+          position: absolute;
+          top:-11px;
+          left:150px;
+      }
+    }
+    @media screen and (max-width: 414px){
+      .progressinfoMenu{
+        /*position: absolute;
+        top:-11px;
+        left:-7%;*/
+		    position: absolute;
+        top:-60px;
+        left:150px;
+      }
+    }
     .progressinfoMenu .progressinfotriangle{
       position:absolute;
       right:-19px;
@@ -57,15 +81,25 @@
       border-width: 20px 0 20px 20px;
       border-color: transparent transparent transparent #ffc116;
     }
+    @media screen and (max-width:768px){
+      .progressinfoMenu .progressinfotriangle{
+        display: none;
+      }
+    }
+    @media screen and (max-width:414px){
+      .progressinfoMenu .progressinfotriangle{
+        display: none;
+      }
+    }
     .progressinfoMenu a {
       position: absolute;
-      top: 5px;
+      top:2px;
       left: 20px;
-      color: white;
+      color: black;
       padding: 7px 0px;
       text-decoration: none;
       transform: translate(0);
-      transition: all 1s ease; }
+      transition: all 0.3s ease; }
 
     .buyticketMenu {
       margin-top: 10px;
@@ -78,8 +112,17 @@
       /*顏色各占一 半*/
       background-repeat: no-repeat;
       transform: translate(0);
-      transition: all 1s ease; }
-
+      transition: all 0.3s ease; }
+    @media screen and (max-width: 414px){
+      .buyticketMenu{
+	    position: absolute;
+        top:-60px;
+        left:-20px;
+        /*position: absolute;
+        top:-11px;
+        left:142px;*/
+      }
+    }
     .buyticketMenu .buytickettriangle{
       position:absolute;
       right:-19px;
@@ -89,17 +132,25 @@
       border-width: 20px 0 20px 20px;
       border-color: transparent transparent transparent #ffc116;
     }
-
-
+     @media screen and (max-width: 414px){
+      .buyticketMenu .buytickettriangle{
+        display: none;
+      }
+    }
+    @media screen and (max-width:768px) and (min-width:415px){
+      .buyticketMenu .buytickettriangle{
+        display: none;
+      }
+    }
     .buyticketMenu a {
       position: relative;
-      top: 11px;
-      left: 20px;
-      color: white;
+      top:9px;
+      left: 2px;
+      color: black;
       padding: 8px 0px;
       text-decoration: none;
       transform: translate(0);
-      transition: all 1s ease; }
+      transition: all 0.3s ease; }
 
     .sq-one.move {
       transform: translate(0px, 50px); }
@@ -112,41 +163,75 @@
       width: 50%;
       position: relative;
       top: 60px;
-      left: 40%; }
+      left: 43%; }
+    @media screen and (max-width:414px){
+	  .topright {
+      width: 100%;
+      position: relative;
+      top: 0px;
+      left: 0%; }
+	  }
 
     .topright .Recycle_arrows {
       position: absolute;
       top: 10px;
       left: 30px;
       cursor: pointer; }
-
-    @media screen and (max-width: 767px) {
+    @media screen and (max-width:768px) and (min-width:415px){
       .topright .Recycle_arrows {
-        display: none; } }
+        display: none; 
+      }
+    }
+    @media screen and (max-width:414px) {
+      .topright .Recycle_arrows {
+        display: none; 
+        } 
+    }
 
-    .topright .Menutitle h2{
+    .topright .Menutitleh2 {
       position: absolute;
       top: 10px;
-      left: 100px;
+      left: 89px;
       color: white;
-      font-size: 32px; }
+      font-size:24px; }
 
-    @media screen and (max-width: 767px) {
-      .topright .Menutitle h2{
-        width: 119px;
-        margin-top: 28px;
-        margin-left: 20px;
-        font-size: 24px; } }
+    @media screen and (max-width: 768px) and (min-width: 415px){
+      .topright .Menutitleh2{
+        width:300px;
+        position: absolute;
+        top:110px;
+        left:-95px;
+        /*margin-top: 28px;
+        margin-left: 20px;*/
+        font-size: 24px; 
+    } 
+    }
+	  @media screen and (max-width: 414px) {
+      .topright .Menutitleh2{
+        width:100%;
+        /*position: absolute;*/
+        top: 0px;
+        left: 0%;
+        /*margin-top: 28px;
+        margin-left: 20px;*/
+        font-size: 24px; 
+      } 
+    }
 
     /*畫線*/
     .toprightcanvas {
       position: absolute;
       top: 10px;
       left: 230px; }
-
+    @media screen and (max-width:768px) and (min-width:415px){
+      .toprightcanvas {
+        display: none; 
+      }
+    }
     @media screen and (max-width: 767px) {
       .toprightcanvas {
-        display: none; } }
+        display: none; } 
+    }
 
     /*.topright hr{
           position: absolute;
@@ -166,6 +251,11 @@
           transform: rotate(90deg);
         }*/
 
+    .spcial  h2{
+      font-size: 24px;
+      color:#fff;
+    }
+
     /*節目場次*/
     .TheaterEvent {
       padding: 2em 0 4em 0;
@@ -173,7 +263,16 @@
       margin-top: 180px;
       z-index: 1000;
     }
-
+    .TheaterEventTitle{
+      text-align: center;
+      font-size: 36px;
+      color:#fff;
+    }
+	@media screen and (max-width: 414px) {
+		.TheaterEventTitle{
+			width:100%;
+		}
+	}
     @media screen and (max-width: 767px) {
       .TheaterEvent {
         margin-top: 200px; } }
@@ -188,7 +287,21 @@
       display: inline-block;
       margin: 10px 13px;
       border: 3px solid #42d9ff; }
+	  
+	@media screen and (max-width: 414px) {
+		.Theatercounter {
+			margin-left:auto;
+			margin-right:auto;
+			
+			/*display:inline-block;*/
+	 }
 
+		.Theaterinfo {
+			display:inline-block;
+			margin-left:auto;
+			margin-right:auto;
+		  border: 3px solid #42d9ff; }
+	}
     .Theaterinfo .special {
       float: left;
       display: inline-block;
@@ -202,19 +315,21 @@
       display: block;
       width: 400px; }
 
-    .spcial h3 {
+    /*.spcial h3 {
       font-size: 20px;
       color: #ffffff;
       line-height: 1.8em;
-      /*padding: 10px 10px;*/
-      text-align: center; }
+      text-align: center; }*/
 
     .spcial p {
-      color: #ffffff;
       width: 397px;
       text-align: left;
       padding: 10px 10px; }
-
+	@media screen and (max-width: 414px) {
+	 .spcial p {
+		width:384px;
+	  }
+	}
     .spcial .buyticket {
       float: right;
       font-size: 23px;

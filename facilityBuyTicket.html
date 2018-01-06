@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title></title>
 	<link rel="stylesheet" type="text/css" href="css/RESET.css">
 	<link rel="stylesheet" type="text/css" href="css/header.css">
@@ -52,64 +53,353 @@
 
 	<!-- header end-->
 <div class="fbtWrapper">
-	<!-- /////-->
-<!-- <section class="container">
-    <div id="card">
-      <figure class="front">1</figure>
-      <figure class="back">2</figure>
-    </div>
-  </section> -->
-
+	<!-- /////01-->
 	<div class="ticketbox">
 		<div class="ticketTitlebox">
 			<div class="ticket">
 				<figure class="front">
-					<img src="img/facilityBuyTicket/launched-rocket.png">
+					<img src="img/facilityBuyTicket/launched-rocket.png" class="icon">
 				</figure>
-				<figure class="back">01</figure>
+				<figure class="back">1</figure>
 			</div>
 			<h2 class="ticketTitle">宇宙雲霄飛車</h2>
 		</div>
-		<div class="f_img"><img src="img/facilityBuyTicket/p_01.jpg"><span class="cover"></span></div>
+
+	
+		<div class="f_img">
+			<img src="img/facilityBuyTicket/p_01.jpg"><span class="cover"></span>
+		</div>
 		<div class="shortInfo">
 			史上最快最高的宇宙雲霄飛車
 		</div>
 
-		<form>
-			<table class="t_table">
-				<tr>
-					<th>全票</th>
-					<td>NT 150</td>
-					<td>
-						<select>
-						<option>---</option>
-						<option>1</option>
-						<option>2</option>
-						<option>3</option>
-						<option>4</option>
-						<option>5</option>
-						</select>
-					</td>
-				</tr>
-				<tr>
-					<th>半票</th>
-					<td>NT 90</td>
-					<td>
-						<select>
-						<option>---</option>
-						<option>1</option>
-						<option>2</option>
-						<option>3</option>
-						<option>4</option>
-						<option>5</option>
-						</select>
-					</td>
-				</tr>
-			</table>
-			<input type="submit" name="f_submit" value="加入購物車" class="f_submit">
-		</form>
+		<div class="adult" data-val="190">
+			<span>全票</span><span class="price">190元/1張</span>
+			<div class='ctrl'>
+				 <div class='ctrl-button ctrl-button-decrement'>-</div>
+					  <div class='ctrl-counter'>
+					  	<input class='ctrl-counter-input' id="ad_count" maxlength='3' type='text' value='0' data-no="0">
+					  </div>
+					  <div class='ctrl-button ctrl-button-increment'>+</div>
+				</div>
+		</div>
+
+		<div class="child" data-val="90">
+			<span>半票</span><span class="price">90元/1張</span>
+			<div class='ctrl'>
+				 <div class='ctrl-button ctrl-button-decrement'>-</div>
+					  <div class='ctrl-counter'>
+					  	<input class='ctrl-counter-input' id="ch_count" maxlength='3' type='text' value='0' data-no="1">	
+					  </div>
+					<div class='ctrl-button ctrl-button-increment'>+</div>
+				</div>
+		</div>
+		<div class="f_submit" data-fn="1">
+			加入購物車
+		</div>
+	</div>
+	<!-- /////02-->
+		<div class="ticketbox">
+		<div class="ticketTitlebox">
+			<div class="ticket">
+				<figure class="front">
+					<img src="img/facilityBuyTicket/launched-rocket.png" class="icon">
+				</figure>
+				<figure class="back">2</figure>
+			</div>
+			<h2 class="ticketTitle">FA摩天輪</h2>
+		</div>
+
+	
+		<div class="f_img">
+			<img src="img/facilityBuyTicket/p_01.jpg"><span class="cover"></span>
+		</div>
+		<div class="shortInfo">
+			高空一覽未來的樣貌
+		</div>
+
+		<div class="adult" data-val="185">
+			<span>全票</span><span class="price">185元/1張</span>
+			<div class='ctrl'>
+				 <div class='ctrl-button ctrl-button-decrement'>-</div>
+					  <div class='ctrl-counter'>
+					  	<input class='ctrl-counter-input' id="ad_count" maxlength='3' type='text' value='0' data-no="2">
+					  </div>
+					  <div class='ctrl-button ctrl-button-increment'>+</div>
+				</div>
+			</div>
+
+		<div class="child" data-val="100">
+			<span>半票</span><span class="price">100元/1張</span>
+			<div class='ctrl'>
+				 <div class='ctrl-button ctrl-button-decrement'>-</div>
+					  <div class='ctrl-counter'>
+					  	<input class='ctrl-counter-input' id="ch_count" maxlength='3' type='text' value='0' data-no="3">	
+					  </div>
+					<div class='ctrl-button ctrl-button-increment'>+</div>
+				</div>
+		</div>
+		<div class="f_submit" data-fn="2">
+			加入購物車
+		</div>
+	</div>
+	<!-- /////03-->
+		<div class="ticketbox">
+		<div class="ticketTitlebox">
+			<div class="ticket">
+				<figure class="front">
+					<img src="img/facilityBuyTicket/launched-rocket.png" class="icon">
+				</figure>
+				<figure class="back">3</figure>
+			</div>
+			<h2 class="ticketTitle">宇宙雲霄飛車</h2>
+		</div>
+
+	
+		<div class="f_img">
+			<img src="img/facilityBuyTicket/p_01.jpg"><span class="cover"></span>
+		</div>
+		<div class="shortInfo">
+			史上最快最高的宇宙雲霄飛車
+		</div>
+
+		<div class="adult" data-val="200">
+			<span>全票</span><span class="price">200元/1張</span>
+			<div class='ctrl'>
+				 <div class='ctrl-button ctrl-button-decrement'>-</div>
+					  <div class='ctrl-counter'>
+					  	<input class='ctrl-counter-input' id="ad_count" maxlength='3' type='text' value='0' data-no="4">
+					  </div>
+					  <div class='ctrl-button ctrl-button-increment'>+</div>
+				</div>
+			</div>
+
+		<div class="child" data-val="95">
+			<span>半票</span><span class="price">95元/1張</span>
+			<div class='ctrl'>
+				 <div class='ctrl-button ctrl-button-decrement'>-</div>
+					  <div class='ctrl-counter'>
+					  	<input class='ctrl-counter-input' id="ch_count" maxlength='3' type='text' value='0' data-no="5">	
+					  </div>
+					<div class='ctrl-button ctrl-button-increment'>+</div>
+				</div>
+		</div>
+		<div class="f_submit" data-fn="3">
+			加入購物車
+		</div>
+	</div>
+	<!-- /////04-->
+	<div class="ticketbox">
+		<div class="ticketTitlebox">
+			<div class="ticket">
+				<figure class="front">
+					<img src="img/facilityBuyTicket/launched-rocket.png" class="icon">
+				</figure>
+				<figure class="back">4</figure>
+			</div>
+			<h2 class="ticketTitle">宇宙雲霄飛車</h2>
+		</div>
+
+	
+		<div class="f_img">
+			<img src="img/facilityBuyTicket/p_01.jpg"><span class="cover"></span>
+		</div>
+		<div class="shortInfo">
+			史上最快最高的宇宙雲霄飛車
+		</div>
+
+		<div class="adult" data-val="160">
+			<span>全票</span><span class="price">160元/1張</span>
+			<div class='ctrl'>
+				 <div class='ctrl-button ctrl-button-decrement'>-</div>
+					  <div class='ctrl-counter'>
+					  	<input class='ctrl-counter-input' id="ad_count" maxlength='3' type='text' value='0' data-no="6">
+					  </div>
+					  <div class='ctrl-button ctrl-button-increment'>+</div>
+				</div>
+			</div>
+
+		<div class="child" data-val="75">
+			<span>半票</span><span class="price">75元/1張</span>
+			<div class='ctrl'>
+				 <div class='ctrl-button ctrl-button-decrement'>-</div>
+					  <div class='ctrl-counter'>
+					  	<input class='ctrl-counter-input' id="ch_count" maxlength='3' type='text' value='0' data-no="7">	
+					  </div>
+					<div class='ctrl-button ctrl-button-increment'>+</div>
+				</div>
+		</div>
+		<div class="f_submit" data-fn="4">
+			加入購物車
+		</div>
+	</div>
+	<!-- /////5-->
+		<div class="ticketbox">
+		<div class="ticketTitlebox">
+			<div class="ticket">
+				<figure class="front">
+					<img src="img/facilityBuyTicket/launched-rocket.png" class="icon">
+				</figure>
+				<figure class="back">5</figure>
+			</div>
+			<h2 class="ticketTitle">宇宙雲霄飛車</h2>
+		</div>
+
+	
+		<div class="f_img">
+			<img src="img/facilityBuyTicket/p_01.jpg"><span class="cover"></span>
+		</div>
+		<div class="shortInfo">
+			史上最快最高的宇宙雲霄飛車
+		</div>
+
+		<div class="adult" data-val="160">
+			<span>全票</span><span class="price">160元/1張</span>
+			<div class='ctrl'>
+				 <div class='ctrl-button ctrl-button-decrement'>-</div>
+					  <div class='ctrl-counter'>
+					  	<input class='ctrl-counter-input' id="ad_count" maxlength='3' type='text' value='0' data-no="8">
+					  </div>
+					  <div class='ctrl-button ctrl-button-increment'>+</div>
+				</div>
+			</div>
+
+		<div class="child" data-val="80">
+			<span>半票</span><span class="price">80元/1張</span>
+			<div class='ctrl'>
+				 <div class='ctrl-button ctrl-button-decrement'>-</div>
+					  <div class='ctrl-counter'>
+					  	<input class='ctrl-counter-input' id="ch_count" maxlength='3' type='text' value='0' data-no="9">	
+					  </div>
+					<div class='ctrl-button ctrl-button-increment'>+</div>
+				</div>
+		</div>
+		<div class="f_submit" data-fn="5">
+			加入購物車
+		</div>
+	</div>
+	<!-- /////06-->
+			<div class="ticketbox">
+		<div class="ticketTitlebox">
+			<div class="ticket">
+				<figure class="front">
+					<img src="img/facilityBuyTicket/launched-rocket.png" class="icon">
+				</figure>
+				<figure class="back">6</figure>
+			</div>
+			<h2 class="ticketTitle">宇宙雲霄飛車</h2>
+		</div>
+
+	
+		<div class="f_img">
+			<img src="img/facilityBuyTicket/p_01.jpg"><span class="cover"></span>
+		</div>
+		<div class="shortInfo">
+			史上最快最高的宇宙雲霄飛車
+		</div>
+
+		<div class="adult" data-val="290">
+			<span>全票</span><span class="price">290元/1張</span>
+			<div class='ctrl'>
+				 <div class='ctrl-button ctrl-button-decrement'>-</div>
+					  <div class='ctrl-counter'>
+					  	<input class='ctrl-counter-input' id="ad_count" maxlength='3' type='text' value='0' data-no="10">
+					  </div>
+					  <div class='ctrl-button ctrl-button-increment'>+</div>
+			</div>
+		</div>
+
+		<div class="child" data-val="110">
+			<span>半票</span><span class="price">110元/1張</span>
+			<div class='ctrl'>
+				<div class='ctrl-button ctrl-button-decrement'>-</div>
+					  <div class='ctrl-counter'>
+					  	<input class='ctrl-counter-input' id="ch_count" maxlength='3' type='text' value='0' data-no="11">	
+					  </div>
+				<div class='ctrl-button ctrl-button-increment'>+</div>
+			</div>
+		</div>
+		<div class="f_submit" data-fn="6">
+			加入購物車
+		</div>
 	</div>
 	<!-- /////-->
 </div>
 </body>
+<script type="text/javascript">
+function init(){
+	//-INPUT NUMBER
+	var decrement = document.querySelectorAll('.ctrl-button-decrement');
+	var container = document.querySelectorAll('.ctrl-counter');
+	var input = document.querySelectorAll('.ctrl-counter-input');
+	var increment = document.querySelectorAll('.ctrl-button-increment');
+	var val = [];
+	
+		for(var i = 0; i<input.length;i++ ){
+			decrement[i].addEventListener('click',decrementA);
+			increment[i].addEventListener('click',incrementA);
+			input[i].addEventListener("change",typeMode);
+		}
+
+	//減
+	function decrementA(){
+		var a = this.nextElementSibling.children[0].dataset.no;//抓到第幾個input的data-id
+			val[a] = input[a].value;
+			if(val[a]>0){
+				val[a] = parseInt(val[a] -1);
+				input[a].value = val[a];
+				
+			}else{
+				val[a] = 0;
+			}
+	}
+	//加
+	function incrementA(){
+		var b = this.previousElementSibling.children[0].dataset.no;
+			val[b] = input[b].value;
+			if(val[b]<99){
+				val[b]++;
+				input[b].value = val[b];
+
+			}else{
+				val[b] = 99;
+			}
+		
+		}
+	//change時
+	function typeMode(){
+		var val = this.value;
+		if(val>99){
+			this.value = 99;
+		}else if(val<0){
+			this.value = 0;
+		}
+	}
+}
+
+
+function l_storage(){
+	 	facility_list="";
+		var f_submit = document.querySelectorAll('.f_submit');
+		for(var i =0; i<f_submit.length;i++){
+			f_submit[i].addEventListener('click',saveToStorage);
+		}
+
+	function saveToStorage(){
+		
+		var storage = localStorage;
+		var fn = this.dataset.fn;/*設施編號*/
+		var ad = this.previousElementSibling.previousElementSibling.children[2].children[1].children[0].value;/*全票張數*/
+		var adp = this.previousElementSibling.previousElementSibling.dataset.val;/*全票價格*/
+		var cd = this.previousElementSibling.children[2].children[1].children[0].value;/*半票張數*/
+		var cdp = this.previousElementSibling.dataset.val;/*半票價格*/
+		var addToCart = adp+"/"+ad+"/"+cdp+"/"+cd;
+		if(ad!=0||cd!=0){//判斷全票半票皆不為0張
+			storage.setItem(fn,addToCart);        	
+		}
+	}
+}
+window.addEventListener('load',init);
+window.addEventListener('load',l_storage);
+</script>
 </html>

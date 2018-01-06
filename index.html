@@ -2,8 +2,10 @@
 <html lang="en">
 
 <head>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
 	<meta charset="UTF-8">
-	<title>FA</title>
+
+	<title>FA未來主題樂園</title>
 	<link rel="stylesheet" type="text/css" href="css/RESET.css">
 	<link rel="stylesheet" type="text/css" href="css/header.css">
 	<link rel="stylesheet" type="text/css" href="css/login.css">
@@ -20,47 +22,47 @@
 
 <body>
 
-	<div class="header">
-		<ul class="ul_top">
-			<li>
-				<a href="javascript:void(0)">註冊</a>
-			</li>
-			<li>
-				<a href="#" id="singUpBtn">登入</a>
-			</li>
-			<li>
-				<a href="input_cart.html">購物車</a>
-			</li>
-		</ul>
-	</div>
-	<div class="nav">
-		<ul class="ul_left">
-			<li>
-				<a href="buyTTicket.html">劇場購票</a>
-			</li>
-			<li>
-				<a href="facilityBuyTicket.html">設施購票</a>
-			</li>
-			<li>
-				<a href="facilityInfo.html">設施介紹</a>
-			</li>
-		</ul>
-		<h1 style="display: none">FutureAtlas_未來主題樂園</h1>
-		<a href="index.html#page1">
-			<img src="img/LOGO.png" class="logo">
-		</a>
-		<ul class="ul_right">
-			<li>
-				<a href="index.html#page2">園區地圖</a>
-			</li>
-			<li>
-				<a href="activity.html">活動月曆</a>
-			</li>
-			<li>
-				<a href="robot.html">諮詢專區</a>
-			</li>
-		</ul>
-	</div>
+<div class="header">
+	<ul class="ul_top">
+		<li>
+			<a href="SignUp.html">註冊</a>
+		</li>
+		<li>
+			<a href="#" id="singUpBtn">登入</a>
+		</li>
+		<li>
+			<a href="input_cart.html">購物車</a>
+		</li>
+	</ul>
+</div>
+<div class="nav">
+	<ul class="ul_left">
+		<li>
+			<a href="Theaterbuyticket.html">劇場購票</a>
+		</li>
+		<li>
+			<a href="facilityBuyTicket.html">設施購票</a>
+		</li>
+		<li>
+			<a href="facilityInfo.html">設施介紹</a>
+		</li>
+	</ul>
+	<h1 style="display: none">FutureAtlas_未來主題樂園</h1>
+	<a href="index.html#page1">
+		<img src="img/LOGO.png" class="logo">
+	</a>
+	<ul class="ul_right">
+		<li>
+			<a href="index.html#page2">園區地圖</a>
+		</li>
+		<li>
+			<a href="activity.html">活動月曆</a>
+		</li>
+		<li>
+			<a href="robot.html">諮詢專區</a>
+		</li>
+	</ul>
+</div>
 	<!-- header end-->
 
 	<!-- right btn -->
@@ -205,32 +207,27 @@
 						<!-- ferrisWheel END-->
 					</div>
 
-					<div data-depth="0.05" class="ed">
-						<div id="e_canvas_cover">
-							<canvas id="e_light"></canvas>
-						</div>
-						<div id="robo">
-							<img src="img/firstSection/robo.png">
-						</div>
-						<img src="img/firstSection/entrance.png" class="entrance">
-					</div>
-
-				</div>
-				<!-- scene END-->
-				<div class="shipbox">
-					<!-- 飛行船 -->
-					<!-- banner -->
-					<img src="img/firstSection/flyship.png" class="flyship">
-					<div class="banner">
-						<!-- bannerbox+圖 -->
-						<img src="img/firstSection/banner1.png" id="banner">
-					</div>
-				</div>
-				<!-- banner end-->
-				<div class="black_bar"></div>
+			<div data-depth="0.05" class="ed">
+			<div class="e_canvas_cover">
+			<canvas id="e_light"></canvas>
 			</div>
-			<div id="all-page"></div>
-			<!-- banner叫出時背景-->
+			<div id="robo">
+				<img src="img/firstSection/robo.png">
+			</div>
+			<img src="img/firstSection/entrance.png" class="entrance">
+			</div>
+
+		</div><!-- scene END-->
+		<div class="shipbox"><!-- 飛行船 --><!-- banner -->
+			<img src="img/firstSection/flyship.png" class="flyship">
+			<div class="banner"><!-- bannerbox+圖 --><!-- id="openBanner" -->
+				<img src="img/firstSection/banner1.png">
+			</div>
+		</div><!-- banner end-->
+		<img src="img/firstSection/banner1.png" id="mobileSizeBanner">
+		<div class="black_bar"></div>
+		</div>
+		<div id="all-page"></div><!-- banner叫出時背景-->	
 		</section>
 		<!-- 視差區END-->
 
@@ -641,7 +638,175 @@
 					</div>
 				</div>
 			</div>
-		</section>
+		</li>
+		<li class="buy notcurrent">
+			<a href="Theaterbuyticket.html">
+				<span>前往購票</span>
+			</a>
+		</li><!-- 前往購票按鈕 -->
+	</ul>
+
+
+	</section>
+	<!-- 第四屏開始-->
+	<section class="section" id="section3">
+		<div id="wrapper">
+
+		<div id="calWrapper">
+		<div id="calRight">
+				<div id="showToday"></div>
+		            <div id="prevMonth">
+		                <i class="fa fa-caret-up"></i>
+		            </div>
+		            <div id="showMonth"></div>
+		            <div id="nextMonth">
+		                <i class="fa fa-caret-down"></i>
+		            </div>
+		    <div id="icons">
+	            <ul id="selectActivityClass">
+	                <li id="icon1" class="icons">
+	                    <img src="img/forthSection/theater.png" alt="劇場" title="劇場">
+	                    <span>劇場時間</span>
+	                </li>
+	                <li id="icon2" class="icons">
+	                    <img src="img/forthSection/outoforder.png" alt="維修月曆" title="維修月曆">
+	                    <span>設施維修</span>
+	                </li>
+	                <li id="icon3" class="icons">
+	                    <img src="img/forthSection/party.png" alt="開園時間" title="開園時間">
+	                    <span>營業時間</span>
+	                </li>
+	                <li id="icon4" class="icons">
+	                    <img src="img/forthSection/lecture.png" alt="展覽" title="展覽"><span>展覽時間</span>
+	                </li>
+	            </ul>
+		    </div>
+		        <div id="backToToday" style="display: none">回到今日</div>
+		        <div id="clearCal" style="display: none">清空月曆</div>
+		    </div>
+
+		    <div id="cal">
+		    <table id="mycal" border="0" cellspacing="0" cellpadding="5">
+		        <tr id="dayRow" fontColor="black" cellspacing="10">
+
+		            <td>SUN</td>
+		            <td>MON</td>
+		            <td>TUE</td>
+		            <td>WED</td>
+		            <td>THU</td>
+		            <td>FRI</td>
+		            <td>SAT</td>
+		        </tr>
+		        <tr>
+		            <td class="daysHere"></td>
+		            <td class="daysHere"></td>
+		            <td class="daysHere"></td>
+		            <td class="daysHere"></td>
+		            <td class="daysHere"></td>
+		            <td class="daysHere"></td>
+		            <td class="daysHere"></td>
+		        </tr>
+		        <tr>
+		        	<td class="claContent sun"></td>
+		        	<td class="claContent mon"></td>
+		        	<td class="claContent tue"></td>
+		        	<td class="claContent wed"></td>
+		        	<td class="claContent thu"></td>
+		        	<td class="claContent fri"></td>
+		        	<td class="claContent sat"></td>
+		        </tr>
+		        <tr>
+		            <td class="daysHere"></td>
+		            <td class="daysHere"></td>
+		            <td class="daysHere"></td>
+		            <td class="daysHere"></td>
+		            <td class="daysHere"></td>
+		            <td class="daysHere"></td>
+		            <td class="daysHere"></td>
+		        </tr>
+		        <tr>
+		        	<td class="claContent sun"></td>
+		        	<td class="claContent mon"></td>
+		        	<td class="claContent tue"></td>
+		        	<td class="claContent wed"></td>
+		        	<td class="claContent thu"></td>
+		        	<td class="claContent fri"></td>
+		        	<td class="claContent sat"></td>
+		        </tr>
+		        <tr>
+		            <td class="daysHere"></td>
+		            <td class="daysHere"></td>
+		            <td class="daysHere"></td>
+		            <td class="daysHere"></td>
+		            <td class="daysHere"></td>
+		            <td class="daysHere"></td>
+		            <td class="daysHere"></td>
+		        </tr>
+		        <tr>
+		        	<td class="claContent sun"></td>
+		        	<td class="claContent mon"></td>
+		        	<td class="claContent tue"></td>
+		        	<td class="claContent wed"></td>
+		        	<td class="claContent thu"></td>
+		        	<td class="claContent fri"></td>
+		        	<td class="claContent sat"></td>
+		        </tr>
+		        <tr>
+		            <td class="daysHere"></td>
+		            <td class="daysHere"></td>
+		            <td class="daysHere"></td>
+		            <td class="daysHere"></td>
+		            <td class="daysHere"></td>
+		            <td class="daysHere"></td>
+		            <td class="daysHere"></td>
+		        </tr>
+		        <tr>
+		        	<td class="claContent sun"></td>
+		        	<td class="claContent mon"></td>
+		        	<td class="claContent tue"></td>
+		        	<td class="claContent wed"></td>
+		        	<td class="claContent thu"></td>
+		        	<td class="claContent fri"></td>
+		        	<td class="claContent sat"></td>
+		        </tr>
+		        <tr>
+		            <td class="daysHere"></td>
+		            <td class="daysHere"></td>
+		            <td class="daysHere"></td>
+		            <td class="daysHere"></td>
+		            <td class="daysHere"></td>
+		            <td class="daysHere"></td>
+		            <td class="daysHere"></td>
+		        </tr>
+		        <tr>
+		        	<td class="claContent sun"></td>
+		        	<td class="claContent mon"></td>
+		        	<td class="claContent tue"></td>
+		        	<td class="claContent wed"></td>
+		        	<td class="claContent thu"></td>
+		        	<td class="claContent fri"></td>
+		        	<td class="claContent sat"></td>
+		        </tr>
+		        <tr>
+		            <td class="daysHere"></td>
+		            <td class="daysHere"></td>
+		            <td class="daysHere"></td>
+		            <td class="daysHere"></td>
+		            <td class="daysHere"></td>
+		            <td class="daysHere"></td>
+		            <td class="daysHere"></td>
+		        </tr>
+		        <tr>
+		        	<td class="claContent sun"></td>
+		        	<td class="claContent mon"></td>
+		        	<td class="claContent tue"></td>
+		        	<td class="claContent wed"></td>
+		        	<td class="claContent thu"></td>
+		        	<td class="claContent fri"></td>
+		        	<td class="claContent sat"></td>
+		        </tr>
+		    </table>
+		</div>
 
 		</div>
 

@@ -24,21 +24,109 @@ body::-webkit-scrollbar-thumb {
  /* outline: 1px solid rgba(100,255,243,1);*/
 }
 
-select,option{
-	padding: 0px 15px 0 15px;
-	color: black;
-	outline: none;
-	border-style: none;
-}
+ /* input-number*/
+  .ctrl {
+      display: inline-block;
+      vertical-align: middle;
+      width: 45%;
+      max-width: 150px;
+      height: 30px;
+      background-color: #222;
+      border-radius: 3px;
+      font-size: 22px;
+      position: relative;
+      float: right;
+
+    }
+    .ctrl-counter {
+      position: absolute;
+      width: 53.3%;
+      max-width: 80px;
+      height: 30px;
+      top:50%;
+      left:50%;
+      transform: translate(-50%,-50%);
+      color: #333C48;
+      text-align: center;
+      overflow: hidden;
+      border : 1px solid rgba(90, 230, 219,0.5);
+    }
+
+    .ctrl-counter-input {
+      width: 100%;
+      height: 100%;
+      margin: 0;
+      padding: 0;
+      position: absolute;
+      top:50%;
+      left:50%;
+      transform: translate(-50%,-50%);
+      z-index: 2;
+      box-shadow: none;
+      outline: none;
+      border: none;
+      font-size: 20px;
+      line-height: 30px;
+      text-align: center;
+      background-color:rgba(0,0,0,0.5);
+      transition: all 0.1s ease-in;
+      color: #5AE6DB;
+    }
+   .ctrl-counter-input:active{
+    background-color:rgba(0,0,0,1);
+   }
+   .ctrl-counter-input:focus{
+    background-color:rgba(0,0,0,1);
+    color: white;
+   }
+    .ctrl-button {
+      width: 23.3%;
+      max-width: 35px;
+      height: 30px;
+      line-height: 28px;
+      text-align: center;
+      color: #000;
+      cursor: pointer;
+      background-color: #5AE6DB;
+      -webkit-transition: background-color 100ms ease-in;
+      transition: background-color 100ms ease-in;
+    }
+    .ctrl-button:hover {
+      background-color: #54ebff;
+      -webkit-transition: background-color 100ms ease-in;
+      transition: background-color 100ms ease-in;
+    }
+    .ctrl-button:active {
+      background-color: #008da0;
+      -webkit-transition: background-color 100ms ease-in;
+      transition: background-color 100ms ease-in;
+    }
+    .ctrl-button-decrement {
+      position: absolute;
+      top:0;
+      left:0;
+      border-radius: 3px 0 0 3px;
+    }
+    .ctrl-button-increment {
+      position: absolute;
+      top:0;
+      right:0;
+      border-radius: 0 3px 3px 0;
+    }
+
+ /* input-number-end*/
+
+
+
 .fbtWrapper{
   width:80%;
   max-width: 1440px;
-  padding: 8% 3% 3% 3%;
+  padding: 8% 2% 2% 2%;
   margin: 0 auto;
 }
 .fbtWrapper .ticketbox{
 	width: 25%;
-/*  min-width: 300px;*/
+  min-width: 250px;
   margin:4.1%;
   float: left;
 
@@ -128,20 +216,16 @@ select,option{
   color: #42D6CA;
   font-family: "微軟正黑體";
   font-weight: bold;
+  letter-spacing: 1.5px;
 }
 /*ticket icon-rotate end*/
 .ticketbox .shortInfo{
-  padding: 10px;
-  font-size: 18px;
+  width: 100%;
+  margin: 10px 0;
+  font-size: 20px;
 }
 
-.t_table{
-	width: 100%;
-  margin: 10px auto;
-}
-.t_table td{
-  padding: 10px 15px 10px 15px;
-}
+
 .f_img{
 	position: relative;
 }
@@ -159,13 +243,29 @@ select,option{
 }
 
 
+.ticketbox .adult,.ticketbox .child{
+  width: 100%;
+  font-size:18px;
+  margin: 20px 0;
+}
+.ticketbox .adult span,.ticketbox .child span{
+  float: left;
+  padding-top: 5px;
+  letter-spacing: 1.5px;
+}
+.ticketbox .adult span.price,.ticketbox .child span.price{
+  color: #5AE6DB;
+}
+.ticketbox .adult:after,.ticketbox .child:after{
+  content: "";
+  display: block;
+  clear: both;
+}
 
 
 /*btn*/
-input.f_submit{
+.f_submit{
 	outline: none;
-	border:2px solid rgba(255, 193, 22,0.8);
-	padding:1%;
   position: relative;
   color: white;
   width: 100%;
@@ -173,15 +273,17 @@ input.f_submit{
   font-size: 18px;
   font-weight: bold;
   background-color: rgba(255, 193, 22,0.2);
-  /*transition: 0.2s linear;*/
+  transition: 0.2s linear;
+  line-height: 35px;
+  text-align: center;
 
 }
-input.f_submit:hover{
+.f_submit:hover{
   background-color: rgba(255, 193, 22,0.8);
   color: black;
   cursor: pointer;
 }
-input.f_submit:before{
+.f_submit:before{
   content: "";
   display: block;
   position: absolute;
@@ -192,9 +294,11 @@ input.f_submit:before{
   width: 100%;
   height: 100%;
   border:2px solid rgba(255, 193, 22,0.8);
+  transition: 0.2s linear;
 }
-input.f_submit:hover:before{
+.f_submit:hover:before{
+
   width: 103%;
   height: 120%;
-  border: 2px solid rgba(255, 193, 22,0.5);
+  border: 2px solid rgba(255, 193, 22,0.8);
 }
