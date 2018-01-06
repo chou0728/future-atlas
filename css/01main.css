@@ -5,14 +5,14 @@
 	user-select:none;
 }
 
-#stop{
+/*#stop{
 			-webkit-animation: none !important;
 			 -moz-animation: none !important;
 			 -o-animation: none !important;
 			 -ms-animation: none !important;
 			 animation: none !important;
 	}
-
+*/
 
 /*-----banner-----*/
 		.shipbox{
@@ -23,7 +23,23 @@
 			animation: flyship 4s infinite;
 			transition: 0.3s linear;
 		}
+		#shipboxOpen.shipbox{
+			top:15vh;
+			-webkit-animation: none;
+			 -moz-animation: none;
+			 -o-animation: none;
+			 -ms-animation: none;
+			 animation: none;
+		}
+		/*768*/
+		@media screen and (max-width:768px) {
+			
+			#shipboxOpen.shipbox{
+			top:15vh;
+			left:-10vw;
+			}
 
+		}
 		@keyframes flyship{
 			0%   {transform: translateY(0px);}
 		    10%  {transform: translateY(5px);}
@@ -43,6 +59,7 @@
 			transition: transform 3s ease;
 		}
 
+
 		.shipbox .banner {
 		  position: absolute;
 		  top:9%;
@@ -61,10 +78,19 @@
 		  cursor: pointer;
 		  transform: translateX(-800px);
 		  transition: width .2s linear,height .2s linear,transform 3s ease;
-		  
+		}
+		.shipbox #openBanner.banner {
+			width: 240%;
+			height: 290%
+		}
+		@media screen and (max-width:768px) {
+			
+			.shipbox #openBanner.banner{
+				width: 205%;
+				height: 255%
+			}
 
 		}
-
 		.banner:after {
 		  content: " ";
 		  position: absolute;
@@ -106,9 +132,13 @@
 		  }
 		}
 		.banner img{
-			width: 100%;
-			
+			width: 100%;	
 		}
+
+		
+
+
+
 		#all-page{
 			position: absolute;
 			top:0;
@@ -120,15 +150,26 @@
 			display: none;
 			opacity: 0.7;
 		}
+		#mobileSizeBanner{
+			display: none;
+		}
 
 /*-----banner end-----*/
 
 /*-----silhouette-----*/
+
 .t_wrapper{
 	width: 100%;
 	height: 100vh;
 	background-image: radial-gradient(circle at center bottom,#FFFFFF 20%,#C8F4FF 40%, #C8F4FF 47.2%, #000e4f 48% ,#000000 95%);
 }
+
+@media screen and (max-width:768px) {
+	.t_wrapper{
+	background-image: radial-gradient(circle at center 80%,#FFFFFF 20%,#C8F4FF 40%, #C8F4FF 47.2%, #000e4f 48% ,#000000 95%);
+	}
+}
+
 .silhouette{
 	width: 100%;
 	min-width: 1200px;/*--暫定--*/
@@ -138,6 +179,8 @@
 	overflow: hidden;
 	text-align: center;
 }
+
+
 .silhouette:after{
 	display: block;
 	content: '';
@@ -147,19 +190,31 @@
 }*/
 .silhouette #scene{
 	position: absolute;
-	/*width: 100%;*/
-	/*height: 100%;*/
 	bottom: 0;
 	overflow: hidden;
 }
+@media screen and (max-width:768px) {
+			
+.silhouette #scene{
+	width: 185%;
+	bottom: -15%;
+	left:-50%;
 
+}
+
+}
 .silhouette .ed .entrance{
 	width: 100%;
 	transform: translateY(50%);
 	transition: transform 2s ease;
 
 }
-.silhouette .ed #e_canvas_cover{
+.silhouette .ed #entranceApear.entrance{
+	transform: translateY(0);
+}
+
+
+.silhouette .ed .e_canvas_cover{
 	width: 100%;
 	max-width: 1920px;
 	min-width: 1200px;
@@ -171,24 +226,30 @@
 	transform: translateY(50%);
 	transition: transform 2s ease;
 }
-
+.silhouette .ed #canvas_cover.e_canvas_cover{
+	transform: translateY(0);
+}
 #e_light{
 	pointer-events: auto;
 }
 
 .silhouette .roller{
 	width: 100%;
-	bottom: 0;
 	filter: drop-shadow(2px 2px 0px rgba(0, 0, 0,0.5));
 	transform: translateY(60%);
 	transition: transform 2.5s ease;
 }
+.silhouette #rollerAppear.roller{
+	transform: translateY(0);
+}
 .silhouette .rocket{
 	width: 100%;
 	filter: drop-shadow(0px 0px 3px rgba(0, 255, 255,0.15));
-	bottom: 0;
 	transform: translateY(60%);
 	transition: transform 3s ease;
+}
+.silhouette #rocketAppear.rocket{
+	transform: translateY(0);
 }
 .silhouette .machi{/*clouds*/
 	width: 110%;
@@ -196,8 +257,16 @@
 	opacity: 0;/*to 0.8*/
 	filter: drop-shadow(0px 0px 4px rgba(0, 0, 0,0.5));
 	transition: opacity 5s ease;
-
 }
+/*768*/
+
+@media screen and (max-width:768px) {
+
+	.silhouette .machi{
+		transform: translateX(25%);
+	}
+}
+/*768END*/
 .silhouette .flyship{
 
 	filter: drop-shadow(0px 0px 2px rgba(0, 255, 255,0.5)) drop-shadow(0px 0px 1px rgba(0, 255, 255,0.5));

@@ -19,6 +19,11 @@
 	vertical-align: middle;
 	height: auto;
 }
+@media screen and (max-width:768px){
+	.logo{
+		
+	}
+}
 .ul_left,.ul_right,.ul_left li,.ul_right li{
 	display: inline-block;
 	vertical-align: middle;	

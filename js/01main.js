@@ -1,6 +1,5 @@
  window.addEventListener('load', init);
  function init() {
-  console.log(location.hash);
  	//shuffle-text
  		var li = document.getElementsByClassName('shuffle');
  		var effectList = [];
@@ -64,61 +63,56 @@ function canvasRunStop(){
 
 
 function loadUp(){
-	var entrance = document.getElementsByClassName('entrance');
-	var e_canvas_cover =  document.getElementById('e_canvas_cover');
-	var robo = document.getElementById('robo');
-	var roller = document.getElementsByClassName('roller');
-	var rocket = document.getElementsByClassName('rocket');
-	var ferris_cover = document.getElementsByClassName('ferris_cover');
-	entrance[0].style.transform = "translateY(0)";
-	e_canvas_cover.style.transform = "translateY(0)";
-	robo.style.transform = "translateY(0)";
-	roller[0].style.transform = "translateY(0)";
-	rocket[0].style.transform = "translateY(0)";
-	ferris_cover[0].style.transform = "translateY(0)";
-	clearTimeout(loadUp);
+  	var entrance = document.getElementsByClassName('entrance');
+  	var e_canvas_cover = document.getElementsByClassName('e_canvas_cover')[0];
+  	var robo = document.getElementById('robo');
+  	var roller = document.getElementsByClassName('roller');
+  	var rocket = document.getElementsByClassName('rocket');
+  	var ferris_cover = document.getElementsByClassName('ferris_cover');
+  	entrance[0].setAttribute("id", "entranceApear");
+  	e_canvas_cover.setAttribute("id", "canvas_cover");
+  	robo.style.transform = "translateY(0)";
+  	roller[0].setAttribute("id", "rollerAppear");
+  	rocket[0].setAttribute("id", "rocketAppear");
+  	ferris_cover[0].setAttribute("id", "ferrisAppear");
+  	clearTimeout(loadUp);
 }
 function loadUpSecond(){
-	var flyship = document.getElementsByClassName('flyship');
-	var banner = document.getElementsByClassName('banner');
-	var clouds = document.getElementsByClassName('machi');
-	flyship[0].style.transform = "translateX(0)";
-	banner[0].style.transform = "translateX(0)";
-	clouds[0].style.opacity = "0.8";
-	clouds[1].style.opacity = "0.9";
+  	var flyship = document.getElementsByClassName('flyship');
+  	var banner = document.getElementsByClassName('banner');
+  	var clouds = document.getElementsByClassName('machi');
+  	flyship[0].style.transform = "translateX(0)";
+  	banner[0].style.transform = "translateX(0)";
+  	clouds[0].style.opacity = "0.8";
+  	clouds[1].style.opacity = "0.9";
+    clearTimeout(loadUpSecond);
 }
 function bannerOpenClose(){
-	var banner = document.getElementsByClassName('banner');
-	var shipbox = document.getElementsByClassName('shipbox');
-	var cross = document.getElementsByClassName('cross');
-	var allPage = document.getElementById('all-page');
-	if(shipbox[0].id != "stop"){
-	banner[0].style.width = "240%";
-	banner[0].style.height = "290%";
-	shipbox[0].style.top = "15vh";
-	shipbox[0].setAttribute("id", "stop");
-	allPage.style.display="block";
-	}else{
-	banner[0].style.width = "";
-	banner[0].style.height = "";
-	shipbox[0].style.top = "";
-	shipbox[0].id ="";
-	allPage.style.display="";
-	}
+  	var banner = document.getElementsByClassName('banner');
+  	var shipbox = document.getElementsByClassName('shipbox');
+  	var cross = document.getElementsByClassName('cross');
+  	var allPage = document.getElementById('all-page');
+  	if(shipbox[0].id != "shipboxOpen"){
+  	banner[0].setAttribute("id", "openBanner");
+  	shipbox[0].setAttribute("id", "shipboxOpen");
+  	allPage.style.display="block";
+  	}else{
+  	banner[0].id="";
+  	shipbox[0].id ="";
+  	allPage.style.display="";
+  	}
 	
 }
 function bannerMousewheelClose(){
-	var banner = document.getElementsByClassName('banner');
-	var shipbox = document.getElementsByClassName('shipbox');
-	var cross = document.getElementsByClassName('cross');
-	var allPage = document.getElementById('all-page');
-	if(shipbox[0].id == "stop"){
-		banner[0].style.width = "";
-	banner[0].style.height = "";
-	shipbox[0].style.top = "";
-	shipbox[0].id ="";
-	allPage.style.display="";
-	}
+  	var banner = document.getElementsByClassName('banner');
+  	var shipbox = document.getElementsByClassName('shipbox');
+  	var cross = document.getElementsByClassName('cross');
+  	var allPage = document.getElementById('all-page');
+  	if(shipbox[0].id == "shipboxOpen"){
+  		banner[0].id="";
+      shipbox[0].id ="";
+      allPage.style.display="";
+  	}
 }
 
 // function NeonLight(){
@@ -134,8 +128,8 @@ function bannerMousewheelClose(){
 // }
 
 function roboAppear(){
-	this.style.bottom="0";
-	this.setAttribute("class","robolight");
+  	this.style.bottom="0";
+  	this.setAttribute("class","robolight");
 }
 
 
@@ -161,7 +155,7 @@ window.addEventListener("resize",canvasRunStop);
 function e_light(){
 	canvas = document.getElementById('e_light');
     var ctx = canvas.getContext('2d');
-   	var	cover = document.getElementById('e_canvas_cover');
+   	var	cover = document.getElementsByClassName('e_canvas_cover')[0];
     w = cover.offsetWidth;
     h = cover.offsetHeight;
     	canvas.setAttribute("width",w);
@@ -211,7 +205,7 @@ function e_light(){
      		Rect(1078.7/1583*w,275/539*h,10/1583*w,80/539*h,"#00f6ff");
      		Rect(990.9/1583*w,305.2/539*h,10/1583*w,80/539*h,"#00f6ff");
      		timer1 = requestAnimationFrame(doorAnimate);
-        console.log(height);
+        // console.log(height);
      }
      doorAnimate();
 
