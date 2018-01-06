@@ -202,7 +202,8 @@
     top: 10px;
     left: 100px;
     color: white;
-    font-size: 32px; }
+    font-size:24px; 
+  }
 
   @media screen and (max-width:414px) {
     .topright .Menutitle {
@@ -330,7 +331,8 @@
     /*top:0;*/
     left:-100%;
     color: white;
-    font-size: 30px; }
+    font-size: 24px; 
+  }
   @media screen and (max-width:414px){
     .programone .programonetitle{
       position: absolute;
@@ -376,7 +378,7 @@
     line-height: 20px;
     letter-spacing: 1.2px;
     width: 300px;
-    color: white; 
+    /*color: white; */
   }
   @media screen and (max-width:768px) and (min-width:415px){
     .programonecontent{
@@ -487,7 +489,7 @@
     top:-18px;
     left:200%;
     color: white;
-    font-size: 30px; 
+    font-size:24px; 
   }
 
   @media screen and (max-width: 414px) {
@@ -517,7 +519,8 @@
     line-height: 20px;
     letter-spacing: 1.2px;
     width: 300px;
-    color: white; }
+    /*color: white;*/ 
+  }
 
   @media screen and (max-width:414px) {
     .programtwo .programtwocontent {
