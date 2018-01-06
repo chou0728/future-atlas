@@ -27,6 +27,13 @@
 	vertical-align: middle;
 	height: auto;
 }
+<<<<<<< HEAD
+@media screen and (max-width:768px){
+	.logo{
+		
+	}
+}
+=======
 /*768*------====================================*/
 @media screen and (max-width:768px){
 	.logo{
@@ -39,6 +46,7 @@
 	}
 }
 /*768*------====================================*/
+>>>>>>> 53d5060c94d2e09c466ef095ef5e1430125b7728
 .ul_left,.ul_right,.ul_left li,.ul_right li{
 	display: inline-block;
 	vertical-align: middle;	
