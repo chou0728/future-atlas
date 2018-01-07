@@ -15,22 +15,29 @@ body{
 	font-family: Inconsolata, 微軟正黑體;
 }
 
-h1{
+#cartWrapper{
+	width: 100%;
+	height: 100%;
+	margin-top: 8%;
+}
+
+#cartTitle{
 	width: auto;
 	margin: 20px auto 10px auto;
 	text-align: center;
 }
 
-img{
+#cartWrapper img{
 	width: 30px;
-}table{
+}
+#cartWrapper table{
 	width: 70%;
 	margin-left: 15%;
 	text-align: left;
 	border: none;
 	/*border: 1px solid red;*/
 }
-th{
+#cartWrapper th{
 	font-size: 20px;
 	padding: 5px;
 	height: 30px;
@@ -41,7 +48,7 @@ th{
 #fare_th{
 	text-align: right;
 }
-td{
+#cartWrapper td{
 	padding: 5px;
 	padding-top: 30px;
 	padding-bottom: 5px;
@@ -50,7 +57,7 @@ td{
 	/*border: 1px solid red;*/
 }
 
-title{
+#cartWrapper title{
 	font-weight: normal;
 }
 
