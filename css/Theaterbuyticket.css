@@ -12,8 +12,6 @@
       font-family: "微軟正黑體", Arial ,sans-serif;
       background-color: black;
       color: #5AE6DB;
-      line-height:1.5;
-      letter-spacing: 2px;
       /* background-image: url("../img/Galaxy_1.jpg");
     background-size: cover;
       */
@@ -28,12 +26,20 @@
       width: 50%;
       position: relative;
       top: 160px;
-      left: 32.5%; }
+      left: 32.5%; 
+    }
+    @media screen and (max-width:1024px) and (min-width:415px){
+      .Menu {
+        position: relative;
+        top: 113px;
+        left: 31.5%; 
+      }
+    }
     @media screen and (max-width:414px){
       .Menu{
         width:65%;
-		top: 0px;
-		left:0%;
+    		top:-38px;
+    		left:0%;
         margin-left: auto;
         margin-right: auto;
       }
@@ -69,7 +75,7 @@
         left:-7%;*/
 		    position: absolute;
         top:-60px;
-        left:150px;
+        left:149px;
       }
     }
     .progressinfoMenu .progressinfotriangle{
@@ -99,8 +105,13 @@
       padding: 7px 0px;
       text-decoration: none;
       transform: translate(0);
-      transition: all 0.3s ease; }
-
+      transition: all 0.3s ease; 
+    }
+    @media screen and (max-width: 414px){
+      .progressinfoMenu a{
+        top:5px;
+      }
+    }
     .buyticketMenu {
       margin-top: 10px;
       background-color: #ffc116;
@@ -117,7 +128,7 @@
       .buyticketMenu{
 	    position: absolute;
         top:-60px;
-        left:-20px;
+        left:-19px;
         /*position: absolute;
         top:-11px;
         left:142px;*/
@@ -151,7 +162,11 @@
       text-decoration: none;
       transform: translate(0);
       transition: all 0.3s ease; }
-
+    @media screen and (max-width: 414px){
+      .buyticketMenu a{
+        top:12px;
+      }
+    }
     .sq-one.move {
       transform: translate(0px, 50px); }
 
@@ -210,7 +225,7 @@
       .topright .Menutitleh2{
         width:100%;
         /*position: absolute;*/
-        top: 0px;
+        top:-23px;
         left: 0%;
         /*margin-top: 28px;
         margin-left: 20px;*/
@@ -327,12 +342,15 @@
     .spcial p {
       width: 397px;
       text-align: left;
-      padding: 10px 10px; }
-	@media screen and (max-width: 414px) {
-	 .spcial p {
-		width:384px;
-	  }
-	}
+      padding: 10px 10px;
+      line-height:1.5;
+      letter-spacing: 2px; 
+    }
+  	@media screen and (max-width: 414px) {
+  	 .spcial p {
+  		width:384px;
+  	  }
+  	}
     .spcial .buyticket {
       float: right;
       font-size: 23px;
