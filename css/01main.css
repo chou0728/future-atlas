@@ -194,6 +194,19 @@
 	overflow: hidden;
 	user-select:none;
 }
+
+/*1024=======================================*/
+
+@media screen and (min-width:769px) and (max-width:1024px) {
+
+	.silhouette #scene{
+		width: 120%;
+		bottom: -3%;
+		left:-30%;
+	}
+}
+/*1024END====================================*/
+/*==768===================================*/
 @media screen and (max-width:768px) {
 			
 .silhouette #scene{
@@ -202,7 +215,7 @@
 	left:-50%;
 
 }
-
+/*==768===================================*/
 }
 .silhouette .ed .entrance{
 	width: 100%;
@@ -259,7 +272,16 @@
 	filter: drop-shadow(0px 0px 4px rgba(0, 0, 0,0.5));
 	transition: opacity 5s ease;
 }
-/*768*/
+/*1024=======================================*/
+
+@media screen and (max-width:769px) and (max-width:1024px) {
+
+	.silhouette .machi{
+		transform: translateX(25%);
+	}
+}
+/*1024END====================================*/
+/*768=======================================*/
 
 @media screen and (max-width:768px) {
 
@@ -267,7 +289,7 @@
 		transform: translateX(25%);
 	}
 }
-/*768END*/
+/*768END====================================*/
 .silhouette .flyship{
 
 	filter: drop-shadow(0px 0px 2px rgba(0, 255, 255,0.5)) drop-shadow(0px 0px 1px rgba(0, 255, 255,0.5));
