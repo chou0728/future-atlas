@@ -1,9 +1,3 @@
-*{
-	box-sizing: border-box;
-	color: white;
-	text-decoration: none;
-	user-select:none;
-}
 
 /*#stop{
 			-webkit-animation: none !important;
@@ -31,15 +25,19 @@
 			 -ms-animation: none;
 			 animation: none;
 		}
-		/*768*/
+		/*768*==================================*/
 		@media screen and (max-width:768px) {
-			
+			.shipbox{
+				width: 25%;
+				top:40vh;
+			}
 			#shipboxOpen.shipbox{
-			top:15vh;
+			top:25vh;
 			left:-10vw;
 			}
 
 		}
+		/*768*==================================*/
 		@keyframes flyship{
 			0%   {transform: translateY(0px);}
 		    10%  {transform: translateY(5px);}
@@ -55,7 +53,7 @@
 		}
 		.shipbox .flyship{
 			width: 100%;
-			transform: translateX(-800px);
+			transform: translateX(-100vw);
 			transition: transform 3s ease;
 		}
 
@@ -76,21 +74,30 @@
 		  z-index: 5;
 		  box-shadow: 0 0 2px skyblue;
 		  cursor: pointer;
-		  transform: translateX(-800px);
+		  transform: translateX(-100vw);
 		  transition: width .2s linear,height .2s linear,transform 3s ease;
 		}
+
 		.shipbox #openBanner.banner {
-			width: 240%;
-			height: 290%
+			position: fixed;
+			width: 70vw;
+			top:15vh;
+			left: 15vw;
+			height: auto;
 		}
+		/*768*==================================*/
 		@media screen and (max-width:768px) {
 			
 			.shipbox #openBanner.banner{
-				width: 205%;
-				height: 255%
+				position: fixed;
+				top: 20vh;
+				left: 2.5vw;
+				width: 95vw;
+				height: auto;
 			}
 
 		}
+		/*768*==================================*/
 		.banner:after {
 		  content: " ";
 		  position: absolute;
@@ -135,10 +142,6 @@
 			width: 100%;	
 		}
 
-		
-
-
-
 		#all-page{
 			position: absolute;
 			top:0;
@@ -163,13 +166,13 @@
 	height: 100vh;
 	background-image: radial-gradient(circle at center bottom,#FFFFFF 20%,#C8F4FF 40%, #C8F4FF 47.2%, #000e4f 48% ,#000000 95%);
 }
-
+/*768======================================*/
 @media screen and (max-width:768px) {
 	.t_wrapper{
 	background-image: radial-gradient(circle at center 80%,#FFFFFF 20%,#C8F4FF 40%, #C8F4FF 47.2%, #000e4f 48% ,#000000 95%);
 	}
 }
-
+/*768=====================================*/
 .silhouette{
 	width: 100%;
 	min-width: 1200px;/*--暫定--*/
@@ -192,7 +195,21 @@
 	position: absolute;
 	bottom: 0;
 	overflow: hidden;
+	user-select:none;
 }
+
+/*1024=======================================*/
+
+@media screen and (min-width:769px) and (max-width:1024px) {
+
+	.silhouette #scene{
+		width: 120%;
+		bottom: -3%;
+		left:-30%;
+	}
+}
+/*1024END====================================*/
+/*==768===================================*/
 @media screen and (max-width:768px) {
 			
 .silhouette #scene{
@@ -201,7 +218,7 @@
 	left:-50%;
 
 }
-
+/*==768===================================*/
 }
 .silhouette .ed .entrance{
 	width: 100%;
@@ -258,7 +275,16 @@
 	filter: drop-shadow(0px 0px 4px rgba(0, 0, 0,0.5));
 	transition: opacity 5s ease;
 }
-/*768*/
+/*1024=======================================*/
+
+@media screen and (min-width:769px) and (max-width:1024px) {
+
+	.silhouette .machi{
+		transform: translateX(14%);
+	}
+}
+/*1024END====================================*/
+/*768=======================================*/
 
 @media screen and (max-width:768px) {
 
@@ -266,7 +292,7 @@
 		transform: translateX(25%);
 	}
 }
-/*768END*/
+/*768END====================================*/
 .silhouette .flyship{
 
 	filter: drop-shadow(0px 0px 2px rgba(0, 255, 255,0.5)) drop-shadow(0px 0px 1px rgba(0, 255, 255,0.5));
@@ -299,14 +325,44 @@
 	width: 100%;
 }
 /*--摩天輪上ㄉ字--*/
+.t_wrapper #mobileWelcome{/*--768以下--*/
+	display: none;
+}
+/*768=======================================*/
+
+@media screen and (max-width:768px) {
+
+	.t_wrapper #mobileWelcome{/*--768以下--*/
+		width:100%;
+		display: block;
+		position: absolute;
+		top:20%;
+		left: 0;
+	}
+	.t_wrapper #mobileWelcome .fw_motobox{
+		text-align: center;
+		width:100%;
+		animation: huge-flicker 10s infinite;
+	}
+	.t_wrapper #mobileWelcome .fw_motobox .fw_motoword{
+		font-size:55px;
+		text-shadow: 0 0 1px #1a417a, 0 0 2px #1a417a, 0 0 2px #1a417a, 0 0 3px #1a417a;
+		color: #1a417a;
+		font-family: monospace;
+	}
+	.t_wrapper #mobileWelcome .fw_motobox #fw_word{
+		color: #54fdfd;
+	  	text-shadow: 0 0 2px #44ffff, 0 0 3px #3fafff, 0 0 10px #2dabab, 0 0 15px #84ccff;
+		animation: tiny-annoying-flicker .25s infinite;
+	}
+}
+/*768END====================================*/
 .silhouette .ferris_cover #center .fw_motobox{
 	text-align: center;
 	width:180%;
 	position: absolute;
 	bottom: 0;
   	left:-42%;
-  	pointer-events: auto;
-  	cursor: pointer;
 
 }
 .silhouette .ferris_cover #center .fw_motobox .fw_motoword{

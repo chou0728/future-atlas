@@ -87,16 +87,30 @@
     background-color: rgb(253, 229, 17);
     box-shadow: 0 0 10px rgb(253, 229, 17), rgb(253, 229, 17);
 }
-
-@media screen and (max-width: 700px) {
-
-.cont .leftBox .leftContent{
-    float: none;
-    display: block;
-    max-width: 100%;
-    }
+/*左邊平板尺寸*/
+@media screen and (min-width:415px) and (max-width:1024px){
+    
+    
 
 }
+/*左邊手機尺寸*/
+@media screen and (max-width:414px){
+
+    .cont .leftBox .leftContent{
+        float: none;
+        display: block;
+        max-width: 100%;
+        }
+    .cont .leftBox{
+        padding: 0;
+    }
+    .cont .leftBox button{
+        margin: 0 auto;
+        width: 50%;
+        float: left;
+    }
+
+    }
 
 
 
@@ -160,9 +174,22 @@
     width: 100%;
     z-index: 10;
  }
+ /*中間平板尺寸*/
+@media screen and (min-width:415px) and (max-width:1024px){
+    .cont .midBox{
+        max-width: 100%; 
+        float: none;
+        box-sizing: border-box;
+        padding: 43px 0px 50px 0px;
+    }
+}
+/*中間手機尺寸*/
+@media screen and (max-width:414px){
+    .rightBox{
+       display: none;
+    }
 
-
-
+}
 
 
 
@@ -172,7 +199,7 @@
 .cont .rightBox{
     width: 33.333%;
     min-width: 320px;
-    padding: 5%;
+    padding: 3%;
     float: left;
     
 }
@@ -231,7 +258,7 @@
 /* 手機 */
 .cont .rightBox .visual2 img{
     position: absolute;
-    width: 30%;
+    width: 25%;
     transform: translate(-50%,-50%);
     top: 50%;
     left: 50%;
@@ -239,8 +266,8 @@
 /* 橢圓 */
 .cont .rightBox .visual2 .circle{
     top: 50%;
-    left: 5%;
-    width: 90%;
+    left: 15%;
+    width: 70%;
     z-index: 99;
     animation: spin 5s infinite  linear;
 }
@@ -253,6 +280,20 @@
 /* .visual2:after{
     animation: spin 4s infinite linear alternate;
 } */
+
+/*右邊平板尺寸*/
+@media screen and (min-width:415px) and (max-width:1024px){
+    .rightBox{
+       display: none;
+    }
+}
+/*右邊手機尺寸*/
+@media screen and (max-width:414px){
+    .rightBox{
+       display: none;
+    }
+
+}
 
 @keyframes flicker {
     0% {

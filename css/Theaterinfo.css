@@ -7,7 +7,7 @@
   * {
     margin: 0px;
     padding: 0px;
-    /*outline: 1px solid red;*/ 
+    /*outline: 1px solid red; */
   }
 
   body {
@@ -15,8 +15,6 @@
     background-color: black;
     overflow-x: hidden;
     color: #5AE6DB;
-    line-height:1.5;
-    letter-spacing: 2px;
     /* background-image: url("../img/Galaxy_1.jpg");
       background-size: cover;
     */
@@ -39,7 +37,7 @@
       margin-right: auto;
     }
   }
-  @media screen and (max-width:768px) and (min-width:415px) {
+  @media screen and (max-width:1024px) and (min-width:415px) {
     .Menu{
       width:84%;
       margin:0 auto;
@@ -65,7 +63,7 @@
         left:-7%;
       }
   }
-  @media screen and (max-width:768px) and (min-width:415px){
+  @media screen and (max-width:1024px) and (min-width:415px){
       .progressinfoMenu{
         position: absolute;
         top:-11px;
@@ -86,7 +84,7 @@
         display: none;
       }
   }
-  @media screen and (max-width:768px){
+  @media screen and (max-width:1024px) and (min-width:415px){
       .progressinfoMenu .progressinfotriangle{
         display: none;
       }
@@ -123,7 +121,7 @@
           left:142px;
       }
   }
-  @media screen and (max-width:768px) and (min-width:415px){
+  @media screen and (max-width:1024px) and (min-width:415px){
       .buyticketMenu{
           position: absolute;
           top:-11px;
@@ -144,7 +142,7 @@
         display: none;
       }
   }
-  @media screen and (max-width:768px) and (min-width:415px){
+  @media screen and (max-width:1024px) and (min-width:415px){
       .buyticketMenu .buytickettriangle{
         display: none;
       }
@@ -173,7 +171,7 @@
     top: 60px;
     left: 43%; 
   }
-  @media screen and (max-width:768px) and (min-width:415px){
+  @media screen and (max-width:1024px) and (min-width:415px){
     .topright {
       width: 50%;
       position: relative;
@@ -192,7 +190,7 @@
       display: none; 
       } 
   }
-  @media screen and (max-width:768px) and (min-width:415px){
+  @media screen and (max-width:1024px) and (min-width:415px){
     .topright .Recycle_arrows {
       display: none; 
     }
@@ -216,7 +214,7 @@
       left:24px;
     }
   }
-  @media screen and (max-width:768px) and (min-width:415px){
+  @media screen and (max-width:1024px) and (min-width:415px){
     .topright .Menutitle {
       width: 138px;
       position: absolute;
@@ -235,7 +233,7 @@
       display: none; 
     } 
   }
-  @media screen and (max-width:768px) and (min-width:415px){
+  @media screen and (max-width:1024px) and (min-width:415px){
     .toprightcanvas {
       display: none; 
     } 
@@ -269,7 +267,7 @@
       display: none; 
     } 
   }
-  @media screen and (max-width:768px) and (min-width:415px){
+  @media screen and (max-width:1024px) and (min-width:415px){
     .topright .planet {
       display: none; 
     }
@@ -290,7 +288,7 @@
       display: none; 
     } 
   }
-  @media screen and (max-width:768px) and (min-width:415px){
+  @media screen and (max-width:1024px) and (min-width:415px){
     .topright .spaceman {
       display: none; 
     }
@@ -340,7 +338,7 @@
       left: 1%;
     }
   }
-  @media screen and (max-width:768px) and (min-width:415px){
+  @media screen and (max-width:1024px) and (min-width:415px){
     .programone .programonetitle{
       position: absolute;
       top:5px;
@@ -362,7 +360,7 @@
       height: 60%;
     }
   }
-  @media screen and (max-width:768px) and (min-width:415px){
+  @media screen and (max-width:1024px) and (min-width:415px){
     .programone .programoneline{
       width:5px;
       height: 60%;
@@ -375,12 +373,12 @@
     font-size: 16px;
     text-align: left;
     padding: 20px;
-    line-height: 20px;
-    letter-spacing: 1.2px;
     width: 300px;
+    line-height:1.5;
+    letter-spacing: 2px;
     /*color: white; */
   }
-  @media screen and (max-width:768px) and (min-width:415px){
+  @media screen and (max-width:1024px) and (min-width:415px){
     .programonecontent{
       width:70%;
       position: absolute;
@@ -410,7 +408,7 @@
       height: 60%;
     }
   }
-  @media screen and (max-width:768px) and (min-width:415px){
+  @media screen and (max-width:1024px) and (min-width:415px){
     .programone .programoneline2{
       width:5px;
       height: 60%;
@@ -432,7 +430,7 @@
       height: 250px; 
     } 
   }
-  @media screen and (max-width:768px) and (min-width:415px){
+  @media screen and (max-width:1024px) and (min-width:415px){
     .programone .spaceship {
       position: relative;
       top:120px;
@@ -452,7 +450,7 @@
       display: none; 
     } 
   }
-  @media screen and (max-width:768px) and (min-width:415px){
+  @media screen and (max-width:1024px) and (min-width:415px){
     .programtwoimg2 {
       position: absolute;
       top: 170%;
@@ -499,7 +497,7 @@
       left: 2%;
     } 
   }
-  @media screen and (max-width:768px) and (min-width:415px){
+  @media screen and (max-width:1024px) and (min-width:415px){
     .programtwo .programtwotitle {
       width: 250px;
       position:absolute; 
@@ -516,8 +514,8 @@
     font-size: 16px;
     text-align: left;
     padding: 20px;
-    line-height: 20px;
-    letter-spacing: 1.2px;
+    line-height:1.5;
+    letter-spacing: 2px;
     width: 300px;
     /*color: white;*/ 
   }
@@ -529,7 +527,7 @@
       left: 8%;
     } 
   }
-  @media screen and (max-width:768px) and (min-width:415px){
+  @media screen and (max-width:1024px) and (min-width:415px){
     .programtwo .programtwocontent {
       width:98%;
       position:relative;
@@ -557,7 +555,7 @@
       top: 88%;
       left: 70%;
       width:5px;
-      height:280%;
+      height:241%;
       background-color: #35ffba;
     }
     .programtwo .programtwospanmobie2{
@@ -565,7 +563,7 @@
       top: 88%;
       left:80%; 
       width:5px;
-      height: 280%;
+      height: 241%;
       background-color: #35ffba;
     }
   }
@@ -588,7 +586,7 @@
     } 
 
   }
-  @media screen and (max-width:768px) and (min-width:415px){
+  @media screen and (max-width:1024px) and (min-width:415px){
     .programtwo .programtwospanmobie{
       position: absolute;
       top: 87%;
@@ -655,11 +653,11 @@
       width:250px; 
       height:250px;
       top: 156%;
-      left: 81%;
+      left: 55%;
       margin-bottom: 15%;
     } 
   }
-  @media screen and (max-width:768px) and (min-width:415px){
+  @media screen and (max-width:1024px) and (min-width:415px){
     .programtwo .programtwoHr {
       display: none;
     }
@@ -678,7 +676,7 @@
     /*立即購買按鈕*/
     .buyticketBtn {
       position: absolute;
-      /*top:204%;*/
+      top:108.5%;
       left: 40%;
       font-size: 23px;
       margin: 0 auto;
@@ -686,6 +684,22 @@
       margin-bottom: 50px;
       /*border: 1px #35ffba solid;
       padding: 10px 10px;*/
+    }
+    @media screen and (max-width:1024px) and (min-width:415px){
+      .buyticketBtn {
+        position: absolute;
+        top:100%;
+        left:70%;
+      } 
+    }
+    @media screen and (max-width:414px) {
+      .buyticketBtn {
+        /*top: 130%;
+        left: 13%; */
+        margin:0 auto;
+        margin-top:784px;
+        margin-bottom:30px;
+      } 
     }
   /*.buyticketBtn a {
     text-decoration: none;
@@ -722,19 +736,5 @@
         height: 125%;
         border: 2px solid rgba(255, 193, 22,0.8);
       }
-    @media screen and (max-width:414px) {
-      .buyticketBtn {
-        /*top: 130%;
-        left: 13%; */
-        margin:0 auto;
-        margin-top:784px;
-        margin-bottom:30px;
-      } 
-    }
-    @media screen and (max-width:768px) and (min-width:415px){
-      .buyticketBtn {
-        position: absolute;
-        top:88%;
-        left:70%;
-      } 
-    }
+
+    

@@ -26,7 +26,7 @@
       font-size: 20px;
       padding-top:7%;
     }
-    @media screen and (max-width:768px) and (min-width:415px){
+    @media screen and (max-width:1024px) and (min-width:415px){
       .buyticketarea{
         padding-top:26%;
       }
@@ -52,7 +52,7 @@
       opacity: 0.9;
       z-index: 1000;
       color: white; }
-    @media screen and (max-width:768px) and (min-width:415px){
+    @media screen and (max-width:1024px) and (min-width:415px){
       .buyticketarea table{
         width: 56%;
       }
@@ -74,7 +74,7 @@
       /*line-height: 2;*/
       /*display: inline-block;*/
     }
-    @media screen and (max-width:768px) and (min-width:415px){
+    @media screen and (max-width:1024px) and (min-width:415px){
       .buyticketarea .verticalh2{
         margin-left:15%;
       }
@@ -121,7 +121,7 @@
       margin-top:20px;
       margin-bottom:30px;
     }
-    @media screen and (max-width:768px) and (min-width:415px){
+    @media screen and (max-width:1024px) and (min-width:415px){
       .buyTTicketBtn{
         width: 56%;
       }
@@ -219,4 +219,5 @@
 	/*節目日期一開始不顯示*/
 	#theater2 {
 		display:none;
+  }
 
