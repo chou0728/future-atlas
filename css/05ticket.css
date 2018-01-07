@@ -5,7 +5,7 @@
 .cont{
     width: 80%;
     max-width: 1440px;
-    background-color: rgba(75, 74, 74,0.5);
+    /* background-color: rgba(75, 74, 74,0.5); */
     margin: 0 auto;
     height: 70vh;
     position: relative;
@@ -29,13 +29,28 @@
 /* 左邊票卷 */
 .cont .leftBox{
     width: 33.33%;
-    min-width: 320px;
+    /* min-width: 320px; */
     /*max-width: 33.33%;*/
     float: left;
     padding: 43px;
     
     
 }
+@media screen and (min-width:415px) and (max-width:1024px){
+    
+    
+
+}
+
+@media screen and (max-width:414px){
+    .cont .leftBox{
+        float: none;
+         display: block;
+         width: 95%;
+         margin: 0 auto;
+    }
+}
+
 .cont:after{
     content: "";
     display: block;
@@ -61,7 +76,7 @@
     text-transform: uppercase;
     display: block;
     width: 100%;
-    margin: 0 20px 20px 0;
+    /* margin: 0 20px 20px 0; */
     outline:none;
     border: 1px solid rgb(76, 216, 221);
     background-color: rgb(54, 54, 54);
@@ -75,11 +90,11 @@
     /* box-shadow: 0 0 40px rgb(219, 217, 68), inset 0 0 40px rgb(219, 217, 68); */
 }
 /*設施 劇場票券*/
-.cont .leftBox #change{
+.cont .leftBox .change{
     border: 1px solid rgb(253, 229, 17);
     background-color: rgb(54, 54, 54);
     box-shadow: 0 0 10px rgb(253, 229, 17), rgb(253, 229, 17);
-}.cont .leftBox #change:hover{
+}.cont .leftBox .change:hover{
     animation: flicker2 0.1s infinite alternate;
     color: #000;
     border: 1px solid transparent;
@@ -87,21 +102,52 @@
     background-color: rgb(253, 229, 17);
     box-shadow: 0 0 10px rgb(253, 229, 17), rgb(253, 229, 17);
 }
-
+/*左邊平板尺寸*/
 @media screen and (min-width:415px) and (max-width:1024px){
     
-    .cont .leftBox .leftContent{
-        float: none;
-        display: inline-block;
-        max-width: 100%;
-        }
+    
 
 }
-@media screen and (min-width:414px){
-
-   
-
+/*左邊手機尺寸*/
+@media screen and (max-width:414px){
+    .down_button{
+        width: 100%;
+        background: #fff;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
     }
+    .top_button{
+        width: 100%;
+        background: #fff;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+    }
+    .cont .leftBox .top_button button{
+        border-radius: 10%;
+         /* padding: 5px; */
+        margin:0 5px;
+        width: 35%;
+        /* float: left; */
+        /* background: #fff; */
+    }   
+    .cont .leftBox .leftContent{
+        
+        float: none;
+        display: block;
+        max-width: 100%;
+        }
+    .cont .leftBox{
+        
+        padding: 0;
+    }
+    .cont .leftBox  .change{
+        text-align: center;
+        width: 40%;
+    }
+
+}
 
 
 
@@ -165,6 +211,7 @@
     width: 100%;
     z-index: 10;
  }
+ /*中間平板尺寸*/
 @media screen and (min-width:415px) and (max-width:1024px){
     .cont .midBox{
         max-width: 100%; 
@@ -172,6 +219,13 @@
         box-sizing: border-box;
         padding: 43px 0px 50px 0px;
     }
+}
+/*中間手機尺寸*/
+@media screen and (max-width:414px){
+    .rightBox{
+       display: none;
+    }
+
 }
 
 
@@ -263,15 +317,18 @@
 /* .visual2:after{
     animation: spin 4s infinite linear alternate;
 } */
+
+/*右邊平板尺寸*/
 @media screen and (min-width:415px) and (max-width:1024px){
     .rightBox{
        display: none;
     }
 }
-@media screen and (min-width:414px){
-    /* .rightBox{
+/*右邊手機尺寸*/
+@media screen and (max-width:414px){
+    .rightBox{
        display: none;
-    } */
+    }
 
 }
 

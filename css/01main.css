@@ -25,15 +25,28 @@
 			 -ms-animation: none;
 			 animation: none;
 		}
-		/*768*/
-		@media screen and (max-width:768px) {
-			
+		/*768*==================================*/
+		@media screen and (min-width:415px) and (max-width:768px){
+			.shipbox{
+				width: 25%;
+				top:40vh;
+			}
 			#shipboxOpen.shipbox{
-			top:15vh;
+			top:25vh;
 			left:-10vw;
 			}
 
 		}
+		@media screen and (max-width:414px){
+			.shipbox{
+				display: none;
+			}
+			#shipboxOpen.shipbox{
+				display: none;
+			}
+
+		}
+		/*768*==================================*/
 		@keyframes flyship{
 			0%   {transform: translateY(0px);}
 		    10%  {transform: translateY(5px);}
@@ -73,6 +86,7 @@
 		  transform: translateX(-100vw);
 		  transition: width .2s linear,height .2s linear,transform 3s ease;
 		}
+
 		.shipbox #openBanner.banner {
 			position: fixed;
 			width: 70vw;
@@ -80,7 +94,8 @@
 			left: 15vw;
 			height: auto;
 		}
-		@media screen and (max-width:768px) {
+		/*768*==================================*/
+		@media screen and (min-width:415px) and (max-width:768px){
 			
 			.shipbox #openBanner.banner{
 				position: fixed;
@@ -91,6 +106,13 @@
 			}
 
 		}
+		@media screen and (max-width:414px){
+			.shipbox #openBanner.banner{
+				display: none;
+			}
+
+		}
+		/*768*==================================*/
 		.banner:after {
 		  content: " ";
 		  position: absolute;
@@ -135,10 +157,6 @@
 			width: 100%;	
 		}
 
-		
-
-
-
 		#all-page{
 			position: absolute;
 			top:0;
@@ -150,10 +168,27 @@
 			display: none;
 			opacity: 0.7;
 		}
-		#mobileSizeBanner{
+		.mobileSizeBanner{
 			display: none;
 		}
+/*=========================================*/		
+@media screen and (max-width:414px){
+	.shipbox #openBanner.banner{
+		display: none;
+	}
+	
+	.mobileSizeBanner{
+		top:30%;
+		width: 95%;
+		height: auto;
+		left: 2.5%;
+		display: block;
+		position: absolute;
+		opacity: 0;
+	}	
 
+}
+/*=========================================*/	
 /*-----banner end-----*/
 
 /*-----silhouette-----*/
@@ -163,13 +198,13 @@
 	height: 100vh;
 	background-image: radial-gradient(circle at center bottom,#FFFFFF 20%,#C8F4FF 40%, #C8F4FF 47.2%, #000e4f 48% ,#000000 95%);
 }
-
-@media screen and (max-width:768px) {
+/*768======================================*/
+@media screen and (max-width:768px){
 	.t_wrapper{
 	background-image: radial-gradient(circle at center 80%,#FFFFFF 20%,#C8F4FF 40%, #C8F4FF 47.2%, #000e4f 48% ,#000000 95%);
 	}
 }
-
+/*768=====================================*/
 .silhouette{
 	width: 100%;
 	min-width: 1200px;/*--暫定--*/
@@ -194,16 +229,37 @@
 	overflow: hidden;
 	user-select:none;
 }
-@media screen and (max-width:768px) {
+
+/*1024=======================================*/
+
+@media screen and (min-width:769px) and (max-width:1024px) {
+
+	.silhouette #scene{
+		width: 120%;
+		bottom: -3%;
+		left:-30%;
+	}
+}
+/*1024END====================================*/
+/*==768===================================*/
+@media screen and (min-width:415px) and (max-width:768px){
 			
-.silhouette #scene{
-	width: 185%;
-	bottom: -15%;
-	left:-50%;
-
+	.silhouette #scene{
+		width: 185%;
+		bottom: -15%;
+		left:-50%;
+	}
+}	
+@media screen and (max-height: 414px){/*HEIGHT*/
+			
+	.silhouette #scene{
+		width: 100%;
+		bottom: 0;
+		left:0;
+	}
 }
+/*==768===================================*/
 
-}
 .silhouette .ed .entrance{
 	width: 100%;
 	transform: translateY(50%);
@@ -259,15 +315,62 @@
 	filter: drop-shadow(0px 0px 4px rgba(0, 0, 0,0.5));
 	transition: opacity 5s ease;
 }
-/*768*/
+/*1024=======================================*/
 
-@media screen and (max-width:768px) {
+@media screen and (min-width:769px) and (max-width:1024px) {
+
+	.silhouette .machi{
+		transform: translateX(14%);
+	}
+}
+/*1024END====================================*/
+/*768=======================================*/
+
+@media screen and (min-width:415px) and (max-width:768px) {
 
 	.silhouette .machi{
 		transform: translateX(25%);
 	}
 }
-/*768END*/
+@media screen and (max-height: 414px){/*HEIGHT*/
+			
+.silhouette .machi{
+		transform: translateX(-10%);
+	}
+}
+/*768END====================================*/
+/*======================================手機===*/		
+@media screen and (max-width:414px){
+
+
+	.silhouette .ed .entrance{
+		width: 100%;
+		transform: translateY(50%) translateX(-39%);
+		/*filter: drop-shadow(0px 0px 0px rgba(255,255,255,0.8));*/
+	}
+	.silhouette .ed #entranceApear.entrance{
+		transform: translateY(0) translateX(-39%);
+	}
+	.silhouette .ed .e_canvas_cover{
+		transform: translateY(50%) translateX(-39%);
+	}
+	.silhouette .ed #canvas_cover.e_canvas_cover{
+		transform: translateY(0) translateX(-39%);
+	}
+	.silhouette .roller{
+		transform: translateY(60%) translateX(-39%) scale(0.85);
+	}
+	.silhouette #rollerAppear.roller{
+		transform: translateY(8%) translateX(-39%) scale(0.85);
+	}
+	.silhouette .rocket{
+		transform: translateY(60%) translateX(-39%) scale(0.85);
+	}
+	.silhouette #rocketAppear.rocket{
+		transform: translateY(8%) translateX(-39%) scale(0.85);
+	}
+}
+/*=========================================*/
 .silhouette .flyship{
 
 	filter: drop-shadow(0px 0px 2px rgba(0, 255, 255,0.5)) drop-shadow(0px 0px 1px rgba(0, 255, 255,0.5));
@@ -300,14 +403,44 @@
 	width: 100%;
 }
 /*--摩天輪上ㄉ字--*/
+.t_wrapper #mobileWelcome{/*--768以下--*/
+	display: none;
+}
+/*768=======================================*/
+
+@media screen and (min-width:415px) and (max-width:768px){
+
+	.t_wrapper #mobileWelcome{/*--768以下--*/
+		width:100%;
+		display: block;
+		position: absolute;
+		top:20%;
+		left: 0;
+	}
+	.t_wrapper #mobileWelcome .fw_motobox{
+		text-align: center;
+		width:100%;
+		animation: huge-flicker 10s infinite;
+	}
+	.t_wrapper #mobileWelcome .fw_motobox .fw_motoword{
+		font-size:55px;
+		text-shadow: 0 0 1px #1a417a, 0 0 2px #1a417a, 0 0 2px #1a417a, 0 0 3px #1a417a;
+		color: #1a417a;
+		font-family: monospace;
+	}
+	.t_wrapper #mobileWelcome .fw_motobox #fw_word{
+		color: #54fdfd;
+	  	text-shadow: 0 0 2px #44ffff, 0 0 3px #3fafff, 0 0 10px #2dabab, 0 0 15px #84ccff;
+		animation: tiny-annoying-flicker .25s infinite;
+	}
+}
+/*768END====================================*/
 .silhouette .ferris_cover #center .fw_motobox{
 	text-align: center;
 	width:180%;
 	position: absolute;
 	bottom: 0;
   	left:-42%;
-  	pointer-events: auto;
-  	cursor: pointer;
 
 }
 .silhouette .ferris_cover #center .fw_motobox .fw_motoword{

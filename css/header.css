@@ -30,6 +30,7 @@
 		max-width: 45px;
 		min-width: 35px;
 		z-index: 1001;
+		cursor: pointer;
 	}
 	.navOpenBtn .ham{
 		display: inline-block;
@@ -232,6 +233,7 @@
 		max-width: 45px;
 		min-width: 35px;
 		z-index: 1001;
+		cursor: pointer;
 	}
 	.headerOpenBtn .blueScreen{
 		width: 30.5px;
