@@ -6,7 +6,6 @@
     <title>Theater progress</title>
     <link rel="stylesheet" type="text/css" href="css/reset.css">
     <style type="text/css">
-
     	table {
             border:1px solid black;
            /* width: 300px;*/
@@ -44,7 +43,7 @@
         .okcancel{
             margin:0 auto;
         }
-</style>
+    </style>
 </head>
 <body>
     <form method="get" action="" align="center" enctype="multipart/form-data">
@@ -56,82 +55,33 @@
                 <th>節目名稱</th>
                 <th>節目介紹</th>
                 <th>節目圖片</th>
-                <!-- <th>節目次要圖片</th> -->
+                <th>開始時間</th>
+                <th>結束時間</th>
                 <th>票價</th>
                 <th>節目狀態</th>
-                <th>修改</th> 
+                <th>修改欄位</th> 
             </tr>
     		
     		<tr>
     			<td>自動產生</td>
     			<td><input type="text" name="progressName" size="10"></td>
     			<td><input type="text" name="progressInfo"></td>
-    			<td><input type="file" name="upFile" ></td>
-                <!-- <td><input type="file" name="upFile"></td> -->
+    			<td><input type="file" name="upFile" multiple></td>
+                <td><input type="text" name="startTime" size="10"></td>
+                <td><input type="text" name="endTime" size="10"></td>
     			<td><input type="int" name="progressPricde" size="3"></td>
     			<td>
                     <select name="programstatus">
                     　<option value="On">上架</option>
                     　<option value="Off">下架</option>
-                    </select></td>
+                    </select>
+                </td>
     			<td>
                     <!-- <a href="#">新增</a> -->
                     <a href="#">修改</a>
                 </td>
     		</tr>
-            <tr>
-                <td>自動產生</td>
-                <td><input type="text" name="progressName" size="10"></td>
-                <td><input type="text" name="progressInfo"></td>
-                <td><input type="file" name="upFile" ></td>
-                <!-- <td><input type="file" name="upFile"></td> -->
-                <td><input type="int" name="progressPricde" size="3"></td>
-                <td>
-                    <select name="programstatus">
-                    　<option value="On">上架</option>
-                    　<option value="Off">下架</option>
-                    </select></td>
-                <td>
-                    <!-- <a href="#">新增</a> -->
-                    <a href="#">修改</a>
-                </td>
-            </tr>
-            <tr>
-                <td>自動產生</td>
-                <td><input type="text" name="progressName" size="10"></td>
-                <td><input type="text" name="progressInfo"></td>
-                <td><input type="file" name="upFile" ></td>
-                <!-- <td><input type="file" name="upFile"></td> -->
-                <td><input type="int" name="progressPricde" size="3"></td>
-                <td>
-                    <select name="programstatus">
-                    　<option value="On">上架</option>
-                    　<option value="Off">下架</option>
-                    </select></td>
-                <td>
-                    <!-- <a href="#">新增</a> -->
-                    <a href="#">修改</a>
-                </td>
-            </tr>
-            <tr>
-                <td>自動產生</td>
-                <td><input type="text" name="progressName" size="10"></td>
-                <td><input type="text" name="progressInfo"></td>
-                <td><input type="file" name="upFile" ></td>
-                <!-- <td><input type="file" name="upFile"></td> -->
-                <td><input type="int" name="progressPricde" size="3"></td>
-                <td>
-                    <select name="programstatus">
-                    　<option value="On">上架</option>
-                    　<option value="Off">下架</option>
-                    </select></td>
-                <td>
-                    <!-- <a href="#">新增</a> -->
-                    <a href="#">修改</a>
-                </td>
-            </tr>
-
-
+            
     	</table>
         <div class="okcancel">
             <button class="OKbtn">

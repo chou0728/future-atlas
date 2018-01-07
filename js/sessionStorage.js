@@ -1,5 +1,7 @@
 //儲存到sessionStorage
 var storage = sessionStorage;
+
+//用節目名稱來分日期
 //抓取日期
 var programName = "尋找星生命";
 // document.getElementById("quantity").onchange = function() {myFunction()};
@@ -50,12 +52,15 @@ function changeDate() {
     // document.getElementById("programdate").value;
 
     //儲存到sessionStorage
+    //一開始抓日期
     //var programDate = document.getElementById("programDate").value;
+    //用節目名稱來分日期
 	if(programName == "尋找星生命"){
 		var programDate = document.getElementById("theater1").value;
 	} else {
 		var programDate = document.getElementById("theater2").value;	
-	}	 														  
+	}
+	//要保留	 														  
     storage.setItem("programDate", programDate);
 
 }
