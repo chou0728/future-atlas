@@ -1,5 +1,6 @@
 @charset "UTF-8";
-
+* {
+  font-family: "微軟正黑體"; }
 
 body {
   margin: 0;
@@ -453,3 +454,5 @@ body {
   100% {
     text-shadow: -3px 0 0 #0c33f5, 3px 0 0 lime;
     filter: blur(0); } }
+
+    
