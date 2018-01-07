@@ -48,7 +48,6 @@
       height: 300px;
       margin: 0 auto;
       opacity: 0.9;
-      z-index: 1000;
       color: white; }
     @media screen and (max-width:1024px) and (min-width:415px){
       .buyticketarea table{
