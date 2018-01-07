@@ -14,12 +14,15 @@
 			position: relative;
 			box-shadow: 0px 0px 3px rgba(255,255,255,0.5);
 		}
-		.TheaterArea li{
-			height: 100%;
-			position: relative;
-			left: 0;
-			font-family: "微軟正黑體";
-
+		@media screen and (max-width:1024px) and (min-width:415px){
+			.TheaterArea{
+				top:30px;
+			}
+		}
+		@media screen and (max-width:414px){
+			.TheaterArea{
+				top:30px;
+			}
 		}
 		/*背景圖=劇場介紹圖*/
 		.TheaterArea #intro{
@@ -28,17 +31,32 @@
 			background-repeat: no-repeat;
 			border: 1px solid #35ffea;
 		}
+		@media screen and (max-width:414px){
+			.TheaterArea #intro{
+				width: 100%;
+			}
+		}
 		.TheaterArea li:nth-child(2){
 			background-image: url("../img/thirdSection/Galaxy_1.jpg");
 			background-size: cover;
 			background-repeat: no-repeat;
 			border: 1px solid #35ffea;
 		}
+		@media screen and (max-width:414px){
+			.TheaterArea li:nth-child(2){
+				width: 100%;
+			}
+		}
 		.TheaterArea li:nth-child(3){
 			background-image: url("../img/thirdSection/ba4ss.jpg");
 			background-size: cover;
 			background-repeat: no-repeat;
 			border: 1px solid #35ffea;
+		}
+		@media screen and (max-width:414px){
+			.TheaterArea li:nth-child(3){
+				width: 100%;
+			}
 		}
 		/*背景圖=劇場介紹圖*/
 
@@ -49,17 +67,45 @@
 			overflow: hidden;
 			float: left;
 			transition: .3s linear;
+			height: 100%;
+			position: relative;
+			left: 0;
+			font-family: "微軟正黑體";
+		}
+		@media screen and (max-width:1024px) and (min-width:415px){
+			.TheaterArea .Theater{
+				width: 100%;
+				float: none;
+				display: block;
+				height:30%;
+			}
+		}
+		@media screen and (max-width:414px){
+			.TheaterArea .Theater{
+				width: 100%;
+				float: none;
+				display: block;
+				height:30%;
+			}
 		}
 		.TheaterArea .buy{/*前往購票按鈕*/
 			width: 4%;
+			height: 446px; /*有改過*/
 			overflow: hidden;
 			float: left;
 			border: 1px solid rgba(255, 141, 20,1);
 			background-color: rgba(255, 141, 20,0.3);
 
 		}
-		.TheaterArea .buy:hover {
-			background-color: rgba(255, 141, 20,1);
+		@media screen and (max-width:1024px) and (min-width:415px){
+			.TheaterArea .buy{
+				width:100%;
+			}
+		}
+		@media screen and (max-width:414px){
+			.TheaterArea .buy{
+				width:100%;
+			}
 			
 		}
 		.TheaterArea .buy a{
@@ -73,11 +119,28 @@
 			/*vertical-align: bottom;*/
 
 		}
+		@media screen and (max-width:414px){
+			.TheaterArea .buy a{
+				height: 50%;
+			}
+		}
 		.TheaterArea .buy a span{
 			position: absolute;
 			left: 50%;
 			bottom:1%;
 			transform: translateX(-50%);
+		}
+		@media screen and (max-width:1024px) and (min-width:415px){
+			.TheaterArea .buy a span{
+				position: absolute;
+				top:1.5%;
+			}
+		}
+		@media screen and (max-width:414px){
+			.TheaterArea .buy a span{
+				position: absolute;
+				top:4.5%;
+			}
 		}
 		.TheaterArea .buy:hover a span{
 			color: black;
@@ -91,6 +154,12 @@
 			width: 80%;
 			overflow: hidden;
 			z-index: 1000;
+		}
+		@media screen and (max-width:1024px) and (min-width:415px){
+			.TheaterArea .current{
+				width:100%;
+				height:250px;
+			}
 		}
 		/*清除浮動*/
 		.TheaterArea:after{
@@ -109,6 +178,11 @@
 			display: none;
 			
 		}
+		@media screen and (max-width:414px){
+			.TheaterArea .theaterInfo{
+				width:50%;
+			}
+		}
 		.TheaterArea .theaterInfo p{
 			line-height:1.5;
 			letter-spacing: 3px;
@@ -118,7 +192,11 @@
 			font-size: 20px;
 			padding: 15px;
 		}
-		
+		@media screen and (max-width:414px){
+			.current #info{
+				font-size: 14px;
+			}
+		}
 		.TheaterArea .notcurrent{/*非.current時游標提示為可選擇*/
 			cursor: pointer;
 		}
