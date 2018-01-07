@@ -1,0 +1,126 @@
+@charset "UTF-8";
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0; }
+
+body {
+  padding: 0;
+  margin: 0;
+  font-family: "微軟正黑體"; }
+
+.wrapper {
+  width: 100%;
+  max-width: 1440px;
+  height: 100vh;
+  background: #000; }
+  .wrapper .content {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    padding-top: 120px; }
+    @media screen and (min-width: 415px) and (max-width: 1024px) {
+      .wrapper .content {
+        display: block;
+        padding-top: 50px; } }
+    @media screen and (max-width: 414px) {
+      .wrapper .content {
+        display: block;
+        padding-top: 80px; } }
+    @media screen and (min-width: 415px) and (max-width: 1024px) {
+      .wrapper .content .facility_info {
+        padding-bottom: 25px; } }
+    @media screen and (max-width: 414px) {
+      .wrapper .content .facility_info {
+        padding-bottom: 25px; } }
+    .wrapper .content .info {
+      width: 40%; }
+      @media screen and (min-width: 415px) and (max-width: 1024px) {
+        .wrapper .content .info {
+          width: 90%;
+          margin: 0 auto; } }
+      @media screen and (max-width: 414px) {
+        .wrapper .content .info {
+          width: 90%;
+          margin: 0 auto; } }
+      .wrapper .content .info .photo {
+        width: 100%;
+        height: 50vh;
+        border: 4px solid #37fff3; }
+        @media screen and (min-width: 415px) and (max-width: 1024px) {
+          .wrapper .content .info .photo {
+            height: 35vh;
+            margin-top: 30px; } }
+        @media screen and (max-width: 414px) {
+          .wrapper .content .info .photo {
+            height: 30vh;
+            margin-top: 10px; } }
+      .wrapper .content .info .facility_photo {
+        background-image: url("/img/facilityInfo/sub_6365_LL.png");
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: 50% 40%; }
+      .wrapper .content .info .theater_photo {
+        background-image: url("/img/theater_page/dome_theater.png");
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: 50% 50%; }
+      .wrapper .content .info .see_tickets {
+        display: block;
+        width: 100%;
+        font-size: 24px;
+        font-weight: bold;
+        color: #fff;
+        letter-spacing: 32px;
+        text-align: center;
+        margin-top: 50px;
+        padding: 1%;
+        background-color: rgba(255, 193, 22, 0.2);
+        transition: 0.2s linear;
+        vertical-align: middle;
+        position: relative;
+        text-decoration: none; }
+        @media screen and (min-width: 415px) and (max-width: 1024px) {
+          .wrapper .content .info .see_tickets {
+            margin-top: 20px; } }
+        @media screen and (max-width: 414px) {
+          .wrapper .content .info .see_tickets {
+            margin-top: 10px; } }
+      .wrapper .content .info .see_tickets:hover {
+        background-color: rgba(255, 193, 22, 0.8);
+        color: black; }
+      .wrapper .content .info .see_tickets:before {
+        content: "";
+        display: block;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translateX(-50%) translateY(-50%);
+        width: 100%;
+        height: 100%;
+        border: 2px solid rgba(255, 193, 22, 0.8);
+        transition: 0.2s linear; }
+      .wrapper .content .info .see_tickets:hover:before {
+        width: 103%;
+        height: 120%;
+        border: 2px solid rgba(255, 193, 22, 0.5); }
+      .wrapper .content .info .see_tickets:after {
+        content: "";
+        display: block;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translateX(-50%) translateY(-50%);
+        width: 0px;
+        height: 0px;
+        border-radius: 100%;
+        border: 2px solid rgba(255, 193, 22, 0);
+        animation: big 0.8s ease infinite;
+        filter: drop-shadow(0px 0px 2px rgba(255, 193, 111, 0.4)); }
+      .wrapper .content .info .see_tickets:hover:after {
+        -webkit-animation: none !important;
+        -moz-animation: none !important;
+        -o-animation: none !important;
+        -ms-animation: none !important;
+        animation: none !important; }
