@@ -48,7 +48,7 @@
       margin-left: 27%;
       color: white; 
     }
-    @media screen and (max-width:768px) and (min-width:415px){
+    @media screen and (max-width:1024px) and (min-width:415px){
       .Bookingh2{
         margin-left: 20%;
       }
@@ -71,7 +71,7 @@
       width: 45.5%;
       border: 3px solid #35ffea; 
     }
-    @media screen and (max-width:768px) and (min-width:415px){
+    @media screen and (max-width:1024px) and (min-width:415px){
       .memberinfo{
         width: 60.5%;
       }
@@ -95,7 +95,7 @@
       color: white;
       border: 3px solid #35ffea;
       width: 46%; }
-    @media screen and (max-width:768px) and (min-width:415px){
+    @media screen and (max-width:1024px) and (min-width:415px){
       .orderlistsection table {
         width:60.5%; 
         } 
@@ -127,7 +127,7 @@
       width: 45.5%;
       border: 3px solid #35ffea; }
     
-    @media screen and (max-width:768px) and (min-width:415px){
+    @media screen and (max-width:1024px) and (min-width:415px){
       .creditCardinfo {
         width: 60.5%;
       }
