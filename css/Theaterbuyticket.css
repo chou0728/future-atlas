@@ -52,7 +52,7 @@
       transform: translate(0);
       transition: all 0.3s ease; 
     }
-    @media screen and (max-width:768px) and (min-width:415px){
+    @media screen and (max-width:1024px) and (min-width:415px){
       .progressinfoMenu{
           /*position: absolute;
           top:-11px;
@@ -137,7 +137,7 @@
         display: none;
       }
     }
-    @media screen and (max-width:768px) and (min-width:415px){
+    @media screen and (max-width:1024px) and (min-width:415px){
       .buyticketMenu .buytickettriangle{
         display: none;
       }
@@ -177,7 +177,7 @@
       top: 10px;
       left: 30px;
       cursor: pointer; }
-    @media screen and (max-width:768px) and (min-width:415px){
+    @media screen and (max-width:1024px) and (min-width:415px){
       .topright .Recycle_arrows {
         display: none; 
       }
@@ -195,7 +195,7 @@
       color: white;
       font-size:24px; }
 
-    @media screen and (max-width: 768px) and (min-width: 415px){
+    @media screen and (max-width:1024px) and (min-width: 415px){
       .topright .Menutitleh2{
         width:300px;
         position: absolute;
@@ -223,12 +223,12 @@
       position: absolute;
       top: 10px;
       left: 230px; }
-    @media screen and (max-width:768px) and (min-width:415px){
+    @media screen and (max-width:1024px) and (min-width:415px){
       .toprightcanvas {
         display: none; 
       }
     }
-    @media screen and (max-width: 767px) {
+    @media screen and (max-width: 414px) {
       .toprightcanvas {
         display: none; } 
     }
@@ -263,19 +263,22 @@
       margin-top: 180px;
       z-index: 1000;
     }
+    @media screen and (max-width:1024px) and (min-width:415px) {
+      .TheaterEvent {
+        margin-top: 200px; 
+        } 
+    }
     .TheaterEventTitle{
       text-align: center;
       font-size: 36px;
       color:#fff;
     }
-	@media screen and (max-width: 414px) {
-		.TheaterEventTitle{
-			width:100%;
-		}
-	}
-    @media screen and (max-width: 767px) {
-      .TheaterEvent {
-        margin-top: 200px; } }
+	  @media screen and (max-width: 414px) {
+  		.TheaterEventTitle{
+  			width:100%;
+  		}
+  	}
+  
 
     .Theatercounter {
       margin: 0 auto;
