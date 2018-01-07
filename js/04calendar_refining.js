@@ -133,8 +133,24 @@ function nextMonth(){
 // 依照日期園區活動一覽
 $(document).ready(function(){
 	$(".daysHere").click(function(){
-		$("#showActivityWrapper").css("right","0");
-		$("#cal").css("opacity","0.3");
+		var showDate = $(this).text();
+		if( !showDate){
+			showDate = "今日";
+		}else{
+			var showDate = parseInt(todayMonthIndex%12+1)+"/"+$(this).text();
+		}
+		$("#activityDate").text(showDate);
+	});
+});
+$(document).ready(function(){
+	$("#backToToday").click(function(){
+		$("#activityDate").text("今日");
+	});
+});
+
+// 依照日期園區活動一覽
+$(document).ready(function(){
+	$(".daysHere").click(function(){
 		var showDate = $(this).text();
 		if( !showDate){
 			showDate = "今日";
@@ -148,18 +164,19 @@ $(document).ready(function(){
 	});
 	$("#backToToday").click(function(){
 		$("#activityDate").text("今日");
-		$("#activityDay").text("");	
-	});
-	$("#activityClose").click(function(){
-		$("#showActivityWrapper").css("right","-200%");
-		$("#cal").css("opacity","1");
+		$("#activityDay").text("");
 	});
 });
-
 // 自動輪播月曆模式
 $(document).ready(function(){
+	var arr=[
+		[1,2,3,4,5,6,7],
+		[11,12,13,14,15,16,17],
+		[21,22,23,24,25,26,27],
+		[31,32,33,34,35,36,37]
+	]
 	// 月曆預設於第一個模式
-	autoIconLoop1();
+	autoIconLoop(0);
 	// 依序起跑
 	setTimeout(function(){ icon1GO()}, 0);
 	setTimeout(function(){ icon2GO()}, 5000);
@@ -167,27 +184,28 @@ $(document).ready(function(){
 	setTimeout(function(){ icon4GO()}, 15000);
 	// 每20秒啟動一次，並設定定時器ID
 	function icon1GO(){
-		stop1 = setInterval(function(){ autoIconLoop1(); }, 20000);
+		stop1 = setInterval(function(){ autoIconLoop(0); }, 20000);
 	}
 	function icon2GO(){
-		stop2 = setInterval(function(){ autoIconLoop2(); }, 20000);
+		stop2 = setInterval(function(){ autoIconLoop(1); }, 20000);
 	}
 	function icon3GO(){
-		stop3 = setInterval(function(){ autoIconLoop3(); }, 20000);	
+		stop3 = setInterval(function(){ autoIconLoop(2); }, 20000);	
 	}
 	function icon4GO(){
-		stop4 = setInterval(function(){ autoIconLoop4(); }, 20000);
+		stop4 = setInterval(function(){ autoIconLoop(3); }, 20000);
 	}
 
-function autoIconLoop1(){
-	$(".claContent").html("");
-	$(".sun").html("尋找星生命");
-	$(".mon").html("");
-	$(".tue").html("末世決戰");
-	$(".wed").html("尋找星生命");
-	$(".thu").html("");
-	$(".fri").html("尋找星生命");
-	$(".sat").html("末世決戰");
+function autoIconLoop(i){
+	var curRow = arr[i];
+	$(".claContent").html(curRow[0]);
+	$(".sun").html(curRow[0]);
+	$(".mon").html(curRow[1]);
+	$(".tue").html(curRow[2]);
+	$(".wed").html(curRow[3]);
+	$(".thu").html(curRow[4]);
+	$(".fri").html(curRow[5]);
+	$(".sat").html(curRow[6]);
 	$("#icon1").css("background-color","orange").fadeIn();
 	$(".icons").not("#icon1").css("background-color","transparent");
 };
@@ -235,18 +253,61 @@ document.getElementById("icon3").onclick = manualIconShift3;
 document.getElementById("icon4").onclick = manualIconShift4;
 
 function manualIconShift1(){
-	autoIconLoop1();
+	// $(".claContent").html("");
+	// $(".sun").html("尋找星生命");
+	// $(".mon").html("");
+	// $(".tue").html("末世決戰");
+	// $(".wed").html("尋找星生命");
+	// $(".thu").html("");
+	// $(".fri").html("尋找星生命");
+	// $(".sat").html("末世決戰");
+	// $("#icon1").css("border","1px solid orange");
+	// $(".icons").not("#icon1").css("border","1px solid transparent");
+	autoIconLoop(0);
+	autoIconLoop(1);
+	autoIconLoop(2);
+	autoIconLoop(3);
 	stopShiftMode();
 };
 function manualIconShift2(){
+	// $(".claContent").html("");
+	// $(".claContent:eq(5)").append("設施1");
+	// $(".claContent:eq(10)").append("設施2");
+	// $(".claContent:eq(15)").append("設施3");
+	// $(".claContent:eq(20)").append("設施4");
+	// $(".claContent:eq(25)").append("設施5");
+	// $(".claContent:eq(30)").append("設施6");
+	// $("#icon2").css("border","1px solid orange");
+	// $(".icons").not("#icon2").css("border","1px solid transparent");
 	autoIconLoop2();
 	stopShiftMode();
 };
 function manualIconShift3(){
+	// $(".claContent").html("");
+	// $(".sun").html("9-22");
+	// $(".mon").html("休園");
+	// $(".tue").html("10-22");
+	// $(".wed").html("10-22");
+	// $(".thu").html("10-22");
+	// $(".fri").html("10-24");
+	// $(".sat").html("9-24");
+	// $("#icon3").css("border","1px solid orange");
+	// $(".icons").not("#icon3").css("border","1px solid transparent");
 	autoIconLoop3();
 	stopShiftMode();
 };
 function manualIconShift4(){
+	// $(".claContent").html("");
+	// $(".sun").html("");
+	// $(".mon").html("");
+	// $(".tue").html("未來商務展<br>");
+	// $(".wed").html("未來商務展<br>");
+	// $(".thu").html("");
+	// $(".fri").html("");
+	// $(".sat").html("隕石展<br>");
+	// $(".claContent:lt(15)").append("成果展");
+	// $("#icon4").css("border","1px solid orange");
+	// $(".icons").not("#icon4").css("border","1px solid transparent");
 	autoIconLoop4();
 	stopShiftMode();
 };
@@ -277,7 +338,7 @@ function stopShiftMode(){
                     $("#result").append("<span id='weather'>"+msg.weather[0].description+"</span><br>");
                     $("#result").append($("<img style='width:70px; height:70px'>").attr("src","http://openweathermap.org/img/w/"+msg.weather[0].icon+".png"));
                     console.log(msg);
-                    $("#result").append("<br><span id='source'>即時氣象來源：openweathermap.org</span>")
+                    $("#result").append("<br><span id='source'>即時氣象來源：https://openweathermap.org/</span>")
                 }
             );
         data.error(

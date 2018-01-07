@@ -7,6 +7,12 @@
 
 	<title>FA未來主題樂園</title>
 	<link rel="stylesheet" type="text/css" href="css/RESET.css">
+	<style type="text/css">
+		*{
+			text-decoration: none;
+			box-sizing: border-box;
+		}
+	</style>
 	<link rel="stylesheet" type="text/css" href="css/header.css">
 	<link rel="stylesheet" type="text/css" href="css/login.css">
 	<link rel="stylesheet" type="text/css" href="css/01main.css">
@@ -18,56 +24,61 @@
 	<link rel="stylesheet" type="text/css" href="css/04activity_calendar.css">
 	<link rel="stylesheet" type="text/css" href="css/05ticket.css">
 	<link rel="stylesheet" type="text/css" href="css/javascript.fullPage.css" />
+
 </head>
 
 <body>
-
 <div class="header">
 	<ul class="ul_top">
-		<li>
+		<li class="li_top">
 			<a href="SignUp.html">註冊</a>
 		</li>
-		<li>
+		<li class="li_top">
 			<a href="#" id="singUpBtn">登入</a>
 		</li>
-		<li>
+		<li class="li_top">
 			<a href="input_cart.html">購物車</a>
 		</li>
 	</ul>
 </div>
 <div class="nav">
-	<ul class="ul_left">
-		<li>
-			<a href="Theaterbuyticket.html">劇場購票</a>
-		</li>
-		<li>
-			<a href="facilityBuyTicket.html">設施購票</a>
-		</li>
-		<li>
-			<a href="facilityInfo.html">設施介紹</a>
-		</li>
-	</ul>
-	<h1 style="display: none">FutureAtlas_未來主題樂園</h1>
-	<a href="index.html#page1">
-		<img src="img/LOGO.png" class="logo">
-	</a>
-	<ul class="ul_right">
-		<li>
-			<a href="index.html#page2">園區地圖</a>
-		</li>
-		<li>
-			<a href="activity.html">活動月曆</a>
-		</li>
-		<li>
-			<a href="robot.html">諮詢專區</a>
-		</li>
-	</ul>
+	<div class="ul_box">
+		<ul class="ul_left">
+			<li>
+				<a href="Theaterbuyticket.html">劇場購票</a>
+			</li>
+			<li>
+				<a href="facilityBuyTicket.html">設施購票</a>
+			</li>
+			<li>
+				<a href="facilityInfo.html">設施介紹</a>
+			</li>
+		</ul>
+		<h1 style="display: none">FutureAtlas_未來主題樂園</h1>
+		<a href="index.html#page1">
+			<img src="img/LOGO.png" class="logo">
+		</a>
+		<ul class="ul_right">
+			<li>
+				<a href="index.html#page2">園區地圖</a>
+			</li>
+			<li>
+				<a href="activity.html">活動月曆</a>
+			</li>
+			<li>
+				<a href="robot.html">諮詢專區</a>
+			</li>
+		</ul>
+	</div>
+</div>
+<div class="headerOpenBtn"><!-- RWD right btn-->
+	<img src="img/memberBtn0.png" class="memIcon">
+</div>
+<div class="navOpenBtn"><!-- RWD left btn-->
+	
 </div>
 	<!-- header end-->
 
-	<!-- right btn -->
-
-	<!-- right btn end-->
 
 	<!-- 視差區-->
 	<div id="fullpage">
@@ -253,24 +264,29 @@
 				<div class="shadow theater_shadow"></div>
 				<img class="facility_icons theater unchecked" data-facility="theater" src="img/secondSection/theater.png" alt="">
 
-				<!--  -->
+				<!--設施資訊 -->
 			</div>
 			<div class="info">
 
 				<button class="close"></button>
 				<div class="info_container">
 					<div class="info_content info_ferris_wheel">
-						<div class="title">
-							<h2>宇宙雲霄飛車</h2>
-							<small>COSMOS ROLLER COASTER</small>
-						</div>
 
+						<!-- 左邊圖 -->
+						<div class="main_photo">
+								<img src="img/secondSection/ferris_wheel_img.jpg" alt="">
+						</div>
+						<!-- 右邊標題跟介紹 -->
 						<div class="main_content">
-							<img src="img/secondSection/ferris_wheel_img.jpg" alt="">
+								<div class="title">
+										<h2>宇宙雲霄飛車</h2>
+										<small>COSMOS ROLLER COASTER</small>
+									</div>
 							<div class="information">
 								<div class="parameter">
 									<div class="paraContent">
 										<span>心跳指數</span>
+										<!-- <small>90下/分鐘</small> -->
 										<svg width="100%" height="50px" viewBox="0 0 50 60" viewport="0 0 50 30" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
 										    xmlns:sketch="http://www.bohemiancoding.com/sketch/ns">
 											<defs></defs>
@@ -279,7 +295,7 @@
 												    stroke-width="1" sketch:type="MSShapeGroup"></path>
 											</g>
 										</svg>
-										90下/mins
+										
 									</div>
 								</div>
 								<div class="parameter">
@@ -299,35 +315,289 @@
 								</div>
 								<div class="parameter">
 										<p class="paraContent middleLinehight">
-											<span>身高限制</span>
-											130cm~200cm
+											<span>設施評價</span>
+											4.5分 ★★★★★
 										</p>
 									</div>
 							</div>
+							<a class="open_iframe" href="iframe_01.html" target="iframe">了解更多</a>
 						</div>
 
-
-						<a class="open_iframe" href="iframe_01.html" target="iframe">資訊</a>
 					</div>
 					<div class="info_content info_roller_coaster">
-						<img src="img/secondSection/roller_coaster_img.jpg" alt="">
-						<a class="open_iframe" href="iframe_02.html" target="iframe">資訊</a>
+						<!-- 左邊圖 -->
+						<div class="main_photo">
+								<img src="img/secondSection/roller_coaster_img.jpg" alt="">
+							</div>
+							<!-- 右邊標題跟介紹 -->
+							<div class="main_content">
+								<div class="title">
+									<h2>宇宙雲霄飛車</h2>
+									<small>COSMOS ROLLER COASTER</small>
+								</div>
+								<div class="information">
+									
+	
+										<div class="parameter">
+											<div class="paraContent">
+												<span>心跳指數</span>
+												<!-- <small>90下/分鐘</small> -->
+												<svg width="100%" height="50px" viewBox="0 0 50 60" viewport="0 0 50 30" version="1.1" xmlns="http://www.w3.org/2000/svg"
+													xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns">
+													<defs></defs>
+													<g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" sketch:type="MSPage">
+														<path class="beat-loader" d="M0.5,38.5 L16,38.5 L19,25.5 L24.5,57.5 L31.5,7.5 L37.5,46.5 L43,38.5 L53.5,38.5" id="Path-2"
+															stroke-width="1" sketch:type="MSShapeGroup"></path>
+													</g>
+												</svg>
+	
+											</div>
+										</div>
+										<div class="parameter">
+	
+											<span>適合對象</span>
+											<p class="paraContent middleLinehight">
+	
+												想感受刺激的人
+											</p>
+										</div>
+	
+										<div class="parameter">
+											<p class="paraContent middleLinehight">
+												<span>身高限制</span>
+												130cm~200cm
+											</p>
+										</div>
+										<div class="parameter">
+											<p class="paraContent middleLinehight">
+												<span>設施評價</span>
+												4.5分 ★★★★★
+											</p>
+										</div>
+								
+								</div>
+								<a class="open_iframe" href="iframe_01.html" target="iframe">了解更多</a>
+							</div>
 					</div>
 					<div class="info_content info_carousel">
-						<img src="img/secondSection/gd.png" alt="">
-						<a class="open_iframe" href="iframe_01.html" target="iframe">資訊</a>
+						<!-- 左邊圖 -->
+						<div class="main_photo">
+								<img src="img/secondSection/ferris_wheel_img.jpg" alt="">
+							</div>
+							<!-- 右邊標題跟介紹 -->
+							<div class="main_content">
+								<div class="title">
+									<h2>宇宙雲霄飛車</h2>
+									<small>COSMOS ROLLER COASTER</small>
+								</div>
+								<div class="information">
+									
+	
+										<div class="parameter">
+											<div class="paraContent">
+												<span>心跳指數</span>
+												<!-- <small>90下/分鐘</small> -->
+												<svg width="100%" height="50px" viewBox="0 0 50 60" viewport="0 0 50 30" version="1.1" xmlns="http://www.w3.org/2000/svg"
+													xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns">
+													<defs></defs>
+													<g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" sketch:type="MSPage">
+														<path class="beat-loader" d="M0.5,38.5 L16,38.5 L19,25.5 L24.5,57.5 L31.5,7.5 L37.5,46.5 L43,38.5 L53.5,38.5" id="Path-2"
+															stroke-width="1" sketch:type="MSShapeGroup"></path>
+													</g>
+												</svg>
+	
+											</div>
+										</div>
+										<div class="parameter">
+	
+											<span>適合對象</span>
+											<p class="paraContent middleLinehight">
+	
+												想感受刺激的人
+											</p>
+										</div>
+	
+										<div class="parameter">
+											<p class="paraContent middleLinehight">
+												<span>身高限制</span>
+												130cm~200cm
+											</p>
+										</div>
+										<div class="parameter">
+											<p class="paraContent middleLinehight">
+												<span>設施評價</span>
+												4.5分 ★★★★★
+											</p>
+										</div>
+								
+								</div>
+								<a class="open_iframe" href="iframe_01.html" target="iframe">了解更多</a>
+							</div>
 					</div>
 					<div class="info_content info_coffee_cup">
-						<img src="img/secondSection/coffee_cup_img.jpg" alt="">
-						<a class="open_iframe" href="iframe_01.html" target="iframe">資訊</a>
+						<!-- 左邊圖 -->
+						<div class="main_photo">
+								<img src="img/secondSection/coffee_cup_img.jpg" alt="">
+							</div>
+							<!-- 右邊標題跟介紹 -->
+							<div class="main_content">
+								<div class="title">
+									<h2>宇宙雲霄飛車</h2>
+									<small>COSMOS ROLLER COASTER</small>
+								</div>
+								<div class="information">
+									
+	
+										<div class="parameter">
+											<div class="paraContent">
+												<span>心跳指數</span>
+												<!-- <small>90下/分鐘</small> -->
+												<svg width="100%" height="50px" viewBox="0 0 50 60" viewport="0 0 50 30" version="1.1" xmlns="http://www.w3.org/2000/svg"
+													xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns">
+													<defs></defs>
+													<g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" sketch:type="MSPage">
+														<path class="beat-loader" d="M0.5,38.5 L16,38.5 L19,25.5 L24.5,57.5 L31.5,7.5 L37.5,46.5 L43,38.5 L53.5,38.5" id="Path-2"
+															stroke-width="1" sketch:type="MSShapeGroup"></path>
+													</g>
+												</svg>
+	
+											</div>
+										</div>
+										<div class="parameter">
+	
+											<span>適合對象</span>
+											<p class="paraContent middleLinehight">
+	
+												想感受刺激的人
+											</p>
+										</div>
+	
+										<div class="parameter">
+											<p class="paraContent middleLinehight">
+												<span>身高限制</span>
+												130cm~200cm
+											</p>
+										</div>
+										<div class="parameter">
+											<p class="paraContent middleLinehight">
+												<span>設施評價</span>
+												4.5分 ★★★★★
+											</p>
+										</div>
+								
+								</div>
+								<a class="open_iframe" href="iframe_01.html" target="iframe">了解更多</a>
+							</div>
 					</div>
 					<div class="info_content info_bumper_cars">
-						<img src="img/secondSection/bumper_cars_img.jpg" alt="">
-						<a class="open_iframe" href="iframe_01.html" target="iframe">資訊</a>
+						<!-- 左邊圖 -->
+						<div class="main_photo">
+								<img src="img/secondSection/bumper_cars_img.jpg" alt="">
+							</div>
+							<!-- 右邊標題跟介紹 -->
+							<div class="main_content">
+								<div class="title">
+									<h2>宇宙雲霄飛車</h2>
+									<small>COSMOS ROLLER COASTER</small>
+								</div>
+								<div class="information">
+									
+	
+										<div class="parameter">
+											<div class="paraContent">
+												<span>心跳指數</span>
+												<!-- <small>90下/分鐘</small> -->
+												<svg width="100%" height="50px" viewBox="0 0 50 60" viewport="0 0 50 30" version="1.1" xmlns="http://www.w3.org/2000/svg"
+													xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns">
+													<defs></defs>
+													<g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" sketch:type="MSPage">
+														<path class="beat-loader" d="M0.5,38.5 L16,38.5 L19,25.5 L24.5,57.5 L31.5,7.5 L37.5,46.5 L43,38.5 L53.5,38.5" id="Path-2"
+															stroke-width="1" sketch:type="MSShapeGroup"></path>
+													</g>
+												</svg>
+	
+											</div>
+										</div>
+										<div class="parameter">
+	
+											<span>適合對象</span>
+											<p class="paraContent middleLinehight">
+	
+												想感受刺激的人
+											</p>
+										</div>
+	
+										<div class="parameter">
+											<p class="paraContent middleLinehight">
+												<span>身高限制</span>
+												130cm~200cm
+											</p>
+										</div>
+										<div class="parameter">
+											<p class="paraContent middleLinehight">
+												<span>設施評價</span>
+												4.5分 ★★★★★
+											</p>
+										</div>
+								
+								</div>
+								<a class="open_iframe" href="iframe_01.html" target="iframe">了解更多</a>
+							</div>
 					</div>
 					<div class="info_content info_theater">
-						<img src="img/secondSection/theater_img.png" alt="">
-						<a class="open_iframe" href="iframe_01.html" target="iframe">資訊</a>
+						<!-- 左邊圖 -->
+						<div class="main_photo">
+								<img src="img/secondSection/theater_img.png" alt="">
+							</div>
+							<!-- 右邊標題跟介紹 -->
+							<div class="main_content">
+								<div class="title">
+									<h2>宇宙雲霄飛車</h2>
+									<small>COSMOS ROLLER COASTER</small>
+								</div>
+								<div class="information">
+									
+	
+										<div class="parameter">
+											<div class="paraContent">
+												<span>心跳指數</span>
+												<!-- <small>90下/分鐘</small> -->
+												<svg width="100%" height="50px" viewBox="0 0 50 60" viewport="0 0 50 30" version="1.1" xmlns="http://www.w3.org/2000/svg"
+													xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns">
+													<defs></defs>
+													<g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" sketch:type="MSPage">
+														<path class="beat-loader" d="M0.5,38.5 L16,38.5 L19,25.5 L24.5,57.5 L31.5,7.5 L37.5,46.5 L43,38.5 L53.5,38.5" id="Path-2"
+															stroke-width="1" sketch:type="MSShapeGroup"></path>
+													</g>
+												</svg>
+	
+											</div>
+										</div>
+										<div class="parameter">
+	
+											<span>適合對象</span>
+											<p class="paraContent middleLinehight">
+	
+												想感受刺激的人
+											</p>
+										</div>
+	
+										<div class="parameter">
+											<p class="paraContent middleLinehight">
+												<span>身高限制</span>
+												130cm~200cm
+											</p>
+										</div>
+										<div class="parameter">
+											<p class="paraContent middleLinehight">
+												<span>設施評價</span>
+												4.5分 ★★★★★
+											</p>
+										</div>
+								
+								</div>
+								<a class="open_iframe" href="iframe_01.html" target="iframe">了解更多</a>
+							</div>
 					</div>
 				</div>
 			</div>
@@ -378,292 +648,21 @@
 
 
 		</section>
-		<!-- 第四屏開始-->
-		<section class="section" id="section3">
-			<div id="wrapper">
-
-				<div id="calWrapper">
-					<div id="calRight">
-						<div id="showToday"></div>
-						<div id="prevMonth">
-							<i class="fa fa-caret-up"></i>
-						</div>
-						<div id="showMonth"></div>
-						<div id="nextMonth">
-							<i class="fa fa-caret-down"></i>
-						</div>
-						<div id="icons">
-							<ul id="selectActivityClass">
-								<li id="icon1" class="icons">
-									<img src="img/forthSection/theater.png" alt="劇場" title="劇場">
-									<span>劇場時間</span>
-								</li>
-								<li id="icon2" class="icons">
-									<img src="img/forthSection/outoforder.png" alt="維修月曆" title="維修月曆">
-									<span>設施維修</span>
-								</li>
-								<li id="icon3" class="icons">
-									<img src="img/forthSection/party.png" alt="開園時間" title="開園時間">
-									<span>營業時間</span>
-								</li>
-								<li id="icon4" class="icons">
-									<img src="img/forthSection/lecture.png" alt="展覽" title="展覽">
-									<span>展覽時間</span>
-								</li>
-							</ul>
-						</div>
-						<div id="backToToday" style="display: none">回到今日</div>
-						<div id="clearCal" style="display: none">清空月曆</div>
-					</div>
-
-					<div id="cal">
-						<table id="mycal" border="0" cellspacing="0" cellpadding="5">
-							<tr id="dayRow" fontColor="black" cellspacing="10">
-
-								<td>SUN</td>
-								<td>MON</td>
-								<td>TUE</td>
-								<td>WED</td>
-								<td>THU</td>
-								<td>FRI</td>
-								<td>SAT</td>
-							</tr>
-							<tr>
-								<td class="daysHere"></td>
-								<td class="daysHere"></td>
-								<td class="daysHere"></td>
-								<td class="daysHere"></td>
-								<td class="daysHere"></td>
-								<td class="daysHere"></td>
-								<td class="daysHere"></td>
-							</tr>
-							<tr>
-								<td class="claContent sun"></td>
-								<td class="claContent mon"></td>
-								<td class="claContent tue"></td>
-								<td class="claContent wed"></td>
-								<td class="claContent thu"></td>
-								<td class="claContent fri"></td>
-								<td class="claContent sat"></td>
-							</tr>
-							<tr>
-								<td class="daysHere"></td>
-								<td class="daysHere"></td>
-								<td class="daysHere"></td>
-								<td class="daysHere"></td>
-								<td class="daysHere"></td>
-								<td class="daysHere"></td>
-								<td class="daysHere"></td>
-							</tr>
-							<tr>
-								<td class="claContent sun"></td>
-								<td class="claContent mon"></td>
-								<td class="claContent tue"></td>
-								<td class="claContent wed"></td>
-								<td class="claContent thu"></td>
-								<td class="claContent fri"></td>
-								<td class="claContent sat"></td>
-							</tr>
-							<tr>
-								<td class="daysHere"></td>
-								<td class="daysHere"></td>
-								<td class="daysHere"></td>
-								<td class="daysHere"></td>
-								<td class="daysHere"></td>
-								<td class="daysHere"></td>
-								<td class="daysHere"></td>
-							</tr>
-							<tr>
-								<td class="claContent sun"></td>
-								<td class="claContent mon"></td>
-								<td class="claContent tue"></td>
-								<td class="claContent wed"></td>
-								<td class="claContent thu"></td>
-								<td class="claContent fri"></td>
-								<td class="claContent sat"></td>
-							</tr>
-							<tr>
-								<td class="daysHere"></td>
-								<td class="daysHere"></td>
-								<td class="daysHere"></td>
-								<td class="daysHere"></td>
-								<td class="daysHere"></td>
-								<td class="daysHere"></td>
-								<td class="daysHere"></td>
-							</tr>
-							<tr>
-								<td class="claContent sun"></td>
-								<td class="claContent mon"></td>
-								<td class="claContent tue"></td>
-								<td class="claContent wed"></td>
-								<td class="claContent thu"></td>
-								<td class="claContent fri"></td>
-								<td class="claContent sat"></td>
-							</tr>
-							<tr>
-								<td class="daysHere"></td>
-								<td class="daysHere"></td>
-								<td class="daysHere"></td>
-								<td class="daysHere"></td>
-								<td class="daysHere"></td>
-								<td class="daysHere"></td>
-								<td class="daysHere"></td>
-							</tr>
-							<tr>
-								<td class="claContent sun"></td>
-								<td class="claContent mon"></td>
-								<td class="claContent tue"></td>
-								<td class="claContent wed"></td>
-								<td class="claContent thu"></td>
-								<td class="claContent fri"></td>
-								<td class="claContent sat"></td>
-							</tr>
-							<tr>
-								<td class="daysHere"></td>
-								<td class="daysHere"></td>
-								<td class="daysHere"></td>
-								<td class="daysHere"></td>
-								<td class="daysHere"></td>
-								<td class="daysHere"></td>
-								<td class="daysHere"></td>
-							</tr>
-							<tr>
-								<td class="claContent sun"></td>
-								<td class="claContent mon"></td>
-								<td class="claContent tue"></td>
-								<td class="claContent wed"></td>
-								<td class="claContent thu"></td>
-								<td class="claContent fri"></td>
-								<td class="claContent sat"></td>
-							</tr>
-						</table>
-					</div>
-
-					<div id="showActivityWrapper">
-						<span id="activityDate">活動表</span>
-						<span id="activityDay"></span>
-						<div id="border_bottom"></div>
-						<div id="content">
-							<table id="activity">
-								<tr>
-									<th>10:00-14:00</th>
-									<td>
-										<a class="convert">詳情</a>
-								</tr>
-								<tr>
-									<td colspan="2">夢境遊行夢境遊行夢境遊行夢境遊行夢境遊行</td>
-								</tr>
-								<tr>
-									<th>11:00-12:00</th>
-									<td>
-										<a class="convert">購票</a>
-									</td>
-								</tr>
-								<tr>
-									<td>未來狂想曲</td>
-								</tr>
-								<tr>
-									<tr>
-										<th>13:00-13:10</th>
-										<td>
-											<a class="convert">詳情</a>
-										</td>
-									</tr>
-									<td colspan="2">啟用記者會</td>
-								</tr>
-								<tr>
-									<th>14:00-15:00</th>
-									<td>
-										<a class="convert">購票</a>
-									</td>
-								</tr>
-								<tr>
-									<td colspan="2">星際漫遊</td>
-								</tr>
-							</table>
-						</div>
-					</div>
-				</div>
-		</section>
-
-
-
-		<!-- 第五屏開始-->
-		<section class="section" id="section4">
-			<div class="ticket">
-
-				<div class="cont">
-					<!--中間灰色-->
-					<img class="bar" src="img/fifthSection/bar.png" alt="bar">
-
-					<!-- 左邊購買票卷 -->
-					<div class="leftBox">
-						<div class="leftContent">
-							<h3>*** GET TICKET ***</h3>
-							<button>如何購票</button>
-							<button>票券模式</button>
-							<button>票券期限</button>
-							<button id="change">購買設施票券</button>
-							<button id="change">購買劇場票券</button>
-						</div>
-					</div>
-
-
-
-					<!-- 中間區塊 -->
-					<div class="midBox">
-						<div class="midContent">
-							<h3>*** INFO ***</h3>
-							<div class="pic"></div>
-							<hr>
-							<div class="text">
-								<p>我們的線上購票皆為電子票券，遊玩前只需出示QRcode， 就能快樂遊玩。
-								</p>
-							</div>
-						</div>
-					</div>
-
-
-
-					<!-- 右邊區塊 -->
-					<div class="rightBox">
-						<h3>*** SCANNING ***</h3>
-						<div class="visual1">
-							<img src="img/fifthSection/QRcode_image.svg.png" alt="QR">
-						</div>
-
-						<div class="visual2">
-							<img class="circle" src="img/fifthSection/circle.png" alt="circle">
-
-							<img src="img/fifthSection/phone.png" alt="phone">
-						</div>
-					</div>
-				</div>
-			</div>
-		</li>
-		<li class="buy notcurrent">
-			<a href="Theaterbuyticket.html">
-				<span>前往購票</span>
-			</a>
-		</li><!-- 前往購票按鈕 -->
-	</ul>
-
-
-	</section>
 	<!-- 第四屏開始-->
 	<section class="section" id="section3">
 		<div id="wrapper">
 
 		<div id="calWrapper">
 		<div id="calRight">
-				<div id="showToday"></div>
-		            <div id="prevMonth">
-		                <i class="fa fa-caret-up"></i>
-		            </div>
-		            <div id="showMonth"></div>
-		            <div id="nextMonth">
-		                <i class="fa fa-caret-down"></i>
-		            </div>
+			<div id="showToday">
+	            <div id="prevMonth">
+	                <i class="fa fa-caret-up"></i>
+	            </div>
+	            <div id="showMonth"></div>
+	            <div id="nextMonth">
+	                <i class="fa fa-caret-down"></i>
+	            </div>
+	        </div>
 		    <div id="icons">
 	            <ul id="selectActivityClass">
 	                <li id="icon1" class="icons">
@@ -810,6 +809,109 @@
 		    </table>
 		</div>
 
+		<div id="showActivityWrapper">
+			<div id="activityClose">
+				<i class="fa fa-times-circle"></i>
+			</div>
+		    <span id="activityDate">活動表</span>
+		    <span id="activityDay"></span>
+		    <div id="border_bottom"></div>
+		    <div id="content">
+		        <table id="activity">
+		            <tr>
+		            	<th>10:00-14:00</th>
+		            	<td><a class="convert">詳情</a>
+		            </tr>
+		            <tr>
+		                <td colspan="2">夢境遊行夢境遊行夢境遊行夢境遊行夢境遊行</td>
+		            </tr>
+		            <tr>
+		            	<th>11:00-12:00</th>
+		            	<td><a class="convert">購票</a></td>
+		            </tr>
+		            <tr>
+		                <td>未來狂想曲</td>
+		            </tr>
+		            <tr>
+		            <tr>
+		            	<th>13:00-13:10</th>
+						<td><a class="convert">詳情</a></td>
+		            </tr>
+		                <td colspan="2">啟用記者會</td>
+		            </tr>
+		            <tr>
+		            	<th>14:00-15:00</th>
+		            	<td><a class="convert">購票</a></td>
+		            </tr>
+		            <tr>
+		                <td colspan="2">星際漫遊</td>
+		            </tr>
+		        </table>
+		        <div id="weatherWrapper">
+		        	<div id="result">園區天氣<br>
+		        	</div>
+    			</div>
+		    </div>
+		</div>
+		</div>
+	</section>
+
+
+
+		<!-- 第五屏開始-->
+		<section class="section" id="section4">
+			<div class="ticket">
+
+				<div class="cont">
+					<!--中間灰色-->
+					<img class="bar" src="img/fifthSection/bar.png" alt="bar">
+
+					<!-- 左邊購買票卷 -->
+					<div class="leftBox">
+						<div class="leftContent">
+							<h3>*** GET TICKET ***</h3>
+							<button>如何購票</button>
+							<button>票券模式</button>
+							<button>票券期限</button>
+							<button id="change">購買設施票券</button>
+							<button id="change">購買劇場票券</button>
+						</div>
+					</div>
+
+
+
+					<!-- 中間區塊 -->
+					<div class="midBox">
+						<div class="midContent">
+							<h3>*** INFO ***</h3>
+							<div class="pic"></div>
+							<hr>
+							<div class="text">
+								<p>我們的線上購票皆為電子票券，遊玩前只需出示QRcode， 就能快樂遊玩。
+								</p>
+							</div>
+						</div>
+					</div>
+
+
+
+					<!-- 右邊區塊 -->
+					<div class="rightBox">
+						<h3>*** SCANNING ***</h3>
+						<div class="visual1">
+							<img src="img/fifthSection/QRcode_image.svg.png" alt="QR">
+						</div>
+
+						<div class="visual2">
+							<img class="circle" src="img/fifthSection/circle.png" alt="circle">
+
+							<img src="img/fifthSection/phone.png" alt="phone">
+						</div>
+					</div>
+				</div>
+			</div>
+	</section>
+	
 		</div>
 
 		<!-- 登入燈箱 -->
@@ -889,7 +991,46 @@
 			// 	}
 			// }
 			// window.addEventListener('load', loading);
+			//-導覽列RWD-----------------------------------
+			//-導覽列RWD-----------------------------------
+			function navOpen(){
+				var headerOpenBtn = document.getElementsByClassName("headerOpenBtn")[0];
+				headerOpenBtn.addEventListener("click",headerAppearClose);
+				headerOpenBtn.addEventListener("click",bannerMousewheelClose);
 
+				var navOpenBtn = document.getElementsByClassName("navOpenBtn")[0];
+				navOpenBtn.addEventListener("click",navAppearClose);
+				// navOpenBtn.addEventListener("click",navAppearClose);
+				navOpenBtn.addEventListener("click",bannerMousewheelClose);
+				
+			}
+			function headerAppearClose(){
+					var header = document.getElementsByClassName("header")[0];
+					var li_top = document.getElementsByClassName("li_top");
+
+					if(header.id !="headerAppear"){
+						header.setAttribute("id","headerAppear");
+						for(var i =0;i<li_top.length;i++){
+							li_top[i].setAttribute("id","liAppear");
+						}
+					}else{
+						header.id="";
+						for(var i =0;i<li_top.length;i++){
+							li_top[i].id="";
+						}
+					}		
+			}
+			function navAppearClose(){
+				var ul_box = document.getElementsByClassName("ul_box")[0];
+				if(ul_box.id !="navAppear"){
+						ul_box.setAttribute("id","navAppear");
+						
+					}else{
+						ul_box.id="";
+
+					}	
+			}
+			window.addEventListener('load',navOpen);
 			//theater---------------------------------------------------
 			//theater---------------------------------------------------
 			$(document).ready(function () {
