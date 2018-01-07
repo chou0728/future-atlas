@@ -6,90 +6,96 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" type="text/css" href="css/RESET.css">
-	<link rel="stylesheet" type="text/css" href="css/header.css">
+    <link rel="stylesheet" type="text/css" href="css/header.css">
     <link rel="stylesheet" href="css/robot_new.css">
     <title>Robot Talk</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+    </style>
 
 </head>
 
 <body>
-        <div class="header">
-                <ul class="ul_top">
-                    <li class="li_top">
-                        <a href="SignUp.html">註冊</a>
-                    </li>
-                    <li class="li_top">
-                        <a href="#" id="singUpBtn">登入</a>
-                    </li>
-                    <li class="li_top">
-                        <a href="input_cart.html">購物車</a>
-                    </li>
-                </ul>
-            </div>
-            <div class="nav">
-                <div class="ul_box">
-                    <ul class="ul_left">
-                        <li>
-                            <a href="Theaterbuyticket.html">劇場購票</a>
-                        </li>
-                        <li>
-                            <a href="facilityBuyTicket.html">設施購票</a>
-                        </li>
-                        <li>
-                            <a href="facilityInfo.html">設施介紹</a>
-                        </li>
-                    </ul>
-                    <h1 style="display: none">FutureAtlas_未來主題樂園</h1>
-                    <a href="index.html#page1">
-                        <img src="img/LOGO.png" class="logo">
-                    </a>
-                    <ul class="ul_right">
-                        <li>
-                            <a href="index.html#page2">園區地圖</a>
-                        </li>
-                        <li>
-                            <a href="activity.html">活動月曆</a>
-                        </li>
-                        <li>
-                            <a href="robot.html">諮詢專區</a>
-                        </li>
-                    </ul>
-                </div>
-                <div class="navOpenBtn"><!-- RWD left btn-->
-                    <div class="ham"></div>
-                    <div class="ham"></div>
-                    <div class="ham"></div>
-                    <div class="ham"></div>
-                </div>
-            </div>
-            <div class="headerOpenBtn"><!-- RWD right btn-->
-                <img src="img/memberBtnM.png" class="memIcon">
-                <img src="img/ticketicon.png" class="ticketIcon">
-                <div class="blueScreen"></div>
-            </div>
+    <div class="header">
+        <ul class="ul_top">
+            <li class="li_top">
+                <a href="SignUp.html">註冊</a>
+            </li>
+            <li class="li_top">
+                <a href="#" id="singUpBtn">登入</a>
+            </li>
+            <li class="li_top">
+                <a href="input_cart.html">購物車</a>
+            </li>
+        </ul>
+    </div>
+    <div class="nav">
+        <div class="ul_box">
+            <ul class="ul_left">
+                <li>
+                    <a href="Theaterbuyticket.html">劇場購票</a>
+                </li>
+                <li>
+                    <a href="facilityBuyTicket.html">設施購票</a>
+                </li>
+                <li>
+                    <a href="facilityInfo.html">設施介紹</a>
+                </li>
+            </ul>
+            <h1 style="display: none">FutureAtlas_未來主題樂園</h1>
+            <a href="index.html#page1">
+                <img src="img/LOGO.png" class="logo">
+            </a>
+            <ul class="ul_right">
+                <li>
+                    <a href="index.html#page2">園區地圖</a>
+                </li>
+                <li>
+                    <a href="activity.html">活動月曆</a>
+                </li>
+                <li>
+                    <a href="robot.html">諮詢專區</a>
+                </li>
+            </ul>
+        </div>
+        <div class="navOpenBtn">
+            <!-- RWD left btn-->
+            <div class="ham"></div>
+            <div class="ham"></div>
+            <div class="ham"></div>
+            <div class="ham"></div>
+        </div>
+    </div>
+    <div class="headerOpenBtn">
+        <!-- RWD right btn-->
+        <img src="img/memberBtnM.png" class="memIcon">
+        <img src="img/ticketicon.png" class="ticketIcon">
+        <div class="blueScreen"></div>
+    </div>
     <div class="wrapper">
         <!-- <img class="frame" src="img/robot_page/frame.png" alt=""> -->
         <img class="robot" src="img/robot_page/robot2.png" alt="">
 
         <div class="conversation">
-            <div class="robot_text">
-                <p id="robot_message"></p>
-            </div>
-            <div class="user_text">
-                <p id="user_message"></p>
-            </div>
-            <div class="robot_answer">
-                <p id="robot_answer"></p>
-            </div>
+
+            <p id="robot_greet"></p>
+            <p id="user_message"></p>
+            <p id="robot_answer"></p>
+
 
             <!-- <img class="chat_area" src="img/robot_page/chat_block.png" alt=""> -->
-            <img class="brackets" src="img/robot_page/brackets.png" alt="">
-            <input type="text" id="input_box" placeholder="請在這輸入您的疑問">
-            <button class="submit">送出</button>
+            <!-- <img class="brackets" src="img/robot_page/brackets.png" alt=""> -->
+            <div class="input_area">
+                <input type="text" id="input_box" placeholder="請在這輸入您的疑問">
+                <!-- <button class="submit">送出</button> -->
+            </div>
+
         </div>
 
     </div>
-    
+
     <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
     <script src="js/00nav.js"></script>
     <script>
@@ -98,7 +104,7 @@
         initIdentityResults(0);
 
         function initIdentityResults(i) {
-            $("#robot_message").addClass("cursor").text(message.substring(0, i));
+            $("#robot_greet").addClass("cursor").text(message.substring(0, i));
             if (i < message.length) {
                 setTimeout(function () {
                     initIdentityResults(i + 1);
@@ -108,34 +114,42 @@
         }
 
 
-        $(".submit").click(function () {
-            $("#robot_message").removeClass("cursor");
-            var user_text = $("#input_box").val();
-            initIdentityResults_user(0);
+        $("#input_box").on('keydown', function (e) {
+            if (e.which == 13 || e.keyCode == 13) {
+                $("#robot_greet").removeClass("cursor");
+                var user_text = $("#input_box").val();
+                initIdentityResults_user(0);
+                clearInputbox();
 
-            function initIdentityResults_user(i) {
-                $("#user_message").addClass("cursor").text(user_text.substring(0, i));
-                if (i < user_text.length) {
-                    setTimeout(function () {
-                        initIdentityResults_user(i + 1);
-                    }, 100);
-                } else {
-                    $("#user_message").removeClass("cursor");
-                    var robot_answer = "園區開放時間為9:00am-9:00pm";
-                    initIdentityResults_robot_answer(0);
 
-                    function initIdentityResults_robot_answer(i) {
-                        $("#robot_answer").addClass("cursor").text(robot_answer.substring(0, i));
-                        if (i < robot_answer.length) {
-                            setTimeout(function () {
-                                initIdentityResults_robot_answer(i + 1);
-                            }, 100);
+                function initIdentityResults_user(i) {
+                    $("#user_message").addClass("cursor").text(user_text.substring(0, i));
+                    if (i < user_text.length) {
+                        setTimeout(function () {
+                            initIdentityResults_user(i + 1);
+                        }, 100);
+                    } else {
+                        $("#user_message").removeClass("cursor");
+                        var robot_answer = "園區開放時間為9:00am-9:00pm";
+                        initIdentityResults_robot_answer(0);
+
+                        function initIdentityResults_robot_answer(i) {
+                            $("#robot_answer").addClass("cursor").text(robot_answer.substring(0, i));
+                            if (i < robot_answer.length) {
+                                setTimeout(function () {
+                                    initIdentityResults_robot_answer(i + 1);
+                                }, 100);
+                            }
+
                         }
-
                     }
-                }
 
+                }
+                function clearInputbox(){
+                    $("#input_box").val("");
+                }
             }
+
 
 
 
