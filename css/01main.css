@@ -176,16 +176,18 @@
 	.shipbox #openBanner.banner{
 		display: none;
 	}
-	
 	.mobileSizeBanner{
-		top:30%;
+		top:28%;
 		width: 95%;
 		height: auto;
 		left: 2.5%;
 		display: block;
 		position: absolute;
 		opacity: 0;
-	}	
+	}
+	#mobileOpenBanner.mobileSizeBanner{
+		opacity: 1;
+	}
 
 }
 /*=========================================*/	
@@ -266,10 +268,25 @@
 	transition: transform 2s ease;
 
 }
-.silhouette .ed #entranceApear.entrance{
-	transform: translateY(0);
+.silhouette .ed .mobileBannerOpenBtn{
+	display: none;
 }
-
+/*======================================手機===*/		
+@media screen and (max-width:414px){
+	
+	.silhouette .ed .mobileBannerOpenBtn{
+		display: block;
+		width: 45px;
+		height: 45px;
+		border-radius: 50%;
+		position: absolute;
+		background-color: red;
+		top:18.5%;
+		left: 21%;
+		
+	}
+}
+/*======================================手機===*/
 
 .silhouette .ed .e_canvas_cover{
 	width: 100%;
@@ -341,7 +358,9 @@
 /*768END====================================*/
 /*======================================手機===*/		
 @media screen and (max-width:414px){
-
+	.silhouette .machi{
+		transform: translateX(2%) scale(1.1);
+	}
 
 	.silhouette .ed .entrance{
 		width: 100%;
@@ -432,6 +451,28 @@
 		color: #54fdfd;
 	  	text-shadow: 0 0 2px #44ffff, 0 0 3px #3fafff, 0 0 10px #2dabab, 0 0 15px #84ccff;
 		animation: tiny-annoying-flicker .25s infinite;
+	}
+}
+
+
+@media screen and (max-width:414px){
+	.silhouette #robo{
+		left: -4%;
+		width: 13%;
+		filter:drop-shadow(0px 0px 2px rgba(255, 164, 68,0.8));
+	}
+	.silhouette #robo.robolight{
+		animation: robolight 1s 3 linear;
+		animation-fill-mode: forwards;
+		z-index:10;
+	}
+	@keyframes robolight{
+		0%{filter:contrast(0);}
+		20%{filter:contrast(50%);}
+		40%{filter:contrast(200%);}
+		60%{filter:contrast(0);}
+		80%{filter:contrast(40%);}
+		100%{filter:contrast(65%) hue-rotate(120deg);}
 	}
 }
 /*768END====================================*/
