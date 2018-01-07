@@ -25,10 +25,9 @@
 	.navOpenBtn{
 		position: fixed;
 		display:block;
-		top:1.5%;
+		top:10px;
 		left: 3%;
-		max-width: 45px;
-		min-width: 35px;
+		width: 40px;
 		z-index: 1001;
 		cursor: pointer;
 	}
@@ -40,39 +39,39 @@
 	}
 	.navOpenBtn .ham:first-child{
 		width: 5px;
-		height: 25px;
+		height: 22px;
 		opacity: 1;
 	}
 	.navOpenBtn .ham:nth-child(2){
 		width: 5px;
-		height: 35px;
+		height: 32px;
 	}
 	.navOpenBtn .ham:nth-child(3){
 		width: 5px;
-		height: 15px;
+		height: 12px;
 	}
 	.navOpenBtn .ham:nth-child(4){
 		width: 5px;
-		height: 20px;
+		height: 17px;
 	}
 	#navAppear.ul_box~.navOpenBtn .ham:first-child{
-		height: 35px;
+		height: 32px;
 		opacity: 0;
 	}
 	#navAppear.ul_box~.navOpenBtn .ham:nth-child(2){
-		height: 35px;
+		height: 30px;
 		width: 4px;
-		transform: rotateZ(45deg) translateX(6px);
+		transform: rotateZ(45deg) translateX(5px) translateY(-2px);
 		border-radius: 4px;
 	}
 	#navAppear.ul_box~.navOpenBtn .ham:nth-child(3){
-		height: 35px;
+		height: 30px;
 		width: 4px;
-		transform: rotateZ(-45deg) translateX(-6px);
+		transform: rotateZ(-45deg) translateX(-5px) translateY(-2px);
 		border-radius: 4px;
 	}
 	#navAppear.ul_box~.navOpenBtn .ham:nth-child(4){
-		height: 35px;
+		height: 32px;
 		opacity: 0;
 	}
 }
