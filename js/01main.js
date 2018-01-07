@@ -1,49 +1,46 @@
- window.addEventListener('load', init);
- function init() {
- 	//shuffle-text
- 		var li = document.getElementsByClassName('shuffle');
- 		var effectList = [];
- 		for(var i =0;i<li.length;i++){
- 			var element = li[i];
-       		element.dataset.index = i;
- 			effectList[i] =  new ShuffleText(element);
- 			effectList[i].sourceRandomCharacter ="FUTUREATLASBD103";
+window.addEventListener('load', init);
+function init() {
+   	//shuffle-text
+   		var li = document.getElementsByClassName('shuffle');
+   		var effectList = [];
+   		for(var i =0;i<li.length;i++){
+   			var element = li[i];
+         		element.dataset.index = i;
+   			effectList[i] =  new ShuffleText(element);
+   			effectList[i].sourceRandomCharacter ="FUTUREATLASBD103";
 
-        	element.addEventListener('mouseenter', function () {
-          	effectList[+this.dataset.index].start();
-        	});
+          	element.addEventListener('mouseenter', function () {
+            	effectList[+this.dataset.index].start();
+        });
+   		}
+   	//parallax
+  		var scene = document.getElementById('scene');
+  		var parallaxInstance = new Parallax(scene);
 
- 		}
+  	//load_up
+  		setTimeout(loadUp, 3300);
+  		setTimeout(loadUpSecond, 3780);
+  	//target_appear
 
+  	//NeonLight
+  		// var fw_motobox = document.getElementsByClassName('fw_motobox');
+  		// fw_motobox[0].onclick = NeonLight;
 
- 	//parallax
-		var scene = document.getElementById('scene');
-		var parallaxInstance = new Parallax(scene);
+  	//bannerOpenClose
+  		var banner = document.getElementsByClassName('banner');
+  		var shipbox = document.getElementsByClassName('shipbox');
+  		var cross = document.getElementsByClassName('cross');
+  		banner[0].onclick = bannerOpenClose;
+  		document.addEventListener('mousewheel',bannerMousewheelClose);
+  	//canvas
+    // document.addEventListener('mousewheel',canvasRunStop);//待修改--------------------!!
+    if(location.hash=="#page1"||location.hash==""){
 
-	//load_up
-		setTimeout(loadUp, 3300);
-		setTimeout(loadUpSecond, 3780);
-	//target_appear
-
-	//NeonLight
-		// var fw_motobox = document.getElementsByClassName('fw_motobox');
-		// fw_motobox[0].onclick = NeonLight;
-
-	//bannerOpenClose
-		var banner = document.getElementsByClassName('banner');
-		var shipbox = document.getElementsByClassName('shipbox');
-		var cross = document.getElementsByClassName('cross');
-		banner[0].onclick = bannerOpenClose;
-		document.addEventListener('mousewheel',bannerMousewheelClose);
-	//canvas
-  // document.addEventListener('mousewheel',canvasRunStop);//待修改--------------------!!
-  if(location.hash=="#page1"||location.hash==""){
-
-      e_light();
-  }
-	//roboAppear
-	var robo = document.getElementById('robo');
-	robo.onclick = roboAppear;
+        e_light();
+    }
+  	//roboAppear
+  	var robo = document.getElementById('robo');
+  	robo.onclick = roboAppear;
 
 }
 
