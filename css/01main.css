@@ -266,8 +266,12 @@
 	width: 100%;
 	transform: translateY(50%);
 	transition: transform 2s ease;
-
 }
+.silhouette .ed #entranceApear.entrance{
+	transform: translateY(0%);
+}
+
+
 .silhouette .ed .mobileBannerOpenBtn{
 	display: none;
 }
