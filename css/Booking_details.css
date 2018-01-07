@@ -13,8 +13,6 @@
       font-family: "微軟正黑體", Arial ,sans-serif;
       background-color: black;
       color: #5AE6DB;
-      line-height:1.5;
-      letter-spacing: 2px;
       /* background-image: url("../img/Galaxy_1.jpg");
     background-size: cover;
       */
@@ -30,17 +28,25 @@
       margin: 110px 10px;
       margin-bottom: 31px;
       color: white; }
-
+    @media screen and (max-width:1024px) and (min-width:415px){
+       .Bookingh1 {
+        font-size:32px;
+        text-align: center;
+        margin: 106px 10px;
+        margin-bottom: 31px;
+        color: white; }
+      }
     @media screen and (max-width:414px) {
       .Bookingh1 {
         width: 100%;
+        margin-top: 92px;
         margin-left: auto;
         margin-right: auto; 
         } 
     }
-    .memberinfosection{
+    /*.memberinfosection{
 
-    }
+    }*/
     .Bookingh2 {
       font-size:24px;
       margin: 10px 10px;
@@ -79,22 +85,27 @@
 
     @media screen and (max-width: 414px) {
       .memberinfo {
-        width: 85%;
+        width:93%;
         margin-left: auto;
         margin-right: auto; } }
 
     .memberinfo p {
       margin: 10px 10px;
-      padding: 10px 10px; }
+      padding: 10px 10px;
+      line-height:1.5;
+      letter-spacing: 2px; 
+    }
 
     .orderlistsection table {
       margin: 0 auto;
       margin-top: 10px;
       font-size: 20px;
-      letter-spacing: 3px;
+      line-height:1.5;
+      letter-spacing: 2px;
       color: white;
       border: 3px solid #35ffea;
-      width: 46%; }
+      width: 46%; 
+    }
     @media screen and (max-width:1024px) and (min-width:415px){
       .orderlistsection table {
         width:60.5%; 
@@ -102,7 +113,7 @@
     }
     @media screen and (max-width: 414px) {
       .orderlistsection table {
-        width: 85%; 
+        width: 93%; 
         } 
     }
 
@@ -134,7 +145,7 @@
     }
     @media screen and (max-width: 414px) {
       .creditCardinfo {
-        width: 85%;
+        width: 93%;
         margin-left: auto;
         margin-right: auto; 
         } 
@@ -142,7 +153,10 @@
 
     .creditCardinfo p {
       margin: 5px 5px;
-      padding: 5px 10px; }
+      padding: 5px 10px;
+      line-height:1.5;
+      letter-spacing: 2px;
+    }
 
     .creditCardinfo input {
       margin: 10px 10px;
