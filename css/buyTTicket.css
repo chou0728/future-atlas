@@ -215,10 +215,11 @@
     .buyticketarea .buyTTicketBtn :after {
       content: '';
       display: block;
-      clear: both; }
-	
-	/*節目日期一開始不顯示*/
-	#theater2 {
-		display:none;
-  }
+      clear: both; 
+    }
+	  /*節目日期一開始不顯示*/
+    #theater2 {
+      display:none;
+    }
+  
 
