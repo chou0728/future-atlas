@@ -13,11 +13,9 @@
     }
 
     body {
+      font-family: "微軟正黑體";
       background-color: black;
       color: #5AE6DB;
-      line-height:1.5;
-      letter-spacing: 2px;
-
     }
 
     /*購買票劵*/
@@ -50,7 +48,6 @@
       height: 300px;
       margin: 0 auto;
       opacity: 0.9;
-      z-index: 1000;
       color: white; }
     @media screen and (max-width:1024px) and (min-width:415px){
       .buyticketarea table{
@@ -71,7 +68,8 @@
       height: 300px;
       top:25%;
       margin-left:25%;
-      /*line-height: 2;*/
+      line-height:1.5;
+      letter-spacing: 2px;
       /*display: inline-block;*/
     }
     @media screen and (max-width:1024px) and (min-width:415px){
@@ -95,6 +93,8 @@
       padding-left: 20px;
       text-align: left;
       font-size: 23px;
+      line-height:1.5;
+      letter-spacing: 2px;
       /*border:1px solid black; */ }
 
     @media screen and (max-width: 414px) {
@@ -214,10 +214,11 @@
     .buyticketarea .buyTTicketBtn :after {
       content: '';
       display: block;
-      clear: both; }
-	
-	/*節目日期一開始不顯示*/
-	#theater2 {
-		display:none;
-  }
+      clear: both; 
+    }
+	  /*節目日期一開始不顯示*/
+    #theater2 {
+      display:none;
+    }
+  
 
