@@ -177,19 +177,35 @@
 		display: none;
 	}
 	.mobileSizeBanner{
-		top:28%;
-		width: 95%;
+		top:15%;
+		width: 80%;
 		height: auto;
-		left: 2.5%;
+		left:10%;
 		display: block;
 		position: absolute;
 		opacity: 0;
+		box-shadow: 0 0 3px rgba(255, 148, 0,0.6),0 0 2px rgba(255, 148, 0,0.9);
+		transition: .5s linear;
 	}
 	#mobileOpenBanner.mobileSizeBanner{
-		opacity: 1;
+		top:15%;
+		width: 80%;
+		left:10%;
+		animation: lightOn 0.2s linear 5;
+		animation-fill-mode: forwards;
+
+	}
+	@keyframes lightOn{
+		0%{opacity: 0;}
+		20%{opacity: 0.5;}
+		40%{opacity: 0.1;}
+		60%{opacity: 0.6;}
+		80%{opacity: 0.3;}
+		100%{opacity: 1;}
 	}
 
 }
+
 /*=========================================*/	
 /*-----banner end-----*/
 
@@ -251,7 +267,8 @@
 		bottom: -15%;
 		left:-50%;
 	}
-}	
+}
+
 @media screen and (max-height: 414px){/*HEIGHT*/
 			
 	.silhouette #scene{
@@ -272,26 +289,6 @@
 }
 
 
-.silhouette .ed .mobileBannerOpenBtn{
-	display: none;
-}
-/*======================================手機===*/		
-@media screen and (max-width:479px){
-	
-	.silhouette .ed .mobileBannerOpenBtn{
-		display: block;
-		width: 45px;
-		height: 45px;
-		border-radius: 50%;
-		top:0;
-		left:20%;
-		transform: translateX(-39%);
-		position: absolute;
-		background-color: red;
-		
-	}
-}
-/*======================================手機===*/
 
 .silhouette .ed .e_canvas_cover{
 	width: 100%;
@@ -370,7 +367,7 @@
 	.silhouette .ed .entrance{
 		width: 100%;
 		transform: translateY(50%) translateX(-39%);
-		/*filter: drop-shadow(0px 0px 0px rgba(255,255,255,0.8));*/
+		
 	}
 	.silhouette .ed #entranceApear.entrance{
 		transform: translateY(0) translateX(-39%);
@@ -393,6 +390,40 @@
 	.silhouette #rocketAppear.rocket{
 		transform: translateY(8%) translateX(-39%) scale(0.85);
 	}
+}
+@media screen and (max-width:360px){
+	.silhouette .machi{
+		transform: translateX(2%) scale(1.1);
+	}
+
+	.silhouette .ed .entrance{
+		width: 100%;
+		transform: translateY(50%) translateX(-38%) scale(0.85);
+		/*filter: drop-shadow(0px 0px 0px rgba(255,255,255,0.8));*/
+	}
+	.silhouette .ed #entranceApear.entrance{
+		transform: translateY(11%) translateX(-38%) scale(0.85);
+		filter: drop-shadow(0px 0px 3px rgba(30, 206, 255,0.8));
+	}
+	.silhouette .ed .e_canvas_cover{
+		transform: translateY(50%) translateX(-38%) scale(0.85);
+	}
+	.silhouette .ed #canvas_cover.e_canvas_cover{
+		transform: translateY(11%) translateX(-38%) scale(0.85);
+	}
+	.silhouette .roller{
+		transform: translateY(60%) translateX(-38%) scale(0.85);
+	}
+	.silhouette #rollerAppear.roller{
+		transform: translateY(8%) translateX(-38%) scale(0.85);
+	}
+	.silhouette .rocket{
+		transform: translateY(60%) translateX(-38%) scale(0.85);
+	}
+	.silhouette #rocketAppear.rocket{
+		transform: translateY(8%) translateX(-38%) scale(0.85);
+	}
+
 }
 /*=========================================*/
 .silhouette .flyship{
@@ -461,6 +492,37 @@
 
 
 @media screen and (max-width:479px){
+	.t_wrapper #mobileWelcome{/*--479以下--*/
+		width:100%;
+		display: block;
+		position: absolute;
+		top:18%;
+		left: 0;
+	}
+	.t_wrapper #mobileWelcome .fw_motobox{
+		text-align: center;
+		width:100%;
+		animation: huge-flicker 10s infinite;
+	}
+	.t_wrapper #mobileWelcome .fw_motobox .fw_motoword{
+		font-size:35px;
+		text-shadow: 0 0 1px #1a417a, 0 0 2px #1a417a, 0 0 2px #1a417a, 0 0 3px #1a417a;
+		color: #1a417a;
+		font-family: monospace;
+	}
+	.t_wrapper #mobileWelcome .fw_motobox .fw_motoword span{
+		display: block;
+		letter-spacing: 3px;
+		margin:10px auto;
+		font-size:40px;
+	}
+	.t_wrapper #mobileWelcome .fw_motobox #fw_word{
+		color: #54fdfd;
+	  	text-shadow: 0 0 2px #44ffff, 0 0 3px #3fafff, 0 0 10px #2dabab, 0 0 15px #84ccff;
+		animation: tiny-annoying-flicker .25s infinite;
+	}
+
+
 	.silhouette #robo{
 		left: -4%;
 		width: 13%;
