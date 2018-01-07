@@ -134,7 +134,7 @@ function nextMonth(){
 $(document).ready(function(){
 	$(".daysHere").click(function(){
 		$("#showActivityWrapper").css("right","0");
-		$("#cal").css("opacity","0.3");
+		$("#cal").addClass("calFadeOut");
 		var showDate = $(this).text();
 		if( !showDate){
 			showDate = "今日";
@@ -152,7 +152,7 @@ $(document).ready(function(){
 	});
 	$("#activityClose").click(function(){
 		$("#showActivityWrapper").css("right","-200%");
-		$("#cal").css("opacity","1");
+		$("#cal").removeClass("calFadeOut");
 	});
 });
 
