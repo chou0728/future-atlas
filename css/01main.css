@@ -49,7 +49,7 @@
 		}
 		.shipbox .flyship{
 			width: 100%;
-			transform: translateX(-800px);
+			transform: translateX(-100vw);
 			transition: transform 3s ease;
 		}
 
@@ -70,18 +70,24 @@
 		  z-index: 5;
 		  box-shadow: 0 0 2px skyblue;
 		  cursor: pointer;
-		  transform: translateX(-800px);
+		  transform: translateX(-100vw);
 		  transition: width .2s linear,height .2s linear,transform 3s ease;
 		}
 		.shipbox #openBanner.banner {
-			width: 240%;
-			height: 290%
+			position: fixed;
+			width: 70vw;
+			top:15vh;
+			left: 15vw;
+			height: auto;
 		}
 		@media screen and (max-width:768px) {
 			
 			.shipbox #openBanner.banner{
-				width: 205%;
-				height: 255%
+				position: fixed;
+				top: 20vh;
+				left: 2.5vw;
+				width: 95vw;
+				height: auto;
 			}
 
 		}
