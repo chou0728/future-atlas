@@ -57,12 +57,12 @@ body {
             height: 30vh;
             margin-top: 10px; } }
       .wrapper .content .info .facility_photo {
-        background-image: url("/img/facilityInfo/sub_6365_LL.png");
+        background-image: url("../img/facilityInfo/sub_6365_LL.png");
         background-repeat: no-repeat;
         background-size: cover;
         background-position: 50% 40%; }
       .wrapper .content .info .theater_photo {
-        background-image: url("/img/theater_page/dome_theater.png");
+        background-image: url("../img/theater_page/dome_theater.png");
         background-repeat: no-repeat;
         background-size: cover;
         background-position: 50% 50%; }
