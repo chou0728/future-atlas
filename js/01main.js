@@ -119,20 +119,20 @@ function mobileOpenB(){
     var mobileSizeBanner = document.getElementsByClassName('mobileSizeBanner');
     var allPage = document.getElementById('all-page');
     mobileSizeBanner[0].setAttribute("id", "mobileOpenBanner");
-    mobileSizeBanner[0].src="../img/firstSection/banner1.png";
+    mobileSizeBanner[0].src="img/firstSection/banner1.png";
     setTimeout(mobileOpenB2,8000);
 }
 function mobileOpenB2(){
    var mobileSizeBanner = document.getElementsByClassName('mobileSizeBanner');
     var allPage = document.getElementById('all-page');
-    mobileSizeBanner[0].src="../img/firstSection/banner2.png";
+    mobileSizeBanner[0].src="img/firstSection/banner2.png";
     setTimeout(mobileOpenB3,8000);
 
 }
 function mobileOpenB3(){
     var mobileSizeBanner = document.getElementsByClassName('mobileSizeBanner');
     var allPage = document.getElementById('all-page');
-    mobileSizeBanner[0].src="../img/firstSection/banner1.png";
+    mobileSizeBanner[0].src="img/firstSection/banner1.png";
     mobileSizeBanner[0].id="";
     setTimeout(mobileOpenB,5000);
 }
