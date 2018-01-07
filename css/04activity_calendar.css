@@ -21,19 +21,19 @@
 	margin: 0 auto;
 	margin-bottom: 50px;
 }
-@media screen and (max-width:414px){
+@media screen and (max-width:415px){
 	*{
 	/*outline: 1px solid blue;*/
 	}
 	#calWrapper{
 		width: 100%;
-		height: 82vh;
+		height: 86vh;
 		margin-top: 10vh;
 		margin-left: 0;
 		position: relative;
 	}
 }
-@media screen and (min-width:414px) and (max-width:1024px){
+@media screen and (min-width:415px) and (max-width:1024px){
 	#calWrapper{
 		width: 90%;
 		height: 100vh;
@@ -55,19 +55,17 @@
 #showToday{
 	width: 100%;
 }
-@media screen and (max-width:414px){
+@media screen and (max-width:415px){
 	#calRight{
-		width: 100%;
-		height: 15%;
+		width: 102%;
+		height: 13vh;
 		position: absolute;
-		left: 0;
+		left: -1%;
 		bottom: 0;
 		text-align: center;
-		background-color: #333;
-		/*padding-bottom: 100px;*/
 	}
 }
-@media screen and (min-width:414px) and (max-width:1024px){
+@media screen and (min-width:415px) and (max-width:1024px){
 	#calRight{
 		width: 10%;
 	}
@@ -95,7 +93,7 @@
 	cursor: pointer;
 	vertical-align: middle;
 }
-@media screen and (max-width:414px){
+@media screen and (max-width:415px){
 	#showToday{
 		width: 100%;
 		text-align: center;
@@ -132,10 +130,10 @@
 		z-index: 4;
 	}
 }
-@media screen and (min-width:414px) and (max-width:1024px){
+@media screen and (min-width:415px) and (max-width:1024px){
 	
 }
-@media screen and (min-width:414px) and (max-width:1240px){
+@media screen and (min-width:415px) and (max-width:1240px){
 
 }
 @media screen and (min-width:1240px){
@@ -150,7 +148,7 @@
 	margin-top: 20px;
 	width: 100%;
 }
-@media screen and (max-width:414px){
+@media screen and (max-width:415px){
 	#icons{
 		width: 100%;
 		height: 30%;
@@ -161,7 +159,7 @@
 		z-index: 3;
 	}
 }
-@media screen and (min-width:414px) and (max-width:1024px){
+@media screen and (min-width:415px) and (max-width:1024px){
 	
 }
 @media screen and (min-width:1024px){
@@ -176,7 +174,7 @@
 	text-align: center;
 	margin-top: 30px;
 }
-@media screen and (max-width:414px){
+@media screen and (max-width:415px){
 	#selectActivityClass{
 		width: 100%;
 		position: absolute;
@@ -184,7 +182,7 @@
 		left: 0;
 	}
 }
-@media screen and (min-width:414px) and (max-width:1024px){
+@media screen and (min-width:415px) and (max-width:1024px){
 	
 }
 @media screen and (min-width:1024px){
@@ -200,17 +198,19 @@
 	border: 1px solid transparent;
 	vertical-align: middle;
 }
-@media screen and (max-width:414px){
+@media screen and (max-width:415px){
 	#selectActivityClass li{
-		height: 46px;
-		width: 24%;
+		margin: 0;
+		width: 24.1%;
+		padding: 8px;
 		display: inline-block;
 	}#selectActivityClass li img{
 		width: 30%;
+		height: auto;
 		vertical-align: middle;
 	}
 }
-@media screen and (min-width:414px) and (max-width:1024px){
+@media screen and (min-width:415px) and (max-width:1024px){
 	#selectActivityClass li{
 		height: 46px;
 		width: 100%;
@@ -227,12 +227,12 @@
 	vertical-align: middle;
 	color: azure;
 }
-@media screen and (max-width:414px){
+@media screen and (max-width:415px){
 	#selectActivityClass li span{
 		display: none;
 	}
 }
-@media screen and (min-width:414px) and (max-width:1024px){
+@media screen and (min-width:415px) and (max-width:1024px){
 	#selectActivityClass li span{
 		display: none;
 	}
@@ -251,12 +251,12 @@
 	padding: 5px;
 	vertical-align: middle;
 }
-@media screen and (max-width:414px){
+@media screen and (max-width:415px){
 	#selectActivityClass img{
 		padding: 0;
 	}
 }
-@media screen and (min-width:414px) and (max-width:1024px){
+@media screen and (min-width:415px) and (max-width:1024px){
 	
 }
 @media screen and (min-width:1024px) and (max-width:1240px){
@@ -280,27 +280,11 @@
 	position: relative;
 	user-select: none;
 }
-@media screen and (max-width:414px){
-	#cal{
-		width: 100%;
-		position: absolute;
-		top: 0;
-		left: 0;
-		height: 85%;
-	}.calFadeOut{
-		opacity: 0.3;
-	}
-}
-@media screen and (min-width:414px) and (max-width:1024px){
-	
-}
-@media screen and (min-width:1024px){
-
-}
 
 #cal table{
 	width: 100%;
 	height: 85%;
+	max-height: 100px;
 	text-align: left;
 	margin: 0 auto;
 	user-select: none;
@@ -313,7 +297,7 @@
 	font-size: 20px;
 	font-family: 'Share Tech Mono', monospace;
 	letter-spacing: 2px;
-	height: 55px;
+	height: 8%;
 	width: 14.28571428571429%;
 	color: azure;
 	font-weight: 900;
@@ -322,12 +306,26 @@
 	vertical-align: middle;
 	background-color: #404040;
 	box-shadow: 1px 1px 5px black;
+	border-left: none;	
 	border-spacing: 0px 0px;
 }
 
-#cal td{
-	border-left: none;
-	transition: 0.5s;
+@media screen and (max-width:415px){
+	#cal{
+		width: 100%;
+		position: absolute;
+		top: 0;
+		left: 0;
+		height: 75%;
+	}.calFadeOut{
+		opacity: 0.3;
+	}
+}
+@media screen and (min-width:415px) and (max-width:1024px){
+	
+}
+@media screen and (min-width:1024px){
+
 }
 
 #cal .daysHere{
@@ -360,13 +358,15 @@
 	padding-left: 10px;
 	padding-bottom: 10px;
 }
-@media screen and (max-width:414px){
+@media screen and (max-width:415px){
 	#cal .claContent{
 		padding-left: 1px;
-		padding-bottom: 1px;		
+		padding-bottom: 1px;
+		height: 50px;
+		line-height: 1.3;
 	}
 }
-@media screen and (min-width:414px) and (max-width:1024px){
+@media screen and (min-width:415px) and (max-width:1024px){
 	#cal .claContent{
 		padding-left: 5px;
 		padding-bottom: 5px;		
@@ -397,11 +397,13 @@
 	color: lightgray;
 	position: relative;
 }
-@media screen and (max-width:414px) and (max-width:1024px){
+@media screen and (max-width:415px) and (max-width:1024px){
 	#showActivityWrapper{
 		position: absolute;
-		width: 400px;
-		top: 55px;
+		width: 90%;
+		height: 50%;
+		top: 0;
+		bottom: 0;
 		right: -200%;
 		left: 0;
 		margin: auto;
@@ -426,7 +428,7 @@
 .fa-times-circle{
 	opacity: 0;
 }
-@media screen and (max-width:414px){
+@media screen and (max-width:415px){
 	#activityClose{
 		cursor: pointer;
 		z-index: 3;
@@ -439,7 +441,7 @@
 		transform: scale(2);
 	}
 }
-@media screen and (min-width:414px) and (max-width:1024px){
+@media screen and (min-width:415px) and (max-width:1024px){
 		
 }
 @media screen and (min-width:1024px){
@@ -501,18 +503,18 @@ a.convert{
 #temperature, #weather{
 		font-size: 18px;
 }
-@media screen and (max-width:414px){
+@media screen and (max-width:415px){
 	#weatherWrapper{
 		display: none;
 	}
 }
-@media screen and (min-width:414px) and (max-width:1024px){
+@media screen and (min-width:415px) and (max-width:1024px){
 		
 }
 @media screen and (min-width:1024px){
 
 }
-@media screen and (min-width:414px) and (max-width:1240px){
+@media screen and (min-width:415px) and (max-width:1240px){
 	#source{
 		display: none;
 	}

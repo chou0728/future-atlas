@@ -3,6 +3,7 @@
 <head>
 <meta charset="utf-8">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<link rel="stylesheet" type="text/css" href="css/header.css">
 <link rel="stylesheet" type="text/css" href="css/cart.css">
 <title>檢視購物車</title>
 <script type="text/javascript">
@@ -160,30 +161,89 @@ function loginOrNot(){
 };
 </script>
 <body>
-<h1>您的購物車</h1>
-<form>
-	<table border="1" cellspacing="0">
-		<tr id="cart_header">
-			<th>設施編號</th>
-			<th>圖示</th>
-			<th>設施名稱</th>
-			<th>票種</th>
-			<th>使用期限</th>
-			<th id="fare_th">票價</th>
-			<th style='text-align: right'>張數</th>
-			<th style='text-align: right'>小計</th
-			>
-			<th colspan="2"></th>
-		</tr>
-	</table>
-<div id="button">
-	<button id="backToShop"><a href="buy.html">繼續購物</a></button>
-	<button id="nextStep"><a href="">下一步</a></button>
+<div class="header">
+	<ul class="ul_top">
+		<li class="li_top">
+			<a href="SignUp.html">註冊</a>
+		</li>
+		<li class="li_top">
+			<a href="#" id="singUpBtn">登入</a>
+		</li>
+		<li class="li_top">
+			<a href="input_cart.html">購物車</a>
+		</li>
+	</ul>
 </div>
-</form>
+<div class="nav">
+	<div class="ul_box">
+		<ul class="ul_left">
+			<li>
+				<a href="Theaterbuyticket.html">劇場購票</a>
+			</li>
+			<li>
+				<a href="facilityBuyTicket.html">設施購票</a>
+			</li>
+			<li>
+				<a href="facilityInfo.html">設施介紹</a>
+			</li>
+		</ul>
+		<h1 style="display: none">FutureAtlas_未來主題樂園</h1>
+		<a href="index.html#page1">
+			<img src="img/LOGO.png" class="logo">
+		</a>
+		<ul class="ul_right">
+			<li>
+				<a href="index.html#page2">園區地圖</a>
+			</li>
+			<li>
+				<a href="activity.html">活動月曆</a>
+			</li>
+			<li>
+				<a href="robot.html">諮詢專區</a>
+			</li>
+		</ul>
+	</div>
+	<div class="navOpenBtn"><!-- RWD left btn-->
+		<div class="ham"></div>
+		<div class="ham"></div>
+		<div class="ham"></div>
+		<div class="ham"></div>
+	</div>
+</div>
+<div class="headerOpenBtn"><!-- RWD right btn-->
+	<img src="img/memberBtnM.png" class="memIcon">
+	<img src="img/ticketicon.png" class="ticketIcon">
+	<div class="blueScreen"></div>
+</div>
+
+	<!-- header end-->
+<div id="cartWrapper">
+	<div id="cartTitle">您的購物車</div>
+	<form>
+		<table border="1" cellspacing="0">
+			<tr id="cart_header">
+				<th>設施編號</th>
+				<th>圖示</th>
+				<th>設施名稱</th>
+				<th>票種</th>
+				<th>使用期限</th>
+				<th id="fare_th">票價</th>
+				<th style='text-align: right'>張數</th>
+				<th style='text-align: right'>小計</th
+				>
+				<th colspan="2"></th>
+			</tr>
+		</table>
+	<div id="button">
+		<button id="backToShop"><a href="buy.html">繼續購物</a></button>
+		<button id="nextStep"><a href="">下一步</a></button>
+	</div>
+	</form>
+</div>
 <!-- 判斷是否登入，修改超連結內容 -->
 <script type="text/javascript">
 storage.setItem("memId","999");
 </script>
+<script src="js/00nav.js"></script>
 </body>
 </html>
