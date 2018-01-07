@@ -156,9 +156,11 @@
     z-index: 999; }
     @media screen and (min-width: 415px) and (max-width: 1024px) {
       .map_wrapper .info {
+        width: 95%;
         height: 63vh; } }
     @media screen and (max-width: 414px) {
       .map_wrapper .info {
+        width: 95%;
         height: 63vh; } }
     .map_wrapper .info .close {
       width: 50px;
@@ -201,6 +203,16 @@
           height: 50vh;
           float: left;
           position: relative; }
+          @media screen and (min-width: 415px) and (max-width: 1024px) {
+            .map_wrapper .info .info_container .info_content .main_photo {
+              float: none;
+              width: 100%;
+              height: 35vh; } }
+          @media screen and (max-width: 414px) {
+            .map_wrapper .info .info_container .info_content .main_photo {
+              float: none;
+              width: 100%;
+              height: 35vh; } }
           .map_wrapper .info .info_container .info_content .main_photo img {
             width: 85%;
             position: absolute;
@@ -208,6 +220,16 @@
             top: 50%;
             transform: translate(-50%, -50%);
             border: 2px solid rgba(50, 255, 218, 0.9); }
+            @media screen and (min-width: 415px) and (max-width: 1024px) {
+              .map_wrapper .info .info_container .info_content .main_photo img {
+                width: 98%;
+                top: 0%;
+                transform: translate(-50%, 1%); } }
+            @media screen and (max-width: 414px) {
+              .map_wrapper .info .info_container .info_content .main_photo img {
+                width: 98%;
+                top: 0%;
+                transform: translate(-50%, 1%); } }
           .map_wrapper .info .info_container .info_content .main_photo:before, .map_wrapper .info .info_container .info_content .main_photo:after {
             content: '';
             display: block;
@@ -219,34 +241,82 @@
             content: '';
             display: block;
             clear: both; }
+          @media screen and (min-width: 415px) and (max-width: 1024px) {
+            .map_wrapper .info .info_container .info_content .main_content {
+              float: none;
+              width: 100%;
+              position: relative;
+              height: 120px; } }
+          @media screen and (max-width: 414px) {
+            .map_wrapper .info .info_container .info_content .main_content {
+              float: none;
+              width: 100%;
+              position: relative;
+              height: 120px; } }
           .map_wrapper .info .info_container .info_content .main_content .title {
             margin: 10px auto;
             width: 60%;
-            padding: 10px 50px 10px 50px;
             text-align: center;
             background-color: rgba(50, 255, 218, 0.9); }
+            @media screen and (min-width: 415px) and (max-width: 1024px) {
+              .map_wrapper .info .info_container .info_content .main_content .title {
+                width: 98%;
+                position: absolute;
+                top: -80%;
+                left: 50%;
+                transform: translateX(-50%); } }
+            @media screen and (max-width: 414px) {
+              .map_wrapper .info .info_container .info_content .main_content .title {
+                width: 98%;
+                position: absolute;
+                top: -80%;
+                left: 50%;
+                transform: translateX(-50%); } }
             .map_wrapper .info .info_container .info_content .main_content .title h2 {
+              width: 100%;
               font-size: 36px;
               font-weight: bold;
               color: #000;
               margin-bottom: 4px;
               letter-spacing: 8px; }
+              @media screen and (min-width: 415px) and (max-width: 1024px) {
+                .map_wrapper .info .info_container .info_content .main_content .title h2 {
+                  font-size: 24px; } }
+              @media screen and (max-width: 414px) {
+                .map_wrapper .info .info_container .info_content .main_content .title h2 {
+                  font-size: 24px; } }
             .map_wrapper .info .info_container .info_content .main_content .title small {
               font-size: 16px;
               font-weight: bold;
               color: #000; }
+              @media screen and (min-width: 415px) and (max-width: 1024px) {
+                .map_wrapper .info .info_container .info_content .main_content .title small {
+                  font-size: 12px; } }
+              @media screen and (max-width: 414px) {
+                .map_wrapper .info .info_container .info_content .main_content .title small {
+                  font-size: 12px; } }
           .map_wrapper .info .info_container .info_content .main_content .information {
-            width: 100%; }
+            width: 100%;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-around; }
             .map_wrapper .info .info_container .info_content .main_content .information .parameter {
-              margin: 40px 4px;
               width: 175px;
-              float: left;
-              position: relative; }
+              position: relative;
+              top: 50px; }
               .map_wrapper .info .info_container .info_content .main_content .information .parameter:before, .map_wrapper .info .info_container .info_content .main_content .information .parameter:after {
                 content: '';
                 display: block;
                 clear: both; }
-              .map_wrapper .info .info_container .info_content .main_content .information .parameter span {
+              @media screen and (min-width: 415px) and (max-width: 1024px) {
+                .map_wrapper .info .info_container .info_content .main_content .information .parameter {
+                  width: 80px;
+                  top: 40px; } }
+              @media screen and (max-width: 414px) {
+                .map_wrapper .info .info_container .info_content .main_content .information .parameter {
+                  width: 80px;
+                  top: 40px; } }
+              .map_wrapper .info .info_container .info_content .main_content .information .parameter h5 {
                 display: block;
                 width: 100%;
                 padding: 2px 5px 2px 5px;
@@ -258,13 +328,21 @@
                 top: -30px;
                 left: 0;
                 line-height: 1.5; }
+                @media screen and (min-width: 415px) and (max-width: 1024px) {
+                  .map_wrapper .info .info_container .info_content .main_content .information .parameter h5 {
+                    font-size: 16px;
+                    top: -25px; } }
+                @media screen and (max-width: 414px) {
+                  .map_wrapper .info .info_container .info_content .main_content .information .parameter h5 {
+                    font-size: 16px;
+                    top: -25px; } }
               .map_wrapper .info .info_container .info_content .main_content .information .parameter .paraContent {
                 width: 100%;
                 height: 70px;
                 border: 1px solid rgba(50, 255, 218, 0.9);
                 padding: 1%;
                 margin: auto;
-                font-size: 16px;
+                font-size: 12px;
                 text-align: center;
                 background-color: rgba(100, 255, 243, 0.1); }
                 .map_wrapper .info .info_container .info_content .main_content .information .parameter .paraContent .beat-loader {
@@ -303,7 +381,16 @@
           background-color: rgba(255, 193, 22, 0.2);
           transition: 0.2s linear;
           vertical-align: middle;
-          position: relative; }
+          position: relative;
+          top: 100px; }
+          @media screen and (min-width: 415px) and (max-width: 1024px) {
+            .map_wrapper .info .info_container .info_content .open_iframe {
+              width: 80%;
+              top: 60px; } }
+          @media screen and (max-width: 414px) {
+            .map_wrapper .info .info_container .info_content .open_iframe {
+              width: 80%;
+              top: 60px; } }
         .map_wrapper .info .info_container .info_content .open_iframe:hover {
           background-color: rgba(255, 193, 22, 0.8);
           color: black; }
