@@ -9,29 +9,70 @@
 	text-align: center;
 	top:4%;
 	z-index: 1000;
-
 }
 .navOpenBtn{
 	display: none;
 }
 /*768*------====================================*/
-@media screen and (min-width:415px) and (max-width:1024px) {
+@media screen and (max-width:1024px) {
 
 	.nav{
 		top:0;
 		height: 7%;
 		background-color:rgba(0,0,0,0.8);
+		box-shadow: 0 4px 0px -2px rgba(71, 161, 226,0.8); 
 	}
 	.navOpenBtn{
 		position: fixed;
 		display:block;
-		top:1%;
+		top:1.5%;
 		left: 3%;
-		width:6%;
-		height: 3%;
-		min-width: 45px;
+		max-width: 45px;
+		min-width: 35px;
 		z-index: 1001;
-		background-color: red;
+	}
+	.navOpenBtn .ham{
+		display: inline-block;
+		margin-right: 1.5px;
+		background-color: rgba(90, 230, 219,0.9);
+		transition: .2s linear;
+	}
+	.navOpenBtn .ham:first-child{
+		width: 5px;
+		height: 25px;
+		opacity: 1;
+	}
+	.navOpenBtn .ham:nth-child(2){
+		width: 5px;
+		height: 35px;
+	}
+	.navOpenBtn .ham:nth-child(3){
+		width: 5px;
+		height: 15px;
+	}
+	.navOpenBtn .ham:nth-child(4){
+		width: 5px;
+		height: 20px;
+	}
+	#navAppear.ul_box~.navOpenBtn .ham:first-child{
+		height: 35px;
+		opacity: 0;
+	}
+	#navAppear.ul_box~.navOpenBtn .ham:nth-child(2){
+		height: 35px;
+		width: 4px;
+		transform: rotateZ(45deg) translateX(6px);
+		border-radius: 4px;
+	}
+	#navAppear.ul_box~.navOpenBtn .ham:nth-child(3){
+		height: 35px;
+		width: 4px;
+		transform: rotateZ(-45deg) translateX(-6px);
+		border-radius: 4px;
+	}
+	#navAppear.ul_box~.navOpenBtn .ham:nth-child(4){
+		height: 35px;
+		opacity: 0;
 	}
 }
 /*768*------====================================*/
@@ -44,7 +85,7 @@
 	height: auto;
 }
 /*768*------====================================*/
-@media screen and (min-width:415px) and (max-width:1024px){
+@media screen and (max-width:1024px){
 	.logo{
 		display: block;
 		position:fixed;
@@ -87,7 +128,7 @@
 	font-size: 16px;
 }
 /*768*------====================================*/
-@media screen and (min-width:415px) and (max-width:1024px){
+@media screen and (max-width:1024px){
 	.ul_left,.ul_right,.ul_left li,.ul_right li{
 		display: block;
 		text-align: center;
@@ -181,22 +222,49 @@
 }
 
 /*768*------====================================*/
-@media screen and (min-width:415px) and (max-width:1024px){
+@media screen and (max-width:1024px){
 	.headerOpenBtn{
 		position: fixed;
 		display:block;
 		top:1%;
 		right: 3%;
 		width:6%;
-		min-width: 45px;
+		max-width: 45px;
+		min-width: 35px;
 		z-index: 1001;
+	}
+	.headerOpenBtn .blueScreen{
+		width: 30.5px;
+		left: 49.4%;
+		top:20.5%;
+		transform:translateX(-49.4%);
+		height: 35.5%;
+		background-color: rgba(90, 230, 219,0.8);
+		position: absolute;
+		opacity: 0;
+
 	}
 	.headerOpenBtn .memIcon{
 		width: 100%;
-		
 	}
+	.headerOpenBtn .ticketIcon{
+		position: absolute;
+		top:40%;
+		left: 50%;
+		transform: translate(-50%,-40%);
+		width: 30%;
+		opacity: 0;
+		animation: ro 1s infinite linear;
+	}
+	@keyframes ro{
+		0%{transform: translate(-50%,-40%) rotateY(0deg);}
+		50%{transform: translate(-50%,-40%) rotateY(90deg);}
+		100%{transform: translate(-50%,-40%) rotateY(180deg);}
+	}
+	
 	.header{
-		width: 40vw;
+		width: 100vw;
+		height: 100%;
 		top:6%;
 		right: -100%;
 		position: fixed;
@@ -205,10 +273,26 @@
 	}
 	.header .ul_top{
 		width: 100%;
+		height: 100%;
+		background-color: rgba(0,0,0,0.9);
 	}
 	#headerAppear.header{
 		right: 0;
 		opacity: 1;
+
+	}
+	#headerAppear.header~.headerOpenBtn .blueScreen{
+		opacity: 1;
+		animation: screenSpark 0.5s 1 linear;
+		animation-fill-mode: forward;
+	}
+	@keyframes screenSpark{
+		0%{filter: brightness(0%);}
+		20%{filter: brightness(50%);}
+		40%{filter: brightness(20%);}
+		60%{filter: brightness(80%);}
+		80%{filter: brightness(60%);}
+		100%{filter: brightness(100%);}
 	}
 	.header .ul_top .li_top{
 		width: 100%;
