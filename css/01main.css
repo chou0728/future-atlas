@@ -26,7 +26,7 @@
 			 animation: none;
 		}
 		/*768*==================================*/
-		@media screen and (min-width:415px) and (max-width:768px){
+		@media screen and (min-width:480px) and (max-width:768px){
 			.shipbox{
 				width: 25%;
 				top:40vh;
@@ -37,7 +37,7 @@
 			}
 
 		}
-		@media screen and (max-width:414px){
+		@media screen and (max-width:479px){
 			.shipbox{
 				display: none;
 			}
@@ -95,7 +95,7 @@
 			height: auto;
 		}
 		/*768*==================================*/
-		@media screen and (min-width:415px) and (max-width:768px){
+		@media screen and (min-width:480px) and (max-width:768px){
 			
 			.shipbox #openBanner.banner{
 				position: fixed;
@@ -106,7 +106,7 @@
 			}
 
 		}
-		@media screen and (max-width:414px){
+		@media screen and (max-width:479px){
 			.shipbox #openBanner.banner{
 				display: none;
 			}
@@ -172,7 +172,7 @@
 			display: none;
 		}
 /*=========================================*/		
-@media screen and (max-width:414px){
+@media screen and (max-width:479px){
 	.shipbox #openBanner.banner{
 		display: none;
 	}
@@ -244,7 +244,7 @@
 }
 /*1024END====================================*/
 /*==768===================================*/
-@media screen and (min-width:415px) and (max-width:768px){
+@media screen and (min-width:480px) and (max-width:768px){
 			
 	.silhouette #scene{
 		width: 185%;
@@ -276,17 +276,18 @@
 	display: none;
 }
 /*======================================手機===*/		
-@media screen and (max-width:414px){
+@media screen and (max-width:479px){
 	
 	.silhouette .ed .mobileBannerOpenBtn{
 		display: block;
 		width: 45px;
 		height: 45px;
 		border-radius: 50%;
+		top:0;
+		left:20%;
+		transform: translateX(-39%);
 		position: absolute;
 		background-color: red;
-		top:18.5%;
-		left: 21%;
 		
 	}
 }
@@ -347,7 +348,7 @@
 /*1024END====================================*/
 /*768=======================================*/
 
-@media screen and (min-width:415px) and (max-width:768px) {
+@media screen and (min-width:480px) and (max-width:768px) {
 
 	.silhouette .machi{
 		transform: translateX(25%);
@@ -361,7 +362,7 @@
 }
 /*768END====================================*/
 /*======================================手機===*/		
-@media screen and (max-width:414px){
+@media screen and (max-width:479px){
 	.silhouette .machi{
 		transform: translateX(2%) scale(1.1);
 	}
@@ -431,7 +432,7 @@
 }
 /*768=======================================*/
 
-@media screen and (min-width:415px) and (max-width:768px){
+@media screen and (min-width:480px) and (max-width:768px){
 
 	.t_wrapper #mobileWelcome{/*--768以下--*/
 		width:100%;
@@ -459,7 +460,7 @@
 }
 
 
-@media screen and (max-width:414px){
+@media screen and (max-width:479px){
 	.silhouette #robo{
 		left: -4%;
 		width: 13%;
