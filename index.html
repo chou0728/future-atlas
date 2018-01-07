@@ -957,14 +957,14 @@
 				<h2>會員登入</h2>
 				<div class="text">
 					會員帳號：
-					<input type="text" name="" value="" required placeholder="輸入帳號">
+					<input type="text" name="memId" id="memId" value="" required placeholder="輸入帳號">
 					<br> 會員密碼：
-					<input type="password" name="" value="" required placeholder="輸入密碼">
+					<input type="password" name="memPsw"  id="memPsw" value="" required placeholder="輸入密碼">
 					<br>
 				</div>
 				<div class="btn">
-					<input type="submit" name="submit" value="登入">
-					<input type="reset" name="reset" value="取消">
+					<input type="button" name="" id="submit" value="登入">
+					<!-- <input type="reset" name="reset" value="取消"> -->
 				</div>
 			</form>
 		</div>
@@ -1074,15 +1074,30 @@
 				/*建立登入按鈕點擊事件聆聽功能*/
 				singUpBtn.addEventListener('click', showLogin, false);
 
+
+
 				/*建立關閉登入燈箱按鈕點擊事件聆聽功能*/
 				cancel.addEventListener('click', closeLogin, false);
 
 
-				/*點案登入show出登入燈箱*/
+				/*點案登入show出登入燈箱 以及判斷登出按鈕*/
 				function showLogin() {
-					lightBox.style.opacity = 1;
-					lightBox.style.visibility = 'visible';
-					allNavClose();
+					/*如果singUpBtn為登入時*/
+					if(document.getElementById("singUpBtn").innerHTML == "登入"){
+						/*show出燈箱*/
+						lightBox.style.opacity = 1;
+						lightBox.style.visibility = 'visible'
+						allNavClose();
+
+					/*其他(登出)將其餘文字變更*/
+					}else{
+						closeLogin();
+						document.getElementById("singUpBtn").innerHTML = "登入";
+						document.getElementById("registerUser").innerHTML = "註冊";
+						document.getElementById("registerUser").href = "SingUp.html";
+
+					}
+					
 				}
 
 
@@ -1091,7 +1106,51 @@
 					lightBox.style.opacity = 0;
 					lightBox.style.visibility = 'hidden';
 				}
+				/*註冊登入點擊事件*/
+				var submit = document.getElementById("submit");
+				submit.onclick = sendForm;
+				
+				
 			}
+
+
+			/*登入功能*/
+			
+			function sendForm(){
+				/*註冊會員ID*/
+				var memId = document.getElementById("memId");
+
+				/*註冊會員PSW*/
+				var memPsw = document.getElementById("memPsw");
+
+				/*註冊lightBox用來點擊消失*/
+				var lightBox=document.getElementById("lightBox");
+
+				var registerUser = document.getElementById("registerUser");
+
+					/*判斷帳號密碼是否正確*/
+					if(memId.value =="Sara" && memPsw.value == "111"){
+
+						/*若是帳號密碼正確lightBox消失*/
+						lightBox.style.display = "none";
+
+						/*帳號密碼正確登入文字變成登出*/
+						document.getElementById("singUpBtn").innerHTML = "登出";
+
+						/*registerUser原本是"註冊" 變更為"我的資料"*/
+						document.getElementById("registerUser").innerHTML = "我的資料";
+						/*也將連結改變*/
+						document.getElementById("registerUser").href = "iframe_02.html";
+					}
+					else{
+
+						/*帳號密碼錯誤跳出此題是文字*/
+						alert('帳號密碼錯誤，請重新輸入。');
+					}
+			}
+		
+			
+
 		</script>
 
 
