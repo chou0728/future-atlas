@@ -15,7 +15,7 @@
 	display: none;
 }
 /*768*------====================================*/
-@media screen and (max-width:768px) {
+@media screen and (min-width:415px) and (max-width:1024px) {
 
 	.nav{
 		top:0;
@@ -44,7 +44,7 @@
 	height: auto;
 }
 /*768*------====================================*/
-@media screen and (max-width:768px){
+@media screen and (min-width:415px) and (max-width:1024px){
 	.logo{
 		display: block;
 		position:fixed;
@@ -87,7 +87,7 @@
 	font-size: 16px;
 }
 /*768*------====================================*/
-@media screen and (max-width:768px){
+@media screen and (min-width:415px) and (max-width:1024px){
 	.ul_left,.ul_right,.ul_left li,.ul_right li{
 		display: block;
 		text-align: center;
@@ -96,19 +96,45 @@
 	}
 	.ul_box{
 		position: fixed;
-		background-color:#000;
+		background-color:rgba(0,0,0,0);
 		top: 7%;
 		left:-100%;
 		width: 100%;
 		height: 100%;
-
+		transition: background-color .2s linear;
 	}
 	#navAppear.ul_box{
-		left:0;
+		left: 0;
+		background-color:rgba(0,0,0,0.9);
+	}
+	.ul_box .ul_left li,.ul_box .ul_right li{
+		opacity: 0;
+	}
+	.ul_box .ul_left li:first-child{
+		transition: opacity .3s linear .1s;
+	}
+	.ul_box .ul_left li:nth-child(2){
+		transition: opacity .3s linear .2s;
+	}
+	.ul_box .ul_left li:nth-child(3){
+		transition: opacity .3s linear .3s;
+	}
+	.ul_box .ul_right li:first-child{
+		transition: opacity .3s linear .4s;
+	}
+	.ul_box .ul_right li:nth-child(2){
+		transition: opacity .3s linear .5s;
+	}
+	.ul_box .ul_right li:nth-child(3){
+		transition: opacity .3s linear .6s;
+	}
+	#navAppear.ul_box .ul_left li,#navAppear.ul_box .ul_right li{
+		opacity: 1;
+		transition: opacity 0s linear;
 	}
 	.ul_left li,.ul_right li{
 		width: 100%;
-		margin: 5% auto;
+		margin: 6vh auto;
 	}
 	.ul_left li a,.ul_right li a{
 		font-size: 24px;
@@ -155,7 +181,7 @@
 }
 
 /*768*------====================================*/
-@media screen and (max-width:768px){
+@media screen and (min-width:415px) and (max-width:1024px){
 	.headerOpenBtn{
 		position: fixed;
 		display:block;
