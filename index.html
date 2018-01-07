@@ -960,7 +960,7 @@
 		<!-- LOADING畫面 -->
 		<!-- <div id="loading">
 	<div class="loading">Loading</div>
-</div> -->-->
+</div> -->
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/parallax/3.1.0/parallax.min.js"></script>
 		<script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
 		<!-- <script src="https://code.jquery.com/jquery-3.2.1.js"></script> -->
@@ -968,6 +968,7 @@
 		<script src="js/01main.js"></script>
 		<script src="js/02map.js"></script>
 		<script src="js/04calendar.js"></script>
+		<script src="js/00nav.js"></script>
 		<script>
 			// FULLPAGE------------------------------------------
 			fullpage.initialize('#fullpage', {
@@ -1008,82 +1009,7 @@
 			// 	}
 			// }
 			// window.addEventListener('load', loading);
-			//-導覽列RWD-----------------------------------
-			//-導覽列RWD-----------------------------------
-			function navOpen(){
-				var headerOpenBtn = document.getElementsByClassName("headerOpenBtn")[0];
-				headerOpenBtn.addEventListener("click",headerAppearClose);
-				headerOpenBtn.addEventListener("click",bannerMousewheelClose);
 
-				var navOpenBtn = document.getElementsByClassName("navOpenBtn")[0];
-				navOpenBtn.addEventListener("click",navAppearClose);
-				navOpenBtn.addEventListener("click",bannerMousewheelClose);
-
-				var logoBtn = document.getElementsByClassName("logo")[0];
-				logoBtn.addEventListener("click",allNavClose);
-				
-			}
-			function headerAppearClose(){
-					var header = document.getElementsByClassName("header")[0];
-					var li_top = document.getElementsByClassName("li_top");
-					var ul_box = document.getElementsByClassName("ul_box")[0];
-
-					if(ul_box.id =="navAppear" && header.id !="headerAppear"){
-						header.setAttribute("id","headerAppear");
-						for(var i =0;i<li_top.length;i++){
-							li_top[i].setAttribute("id","liAppear");
-						}
-						ul_box.id="";
-
-					}else if(header.id !="headerAppear"&&header.id !="navAppear"){
-						header.setAttribute("id","headerAppear");
-						for(var i =0;i<li_top.length;i++){
-							li_top[i].setAttribute("id","liAppear");
-						}
-					}else{
-						header.id="";
-						for(var i =0;i<li_top.length;i++){
-							li_top[i].id="";
-						}
-
-					
-
-					
-					}	
-			}
-			function navAppearClose(){
-				var header = document.getElementsByClassName("header")[0];
-				var li_top = document.getElementsByClassName("li_top");
-				var ul_box = document.getElementsByClassName("ul_box")[0];
-					if(ul_box.id !="navAppear" && header.id !="headerAppear"){
-						ul_box.setAttribute("id","navAppear");
-						
-					}else if(ul_box.id !="navAppear" && header.id =="headerAppear"){
-						ul_box.setAttribute("id","navAppear");
-						header.id="";
-						for(var i =0;i<li_top.length;i++){
-							li_top[i].id="";
-						}
-
-					}else{
-						ul_box.id="";
-
-					}
-			}
-			function allNavClose(){
-				var header = document.getElementsByClassName("header")[0];
-				var li_top = document.getElementsByClassName("li_top");
-				var ul_box = document.getElementsByClassName("ul_box")[0];
-
-						for(var i =0;i<li_top.length;i++){
-							li_top[i].id="";
-						}
-						ul_box.id="";
-						header.id="";
-
-			}
-			window.addEventListener('load',navOpen);
-			window.addEventListener('resize',allNavClose);
 			//theater---------------------------------------------------
 			//theater---------------------------------------------------
 			$(document).ready(function () {
