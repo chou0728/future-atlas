@@ -14,7 +14,7 @@
 	display: none;
 }
 /*768*------====================================*/
-@media screen and (min-width:415px) and (max-width:1024px) {
+@media screen and (max-width:1024px) {
 
 	.nav{
 		top:0;
@@ -85,7 +85,7 @@
 	height: auto;
 }
 /*768*------====================================*/
-@media screen and (min-width:415px) and (max-width:1024px){
+@media screen and (max-width:1024px){
 	.logo{
 		display: block;
 		position:fixed;
@@ -128,7 +128,7 @@
 	font-size: 16px;
 }
 /*768*------====================================*/
-@media screen and (min-width:415px) and (max-width:1024px){
+@media screen and (max-width:1024px){
 	.ul_left,.ul_right,.ul_left li,.ul_right li{
 		display: block;
 		text-align: center;
@@ -222,7 +222,7 @@
 }
 
 /*768*------====================================*/
-@media screen and (min-width:415px) and (max-width:1024px){
+@media screen and (max-width:1024px){
 	.headerOpenBtn{
 		position: fixed;
 		display:block;
