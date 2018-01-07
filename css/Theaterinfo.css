@@ -7,7 +7,7 @@
   * {
     margin: 0px;
     padding: 0px;
-    outline: 1px solid red; 
+    /*outline: 1px solid red; */
   }
 
   body {
@@ -43,8 +43,8 @@
   @media screen and (max-width:414px){
     .Menu{
         width:65%;
-        top:79px;
-        left:7%;
+        top:93px;
+        left:1%;
         margin-left: auto;
         margin-right: auto;
       }
@@ -66,7 +66,7 @@
       .progressinfoMenu{
         position: absolute;
         top:-11px;
-        left:-7%;
+        left:-8%;
       }
   }
   @media screen and (max-width:1024px) and (min-width:415px){
@@ -130,7 +130,7 @@
       .buyticketMenu{
           position: absolute;
           top:-11px;
-          left:142px;
+          left:143px;
       }
   }
   @media screen and (max-width:1024px) and (min-width:415px){
@@ -222,8 +222,8 @@
       margin-left:-56%;*/
       /*font-size: 24px;*/ 
       position: absolute;
-      top: 88px;
-      left:-12px;
+      top:97px;
+      left:-37px;
     }
   }
   @media screen and (max-width:1024px) and (min-width:415px){
@@ -338,8 +338,8 @@
   @media screen and (max-width:414px) {
     .programone {
       width:74%;
-      top:200px;
-      left: 25%; 
+      top:204px;
+      left:19%; 
     } 
   }
   .programone .programonetitle {
@@ -549,7 +549,7 @@
 
   @media screen and (max-width:414px) {
     .programtwo .programtwocontent {
-      width:195%;
+      width:250%;
       position:relative;
       left: 8%;
     } 
@@ -723,10 +723,10 @@
     }
     @media screen and (max-width:414px) {
       .buyticketBtn {
-        /*top: 130%;
-        left: 13%; */
+        /*top: 130%;*/
+        left: 36%; 
         margin:0 auto;
-        margin-top:784px;
+        margin-top:705px;
         margin-bottom:30px;
       } 
     }
