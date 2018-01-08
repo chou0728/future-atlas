@@ -130,6 +130,22 @@ body::-webkit-scrollbar-thumb {
 	min-width: 750px;
 	transform: translateY(-3%);
 }
+@media screen and (min-width:415px) and (max-width:1024px){
+	.wrapper{
+		width: 95%;
+		max-width: 1200px;
+		border: 1.5px solid rgba(100,255,243,1);
+		margin:2.5% 2.5%;
+		position: relative;
+		padding: 10px;
+	}
+	.wrapper .main_photo img{
+		width: 100%;
+		min-width: 450px;
+		transform: translateY(0);
+	}
+
+}
 .wrapper .main_photo .title{
 	font-size: 55px;
 	padding: 10px 50px 10px 50px;

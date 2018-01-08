@@ -639,9 +639,9 @@
 					<div class="cover"></div>
 					<div class="label">File01</div>
 					<div class="theaterInfo" id="info">
-						劇場介紹
-						<br>
-						<br> FA未來劇場提供最好的4DX劇場，720度環繞，<!-- 座位會搭配影片有相應的動作 -->，讓您感受在一般劇場無法感受到的未來體驗。
+						<p class="theatertitle">劇場介紹</p>
+						FA未來劇場提供最好的4DX劇場
+						<span class="moblienoshow">，720度環繞， 座位會搭配影片有相應的動作 </span>，讓您感受在一般劇場無法感受到的未來體驗。
 					</div>
 				</li>
 				<li class="Theater notcurrent">
@@ -649,10 +649,11 @@
 					<div class="label">File02</div>
 					<!-- <img src="img/thirdSection/spaceship.png" width="300px" height="300px;"> -->
 					<div class="theaterInfo" id="info">
-						尋找星生命
+						<p class="theatertitle">尋找星生命</p>
+						宇宙與生命，一向是人類對自然的最大好奇。
 						<br>
-						<br> 宇宙與生命，一向是人類對自然的最大好奇。
-						<br>宇宙中的生命，自然是最吸引人們關注的話題。
+						<span class="moblienoshow">宇宙中的生命，自然是最吸引人們關注的話題。
+						</span>
 					</div>
 				</li>
 				<li class="Theater notcurrent">
@@ -660,9 +661,9 @@
 					<div class="label">File03</div>
 					<!-- <img src="img/thirdSection/spaceman.png" width="300px" height="300px;"> -->
 					<div class="theaterInfo" id="info">
-						末世決戰
-						<br>
-						<br> 人類是熱愛冒險的物種，對探索與發現情有獨鍾，也一直對於其他星球上的生命抱有非常大的好奇心。
+						<p class="theatertitle">末世決戰</p>
+						人類是熱愛冒險的物種，對探索與發現情有獨鍾
+						<span class="moblienoshow">，也一直對於其他星球上的生命抱有非常大的好奇心</span>。
 					</div>
 				</li>
 				<li class="buy notcurrent">
@@ -1088,6 +1089,7 @@
 						/*show出燈箱*/
 						lightBox.style.opacity = 1;
 						lightBox.style.visibility = 'visible'
+						lightBox.style.display = "block";
 						allNavClose();
 
 					/*其他(登出)將其餘文字變更*/
@@ -1095,7 +1097,7 @@
 						closeLogin();
 						document.getElementById("singUpBtn").innerHTML = "登入";
 						document.getElementById("registerUser").innerHTML = "註冊";
-						document.getElementById("registerUser").href = "SingUp.html";
+						document.getElementById("registerUser").href = "SignUp.html";
 
 					}
 					
@@ -1143,8 +1145,7 @@
 						document.getElementById("registerUser").innerHTML = "我的資料";
 						/*也將連結改變*/
 						document.getElementById("registerUser").href = "iframe_02.html";
-					}
-					else{
+					}else{
 
 						/*帳號密碼錯誤跳出此題是文字*/
 						alert('帳號密碼錯誤，請重新輸入。');
