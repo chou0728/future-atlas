@@ -505,13 +505,10 @@ body::-webkit-scrollbar-thumb {
 
 @media screen and (max-width:768px){
 	#facility01.facility01{/*=<!-- for IOS mobile-->=*/
-		overflow-x: auto;
-		overflow-y: auto;
-		overflow:auto;
-		-webkit-overflow-scrolling: auto;
-	}
-	#facility01.facility01 iframe{
-		z-index: 1;
+		overflow-x: scroll;
+		overflow-y: scroll;
+		overflow:scroll;
+		-webkit-overflow-scrolling: touch;
 	}
 }
 
