@@ -18,13 +18,17 @@ body{
 }
 
 #cartTitle{
+	font-size: 36px;
+	font-weight: 900;	
 	width: auto;
 	margin: 20px auto 10px auto;
 	text-align: center;
 }
 
-#cartWrapper td{
+#cartWrapper tr{
 	font-size: 18px;
+}
+#cartWrapper td{
 	padding: 5px;
 	padding-top: 30px;
 	padding-bottom: 5px;
@@ -94,6 +98,15 @@ body{
 
 
 
+#cart_total_prev{
+	font-size: 32px;
+	text-align: right;
+}
+#cart_total{
+	font-size: 36px;
+	width: 100px;
+}
+
 #cart_total_row{
 	text-align: right;
 	height: 50px;
@@ -111,14 +124,6 @@ body{
 	color: orange;
 }.sub_total{
 
-}
-#cart_total_prev{
-	font-size: 24px;
-	text-align: right;
-}
-#cart_total{
-	font-size: 28px;
-	width: 100px;
 }
 
 /*刪除票券*/
