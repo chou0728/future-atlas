@@ -7,26 +7,75 @@ var programName = "尋找星生命";
 // document.getElementById("quantity").onchange = function() {myFunction()};
 $(document).ready(function(){
 	var today = new Date();
-	var todayMonth = today.getMonth()+1;
-	var todayYear = today.getFullYear();
-	var todayDay = today.getDay();
-	var print = parseInt(today.toString().substr(9,2));
+	var todayMonth = today.getMonth()+1; //幾月
+	var todayYear = today.getFullYear();  //西元
+	var todayDay = today.getDay();  //幾號
+	var print = parseInt(today.toString().substr(8,2));
 	var day = ["(日)","(一)","(二)","(三)","(四)","(五)","(六)"];
 
-	// 尋找星生命
-	for(var i = 1 ; i <= 14 ; i++){
+	for(var i = 1 ; i <= 34 ; i++){
+		if( todayMonth == 1 && (print+i) > 31){
+			print -= 31;
+			todayMonth++;
+		}
+		if( todayYear%4 != 0 && todayMonth == 2 && (print+i) > 28){
+			print -= 28;
+			todayMonth++;
+		}
+		if( todayYear%4 == 0 && todayMonth == 2 && (print+i) > 29){
+			print -= 29;
+			todayMonth++;
+		}
+		if( todayMonth == 3 && (print+i) > 31){
+			print -= 31;
+			todayMonth++;
+		}
+		if( todayMonth == 4 && (print+i) > 30){
+			print -= 30;
+			todayMonth++;
+		}
+		if( todayMonth == 5 && (print+i) > 31){
+			print -= 31;
+			todayMonth++;
+		}
+		if( todayMonth == 6 && (print+i) > 30){
+			print -= 30;
+			todayMonth++;
+		}
+		if( todayMonth == 7 && (print+i) > 31){
+			print -= 31;
+			todayMonth++;
+		}
+		if( todayMonth == 8 && (print+i) > 31){
+			print -= 31;
+			todayMonth++;
+		}
+		if( todayMonth == 9 && (print+i) > 30){
+			print -= 30;
+			todayMonth++;
+		}
+		if( todayMonth == 10 && (print+i) > 31){
+			print -= 31;
+			todayMonth++;
+		}
+		if( todayMonth == 11 && (print+i) > 30){
+			print -= 30;
+			todayMonth++;
+		}
+		if( todayMonth == 12 && (print+i) > 31){
+			print -= 31;
+			todayMonth -= 11;
+			todayYear++
+		}
 		var today = new Date(todayYear+"-"+todayMonth+"-"+(print+i)).toString().substr(0,3);
-		var Vtoday = (todayYear+"-"+todayMonth+"-"+(print+i)).toString()
+		var Vtoday = (todayYear+"-"+todayMonth+"-"+(print+i)).toString();
+		// 尋找星生命
 		if( today != "Mon" && today != "Tue" && today != "Thu" && today != "Sat"){
 			$("select#theater1").append("<option value="+Vtoday+">"+new Date(todayYear+"-"+todayMonth+"-"+(print+i)).toString().substr(4,6)+"　"+day[(todayDay+i)%7]+"</option>");
 		}
-	}
-	// 末世決戰
-	for(var i = 1 ; i <= 14 ; i++){
-		var today = new Date(todayYear+"-"+todayMonth+"-"+(print+i)).toString().substr(0,3);
-		var Vtoday = (todayYear+"-"+todayMonth+"-"+(print+i)).toString();
+		// 末世決戰
 		if( today != "Sun" && today != "Mon" && today != "Wed" && today != "Thu" && today != "Fri"){
-			$("select#theater2").append("<option value="+Vtoday+">"+new Date(todayYear+"-"+todayMonth+"-"+(print+i)).toString().substr(4,6)+"　"+day[(todayDay+i)%7]+"</option>");
+			$("select#theater2").append("<option value="+Vtoday+">"+new Date(todayYear+"-"+todayMonth+"-"+(print+i)).toString().substr(4,6)+" "+day[(todayDay+i)%7]+"</option>");
 		}
 	}
 });							 																														  																													 
