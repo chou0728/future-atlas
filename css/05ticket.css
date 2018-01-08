@@ -234,10 +234,13 @@
  /*中間平板尺寸*/
 @media screen and (min-width:415px) and (max-width:1024px){
     .cont .midBox{
-        max-width: 100%; 
-        float: none;
+        width: 100%;
+        float: left;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
         box-sizing: border-box;
-        padding: 43px 0px 50px 0px;
+        padding-top: 20px;
     }
 }
 /*中間手機尺寸*/
