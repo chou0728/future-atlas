@@ -1,5 +1,5 @@
 *{
-	/*outline: 1px solid red;*/
+/*	outline: 1px solid red;*/
 	text-decoration: none;
 	box-sizing: border-box;
 }
@@ -31,6 +31,7 @@ body::-webkit-scrollbar-thumb {
 	display: inline-block;
 	vertical-align: middle;
 }
+
 .hr .trai{
 	position: absolute;
 	right: -40px;
@@ -130,6 +131,34 @@ body::-webkit-scrollbar-thumb {
 	min-width: 750px;
 	transform: translateY(-3%);
 }
+/*================*/
+@media screen and (min-width:415px) and (max-width:1024px){
+	.wrapper{
+		width: 97%;
+		max-width: 1200px;
+		border: 1.5px solid rgba(100,255,243,1);
+		margin:1.5% auto;
+		position: relative;
+		/*padding: 10px;*/
+	}
+	.wrapper .main_photo{
+		width: 100%;
+		height: 480px;
+		min-height: 450px;
+		overflow: hidden;
+	}
+	.wrapper .main_photo img{
+		width: 100%;
+		min-width: 450px;
+		transform: translateY(0);
+	}
+
+}
+@media screen and (max-width:414px){
+
+
+}
+/*================*/
 .wrapper .main_photo .title{
 	font-size: 55px;
 	padding: 10px 50px 10px 50px;
@@ -149,17 +178,51 @@ body::-webkit-scrollbar-thumb {
 	color: rgba(100,255,243,0.7);
 	letter-spacing: 2px;
 }
+/*================*/
+@media screen and (max-width:414px){
+	.wrapper .main_photo .title{
+		width: 100%;
+		font-size: 40px;
+	}
+	.wrapper .main_photo .subTitle{
+		display: block;
+		width: 100%;
+		text-align: center;
+		font-size: 24px;
+		font-weight: bold;
+		position: absolute;
+		top: 375px;
+		left:0px;
+		color: rgba(100,255,243,0.7);
+		letter-spacing: 1px;
+	}
+}
+/*================*/
 .wrapper .content{
 	position: relative;
 	margin:20px 0 50px 0;
 	
 }
-
-
+/*================*/
+@media screen and (min-width:415px) and (max-width:1024px){
+	.wrapper .content{
+		position: relative;
+		margin:30px 0 30px 0;
+		
+	}
+}
+/*================*/
 .wrapper .content .inlineB{
 	float: left;
 	color: rgba(50,255,218,0.9);
 }
+/*================*/
+@media screen and (max-width:414px){
+	.wrapper .content .inlineB{
+		float: none;	
+	}
+}
+/*================*/
 .wrapper .content:after{
 	content: "";
 	display: block;
@@ -177,6 +240,29 @@ body::-webkit-scrollbar-thumb {
 	font-size: 25px;
 	letter-spacing: 2px;
 }
+/*================*/
+@media screen and (min-width:415px) and (max-width:1024px){
+	.wrapper .content .paraLeft{
+		width: 38%;	
+		margin-right: 1%;
+	}
+	.wrapper .content .inlineB ul{
+		padding-top: 20px;
+		font-size: 20px;
+		letter-spacing: 2px;
+	}
+	.wrapper .content .paraRight{
+		width: 60%;
+	}
+
+}
+@media screen and (max-width:414px){
+	.wrapper .content .paraLeft{
+		width: 100%;	
+		margin-right: 5%;
+	}
+}
+/*================*/
 .wrapper .content .inlineB ul li{
 	padding-bottom: 10px;
 	padding-left:10%;
@@ -184,12 +270,40 @@ body::-webkit-scrollbar-thumb {
 .wrapper .content .inlineB ul li span{
 	font-size: 40px;
 }
+/*================*/
+@media screen and (min-width:415px) and (max-width:1024px){
+
+	.wrapper .content .inlineB ul li span{
+		font-size:32px;
+	}
+}
+@media screen and (max-width:414px){
+		.wrapper .content .inlineB ul li span{
+			font-size:32px;
+		}
+		.wrapper .content .inlineB ul li{
+			padding-left:0;
+		}
+
+}
+/*================*/
 .wrapper .content .inlineB .parameter{
 	margin-top: 75px;
 	margin-right: 5%;
 	width: 28%;
 	float: left;
 }
+/*================*/
+@media screen and (min-width:415px) and (max-width:1024px){
+	.wrapper .content .inlineB .parameter{
+		margin-top: 55px;
+		margin-right: 2%;
+		width: 31%;
+		float: left;
+	}
+
+}
+/*================*/
 .wrapper .content .inlineB:after{
 	content: "";
 	display: block;
@@ -295,6 +409,32 @@ svg {
 	background-color: rgba(100,255,243,0.9);
 	letter-spacing: 2px;
 }
+/*================*/
+@media screen and (min-width:415px) and (max-width:1024px){
+	.wrapper .content .scoreContainer{
+		width: 25%;
+		padding:2% 0 2% 2%;
+		height: auto;
+		color: white;
+		display: inline-block;
+		text-align: left;
+		font-size: 25px;
+		vertical-align: middle;
+		margin-right: 5%;
+	}
+	.wrapper .content .scoreContainer .star{
+		font-size: 32px;
+	}
+	.wrapper .content .scoreContainer li span{
+		font-size: 24px;
+	}
+	.wrapper .content .scoreContainer .kai{
+		font-size: 20px;
+		line-height: 1.5;
+	}
+
+}
+/*================*/
 #comment{
 	width: 66%;
 	height: 195px;
@@ -313,7 +453,7 @@ svg {
     -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
 }
 #comment::-webkit-scrollbar-thumb {
-  background-color: rgba(100,255,243,1);
+  	background-color: rgba(100,255,243,1);
 }
 #comment .memcommentBox{
 	color: white;

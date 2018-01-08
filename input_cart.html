@@ -52,15 +52,13 @@ window.onload = function(){
 
 // 加減控制盤
 function addNumPanel(){
-	alert("家!");
+	alert("加!");
 }
 function minusNumPanel(){
-	console.log("檢!");
-	console.log(this.id);
-	alert(this.nextSibling.childNodes.value);
-	var a = this.id.replace('_decrement','_fare_num_id').toString();
-	console.log(a);
-	console.log(document.getElementById("a").value());
+	var oldNum = this.nextElementSibling.children[0].value;
+	oldNum--;
+	this.nextElementSibling.children[0].value = oldNum;
+	changNum();
 }
 
 
