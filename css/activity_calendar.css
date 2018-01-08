@@ -3,55 +3,8 @@
 	src: url("Transformers Movie.ttf");
 }
 
-/*墊在日期下方的光暈，(可是效果很小)*/
-.textShadow{
-	height: 20px;
-	width: 20px;
-	border-radius: 100%;
-	background-color: rgba(255,255,255,0.4);
-	position: absolute;
-	left: 30px;
-	top: 15px;
-	box-shadow: 0 0 15px yellow;
-	z-index: -1;
-	filter: brightness(100);
-}
-
-
-
-#result{
-	width: 100%;
-	margin-top: 30px;
-	text-align: center;
-}
-#result h2{
-	font-size: 16px;
-	display: block;
-	text-align: left;
-	font-family: "微軟正黑體";
-	margin-left: 20px;
-}
-#result img{
-	display: inline-block;
-	transform: scale(2);
-	margin-top: 30px;
-}
-#result + h6{
-	font-size: 12px;
-	margin-left: 20px;
-	margin-top: 20px;
-}
-
-/*==================================*/
-
-@font-face{
-	font-family: Transformers Movie;
-	src: url("Transformers Movie.ttf");
-}
-
-
-#section3{
-	background-color: black;
+*{
+	/*border: 1px solid red;*/
 }
 
 #wrapper{
@@ -92,8 +45,8 @@
 
 }
 
-/*==========================*/
 #calRight{
+/*==========================*/
 	width: 15%;
 	display: inline-block;
 	text-align: center;
@@ -113,7 +66,7 @@
 }
 @media screen and (min-width:415px) and (max-width:1024px){
 	#calRight{
-		width: 10%;
+		width: 15%;
 	}
 }
 @media screen and (min-width:1024px){
@@ -184,8 +137,9 @@
 }
 @media screen and (min-width:1240px){
 	#showMonth{
-		font-size: 18px;
-		width: 60%;
+		font-size: 28px;
+		width: 100%;
+		text-align: center;
 	}
 }
 
@@ -237,6 +191,7 @@
 
 #selectActivityClass li{
 	width: 80%;
+	margin-left: 10%;
 	text-align: center;
 	cursor: pointer;
 	box-sizing: border-box;
@@ -315,9 +270,10 @@
 }
 
 
-/*========================*/
+
 #cal{
-	width: 66%;
+/*========================*/
+	width: 85%;
 	min-width: 400px;
 	height: 100%;
 	display: inline-block;
@@ -392,17 +348,15 @@
 }
 
 #cal .claContent{
-	font-size: 12px;
-	width: 10%;
-	height: 45px;
+	font-size: 16px;
+	height: 55px;
 	min-width: 20px;
 	color: #2270a6;
 	font-family: 微軟正黑體;
 	opacity: 0;
-	line-height: 1.5;
 	text-align: left;
-	padding-left: 10px;
-	padding-bottom: 10px;
+	padding-left: 5px;
+	padding-bottom: 5px;
 }
 @media screen and (max-width:415px){
 	#cal .claContent{
@@ -429,48 +383,6 @@
 	vertical-align: bottom;
 }
 
-
-
-/*============================*/
-#showActivityWrapper{
-	display: inline-block;
-	width: 18%;
-	font-family: "微軟正黑體";
-	font-size: 16px;
-	padding-left: 20px;
-	padding-right: 0;
-	vertical-align: top;
-	color: lightgray;
-	position: relative;
-}
-@media screen and (max-width:415px) and (max-width:1024px){
-	#showActivityWrapper{
-		position: absolute;
-		width: 90%;
-		height: 50%;
-		top: 0;
-		bottom: 0;
-		right: -200%;
-		left: 0;
-		margin: auto;
-		z-index: 2;
-		background-color: #333;
-		border: 2px solid #35ffea;
-		padding: 20px;
-	}
-}
-@media screen and (min-width:1024px){
-
-}
-
-#showActivityWrapper h2{
-	color: lightgray;
-	text-align: left;
-	font-size: 24px;
-	font-family: "微軟正黑體";
-	margin: 0;
-}
-
 .fa-times-circle{
 	opacity: 0;
 }
@@ -493,49 +405,6 @@
 @media screen and (min-width:1024px){
 
 }
-#showActivityWrapper table{
-	width: 100%;
-	margin-top: 10px;
-}
-
-#activity{
-	height: 70%;
-	overflow-y: scroll;
-}
-
-#activity th{
-	font-size: 16px;
-	padding: 2px;
-	padding: 10px 0 5px 0;
-	text-align: left;
-}
-#activity th + td{
-	width: 30%;
-	min-width: 50px;
-}
-
-#activity td{
-	width: 100%;
-	font-size: 16px;
-	padding: 2px;
-	color: lightgray;
-}
-
-#activityDate, #activityDay{
-	font-size: 32px;
-}
-
-a.convert{
-	width: 40px;
-	height: 20px;
-	display: block;
-	padding: 4px;
-	font-size: 16px;
-	color: #ffc116;
-	cursor: pointer;
-	text-orientation: sideways;
-}
-
 
 #weatherWrapper{
 	width: 100%;

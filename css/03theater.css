@@ -90,12 +90,16 @@
 		}
 		.TheaterArea .buy{/*前往購票按鈕*/
 			width: 4%;
-			height: 446px; /*有改過*/
+			height:100%; /*有改過*/
 			overflow: hidden;
 			float: left;
 			border: 1px solid rgba(255, 141, 20,1);
 			background-color: rgba(255, 141, 20,0.3);
 
+		}
+		.TheaterArea .buy:hover {
+			background-color: rgba(255, 141, 20,1);
+			
 		}
 		@media screen and (max-width:1024px) and (min-width:415px){
 			.TheaterArea .buy{
@@ -195,6 +199,7 @@
 		@media screen and (max-width:414px){
 			.current #info{
 				font-size: 14px;
+				top:10px;
 			}
 		}
 		.TheaterArea .notcurrent{/*非.current時游標提示為可選擇*/

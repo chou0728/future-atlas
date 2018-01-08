@@ -1,7 +1,3 @@
-@font-face {
-  font-family: Inconsolata;
-  src: url("Inconsolata-Regular.ttf"); }
-
 body{
 	font-family: 微軟正黑體, arial;
 	background-color: #111;
@@ -27,28 +23,8 @@ body{
 	text-align: center;
 }
 
-#cartWrapper img{
-	width: 30px;
-}
-#cartWrapper table{
-	width: 70%;
-	margin-left: 15%;
-	text-align: left;
-	border: none;
-	/*border: 1px solid red;*/
-}
-#cartWrapper th{
-	font-size: 20px;
-	padding: 5px;
-	height: 30px;
-	border: none;
-	/*border: 1px solid red;*/
-}
-
-#fare_th{
-	text-align: right;
-}
 #cartWrapper td{
+	font-size: 18px;
 	padding: 5px;
 	padding-top: 30px;
 	padding-bottom: 5px;
@@ -61,18 +37,63 @@ body{
 	font-weight: normal;
 }
 
-input{
+#cartWrapper input{
 	width: 40px;
 	padding: 5px;
 	border: 1px solid navy;
 	box-shadow: none;
 	text-align: center;
 }
+
+#cartWrapper img{
+	width: 30px;
+}
+#cartWrapper table{
+	width: 70%;
+	margin-left: 15%;
+	text-align: left;
+	border: none;
+	/*border: 1px solid red;*/
+}
+
+/*標頭設定*/
 #cart_header{
-	background-color: ivory;
 	color: black;
 	height: 30px;
+	border-bottom: 1px solid #5AE6DB;
 }
+#cartWrapper th{
+	font-size: 20px;
+	padding: 5px;
+	height: 30px;
+	border: none;
+	color: #5AE6DB;
+}
+#fn_th{
+	width: 10%;
+}#icon_th{
+	width: 6%;
+}#fname_th{
+	width: 18%;
+}#tt_th{
+	width: 6%;
+}
+#expire_date_th{
+	width: 10%;
+}#fare_th{
+	text-align: right;
+	width: 5%;
+}#tn_th{
+	width: 20%;
+	min-width: 50px;
+}#subtotal_th{
+	width: 15%;
+	min-width: 50px;
+}
+/*以上*/
+
+
+
 #cart_total_row{
 	text-align: right;
 	height: 50px;
@@ -88,9 +109,6 @@ input{
 }.half_td{
 	width: 10%;
 	color: orange;
-}#button{
-	width: 250px;
-	margin: 20px auto;
 }.sub_total{
 
 }
@@ -101,7 +119,10 @@ input{
 #cart_total{
 	font-size: 28px;
 	width: 100px;
-}.delete_btn_td{
+}
+
+/*刪除票券*/
+.delete_btn_td{
 	width: 25px;
 	padding-top: 5px;
 	vertical-align: top;
@@ -111,11 +132,22 @@ input{
 	color: black;
 	background-color: white;
 	box-shadow: 0 0 0 black inset;
+	text-align: center;
+	width: 20px;
+	cursor: pointer;
 }
 
+
+/*繼續*/
+#button{
+	width: 50%;
+	text-align: center;
+	margin: 20px auto;
+}
 #backToShop, #nextStep{
 	font-family: 微軟正黑體;
-	width: 120px;
+	font-size: 18px;
+	width: 180px;
 	padding: 16px;
 	border: 1px solid orange;
 	background-color: transparent;
@@ -126,11 +158,99 @@ input{
 	color: white;
 }
 
-.delete_btn{
-	text-align: center;
-	width: 20px;
-	cursor: pointer;
-}#nextStep{
-	font-size: 14px;
+#nextStep{
+	font-size: 18px;
 	color: white;
 }
+
+/* input-number*/
+  .ctrl {
+      display: inline-block;
+      vertical-align: middle;
+      width: 65%;
+      max-width: 150px;
+      height: 30px;
+      background-color: #222;
+      border-radius: 3px;
+      font-size: 18px;
+      position: relative;
+      float: right;
+
+    }
+    .ctrl-counter {
+      position: absolute;
+      width: 53.3%;
+      max-width: 80px;
+      height: 30px;
+      top:50%;
+      left:50%;
+      transform: translate(-50%,-50%);
+      color: #333C48;
+      text-align: center;
+      overflow: hidden;
+      border : 1px solid rgba(90, 230, 219,0.5);
+    }
+
+    .ctrl-counter-input {
+      width: 100%;
+      height: 100%;
+      margin: 0;
+      padding: 0;
+      position: absolute;
+      top:50%;
+      left:50%;
+      transform: translate(-50%,-50%);
+      z-index: 2;
+      box-shadow: none;
+      outline: none;
+      border: none;
+      font-size: 20px;
+      line-height: 30px;
+      text-align: center;
+      background-color:rgba(0,0,0,0.5);
+      transition: all 0.1s ease-in;
+      color: #5AE6DB;
+    }
+   .ctrl-counter-input:active{
+    background-color:rgba(0,0,0,1);
+   }
+   .ctrl-counter-input:focus{
+    background-color:rgba(0,0,0,1);
+    color: white;
+   }
+    .ctrl-button {
+      width: 23.3%;
+      max-width: 35px;
+      height: 30px;
+      line-height: 28px;
+      text-align: center;
+      color: #000;
+      cursor: pointer;
+      background-color: #5AE6DB;
+      -webkit-transition: background-color 100ms ease-in;
+      transition: background-color 100ms ease-in;
+    }
+    .ctrl-button:hover {
+      background-color: #54ebff;
+      -webkit-transition: background-color 100ms ease-in;
+      transition: background-color 100ms ease-in;
+    }
+    .ctrl-button:active {
+      background-color: #008da0;
+      -webkit-transition: background-color 100ms ease-in;
+      transition: background-color 100ms ease-in;
+    }
+    .ctrl-button-decrement {
+      position: absolute;
+      top:0;
+      left:0;
+      border-radius: 3px 0 0 3px;
+    }
+    .ctrl-button-increment {
+      position: absolute;
+      top:0;
+      right:0;
+      border-radius: 0 3px 3px 0;
+    }
+
+ /* input-number-end*/
