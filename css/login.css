@@ -1,5 +1,5 @@
 #lightBox{
-    width:40%;
+    width:30%;
     background-color: rgba(75, 74, 74,0.8);
     margin: 0 auto;
     position: fixed;
@@ -11,9 +11,13 @@
     z-index: 999;
     visibility: hidden;
     transition: 0.5s ;
+    box-sizing: border-box;
+    padding-top: 20px;
 }
 @media screen and (min-width:415px) and (max-width:1024px){
-   
+    #lightBox{
+        width: 70%;
+    }
 }
 /*中間手機尺寸*/
 @media screen and (max-width:414px){
@@ -63,7 +67,7 @@
 
 #lightBox .singUp{
     box-sizing: border-box;
-    padding: 20px;
+    padding: 2px;
 }
 #lightBox .singUp h2{
     color:rgb(10, 242, 250);
@@ -71,6 +75,7 @@
 	text-align: center;
 }
 .text{
+    padding-top: 10px;
 	font-size: 20px;
 	color:rgb(10, 242, 250);
 	text-align: center;
@@ -85,7 +90,7 @@
 	text-align: center;
 	display: inline-block;
 	width: 100%;
-	margin-top: 20px;
+	padding-top: 10px;
 }
 .btn input{
 	font-size: 20px;
