@@ -22,7 +22,7 @@
 /*中間手機尺寸*/
 @media screen and (max-width:414px){
     #lightBox{
-        width: 100%;
+        width: 95%;
     }
 
 }
