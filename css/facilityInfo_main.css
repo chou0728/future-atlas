@@ -508,8 +508,7 @@ body::-webkit-scrollbar-thumb {
 		overflow-x: auto;
 		overflow-y: auto;
 		overflow:auto;
-		-webkit-overflow-scrolling: touch;
-		z-index:1; 
+		-webkit-overflow-scrolling: auto;
 	}
 	#facility01.facility01 iframe{
 		z-index: 1;
