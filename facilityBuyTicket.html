@@ -92,7 +92,7 @@
 			<div class='ctrl'>
 				 <div class='ctrl-button ctrl-button-decrement'>-</div>
 					  <div class='ctrl-counter'>
-					  	<input class='ctrl-counter-input' id="ad_count" maxlength='3' type='text' value='0' data-no="0">
+					  	<input class='ctrl-counter-input' id="ad_count" maxlength='3' type='text' value='0' data-no="0" onkeyup="this.value=this.value.replace(/[^0-9]/g,'')">
 					  </div>
 					  <div class='ctrl-button ctrl-button-increment'>+</div>
 				</div>
@@ -103,7 +103,7 @@
 			<div class='ctrl'>
 				 <div class='ctrl-button ctrl-button-decrement'>-</div>
 					  <div class='ctrl-counter'>
-					  	<input class='ctrl-counter-input' id="ch_count" maxlength='3' type='text' value='0' data-no="1">	
+					  	<input class='ctrl-counter-input' id="ch_count" maxlength='3' type='text' value='0' data-no="1" onkeyup="this.value=this.value.replace(/[^0-9]/g,'')">	
 					  </div>
 					<div class='ctrl-button ctrl-button-increment'>+</div>
 				</div>
@@ -393,7 +393,7 @@ function init(){
 }
 
 
-function l_storage(){
+	function l_storage(){
 	 	facility_list="";
 		var f_submit = document.querySelectorAll('.f_submit');
 		for(var i =0; i<f_submit.length;i++){
