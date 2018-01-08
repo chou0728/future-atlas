@@ -90,12 +90,16 @@
 		}
 		.TheaterArea .buy{/*前往購票按鈕*/
 			width: 4%;
-			height: 446px; /*有改過*/
+			height:100%; /*有改過*/
 			overflow: hidden;
 			float: left;
 			border: 1px solid rgba(255, 141, 20,1);
 			background-color: rgba(255, 141, 20,0.3);
 
+		}
+		.TheaterArea .buy:hover {
+			background-color: rgba(255, 141, 20,1);
+			
 		}
 		@media screen and (max-width:1024px) and (min-width:415px){
 			.TheaterArea .buy{
@@ -173,6 +177,7 @@
 			width: 45%;
 			right: 5%;
 			bottom: 6%;
+			font-size: 16px;
 			color:white;
 			background-color: rgba(0,0,0,0.8);
 			display: none;
@@ -182,19 +187,27 @@
 			.TheaterArea .theaterInfo{
 				width:50%;
 			}
+			.TheaterArea .theaterInfo .moblienoshow{
+				display: none;
+			}
 		}
 		.TheaterArea .theaterInfo p{
 			line-height:1.5;
 			letter-spacing: 3px;
+			font-size:23px;
 		}
 		.current #info{/*顯示各區塊介紹*/
 			display: block;
 			font-size: 20px;
 			padding: 15px;
+			line-height:1.5;
+            letter-spacing: 2px;
 		}
 		@media screen and (max-width:414px){
 			.current #info{
 				font-size: 14px;
+				top:5px;
+				width:63%;
 			}
 		}
 		.TheaterArea .notcurrent{/*非.current時游標提示為可選擇*/

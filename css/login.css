@@ -1,13 +1,6 @@
-
-
-
-
-
-
-
 #lightBox{
-    width:450px;
-    background-color: rgba(75, 74, 74,0.5);
+    width:30%;
+    background-color: rgba(75, 74, 74,0.8);
     margin: 0 auto;
     position: fixed;
     top:50%;
@@ -18,20 +11,53 @@
     z-index: 999;
     visibility: hidden;
     transition: 0.5s ;
+    box-sizing: border-box;
+    padding-top: 20px;
 }
-#cancel{
+@media screen and (min-width:415px) and (max-width:1024px){
+    #lightBox{
+        width: 70%;
+    }
+}
+/*中間手機尺寸*/
+@media screen and (max-width:414px){
+    #lightBox{
+        width: 95%;
+    }
+
+}
+.leftLine{
+    top: 5px;
+    right: 20px;
+    width: 5px;
+    height: 22px;
+    background-color: #fff;
+    position: absolute;
+    transform: rotate(45deg) translate(9px, 1px);
+}
+.rightLine{
+    top: 5px;
+    right: 10px;
+    width: 5px;
+    height: 22px;
+    background-color: #fff;
+    position: absolute;
+    transform: rotate(-45deg) translate(-8px, 2px);
+    
+}
+ /* #cancel{
     width: 33px;
     height: 16px;
-    position: absolute;
     top: 10px;
     right: 10px;
-}
+} */
 #cancel:hover{
     cursor: pointer;
 }
 /*燈箱bar*/
 #lightBox .bar{
     width:100%;
+    height: 15px;
     position: absolute;
     left: 0;
     top: 0;
@@ -41,13 +67,15 @@
 
 #lightBox .singUp{
     box-sizing: border-box;
-    padding: 20px;
+    padding: 2px;
 }
 #lightBox .singUp h2{
-	color:rgb(10, 242, 250);
+    color:rgb(10, 242, 250);
+    font-size: 30px;
 	text-align: center;
 }
 .text{
+    padding-top: 10px;
 	font-size: 20px;
 	color:rgb(10, 242, 250);
 	text-align: center;
@@ -62,19 +90,20 @@
 	text-align: center;
 	display: inline-block;
 	width: 100%;
-	margin-top: 20px;
+	padding-top: 10px;
 }
 .btn input{
 	font-size: 20px;
 	font-family: 'Share Tech Mono', monospace;
-    color: #5F9EA0;
+    color: rgb(10, 242, 250);
     background: transparent;
     /* letter-spacing: 0.1em; */
     /* text-transform: uppercase; */
     display: inline-block;
     margin: 0 20px 10px 0;
     outline:none;
-    border: 1px solid #5F9EA0;
+    border: 1px solid rgb(10, 242, 250);
+    background-color: rgb(54, 54, 54);
     box-shadow: 0 0 10px rgba(0,0,255,0.5), rgba(0,0,255,0.5);
     cursor: pointer;
 }

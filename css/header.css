@@ -245,7 +245,6 @@
 	}
 	
 	.header{
-		width: 100vw;
 		height: 100%;
 		top:46px;
 		right: -100%;
@@ -278,14 +277,15 @@
 	}
 	.header .ul_top .li_top{
 		width: 100%;
-		padding: 5%;
+		height: 100px;
+		line-height: 100px;
 		margin-bottom: 15px;
 		background-color: black;
-		/*min-width: 52px;*/
 		display: block;
 		font-family: "微軟正黑體";
 		text-align: center;
 		opacity: 0;
+		letter-spacing: 2.5px;
 	}
 	.header .ul_top #liAppear.li_top{
 		opacity: 1;

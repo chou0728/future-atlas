@@ -17,7 +17,7 @@
 #calWrapper{
 	width: 80%;
 	max-width: 1440px;
-	min-width: 400px;
+	/*min-width: 400px;*/
 	margin: 0 auto;
 	margin-bottom: 50px;
 }
@@ -46,8 +46,8 @@
 
 }
 
-/*==========================*/
 #calRight{
+/*==========================*/
 	width: 15%;
 	display: inline-block;
 	text-align: center;
@@ -272,7 +272,7 @@
 /*========================*/
 #cal{
 	width: 66%;
-	min-width: 400px;
+	/*min-width: 400px;*/
 	height: 100%;
 	display: inline-block;
 	vertical-align: top;
@@ -357,13 +357,17 @@
 	text-align: left;
 	padding-left: 10px;
 	padding-bottom: 10px;
+}@media screen and (max-width:400px){
+	#cal .claContent{
+		height: 25px;
+	}
 }
 @media screen and (max-width:415px){
 	#cal .claContent{
 		padding-left: 1px;
 		padding-bottom: 1px;
-		height: 50px;
 		line-height: 1.3;
+		overflow-y: hidden;
 	}
 }
 @media screen and (min-width:415px) and (max-width:1024px){
@@ -503,7 +507,7 @@ a.convert{
 #temperature, #weather{
 		font-size: 18px;
 }
-@media screen and (max-width:415px){
+@media screen and (max-width:985px){
 	#weatherWrapper{
 		display: none;
 	}
