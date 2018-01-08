@@ -2,6 +2,7 @@ var storage = localStorage;
 var today = new Date();
 // var todayYear = today.getFullYear();
 var expire_date = today.setDate(373);
+console.log(expire_date);
 var member_id = "Sara168";
 var member_email = "Sara168@gmail.com";
 var member_points = 50;
