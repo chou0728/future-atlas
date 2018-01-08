@@ -507,7 +507,12 @@ body::-webkit-scrollbar-thumb {
 	#facility01.facility01{/*=<!-- for IOS mobile-->=*/
 		overflow-x: auto;
 		overflow-y: auto;
+		overflow:auto;
 		-webkit-overflow-scrolling: touch;
+		z-index:1; 
+	}
+	#facility01.facility01 iframe{
+		z-index: 1;
 	}
 }
 
