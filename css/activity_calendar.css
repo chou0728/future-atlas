@@ -14,10 +14,11 @@
 }
 
 #calWrapper{
-	width: 80%;
+	width: 75%;
+	margin-left: 10%;
 	max-width: 1440px;
 	min-width: 400px;
-	margin: 0 auto;
+	/*margin: 0 auto;*/
 	margin-bottom: 50px;
 }
 @media screen and (max-width:415px){
