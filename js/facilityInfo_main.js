@@ -8,10 +8,10 @@ window.onload = function(){
 
 function openIframe(){
 	var body = document.getElementsByTagName("body")[0];
-	var iframe = document.getElementById('facility01');
+	var iframe = document.getElementsByClassName('facility01')[0];
 	var close = document.getElementById('close');
 	body.style.overflow = "hidden";
-	iframe.style.height = "100%";
+	iframe.style.height = "100vh";
 	iframe.style.opacity = "1";
 	close.style.display = "block";
 	close.onclick = closeIframe;
@@ -20,7 +20,7 @@ function openIframe(){
 
 function closeIframe(){
 	var body = document.getElementsByTagName("body")[0];
-	var iframe = document.getElementById('facility01');
+	var iframe = document.getElementsByClassName('facility01')[0];
 	var close = document.getElementById('close');
 	iframe.style.height = "0";
 	iframe.style.opacity = "0";

@@ -5,58 +5,71 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <title>input_cart_detail</title>
 <script src="js/cart_detail.js"></script>
-<style type="text/css">
-	*{
-		border:1px solid black;
-	}
-	img{
-		width: 30px;
-	}table{
-		text-align: left;
-		border: 1px solid red;
-	}
-	td{
-		width: 150px;
-		height: 50px;
-	}.sub_total, #discount, #total, .points{
-		text-align: right;
-	}
-	#cart_total_row{
-		text-align: right;
-	}#credit_card span{
-		width: 100px;
-		height: 50px;
-	}#points_confirm{
-		display: inline-block;
-		width: 80px;
-		text-align-last: center;
-		background-color: #ccc;
-		border: none;
-		padding: 5px;
-		cursor: pointer;
-	}#points_remain{
-		display: none;
-		border: none;
-	}#points_remain span{
-		display: inline-block;
-	}#pay_info{
-		/*font-size: 20px;*/
-		vertical-align: baseline;
-	}
-	#pay_info td{
-		width: 200px;
-	}.credit_card input{
-		width: 40px;
-	}#credit_card5, #credit_card6, #credit_card7{
-		width: 30px;
-		display: inline-block;
-	}
-</style>
+<link rel="stylesheet" type="text/css" href="css/header.css">
+<link rel="stylesheet" type="text/css" href="css/cart.css">
+<link rel="stylesheet" type="text/css" href="css/cart_detail.css">
 <body>
-<h1>前台_檢視購票車明細 -> 線上付款</h1>
+<div class="header">
+	<ul class="ul_top">
+		<li class="li_top">
+			<a href="SignUp.html">註冊</a>
+		</li>
+		<li class="li_top">
+			<a href="#" id="singUpBtn">登入</a>
+		</li>
+		<li class="li_top">
+			<a href="input_cart.html">購物車</a>
+		</li>
+	</ul>
+</div>
+<div class="nav">
+	<div class="ul_box">
+		<ul class="ul_left">
+			<li>
+				<a href="Theaterbuyticket.html">劇場購票</a>
+			</li>
+			<li>
+				<a href="facilityBuyTicket.html">設施購票</a>
+			</li>
+			<li>
+				<a href="facilityInfo.html">設施介紹</a>
+			</li>
+		</ul>
+		<h1 style="display: none">FutureAtlas_未來主題樂園</h1>
+		<a href="index.html#page1">
+			<img src="img/LOGO.png" class="logo">
+		</a>
+		<ul class="ul_right">
+			<li>
+				<a href="index.html#page2">園區地圖</a>
+			</li>
+			<li>
+				<a href="activity.html">活動月曆</a>
+			</li>
+			<li>
+				<a href="robot.html">諮詢專區</a>
+			</li>
+		</ul>
+	</div>
+	<div class="navOpenBtn"><!-- RWD left btn-->
+		<div class="ham"></div>
+		<div class="ham"></div>
+		<div class="ham"></div>
+		<div class="ham"></div>
+	</div>
+</div>
+<div class="headerOpenBtn"><!-- RWD right btn-->
+	<img src="img/memberBtnM.png" class="memIcon">
+	<img src="img/ticketicon.png" class="ticketIcon">
+	<div class="blueScreen"></div>
+</div>
+
+	<!-- header end-->
 <!-- 會員資訊 -->
+<div id="detailWrapper">
+<h1 id="title">檢視購票明細</h1>
 <table id="member_info">
-	<tr><th style="font-size: 24px">購票人資訊</th></tr>
+	<tr><th colspan="2" class="title">購票人資訊</th></tr>
 	<tr>
 		<td>帳號</td>
 		<td>Email</td>
@@ -72,18 +85,19 @@
 <form>
 <!-- 購票明細 -->
 <table id="ticket_rows">
-	<tr><th style="font-size: 24px">購票明細</th></tr>
+	<tr><th colspan="2" class="title">購票明細</th></tr>
 	<tr id="ticket_row">
-		<th>序號</th>
-		<th>設施icon</th>
-		<th>設施名稱</th>
-		<th>票種</th>
-		<th>使用期限</th>
-		<th>數量</th>
-		<th>單價</th>
-		<th>小計</th>
+		<th id="fn_th">設施編號</th>
+		<th id="icon_th">圖示</th>
+		<th id="fname_th">設施名稱</th>
+		<th id="tt_th">票種</th>
+		<th id="expire_date_th">使用期限</th>
+		<th id="fare_th">票價</th>
+		<th id="tn_th" style='text-align: right'>張數</th>
+		<th id="subtotal_th" style='text-align: right'>小計</th
+		>
 	</tr>
-	<tr id="input_discount"><th>選擇是否使用積分</th></tr>
+	<tr id="input_discount"><th colspan="2" class="title">選擇是否使用積分</th></tr>
 	<tr>
 		<td style="width: 350px; text-align: right" colspan="7">
 			<input type="radio" name="points" class="points">是，使用
@@ -102,9 +116,10 @@
 	</tr>
 </table>
 
+
 <!--輸入信用卡 -->
 <table id="pay_info">
-	<tr><th style="font-size: 24px">輸入信用卡</th></tr>
+	<tr><th class="title">輸入信用卡</th></tr>
 	<tr><td colspan="4">信用卡卡號</td></tr>
 	<tr>
 		<td colspan="2" class="credit_card" name="credit_card" id="credit_card">
@@ -127,8 +142,11 @@
 	</tr>
 </table>
 
-	<button>上一步</button>
-	<button><a href="head_for_members_only">確認結帳</a></button>
-</form>
+
+<div id="button">
+		<button id="backToShop"><a href="input_cart.html">上一步</a></button>
+		<button id="nextStep"><a href="head_for_members_only">確認結帳</a></button>
+</div>
+<script src="js/00nav.js"></script>
 </body>
 </html>
