@@ -13,7 +13,7 @@ $(document).ready(function(){
 	var print = parseInt(today.toString().substr(8,2));
 	var day = ["(日)","(一)","(二)","(三)","(四)","(五)","(六)"];
 
-	for(var i = 1 ; i <= 34 ; i++){
+	for(var i = 1 ; i <= 14 ; i++){
 		if( todayMonth == 1 && (print+i) > 31){
 			print -= 31;
 			todayMonth++;
@@ -68,14 +68,14 @@ $(document).ready(function(){
 			todayYear++
 		}
 		var today = new Date(todayYear+"-"+todayMonth+"-"+(print+i)).toString().substr(0,3);
-		var Vtoday = (todayYear+"-"+todayMonth+"-"+(print+i)).toString();
+		// var Vtoday = (todayYear+"-"+todayMonth+"-"+(print+i)).toString();
 		// 尋找星生命
 		if( today != "Mon" && today != "Tue" && today != "Thu" && today != "Sat"){
-			$("select#theater1").append("<option value="+Vtoday+">"+new Date(todayYear+"-"+todayMonth+"-"+(print+i)).toString().substr(4,6)+"　"+day[(todayDay+i)%7]+"</option>");
+			$("select#theater1").append("<option >"+new Date(todayYear+"-"+todayMonth+"-"+(print+i)).toString().substr(4,6)+"　"+day[(todayDay+i)%7]+"</option>");
 		}
 		// 末世決戰
 		if( today != "Sun" && today != "Mon" && today != "Wed" && today != "Thu" && today != "Fri"){
-			$("select#theater2").append("<option value="+Vtoday+">"+new Date(todayYear+"-"+todayMonth+"-"+(print+i)).toString().substr(4,6)+" "+day[(todayDay+i)%7]+"</option>");
+			$("select#theater2").append("<option >"+new Date(todayYear+"-"+todayMonth+"-"+(print+i)).toString().substr(4,6)+" "+day[(todayDay+i)%7]+"</option>");
 		}
 	}
 });							 																														  																													 
