@@ -505,7 +505,7 @@ body::-webkit-scrollbar-thumb {
 
 @media screen and (max-width:768px){
 	#facility01.facility01{/*=<!-- for IOS mobile-->=*/
-		overflow-x: hidden;
+		overflow-x: auto;
 		overflow-y: auto;
 		-webkit-overflow-scrolling: touch;
 	}
