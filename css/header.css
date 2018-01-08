@@ -18,17 +18,16 @@
 
 	.nav{
 		top:0;
-		height: 7%;
+		height: 45px;
 		background-color:rgba(0,0,0,0.8);
 		box-shadow: 0 4px 0px -2px rgba(71, 161, 226,0.8); 
 	}
 	.navOpenBtn{
 		position: fixed;
 		display:block;
-		top:1.5%;
+		top:10px;
 		left: 3%;
-		max-width: 45px;
-		min-width: 35px;
+		width: 40px;
 		z-index: 1001;
 		cursor: pointer;
 	}
@@ -40,39 +39,39 @@
 	}
 	.navOpenBtn .ham:first-child{
 		width: 5px;
-		height: 25px;
+		height: 22px;
 		opacity: 1;
 	}
 	.navOpenBtn .ham:nth-child(2){
 		width: 5px;
-		height: 35px;
+		height: 32px;
 	}
 	.navOpenBtn .ham:nth-child(3){
 		width: 5px;
-		height: 15px;
+		height: 12px;
 	}
 	.navOpenBtn .ham:nth-child(4){
 		width: 5px;
-		height: 20px;
+		height: 17px;
 	}
 	#navAppear.ul_box~.navOpenBtn .ham:first-child{
-		height: 35px;
+		height: 32px;
 		opacity: 0;
 	}
 	#navAppear.ul_box~.navOpenBtn .ham:nth-child(2){
-		height: 35px;
+		height: 30px;
 		width: 4px;
-		transform: rotateZ(45deg) translateX(6px);
+		transform: rotateZ(45deg) translateX(5px) translateY(-2px);
 		border-radius: 4px;
 	}
 	#navAppear.ul_box~.navOpenBtn .ham:nth-child(3){
-		height: 35px;
+		height: 30px;
 		width: 4px;
-		transform: rotateZ(-45deg) translateX(-6px);
+		transform: rotateZ(-45deg) translateX(-5px) translateY(-2px);
 		border-radius: 4px;
 	}
 	#navAppear.ul_box~.navOpenBtn .ham:nth-child(4){
-		height: 35px;
+		height: 32px;
 		opacity: 0;
 	}
 }
@@ -88,9 +87,10 @@
 /*768*------====================================*/
 @media screen and (max-width:1024px){
 	.logo{
+		min-width: 150px;
 		display: block;
 		position:fixed;
-		top:1%;
+		top:1.5%;
 		left:50%;
 		transform: translateX(-50%);
 
@@ -139,7 +139,7 @@
 	.ul_box{
 		position: fixed;
 		background-color:rgba(0,0,0,0);
-		top: 7%;
+		top: 46px;
 		left:-100%;
 		width: 100%;
 		height: 100%;
@@ -227,47 +227,27 @@
 	.headerOpenBtn{
 		position: fixed;
 		display:block;
-		top:1%;
+		top:10px;
 		right: 3%;
-		width:6%;
-		max-width: 45px;
-		min-width: 35px;
+		width:32px;
 		z-index: 1001;
 		cursor: pointer;
 	}
-	.headerOpenBtn .blueScreen{
-		width: 30.5px;
-		left: 49.4%;
-		top:20.5%;
-		transform:translateX(-49.4%);
-		height: 35.5%;
-		background-color: rgba(90, 230, 219,0.8);
-		position: absolute;
-		opacity: 0;
 
-	}
 	.headerOpenBtn .memIcon{
+		position: absolute;
+		top:0;
+		left:0;
 		width: 100%;
 	}
-	.headerOpenBtn .ticketIcon{
-		position: absolute;
-		top:40%;
-		left: 50%;
-		transform: translate(-50%,-40%);
-		width: 30%;
+	.headerOpenBtn .memIcon:nth-child(1){
 		opacity: 0;
-		animation: ro 1s infinite linear;
-	}
-	@keyframes ro{
-		0%{transform: translate(-50%,-40%) rotateY(0deg);}
-		50%{transform: translate(-50%,-40%) rotateY(90deg);}
-		100%{transform: translate(-50%,-40%) rotateY(180deg);}
 	}
 	
 	.header{
 		width: 100vw;
 		height: 100%;
-		top:6%;
+		top:46px;
 		right: -100%;
 		position: fixed;
 		opacity: 0;
@@ -283,7 +263,7 @@
 		opacity: 1;
 
 	}
-	#headerAppear.header~.headerOpenBtn .blueScreen{
+	#headerAppear.header~.headerOpenBtn .memIcon:nth-child(1){
 		opacity: 1;
 		animation: screenSpark 0.5s 1 linear;
 		animation-fill-mode: forward;
@@ -298,14 +278,15 @@
 	}
 	.header .ul_top .li_top{
 		width: 100%;
-		padding: 5%;
+		height: 100px;
+		line-height: 100px;
 		margin-bottom: 15px;
 		background-color: black;
-		/*min-width: 52px;*/
 		display: block;
 		font-family: "微軟正黑體";
 		text-align: center;
 		opacity: 0;
+		letter-spacing: 2.5px;
 	}
 	.header .ul_top #liAppear.li_top{
 		opacity: 1;

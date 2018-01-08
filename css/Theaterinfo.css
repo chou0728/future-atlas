@@ -462,11 +462,18 @@
     position: absolute;
     top: 150%;
     left: 60%; 
+    width:200px; 
+    height:200px;
   }
 
   @media screen and (max-width: 414px) {
     .programtwoimg2 {
-      display: none; 
+      /*display: none;*/ 
+      position: absolute;
+      top: 150%;
+      left: 60%;
+      width:100px; 
+      height:100px;
     } 
   }
   @media screen and (max-width:1024px) and (min-width:415px){
@@ -616,7 +623,7 @@
   @media screen and (max-width:1024px) and (min-width:415px){
     .programtwo .programtwospanmobie{
       position: absolute;
-      top: 87%;
+      top: 90%;
       left: 60%;
       width:5px;
       height:125%;
@@ -624,7 +631,7 @@
     }
     .programtwo .programtwospanmobie2{
       position: absolute;
-      top: 87%;
+      top: 90%;
       left:70%; 
       width:5px;
       height: 125%;
