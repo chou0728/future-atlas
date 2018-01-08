@@ -11,7 +11,7 @@ function doFirst(){
   context.moveTo(62,20); 
   context.lineTo(200,20);
   context.lineTo(250,80);
-  context.lineTo(250,200);
+  context.lineTo(250,190);
   context.stroke();
 }
 
