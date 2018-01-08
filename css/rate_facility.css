@@ -14,6 +14,14 @@ body {
   height: 100vh;
   max-width: 1440px;
   background: #000; }
+  @media screen and (min-width: 415px) and (max-width: 1024px) {
+    .wrapper {
+      padding: 5% 0;
+      height: auto; } }
+  @media screen and (max-width: 414px) {
+    .wrapper {
+      padding-bottom: 4%;
+      height: auto; } }
   .wrapper .content {
     width: 100%;
     padding-top: 150px;
@@ -125,7 +133,6 @@ body {
           @media screen and (max-width: 414px) {
             .wrapper .content .rate_area .stars .rating {
               width: 100%;
-              padding: 0 30%;
               padding-top: 0px; } }
         .wrapper .content .rate_area .stars .rating > input {
           display: none; }
