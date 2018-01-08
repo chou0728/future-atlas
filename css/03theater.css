@@ -186,6 +186,9 @@
 			.TheaterArea .theaterInfo{
 				width:50%;
 			}
+			.TheaterArea .theaterInfo .moblienoshow{
+				display: none;
+			}
 		}
 		.TheaterArea .theaterInfo p{
 			line-height:1.5;
@@ -199,7 +202,8 @@
 		@media screen and (max-width:414px){
 			.current #info{
 				font-size: 14px;
-				top:10px;
+				top:5px;
+				width:63%;
 			}
 		}
 		.TheaterArea .notcurrent{/*非.current時游標提示為可選擇*/
