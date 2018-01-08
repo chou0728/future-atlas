@@ -665,7 +665,7 @@
     position: absolute;
     top: 440%;
     right:-230%;
-    width: 93%;
+    width: 94%;
     height: 3%;
     border: none;
     background-color: #35ffba; }
@@ -720,6 +720,7 @@
       margin: 0 auto;
       margin-top: 700px;
       margin-bottom: 50px;
+      font-family: "微軟正黑體";
       /*border: 1px #35ffba solid;
       padding: 10px 10px;*/
     }

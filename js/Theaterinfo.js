@@ -167,7 +167,7 @@ $(document).ready(function(){
         if (scroll_value>490) {
          $('.programtwospan').css({
             width:'5',
-            height: '355%'
+            height: '353%'
            }, 500)
          }
         if (scroll_value>490) {
@@ -178,7 +178,7 @@ $(document).ready(function(){
          }
          if (scroll_value>500) {
          $('.programtwoHr').animate({
-            right: '40%'
+            right: '41%'
            }, 500)
          }
          if (scroll_value>500) {
