@@ -1,5 +1,5 @@
 #lightBox{
-    width:450px;
+    width:40%;
     background-color: rgba(75, 74, 74,0.8);
     margin: 0 auto;
     position: fixed;
@@ -11,6 +11,16 @@
     z-index: 999;
     visibility: hidden;
     transition: 0.5s ;
+}
+@media screen and (min-width:415px) and (max-width:1024px){
+   
+}
+/*中間手機尺寸*/
+@media screen and (max-width:414px){
+    #lightBox{
+        width: 100%;
+    }
+
 }
 .leftLine{
     top: 5px;
