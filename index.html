@@ -1088,6 +1088,7 @@
 						/*show出燈箱*/
 						lightBox.style.opacity = 1;
 						lightBox.style.visibility = 'visible'
+						lightBox.style.display = "block";
 						allNavClose();
 
 					/*其他(登出)將其餘文字變更*/
@@ -1095,7 +1096,7 @@
 						closeLogin();
 						document.getElementById("singUpBtn").innerHTML = "登入";
 						document.getElementById("registerUser").innerHTML = "註冊";
-						document.getElementById("registerUser").href = "SingUp.html";
+						document.getElementById("registerUser").href = "SignUp.html";
 
 					}
 					
@@ -1143,8 +1144,7 @@
 						document.getElementById("registerUser").innerHTML = "我的資料";
 						/*也將連結改變*/
 						document.getElementById("registerUser").href = "iframe_02.html";
-					}
-					else{
+					}else{
 
 						/*帳號密碼錯誤跳出此題是文字*/
 						alert('帳號密碼錯誤，請重新輸入。');

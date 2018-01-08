@@ -283,6 +283,7 @@
 	width: 100%;
 	transform: translateY(50%);
 	transition: transform 2s ease;
+	filter: drop-shadow(-2px -1px 1px rgba(25, 25, 25, 0.5));
 }
 .silhouette .ed #entranceApear.entrance{
 	transform: translateY(0%);
@@ -442,6 +443,7 @@
   	cursor: pointer;
   	transform: translateY(50%);
   	transition: bottom 4.5s linear,transform 2s ease;
+  	filter: drop-shadow(-2px -1px 1px rgba(25, 25, 25, 0.5));
 }
 .silhouette #robo.robolight{
 	animation: robolight 1s linear 3;
