@@ -10,6 +10,7 @@
 </head>
 
 <body>
+	<div class="blank"></div>
 <div class="header">
 	<ul class="ul_top">
 		<li>
@@ -58,12 +59,12 @@
 		<form class="SingUp" action="" method="get">
 			<h3>會員註冊</h3>
 			<div class="text">
-				*姓名：<input type="text" name="" value="" placeholder="姓名" required><br>
-				*暱稱：<input type="text" name="" value="" placeholder="暱稱" required><br>
-				*電話：<input type="text" name="" value="" placeholder="電話" required  maxlength="10"><br>
-				*帳號：<input type="text" name="" value="" placeholder="帳號" required><br>
-				*密碼：<input type="text" name="" value="" placeholder="密碼" required><br>
-				*信箱：<input type="text" name="" value="" placeholder="e-mail" required><br>
+				*暱稱：<input type="text" name="" value="" placeholder="暱稱" required maxlength="10"><br>
+				*電話：<input type="text" name="" value="" placeholder="電話" required maxlength="20"><br>
+				<!-- pattern = ".{6,20}"  pattern = ".{最少幾碼,最多幾碼}"   如果只有輸入3 那代表最少3以上pattern = ".{3,}"-->
+				*帳號：<input type="text" name="" value="" placeholder="最少6碼，最多20碼" required pattern = ".{6,20}"><br>
+				*密碼：<input type="password" name="" value="" placeholder="最少6碼，最多20碼" required pattern = ".{6,20}"><br>
+				*信箱：<input type="email" name="" value="" placeholder="e-mail" required maxlength="50"><br>
 				
 			</div>	
 			<div class="btn">
