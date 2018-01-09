@@ -35,7 +35,7 @@ body{
     
 }
 .MembersBox .content .left_wrapper .nameBox{
-    position: absolute;
+    position: relative;
     
 }
 /* 左邊三欄文字*/
@@ -54,7 +54,7 @@ body{
     width: 50%;
 }
 .MembersBox .content .right_wrapper .points{
-    position: absolute;
+    position: relative;
 }
 /* 右邊三欄文字 */
 .MembersBox .content .right_wrapper p{

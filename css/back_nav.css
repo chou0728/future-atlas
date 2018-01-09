@@ -1,5 +1,6 @@
 *{
 	box-sizing: border-box;
+	/*outline: 1px solid red;*/
 }
 header{
 	position: fixed;
@@ -25,7 +26,8 @@ header .logo img{
 	width: 100%;
 }
 header .nav{
-	margin-top:40%;
+	margin-top:8vh;
+	height: 90%;
 	text-align: center;
 }
 header .nav .navList{
@@ -48,10 +50,10 @@ header .nav .navList .listcover{
 }
 header .nav .navList a{
 	display: block;
-	padding: 15px 0;
+	padding: 5% 0;
 	text-decoration: none;
 	color: rgba(90, 230, 219,0.9);
-	font-size: 20px;
+	font-size: 18px;
 	letter-spacing: 1px;
 	font-weight: bold;
 }
