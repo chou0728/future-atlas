@@ -29,7 +29,7 @@
         }
         td{ 
             
-            text-align:left;
+            text-align:center;
             border:1px solid black; 
             padding: 10px 10px;
         }
@@ -61,7 +61,7 @@
             </tr>
     		
     		<tr>
-    			<td>自動產生</td>
+    			<!-- <td>1</td> -->
     			<td><input type="text" name="progressName" size="10"></td>
     			<td><input type="text" name="progressInfo"></td>
     			<td>
@@ -80,7 +80,7 @@
                 </td>
     		</tr>
             <tr>
-                <td>自動產生</td>
+                <!-- <td>2</td> -->
                 <td><input type="text" name="progressName" size="10"></td>
                 <td><input type="text" name="progressInfo"></td>
                 <td>
@@ -108,5 +108,16 @@
             </button>
         </div>
     </form>
+    <!-- 自動編號 -->
+    <script>
+        var tables = document.getElementsByTagName('table');
+        var table = tables[tables.length -1];
+        var rows = table.rows;
+        for(var i = 1, td; i < rows.length; i++){
+            td = document.createElement('td');
+            td.appendChild(document.createTextNode(i));
+            rows[i].insertBefore(td, rows[i].firstChild);
+        }
+    </script>
 </body>
 </html>

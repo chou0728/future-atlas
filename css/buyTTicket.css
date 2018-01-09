@@ -179,6 +179,7 @@
         float: right;
         display: inline-block;
         font-size: 23px;
+        cursor: pointer;
     }
     .buyTTicketBtn .buyticket a{
       text-decoration: none;
