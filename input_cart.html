@@ -2,6 +2,7 @@
 <html>
 <head>
 <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <link rel="stylesheet" type="text/css" href="css/header.css">
 <link rel="stylesheet" type="text/css" href="css/cart.css">
@@ -31,7 +32,7 @@ window.onload = function(){
 			if( full_fare_num > 0 ){
 				var full_fare = info[0];
 				var full_fare_subtotal = full_fare * full_fare_num;			
-				$("table").append("<tr id='full_"+fn+"'><td class='fn_id'>"+fn+"</td><td class='icon_td'>設施icon</td><td>設施名稱</td><td class='full_td'>全票</td><td>"+expire_date+"</td><td id='full_fare_id_"+fn+"'>"+full_fare+"</td><td><div class='ctrl'><div class='ctrl-button ctrl-button-decrement' id='full_decrement_"+fn+"'>-</div><div class='ctrl-counter'><input class='ctrl-counter-input' maxlength='3' type='text' value="+full_fare_num+" id='full_fare_num_id_"+fn+"'></div><div class='ctrl-button ctrl-button-increment' id='full_increment_"+fn+"'>+</div></td><td class='sub_total' id='full_fare_subtotal_id_"+fn+"'>"+full_fare_subtotal+"</td><td class='delete_btn_td'><button class='delete_btn' id='full_fare_delete_btn_id_"+fn+"'>X</button></td></tr>");
+				$("table").append("<tr id='full_"+fn+"'><td class='fn_id'>"+fn+"</td><td class='icon_td'>設施icon</td><td>設施名稱</td><td class='full_td'>全票</td><td id='full_fare_id_"+fn+"'>"+full_fare+"</td><td><div class='ctrl'><div class='ctrl-button ctrl-button-decrement' id='full_decrement_"+fn+"'>-</div><div class='ctrl-counter'><input class='ctrl-counter-input' maxlength='3' type='text' value="+full_fare_num+" id='full_fare_num_id_"+fn+"'></div><div class='ctrl-button ctrl-button-increment' id='full_increment_"+fn+"'>+</div></td><td class='sub_total' id='full_fare_subtotal_id_"+fn+"'>"+full_fare_subtotal+"</td><td class='delete_btn_td'><button class='delete_btn' id='full_fare_delete_btn_id_"+fn+"'>X</button></td></tr>");
 
 				document.getElementById("full_fare_num_id_"+fn).onchange = changeNum;
 				document.getElementById("full_decrement_"+fn).onclick = minusNumPanel;
@@ -43,7 +44,7 @@ window.onload = function(){
 			if( half_fare_num > 0){
 				var half_fare = info[2];
 				var half_fare_subtotal = half_fare * half_fare_num;
-				$("table").append("<tr id='half_"+fn+"'><td class='fn_id'>"+fn+"</td><td class='icon_td'>設施icon</td><td>設施名稱</td><td class='half_td'>半票</td><td>"+expire_date+"</td><td id='half_fare_id_"+fn+"'>"+half_fare+"</td><td><div class='ctrl'><div class='ctrl-button ctrl-button-decrement' id='half_decrement_"+fn+"'>-</div><div class='ctrl-counter'><input class='ctrl-counter-input' maxlength='3' type='text' value="+half_fare_num+" id='half_fare_num_id_"+fn+"'></div><div class='ctrl-button ctrl-button-increment' id='half_increment_"+fn+"'>+</div></td><td class='sub_total' id='half_fare_subtotal_id_"+fn+"'>"+half_fare_subtotal+"</td><td class='delete_btn_td'><button class='delete_btn' id='half_fare_delete_btn_id_"+fn+"'>X</button></td></tr>");
+				$("table").append("<tr id='half_"+fn+"'><td class='fn_id'>"+fn+"</td><td class='icon_td'>設施icon</td><td>設施名稱</td><td class='half_td'>半票</td><td id='half_fare_id_"+fn+"'>"+half_fare+"</td><td><div class='ctrl'><div class='ctrl-button ctrl-button-decrement' id='half_decrement_"+fn+"'>-</div><div class='ctrl-counter'><input class='ctrl-counter-input' maxlength='3' type='text' value="+half_fare_num+" id='half_fare_num_id_"+fn+"'></div><div class='ctrl-button ctrl-button-increment' id='half_increment_"+fn+"'>+</div></td><td class='sub_total' id='half_fare_subtotal_id_"+fn+"'>"+half_fare_subtotal+"</td><td class='delete_btn_td'><button class='delete_btn' id='half_fare_delete_btn_id_"+fn+"'>X</button></td></tr>");
 
 				document.getElementById("half_fare_num_id_"+fn).onchange = changeNum;
 				document.getElementById("half_decrement_"+fn).onclick = minusNumPanel;
@@ -279,7 +280,6 @@ function loginOrNot(){
 				<th id="icon_th">圖示</th>
 				<th id="fname_th">設施名稱</th>
 				<th id="tt_th">票種</th>
-				<th id="expire_date_th">使用期限</th>
 				<th id="fare_th">票價</th>
 				<th id="tn_th" style='text-align: right'>張數</th>
 				<th id="subtotal_th" style='text-align: right'>小計</th

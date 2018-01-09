@@ -1,6 +1,38 @@
 *{
 	border: 1px solid red;
+	font-weight: normal;
 }
+body{
+	background-color: #222;
+}
+
+
+body::-webkit-scrollbar {
+    width: 10px;
+}
+body::-webkit-scrollbar-track {
+	-webkit-border-radius: 10px;
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+}
+body::-webkit-scrollbar-thumb {
+  background-color: rgba(100,255,243,1);
+ /* outline: 1px solid rgba(100,255,243,1);*/
+}
+
+#declareWrapper::-webkit-scrollbar {
+    width: 10px;
+}
+
+#declareWrapper::-webkit-scrollbar-track {
+	-webkit-border-radius: 10px;
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+}
+
+#declareWrapper::-webkit-scrollbar-thumb {
+  background-color: rgba(100,255,243,1);
+ /* outline: 1px solid rgba(100,255,243,1);*/
+}
+
 .sub_total, #discount, #total, .points{
 	text-align: right;
 }#title{
@@ -8,21 +40,58 @@
 	font-size: 36px;	
 }#member_info td:nth-child(2){
 	padding: 10px;
+}#member_info{
+	width: 100%;
+	border-bottom: 1px solid azure;
+}#member_info td{
+	border-bottom: 1px solid #555;
 }
+
 #detailWrapper{
 	width: 70%;
-	margin-left: 15%;
+	margin: 0 auto;
 	margin-top: 8%;
-	color: #ccc;
+	color: #fefefe;
+}
+@media screen and (max-width:415px){
+	#detailWrapper{
+		width: 98%;
+		border: 1px solid blue;
+	}
+}
+@media screen and (min-width:415px) and (max-width:1024px){
+	#detailWrapper{
+		width: 95%;
+		border: 1px solid yellow;
+	}
+	#ticket_row td{
+		width: 100%;	
+		display: block;
+	}#fn_th{
+		/*display: none;*/
+	}
+}
+@media screen and (min-width:1024px){
+
 }
 #ticket_rows{
+	width: 100%;
 	margin: 70px 0;
-}
-#ticket_rows td{
 	border-bottom: 1px solid azure;
+}#ticket_row th{
+	color: rgba(100,255,243,0.6);
+}
+#detail_row_title{
+	color: rgba(100,255,243,1);
 }
 .tbtitle{
 	font-size: 24px;
+	text-align: left;
+	color: rgba(100,255,243,1);
+}#fn_th{
+	text-align: left;
+}
+#input_discount th{
 	text-align: left;
 }
 #ticket_rows th{
@@ -32,14 +101,18 @@
 }
 #cart_total_row{
 	text-align: right;
-}#credit_card span{
+}#total{
+	font-size: 36px;
+}
+#credit_card span{
 	width: 100px;
 	height: 50px;
 }#points_confirm{
 	display: inline-block;
 	width: 80px;
 	text-align-last: center;
-	background-color: #ccc;
+	background-color: orange;
+	color: black;
 	border: none;
 	padding: 5px;
 	cursor: pointer;
@@ -49,14 +122,29 @@
 }#points_remain span{
 	display: inline-block;
 }#pay_info{
+	width: 100%;
+	padding: 15px;
 	vertical-align: baseline;
+	border: 1px solid rgba(100,255,243,1);
+}#declareWrapper{
+	height: 120px;
+	overflow-y: scroll;
+}#declareTitle{
+	font-size: 18px;
+	font-weight: 900;
+	margin-bottom: 10px;
+	text-align: center;
 }
 #pay_info td{
 	width: 200px;
-}.credit_card input{
+}#pay_info input{
+	padding: 5px;
+	border-radius: 1%;
+}
+.credit_card input{
 	width: 40px;
 }#credit_card5, #credit_card6, #credit_card7{
-	width: 30px;
+	width: 40px;
 	display: inline-block;
 }
 </style>		
