@@ -391,40 +391,17 @@ function init(){
 			this.value = 0;
 		}
 	}
-
-
-	    $(".f_submit").click(function(){
-        var storage = localStorage;
-        var facility_ticket_list = "";
-    
-        for( i = 1; i < 7; i++){
-            if(storage.getItem(i) != null){
-                if(storage.getItem(i).split("/")[1] != 0 || storage.getItem(i).split("/")[3] != 0){
-                    facility_ticket_list += i+"/";
-                }storage.setItem("facility_ticket_list", facility_ticket_list);
-            }
-        }
-
-        var newlevel = Math.floor((facility_ticket_list.split("/").length-1)/2);
-        var aa = document.getElementById("cartimgid").src.substr(-5,1);
-        // console.log(aa,newlevel);
-        aa = newlevel;
-        document.getElementById("cartimgid").src = "img/cart/wallet_"+aa+".png";
-        document.getElementById("howmanytickets").innerHTML = facility_ticket_list.split("/").length-1;
-        
-    });
 }
 
 
 	function l_storage(){
-	 	facility_list="";
+	 	facility_ticket_list="";
 		var f_submit = document.querySelectorAll('.f_submit');
 		for(var i =0; i<f_submit.length;i++){
 			f_submit[i].addEventListener('click',saveToStorage);
 		}
 
 	function saveToStorage(){
-		
 		var storage = localStorage;
 		var fn = this.dataset.fn;/*設施編號*/
 		var ad = this.previousElementSibling.previousElementSibling.children[2].children[1].children[0].value;/*全票張數*/
@@ -433,7 +410,13 @@ function init(){
 		var cdp = this.previousElementSibling.dataset.val;/*半票價格*/
 		var addToCart = adp+"/"+ad+"/"+cdp+"/"+cd;
 		if(ad!=0||cd!=0){//判斷全票半票皆不為0張
-			storage.setItem(fn,addToCart);        	
+			storage.setItem(fn,addToCart);
+			console.log(facility_ticket_list.indexOf(fn));
+				if(facility_ticket_list.indexOf(fn)==-1){
+					facility_ticket_list += fn+"/" ;
+					storage.setItem("facility_ticket_list", facility_ticket_list);   
+				}
+				
 		}
 	}
 }
