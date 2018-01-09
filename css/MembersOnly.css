@@ -2,15 +2,13 @@ body{
     background-color: #000;
 }
 .MembersBox{
-    width: 100%;
+    width:100%;
     max-width: 1200px;
     text-align: center;
     margin: 0 auto;
 }
-.MembersBox .content{
+.MembersBox .content{ 
     width: 100%;
-    
-    
 }
 .MembersBox .content h1{
     color: aqua;
@@ -21,7 +19,27 @@ body{
 .MembersBox .content h3{
     color: rgb(224, 224, 224);
 }
-.MembersBox .content th{
+
+
+
+/*img*/
+.MembersBox .content .nameBox{
+    float: left;
+    width: 50%;
+}
+.MembersBox .content .point{
+    float: left;
+    width: 50%;
+}
+
+.MembersBox .content .nameBox img{
+    width: 100%;
+}
+.MembersBox .content .point img{
+    width: 100%;
+}
+
+/* .MembersBox .content th{
     color:rgb(224, 224, 224);
 }
 .MembersBox .content td{
@@ -38,4 +56,4 @@ body{
     max-width: 100%;
     }
 
-}
+} */
