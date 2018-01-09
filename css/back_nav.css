@@ -46,7 +46,7 @@ header .nav .navList .listcover{
 	width: 3%;
 	height: 100%;
 	background-color: rgba(90, 230, 219,0.5);
-	transition: 0.3s ease-in;
+	transition: width 0.3s ease-in;
 }
 header .nav .navList a{
 	display: block;
@@ -56,6 +56,7 @@ header .nav .navList a{
 	font-size: 18px;
 	letter-spacing: 1px;
 	font-weight: bold;
+	transition: color 0.2s ease-in;
 }
 header .nav .navList a:hover~.listcover{
 	width: 100%;
