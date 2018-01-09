@@ -86,11 +86,13 @@ function addNumPanel(){
 	var newNum = this.previousElementSibling.children[0].value;
 	newNum++;
 	this.previousElementSibling.children[0].value = newNum;
+	changeNum();
 }
 function minusNumPanel(){
 	var newNum = this.nextElementSibling.children[0].value;
 	newNum--;
 	this.nextElementSibling.children[0].value = newNum;
+	changeNum();
 }
 
 
@@ -294,7 +296,8 @@ function loginOrNot(){
 
 <script type="text/javascript">
 var storage = localStorage;
-var facility_ticket_list = storage.getItem("facility_ticket_list");
+storage.setItem("memId","1");
+// var facility_ticket_list = storage.getItem("facility_ticket_list");
 
 </script>
 <script src="js/00nav.js"></script>
