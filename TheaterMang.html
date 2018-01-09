@@ -9,14 +9,18 @@
     <style type="text/css">
     	table {
             border:1px solid black;
-           /* width: 300px;*/
-           /* height:auto;*/
             margin:30px auto ;
             font-size: 16px;
-            /*margin-top:0px;*/
+            margin-left:23.7%;
             border-collapse: collapse ;
 
         }
+        /*.TheaterSessionListTable{
+            margin-left:30%;
+        }*/
+        /*.TheaterOrderListTable{
+            margin-left:28.5%;
+        }*/
         .Newprogram{
             /*text-align: right;*/
         }
@@ -182,7 +186,7 @@
     <!-- 劇場場次清單 -->
     <form method="get" action="" align="center" enctype="multipart/form-data">
         <h2 class="titleh2">劇場場次清單</h2>
-        <table>
+        <table class="TheaterSessionListTable">
            <!--  <button onclick="searchSession"  class="searchSession">查詢</button> -->
            <select name="月份">
             　<option value="1月">1月</option>
@@ -237,7 +241,7 @@
     <!-- 劇場票劵訂單 -->
     <form method="get" action="" align="center" enctype="multipart/form-data">
         <h2 class="titleh2">劇場票劵訂單</h2>
-        <table>
+        <table class="TheaterOrderListTable">
             訂單編號:<input type="text" name="">
                 <button onclick="searchOrderList"  class="searchOrderList">查詢</button>
             <tr>
@@ -285,18 +289,5 @@
             </button>
         </div> -->
     </form>
-    <!-- 自動編號 -->
-    <script>
-        var tables = document.getElementsByTagName('table');
-        for (var a=0; a<tables.length;a++){
-          var rows= tables[a].rows;  
-            for(var i = 1, td; i < rows.length; i++){
-                td = document.createElement('td');
-                td.appendChild(document.createTextNode(i));
-                rows[i].insertBefore(td, rows[i].firstChild);
-            }
-        }
-        
-    </script>
 </body>
 </html>
