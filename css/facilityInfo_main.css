@@ -518,7 +518,17 @@ body::-webkit-scrollbar-thumb {
 	overflow-y: auto;
 	overflow-x: hidden;
 }
-
+@media screen and (max-width:414px){
+	#facility01.facility01{
+		overflow-x: scroll;
+		overflow-y: scroll;
+		-webkit-overflow-scrolling: touch;
+		overflow-scrolling: touch;
+	}
+	#facility0.facility01 iframe{
+		overflow-y:visible;
+	}
+}
 #close{
 	width: 35px;
 	height: 35px;
