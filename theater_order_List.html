@@ -28,7 +28,7 @@
         }
         td{ 
             
-            text-align:left;
+            text-align:center;
             border:1px solid black; 
             padding: 10px 10px;
         }
@@ -62,7 +62,7 @@
             </tr>
     		
     		<tr>
-    			<td>自動產生</td>
+    			<!-- <td>自動產生</td> -->
     			<td></td>
   				<td></td>
     			<td></td>
@@ -73,7 +73,7 @@
     			<td></td>
     		</tr>
             <tr>
-    			<td>自動產生</td>
+    			<!-- <td>自動產生</td> -->
     			<td></td>
   				<td></td>
     			<td></td>
@@ -94,5 +94,17 @@
             </button>
         </div> -->
     </form>
+
+    <!-- 自動編號 -->
+    <script>
+        var tables = document.getElementsByTagName('table');
+        var table = tables[tables.length -1];
+        var rows = table.rows;
+        for(var i = 1, td; i < rows.length; i++){
+            td = document.createElement('td');
+            td.appendChild(document.createTextNode(i));
+            rows[i].insertBefore(td, rows[i].firstChild);
+        }
+    </script>
 </body>
 </html>

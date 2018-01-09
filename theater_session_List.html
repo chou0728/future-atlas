@@ -28,7 +28,7 @@
         }
         td{ 
             
-            text-align:left;
+            text-align:center;
             border:1px solid black; 
             padding: 10px 10px;
         }
@@ -65,14 +65,13 @@
             </tr>
     		
     		<tr>
-    			<td>自動產生</td>
+    			<!-- <td>自動產生</td> -->
                 <td><input type="text" name="program_no" size="5"></td>
     			<td><input type="text" name="session_time" size="10"></td>
     			<td><input type="int" name="time_ date" size="10"></td>
     			<td><input type="int" name="total_ticket" size="10"></td>
     			<td><input type="int" name="last _ ticket" size="10"></td>
     		</tr>
-            
     	</table>
         <!-- <div class="okcancel">
             <button class="OKbtn">
@@ -83,5 +82,17 @@
             </button>
         </div> -->
     </form>
+
+    <!-- 自動編號 -->
+    <script>
+        var tables = document.getElementsByTagName('table');
+        var table = tables[tables.length -1];
+        var rows = table.rows;
+        for(var i = 1, td; i < rows.length; i++){
+            td = document.createElement('td');
+            td.appendChild(document.createTextNode(i));
+            rows[i].insertBefore(td, rows[i].firstChild);
+        }
+    </script>
 </body>
 </html>
