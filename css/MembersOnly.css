@@ -1,3 +1,6 @@
+*{
+    outline: 1px solid red;
+}
 body{
     background-color: #000;
 }
@@ -22,22 +25,100 @@ body{
 
 
 
+
+
 /*img*/
-.MembersBox .content .nameBox{
+/* 左邊三欄 */
+.MembersBox .content .left_wrapper{
     float: left;
     width: 50%;
+    
 }
-.MembersBox .content .point{
-    float: left;
-    width: 50%;
+.MembersBox .content .left_wrapper .nameBox{
+    position: relative;
+    
+}
+/* 左邊三欄文字*/
+.MembersBox .content .left_wrapper p{
+    font-size: 25px;
+    color: rgb(255, 254, 254);
 }
 
-.MembersBox .content .nameBox img{
+
+
+
+
+/* 右邊三欄 */
+.MembersBox .content .right_wrapper{
+    float: left;
+    width: 50%;
+}
+.MembersBox .content .right_wrapper .points{
+    position: relative;
+}
+/* 右邊三欄文字 */
+.MembersBox .content .right_wrapper p{
+    font-size: 25px;
+    color: rgb(255, 254, 254);
+}
+
+
+
+
+
+
+/* 左邊圖片 */
+.MembersBox .content .left_wrapper img{
+    box-sizing: border-box;
+    padding: 10px;
     width: 100%;
 }
-.MembersBox .content .point img{
+/* 右邊圖片 */
+.MembersBox .content .right_wrapper img{
+    box-sizing: border-box;
+    padding: 10px;
     width: 100%;
 }
+
+
+
+
+
+
+
+
+
+
+
+/*平板尺寸*/
+@media screen and (min-width:415px) and (max-width:1024px){
+    
+}
+/*手機尺寸*/
+@media screen and (max-width:414px){
+    .MembersBox .content .left_wrapper{
+        float: none;
+        width: 100%;
+    }
+    .MembersBox .content .right_wrapper{
+        float: none;
+        width: 100%;
+    }
+    .MembersBox .content .left_wrapper img{
+        box-sizing: border-box;
+        padding: 5px;
+        width: 100%;
+    }
+    .MembersBox .content .right_wrapper img{
+        box-sizing: border-box;
+        padding: 5px;
+        width: 100%;
+    }
+    
+
+}
+
+
 
 /* .MembersBox .content th{
     color:rgb(224, 224, 224);
