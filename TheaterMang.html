@@ -9,13 +9,18 @@
     <style type="text/css">
     	table {
             border:1px solid black;
-           /* width: 300px;*/
-           /* height:auto;*/
             margin:30px auto ;
             font-size: 16px;
-            /*margin-top:0px;*/
+            margin-left:23.7%;
             border-collapse: collapse ;
+
         }
+        /*.TheaterSessionListTable{
+            margin-left:30%;
+        }*/
+        /*.TheaterOrderListTable{
+            margin-left:28.5%;
+        }*/
         .Newprogram{
             /*text-align: right;*/
         }
@@ -47,7 +52,7 @@
         .treebtn{
             width:100%;
             text-align: center;
-            margin-top: 30px;
+            margin-top:5%;
             display: inline-block;
 
         }
@@ -66,7 +71,7 @@
                 <span class="spancover"></span>
             </li>
             <li class="navList">
-                <a href="../TheaterMang.html">劇場驗票</a>
+                <a href="TheaterMang.html">劇場驗票</a>
                 <span class="listcover"></span>
                 <span class="spancover"></span>
             </li>
@@ -76,8 +81,9 @@
                 <span class="spancover"></span>
             </li>
             <li class="navList">
-                <a href="TheaterMang.html">劇場管理</a>
-                <span class="listcover"></span>
+                <a href="TheaterMang.html" style="color: black;">       劇場管理
+                </a>
+                <span class="listcover" style="width: 100%;background-color: rgba(90, 230, 219,0.9);"></span>
                 <span class="spancover"></span>
             </li>
             <li class="navList">
@@ -102,6 +108,10 @@
             </li>
         </ul>
     </header>
+    <div class="loginBox mobileLoginBox">
+            您好!<span id="managerId">最高管理員</span><span id="managerName">Manna</span>
+            <a href="javascript:void(0)">登出</a>
+    </div>
 
     <!-- 三個表格按鈕 -->
     <div class="treebtn">
@@ -174,19 +184,110 @@
         </div>
     </form>
     <!-- 劇場場次清單 -->
-
+    <form method="get" action="" align="center" enctype="multipart/form-data">
+        <h2 class="titleh2">劇場場次清單</h2>
+        <table class="TheaterSessionListTable">
+           <!--  <button onclick="searchSession"  class="searchSession">查詢</button> -->
+           <select name="月份">
+            　<option value="1月">1月</option>
+            　<option value="2月">2月</option>
+            　<option value="3月">3月</option>
+            　<option value="4月">4月</option>
+            </select>
+            <tr>
+                <th>場次編號</th>
+                <th>節目編號</th>
+                <th>場次時間</th>
+                <th>演出日期</th>
+                <th>總票數</th>
+                <th>剩餘票數</th>
+                <th>修改</th>
+            </tr>
+            
+            <tr>
+                <!-- <td>自動產生</td> -->
+                <td><input type="text" name="program_no" size="5"></td>
+                <td><input type="text" name="session_time" size="10"></td>
+                <td><input type="int" name="time_ date" size="10"></td>
+                <td><input type="int" name="total_ticket" size="10"></td>
+                <td><input type="int" name="last _ ticket" size="10"></td>
+                <td>
+                    <!-- <a href="#">新增</a> -->
+                    <a href="#">修改</a>
+                </td>
+            </tr>
+            <tr>
+                <!-- <td>自動產生</td> -->
+                <td><input type="text" name="program_no" size="5"></td>
+                <td><input type="text" name="session_time" size="10"></td>
+                <td><input type="int" name="time_ date" size="10"></td>
+                <td><input type="int" name="total_ticket" size="10"></td>
+                <td><input type="int" name="last _ ticket" size="10"></td>
+                <td>
+                    <!-- <a href="#">新增</a> -->
+                    <a href="#">修改</a>
+                </td>
+            </tr>
+        </table>
+        <!-- <div class="okcancel">
+            <button class="OKbtn">
+                儲存
+            </button>
+            <button class="cancelbtn">
+                取消
+            </button>
+        </div> -->
+    </form>
     <!-- 劇場票劵訂單 -->
-    
-    <!-- 自動編號 -->
-    <script>
-        var tables = document.getElementsByTagName('table');
-        var table = tables[tables.length -1];
-        var rows = table.rows;
-        for(var i = 1, td; i < rows.length; i++){
-            td = document.createElement('td');
-            td.appendChild(document.createTextNode(i));
-            rows[i].insertBefore(td, rows[i].firstChild);
-        }
-    </script>
+    <form method="get" action="" align="center" enctype="multipart/form-data">
+        <h2 class="titleh2">劇場票劵訂單</h2>
+        <table class="TheaterOrderListTable">
+            訂單編號:<input type="text" name="">
+                <button onclick="searchOrderList"  class="searchOrderList">查詢</button>
+            <tr>
+                <th>訂單編號</th>
+                <th>場次編號</th>
+                <th>會員ID</th>
+                <th>購買張數</th>
+                <th>已使用張數</th>
+                <th>訂購日期</th>
+                <th>原始總額</th>
+                <th>積分折扣</th>
+                <th>信用卡卡號</th>
+            </tr>
+            
+            <tr>
+                <!-- <td>自動產生</td> -->
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <!-- <td>自動產生</td> -->
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            
+        </table>
+       <!--  <div class="okcancel">
+            <button class="OKbtn">
+                儲存
+            </button>
+            <button class="cancelbtn">
+                取消
+            </button>
+        </div> -->
+    </form>
 </body>
 </html>
