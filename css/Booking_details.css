@@ -123,7 +123,9 @@
 
     td {
       text-align: left;
-      padding: 10px 10px; }
+      padding: 10px 10px; 
+      border-bottom:1px solid #555; 
+    }
 
     .integral {
       display: inline-block; }

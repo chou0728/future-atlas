@@ -42,13 +42,17 @@
         .okcancel{
             margin:0 auto;
         }
+        input{
+            margin-right:20px;
+        }
     </style>
 </head>
 <body>
     <form method="get" action="" align="center" enctype="multipart/form-data">
         <h2 class="titleh2">劇場票劵訂單</h2>
     	<table>
-            <button onclick="searchOrderList"  class="searchOrderList">查詢</button>
+            訂單編號:<input type="text" name="">
+                <button onclick="searchOrderList"  class="searchOrderList">查詢</button>
             <tr>
                 <th>訂單編號</th>
                 <th>場次編號</th>

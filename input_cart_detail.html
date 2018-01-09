@@ -65,27 +65,27 @@
 </div>
 
 	<!-- header end-->
+
 <!-- 會員資訊 -->
 <div id="detailWrapper">
 <h1 id="title">檢視購票明細</h1>
 <table id="member_info">
-	<tr><th colspan="2" class="title">購票人資訊</th></tr>
+	<tr><th colspan="2" class="tbtitle">購票人資訊</th></tr>
 	<tr>
-		<td>帳號</td>
-		<td>Email</td>
-		<td>現有積分</td>
+		<td>帳號</td><td id="member_id"></td>
 	</tr>
 	<tr>
-		<td id="member_id"></td>
-		<td id="member_email"></td>
-		<td id="member_points"></td>
+		<td>Email</td><td id="member_email"></td>
+	</tr>
+	<tr>
+		<td>積分</td><td id="member_points"></td>
 	</tr>
 </table>
 
 <form>
 <!-- 購票明細 -->
 <table id="ticket_rows">
-	<tr><th colspan="2" class="title">購票明細</th></tr>
+	<tr><th colspan="2" class="tbtitle" style="font-size: 24px;">購票明細</th></tr>
 	<tr id="ticket_row">
 		<th id="fn_th">設施編號</th>
 		<th id="icon_th">圖示</th>
@@ -100,10 +100,10 @@
 	<tr id="input_discount"><th colspan="2" class="title">選擇是否使用積分</th></tr>
 	<tr>
 		<td style="width: 350px; text-align: right" colspan="7">
-			<input type="radio" name="points" class="points">是，使用
+			<input type="radio" name="points" class="points">之後再使用
+			<input type="radio" name="points" class="points">使用
 			<input type="number" id="points" class="points" min="0">點
 			<div id="points_confirm">確定輸入</div>
-			<input type="radio" name="points" class="points">之後再使用
 				<div id="points_remain">(剩餘點數：
 					<span id="points_remain_input"></span>)點
 				</div>
@@ -119,7 +119,7 @@
 
 <!--輸入信用卡 -->
 <table id="pay_info">
-	<tr><th class="title">輸入信用卡</th></tr>
+	<tr><th class="tbtitle">輸入信用卡</th></tr>
 	<tr><td colspan="4">信用卡卡號</td></tr>
 	<tr>
 		<td colspan="2" class="credit_card" name="credit_card" id="credit_card">

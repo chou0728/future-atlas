@@ -18,13 +18,13 @@ window.onload = function(){
 			if( full_fare_num > 0 ){
 				var full_fare = info[0];
 				var full_fare_subtotal = full_fare * full_fare_num;			
-				$("#ticket_row").after("<tr><td>"+fn+"</td><td>"+"設施icon"+"</td><td>"+"設施名稱"+"</td><td>"+"全票"+"</td><td>"+expire_date+"</td><td>"+full_fare_num+"</td><td>"+full_fare+"</td><td class='sub_total'>"+full_fare_subtotal+"</td></tr>");
+				$("#ticket_row").after("<tr><td>"+fn+"</td><td>"+"設施icon"+"</td><td>"+"設施名稱"+"</td><td>"+"全票"+"</td><td>"+expire_date+"</td><td>"+full_fare+"</td><td>"+full_fare_num+"</td><td class='sub_total'>"+full_fare_subtotal+"</td></tr>");
 			}
 			var half_fare_num = info[3];
 			if( half_fare_num > 0){
 				var half_fare = info[2];
 				var half_fare_subtotal = half_fare * half_fare_num;
-				$("#ticket_row").after("<tr><td>"+fn+"</td><td>"+"設施icon"+"</td><td>"+"設施名稱"+"</td><td>"+"半票"+"</td><td>"+expire_date+"</td><td>"+half_fare_num+"</td><td>"+half_fare+"</td><td class='sub_total'>"+half_fare_subtotal+"</td></tr>");
+				$("#ticket_row").after("<tr><td>"+fn+"</td><td>"+"設施icon"+"</td><td>"+"設施名稱"+"</td><td>"+"半票"+"</td><td>"+expire_date+"</td><td>"+half_fare+"</td><td>"+half_fare_num+"</td><td class='sub_total'>"+half_fare_subtotal+"</td></tr>");
 			}
 		}
 	}
