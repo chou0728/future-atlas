@@ -45,6 +45,8 @@ body::-webkit-scrollbar-thumb {
 	border-bottom: 1px solid azure;
 }#member_info td{
 	border-bottom: 1px solid #555;
+}#discount{
+	font-size: 28px;
 }
 
 #detailWrapper{
@@ -80,6 +82,14 @@ body::-webkit-scrollbar-thumb {
 	border-bottom: 1px solid azure;
 }#ticket_row th{
 	color: rgba(100,255,243,0.6);
+}#ticket_rows td{
+	border-bottom: 1px solid #555;
+}
+#ticket_rows td:nth-child(4){
+	text-align: center;
+}
+#ticket_rows td:nth-child(5){
+	text-align: right;
 }
 #detail_row_title{
 	color: rgba(100,255,243,1);
@@ -97,7 +107,10 @@ body::-webkit-scrollbar-thumb {
 #ticket_rows th{
 	font-size: 20px;
 }#ticket_rows tr{
-	height:30px;
+	height: 30px;
+}
+#cart_sub_total{
+	font-size: 36px;
 }
 #cart_total_row{
 	text-align: right;
@@ -107,15 +120,24 @@ body::-webkit-scrollbar-thumb {
 #credit_card span{
 	width: 100px;
 	height: 50px;
-}#points_confirm{
+}#points{
+	width: 60px;
+	height: 29px;
+	vertical-align: top;
+	font-size: 28px;
+	border: none;
+}
+#points_confirm{
 	display: inline-block;
-	width: 80px;
+	width: 40px;
 	text-align-last: center;
-	background-color: orange;
+	background-color: rgba(255, 193, 22,0.8);
 	color: black;
 	border: none;
 	padding: 5px;
 	cursor: pointer;
+	vertical-align: top;
+	margin-top: -1px;
 }#points_remain{
 	opacity: 0;
 	border: none;
@@ -147,4 +169,3 @@ body::-webkit-scrollbar-thumb {
 	width: 40px;
 	display: inline-block;
 }
-</style>		

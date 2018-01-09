@@ -202,10 +202,10 @@ loginOrNot();
 function loginOrNot(){
 	if( storage.getItem("memId")){
 		// 已經登入 
-		$("#nextStep a").attr("href","input_cart_detail.html");
+		$("#nextStep").attr("href","input_cart_detail.html");
 	}else{
 		// 尚未登入
-		$("#nextStep a").attr("href","http://www.w3school.com.cn/jsref/met_win_confirm.asp");
+		$("#nextStep").attr("href","http://www.w3school.com.cn/jsref/met_win_confirm.asp");
 	}
 }
 };
@@ -288,8 +288,8 @@ function loginOrNot(){
 			</tr>
 		</table>
 	<div id="button">
-		<button id="backToShop"><a href="facilityBuyTicket.html">繼續購物</a></button>
-		<button id="nextStep"><a href="">下一步</a></button>
+		<a href="facilityBuyTicket.html" class="highlight" id="backToShop">繼續購物</a>
+		<a href="" id="nextStep" class="highlight">下一步</a>
 	</div>
 	</form>
 </div>

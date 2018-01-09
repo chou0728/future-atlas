@@ -72,7 +72,7 @@ function output_total(){
 
 // 使用者輸入積點
 document.getElementsByClassName("points")[2].onfocus = function(){
-	document.getElementsByClassName("points")[2].style.backgroundColor = "navy";
+	document.getElementsByClassName("points")[2].style.backgroundColor = "rgba(100,255,243,0.6)";
 	$("#points_remain").css("opacity","1");
 }
 
