@@ -111,6 +111,7 @@
     @media screen and (max-width: 414px){
       .progressinfoMenu a{
         top:5px;
+        padding-left:38.5px;
       }
     }
     .buyticketMenu {
@@ -173,6 +174,7 @@
     @media screen and (max-width: 414px){
       .buyticketMenu a{
         top:12px;
+        padding-left:20px;
       }
     }
     .sq-one.move {
@@ -231,11 +233,12 @@
     }
     @media screen and (max-width: 414px) {
       .topright .Menutitleh2{
-        width:300px;
+        display: none;
+        /*width:300px;
         text-align: center;
         top: 126px;
         left: 60px;
-        font-size: 24px; 
+        font-size: 24px; */
       } 
     }
 
@@ -312,10 +315,16 @@
     }
     .info p {
       width: 363px;
+      color: #5AE6DB;
       text-align: left;
       padding: 10px 10px;
       line-height:1.5;
       letter-spacing: 2px; 
+    }
+    @media screen and (max-width: 414px){
+      .info p {
+        padding: 1px 10px;
+      }
     }
     @media screen and (min-width: 415px) and (max-width: 1024px) {
         .wrapper .content .info {
@@ -339,7 +348,11 @@
       margin: 10px 10px; 
       font-family: "微軟正黑體", Arial ,sans-serif;
     }
-
+    @media screen and (max-width: 414px){
+      .info .buyticket{
+        font-size: 21px;
+      }
+    }
     .info  a{
       text-decoration: none;
       display: block;
