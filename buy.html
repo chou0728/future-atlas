@@ -11,11 +11,6 @@ body{
     background-color: #333;
     color: white;
 }
-.li_top:nth-child(3) img{
-    width: 30px;
-    display: inline-block;
-    filter: brightness(5);
-}
 button, #submit{
 	width: 100%;
 	height: 30px;
@@ -26,11 +21,19 @@ button, #submit{
     text-align: right;
 }table{
     margin-top: 200px;
-}#howmanytickets{
+}
+/*增加*/
+.li_top:nth-child(3) img{
+    width: 30px;
+    display: inline-block;
+    filter: brightness(5);
+}
+#howmanytickets{
     font-size: 24px;
     color: #5AE6DB;
     display: inline-block;
 }
+/*增加end*/
 </style>
 </head>
 <body>
@@ -43,10 +46,12 @@ button, #submit{
             <a href="#" id="singUpBtn">登入</a>
         </li>
         <li class="li_top">
-            <a href="input_cart.html">
+            <!-- 增加 -->
+             <a href="input_cart.html">
                 <span id="howmanytickets">0</span>
                 <img id="cartimgid" src="img/cart/wallet_0.png">
             </a>
+            <!-- 增加end -->
         </li>
     </ul>
 </div>
@@ -91,6 +96,8 @@ button, #submit{
     <img src="img/Usericon.png" class="memIcon">
     
 </div>
+
+    <!-- header end-->
 
 <table>
     	<tr>
@@ -201,25 +208,28 @@ $(document).ready(function(){
         var addToCart = ff+"/"+ffn+"/"+hf+"/"+hfn;
         storage.setItem(fn,addToCart);
     });
+// 增加
     $(".f_submit").click(function(){
         var storage = localStorage;
         var facility_ticket_list = "";
     
-        for( i = 0; i < 7; i++){    
-        if(storage.getItem(i) != null){
-            facility_ticket_list += i+"/";
-            storage.setItem("facility_ticket_list", facility_ticket_list);
+        for( i = 1; i < 7; i++){
+            if(storage.getItem(i) != null){
+                if(storage.getItem(i).split("/")[1] != 0 || storage.getItem(i).split("/")[3] != 0){
+                    facility_ticket_list += i+"/";
+                }storage.setItem("facility_ticket_list", facility_ticket_list);
             }
         }
 
         var newlevel = Math.floor((facility_ticket_list.split("/").length-1)/2);
         var aa = document.getElementById("cartimgid").src.substr(-5,1);
-        console.log(aa,newlevel);
+        // console.log(aa,newlevel);
         aa = newlevel;
         document.getElementById("cartimgid").src = "img/cart/wallet_"+aa+".png";
         document.getElementById("howmanytickets").innerHTML = facility_ticket_list.split("/").length-1;
         
     });
+    // 增加end
 });
 </script>
 </body>
