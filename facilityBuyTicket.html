@@ -340,6 +340,7 @@
 	<!-- /////-->
 </div>
 </body>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script src="js/00nav.js"></script>
 <script type="text/javascript">
 function init(){
@@ -390,6 +391,28 @@ function init(){
 			this.value = 0;
 		}
 	}
+
+
+	    $(".f_submit").click(function(){
+        var storage = localStorage;
+        var facility_ticket_list = "";
+    
+        for( i = 1; i < 7; i++){
+            if(storage.getItem(i) != null){
+                if(storage.getItem(i).split("/")[1] != 0 || storage.getItem(i).split("/")[3] != 0){
+                    facility_ticket_list += i+"/";
+                }storage.setItem("facility_ticket_list", facility_ticket_list);
+            }
+        }
+
+        var newlevel = Math.floor((facility_ticket_list.split("/").length-1)/2);
+        var aa = document.getElementById("cartimgid").src.substr(-5,1);
+        // console.log(aa,newlevel);
+        aa = newlevel;
+        document.getElementById("cartimgid").src = "img/cart/wallet_"+aa+".png";
+        document.getElementById("howmanytickets").innerHTML = facility_ticket_list.split("/").length-1;
+        
+    });
 }
 
 

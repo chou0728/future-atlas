@@ -30,10 +30,12 @@
 		width: 40px;
 		z-index: 1001;
 		cursor: pointer;
+		font-size: 0;
 	}
 	.navOpenBtn .ham{
+		font-size: 0;
 		display: inline-block;
-		margin-right: 1.5px;
+		margin-right:5px;
 		background-color: rgba(90, 230, 219,0.9);
 		transition: .2s linear;
 	}
