@@ -9,7 +9,7 @@ header{
 	left: 0;
 	width: 15%;
 	height: 100vh;
-	background-color: #333;
+	background-color: #222;
 	color:#47bbe2;
 	font-family: "微軟正黑體";
 	box-shadow: 1px 1px 1px rgba(0,0,0,0.5);
@@ -69,13 +69,14 @@ header .nav .navList a:hover{
 .loginBox{
 	z-index: 100;
 	position: fixed;
+	z-index: 1;
 	top:0;
 	left:0;
 	text-align: right;
 	width: 100%;
 	padding: 8px;
 	height: 32px;
-	background-color: #888;
+	background-color: #111;
 	color: white;
 	font-family: "微軟正黑體";
 }
@@ -96,7 +97,8 @@ header .nav .navList a:hover{
 }
 .b_sub_nav{
 	position:fixed;
-	top:32px;
+	z-index: 5;
+	top:30px;
 	left:15%;
 	width: 100%;
 	background-color:#101;
