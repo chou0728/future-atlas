@@ -426,12 +426,12 @@ function init(){
 				if(facility_ticket_list.indexOf(fn)==-1){
 					facility_ticket_list += fn+"/" ;
 					storage.setItem("facility_ticket_list", facility_ticket_list);
-
 				}
 				
 		}else if(ad==0&&cd==0){
 			var no = storage.getItem("facility_ticket_list").replace(fn+"/","");
 			storage.setItem("facility_ticket_list", no);
+			facility_ticket_list = storage.getItem("facility_ticket_list");
 			storage.removeItem(fn);
 			console.log(storage.getItem("facility_ticket_list"));
 		}
