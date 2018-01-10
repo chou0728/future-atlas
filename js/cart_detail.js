@@ -70,6 +70,14 @@ function output_total(){
 	}
 }
 
+// 原始購物車外觀
+	var facility_ticket_list = storage.getItem("facility_ticket_list");
+	var iniCart = Math.floor((facility_ticket_list.split("/").length-1)/2);
+	var aa = document.getElementById("cartimgid").src.substr(-5,1);
+	aa = iniCart;
+	document.getElementById("cartimgid").src = "img/cart/wallet_"+iniCart+".png";
+	document.getElementById("howmanytickets").innerHTML = facility_ticket_list.split("/").length-1;
+
 // 使用者輸入積點
 document.getElementsByClassName("points")[2].onfocus = function(){
 	document.getElementsByClassName("points")[2].style.backgroundColor = "rgba(100,255,243,0.6)";
@@ -93,6 +101,11 @@ document.getElementsByClassName("points")[0].onchange = function(){
 	$("#points_remain").css("opacity","0");
 
 }
+
+// 確認結帳
+$("#nextStep").click(function(){
+	storage.removeItem("facility_ticket_list");
+});
 
 $("#member_id").html(member_id);
 $("#member_email").html(member_email);
