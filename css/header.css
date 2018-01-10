@@ -78,24 +78,27 @@
 	}
 }
 /*768*------====================================*/
-.logo{
+.logo_a{
 	display: inline-block;
-	width:15%;
+	width: 15%;
 	min-width: 200px;
 	margin: 0;
 	vertical-align: middle;
+}
+.logo{
+	display: inline-block;
+	width:100%;
 	height: auto;
 }
 /*768*------====================================*/
 @media screen and (max-width:1024px){
-	.logo{
+	.logo_a{
 		min-width: 150px;
 		display: block;
 		position:fixed;
 		top:1.5%;
 		left:50%;
 		transform: translateX(-50%);
-
 	}
 }
 /*768*------====================================*/
