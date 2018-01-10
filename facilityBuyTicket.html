@@ -395,14 +395,20 @@ function init(){
 
 
 	function l_storage(){
-	 	facility_ticket_list="";
+		storage = localStorage;
+		console.log(storage.getItem("facility_ticket_list"));
+		if(storage.getItem("facility_ticket_list")){
+			facility_ticket_list = storage.getItem("facility_ticket_list");
+		}else{
+			facility_ticket_list="";
+		}
 		var f_submit = document.querySelectorAll('.f_submit');
 		for(var i =0; i<f_submit.length;i++){
 			f_submit[i].addEventListener('click',saveToStorage);
 		}
 
 	function saveToStorage(){
-		var storage = localStorage;
+		
 		var fn = this.dataset.fn;/*設施編號*/
 		var ad = this.previousElementSibling.previousElementSibling.children[2].children[1].children[0].value;/*全票張數*/
 		var adp = this.previousElementSibling.previousElementSibling.dataset.val;/*全票價格*/
