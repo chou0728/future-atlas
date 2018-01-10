@@ -84,16 +84,78 @@ function changeCartOutlook(){
 
 // 加減控制盤
 function addNumPanel(){
+	// 單價
+	var fare_id = this.previousElementSibling.children[0].id.replace('_num','');//價錢的id
+	var fare = parseInt(document.getElementById(fare_id).innerHTML);//價錢
+	
+	// 新數量
 	var newNum = this.previousElementSibling.children[0].value;
 	newNum++;
 	this.previousElementSibling.children[0].value = newNum;
-	changeNum();
+	// 新subtotal
+	document.getElementById(fare_id.replace('_id','_subtotal_id')).innerHTML = fare*newNum;
+	showSubTotal();
+
+	// 更改localStorage內容
+	// 修改為全票
+	if( this.id.search("full") == 0){
+		var cc = storage.getItem(this.id.substr(this.id.length-1,1)).split("/");
+		cc[1] = newNum;
+		storage.setItem(this.id.substr(this.id.length-1,1),cc.join("/"));
+	}
+	// 修改為半票
+	else{
+		var cc = storage.getItem(this.id.substr(this.id.length-1,1)).split("/");
+		cc[3] = newNum;
+		storage.setItem(this.id.substr(this.id.length-1,1),cc.join("/"));
+	}
 }
 function minusNumPanel(){
+	// 單價
+	var fare_id = this.nextElementSibling.children[0].id.replace('_num','');//價錢的id
+	var fare = parseInt(document.getElementById(fare_id).innerHTML);//價錢
+	
+	// 新數量
 	var newNum = this.nextElementSibling.children[0].value;
 	newNum--;
 	this.nextElementSibling.children[0].value = newNum;
-	changeNum();
+			if( newNum > 0){
+				// 新subtotal
+				document.getElementById(fare_id.replace('_id','_subtotal_id')).innerHTML = fare*newNum;
+				showSubTotal();
+
+				// 更改localStorage內容
+				// 修改為全票
+				if( this.id.search("full") == 0){
+					var cc = storage.getItem(this.id.substr(this.id.length-1,1)).split("/");
+					cc[1] = newNum;
+					storage.setItem(this.id.substr(this.id.length-1,1),cc.join("/"));
+				}
+				// 修改為半票
+				else{
+					var cc = storage.getItem(this.id.substr(this.id.length-1,1)).split("/");
+					cc[3] = newNum;
+					storage.setItem(this.id.substr(this.id.length-1,1),cc.join("/"));
+				}
+			}else if( newNum < 1){
+				var confirm_status = confirm("您確定要刪除這張票券？");
+				if( confirm_status == true){
+					var delete_row_id = this.id;
+					deleteRow(delete_row_id);
+				}else{
+					newNum = 1;
+					this.nextElementSibling.children[0].value = 1;
+				}
+			}
+	// 檢查facility_list
+	var storage = localStorage;
+	var dd = this.id.substr(-1,1);
+	var fn = storage.getItem(dd).split("/")[1];
+	var hn = storage.getItem(dd).split("/")[3];
+	if(fn == 0 && hn == 0 ){
+		var ee = storage.getItem("facility_ticket_list").replace(dd+"/","");
+		storage.setItem("facility_ticket_list", ee);
+	}
 }
 
 
@@ -122,9 +184,9 @@ function changeNum(){
 					storage.setItem(this.id.substr(this.id.length-1,1),cc.join("/"));
 				}
 			}else{
-				var confirm_status = confirm("您確定要刪除這張票券？");
+				var confirm_status = confirm("您確定要刪除？");
 				if( confirm_status == true){
-					var ff = this.id;
+					var ff = this.id.replace("decrement","fare_num_id");
 					deleteRow(ff);
 				}else{
 					this.value = 1;
@@ -133,10 +195,8 @@ function changeNum(){
 }
 
 function deleteRow(changeTOZero){
-	var confirm = confirm("確定要刪除票券?");
-	if( confirm == true ){
 	if( changeTOZero != null){
-		var temp1 = changeTOZero.replace("_fare_num_id","");
+		var temp1 = changeTOZero.replace("_decrement","");
 		document.getElementById(temp1).remove();
 			// 清除localstorage
 			// 修改為全票
@@ -151,9 +211,11 @@ function deleteRow(changeTOZero){
 				cc[3] = 0;
 				storage.setItem(temp1.substr(temp1.length-1,1),cc.join("/"));
 			}
-	}	
+	}else{
+		var cc = this.id.replace("_fare_num_id","");
+		console.log(cc);
+	}
 	showSubTotal();
-}
 }
 function deleteRowByClick(){
 	var temp2 = this.id.replace("_fare_delete_btn_id","");

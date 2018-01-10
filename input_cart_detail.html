@@ -9,6 +9,18 @@
 <link rel="stylesheet" type="text/css" href="css/header.css">
 <link rel="stylesheet" type="text/css" href="css/cart.css">
 <link rel="stylesheet" type="text/css" href="css/cart_detail.css">
+<style type="text/css">
+	.li_top:nth-child(3) img{
+    width: 30px;
+    display: inline-block;
+    filter: brightness(5);
+}
+#howmanytickets{
+    font-size: 24px;
+    color: #5AE6DB;
+    display: inline-block;
+}
+</style>
 <body>
 <div class="header">
 	<ul class="ul_top">
@@ -19,7 +31,10 @@
 			<a href="#" id="singUpBtn">登入</a>
 		</li>
 		<li class="li_top">
-			<a href="input_cart.html">購物車</a>
+			<a href="input_cart.html">
+                <span id="howmanytickets">0</span>
+                <img id="cartimgid" src="img/cart/wallet_0.png">
+            </a>
 		</li>
 	</ul>
 </div>
