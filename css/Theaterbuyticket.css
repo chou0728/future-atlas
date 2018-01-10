@@ -24,11 +24,11 @@
       margin: auto; */
     }
     .menuTheaterbuyticket{
-    width: 70%;
-    height: 140px;
-    position: relative;
-    margin: auto;
-    margin-top:15%;
+	    width: 70%;
+	    height: 140px;
+	    position: relative;
+	    margin: auto;
+	    margin-top:15%;
     }
     @media screen and (max-width:1024px) and (min-width:415px){
       .menuTheaterbuyticket{
