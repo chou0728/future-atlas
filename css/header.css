@@ -304,4 +304,42 @@
 
 }
 /*768*------====================================*/
+
+/*NAV購物車*/
+.li_top{
+    vertical-align: top;
+}
+.li_top:nth-child(3) img{
+    width: 30px;
+    display: inline-block;
+    filter: brightness(5);
+}#showCartContent{
+    width: 180px;
+    text-align: center;
+    display: none;
+    position: absolute;
+    top: 50px;
+    right: 0;
+}.li_top:nth-child(3){
+    position: relative;
+}
+.li_top:nth-child(3):hover #showCartContent{
+    display: block;
+}
+#howmanytickets{
+    font-size: 24px;
+    color: #5AE6DB;
+    display: inline-block;
+}#showCartContenttb{
+    text-align: left;
+    width: 180px;
+    /*height: 250px;*/
+    position: absolute;
+    top: -180px;
+    right: 0;
+    border: 1px solid white;
+}
+/*NAV購物車end*/
+
+
 /*-----header end-----*/
