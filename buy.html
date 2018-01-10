@@ -253,7 +253,6 @@ $(document).ready(function(){
         // 原始購物車外觀
         var newlevel = Math.floor((facility_ticket_list.split("/").length-1)/2);
         var aa = document.getElementById("cartimgid").src.substr(-5,1);
-        // console.log(aa,newlevel);
         aa = newlevel;
         document.getElementById("cartimgid").src = "img/cart/wallet_"+aa+".png";
         document.getElementById("howmanytickets").innerHTML = facility_ticket_list.split("/").length-1;
