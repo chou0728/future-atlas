@@ -109,10 +109,10 @@ $(document).ready(function(){
 $(document).ready(function(){
     setTimeout(function(){
       $('.planet').animate({
-            left: '30%'
+            left: '10%'
           },1500);
       $('.spaceman').animate({
-            left: '30%'
+            left: '20%'
           },1500);
       $('.programonetitle').animate({
             left: '1%'
@@ -143,11 +143,20 @@ $(document).ready(function(){
         }
 
         // spaceship
-        if (scroll_value>140) {
-          $('.spaceship').animate({
-            left: '-30%'
-          },1500)
+        //手機版不執行動畫
+        const mq = window.matchMedia("(max-width:414px)");
+
+        if(mq.matches){
+          //window width is less than 414 px
+        }else{
+          //window  width is at least  414 px
+            if (scroll_value>140) {
+            $('.spaceship').animate({
+              left: '-30%'
+            },1500)
+          }
         }
+        
 
         //programtwotitle
         if (scroll_value>140) {
