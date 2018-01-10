@@ -12,6 +12,29 @@
 			text-decoration: none;
 			box-sizing: border-box;
 		}
+		body::after {
+			  content: '';
+			  position: fixed;
+			  top: 0;
+			  left: 0;
+			  width: 100%;
+			  height: 100%;
+			  overflow: hidden;
+			  background-color:#000;  /* 背景カラー */
+			  z-index: 9999;  /* 一番手前に */
+			  pointer-events: none;  /* 他の要素にアクセス可能にするためにポインターイベントは無効に */
+			  opacity: 0;  /* 初期値 : 透過状態 */
+			  -webkit-transition: opacity .4s ease;  /* アニメーション時間は 0.8秒 */
+			  transition: opacity .4s ease;
+		}
+		body.fadeout::after {
+ 			opacity: 1;
+		}
+	/*	body.fadeout .section{
+		  -webkit-transform:scale(1.5);
+		  transform:scale(1.5);
+		}*/
+
 	</style>
 	<link rel="stylesheet" type="text/css" href="css/header.css">
 	<link rel="stylesheet" type="text/css" href="css/login.css">
@@ -27,7 +50,7 @@
 
 </head>
 
-<body>
+<body class="fadeout">
 <div class="header">
 	<ul class="ul_top">
 		<li class="li_top">
@@ -61,12 +84,12 @@
 			</li>
 		</ul>
 		<h1 style="display: none">FutureAtlas_未來主題樂園</h1>
-		<a href="index.html#page1" class="logo_a">
+		<a href="#page1" class="logo_a">
 			<img src="img/LOGO.png" class="logo">
 		</a>
 		<ul class="ul_right">
 			<li>
-				<a href="index.html#page2">園區地圖</a>
+				<a href="#page2">園區地圖</a>
 			</li>
 			<li>
 				<a href="activity.html">活動月曆</a>
@@ -998,6 +1021,7 @@
 		<script src="js/02map.js"></script>
 		<script src="js/04calendar.js"></script>
 		<script src="js/00nav.js"></script>
+		<script src="js/page_load_unload.js"></script>
 		<script>
 // FULLPAGE------------------------------------------
 			fullpage.initialize('#fullpage', {
