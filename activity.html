@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
 <title>activity</title>
-<link rel="stylesheet" type="text/css" href="css/style.css" />
 <link rel="stylesheet" type="text/css" href="css/activity.css">
 <link rel="stylesheet" type="text/css" href="css/activity_calendar.css">
 <link rel="stylesheet" type="text/css" href="css/header.css">
@@ -269,8 +269,18 @@ body::-webkit-scrollbar-thumb {
 		</div>
     </div>
     <hr>
-    <div id="showRow">活動列表排在這裡</div>
-    
+    <div id="showRow">
+    	<div class="acTitle">活動名稱稱</div>
+    	<div class="acLoc">活動地點點</div>
+    	<div class="acTime">
+    		<span id="startTime">00:00</span>-
+    		<span id="endTime">00:00</span>
+    	</div>
+    	<div class="acIntro">活動介紹(15字內不然沒人看)</div>
+    </div>
+
+    <span id="activityDate">推薦活動</span>
+    <hr>
 	<ul id="da-thumbs" class="da-thumbs">
 	<li class="block-mode">
 		<a href="http://dribbble.com/shots/502538-Natalie-Justin-Cleaning">
@@ -323,35 +333,6 @@ body::-webkit-scrollbar-thumb {
 	</ul>
 <script src="js/00nav.js"></script>
 <script type="text/javascript" src="js/04calendar.js"></script>
-<!-- <script type="text/javascript">
-	$(window).load(
-	    function(){ajaxCallJsonP("http://api.openweathermap.org/data/2.5/weather?","6696918");}
-	)
-    function ajaxCallJsonP(url, cityID){
-        console.log(url,cityID);
-        var data=$.getJSON(url,{
-            id:cityID,
-            lang:"zh_TW",
-            APPID:"9f77563bbcf008306ba9d8e72b57e524",
-            units:"metric"
-        });
-        data.success(
-                function(msg){
-                	console.log(msg);
-                    $("#result").append("<h2>即時溫度："+msg.main.temp.toFixed(1)+"°C</h2><br>");
-                    $("#result").append("<h2>即時天氣："+msg.weather[0].description+"</h2><br>");
-                    $("#result").append($("<img style='width:50px; height:50px'>").attr("src","http://openweathermap.org/img/w/"+msg.weather[0].icon+".png"));
-                    console.log(msg);
-                    $("#result").append("<br>即時氣象來源：https://openweathermap.org/</h2>")
-                }
-            );
-        data.error(
-                function(msg){
-                    console.log(msg);
-                }
-            );
-    }
-</script> -->
 
 </script>
 <script type="text/javascript">
