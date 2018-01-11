@@ -37,7 +37,7 @@
 			}
 		}
 		.TheaterArea li:nth-child(2){
-			background-image: url("../img/thirdSection/Galaxy_1.jpg");
+			background-image: url("../img/thirdSection/Galaxy_2_m.jpg");
 			background-size: cover;
 			background-repeat: no-repeat;
 			border: 1px solid #35ffea;
@@ -48,7 +48,7 @@
 			}
 		}
 		.TheaterArea li:nth-child(3){
-			background-image: url("../img/thirdSection/ba4ss.jpg");
+			background-image: url("../img/thirdSection/game_1.jpg");
 			background-size: cover;
 			background-repeat: no-repeat;
 			border: 1px solid #35ffea;
@@ -137,13 +137,13 @@
 		@media screen and (max-width:1024px) and (min-width:415px){
 			.TheaterArea .buy a span{
 				position: absolute;
-				top:1.5%;
+				top:1%;
 			}
 		}
 		@media screen and (max-width:414px){
 			.TheaterArea .buy a span{
 				position: absolute;
-				top:4.5%;
+				top:23.5%;
 			}
 		}
 		.TheaterArea .buy:hover a span{
@@ -163,6 +163,11 @@
 			.TheaterArea .current{
 				width:100%;
 				height:250px;
+			}
+		}
+		@media screen and (max-width:414px){
+			.TheaterArea .current{
+				height:50%;
 			}
 		}
 		/*清除浮動*/
@@ -187,18 +192,28 @@
 			.TheaterArea .theaterInfo{
 				width:50%;
 			}
+			/*劇場介紹內文手機版隱藏*/
 			.TheaterArea .theaterInfo .moblienoshow{
 				display: none;
 			}
 		}
-		.TheaterArea .theaterInfo p{
-			line-height:1.5;
+		.TheaterArea .theaterInfo h2{
+			line-height:2;
 			letter-spacing: 3px;
-			font-size:23px;
+			font-size:24px;
+		}
+		.TheaterArea .theaterInfo .theatercontent{
+			letter-spacing: 2px;
+			line-height:2;	
+		}
+		@media screen and (max-width:414px){
+			.TheaterArea .theaterInfo .theatercontent{
+				line-height:1.5;	
+			}
 		}
 		.current #info{/*顯示各區塊介紹*/
 			display: block;
-			font-size: 20px;
+			font-size:16px;
 			padding: 15px;
 			line-height:1.5;
             letter-spacing: 2px;
@@ -212,6 +227,11 @@
 		}
 		.TheaterArea .notcurrent{/*非.current時游標提示為可選擇*/
 			cursor: pointer;
+		}
+		@media screen and (max-width:414px){
+			.TheaterArea .notcurrent{
+				height: 20%;
+			}
 		}
 		.TheaterArea .notcurrent:hover .cover{/*可選擇的提示*/
 			width: 100%;

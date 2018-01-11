@@ -82,10 +82,14 @@ function loadUpSecond(){
   	var flyship = document.getElementsByClassName('flyship');
   	var banner = document.getElementsByClassName('banner');
   	var clouds = document.getElementsByClassName('machi');
+    var balloon = document.getElementsByClassName('balloon');
   	flyship[0].style.transform = "translateX(0)";
   	banner[0].style.transform = "translateX(0)";
   	clouds[0].style.opacity = "0.8";
   	clouds[1].style.opacity = "0.9";
+    for(var b= 0; b<balloon.length;b++){
+      balloon[b].setAttribute("id", "ballonfly");
+    }
     clearTimeout(loadUpSecond);
 }
 function bannerOpenClose(){

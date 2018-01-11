@@ -10,7 +10,7 @@ $(function() {
     if (url !== '') {
       $('body').addClass('fadeout');  // bodyに class="fadeout"を挿入
       setTimeout(function(){
-        window.location = url;  // 0.8秒後に取得したURLに遷移
+        window.location = url;  // 0.4秒後に取得したURLに遷移
       }, 400);
     }
     return false;
