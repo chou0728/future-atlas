@@ -364,6 +364,13 @@
 		</div>
 	</div>
 	<!-- /////-->
+	<div id="fullBlack">
+		<div class="confirmLightbox">
+			<p class="content"></p>
+			<a href="javascript:void(0)" id="confirm">確認</a>
+			<a href="javascript:void(0)" id="cancel">取消</a>		
+		</div>
+	</div>
 </div>
 </body>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
@@ -435,7 +442,8 @@ function init(){
 
 	function saveToStorage(){
 		
-		var fn = this.dataset.fn;/*設施編號*/
+		fn = this.dataset.fn;/*設施編號*/
+		_this = this;
 		var ad = this.previousElementSibling.previousElementSibling.children[2].children[1].children[0].value;/*全票張數*/
 		var adp = this.previousElementSibling.previousElementSibling.dataset.val;/*全票價格*/
 		var cd = this.previousElementSibling.children[2].children[1].children[0].value;/*半票張數*/
@@ -443,20 +451,51 @@ function init(){
 		var addToCart = adp+"/"+ad+"/"+cdp+"/"+cd;
 		if(ad!=0||cd!=0){//判斷全票半票皆不為0張
 			storage.setItem(fn,addToCart);
-			console.log(facility_ticket_list.indexOf(fn));
+			
 				if(facility_ticket_list.indexOf(fn)==-1){
 					facility_ticket_list += fn+"/" ;
 					storage.setItem("facility_ticket_list", facility_ticket_list);
 				}
 				
 		}else if(ad==0&&cd==0){
-			var no = storage.getItem("facility_ticket_list").replace(fn+"/","");
-			storage.setItem("facility_ticket_list", no);
-			facility_ticket_list = storage.getItem("facility_ticket_list");
-			storage.removeItem(fn);
+			console.log(facility_ticket_list.indexOf(fn));
+			if(facility_ticket_list.indexOf(fn)!=-1){
+				cautionMessage();
+			}
+			
 		}
 	}
 }
+
+	function cautionMessage(){
+		fullBlack = document.getElementById("fullBlack");
+		var confirm = document.getElementById("confirm");
+		var cancel = document.getElementById("cancel");
+		var content = document.getElementsByClassName("content")[0];
+		var inner = _this.parentElement.children[0].children[1].innerHTML;
+		fullBlack.style.display = "block";
+		//跳出確認視窗
+		content.innerHTML = "確定取消購物車內【"+inner+"】的票券刪除嗎?";
+		confirm.onclick = clearFromStorage;
+		cancel.onclick = closeMessage;
+
+	}
+	function clearFromStorage(){
+		no = storage.getItem("facility_ticket_list").replace(fn+"/","");
+		storage.setItem("facility_ticket_list", no);
+		facility_ticket_list = storage.getItem("facility_ticket_list");
+		storage.removeItem(fn);
+		closeMessage();
+		//確認後清除單筆購物車內容
+		var newlevel = Math.floor((facility_ticket_list.split("/").length-1)/2);
+        var aa = document.getElementById("cartimgid").src.substr(-5,1);
+        aa = newlevel;
+        document.getElementById("cartimgid").src = "img/cart/wallet_"+aa+".png";
+        document.getElementById("howmanytickets").innerHTML = facility_ticket_list.split("/").length-1;
+	}
+	function closeMessage(){
+		fullBlack.style.display = "none";
+	}
 window.addEventListener('load',init);
 window.addEventListener('load',l_storage);
 
