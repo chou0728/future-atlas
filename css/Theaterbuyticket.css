@@ -388,6 +388,8 @@
       	border:1px solid #555;
         text-align: left;
         padding: 10px 10px;
+        padding-left:5%;
+        padding-right:5%;
       	line-height:1.5;
         letter-spacing: 2px; 
       }
