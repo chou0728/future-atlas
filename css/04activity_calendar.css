@@ -13,6 +13,11 @@
 	width: 100%;
 	height: 100%;
 }
+@media screen and (max-width:550px){
+	#wrapper{
+		padding-top: 8vh;
+	}
+}
 
 #calWrapper{
 	width: 80%;
@@ -21,25 +26,24 @@
 	margin: 0 auto;
 	margin-bottom: 50px;
 }
-@media screen and (max-width:415px){
+@media screen and (max-width:550px){
 	*{
 	/*outline: 1px solid blue;*/
 	}
 	#calWrapper{
 		width: 100%;
 		height: 86vh;
-		margin-top: 10vh;
+		margin-top: 6vh;
 		margin-left: 0;
 		position: relative;
 	}
 }
-@media screen and (min-width:415px) and (max-width:1024px){
+@media screen and (min-width:550px) and (max-width:1024px){
 	#calWrapper{
-		width: 90%;
+		width: 95%;
 		height: 100vh;
 		margin-top: 5%;
 		margin-left: 2.5%;
-
 	}
 }
 @media screen and (min-width:1024px){
@@ -55,7 +59,7 @@
 #showToday{
 	width: 100%;
 }
-@media screen and (max-width:415px){
+@media screen and (max-width:550px){
 	#calRight{
 		width: 102%;
 		height: 13vh;
@@ -65,7 +69,7 @@
 		text-align: center;
 	}
 }
-@media screen and (min-width:415px) and (max-width:1024px){
+@media screen and (min-width:550px) and (max-width:1024px){
 	#calRight{
 		width: 10%;
 	}
@@ -93,7 +97,7 @@
 	cursor: pointer;
 	vertical-align: middle;
 }
-@media screen and (max-width:415px){
+@media screen and (max-width:550px){
 	#showToday{
 		width: 100%;
 		text-align: center;
@@ -130,10 +134,10 @@
 		z-index: 4;
 	}
 }
-@media screen and (min-width:415px) and (max-width:1024px){
+@media screen and (min-width:550px) and (max-width:1024px){
 	
 }
-@media screen and (min-width:415px) and (max-width:1240px){
+@media screen and (min-width:550px) and (max-width:1240px){
 
 }
 @media screen and (min-width:1240px){
@@ -148,7 +152,7 @@
 	margin-top: 20px;
 	width: 100%;
 }
-@media screen and (max-width:415px){
+@media screen and (max-width:550px){
 	#icons{
 		width: 100%;
 		height: 30%;
@@ -159,7 +163,7 @@
 		z-index: 3;
 	}
 }
-@media screen and (min-width:415px) and (max-width:1024px){
+@media screen and (min-width:550px) and (max-width:1024px){
 	
 }
 @media screen and (min-width:1024px){
@@ -174,7 +178,7 @@
 	text-align: center;
 	margin-top: 30px;
 }
-@media screen and (max-width:415px){
+@media screen and (max-width:550px){
 	#selectActivityClass{
 		width: 100%;
 		position: absolute;
@@ -182,7 +186,7 @@
 		left: 0;
 	}
 }
-@media screen and (min-width:415px) and (max-width:1024px){
+@media screen and (min-width:550px) and (max-width:1024px){
 	
 }
 @media screen and (min-width:1024px){
@@ -198,19 +202,20 @@
 	border: 1px solid transparent;
 	vertical-align: middle;
 }
-@media screen and (max-width:415px){
+@media screen and (max-width:550px){
 	#selectActivityClass li{
 		margin: 0;
 		width: 24.1%;
 		padding: 8px;
 		display: inline-block;
+		box-shadow: 0 0 10px orange;
 	}#selectActivityClass li img{
 		width: 30%;
 		height: auto;
 		vertical-align: middle;
 	}
 }
-@media screen and (min-width:415px) and (max-width:1024px){
+@media screen and (min-width:550px) and (max-width:1024px){
 	#selectActivityClass li{
 		height: 46px;
 		width: 100%;
@@ -227,12 +232,12 @@
 	vertical-align: middle;
 	color: azure;
 }
-@media screen and (max-width:415px){
+@media screen and (max-width:550px){
 	#selectActivityClass li span{
 		display: none;
 	}
 }
-@media screen and (min-width:415px) and (max-width:1024px){
+@media screen and (min-width:550px) and (max-width:1024px){
 	#selectActivityClass li span{
 		display: none;
 	}
@@ -251,12 +256,12 @@
 	padding: 5px;
 	vertical-align: middle;
 }
-@media screen and (max-width:415px){
+@media screen and (max-width:550px){
 	#selectActivityClass img{
 		padding: 0;
 	}
 }
-@media screen and (min-width:415px) and (max-width:1024px){
+@media screen and (min-width:550px) and (max-width:1024px){
 	
 }
 @media screen and (min-width:1024px) and (max-width:1240px){
@@ -310,7 +315,7 @@
 	border-spacing: 0px 0px;
 }
 
-@media screen and (max-width:415px){
+@media screen and (max-width:550px){
 	#cal{
 		width: 100%;
 		position: absolute;
@@ -321,7 +326,7 @@
 		opacity: 0.3;
 	}
 }
-@media screen and (min-width:415px) and (max-width:1024px){
+@media screen and (min-width:550px) and (max-width:1024px){
 	
 }
 @media screen and (min-width:1024px){
@@ -362,7 +367,7 @@
 		height: 25px;
 	}
 }
-@media screen and (max-width:415px){
+@media screen and (max-width:550px){
 	#cal .claContent{
 		padding-left: 1px;
 		padding-bottom: 1px;
@@ -370,7 +375,7 @@
 		overflow-y: hidden;
 	}
 }
-@media screen and (min-width:415px) and (max-width:1024px){
+@media screen and (min-width:550px) and (max-width:1024px){
 	#cal .claContent{
 		padding-left: 5px;
 		padding-bottom: 5px;		
@@ -401,7 +406,7 @@
 	color: lightgray;
 	position: relative;
 }
-@media screen and (max-width:415px) and (max-width:1024px){
+@media screen and (max-width:550px) and (max-width:1024px){
 	#showActivityWrapper{
 		position: absolute;
 		width: 90%;
@@ -432,7 +437,7 @@
 .fa-times-circle{
 	opacity: 0;
 }
-@media screen and (max-width:415px){
+@media screen and (max-width:550px){
 	#activityClose{
 		cursor: pointer;
 		z-index: 3;
@@ -445,7 +450,7 @@
 		transform: scale(2);
 	}
 }
-@media screen and (min-width:415px) and (max-width:1024px){
+@media screen and (min-width:550px) and (max-width:1024px){
 		
 }
 @media screen and (min-width:1024px){
@@ -512,13 +517,13 @@ a.convert{
 		display: none;
 	}
 }
-@media screen and (min-width:415px) and (max-width:1024px){
+@media screen and (min-width:550px) and (max-width:1024px){
 		
 }
 @media screen and (min-width:1024px){
 
 }
-@media screen and (min-width:415px) and (max-width:1240px){
+@media screen and (min-width:550px) and (max-width:1240px){
 	#source{
 		display: none;
 	}

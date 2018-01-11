@@ -99,7 +99,7 @@ button, #submit{
             </li>
         </ul>
         <h1 style="display: none">FutureAtlas_未來主題樂園</h1>
-        <a href="index.html#page1">
+        <a href="index.html#page1" class="logo_a">
             <img src="img/LOGO.png" class="logo">
         </a>
         <ul class="ul_right">
@@ -238,7 +238,15 @@ $(document).ready(function(){
         var addToCart = ff+"/"+ffn+"/"+hf+"/"+hfn;
         storage.setItem(fn,addToCart);
     });
-// 增加
+
+        // 原始購物車外觀
+        var facility_ticket_list = storage.getItem("facility_ticket_list");
+        var iniCart = Math.floor((facility_ticket_list.split("/").length-1)/2);
+        var aa = document.getElementById("cartimgid").src.substr(-5,1);
+        aa = iniCart;
+        document.getElementById("cartimgid").src = "img/cart/wallet_"+iniCart+".png";
+        document.getElementById("howmanytickets").innerHTML = facility_ticket_list.split("/").length-1;
+
     $(".f_submit").click(function(){
         var storage = localStorage;
         var facility_ticket_list = "";
@@ -250,7 +258,7 @@ $(document).ready(function(){
                 }storage.setItem("facility_ticket_list", facility_ticket_list);
             }
         }
-        // 原始購物車外觀
+        // 更新購物車外觀
         var newlevel = Math.floor((facility_ticket_list.split("/").length-1)/2);
         var aa = document.getElementById("cartimgid").src.substr(-5,1);
         aa = newlevel;
@@ -268,10 +276,7 @@ $(document).ready(function(){
                 }
             }
         }
-
     });
-    // 增加end
-
 });
 </script>
 </body>
