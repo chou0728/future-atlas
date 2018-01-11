@@ -540,7 +540,7 @@
   @media screen and (max-width:1024px) and (min-width:415px){
     .programone .spaceship {
       position: relative;
-      top:120px;
+      top:133px;
       left: -20%;
       width: 250px;
       height: 250px; 
@@ -816,7 +816,7 @@
     /*立即購買按鈕*/
     .buyticketBtn {
       position: absolute;
-      top:81.5%;
+      top:70.5%;
       left: 40%;
       font-size: 23px;
       margin: 0 auto;
@@ -828,7 +828,7 @@
     }
     @media screen and (max-width:1024px) and (min-width:415px){
       .buyticketBtn {
-        margin-top:400px;
+        margin-top:434px;
         /*position: absolute;
         top:100%;
         left:54%;*/
@@ -839,7 +839,7 @@
         /*top: 130%;
         left: 36%;*/ 
         font-size: 21px;
-        margin-top:274px;
+        margin-top:315px;
         margin-bottom:30px;
       } 
     }
