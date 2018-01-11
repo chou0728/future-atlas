@@ -89,3 +89,31 @@
 			window.addEventListener('load',iniCart);
 			window.addEventListener('load',navOpen);
 			window.addEventListener('resize',allNavClose);
+// 小nav
+$(document).ready(function(){
+	$(window).scroll(function(){
+		if($(document).scrollTop() > 180){
+			$(".nav").addClass("smallnav");
+			$(".lever").addClass("leverOnScroll");
+			$(".ul_top").addClass("ul_top_onScroll");
+		}else{
+			$(".nav").removeClass("smallnav");
+			$(".lever").removeClass("leverOnScroll");
+			$(".ul_top").removeClass("ul_top_onScroll");
+		}
+	});
+	$(".lever").click(function(){
+		$(".lever").removeClass("leverOnScroll");
+		$(".ul_top").removeClass("ul_top_onScroll");
+	})
+	$(".ul_top").click(function(){
+		$(".lever").addClass("leverOnScroll");
+		$(".ul_top").addClass("ul_top_onScroll");
+	})
+});
+$(document).ready(function(){
+	$("body").click(function(){
+		$(".lever").toggleClass("leverOnScroll");
+		$(".ul_top").toggleClass("ul_top_onScroll");
+	})
+});

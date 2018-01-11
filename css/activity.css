@@ -20,8 +20,8 @@ body{
 #scrollIcon{
   position: fixed;
   right: 10px;
-  top: 35%;
-  width: 60px;
+  top: 50vh;
+  width: 200px;
   height: 100px;
   text-align: center;
   vertical-align: top;

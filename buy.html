@@ -8,8 +8,9 @@
 <title>設施購票</title>
 <style type="text/css">
 body{
-    background-color: #333;
+    background-color: black;
     color: white;
+    height: 1000px;
 }
 *{
     /*border: 1px solid red;*/
@@ -27,13 +28,13 @@ button, #submit{
     margin-top: 200px;
 }
 /*NAV購物車*/
+
 .li_top{
-    vertical-align: top;
+    vertical-align: middle;
 }
-.li_top:nth-child(3) img{
-    width: 30px;
+.li_top img{
+    width: 25px;
     display: inline-block;
-    filter: brightness(5);
 }#showCartContent{
     width: 180px;
     text-align: center;
@@ -66,11 +67,18 @@ button, #submit{
 <body>
 <div class="header">
     <ul class="ul_top">
+        <div id="lever">
+            <img src="img/Usericon1.png">
+        </div>
         <li class="li_top">
-            <a href="SignUp.html" id="registerUser">註冊</a>
+            <a href="SignUp.html" id="registerUser">
+                <img src="img/member/member_0.png">
+            </a>
         </li>
         <li class="li_top">
-            <a href="#" id="singUpBtn">登入</a>
+            <a href="#" id="singUpBtn">
+                <img src="img/member/member_1.png">
+            </a>
         </li>
         <li class="li_top">
             <!-- 增加 -->
@@ -224,6 +232,7 @@ button, #submit{
 			<td colspan="3"><a href="input_cart.html"><input type="submit" id="submit" value="檢視購物車"></a></td>
 		</tr>
 </table>
+<script src="https://code.jquery.com/jquery-3.2.1.js"></script>
 <script src="js/00nav.js"></script>
 <script type="text/javascript">
 // 加入購物車
