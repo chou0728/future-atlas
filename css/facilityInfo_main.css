@@ -45,19 +45,18 @@ body::-webkit-scrollbar-thumb {
 /*============================*/
 @media screen and (min-width:415px) and (max-width:1024px){
 	.fi_wrapper .icon_subnav{
+		position: fixed;
 		width: 60%;
-		top:-3%;
+		top:80px;
 		left:50%;
 		transform: translateX(-50%);
+		z-index: -1;
 	}
 	.fi_wrapper .icon_subnav .i_info{
 		position: relative;
 		display: inline-block;
-		width: 12%;
-		margin: 0 3.5%;
-	}
-	.fi_wrapper .icon_subnav .i_info .i_box{
-		display: none;
+		width: 8%;
+		margin: 0 3.7%;
 	}
 }
 @media screen and (max-width:414px){
@@ -65,16 +64,18 @@ body::-webkit-scrollbar-thumb {
 		margin:100px auto 0 auto;
 	}
 	.fi_wrapper .icon_subnav{
+		position: fixed;
 		width: 80%;
-		top:-4%;
+		top:70px;
 		left:50%;
 		transform: translateX(-50%);
+		z-index: -1;
 	}
 	.fi_wrapper .icon_subnav .i_info{
 		position: relative;
 		display: inline-block;
-		width: 10%;
-		margin: 0 4.3%;
+		width: 8.5%;
+		margin: 0 3.2%;
 	}
 
 }
@@ -147,6 +148,9 @@ body::-webkit-scrollbar-thumb {
 /*============================*/
 
 @media screen and (max-width:1024px){
+	.fi_wrapper .icon_subnav .i_info:hover .i_box{
+		display: none;
+	}
 	.fi_wrapper .fi_panel .f_box{
 		width: 95%;
 		height: 120px;
@@ -184,6 +188,10 @@ body::-webkit-scrollbar-thumb {
 
 /*============================*/
 @media screen and (max-width:1024px){
+	.fi_wrapper .fi_panel{
+		background-color: black;
+		box-shadow: 0 -5px 2px rgba(0,0,0,0.5);
+	}
 	.fi_wrapper .fi_panel .f_box .bcover_border{
 		height: 120px;
 		-webkit-clip-path: polygon(5% 0%, 100% 0%, 95% 100%, 0% 100%);

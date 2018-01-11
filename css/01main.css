@@ -7,6 +7,95 @@
 			 animation: none !important;
 	}
 */
+/*-----氣球-----*/
+.balloon{
+	width: 40px;
+	height:48px;
+	bottom: 0px;
+	background: rgb(10,243,255);
+	border-radius: 80%;
+	position:absolute;
+	box-shadow: inset -3px -3px 0 rgba(0, 0, 0, 0.15);
+	z-index: 0;
+	animation: balloons 4s ease-in-out infinite;
+	transform-origin: bottom center;
+}
+.balloon:first-child{
+	left:30%;
+	bottom: -10%;
+	transition:9s ease;
+	transition-delay:.4s;
+}
+#ballonfly.balloon:first-child{
+	bottom: 110%;
+}
+.balloon:nth-child(2){
+	 left:45%;
+	 bottom: -10%;
+	 background:rgb(255,80,55);
+	 transition: 10s ease;
+	 transition-delay:.2s;
+}
+#ballonfly.balloon:nth-child(2){
+	bottom: 1500px;
+}
+.balloon:nth-child(3){
+	right:20%;
+	bottom: -10%;
+	transition: 7s ease;
+	transition-delay:1.5s;
+}
+#ballonfly.balloon:nth-child(3){
+	bottom: 115%;
+}
+.balloon:nth-child(4){
+	right:30%;
+	bottom: -10%;
+	transition: 9s ease;
+	transition-delay:1s;
+}
+#ballonfly.balloon:nth-child(4){
+	bottom: 115%;
+}
+@keyframes balloons {
+  0%,
+  100% {
+    transform: translateY(0) rotate(-4deg);
+  }
+  50% {
+    transform: translateY(-25px) rotate(4deg);
+  }
+}
+.balloon:before {
+  content: "▲";
+  font-size: 10px;
+  color:rgb(103,134,179);
+  display: block;
+  text-align: center;
+  width: 100%;
+  position: absolute;
+  bottom: -8px;
+  z-index:0;
+}
+.balloon:nth-child(2):before {
+  color: rgb(222,80,55);
+}
+.balloon:after {
+  top: 58px;
+  position: absolute;
+  height: 80px;
+  width: 1px;
+  margin: 0 auto;
+  content: "";
+  background: rgba(0, 0, 0, 0.2);
+}
+
+/*-----氣球-----*/	
+
+
+
+
+
 
 /*-----banner-----*/
 		.shipbox{
@@ -287,6 +376,7 @@
 }
 .silhouette .ed #entranceApear.entrance{
 	transform: translateY(0%);
+	z-index: 100;
 }
 
 
