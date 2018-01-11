@@ -5,7 +5,6 @@ body{
 }
 
 *{
-	/*border: 1px solid red;*/
 	margin: 0;
 	padding: 0;
 	font-family: Inconsolata, 微軟正黑體;
@@ -34,7 +33,6 @@ body{
 	padding-bottom: 5px;
 	border: none;
 	border-bottom: 1px solid azure;
-	/*border: 1px solid red;*/
 }
 
 #cartWrapper title{
@@ -88,8 +86,9 @@ body{
 	width: 14%;
 	min-width: 50px;
 }#subtotal_th{
-	width: 20%;
-	min-width: 50px;
+	width: 95%;
+	/*min-width: 50px;*/
+	/*width: 150px;*/
 }
 /*以上*/
 
@@ -137,6 +136,7 @@ body{
 	text-align: center;
 	width: 20px;
 	cursor: pointer;
+	width: 5%;
 }
 
 
