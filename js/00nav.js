@@ -77,19 +77,14 @@
 			// 原始購物車外觀
 			function iniCart(){
 				var storage = localStorage;
-				for( i = 1; i < 7; i++){
-	            if(storage.getItem(i) != null){
-	                if(storage.getItem(i).split("/")[1] != 0 || storage.getItem(i).split("/")[3] != 0){
-	                    facility_ticket_list += i+"/";
-	                }storage.setItem("facility_ticket_list", facility_ticket_list);
-	            }
-	        }
 				var facility_ticket_list = storage.getItem("facility_ticket_list");
-		        var iniCart = Math.floor((facility_ticket_list.split("/").length-1)/2);
-		        var aa = document.getElementById("cartimgid").src.substr(-5,1);
-		        aa = iniCart;
-		        document.getElementById("cartimgid").src = "img/cart/wallet_"+iniCart+".png";
-		        document.getElementById("howmanytickets").innerHTML = facility_ticket_list.split("/").length-1;
+				if(facility_ticket_list != null){
+		        	var iniCart = Math.floor((facility_ticket_list.split("/").length-1)/2);
+		        	var aa = document.getElementById("cartimgid").src.substr(-5,1);
+		        	aa = iniCart;
+			        document.getElementById("cartimgid").src = "img/cart/wallet_"+iniCart+".png";
+			        document.getElementById("howmanytickets").innerHTML = facility_ticket_list.split("/").length-1;
+		        }
 			}
 			window.addEventListener('load',iniCart);
 			window.addEventListener('load',navOpen);
