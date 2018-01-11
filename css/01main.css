@@ -23,7 +23,7 @@
 .balloon:first-child{
 	left:30%;
 	bottom: -10%;
-	transition:9s ease;
+	transition:8s ease;
 	transition-delay:.4s;
 }
 #ballonfly.balloon:first-child{
@@ -33,17 +33,18 @@
 	 left:45%;
 	 bottom: -10%;
 	 background:rgb(255,80,55);
-	 transition: 10s ease;
+	 transition: 9s ease;
 	 transition-delay:.2s;
 }
 #ballonfly.balloon:nth-child(2){
+	background:rgb(255,80,55);
 	bottom: 1500px;
 }
 .balloon:nth-child(3){
 	right:20%;
 	bottom: -10%;
-	transition: 7s ease;
-	transition-delay:1.5s;
+	transition: 6s ease;
+	transition-delay:0.3s;
 }
 #ballonfly.balloon:nth-child(3){
 	bottom: 115%;
@@ -51,11 +52,31 @@
 .balloon:nth-child(4){
 	right:30%;
 	bottom: -10%;
-	transition: 9s ease;
-	transition-delay:1s;
+	transition: 8s ease;
+	transition-delay:0.5s;
 }
 #ballonfly.balloon:nth-child(4){
 	bottom: 115%;
+}
+.balloon:nth-child(5){
+	right:35%;
+	bottom: -15%;
+	background:rgb(255,80,55);
+	transition: 7s ease;
+	transition-delay:0.2s;
+}
+#ballonfly.balloon:nth-child(5){
+	bottom: 115%;
+	background:rgb(255,80,55);
+}
+.balloon:nth-child(6){
+	right:60%;
+	bottom: -15%;
+	transition: 8s ease;
+	transition-delay:0.1s;
+}
+#ballonfly.balloon:nth-child(6){
+	bottom: 125%;
 }
 @keyframes balloons {
   0%,
@@ -87,7 +108,7 @@
   width: 1px;
   margin: 0 auto;
   content: "";
-  background: rgba(0, 0, 0, 0.2);
+  background: #808080;
 }
 
 /*-----氣球-----*/	
