@@ -111,7 +111,7 @@ header .nav .navList a:hover{
 	color:#111;
 	display:block;
 	float:left;
-	background-color:#ccc;
+	background-color:#999;
 	height:35px;
 	line-height:35px;
 	padding:0 20px;
@@ -121,21 +121,44 @@ header .nav .navList a:hover{
 	-moz-border-radius-topright: 6px;
 	position:relative;
 	font-family:"微軟正黑體";
+	z-index:8;
 }
-.b_sub_nav .b_sn_btn:first-child{
-	z-index:10;
+.b_sub_nav .b_sn_btn:nth-child(2){
+	z-index:7;
+}
+.b_sub_nav .b_sn_btn:nth-child(3){
+	z-index:6;
+}
+
+.b_sub_nav #active.b_sn_btn{
+	color:#111;
+	background-color:#ccc;
+	height:35px;
+	line-height:35px;
+	padding:0 20px;
+	box-shadow: 1px -2px 2px #333;
+	position:relative;
+	font-family:"微軟正黑體";
+	z-index:15;
+}
+.b_sub_nav #active.b_sn_btn:nth-child(2){
+	border-top-left-radius: 6px;
+	-webkit-border-top-left-radius: 6px;
+	-moz-border-radius-topleft: 6px;
+}
+.b_sub_nav #active.b_sn_btn:nth-child(3){
+	border-top-left-radius: 6px;
+	-webkit-border-top-left-radius: 6px;
+	-moz-border-radius-topleft: 6px;
 }
 .b_sub_nav .b_sn_btn:first-child~*{
 	margin-left:-5px;
-	background-color:#999;
 }
-.b_sub_nav .b_sn_btn:first-child~*:hover{
+.b_sub_nav .b_sn_btn:hover{
 	background-color:#bbb;
 }
-.b_sub_nav .b_sn_btn:nth-child(2){
-	z-index:9;
+.b_sub_nav .active:hover{
+	background-color:#ccc;
 }
-.b_sub_nav .b_sn_btn:nth-child(3){
-	z-index:8;
-}
+
 /*=================右邊區塊固定格式SUBNAVEND===================*/

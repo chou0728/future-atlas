@@ -30,12 +30,12 @@
                 <span class="spancover"></span>
             </li>
             <li class="navList">
-                <a href="">設施管理</a>
+                <a href="back_facilityM.html">設施管理</a>
                 <span class="listcover"></span>
                 <span class="spancover"></span>
             </li>
             <li class="navList">
-                 <a href="TheaterMang.html" style="color: black;">       劇場管理
+                 <a href="back_TheaterMang.html" style="color: black;">       劇場管理
                 </a>
                 <span class="listcover" style="width: 100%;background-color: rgba(90, 230, 219,0.9);"></span>
                 <span class="spancover"></span>
@@ -71,7 +71,7 @@
     <div class="back_wrapper_right">
         <div class="b_content">
             <div class="b_sub_nav">
-                <a href="javascript:void(0)" class="b_sn_btn" onclick="openCity(event,'TheaterMang')" id="defaultOpen">劇場節目</a>
+                <a href="javascript:void(0)" class="b_sn_btn" onclick="openCity(event,'TheaterMang')" id="active">劇場節目</a>
                 <a href="javascript:void(0)" class="b_sn_btn" onclick="openCity(event,'theater_session_List')">劇場場次清單</a>
                 <a href="javascript:void(0)" class="b_sn_btn" onclick="openCity(event,'theater_order_List')">劇場票劵訂單</a>
             </div>
@@ -266,21 +266,25 @@
     </div> -->
     <script>
         function openCity (evt,list) {
-            var i, tabcontent, tablinks;
+
+            var i, tabcontent, b_sn_btn;
             tabcontent = document.getElementsByClassName("tabcontent");
             for (i = 0; i < tabcontent.length; i++) {
                 tabcontent[i].style.display = "none";
             }
-            tablinks = document.getElementsByClassName("tablinks");
-            for (i = 0; i < tablinks.length; i++) {
-                tablinks[i].className = tablinks[i].className.replace(" active", "");
+            b_sn_btn = document.getElementsByClassName("b_sn_btn");
+            for (i = 0; i < b_sn_btn.length; i++) {
+                b_sn_btn[i].className = b_sn_btn[i].className.replace(" active", "");
+                b_sn_btn[i].setAttribute("id","");
             }
             document.getElementById(list).style.display = "block";
             evt.currentTarget.className += " active";
+
+            evt.currentTarget.setAttribute("id","active");
         }
 
         // Get the element with id="defaultOpen" and click on it
-        document.getElementById("defaultOpen").click();
+        document.getElementById("active").click();
     </script>
 </body>
 </html>
