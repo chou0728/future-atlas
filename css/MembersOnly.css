@@ -1,6 +1,6 @@
-*{
+/* *{
     outline: 1px solid red;
-}
+} */
 body{
     background-color: #000;
 }
@@ -28,113 +28,99 @@ body{
 
 
 /*img*/
-/* 左邊三欄 */
-.MembersBox .content .left_wrapper{
-    float: left;
-    width: 50%;
-    
+.MembersBox .content .wrapper{
+    width: 100%;
+    padding-top: 100px;
 }
-.MembersBox .content .left_wrapper .nameBox{
-    position: relative;
-    
+.MembersBox .content .wrapper .nameBox{ 
+    margin: 0 30%;
+    position: relative; 
+    margin-bottom: 100px;
+    width: 200px;
+    height: 200px;
 }
-/* 左邊三欄文字*/
-.MembersBox .content .left_wrapper p{
-    font-size: 25px;
+/* 黃色框線 */
+.MembersBox .content .wrapper .nameBox .place{ 
+    width: 70%;
+    border-radius: 50%;
+    line-height: 140px;
+    border: 1px solid yellow;
+}
+/*右邊內容*/
+.MembersBox .content .wrapper .nameBox .nameBox_value{
+    width: 100%;
+}
+.MembersBox .content .wrapper .nameBox .nameBox_value_place{ 
+    position: absolute;
+    z-index: -3;
+    line-height: 100px;
+    text-align: center;
+    height: 100px;
+    width: 310px;
+    border: 1px solid rgb(91, 200, 228);
+    background-color: rgba(58, 58, 58 , 0.8);
+    top: 20px;
+    right: -250px;
+}
+.MembersBox .content .wrapper .nameBox img{ 
+    z-index: -2;
+    position: absolute;
+    top: -55px;
+    left: -40px;
+    /* float: left; */
+    width: 100%;
+}
+.MembersBox .content .wrapper p{
+    
+    margin: 0;
+    font-size: 20px;
     color: rgb(255, 254, 254);
 }
-
-
-
-
-
-/* 右邊三欄 */
-.MembersBox .content .right_wrapper{
-    float: left;
-    width: 50%;
-}
-.MembersBox .content .right_wrapper .points{
-    position: relative;
-}
-/* 右邊三欄文字 */
-.MembersBox .content .right_wrapper p{
-    font-size: 25px;
-    color: rgb(255, 254, 254);
-}
-
-
-
 
 
 
 /* 左邊圖片 */
-.MembersBox .content .left_wrapper img{
+/* .MembersBox .content .wrapper img{
     box-sizing: border-box;
-    padding: 10px;
-    width: 100%;
-}
-/* 右邊圖片 */
-.MembersBox .content .right_wrapper img{
-    box-sizing: border-box;
-    padding: 10px;
-    width: 100%;
-}
+    padding: 5px;
+    width: 20%;
+} */
 
 
 
-
-
-
-
-
-
-
-
-/*平板尺寸*/
-@media screen and (min-width:415px) and (max-width:1024px){
-    
-}
-/*手機尺寸*/
-@media screen and (max-width:414px){
-    .MembersBox .content .left_wrapper{
-        float: none;
-        width: 100%;
-    }
-    .MembersBox .content .right_wrapper{
-        float: none;
-        width: 100%;
-    }
-    .MembersBox .content .left_wrapper img{
-        box-sizing: border-box;
-        padding: 5px;
-        width: 100%;
-    }
-    .MembersBox .content .right_wrapper img{
-        box-sizing: border-box;
-        padding: 5px;
-        width: 100%;
-    }
-    
-
-}
-
-
-
-/* .MembersBox .content th{
-    color:rgb(224, 224, 224);
-}
-.MembersBox .content td{
-    color:rgb(224, 224, 224);
-}
+/*RWD才出現*/
 .MembersBox .content table{
-    width: 100%;
+    border: 1px solid rgb(91, 200, 228);
+    display: none;
     text-align: center;
     margin: 0 auto;
 }
-@media screen and (max-width: 767px) {
-
 .MembersBox .content{
-    max-width: 100%;
+    color:rgb(224, 224, 224);
+}
+.MembersBox .content table th{
+    color:rgb(224, 224, 224);
+    border: 1px solid rgb(91, 200, 228);
+}
+.MembersBox .content table td{
+    color:rgb(224, 224, 224);
+    border: 1px solid rgb(91, 200, 228);
+}
+
+@media screen and (min-width:415px) and (max-width:1024px){
+    
+}
+/*右邊手機尺寸*/
+@media screen and (max-width:414px){
+    .MembersBox .content .wrapper{
+        padding-top: 0;
+    }
+    .MembersBox .content .wrapper .nameBox{
+        display: none;
     }
 
-} */
+    .MembersBox .content table{
+        display: block;
+        width: 100%;
+    }
+}
