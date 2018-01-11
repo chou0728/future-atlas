@@ -366,30 +366,6 @@
         margin: 50px; 
         color:white;
       }
-      .info .infoimg{
-        width:100%; 
-      }
-      .info .infoimg img{
-        width: 100%;
-      }
-      .info h2{
-        font-size: 24px;
-        color: #fff;
-        text-align: center;
-      }
-      .info p {
-        width: 363px;
-        color: #5AE6DB;
-        text-align: left;
-        padding: 10px 10px;
-        line-height:1.5;
-        letter-spacing: 2px; 
-      }
-      @media screen and (max-width: 414px){
-        .info p {
-          padding: 1px 10px;
-        }
-      }
       @media screen and (min-width: 415px) and (max-width: 1024px) {
           .wrapper .content .info {
             width: 90%;
@@ -402,6 +378,43 @@
             margin: 50px auto; 
           } 
       }
+      .info .infoimg{
+        width:100%; 
+      }
+      .info .infoTextintro{
+      	width:100%;
+      	color:#5AE6DB;
+      	/*background-color:#555; */
+      	border:1px solid #555;
+        text-align: left;
+        padding: 10px 10px;
+      	line-height:1.5;
+        letter-spacing: 2px; 
+      }
+      .info .infoimg img{
+        width: 100%;
+      }
+      .info h2{
+        font-size: 24px;
+        padding-top:2%;
+        color: #fff;
+        text-align: center;
+      }
+      .info .infotime {
+        width:100%;
+        color: #5AE6DB;
+        text-align: left;
+        padding: 10px 10px;
+        line-height:1.5;
+        letter-spacing: 2px; 
+        border-bottom:1px solid #555; 
+      }
+      @media screen and (max-width: 414px){
+        .info .infotime{
+          padding: 1px 10px;
+        }
+      }
+      
       
       /*立即購買按鈕*/
       .info .buyticket {
