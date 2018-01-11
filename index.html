@@ -62,9 +62,7 @@
             </a>
         </li>
         <li class="li_top">
-            <a href="#" id="singUpBtn">
-                <img src="img/member/member_1.png" alt="登入icon" title="登入">
-            </a>
+            <a href="#" id="singUpBtn"><img src='img/member/member_1.png' alt='登入icon' title='登入'></a>
         </li>
         <li class="li_top">
             <!-- 增加 -->
@@ -1112,6 +1110,7 @@
 
 			//-登入-----------------------------------
 			window.onload = function () {
+
 				/*註冊登入按鈕*/
 				var singUpBtn = document.getElementById('singUpBtn');
 
@@ -1133,7 +1132,7 @@
 				/*點案登入show出登入燈箱 以及判斷登出按鈕*/
 				function showLogin() {
 					/*如果singUpBtn為登入時*/
-					if(document.getElementById("singUpBtn").innerHTML == "登入"){
+					if(document.getElementById("singUpBtn").innerHTML == '<img src="img/member/member_1.png" alt="登入icon" title="登入">'){
 						/*show出燈箱*/
 						lightBox.style.opacity = 1;
 						lightBox.style.visibility = 'visible'
@@ -1143,7 +1142,7 @@
 					/*其他(登出)將其餘文字變更*/
 					}else{
 						closeLogin();
-						document.getElementById("singUpBtn").innerHTML = "登入";
+						document.getElementById("singUpBtn").innerHTML = '<img src="img/member/member_2.png" alt="登出icon" title="登出">';
 						document.getElementById("registerUser").innerHTML = "註冊";
 						document.getElementById("registerUser").href = "SignUp.html";
 
@@ -1187,7 +1186,7 @@
 						lightBox.style.display = "none";
 
 						/*帳號密碼正確登入文字變成登出*/
-						document.getElementById("singUpBtn").innerHTML = "登出";
+						document.getElementById("singUpBtn").innerHTML = '<img src="img/member/member_2.png" alt="登出icon" title="登出">';
 
 						/*registerUser原本是"註冊" 變更為"我的資料"*/
 						document.getElementById("registerUser").innerHTML = "我的資料";
