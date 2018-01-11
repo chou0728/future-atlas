@@ -71,11 +71,12 @@ $(document).ready(function(){
 		var Vtoday = (todayYear+"-"+todayMonth+"-"+(print+i)).toString();
 		// 尋找星生命
 		if( today != "Mon" && today != "Tue" && today != "Thu" && today != "Sat"){
-			$("select#theater1").append("<option value="+Vtoday+" >"+new Date(todayYear+"-"+todayMonth+"-"+(print+i)).toString().substr(4,6)+"　"+"</option>");
+			$("select#theater1").append("<option value="+Vtoday+" >"+todayYear+"-"+todayMonth+"-"+(print+i)+"</option>");
+			// $("select#theater1").append("<option value="+Vtoday+" >"+new Date(todayYear+"-"+todayMonth+"-"+(print+i)).toString().substr(4,6)+"　"+"</option>");
 		}
 		// 末世決戰
 		if( today != "Sun" && today != "Mon" && today != "Wed" && today != "Thu" && today != "Fri"){
-			$("select#theater2").append("<option value="+Vtoday+" >"+new Date(todayYear+"-"+todayMonth+"-"+(print+i)).toString().substr(4,6)+" "+"</option>");
+			$("select#theater2").append("<option value="+Vtoday+" >"+todayYear+"-"+todayMonth+"-"+(print+i)+"</option>");
 		}
 	}
 });							 																														  																													 
