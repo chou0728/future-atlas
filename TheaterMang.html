@@ -13,16 +13,10 @@
             border:1px solid black;
             margin:30px auto ;
             font-size: 16px;
-            margin-left:23.7%;
+            /*margin-left:23.7%;*/
             border-collapse: collapse ;
-
+            
         }
-        /*.TheaterSessionListTable{
-            margin-left:30%;
-        }*/
-        /*.TheaterOrderListTable{
-            margin-left:28.5%;
-        }*/
         .Newprogram{
             /*text-align: right;*/
         }
@@ -116,181 +110,217 @@
             <a href="javascript:void(0)">登出</a>
     </div>
 <!-- ===NAV結束=========================================================================== -->
+    <!-- ===右邊區塊固定格式=============================================================== -->
+    <div class="back_wrapper_right">
+        <div class="b_content">
+            <div class="b_sub_nav">
+                <a href="javascript:void(0)" class="b_sn_btn" onclick="openCity(event,'TheaterMang')" id="defaultOpen">劇場節目</a>
+                <a href="javascript:void(0)" class="b_sn_btn" onclick="openCity(event,'theater_session_List')">劇場場次清單</a>
+                <a href="javascript:void(0)" class="b_sn_btn" onclick="openCity(event,'theater_order_List')">劇場票劵訂單</a>
+            </div>
+            <div id="TheaterMang" class="tabcontent">
+                <!-- 劇場節目 -->
+                <span onclick="this.parentElement.style.display='none'" class="topright"></span>
+                <form method="get" action="" align="center" enctype="multipart/form-data">
+                    <h2 class="titleh2">劇場節目</h2>
+                    <table>
+                        <button onclick="Newprogram"  class="Newprogram">新增</button>
+                        <tr>
+                            <th>節目編號</th>
+                            <th>節目名稱</th>
+                            <th>節目介紹</th>
+                            <th>節目圖片</th>
+                            <th>票價</th>
+                            <th>節目狀態</th>
+                            <th>修改</th> 
+                        </tr>
+                        
+                        <tr>
+                            <td></td>
+                            <td><input type="text" name="progressName" size="10"></td>
+                            <td><input type="text" name="progressInfo"></td>
+                            <td>
+                                <input type="file" name="upFile"  multiple>
+                            </td>
+                            <td><input type="int" name="progressPricde" size="3"></td>
+                            <td>
+                                <select name="programstatus">
+                                　<option value="On">上架</option>
+                                　<option value="Off">下架</option>
+                                </select>
+                            </td>
+                            <td>
+                                <!-- <a href="#">新增</a> -->
+                                <a href="#">修改</a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td><input type="text" name="progressName" size="10"></td>
+                            <td><input type="text" name="progressInfo"></td>
+                            <td>
+                                <input type="file" name="upFile"  multiple>
+                            </td>
+                            <td><input type="int" name="progressPricde" size="3"></td>
+                            <td>
+                                <select name="programstatus">
+                                　<option value="On">上架</option>
+                                　<option value="Off">下架</option>
+                                </select>
+                            </td>
+                            <td>
+                                <!-- <a href="#">新增</a> -->
+                                <a href="#">修改</a>
+                            </td>
+                        </tr>
+                    </table>
+                    <div class="okcancel">
+                        <button class="OKbtn">
+                            儲存
+                        </button>
+                        <button class="cancelbtn">
+                            取消
+                        </button>
+                    </div>
+                </form>
+            </div>
+            <div id="theater_session_List" class="tabcontent">
+                <span onclick="this.parentElement.style.display='none'" class="topright"></span>
+                <!-- 劇場場次清單 -->
+                <form method="get" action="" align="center" enctype="multipart/form-data">
+                    <h2 class="titleh2">劇場場次清單</h2>
+                    <table class="TheaterSessionListTable">
+                       <!--  <button onclick="searchSession"  class="searchSession">查詢</button> -->
+                       <select name="月份">
+                        　<option value="1月">1月</option>
+                        　<option value="2月">2月</option>
+                        　<option value="3月">3月</option>
+                        　<option value="4月">4月</option>
+                        </select>
+                        <tr>
+                            <th>場次編號</th>
+                            <th>節目編號</th>
+                            <th>場次時間</th>
+                            <th>演出日期</th>
+                            <th>總票數</th>
+                            <th>剩餘票數</th>
+                            <th>修改</th>
+                        </tr>
+                        
+                        <tr>
+                            <td></td>
+                            <td><input type="text" name="program_no" size="5"></td>
+                            <td><input type="text" name="session_time" size="10"></td>
+                            <td><input type="int" name="time_ date" size="10"></td>
+                            <td><input type="int" name="total_ticket" size="10"></td>
+                            <td><input type="int" name="last _ ticket" size="10"></td>
+                            <td>
+                                <!-- <a href="#">新增</a> -->
+                                <a href="#">修改</a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td><input type="text" name="program_no" size="5"></td>
+                            <td><input type="text" name="session_time" size="10"></td>
+                            <td><input type="int" name="time_ date" size="10"></td>
+                            <td><input type="int" name="total_ticket" size="10"></td>
+                            <td><input type="int" name="last _ ticket" size="10"></td>
+                            <td>
+                                <!-- <a href="#">新增</a> -->
+                                <a href="#">修改</a>
+                            </td>
+                        </tr>
+                    </table>
+                    <!-- <div class="okcancel">
+                        <button class="OKbtn">
+                            儲存
+                        </button>
+                        <button class="cancelbtn">
+                            取消
+                        </button>
+                    </div> -->
+                </form> 
+            </div>
+            <div id="theater_order_List" class="tabcontent">
+                <!-- 劇場票劵訂單 -->
+                <span onclick="this.parentElement.style.display='none'" class="topright"></span>
+                <form method="get" action="" align="center" enctype="multipart/form-data">
+                    <h2 class="titleh2">劇場票劵訂單</h2>
+                    <table class="TheaterOrderListTable">
+                        訂單編號:<input type="text" name="">
+                            <button onclick="searchOrderList"  class="searchOrderList">查詢</button>
+                        <tr>
+                            <th>訂單編號</th>
+                            <th>場次編號</th>
+                            <th>會員ID</th>
+                            <th>購買張數</th>
+                            <th>已使用張數</th>
+                            <th>訂購日期</th>
+                            <th>原始總額</th>
+                            <th>積分折扣</th>
+                            <th>信用卡卡號</th>
+                        </tr>
+                        
+                        <tr>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        
+                    </table>
+                   <!--  <div class="okcancel">
+                        <button class="OKbtn">
+                            儲存
+                        </button>
+                        <button class="cancelbtn">
+                            取消
+                        </button>
+                    </div> -->
+                </form> 
+            </div>
+        </div>
+    </div>
     <!-- 三個表格按鈕 -->
-    <div class="treebtn">
+   <!--  <div class="treebtn">
         <a href="">劇場節目</a>
         <a href="">劇場場次清單</a>
         <a href="">劇場票劵訂單</a>
-    </div>
+    </div> -->
+    <script>
+        function openCity (evt,list) {
+            var i, tabcontent, tablinks;
+            tabcontent = document.getElementsByClassName("tabcontent");
+            for (i = 0; i < tabcontent.length; i++) {
+                tabcontent[i].style.display = "none";
+            }
+            tablinks = document.getElementsByClassName("tablinks");
+            for (i = 0; i < tablinks.length; i++) {
+                tablinks[i].className = tablinks[i].className.replace(" active", "");
+            }
+            document.getElementById(list).style.display = "block";
+            evt.currentTarget.className += " active";
+        }
 
-    <!-- 劇場節目 -->
-    <form method="get" action="" align="center" enctype="multipart/form-data">
-        <h2 class="titleh2">劇場節目</h2>
-    	<table>
-            <button onclick="Newprogram"  class="Newprogram">新增</button>
-            <tr>
-                <th>節目編號</th>
-                <th>節目名稱</th>
-                <th>節目介紹</th>
-                <th>節目圖片</th>
-                <th>票價</th>
-                <th>節目狀態</th>
-                <th>修改</th> 
-            </tr>
-    		
-    		<tr>
-    			<td></td>
-    			<td><input type="text" name="progressName" size="10"></td>
-    			<td><input type="text" name="progressInfo"></td>
-    			<td>
-                    <input type="file" name="upFile"  multiple>
-                </td>
-    			<td><input type="int" name="progressPricde" size="3"></td>
-    			<td>
-                    <select name="programstatus">
-                    　<option value="On">上架</option>
-                    　<option value="Off">下架</option>
-                    </select>
-                </td>
-    			<td>
-                    <!-- <a href="#">新增</a> -->
-                    <a href="#">修改</a>
-                </td>
-    		</tr>
-            <tr>
-                <td></td>
-                <td><input type="text" name="progressName" size="10"></td>
-                <td><input type="text" name="progressInfo"></td>
-                <td>
-                    <input type="file" name="upFile"  multiple>
-                </td>
-                <td><input type="int" name="progressPricde" size="3"></td>
-                <td>
-                    <select name="programstatus">
-                    　<option value="On">上架</option>
-                    　<option value="Off">下架</option>
-                    </select>
-                </td>
-                <td>
-                    <!-- <a href="#">新增</a> -->
-                    <a href="#">修改</a>
-                </td>
-            </tr>
-    	</table>
-        <div class="okcancel">
-            <button class="OKbtn">
-                儲存
-            </button>
-            <button class="cancelbtn">
-                取消
-            </button>
-        </div>
-    </form>
-    <!-- 劇場場次清單 -->
-    <form method="get" action="" align="center" enctype="multipart/form-data">
-        <h2 class="titleh2">劇場場次清單</h2>
-        <table class="TheaterSessionListTable">
-           <!--  <button onclick="searchSession"  class="searchSession">查詢</button> -->
-           <select name="月份">
-            　<option value="1月">1月</option>
-            　<option value="2月">2月</option>
-            　<option value="3月">3月</option>
-            　<option value="4月">4月</option>
-            </select>
-            <tr>
-                <th>場次編號</th>
-                <th>節目編號</th>
-                <th>場次時間</th>
-                <th>演出日期</th>
-                <th>總票數</th>
-                <th>剩餘票數</th>
-                <th>修改</th>
-            </tr>
-            
-            <tr>
-                <td></td>
-                <td><input type="text" name="program_no" size="5"></td>
-                <td><input type="text" name="session_time" size="10"></td>
-                <td><input type="int" name="time_ date" size="10"></td>
-                <td><input type="int" name="total_ticket" size="10"></td>
-                <td><input type="int" name="last _ ticket" size="10"></td>
-                <td>
-                    <!-- <a href="#">新增</a> -->
-                    <a href="#">修改</a>
-                </td>
-            </tr>
-            <tr>
-                <td></td>
-                <td><input type="text" name="program_no" size="5"></td>
-                <td><input type="text" name="session_time" size="10"></td>
-                <td><input type="int" name="time_ date" size="10"></td>
-                <td><input type="int" name="total_ticket" size="10"></td>
-                <td><input type="int" name="last _ ticket" size="10"></td>
-                <td>
-                    <!-- <a href="#">新增</a> -->
-                    <a href="#">修改</a>
-                </td>
-            </tr>
-        </table>
-        <!-- <div class="okcancel">
-            <button class="OKbtn">
-                儲存
-            </button>
-            <button class="cancelbtn">
-                取消
-            </button>
-        </div> -->
-    </form>
-    <!-- 劇場票劵訂單 -->
-    <form method="get" action="" align="center" enctype="multipart/form-data">
-        <h2 class="titleh2">劇場票劵訂單</h2>
-        <table class="TheaterOrderListTable">
-            訂單編號:<input type="text" name="">
-                <button onclick="searchOrderList"  class="searchOrderList">查詢</button>
-            <tr>
-                <th>訂單編號</th>
-                <th>場次編號</th>
-                <th>會員ID</th>
-                <th>購買張數</th>
-                <th>已使用張數</th>
-                <th>訂購日期</th>
-                <th>原始總額</th>
-                <th>積分折扣</th>
-                <th>信用卡卡號</th>
-            </tr>
-            
-            <tr>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-            </tr>
-            <tr>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-            </tr>
-            
-        </table>
-       <!--  <div class="okcancel">
-            <button class="OKbtn">
-                儲存
-            </button>
-            <button class="cancelbtn">
-                取消
-            </button>
-        </div> -->
-    </form>
+        // Get the element with id="defaultOpen" and click on it
+        document.getElementById("defaultOpen").click();
+    </script>
 </body>
 </html>
