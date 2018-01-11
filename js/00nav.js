@@ -102,18 +102,12 @@ $(document).ready(function(){
 			$(".ul_top").removeClass("ul_top_onScroll");
 		}
 	});
-	$(".lever").click(function(){
+	$(".lever").mouseover(function(){
 		$(".lever").removeClass("leverOnScroll");
 		$(".ul_top").removeClass("ul_top_onScroll");
 	})
-	$(".ul_top").click(function(){
-		$(".lever").addClass("leverOnScroll");
-		$(".ul_top").addClass("ul_top_onScroll");
-	})
-});
-$(document).ready(function(){
-	$("body").click(function(){
-		$(".lever").toggleClass("leverOnScroll");
-		$(".ul_top").toggleClass("ul_top_onScroll");
-	})
+	// $(".ul_top").mouseover(function(){
+	// 	$(".lever").addClass("leverOnScroll");
+	// 	$(".ul_top").addClass("ul_top_onScroll");
+	// })
 });

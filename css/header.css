@@ -205,7 +205,7 @@
 	position: fixed;
 	top:0;
 	height: 3%;
-	z-index: 9999;
+	z-index: 100;
 }
 .header .ul_top{
 	padding: 20px 30px 0 20px;
