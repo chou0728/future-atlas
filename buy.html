@@ -11,6 +11,10 @@ body{
     background-color: #333;
     color: white;
 }
+*{
+    /*border: 1px solid red;*/
+    box-sizing: border-box;
+}
 button, #submit{
 	width: 100%;
 	height: 30px;
@@ -22,18 +26,41 @@ button, #submit{
 }table{
     margin-top: 200px;
 }
-/*增加*/
+/*NAV購物車*/
+.li_top{
+    vertical-align: top;
+}
 .li_top:nth-child(3) img{
     width: 30px;
     display: inline-block;
     filter: brightness(5);
+}#showCartContent{
+    width: 180px;
+    text-align: center;
+    display: none;
+    position: absolute;
+    top: 50px;
+    right: 0;
+}.li_top:nth-child(3){
+    position: relative;
+}
+.li_top:nth-child(3):hover #showCartContent{
+    display: block;
 }
 #howmanytickets{
     font-size: 24px;
     color: #5AE6DB;
     display: inline-block;
+}#showCartContenttb{
+    text-align: left;
+    width: 180px;
+    /*height: 250px;*/
+    position: absolute;
+    top: -180px;
+    right: 0;
+    border: 1px solid white;
 }
-/*增加end*/
+/*NAV購物車end*/
 </style>
 </head>
 <body>
@@ -51,6 +78,9 @@ button, #submit{
                 <span id="howmanytickets">0</span>
                 <img id="cartimgid" src="img/cart/wallet_0.png">
             </a>
+                <div id="showCartContent">購物車內容
+                    <table id="showCartContenttb"></table>
+                </div>
             <!-- 增加end -->
         </li>
     </ul>
@@ -69,7 +99,7 @@ button, #submit{
             </li>
         </ul>
         <h1 style="display: none">FutureAtlas_未來主題樂園</h1>
-        <a href="index.html#page1">
+        <a href="index.html#page1" class="logo_a">
             <img src="img/LOGO.png" class="logo">
         </a>
         <ul class="ul_right">
@@ -208,7 +238,15 @@ $(document).ready(function(){
         var addToCart = ff+"/"+ffn+"/"+hf+"/"+hfn;
         storage.setItem(fn,addToCart);
     });
-// 增加
+
+        // 原始購物車外觀
+        var facility_ticket_list = storage.getItem("facility_ticket_list");
+        var iniCart = Math.floor((facility_ticket_list.split("/").length-1)/2);
+        var aa = document.getElementById("cartimgid").src.substr(-5,1);
+        aa = iniCart;
+        document.getElementById("cartimgid").src = "img/cart/wallet_"+iniCart+".png";
+        document.getElementById("howmanytickets").innerHTML = facility_ticket_list.split("/").length-1;
+
     $(".f_submit").click(function(){
         var storage = localStorage;
         var facility_ticket_list = "";
@@ -220,16 +258,25 @@ $(document).ready(function(){
                 }storage.setItem("facility_ticket_list", facility_ticket_list);
             }
         }
-
+        // 更新購物車外觀
         var newlevel = Math.floor((facility_ticket_list.split("/").length-1)/2);
         var aa = document.getElementById("cartimgid").src.substr(-5,1);
-        // console.log(aa,newlevel);
         aa = newlevel;
         document.getElementById("cartimgid").src = "img/cart/wallet_"+aa+".png";
         document.getElementById("howmanytickets").innerHTML = facility_ticket_list.split("/").length-1;
         
+        // 更新購物車預覽
+            $("#showCartContenttb").empty();
+            for(var i = 1; i < 7; i++){
+                if(storage.getItem(i) != null){
+                    var fn = storage.getItem(i).split("/")[1];
+                    var hn = storage.getItem(i).split("/")[3];
+                    if(fn != 0 || hn != 0){
+                    $("#showCartContenttb").append("<tr><td>設施"+i+"全票"+fn+"張 半票"+hn+"張</td></tr>");                    
+                }
+            }
+        }
     });
-    // 增加end
 });
 </script>
 </body>

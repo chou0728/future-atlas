@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>table_auto_numbering</title>
+</head>
+<body>
+    <!-- 自動編號 -->
+    <script>
+        var tables = document.getElementsByTagName('table');
+        for (var a=0; a<tables.length;a++){
+          var rows= tables[a].rows;  
+            for(var i = 1, td; i < rows.length; i++){
+                td = document.createElement('td');
+                td.appendChild(document.createTextNode(i));
+                rows[i].insertBefore(td, rows[i].firstChild);
+            }
+        }
+        
+    </script>
+</body>
+</html>

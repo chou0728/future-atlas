@@ -130,6 +130,7 @@
     @media screen and (max-width: 414px){
       .buyTTicketBtn{
         width: 80%;
+        font-size: 21px;
       }
     }
     .buyTTicketBtn .Previouspage {
