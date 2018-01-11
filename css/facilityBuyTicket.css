@@ -302,3 +302,45 @@ body::-webkit-scrollbar-thumb {
   height: 120%;
   border: 2px solid rgba(255, 193, 22,0.8);
 }
+
+/*=========燈箱==============================*/
+#fullBlack{
+    position: fixed;
+    top:0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: repeating-linear-gradient(transparent 0px, transparent 1px,transparent 1px, transparent 3px,rgba(0,0, 0,0.5) 3px, rgba(0, 0, 0,0.8) 4px);
+    background-color: rgba(0,0,0,0.5);
+    display: none;
+}
+.confirmLightbox{
+  width: 450px;
+  height: 250px;
+  border: 2px solid rgba(55,255,243,0.8);
+  box-shadow: 0 0 1px rgba(55,255,243,0.8),0 0 3px rgba(55,255,243,0.5),0 0 5px rgba(55,255,243,0.3);
+  background-color: black;
+  position: fixed;
+  top:50%;
+  left: 50%;
+  padding: 15px;
+  transform: translate(-50%,-50%);
+  text-align: center;
+
+}
+
+.confirmLightbox .content{
+  padding: 20% 10%;
+  height: 85%;
+
+}
+.confirmLightbox a{
+  margin: 0 30px;
+  letter-spacing: 2px;
+  padding: 5px 20px;
+  background-color: black;
+  color: rgb(55,255,243);
+  border: 1px solid rgba(55,255,243,0.8);
+  box-shadow: 0 0 1px rgba(55,255,243,0.8),0 0 3px rgba(55,255,243,0.5),0 0 5px rgba(55,255,243,0.3);
+}
+/*=========燈箱END==============================*/
