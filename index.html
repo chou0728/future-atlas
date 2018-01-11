@@ -57,14 +57,12 @@
             <img src="img/Usericon1.png">
         </div>
         <li class="li_top">
-            <a href="SignUp.html" id="registerUser" alt="註冊icon" title="註冊">
-                <img src="img/member/member_0.png">
+            <a href="SignUp.html" id="registerUser">
+                <img src="img/member/member_0.png" alt="註冊icon" title="註冊">
             </a>
         </li>
         <li class="li_top">
-            <a href="#" id="singUpBtn">
-                <img src="img/member/member_1.png" alt="登入icon" title="登入">
-            </a>
+            <a href="#" id="singUpBtn"><img src='img/member/member_1.png' alt='登入icon' title='登入'></a>
         </li>
         <li class="li_top">
             <!-- 增加 -->
@@ -93,12 +91,12 @@
             </li>
         </ul>
         <h1 style="display: none">FutureAtlas_未來主題樂園</h1>
-        <a href="index.html#page1" class="logo_a">
+        <a href="#page1" class="logo_a">
             <img src="img/LOGO.png" class="logo">
         </a>
         <ul class="ul_right">
             <li>
-                <a href="index.html#page2">園區地圖</a>
+                <a href="#page2">園區地圖</a>
             </li>
             <li>
                 <a href="activity.html">活動月曆</a>
@@ -1112,6 +1110,7 @@
 
 			//-登入-----------------------------------
 			window.onload = function () {
+
 				/*註冊登入按鈕*/
 				var singUpBtn = document.getElementById('singUpBtn');
 
@@ -1133,18 +1132,21 @@
 				/*點案登入show出登入燈箱 以及判斷登出按鈕*/
 				function showLogin() {
 					/*如果singUpBtn為登入時*/
-					if(document.getElementById("singUpBtn").innerHTML == "登入"){
+					fullCover = document.getElementById('all-page');/*叫出燈箱時的墊背*/
+					if(document.getElementById("singUpBtn").innerHTML == '<img src="img/member/member_1.png" alt="登入icon" title="登入">'){
 						/*show出燈箱*/
 						lightBox.style.opacity = 1;
+						fullCover.style.display="block";
 						lightBox.style.visibility = 'visible'
 						lightBox.style.display = "block";
+						bannerMousewheelClose();
 						allNavClose();
 
 					/*其他(登出)將其餘文字變更*/
 					}else{
 						closeLogin();
-						document.getElementById("singUpBtn").innerHTML = "登入";
-						document.getElementById("registerUser").innerHTML = "註冊";
+						document.getElementById("singUpBtn").innerHTML = '<img src="img/member/member_1.png" alt="登入icon" title="登入">';
+						document.getElementById("registerUser").innerHTML = '<img src="img/member/member_0.png" alt="註冊icon" title="註冊">';
 						document.getElementById("registerUser").href = "SignUp.html";
 
 					}
@@ -1157,6 +1159,7 @@
 				function closeLogin() {
 					lightBox.style.opacity = 0;
 					lightBox.style.visibility = 'hidden';
+					fullCover.style.display="";
 				}
 				/*註冊登入點擊事件*/
 				var submit = document.getElementById("submit");
@@ -1185,9 +1188,10 @@
 
 						/*若是帳號密碼正確lightBox消失*/
 						lightBox.style.display = "none";
+						fullCover.style.display="";
 
 						/*帳號密碼正確登入文字變成登出*/
-						document.getElementById("singUpBtn").innerHTML = "登出";
+						document.getElementById("singUpBtn").innerHTML = '<img src="img/member/member_2.png" alt="登出icon" title="登出">';
 
 						/*registerUser原本是"註冊" 變更為"我的資料"*/
 						document.getElementById("registerUser").innerHTML = "我的資料";
@@ -1199,7 +1203,6 @@
 						alert('帳號密碼錯誤，請重新輸入。');
 					}
 			}
-		
 			
 
 		</script>
