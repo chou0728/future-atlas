@@ -360,10 +360,10 @@
           } 
       }
       .wrapper .content .info {
-        width:40%;
+        width:30%;
         /*height: 50vh;*/
         border: 4px solid #37fff3;
-        margin: 50px; 
+        margin: 10px; 
         color:white;
       }
       @media screen and (min-width: 415px) and (max-width: 1024px) {

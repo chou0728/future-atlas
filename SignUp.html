@@ -7,69 +7,133 @@
 	<title>Examples</title>
 	<link rel="stylesheet" type="text/css" href="css/header.css">
 	<link rel="stylesheet" href="css/SignUp.css">
+<style type="text/css">
+			.signupbtn{
+			display: inline-block;
+			width: 120px;/*依照自己頁面的需求自行調整*/
+			height: 35px;/*依照自己頁面的需求自行調整*/
+			text-align: center;/*文字置中*/
+			line-height: 35px;/*與height等高:文字置中*/
+			background-color: rgba(255, 193, 22,0.6);
+			color: white;
+			position: relative;
+			transition: background-color .2s linear;
+			border: none;
+			font-family: 微軟正黑體;
+			cursor: pointer;
+		}
+		.signupbtn:after{
+			content: "";
+			position: absolute;
+			top:50%;
+			left: 50%;
+			transform: translate(-50%,-50%);
+			width: 100%;
+			height: 100%;
+			border: 2px solid rgba(255, 193, 22,0.6);
+			transition: all .2s linear;
+		}
+		.signupbtn:hover{
+			background-color: rgba(255, 193, 22,0.9);
+			color: black;
+		}
+		.signupbtn:hover:after{
+			width: 108%;
+			height: 125%;
+			border: 2px solid rgba(255, 193, 22,0.8);
+		}
+</style>
 </head>
 
 <body>
 	<div class="blank"></div>
 <div class="header">
-	<ul class="ul_top">
-		<li>
-			<a href="javascript:void(0)">註冊</a>
-		</li>
-		<li>
-			<a href="#" id="singUpBtn">登入</a>
-		</li>
-		<li>
-			<a href="input_cart.html">購物車</a>
-		</li>
-	</ul>
+    <ul class="ul_top">
+        <div class="lever">
+            <img src="img/Usericon1.png">
+        </div>
+        <li class="li_top">
+            <a href="SignUp.html" id="registerUser">
+                <img src="img/member/member_0.png" alt="註冊icon" title="註冊">
+            </a>
+        </li>
+        <li class="li_top">
+            <a href="#" id="singUpBtn"><img src='img/member/member_1.png' alt='登入icon' title='登入'></a>
+        </li>
+        <li class="li_top">
+            <!-- 增加 -->
+             <a href="input_cart.html">
+                <span id="howmanytickets">0</span>
+                <img id="cartimgid" src="img/cart/wallet_0.png" alt="登入icon" title="購物車">
+            </a>
+                <div id="showCartContent">購物車內容
+                    <table id="showCartContenttb"></table>
+                </div>
+            <!-- 增加end -->
+        </li>
+    </ul>
 </div>
 <div class="nav">
-	<ul class="ul_left">
-		<li>
-			<a href="buyTTicket.html">劇場購票</a>
-		</li>
-		<li>
-			<a href="facilityBuyTicket.html">設施購票</a>
-		</li>
-		<li>
-			<a href="facilityInfo.html">設施介紹</a>
-		</li>
-	</ul>
-	<h1 style="display: none">FutureAtlas_未來主題樂園</h1>
-	<a href="index.html#page1" class="logo_a">
-		<img src="img/LOGO.png" class="logo">
-	</a>
-	<ul class="ul_right">
-		<li>
-			<a href="index.html#page2">園區地圖</a>
-		</li>
-		<li>
-			<a href="activity.html">活動月曆</a>
-		</li>
-		<li>
-			<a href="robot.html">諮詢專區</a>
-		</li>
-	</ul>
+    <div class="ul_box">
+        <ul class="ul_left">
+            <li>
+                <a href="Theaterbuyticket.html">劇場購票</a>
+            </li>
+            <li>
+                <a href="facilityBuyTicket.html">設施購票</a>
+            </li>
+            <li>
+                <a href="facilityInfo.html">設施介紹</a>
+            </li>
+        </ul>
+        <h1 style="display: none">FutureAtlas_未來主題樂園</h1>
+        <a href="#page1" class="logo_a">
+            <img src="img/LOGO.png" class="logo">
+        </a>
+        <ul class="ul_right">
+            <li>
+                <a href="#page2">園區地圖</a>
+            </li>
+            <li>
+                <a href="activity.html">活動月曆</a>
+            </li>
+            <li>
+                <a href="robot.html">諮詢專區</a>
+            </li>
+        </ul>
+    </div>
+    <div class="navOpenBtn"><!-- RWD left btn-->
+        <div class="ham"></div>
+        <div class="ham"></div>
+        <div class="ham"></div>
+        <div class="ham"></div>
+    </div>
 </div>
+<div class="headerOpenBtn"><!-- RWD right btn-->
+    <img src="img/Usericon1.png" class="memIcon">
+    <img src="img/Usericon.png" class="memIcon">
+    
+</div>
+
+    <!-- header end-->
 	
 	<div class="cont">
 		<img class="bar" src="img/bar.png" alt="bar">
 	
-		<form class="SingUp" action="" method="get">
-			<h3>會員註冊</h3>
+		<form class="SingUp" action="header_test_Manna.php" method="post">
+			<h3 class="title">註冊會員</h3>
 			<div class="text">
-				*暱稱：<input type="text" name="" value="" placeholder="暱稱" required maxlength="10"><br>
-				*電話：<input type="text" name="" value="" placeholder="電話" required maxlength="20"><br>
+				*暱稱：<input type="text" name="mem_nick" value="" required maxlength="10"><br>
+				*電話：<input type="text" name="mem_phone" value="" required maxlength="20"><br>
 				<!-- pattern = ".{6,20}"  pattern = ".{最少幾碼,最多幾碼}"   如果只有輸入3 那代表最少3以上pattern = ".{3,}"-->
-				*帳號：<input type="text" name="" value="" placeholder="最少6碼，最多20碼" required pattern = ".{6,20}"><br>
-				*密碼：<input type="password" name="" value="" placeholder="最少6碼，最多20碼" required pattern = ".{6,20}"><br>
-				*信箱：<input type="email" name="" value="" placeholder="e-mail" required maxlength="50"><br>
+				*帳號：<input type="text" name="mem_name" value="" placeholder="6-20碼" required pattern = ".{6,20}"><br>
+				*密碼：<input type="password" name="mem_password" value="" placeholder="6-20碼" required pattern = ".{6,20}"><br>
+				*信箱：<input type="email" name="mem_mail" value="" required maxlength="50"><br>
 				
 			</div>	
 			<div class="btn">
-				<input type="submit" name="" value="確認">
-				<input type="reset" name="" value="重設">
+				<input type="reset" name="" value="重設" class="signupbtn">
+				<input type="submit" name="" value="確認" class="signupbtn">
 			</div>
 		</form>
 	</div>
