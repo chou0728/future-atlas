@@ -15,99 +15,229 @@ body {
   background: #000; }
   .wrapper .content {
     width: 100%;
+    padding-top: 100px;
     display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-    padding-top: 120px; }
-    .wrapper .content .tickets_area {
-      width: 45%;
-      border: 4px solid #37fff3; }
-      .wrapper .content .tickets_area h2 {
+    flex-direction: column;
+    justify-content: space-around; }
+    .wrapper .content .used_facility_info {
+      height: 45vh; }
+    .wrapper .content .info {
+      margin: 10px auto;
+      width: 40%;
+      border: 4px solid #37fff3;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-around; }
+      .wrapper .content .info h2 {
         color: #fff;
+        width: 100%;
         text-align: center;
         padding-top: 10px; }
-      .wrapper .content .tickets_area .tickets {
-        border: 4px solid #37fff3;
-        width: 80%;
-        height: 25vh;
-        margin: 15px auto;
-        display: flex;
-        flex-direction: row;
-        justify-content: space-around;
+      .wrapper .content .info .photo {
+        width: 60%;
+        height: 100%;
         position: relative; }
-        .wrapper .content .tickets_area .tickets .more_info {
+        .wrapper .content .info .photo #facility_photo {
+          width: 70%;
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+          transition: 0.5s; }
+          .wrapper .content .info .photo #facility_photo:hover {
+            cursor: pointer; }
+      .wrapper .content .info .ticket_info {
+        width: 40%;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        padding: 20px;
+        color: #37fff3; }
+        .wrapper .content .info .ticket_info input {
+          width: 40%;
+          height: 30px;
+          margin: 0 auto;
           display: block;
+          text-align: center; }
+        .wrapper .content .info .ticket_info div {
+          width: 80%;
+          display: flex;
+          flex-direction: row;
+          justify-content: space-around; }
+          .wrapper .content .info .ticket_info div span {
+            display: block;
+            line-height: 30px; }
+      .wrapper .content .info .button_area {
+        width: 80%;
+        height: 20%;
+        margin: 20px auto; }
+        .wrapper .content .info .button_area button {
+          display: block;
+          width: 40%;
+          height: 30px;
+          z-index: 99;
+          font-size: 16px;
+          font-weight: bold;
+          color: #fff;
+          letter-spacing: 10px;
+          text-align: center;
+          padding: 1%;
+          background-color: rgba(255, 193, 22, 0.2);
+          transition: 0.2s linear;
+          vertical-align: middle;
+          position: relative;
+          top: 10px;
+          text-decoration: none;
+          border: none;
+          outline: none; }
+        .wrapper .content .info .button_area button:hover {
+          background-color: rgba(255, 193, 22, 0.8);
+          color: black; }
+        .wrapper .content .info .button_area button:before {
+          display: block;
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          transform: translateX(-50%) translateY(-50%);
           width: 100%;
           height: 100%;
+          border: 2px solid rgba(255, 193, 22, 0.8);
+          transition: 0.2s linear; }
+        .wrapper .content .info .button_area button:hover:before {
+          width: 103%;
+          height: 120%;
+          border: 2px solid rgba(255, 193, 22, 0.5); }
+        .wrapper .content .info .button_area button:after {
+          content: "";
+          display: block;
           position: absolute;
-          background-color: rgba(55, 255, 243, 0.5);
-          opacity: 0;
-          transition: 0.5s; }
-        .wrapper .content .tickets_area .tickets .more_info:hover {
-          opacity: 0.4; }
-        .wrapper .content .tickets_area .tickets .facility_photo {
-          width: 40%;
-          height: 100%;
-          background-image: url("../img/facilityInfo/sub_6365_LL.png");
-          background-size: cover;
-          background-repeat: no-repeat;
-          background-position: 50% 50%; }
-        .wrapper .content .tickets_area .tickets .ticket_info {
-          width: 60%;
-          display: flex;
-          flex-direction: column;
-          justify-content: space-around;
-          padding: 20px;
-          color: #37fff3; }
-      .wrapper .content .tickets_area .invaild_tickets .rate {
-        display: block;
-        width: 100%;
-        z-index: 99;
-        font-size: 16px;
-        font-weight: bold;
-        color: #fff;
-        letter-spacing: 10px;
+          top: 50%;
+          left: 50%;
+          transform: translateX(-50%) translateY(-50%);
+          width: 0px;
+          height: 0px;
+          border-radius: 100%;
+          border: 2px solid rgba(255, 193, 22, 0);
+          animation: big 0.8s ease infinite;
+          filter: drop-shadow(0px 0px 2px rgba(255, 193, 111, 0.4)); }
+        .wrapper .content .info .button_area button:hover:after {
+          -webkit-animation: none !important;
+          -moz-animation: none !important;
+          -o-animation: none !important;
+          -ms-animation: none !important;
+          animation: none !important; }
+        .wrapper .content .info .button_area #reset {
+          float: left; }
+        .wrapper .content .info .button_area #submit {
+          float: right; }
+    .wrapper .content .info_ticket_used_facility {
+      width: 100%;
+      height: 80%;
+      display: flex;
+      flex-direction: row;
+      justify-content: space-around; }
+    .wrapper .content .info_used_record {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-around;
+      color: #37fff3; }
+      .wrapper .content .info_used_record .records {
+        width: 80%;
+        margin: 10px auto; }
+        .wrapper .content .info_used_record .records p {
+          width: 65%;
+          text-align: left;
+          margin: 5px auto; }
+    .wrapper .content #light_box_back {
+      width: 100%;
+      height: 100vh;
+      background: #000;
+      position: fixed;
+      top: 0;
+      z-index: 100;
+      opacity: 0.9;
+      display: none; }
+    .wrapper .content #light_box {
+      width: 35%;
+      height: 40vh;
+      background: #000;
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      z-index: 110;
+      border: 4px solid #37fff3;
+      display: none;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-around; }
+      .wrapper .content #light_box .check_info {
+        width: 90%;
+        padding: 10%;
+        margin: 0 auto;
+        margin-top: 5%;
         text-align: center;
-        padding: 1%;
-        background-color: rgba(255, 193, 22, 0.2);
-        transition: 0.2s linear;
-        vertical-align: middle;
-        position: relative;
-        top: 10px;
-        text-decoration: none; }
-      .wrapper .content .tickets_area .invaild_tickets .rate:hover {
-        background-color: rgba(255, 193, 22, 0.8);
-        color: black; }
-      .wrapper .content .tickets_area .invaild_tickets .rate:before {
-        display: block;
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translateX(-50%) translateY(-50%);
-        width: 100%;
-        height: 100%;
-        border: 2px solid rgba(255, 193, 22, 0.8);
-        transition: 0.2s linear; }
-      .wrapper .content .tickets_area .invaild_tickets .rate:hover:before {
-        width: 103%;
-        height: 120%;
-        border: 2px solid rgba(255, 193, 22, 0.5); }
-      .wrapper .content .tickets_area .invaild_tickets .rate:after {
-        content: "";
-        display: block;
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translateX(-50%) translateY(-50%);
-        width: 0px;
-        height: 0px;
-        border-radius: 100%;
-        border: 2px solid rgba(255, 193, 22, 0);
-        animation: big 0.8s ease infinite;
-        filter: drop-shadow(0px 0px 2px rgba(255, 193, 111, 0.4)); }
-      .wrapper .content .tickets_area .invaild_tickets .rate:hover:after {
-        -webkit-animation: none !important;
-        -moz-animation: none !important;
-        -o-animation: none !important;
-        -ms-animation: none !important;
-        animation: none !important; }
+        color: #fff; }
+      .wrapper .content #light_box .button_area {
+        width: 90%;
+        height: 20vh;
+        margin: 0 auto;
+        text-align: center;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around; }
+        .wrapper .content #light_box .button_area button {
+          display: block;
+          width: 40%;
+          height: 30px;
+          z-index: 99;
+          font-size: 16px;
+          font-weight: bold;
+          color: #fff;
+          letter-spacing: 10px;
+          text-align: center;
+          padding: 1%;
+          background-color: rgba(255, 193, 22, 0.2);
+          transition: 0.2s linear;
+          vertical-align: middle;
+          position: relative;
+          top: 10px;
+          text-decoration: none;
+          border: none;
+          outline: none; }
+        .wrapper .content #light_box .button_area button:hover {
+          background-color: rgba(255, 193, 22, 0.8);
+          color: black; }
+        .wrapper .content #light_box .button_area button:before {
+          display: block;
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          transform: translateX(-50%) translateY(-50%);
+          width: 100%;
+          height: 100%;
+          border: 2px solid rgba(255, 193, 22, 0.8);
+          transition: 0.2s linear; }
+        .wrapper .content #light_box .button_area button:hover:before {
+          width: 103%;
+          height: 120%;
+          border: 2px solid rgba(255, 193, 22, 0.5); }
+        .wrapper .content #light_box .button_area button:after {
+          content: "";
+          display: block;
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          transform: translateX(-50%) translateY(-50%);
+          width: 0px;
+          height: 0px;
+          border-radius: 100%;
+          border: 2px solid rgba(255, 193, 22, 0);
+          animation: big 0.8s ease infinite;
+          filter: drop-shadow(0px 0px 2px rgba(255, 193, 111, 0.4)); }
+        .wrapper .content #light_box .button_area button:hover:after {
+          -webkit-animation: none !important;
+          -moz-animation: none !important;
+          -o-animation: none !important;
+          -ms-animation: none !important;
+          animation: none !important; }
