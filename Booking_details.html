@@ -9,8 +9,8 @@
     <link rel="stylesheet" type="text/css" href="css/RESET.css">
     <link rel="stylesheet" type="text/css" href="css/header.css">
     <link rel="stylesheet" type="text/css" href="css/Booking_details.css">
-    <!-- <script type="text/javascript" src="js/jquery-3.2.1.min.js"></script>
-    <script src="js/Booking_details.js"></script> -->
+    <script type="text/javascript" src="js/jquery-3.2.1.min.js"></script>
+    <!--<script src="js/Booking_details.js"></script> -->
 </head>
 
 <body>
@@ -42,7 +42,7 @@
                 </li>
             </ul>
             <h1 style="display: none">FutureAtlas_未來主題樂園</h1>
-            <a href="index.html#page1">
+            <a href="index.html#page1" class="logo_a">
                 <img src="img/LOGO.png" class="logo">
             </a>
             <ul class="ul_right">
@@ -168,32 +168,32 @@
         <div class="creditCardinfo">
             <p>信用卡號碼</p>
             <p style="font-size:10px;">
-                <input type="text" size=2 id="Card1" maxlength="4" onchange="creditCard()">-
-                <input type="text" size=2 id="Card2" maxlength="4"  onchange="creditCard()">-
-                <input type="text" size=2 id="Card3" maxlength="4"  onchange="creditCard()">-
-                <input type="text" size=2 id="Card4" maxlength="4"  onchange="creditCard()">
+                <input type="text" size=2 id="Card1" class="inputs" maxlength="4" onchange="creditCard()">-
+                <input type="text" size=2 id="Card2" class="inputs" maxlength="4"  onchange="creditCard()">-
+                <input type="text" size=2 id="Card3" class="inputs" maxlength="4"  onchange="creditCard()">-
+                <input type="text" size=2 id="Card4" class="inputs" maxlength="4"  onchange="creditCard()">
             </p>
             <p>到期日</p>
             <p style="font-size:5px;">
-                <input type="text" size=2 id="Card5" maxlength="2"  onchange="creditCard()"> /
-                <input type="text" size=2 id="Card6" maxlength="2"  onchange="creditCard()">
+                <input type="text" size=2  maxlength="2" class="inputs" onchange="creditCard()"> /
+                <input type="text" size=2  maxlength="2" class="inputs" onchange="creditCard()">
             </p>
             <!-- size是設定input大小 -->
             <p>驗證碼</p>
             <p>
-                <input type="text" size=2 id="Card7" maxlength="3"  onchange="creditCard()">
+                <input type="text" size=2  maxlength="3"  onchange="creditCard()">
             </p>
         </div>
 
         <div class="yesmodifyBtn">
-            <a href="buyTTicket.html">修改</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <a href="buyTTicket.html">上一步</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             <a href="BookingDone.html">結帳</a>
             
         </div>
     </div>
 
     <!-- 測試傳到php -->
-    <!--  <button  onclick="ajax_post()">php</button> -->
+    <!-- <button  onclick="ajax_post()">php</button> -->
     
     <!-- 顯示資料有到php -->
     <div id="status" style="color:white;"> 
@@ -265,17 +265,22 @@
             total = theater_total - Scorenumber;
             document.getElementById('total').innerHTML = total + "元";
         }
-
+        //自動跳下一個欄位
+        $(".inputs").keyup(function () {
+            if (this.value.length == this.maxLength) {
+              $(this).next('.inputs').focus();
+            }
+        });
         //儲存信用卡號碼
         function  creditCard(){
             
             CardInfo = document.getElementById('Card1').value+"-";
             CardInfo += document.getElementById('Card2').value+"-";
             CardInfo += document.getElementById('Card3').value+"-";
-            CardInfo += document.getElementById('Card4').value+"-";
-            CardInfo += document.getElementById('Card5').value+"-";
-            CardInfo += document.getElementById('Card6').value+"-";
-            CardInfo += document.getElementById('Card7').value+"-";
+            CardInfo += document.getElementById('Card4').value;
+            // CardInfo += document.getElementById('Card5').value+"-";
+            // CardInfo += document.getElementById('Card6').value+"-";
+            // CardInfo += document.getElementById('Card7').value+"-";
             storage.setItem("CardInfo", CardInfo);    
         }
 
@@ -286,7 +291,7 @@
             var hr = new XMLHttpRequest();
             // Create some variables we need to send to our PHP file
             //把 vars裡面資輛傳到my_parse_file.php檔案(設定參數)
-            var url = "my_parse_file.php";
+            var url = "php/my_parse_file.php";
             var vars = "programName="+programName+
                        "&programDate="+programDate+
                        "&programTime="+programTime+

@@ -73,5 +73,41 @@
 						header.id="";
 
 			}
+
+			// 原始購物車外觀
+			function iniCart(){
+				var storage = localStorage;
+				var facility_ticket_list = storage.getItem("facility_ticket_list");
+				if(facility_ticket_list != null){
+		        	var iniCart = Math.floor((facility_ticket_list.split("/").length-1)/2);
+		        	var aa = document.getElementById("cartimgid").src.substr(-5,1);
+		        	aa = iniCart;
+			        document.getElementById("cartimgid").src = "img/cart/wallet_"+iniCart+".png";
+			        document.getElementById("howmanytickets").innerHTML = facility_ticket_list.split("/").length-1;
+		        }
+			}
+			window.addEventListener('load',iniCart);
 			window.addEventListener('load',navOpen);
 			window.addEventListener('resize',allNavClose);
+// 小nav
+$(document).ready(function(){
+	$(window).scroll(function(){
+		if($(document).scrollTop() > 180){
+			$(".nav").addClass("smallnav");
+			$(".lever").addClass("leverOnScroll");
+			$(".ul_top").addClass("ul_top_onScroll");
+		}else{
+			$(".nav").removeClass("smallnav");
+			$(".lever").removeClass("leverOnScroll");
+			$(".ul_top").removeClass("ul_top_onScroll");
+		}
+	});
+	$(".lever").mouseover(function(){
+		$(".lever").removeClass("leverOnScroll");
+		$(".ul_top").removeClass("ul_top_onScroll");
+	})
+	// $(".ul_top").mouseover(function(){
+	// 	$(".lever").addClass("leverOnScroll");
+	// 	$(".ul_top").addClass("ul_top_onScroll");
+	// })
+});

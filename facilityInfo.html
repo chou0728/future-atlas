@@ -7,66 +7,100 @@
 	<link rel="stylesheet" type="text/css" href="css/RESET.css">
 	<link rel="stylesheet" type="text/css" href="css/header.css">
 	<link rel="stylesheet" type="text/css" href="css/facilityInfo_main.css">
+	<style type="text/css">
+		body::after {
+			content: '';
+			position: fixed;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			background-color:#000;  /* 背景カラー */
+			z-index: 9999;  /* 一番手前に */
+			pointer-events: none;  /* 他の要素にアクセス可能にするためにポインターイベントは無効に */
+			opacity: 0;  /* 初期値 : 透過状態 */
+			-webkit-transition: opacity .4s ease;  /* アニメーション時間は 0.8秒 */
+			transition: opacity .4s ease;
+		}
+		body.fadeout::after {
+ 			opacity: 1;
+		}
+	</style>
 </head>
-<body>
+<body class="fadeout">
 		<!-- header -->
 	
 <div class="header">
-	<ul class="ul_top">
-		<li class="li_top">
-			<a href="SignUp.html" id="registerUser">註冊</a>
-		</li>
-		<li class="li_top">
-			<a href="#" id="singUpBtn">登入</a>
-		</li>
-		<li class="li_top">
-			<a href="input_cart.html">購物車</a>
-		</li>
-	</ul>
+    <ul class="ul_top">
+        <div class="lever">
+            <img src="img/Usericon1.png">
+        </div>
+        <li class="li_top">
+            <a href="SignUp.html" id="registerUser">
+                <img src="img/member/member_0.png">
+            </a>
+        </li>
+        <li class="li_top">
+            <a href="#" id="singUpBtn">
+                <img src="img/member/member_1.png">
+            </a>
+        </li>
+        <li class="li_top">
+            <!-- 增加 -->
+             <a href="input_cart.html">
+                <span id="howmanytickets">0</span>
+                <img id="cartimgid" src="img/cart/wallet_0.png">
+            </a>
+                <div id="showCartContent">購物車內容
+                    <table id="showCartContenttb"></table>
+                </div>
+            <!-- 增加end -->
+        </li>
+    </ul>
 </div>
 <div class="nav">
-	<div class="ul_box">
-		<ul class="ul_left">
-			<li>
-				<a href="Theaterbuyticket.html">劇場購票</a>
-			</li>
-			<li>
-				<a href="facilityBuyTicket.html">設施購票</a>
-			</li>
-			<li>
-				<a href="facilityInfo.html">設施介紹</a>
-			</li>
-		</ul>
-		<h1 style="display: none">FutureAtlas_未來主題樂園</h1>
-		<a href="index.html#page1">
-			<img src="img/LOGO.png" class="logo">
-		</a>
-		<ul class="ul_right">
-			<li>
-				<a href="index.html#page2">園區地圖</a>
-			</li>
-			<li>
-				<a href="activity.html">活動月曆</a>
-			</li>
-			<li>
-				<a href="robot.html">諮詢專區</a>
-			</li>
-		</ul>
-	</div>
-	<div class="navOpenBtn"><!-- RWD left btn-->
-		<div class="ham"></div>
-		<div class="ham"></div>
-		<div class="ham"></div>
-		<div class="ham"></div>
-	</div>
+    <div class="ul_box">
+        <ul class="ul_left">
+            <li>
+                <a href="Theaterbuyticket.html">劇場購票</a>
+            </li>
+            <li>
+                <a href="facilityBuyTicket.html">設施購票</a>
+            </li>
+            <li>
+                <a href="facilityInfo.html">設施介紹</a>
+            </li>
+        </ul>
+        <h1 style="display: none">FutureAtlas_未來主題樂園</h1>
+        <a href="index.html#page1" class="logo_a">
+            <img src="img/LOGO.png" class="logo">
+        </a>
+        <ul class="ul_right">
+            <li>
+                <a href="index.html#page2">園區地圖</a>
+            </li>
+            <li>
+                <a href="activity.html">活動月曆</a>
+            </li>
+            <li>
+                <a href="robot.html">諮詢專區</a>
+            </li>
+        </ul>
+    </div>
+    <div class="navOpenBtn"><!-- RWD left btn-->
+        <div class="ham"></div>
+        <div class="ham"></div>
+        <div class="ham"></div>
+        <div class="ham"></div>
+    </div>
 </div>
 <div class="headerOpenBtn"><!-- RWD right btn-->
-	<img src="img/Usericon1.png" class="memIcon">
-	<img src="img/Usericon.png" class="memIcon">
-	
+    <img src="img/Usericon1.png" class="memIcon">
+    <img src="img/Usericon.png" class="memIcon">
+    
 </div>
 
-	<!-- header end-->
+    <!-- header end-->
 
 
 	<section class="fi_wrapper">
@@ -74,7 +108,7 @@
 		<!-- icon absolute-->
 	<div class="icon_subnav">
 
-		<div class="i_info">
+		<div class="i_info" data-category="0">
 			<a href="javascript:void(0)"><img src="img/facilityInfo/VR.png" alt="VR"></a>
 				<div class="i_box">
 					<div class="i_line"></div>
@@ -83,7 +117,7 @@
 				</div>
 		</div>
 
-		<div class="i_info">
+		<div class="i_info" data-category="1">
 			<a href="javascript:void(0)"><img src="img/facilityInfo/heart305.png" alt="hard"></a>
 				<div class="i_box">
 					<div class="i_line"></div>
@@ -92,7 +126,7 @@
 				</div>
 		</div>
 
-		<div class="i_info">
+		<div class="i_info" data-category="2">
 			<a href="javascript:void(0)"><img src="img/facilityInfo/child.png" alt="child"></a>
 				<div class="i_box">
 					<div class="i_line"></div>
@@ -101,7 +135,7 @@
 				</div>
 		</div>
 
-		<div class="i_info">
+		<div class="i_info" data-category="3">
 			<a href="javascript:void(0)"><img src="img/facilityInfo/love.png" alt="couple"></a>
 				<div class="i_box">
 					<div class="i_line"></div>
@@ -110,7 +144,7 @@
 				</div>
 		</div>
 
-		<div class="i_info">
+		<div class="i_info" data-category="4">
 			<a href="javascript:void(0)"><img src="img/facilityInfo/umbrella.png" alt="umbrella"></a>
 				<div class="i_box">
 					<div class="i_line"></div>
@@ -118,13 +152,22 @@
 					<p>下雨天也能暢玩之設施</p>
 				</div>
 		</div>
+		<div class="i_info" data-category="5">
+			<a href="javascript:void(0)"><img src="img/facilityInfo/all.png" alt="all"></a>
+				<div class="i_box">
+					<div class="i_line"></div>
+					<div class="i_line2"></div>
+					<p>全部設施</p>
+				</div>
+		</div>
+
 
 	</div>
 	<!-- icon end-->
 
 	<!--設施區塊-->
 	<section class="fi_panel">
-		<div class="f_box">
+		<div class="f_box" data-category="1"><!-- 0:VR,1:刺激,2:兒童,3:情侶,4:雨天 -->
 		<div class="bcover_border">
 			<div class="f_mainphoto">
 				<a href="iframe_01.html" target="iframe">
@@ -156,7 +199,7 @@
 			</div>
 		</div>
 
-		<div class="f_box">
+		<div class="f_box" data-category="234">
 			<div class="bcover_border">
 			<div class="f_mainphoto">
 				<a href="iframe_02.html" target="iframe">
@@ -187,7 +230,7 @@
 		</div>
 
 
-		<div class="f_box">
+		<div class="f_box" data-category="234">
 			<div class="bcover_border">
 			<div class="f_mainphoto">
 				<a href="iframe_02.html" target="iframe">
@@ -217,7 +260,7 @@
 			</div>	
 		</div>
 
-		<div class="f_box">
+		<div class="f_box" data-category="234">
 			<div class="bcover_border">
 			<div class="f_mainphoto">
 			  <a href="iframe_02.html" target="iframe">
@@ -247,7 +290,7 @@
 		</div>
 		</div>
 
-		<div class="f_box">
+		<div class="f_box" data-category="04">
 			<div class="bcover_border">
 			<div class="f_mainphoto">
 				<img src="img/facilityInfo/gd.png" alt="gdvrimg">
@@ -352,8 +395,9 @@
 	</div>
 	
 	<div id="close"><img src="img/facilityInfo/close.png"></div>
-
+	<script src="https://code.jquery.com/jquery-3.2.1.js"></script>
 	<script src="js/facilityInfo_main.js"></script>
 	<script src="js/00nav.js"></script>
+	<script src="js/page_load_unload.js"></script>
 </body>
 </html>

@@ -7,65 +7,100 @@
 	<link rel="stylesheet" type="text/css" href="css/RESET.css">
 	<link rel="stylesheet" type="text/css" href="css/header.css">
 	<link rel="stylesheet" type="text/css" href="css/facilityBuyTicket.css">
+	<style type="text/css">
+		body::after {
+			  content: '';
+			  position: fixed;
+			  top: 0;
+			  left: 0;
+			  width: 100%;
+			  height: 100%;
+			  overflow: hidden;
+			  background-color:#000;  /* 背景カラー */
+			  z-index: 9999;  /* 一番手前に */
+			  pointer-events: none;  /* 他の要素にアクセス可能にするためにポインターイベントは無効に */
+			  opacity: 0;  /* 初期値 : 透過状態 */
+			  -webkit-transition: opacity .4s ease;  /* アニメーション時間は 0.8秒 */
+			  transition: opacity .4s ease;
+		}
+		body.fadeout::after {
+ 			opacity: 1;
+		}
+	</style>
 </head>
-<body>
+<body class="fadeout">
 <div class="header">
-	<ul class="ul_top">
-		<li class="li_top">
-			<a href="SignUp.html" id="registerUser">註冊</a>
-		</li>
-		<li class="li_top">
-			<a href="#" id="singUpBtn">登入</a>
-		</li>
-		<li class="li_top">
-			<a href="input_cart.html">購物車</a>
-		</li>
-	</ul>
+    <ul class="ul_top">
+        <div class="lever">
+            <img src="img/Usericon1.png">
+        </div>
+        <li class="li_top">
+            <a href="SignUp.html" id="registerUser">
+                <img src="img/member/member_0.png">
+            </a>
+        </li>
+        <li class="li_top">
+            <a href="#" id="singUpBtn">
+                <img src="img/member/member_1.png">
+            </a>
+        </li>
+        <li class="li_top">
+            <!-- 增加 -->
+             <a href="input_cart.html">
+                <span id="howmanytickets">0</span>
+                <img id="cartimgid" src="img/cart/wallet_0.png">
+            </a>
+                <div id="showCartContent">購物車內容
+                    <table id="showCartContenttb"></table>
+                </div>
+            <!-- 增加end -->
+        </li>
+    </ul>
 </div>
 <div class="nav">
-	<div class="ul_box">
-		<ul class="ul_left">
-			<li>
-				<a href="Theaterbuyticket.html">劇場購票</a>
-			</li>
-			<li>
-				<a href="facilityBuyTicket.html">設施購票</a>
-			</li>
-			<li>
-				<a href="facilityInfo.html">設施介紹</a>
-			</li>
-		</ul>
-		<h1 style="display: none">FutureAtlas_未來主題樂園</h1>
-		<a href="index.html#page1">
-			<img src="img/LOGO.png" class="logo">
-		</a>
-		<ul class="ul_right">
-			<li>
-				<a href="index.html#page2">園區地圖</a>
-			</li>
-			<li>
-				<a href="activity.html">活動月曆</a>
-			</li>
-			<li>
-				<a href="robot.html">諮詢專區</a>
-			</li>
-		</ul>
-	</div>
-	<div class="navOpenBtn"><!-- RWD left btn-->
-		<div class="ham"></div>
-		<div class="ham"></div>
-		<div class="ham"></div>
-		<div class="ham"></div>
-	</div>
+    <div class="ul_box">
+        <ul class="ul_left">
+            <li>
+                <a href="Theaterbuyticket.html">劇場購票</a>
+            </li>
+            <li>
+                <a href="facilityBuyTicket.html">設施購票</a>
+            </li>
+            <li>
+                <a href="facilityInfo.html">設施介紹</a>
+            </li>
+        </ul>
+        <h1 style="display: none">FutureAtlas_未來主題樂園</h1>
+        <a href="index.html#page1" class="logo_a">
+            <img src="img/LOGO.png" class="logo">
+        </a>
+        <ul class="ul_right">
+            <li>
+                <a href="index.html#page2">園區地圖</a>
+            </li>
+            <li>
+                <a href="activity.html">活動月曆</a>
+            </li>
+            <li>
+                <a href="robot.html">諮詢專區</a>
+            </li>
+        </ul>
+    </div>
+    <div class="navOpenBtn"><!-- RWD left btn-->
+        <div class="ham"></div>
+        <div class="ham"></div>
+        <div class="ham"></div>
+        <div class="ham"></div>
+    </div>
 </div>
 <div class="headerOpenBtn"><!-- RWD right btn-->
-	<img src="img/Usericon1.png" class="memIcon">
-	<img src="img/Usericon.png" class="memIcon">
-	
+    <img src="img/Usericon1.png" class="memIcon">
+    <img src="img/Usericon.png" class="memIcon">
+    
 </div>
 
-	<!-- header end-->
-	<!-- header end-->
+    <!-- header end-->
+    
 <div class="fbtWrapper">
 	<!-- /////01-->
 	<div class="ticketbox">
@@ -338,8 +373,17 @@
 		</div>
 	</div>
 	<!-- /////-->
+	<div id="fullBlack">
+		<div class="confirmLightbox">
+			<p class="content"></p>
+			<a href="javascript:void(0)" id="confirm">確認</a>
+			<a href="javascript:void(0)" id="cancel">取消</a>		
+		</div>
+	</div>
 </div>
 </body>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="js/page_load_unload.js"></script>
 <script src="js/00nav.js"></script>
 <script type="text/javascript">
 function init(){
@@ -394,7 +438,12 @@ function init(){
 
 
 	function l_storage(){
-	 	facility_list="";
+		storage = localStorage;
+		if(storage.getItem("facility_ticket_list")){
+			facility_ticket_list = storage.getItem("facility_ticket_list");
+		}else{
+			facility_ticket_list="";
+		}
 		var f_submit = document.querySelectorAll('.f_submit');
 		for(var i =0; i<f_submit.length;i++){
 			f_submit[i].addEventListener('click',saveToStorage);
@@ -402,19 +451,85 @@ function init(){
 
 	function saveToStorage(){
 		
-		var storage = localStorage;
-		var fn = this.dataset.fn;/*設施編號*/
+		fn = this.dataset.fn;/*設施編號*/
+		_this = this;
 		var ad = this.previousElementSibling.previousElementSibling.children[2].children[1].children[0].value;/*全票張數*/
 		var adp = this.previousElementSibling.previousElementSibling.dataset.val;/*全票價格*/
 		var cd = this.previousElementSibling.children[2].children[1].children[0].value;/*半票張數*/
 		var cdp = this.previousElementSibling.dataset.val;/*半票價格*/
 		var addToCart = adp+"/"+ad+"/"+cdp+"/"+cd;
 		if(ad!=0||cd!=0){//判斷全票半票皆不為0張
-			storage.setItem(fn,addToCart);        	
+			storage.setItem(fn,addToCart);
+			
+				if(facility_ticket_list.indexOf(fn)==-1){
+					facility_ticket_list += fn+"/" ;
+					storage.setItem("facility_ticket_list", facility_ticket_list);
+				}
+				
+		}else if(ad==0&&cd==0){
+			console.log(facility_ticket_list.indexOf(fn));
+			if(facility_ticket_list.indexOf(fn)!=-1){
+				cautionMessage();
+			}
+			
 		}
 	}
 }
+
+	function cautionMessage(){
+		fullBlack = document.getElementById("fullBlack");
+		var confirm = document.getElementById("confirm");
+		var cancel = document.getElementById("cancel");
+		var content = document.getElementsByClassName("content")[0];
+		var inner = _this.parentElement.children[0].children[1].innerHTML;
+		fullBlack.style.display = "block";
+		//跳出確認視窗
+		content.innerHTML = "確定取消購物車內【"+inner+"】的票券嗎?";
+		confirm.onclick = clearFromStorage;
+		cancel.onclick = closeMessage;
+
+	}
+	function clearFromStorage(){
+		no = storage.getItem("facility_ticket_list").replace(fn+"/","");
+		storage.setItem("facility_ticket_list", no);
+		facility_ticket_list = storage.getItem("facility_ticket_list");
+		storage.removeItem(fn);
+		closeMessage();
+		//確認後清除單筆購物車內容
+		var newlevel = Math.floor((facility_ticket_list.split("/").length-1)/2);
+        var aa = document.getElementById("cartimgid").src.substr(-5,1);
+        aa = newlevel;
+        document.getElementById("cartimgid").src = "img/cart/wallet_"+aa+".png";
+        document.getElementById("howmanytickets").innerHTML = facility_ticket_list.split("/").length-1;
+	}
+	function closeMessage(){
+		fullBlack.style.display = "none";
+	}
 window.addEventListener('load',init);
 window.addEventListener('load',l_storage);
+
+
+$(document).ready(function(){
+	$(".f_submit").click(function(){
+        // 更新購物車外觀
+        var newlevel = Math.floor((facility_ticket_list.split("/").length-1)/2);
+        var aa = document.getElementById("cartimgid").src.substr(-5,1);
+        aa = newlevel;
+        document.getElementById("cartimgid").src = "img/cart/wallet_"+aa+".png";
+        document.getElementById("howmanytickets").innerHTML = facility_ticket_list.split("/").length-1;
+	        
+        // 更新購物車預覽
+            $("#showCartContenttb").empty();
+            for(var i = 1; i < 7; i++){
+                if(storage.getItem(i) != null){
+                    var fn = storage.getItem(i).split("/")[1];
+                    var hn = storage.getItem(i).split("/")[3];
+                    if(fn != 0 || hn != 0){
+                    $("#showCartContenttb").append("<tr><td>設施"+i+"全票"+fn+"張 半票"+hn+"張</td></tr>");                    
+                }
+            }
+        }
+	});
+});
 </script>
 </html>

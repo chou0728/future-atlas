@@ -130,6 +130,7 @@
     @media screen and (max-width: 414px){
       .buyTTicketBtn{
         width: 80%;
+        font-size: 21px;
       }
     }
     .buyTTicketBtn .Previouspage {
@@ -179,6 +180,7 @@
         float: right;
         display: inline-block;
         font-size: 23px;
+        cursor: pointer;
     }
     .buyTTicketBtn .buyticket a{
       text-decoration: none;

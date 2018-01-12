@@ -5,7 +5,6 @@ body{
 }
 
 *{
-	/*border: 1px solid red;*/
 	margin: 0;
 	padding: 0;
 	font-family: Inconsolata, 微軟正黑體;
@@ -34,7 +33,6 @@ body{
 	padding-bottom: 5px;
 	border: none;
 	border-bottom: 1px solid azure;
-	/*border: 1px solid red;*/
 }
 
 #cartWrapper title{
@@ -76,23 +74,21 @@ body{
 #fn_th{
 	width: 10%;
 }#icon_th{
-	width: 6%;
+	width: 11%;
 }#fname_th{
 	width: 18%;
 }#tt_th{
-	width: 6%;
-}
-#expire_date_th{
-	width: 10%;
+	width: 9%;
 }#fare_th{
 	text-align: right;
-	width: 5%;
+	width: 8%;
 }#tn_th{
-	width: 20%;
+	width: 14%;
 	min-width: 50px;
 }#subtotal_th{
-	width: 15%;
-	min-width: 50px;
+	width: 95%;
+	/*min-width: 50px;*/
+	/*width: 150px;*/
 }
 /*以上*/
 
@@ -140,6 +136,7 @@ body{
 	text-align: center;
 	width: 20px;
 	cursor: pointer;
+	width: 5%;
 }
 
 
@@ -149,23 +146,70 @@ body{
 	text-align: center;
 	margin: 20px auto;
 }
-#backToShop, #nextStep{
+
+.highlight:first-child{
+	margin-right: 10px;	
+}
+.highlight{
 	font-family: 微軟正黑體;
-	font-size: 18px;
-	width: 180px;
-	padding: 16px;
-	border: 1px solid orange;
-	background-color: transparent;
-}
-
-#button a {
+	display: inline-block;
+	text-align: center;
+	padding:1%;
+	position: relative;
+	width: 23.5%;
+	color: white;
+	font-size: 20px;
+	font-weight: bold;
+	background-color: rgba(255, 193, 22,0.2);
+	transition: 0.2s linear;
+	vertical-align: middle;
 	text-decoration: none;
-	color: white;
+}
+.highlight:hover{
+	background-color: rgba(255, 193, 22,0.8);
+	color: black;
 }
 
-#nextStep{
-	font-size: 18px;
-	color: white;
+.highlight:before{
+	content: "";
+	display: block;
+	position: absolute;
+	top:50%;
+	left:50%;
+	transform: translateX(-50%) translateY(-50%);
+	z-index: -1;
+	width: 100%;
+	height: 100%;
+	border: 2px solid rgba(255, 193, 22,0.8);
+	transition: 0.2s linear;
+/*	animation: big .8s ease infinite;*/
+}
+.highlight:hover:before{
+	width: 103%;
+	height: 120%;
+	border: 2px solid rgba(255, 193, 22,0.5);
+}
+.highlight:after{
+	content: "";
+	display: block;
+	position: absolute;
+	top:50%;
+	left:50%;
+	transform: translateX(-50%) translateY(-50%);
+	z-index: -1;
+	width: 0px;
+	height: 0px;
+	border-radius: 100%;
+	border: 2px solid rgba(255, 193, 22,0);
+	animation: big 0.8s ease infinite;
+	filter: drop-shadow(0px 0px 2px rgba(255, 193, 111,0.4));
+}
+.highlight:hover:after{
+	-webkit-animation: none !important;
+	 -moz-animation: none !important;
+	 -o-animation: none !important;
+	 -ms-animation: none !important;
+	 animation: none !important;
 }
 
 /* input-number*/

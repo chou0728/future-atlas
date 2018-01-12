@@ -7,8 +7,14 @@
 	position: fixed;
 	height: 13%;
 	text-align: center;
-	top:4%;
+	padding-top: 25px;
+	top: 0;
+	left: 0;
 	z-index: 1000;
+	transition: .5s;
+}
+.smallnav{
+	background-color:rgb(0,12,72);
 }
 .navOpenBtn{
 	display: none;
@@ -30,10 +36,12 @@
 		width: 40px;
 		z-index: 1001;
 		cursor: pointer;
+		font-size: 0;
 	}
 	.navOpenBtn .ham{
+		font-size: 0;
 		display: inline-block;
-		margin-right: 1.5px;
+		margin-right:5px;
 		background-color: rgba(90, 230, 219,0.9);
 		transition: .2s linear;
 	}
@@ -76,24 +84,27 @@
 	}
 }
 /*768*------====================================*/
-.logo{
+.logo_a{
 	display: inline-block;
-	width:15%;
+	width: 15%;
 	min-width: 200px;
 	margin: 0;
 	vertical-align: middle;
+}
+.logo{
+	display: inline-block;
+	width:100%;
 	height: auto;
 }
 /*768*------====================================*/
 @media screen and (max-width:1024px){
-	.logo{
+	.logo_a{
 		min-width: 150px;
 		display: block;
 		position:fixed;
 		top:1.5%;
 		left:50%;
 		transform: translateX(-50%);
-
 	}
 }
 /*768*------====================================*/
@@ -188,27 +199,77 @@
 	}
 }
 /*768*------====================================*/
-
-
 .header{/*會員/註冊/購物車*/
 	width: 100%;
+	/*height: 100px;*/
 	position: fixed;
 	top:0;
 	height: 3%;
-	text-align: right;
-	z-index: 9999;
+	z-index: 100;
 }
 .header .ul_top{
-	padding: 1.5% 1.5% 0 1.5%;
+	padding: 5px 5px 0 10px;
+	position: absolute;
+	width: 100px;
+	top: 120px;
+	right: 0;
+	background-color: rgb(10,25,34);
+	transition: 1s;
+}
+.ul_top_onScroll{
+	transform: translate(96px,0);
+}
+.lever{
+	position: absolute;
+	right: 45%;
+	opacity: 0;
+	top: 0;
+	width: 50px;
+	height: 50px;
+	background-color: rgb(10,25,34);
+	transition: opacity .5s -.2s,right .7s -.3s;
+	z-index: -999;
+}
+.leverOnScroll{
+	opacity:1;
+	right: 99%;
+	transition: .5s;
+	transition-delay: .5s;
+	z-index: -999;
+}
+.lever img{
+	width: 30px;
+	position: absolute;
+	top:0;
+	left:0;
+	right:0;
+	bottom:0;
+	margin:auto;
+	filter: brightness(0.7);
+	z-index: -1;
+}
+.lever img:hover{
+	filter: brightness(1.5);
+}
+.header .ul_top li:before{
+	content: "";
+	height:100%;
+	width: 100px;
+	background-color: white;
+	vertical-align: middle;
 }
 .header .ul_top li{
-	width: 2%;
-	min-width: 52px;
-	display: inline-block;
-	margin: 0 1% 0 0;
+	min-width: 55px;
+	margin: 10px 0 10px 0;
 	font-family: "微軟正黑體";
 	position: relative;
-	text-align: center;
+	text-align: left;
+	transition: .3s;
+}.header .ul_top li:hover{
+	filter: brightness(2);
+}
+.header .ul_top li:last-child{
+	margin-bottom: 20px;
 }
 .header .ul_top li a{
 	display: block;
@@ -217,6 +278,18 @@
 	text-decoration: none;
 	color: #fff;
 	font-size: 16px;
+}
+.header .ul_top li a img{
+	display: inline-block;
+	vertical-align: middle;
+}
+.header .ul_top li a .register,
+.header .ul_top li a .login,
+.header .ul_top li a #howmanytickets{
+	font-size: 14px;
+	color: white;
+	display: inline-block;
+	vertical-align: middle;
 }
 .headerOpenBtn{
 	display: none;
@@ -302,4 +375,41 @@
 
 }
 /*768*------====================================*/
+
+/*NAV購物車*/
+.li_top{
+    vertical-align: middle;
+}
+.li_top img{
+    width: 25px;
+    display: inline-block;
+}#showCartContent{
+    width: 180px;
+    text-align: center;
+    display: none;
+    position: absolute;
+    top: 50px;
+    right: 0;
+}.li_top:nth-child(3){
+    position: relative;
+}
+.li_top:nth-child(3):hover #showCartContent{
+    display: block;
+}
+#howmanytickets{
+    font-size: 24px;
+    color: #5AE6DB;
+    display: inline-block;
+}#showCartContenttb{
+    text-align: left;
+    width: 180px;
+    /*height: 250px;*/
+    position: absolute;
+    top: -180px;
+    right: 0;
+    border: 1px solid white;
+}
+/*NAV購物車end*/
+
+
 /*-----header end-----*/

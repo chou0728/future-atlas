@@ -8,13 +8,13 @@
 <title>設施購票</title>
 <style type="text/css">
 body{
-    background-color: #333;
+    background-color: black;
     color: white;
+    height: 1000px;
 }
-.li_top:nth-child(3) img{
-    width: 30px;
-    display: inline-block;
-    filter: brightness(5);
+*{
+    /*border: 1px solid red;*/
+    box-sizing: border-box;
 }
 button, #submit{
 	width: 100%;
@@ -26,27 +26,70 @@ button, #submit{
     text-align: right;
 }table{
     margin-top: 200px;
-}#howmanytickets{
+}
+/*NAV購物車*/
+
+.li_top{
+    vertical-align: middle;
+}
+.li_top img{
+    width: 25px;
+    display: inline-block;
+}#showCartContent{
+    width: 180px;
+    text-align: center;
+    display: none;
+    position: absolute;
+    top: 50px;
+    right: 0;
+}.li_top:nth-child(3){
+    position: relative;
+}
+.li_top:nth-child(3):hover #showCartContent{
+    display: block;
+}
+#howmanytickets{
     font-size: 24px;
     color: #5AE6DB;
     display: inline-block;
+}#showCartContenttb{
+    text-align: left;
+    width: 180px;
+    /*height: 250px;*/
+    position: absolute;
+    top: -180px;
+    right: 0;
+    border: 1px solid white;
 }
+/*NAV購物車end*/
 </style>
 </head>
 <body>
 <div class="header">
     <ul class="ul_top">
+        <div id="lever">
+            <img src="img/Usericon1.png">
+        </div>
         <li class="li_top">
-            <a href="SignUp.html" id="registerUser">註冊</a>
+            <a href="SignUp.html" id="registerUser">
+                <img src="img/member/member_0.png">
+            </a>
         </li>
         <li class="li_top">
-            <a href="#" id="singUpBtn">登入</a>
+            <a href="#" id="singUpBtn">
+                <img src="img/member/member_1.png">
+            </a>
         </li>
         <li class="li_top">
-            <a href="input_cart.html">
+            <!-- 增加 -->
+             <a href="input_cart.html">
                 <span id="howmanytickets">0</span>
                 <img id="cartimgid" src="img/cart/wallet_0.png">
             </a>
+                <div id="showCartContent">購物車內容
+                    <table id="showCartContenttb"></table>
+                </div>
+            <!-- 增加end -->
         </li>
     </ul>
 </div>
@@ -64,7 +107,7 @@ button, #submit{
             </li>
         </ul>
         <h1 style="display: none">FutureAtlas_未來主題樂園</h1>
-        <a href="index.html#page1">
+        <a href="index.html#page1" class="logo_a">
             <img src="img/LOGO.png" class="logo">
         </a>
         <ul class="ul_right">
@@ -91,6 +134,8 @@ button, #submit{
     <img src="img/Usericon.png" class="memIcon">
     
 </div>
+
+    <!-- header end-->
 
 <table>
     	<tr>
@@ -187,6 +232,7 @@ button, #submit{
 			<td colspan="3"><a href="input_cart.html"><input type="submit" id="submit" value="檢視購物車"></a></td>
 		</tr>
 </table>
+<script src="https://code.jquery.com/jquery-3.2.1.js"></script>
 <script src="js/00nav.js"></script>
 <script type="text/javascript">
 // 加入購物車
@@ -201,24 +247,44 @@ $(document).ready(function(){
         var addToCart = ff+"/"+ffn+"/"+hf+"/"+hfn;
         storage.setItem(fn,addToCart);
     });
+
+        // 原始購物車外觀
+        var facility_ticket_list = storage.getItem("facility_ticket_list");
+        var iniCart = Math.floor((facility_ticket_list.split("/").length-1)/2);
+        var aa = document.getElementById("cartimgid").src.substr(-5,1);
+        aa = iniCart;
+        document.getElementById("cartimgid").src = "img/cart/wallet_"+iniCart+".png";
+        document.getElementById("howmanytickets").innerHTML = facility_ticket_list.split("/").length-1;
+
     $(".f_submit").click(function(){
         var storage = localStorage;
         var facility_ticket_list = "";
     
-        for( i = 0; i < 7; i++){    
-        if(storage.getItem(i) != null){
-            facility_ticket_list += i+"/";
-            storage.setItem("facility_ticket_list", facility_ticket_list);
+        for( i = 1; i < 7; i++){
+            if(storage.getItem(i) != null){
+                if(storage.getItem(i).split("/")[1] != 0 || storage.getItem(i).split("/")[3] != 0){
+                    facility_ticket_list += i+"/";
+                }storage.setItem("facility_ticket_list", facility_ticket_list);
             }
         }
-
+        // 更新購物車外觀
         var newlevel = Math.floor((facility_ticket_list.split("/").length-1)/2);
         var aa = document.getElementById("cartimgid").src.substr(-5,1);
-        console.log(aa,newlevel);
         aa = newlevel;
         document.getElementById("cartimgid").src = "img/cart/wallet_"+aa+".png";
         document.getElementById("howmanytickets").innerHTML = facility_ticket_list.split("/").length-1;
         
+        // 更新購物車預覽
+            $("#showCartContenttb").empty();
+            for(var i = 1; i < 7; i++){
+                if(storage.getItem(i) != null){
+                    var fn = storage.getItem(i).split("/")[1];
+                    var hn = storage.getItem(i).split("/")[3];
+                    if(fn != 0 || hn != 0){
+                    $("#showCartContenttb").append("<tr><td>設施"+i+"全票"+fn+"張 半票"+hn+"張</td></tr>");                    
+                }
+            }
+        }
     });
 });
 </script>

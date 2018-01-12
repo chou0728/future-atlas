@@ -123,7 +123,9 @@
 
     td {
       text-align: left;
-      padding: 10px 10px; }
+      padding: 10px 10px; 
+      border-bottom:1px solid #555; 
+    }
 
     .integral {
       display: inline-block; }
@@ -181,7 +183,11 @@
       font-size: 23px;
       font-family: "微軟正黑體";
     }
-
+    @media screen and (max-width:414px){
+      .yesmodifyBtn{
+        font-size: 21px;
+      }
+    }
     /*.yesmodifyBtn a {
       text-decoration: none;
       color: white;

@@ -1,0 +1,164 @@
+*{
+	box-sizing: border-box;
+	/*outline: 1px solid red;*/
+}
+header{
+	position: fixed;
+	z-index: 999;
+	top: 0;
+	left: 0;
+	width: 15%;
+	height: 100vh;
+	background-color: #222;
+	color:#47bbe2;
+	font-family: "微軟正黑體";
+	box-shadow: 1px 1px 1px rgba(0,0,0,0.5);
+}
+header .logo{
+	text-align: center;
+	width: 80%;
+	margin: 10% auto 1% auto;
+	letter-spacing: 2px;
+	font-weight: bold;
+}
+header .logo img{
+	width: 100%;
+}
+header .nav{
+	margin-top:8vh;
+	height: 90%;
+	text-align: center;
+}
+header .nav .navList{
+	width: 75%;
+	margin: 5% auto;
+	transition: .5s ease;
+	position: relative;
+	
+}
+header .nav .navList .listcover{
+	display: block;
+	position: absolute;
+	z-index: -1;
+	top:0;
+	left: 0;
+	width: 3%;
+	height: 100%;
+	background-color: rgba(90, 230, 219,0.5);
+	transition: width 0.3s ease-in;
+}
+header .nav .navList a{
+	display: block;
+	padding: 5% 0;
+	text-decoration: none;
+	color: rgba(90, 230, 219,0.9);
+	font-size: 18px;
+	letter-spacing: 1px;
+	font-weight: bold;
+	transition: color 0.2s ease-in;
+}
+header .nav .navList a:hover~.listcover{
+	width: 100%;
+	height: 100%;
+	background-color: rgba(90, 230, 219,0.9);
+}
+header .nav .navList a:hover{
+	color: black;
+	font-weight: bold;
+}
+.loginBox{
+	z-index: 100;
+	position: fixed;
+	z-index: 1;
+	top:0;
+	left:0;
+	text-align: right;
+	width: 100%;
+	padding: 8px;
+	height: 32px;
+	background-color: #111;
+	color: white;
+	font-family: "微軟正黑體";
+}
+.loginBox a{
+	text-decoration: none;
+	padding: 0 5px;
+	color: rgba(90, 230, 219,0.9);
+}
+.loginBox span{
+	padding: 0 5px;
+}
+/*NAVCSS結束*/
+.b_content{
+	width:100%;
+	height:2000px;
+	background-color:#ccc;
+	padding:77px 0 0 15%;
+}
+.b_sub_nav{
+	position:fixed;
+	z-index: 5;
+	top:30px;
+	left:15%;
+	width: 100%;
+	background-color:#101;
+	height: 45px;
+	padding-top:10px;
+}
+
+.b_sub_nav .b_sn_btn{
+	text-decoration:none;
+	color:#111;
+	display:block;
+	float:left;
+	background-color:#999;
+	height:35px;
+	line-height:35px;
+	padding:0 20px;
+	box-shadow: 1px -2px 2px #333;
+	border-top-right-radius: 6px;
+	-webkit-border-top-right-radius: 6px;
+	-moz-border-radius-topright: 6px;
+	position:relative;
+	font-family:"微軟正黑體";
+	z-index:8;
+}
+.b_sub_nav .b_sn_btn:nth-child(2){
+	z-index:7;
+}
+.b_sub_nav .b_sn_btn:nth-child(3){
+	z-index:6;
+}
+
+.b_sub_nav #active.b_sn_btn{
+	color:#111;
+	background-color:#ccc;
+	height:35px;
+	line-height:35px;
+	padding:0 20px;
+	box-shadow: 1px -2px 2px #333;
+	position:relative;
+	font-family:"微軟正黑體";
+	z-index:15;
+}
+.b_sub_nav #active.b_sn_btn:nth-child(2){
+	border-top-left-radius: 6px;
+	-webkit-border-top-left-radius: 6px;
+	-moz-border-radius-topleft: 6px;
+}
+.b_sub_nav #active.b_sn_btn:nth-child(3){
+	border-top-left-radius: 6px;
+	-webkit-border-top-left-radius: 6px;
+	-moz-border-radius-topleft: 6px;
+}
+.b_sub_nav .b_sn_btn:first-child~*{
+	margin-left:-5px;
+}
+.b_sub_nav .b_sn_btn:hover{
+	background-color:#bbb;
+}
+.b_sub_nav .active:hover{
+	background-color:#ccc;
+}
+
+/*=================右邊區塊固定格式SUBNAVEND===================*/
