@@ -284,7 +284,7 @@
 .header .ul_top li a{
 	display: block;
 	padding: 0.5%;
-	color: white;
+	color: azure;
 	text-decoration: none;
 	color: #fff;
 	font-size: 16px;
@@ -297,7 +297,7 @@
 .header .ul_top li a .login,
 .header .ul_top li a #howmanytickets{
 	font-size: 14px;
-	color: white;
+	color: azure;
 	display: inline-block;
 	vertical-align: middle;
 }
