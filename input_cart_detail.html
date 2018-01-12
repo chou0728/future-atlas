@@ -10,15 +10,23 @@
 <link rel="stylesheet" type="text/css" href="css/cart.css">
 <link rel="stylesheet" type="text/css" href="css/cart_detail.css">
 <style type="text/css">
-	.li_top:nth-child(3) img{
-    width: 30px;
-    display: inline-block;
-    filter: brightness(5);
+body{
+	position: relative;
 }
-#howmanytickets{
-    font-size: 24px;
-    color: #5AE6DB;
-    display: inline-block;
+body{
+	background: black;
+}
+body::-webkit-scrollbar {
+    width: 10px;
+}
+body::-webkit-scrollbar-track {
+	-webkit-border-radius: 10px;
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+    background-color: rgb(0,5,50);
+}
+body::-webkit-scrollbar-thumb {
+  background-color: rgba(100,255,243,1);
+ /* outline: 1px solid rgba(100,255,243,1);*/
 }
 </style>
 <body>
@@ -30,23 +38,23 @@
         <li class="li_top">
             <a href="SignUp.html" id="registerUser">
                 <img src="img/member/member_0.png">
+                <span class="register">註冊</span>
             </a>
         </li>
         <li class="li_top">
             <a href="#" id="singUpBtn">
                 <img src="img/member/member_1.png">
+                <span class="login">登入</span>
             </a>
         </li>
         <li class="li_top">
-            <!-- 增加 -->
              <a href="input_cart.html">
-                <span id="howmanytickets">0</span>
                 <img id="cartimgid" src="img/cart/wallet_0.png">
+                <span id="howmanytickets">0</span>
             </a>
                 <div id="showCartContent">購物車內容
                     <table id="showCartContenttb"></table>
                 </div>
-            <!-- 增加end -->
         </li>
     </ul>
 </div>
@@ -91,6 +99,8 @@
     <img src="img/Usericon.png" class="memIcon">
     
 </div>
+
+    <!-- header end-->
 
 <!-- 會員資訊 -->
 <div id="detailWrapper">
