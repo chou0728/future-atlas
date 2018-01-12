@@ -123,11 +123,10 @@
 		<form class="SingUp" action="header_test_Manna.php" method="post">
 			<h3 class="title">註冊會員</h3>
 			<div class="text">
-				*暱稱：<input type="text" name="mem_nick" value="" required maxlength="10"><br>
-				*電話：<input type="text" name="mem_phone" value="" required maxlength="20"><br>
-				<!-- pattern = ".{6,20}"  pattern = ".{最少幾碼,最多幾碼}"   如果只有輸入3 那代表最少3以上pattern = ".{3,}"-->
-				*帳號：<input type="text" name="mem_name" value="" placeholder="6-20碼" required pattern = ".{6,20}"><br>
+				*帳號：<input type="text" name="mem_name" value="" maxlength="20" placeholder="6-20碼" required pattern = ".{6,20}"><br>
 				*密碼：<input type="password" name="mem_password" value="" placeholder="6-20碼" required pattern = ".{6,20}"><br>
+				*暱稱：<input type="text" name="mem_nick" required maxlength="10"><br>
+				*電話：<input type="text" name="mem_phone" value="" required maxlength="20"><br>
 				*信箱：<input type="email" name="mem_mail" value="" required maxlength="50"><br>
 				
 			</div>	
