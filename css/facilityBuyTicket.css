@@ -204,7 +204,7 @@ body::-webkit-scrollbar-thumb {
   filter: drop-shadow(0px 0px 1px rgba(255,255,255,0.5));
 }
 .ticketbox .ticket .front{	
-
+  /*transform:perspective(20px);*/
 }
 .ticketbox .ticket .back{
   line-height:26.25px;

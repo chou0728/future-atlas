@@ -131,7 +131,7 @@ function changeQuantity() {
     //數量改變，改變總額
     quantity_value = Number(document.getElementById('quantity').value);
     total = quantity_value * 500;
-    document.getElementById('total').innerHTML = total;
+    document.getElementById('total').innerHTML = total+"元";
 
     //改變數量之後，直接存到sessionStorage 
     storage.setItem("theater_quantity", quantity_value);

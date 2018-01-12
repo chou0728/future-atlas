@@ -2,6 +2,9 @@
 	box-sizing: border-box;
 	/*outline: 1px solid red;*/
 }
+body{
+	background-color:#ccc;
+}
 header{
 	position: fixed;
 	z-index: 999;
@@ -32,7 +35,6 @@ header .nav{
 header .nav .navList{
 	width: 75%;
 	margin: 5% auto;
-	transition: .5s ease;
 	position: relative;
 	
 }
@@ -46,6 +48,7 @@ header .nav .navList .listcover{
 	height: 100%;
 	background-color: rgba(90, 230, 219,0.5);
 	transition: width 0.3s ease-in;
+	/*transition: .5s ease;*/
 }
 header .nav .navList a{
 	display: block;
@@ -91,7 +94,7 @@ header .nav .navList a:hover{
 /*NAVCSS結束*/
 .b_content{
 	width:100%;
-	height:2000px;
+	/*height:100vh;*/
 	background-color:#ccc;
 	padding:77px 0 0 15%;
 }
