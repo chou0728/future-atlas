@@ -69,14 +69,24 @@ $(document).ready(function(){
 		}
 		var today = new Date(todayYear+"-"+todayMonth+"-"+(print+i)).toString().substr(0,3);
 		var Vtoday = (todayYear+"-"+todayMonth+"-"+(print+i)).toString();
+		var tMonth = todayMonth;
+		//如果月份小於10，前面加0
+		if(tMonth<10){
+			tMonth = "0"+tMonth;
+		}
+		//如果日小於10，前面加0
+		var ttoday = (print+i);
+		if(ttoday<10){
+			ttoday = "0" +ttoday;
+		}
 		// 尋找星生命
 		if( today != "Mon" && today != "Tue" && today != "Thu" && today != "Sat"){
-			$("select#theater1").append("<option value="+Vtoday+" >"+todayYear+"-"+todayMonth+"-"+(print+i)+"</option>");
+			$("select#theater1").append("<option value="+Vtoday+" >"+todayYear+"-"+tMonth+"-"+ttoday+"</option>");
 			// $("select#theater1").append("<option value="+Vtoday+" >"+new Date(todayYear+"-"+todayMonth+"-"+(print+i)).toString().substr(4,6)+"　"+"</option>");
 		}
 		// 末世決戰
 		if( today != "Sun" && today != "Mon" && today != "Wed" && today != "Thu" && today != "Fri"){
-			$("select#theater2").append("<option value="+Vtoday+" >"+todayYear+"-"+todayMonth+"-"+(print+i)+"</option>");
+			$("select#theater2").append("<option value="+Vtoday+" >"+todayYear+"-"+tMonth+"-"+ttoday+"</option>");
 		}
 	}
 });							 																														  																													 
