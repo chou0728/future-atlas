@@ -216,9 +216,7 @@
 	background-color: rgb(10,25,34);
 	transition: 1s;
 }
-.ul_top_onScroll{
-	transform: translate(96px,0);
-}
+@media screen and (min-width: 1024px){
 .lever{
 	position: absolute;
 	right: 45%;
@@ -229,6 +227,9 @@
 	background-color: rgb(10,25,34);
 	transition: opacity .5s -.2s,right .7s -.3s;
 	z-index: -999;
+}
+.ul_top_onScroll{
+	transform: translate(96px,0);
 }
 .leverOnScroll{
 	opacity:1;
@@ -250,6 +251,15 @@
 }
 .lever img:hover{
 	filter: brightness(1.5);
+}
+}
+@media screen and (max-width: 1024px){
+	.header .ul_top{
+		top: 30px;
+	}
+	.lever img{
+		display: none;
+	}
 }
 .header .ul_top li:before{
 	content: "";
