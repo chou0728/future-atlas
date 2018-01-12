@@ -253,11 +253,19 @@
         }
 
         //扣掉積分
+        var totalScoreNumber = 500;
         function changeScoreNumber() {
             var theater_total = storage.getItem('theater_total');
 
             var Scorenumber = Number(document.getElementById('Scorenumber').value);
-
+            if(Scorenumber<0){
+                Scorenumber= 0;
+                document.getElementById('Scorenumber').value="0";
+            }
+            if(Scorenumber>totalScoreNumber){
+                document.getElementById('Scorenumber').value=totalScoreNumber;
+               Scorenumber = totalScoreNumber;
+            }
             //值要連動到id是integral的欄位
             document.getElementById('integral').innerHTML = "-" + Scorenumber + "元";
 
