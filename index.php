@@ -75,7 +75,7 @@ session_start();
             </a>
         </li>
         <li class="li_top">
-            <a href="<?php ?>" id="singUpBtn">
+            <a href="login.php" id="singUpBtn">
                 <img src="img/member/member_1.png">
                 <span class="login">
                 	<?php
@@ -1061,7 +1061,7 @@ session_start();
 		<script src="js/02map.js"></script>
 		<script src="js/04calendar.js"></script>
 		<script src="js/00nav.js"></script>
-		<script src="js/login&logout.js"></script>
+		<!-- <script src="js/login&logout.js"></script> -->
 		<script src="js/page_load_unload.js"></script>
 		<script>
 // FULLPAGE------------------------------------------
