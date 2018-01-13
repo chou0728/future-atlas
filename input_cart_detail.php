@@ -101,20 +101,37 @@ body::-webkit-scrollbar-thumb {
 </div>
 
     <!-- header end-->
-
 <!-- 會員資訊 -->
+<?php
+$mem_id = ?>
+<script>
+	var memId = localStorage; storage.getItem("memId");
+</script>
+
+<?php
+try {
+	require_once("php/connectBooks.php");
+	$sql = "select * from member where mem_id = :mem_id";
+	$statement = $pdo -> prepare($sql);
+	$statement->bindParam("mem_id",$mem_id);
+
+} catch (Exception $e) {
+	
+}
+
+?>
 <div id="detailWrapper">
 	<h1 id="title">確認訂單明細</h1>
 	<table id="member_info" cellspacing="0">
 		<tr><th colspan="2" class="tbtitle">會員資訊</th></tr>
 		<tr>
-			<td>暱稱</td><td id="member_id"></td>
+			<td>暱稱</td><td id="member_id"><?php echo $mem_nick ?></td>
 		</tr>
 		<tr>
-			<td>Email</td><td id="member_email"></td>
+			<td>Email</td><td id="member_email"><?php echo $mem_email ?></td>
 		</tr>
 		<tr>
-			<td>積分</td><td id="member_points"></td>
+			<td>積分</td><td id="member_points"><?php echo $mem_points ?></td>
 		</tr>
 	</table>
 

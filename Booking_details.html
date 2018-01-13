@@ -169,7 +169,7 @@
         <div class="creditCardinfo">
             <p>信用卡號碼</p>
             <p style="font-size:10px;">
-                <input type="number" style="width:50px;"font-size:23px;" id="Card1" class="inputs" maxlength="4" onchange="creditCard()">-
+                <input type="number" style="width:50px;" id="Card1" class="inputs" maxlength="4" onchange="creditCard()">-
                 <input type="number" style="width:50px;" id="Card2" class="inputs" maxlength="4"  onchange="creditCard()">-
                 <input type="number" style="width:50px;" id="Card3" class="inputs" maxlength="4"  onchange="creditCard()">-
                 <input type="number" style="width:50px;" id="Card4" class="inputs" maxlength="4"  onchange="creditCard()">
@@ -188,7 +188,7 @@
 
         <div class="yesmodifyBtn">
             <a href="buyTTicket.html">上一步</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            <a href="BookingDone.html">結帳</a>   
+            <a href="javascript: return false;" onclick="ajax_post()">結帳</a>   
         </div>
     </div>
 
@@ -196,8 +196,8 @@
     <!-- <button  onclick="ajax_post()">php</button> -->
     
     <!-- 顯示資料有到php -->
-    <div id="status" style="color:white;"> 
-    </div>
+   <!--  <div id="status" style="color:white;"> 
+    </div> -->
 
     <script type="text/javascript">
         var storage = sessionStorage;
