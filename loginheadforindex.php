@@ -1,6 +1,7 @@
 <?php
 ob_start();
 session_start();
+$pre_url=$_SERVER['HTTP_REFERER'];
 ?>
 <!DOCTYPE html>
 <!-- <html lang="en"> -->
@@ -27,7 +28,7 @@ try {
 		$_SESSION["mem_id"] = $memRow->mem_id;
         $_SESSION["mem_nick"] = $memRow->mem_nick;
         echo $_SESSION["mem_id"];
-        header("location:index.php");
+        header("location:$pre_url");
 	}else{
 		echo "查無此密密，請重新登入";
 		header("refresh:5; url=index.php");
