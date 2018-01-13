@@ -40,7 +40,7 @@ session_start();
 
 	</style>
 	<link rel="stylesheet" type="text/css" href="css/header.css">
-	<link rel="stylesheet" type="text/css" href="css/login.css">
+	<!-- <link rel="stylesheet" type="text/css" href="css/login.css"> -->
 	<link rel="stylesheet" type="text/css" href="css/01main.css">
 	<link rel="stylesheet" type="text/css" href="css/01main_ferris_wheel.css">
 	<link rel="stylesheet" type="text/css" href="css/02map.css">
@@ -65,7 +65,7 @@ session_start();
                 <img src="img/member/member_0.png">
                 <span class="register">
                 	<?php
-                		if(isset($_SESSION["mem_nick"])===true){
+                		if(isset($_SESSION["mem_id"])===true){
                 			echo $_SESSION["mem_nick"]."你好!";
                 		}else{
                 			echo "註冊";
@@ -75,11 +75,11 @@ session_start();
             </a>
         </li>
         <li class="li_top">
-            <a href="login.php" id="singUpBtn">
+            <a href="<?php ?>" id="singUpBtn">
                 <img src="img/member/member_1.png">
                 <span class="login">
                 	<?php
-                		if(isset($_SESSION["mem_nick"])===true){
+                		if(isset($_SESSION["mem_id"])===true){
                 			echo "登出";
                 		}else{
                 			echo "登入";
@@ -1061,6 +1061,7 @@ session_start();
 		<script src="js/02map.js"></script>
 		<script src="js/04calendar.js"></script>
 		<script src="js/00nav.js"></script>
+		<script src="js/login&logout.js"></script>
 		<script src="js/page_load_unload.js"></script>
 		<script>
 // FULLPAGE------------------------------------------
