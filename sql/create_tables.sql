@@ -97,4 +97,9 @@ select * from facility;
 select * from member where mem_name = "father";
 
 insert into member (mem_name,mem_nick,password,mem_mail,mem_phone)
-values ("dd","dd","dd","sbxew99@gmail.com","0926704627");
+values ("bd103","classmate","123456","sbxew99@gmail.com","0926704627");
+
+RENAME TABLE fa.member TO bd103g3.member;
+drop table dept;
+
+
