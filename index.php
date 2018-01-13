@@ -40,7 +40,7 @@ session_start();
 
 	</style>
 	<link rel="stylesheet" type="text/css" href="css/header.css">
-	<link rel="stylesheet" type="text/css" href="css/login.css">
+<!-- 	<link rel="stylesheet" type="text/css" href="css/login.css"> -->
 	<link rel="stylesheet" type="text/css" href="css/01main.css">
 	<link rel="stylesheet" type="text/css" href="css/01main_ferris_wheel.css">
 	<link rel="stylesheet" type="text/css" href="css/02map.css">
