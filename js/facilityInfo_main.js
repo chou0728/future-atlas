@@ -1,7 +1,7 @@
 window.onload = function(){
 	f_box = document.getElementsByClassName('f_box');
 	for(i=0;i<f_box.length;i++){
-		f_box[i].addEventListener("click",openIframe);
+		f_box[i].addEventListener("click",openlightBoxF);
 	}
 	i_info = document.getElementsByClassName('i_info');
 	for(a=0;a<i_info.length;a++){
@@ -10,24 +10,24 @@ window.onload = function(){
 	
 }
 
-function openIframe(){
+function openlightBoxF(){
 	var body = document.getElementsByTagName("body")[0];
-	var iframe = document.getElementsByClassName('facility01')[0];
+	var lightBoxF = document.getElementsByClassName('facility01')[0];
 	var close = document.getElementById('close');
 	body.style.overflow = "hidden";
-	iframe.style.height = "100vh";
-	iframe.style.opacity = "1";
+	lightBoxF.style.height = "100vh";
+	lightBoxF.style.opacity = "1";
 	close.style.display = "block";
-	close.onclick = closeIframe;
+	close.onclick = closelightBoxF;
 
 }
 
-function closeIframe(){
+function closelightBoxF(){
 	var body = document.getElementsByTagName("body")[0];
-	var iframe = document.getElementsByClassName('facility01')[0];
+	var lightBoxF = document.getElementsByClassName('facility01')[0];
 	var close = document.getElementById('close');
-	iframe.style.height = "0";
-	iframe.style.opacity = "0";
+	lightBoxF.style.height = "0";
+	lightBoxF.style.opacity = "0";
 	close.style.display = "none";
 	body.style.overflow = "auto";
 }
