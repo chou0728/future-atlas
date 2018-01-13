@@ -46,7 +46,6 @@
 </head>
 
 <body>
-	<div class="blank"></div>
 <div class="header">
     <ul class="ul_top">
         <div class="lever">
@@ -54,22 +53,24 @@
         </div>
         <li class="li_top">
             <a href="SignUp.html" id="registerUser">
-                <img src="img/member/member_0.png" alt="註冊icon" title="註冊">
+                <img src="img/member/member_0.png">
+                <span class="register">註冊</span>
             </a>
         </li>
         <li class="li_top">
-            <a href="#" id="singUpBtn"><img src='img/member/member_1.png' alt='登入icon' title='登入'></a>
+            <a href="#" id="singUpBtn">
+                <img src="img/member/member_1.png">
+                <span class="login">登入</span>
+            </a>
         </li>
         <li class="li_top">
-            <!-- 增加 -->
              <a href="input_cart.html">
+                <img id="cartimgid" src="img/cart/wallet_0.png">
                 <span id="howmanytickets">0</span>
-                <img id="cartimgid" src="img/cart/wallet_0.png" alt="登入icon" title="購物車">
             </a>
-                <div id="showCartContent">購物車內容
+                <div id="showCartContent">預覽購物車
                     <table id="showCartContenttb"></table>
                 </div>
-            <!-- 增加end -->
         </li>
     </ul>
 </div>
@@ -87,12 +88,12 @@
             </li>
         </ul>
         <h1 style="display: none">FutureAtlas_未來主題樂園</h1>
-        <a href="#page1" class="logo_a">
+        <a href="index.html#page1" class="logo_a">
             <img src="img/LOGO.png" class="logo">
         </a>
         <ul class="ul_right">
             <li>
-                <a href="#page2">園區地圖</a>
+                <a href="index.html#page2">園區地圖</a>
             </li>
             <li>
                 <a href="activity.html">活動月曆</a>
@@ -116,28 +117,67 @@
 </div>
 
     <!-- header end-->
+
 	
 	<div class="cont">
 		<img class="bar" src="img/bar.png" alt="bar">
 	
-		<form class="SingUp" action="header_test_Manna.php" method="post">
+		<form class="SingUp" action="index.php" method="post">
 			<h3 class="title">註冊會員</h3>
 			<div class="text">
-				*暱稱：<input type="text" name="mem_nick" value="" required maxlength="10"><br>
-				*電話：<input type="text" name="mem_phone" value="" required maxlength="20"><br>
-				<!-- pattern = ".{6,20}"  pattern = ".{最少幾碼,最多幾碼}"   如果只有輸入3 那代表最少3以上pattern = ".{3,}"-->
-				*帳號：<input type="text" name="mem_name" value="" placeholder="6-20碼" required pattern = ".{6,20}"><br>
-				*密碼：<input type="password" name="mem_password" value="" placeholder="6-20碼" required pattern = ".{6,20}"><br>
-				*信箱：<input type="email" name="mem_mail" value="" required maxlength="50"><br>
-				
+				帳號：<input type="text" name="mem_name" placeholder="6-20碼" maxlength="20" id="name_hint_input">
+    			<span class="hint" id="name_hint">長度不足</span>
+				<!-- <button id="check_mem_id">檢查</button> -->
+    			<br>
+    			暱稱：<input type="text" name="mem_nick" placeholder="6-20碼" maxlength="20" id="nick_hint_input">
+    			<span class="hint" id="nick_hint">長度不足</span><br>
+    			密碼：<input type="password" name="mem_password" placeholder="6-20碼" maxlength="20" id="psw_hint_input">
+    			<span class="hint" id="psw_hint">長度不足</span><br>
+    			信箱：<input type="email" name="mem_mail">
+				<span class="hint hint_hidden">長度不足</span><br>
+    			手機：<input type="text" name="mem_phone" onkeyup="this.value=this.value.replace(/[^0-9]/g,'')">
+    			<span class="hint hint_hidden" id="name_hint">長度不足</span><br>
 			</div>	
 			<div class="btn">
 				<input type="reset" name="" value="重設" class="signupbtn">
-				<input type="submit" name="" value="確認" class="signupbtn">
+				<a href="index.php"><input type="submit" name="" value="確認" class="signupbtn" id="submit"></a>
 			</div>
 		</form>
 	</div>
-		
-	
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+	var char_remain1 = 20;
+	var char_remain2 = 20;
+	var char_remain3 = 20;
+	$("#name_hint_input").keyup(function(){
+		if(char_remain1 > 0){
+			char_remain1--;
+			$("#name_hint").html("剩餘"+char_remain1+"字");
+		}
+	});
+	$("#nick_hint_input").keyup(function(){
+		if(char_remain2 > 0){
+			char_remain2--;
+			$("#nick_hint").html("剩餘"+char_remain2+"字");
+		}
+	});
+	$("#psw_hint_input").keyup(function(){
+		if(char_remain3 > 0){
+			char_remain3--;
+			$("#psw_hint").html("剩餘"+char_remain3+"字");
+		}
+	});
+});
+// 判斷這個帳號是不是有人用過
+
+// 登入資訊寫入web storage
+var storage = localStorage;
+document.getElementById("submit").onclick = function(){
+	var name_hint_input = document.getElementById("name_hint_input").value;
+	storage.setItem("mem_name", name_hint_input);
+}
+
+</script>
 </body>
 </html>

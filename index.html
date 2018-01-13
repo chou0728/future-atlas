@@ -47,7 +47,6 @@
 	<link rel="stylesheet" type="text/css" href="css/04activity_calendar.css">
 	<link rel="stylesheet" type="text/css" href="css/05ticket.css">
 	<link rel="stylesheet" type="text/css" href="css/javascript.fullPage.css" />
-
 </head>
 
 <body class="fadeout">
@@ -1112,7 +1111,12 @@
 
 			//-登入-----------------------------------
 			window.onload = function () {
-
+				var storage = localStorage;
+				if(storage.getItem("mem_name") != null){
+					document.getElementById("registerUser").innerHTML = "我的資料";
+					document.getElementById("singUpBtn").childNodes[1].src = "img/member/member_2.png";
+					document.getElementById("singUpBtn").childNodes[3].innerHTML = "登出";
+				}	
 				/*註冊登入按鈕*/
 				var singUpBtn = document.getElementById('singUpBtn');
 
