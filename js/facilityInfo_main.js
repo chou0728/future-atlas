@@ -11,12 +11,13 @@ window.onload = function(){
 }
 
 function openlightBoxF(){
+	no = this.dataset.no;
 	var body = document.getElementsByTagName("body")[0];
-	var lightBoxF = document.getElementsByClassName('facility01')[0];
+	lightBoxF = document.getElementsByClassName('facilityBox');
 	var close = document.getElementById('close');
 	body.style.overflow = "hidden";
-	lightBoxF.style.height = "100vh";
-	lightBoxF.style.opacity = "1";
+	lightBoxF[no].style.height = "100vh";
+	lightBoxF[no].style.opacity = "1";
 	close.style.display = "block";
 	close.onclick = closelightBoxF;
 
@@ -24,10 +25,9 @@ function openlightBoxF(){
 
 function closelightBoxF(){
 	var body = document.getElementsByTagName("body")[0];
-	var lightBoxF = document.getElementsByClassName('facility01')[0];
 	var close = document.getElementById('close');
-	lightBoxF.style.height = "0";
-	lightBoxF.style.opacity = "0";
+	lightBoxF[no].style.height = "0";
+	lightBoxF[no].style.opacity = "0";
 	close.style.display = "none";
 	body.style.overflow = "auto";
 }

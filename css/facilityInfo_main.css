@@ -560,7 +560,7 @@ body::-webkit-scrollbar-thumb {
 }
 /*============================*/
 /*lightBoxOuter*/
-.facility01{
+.facilityBox{
 	background-color: black;
 	position: fixed;
 	top: 0;
@@ -577,19 +577,19 @@ body::-webkit-scrollbar-thumb {
 	font-family: "微軟正黑體";
 
 }
-.facility01::-webkit-scrollbar {
+.facilityBox::-webkit-scrollbar {
     width: 10px;
 }
-.facility01::-webkit-scrollbar-track {
+.facilityBox::-webkit-scrollbar-track {
 	-webkit-border-radius: 10px;
     -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
 }
-.facility01::-webkit-scrollbar-thumb {
+.facilityBox::-webkit-scrollbar-thumb {
   background-color: rgba(100,255,243,1);
  /* outline: 1px solid rgba(100,255,243,1);*/
 }
 
-.facility01 .lightbox_wrapper{
+.facilityBox .lightbox_wrapper{
 /*	top: 0;
 	left: 0;
 	position: absolute;*/
@@ -599,13 +599,13 @@ body::-webkit-scrollbar-thumb {
 	/*overflow-x: hidden;*/
 }
 @media screen and (max-width:480px){
-	#facility01.facility01{
+	.facilityBox{
 		overflow-x: scroll;
 		overflow-y: scroll;
 		-webkit-overflow-scrolling: touch;
 		overflow-scrolling: touch;
 	}
-	#facility0.facility01{
+	.facilityBox{
 		overflow-y:visible;
 	}
 }
@@ -620,6 +620,12 @@ body::-webkit-scrollbar-thumb {
 	cursor: pointer;
 	background-color: rgba(0,0,0,0.5);
 	
+}
+@media screen and (max-width:480px){
+	#close{
+		right: 18px;
+		top:10px;
+	}
 }
 #close img{
 	width: 100%;
