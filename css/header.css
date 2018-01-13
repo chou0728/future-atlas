@@ -259,6 +259,9 @@
 }
 }
 @media screen and (max-width: 1024px){
+	.header{
+		z-index: 999;
+	}
 	.header .ul_top{
 		top: 30px;
 	}
