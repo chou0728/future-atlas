@@ -603,13 +603,30 @@
         setVariableState('autoScrolling', value, type);
 
         var element = $(SECTION_ACTIVE_SEL);
+        var isSafariMob = 0;
+        var sections = document.getElementsByClassName(".section");
+
+for(var i=0;i<sections.length;i++){
+    sections[i].style.cursor = "pointer";
+}
+
+if(navigator.vendor && navigator.vendor.indexOf("Apple") > -1 && navigator.userAgent.indexOf("iPhone OS") > 0){
+    isSafariMob = 1;
+}
 
         if(options.autoScrolling && !options.scrollBar){
 
-            css(document.body, {
-                'overflow': 'hidden',
-                'height': '100%'
-            });
+            if(isSafariMob) {
+                css(document.body, {
+                    'overflow-y': 'scroll',
+                    'height': '100%'
+                });
+            }else{
+                css(document.body, {
+                    'overflow': 'hidden',
+                    'height': '100%'
+                });
+            }
 
             css(getByTag('html'),{
                 'overflow': 'hidden',
