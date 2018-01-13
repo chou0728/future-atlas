@@ -32,15 +32,11 @@ try {
 		echo "查無此密密，請重新登入";
 		header("refresh:5; url=index.php");
 	}
-} catch (Exception $e) {
+} catch (Exception $ex) {
 	echo "資料庫操作失敗,原因：",$ex->getMessage(),"<br>";
 	echo "行號：",$ex->getLine(),"<br>";
 }
 ?>
-<script type="text/javascript">
-window.onload = function(){
-	
-}
 </script>
 </body>
 </html>
