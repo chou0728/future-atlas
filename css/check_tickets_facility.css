@@ -155,7 +155,8 @@ body {
           text-decoration: none;
           border: 2px solid #292929;
           outline: none;
-          background: transparent; }
+          background: transparent;
+          font-family: "微軟正黑體"; }
           @media screen and (min-width: 415px) and (max-width: 1024px) {
             .check_tickets_wrapper .content .info .button_area button {
               font-size: 36px;
