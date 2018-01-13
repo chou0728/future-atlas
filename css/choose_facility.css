@@ -1,3 +1,4 @@
+@charset "UTF-8";
 .choose_facility_wrapper {
   width: 100%;
   height: 100vh;
@@ -27,21 +28,21 @@
     flex-direction: column;
     justify-content: space-around;
     padding-top: 1%; }
-    .choose_facility_wrapper .content .iocn_wrapper {
+    .choose_facility_wrapper .content .icon_wrapper {
       width: 90%;
       margin: 0 auto;
       display: flex;
       flex-direction: row;
       justify-content: space-around; }
       @media screen and (min-width: 415px) and (max-width: 1024px) {
-        .choose_facility_wrapper .content .iocn_wrapper {
+        .choose_facility_wrapper .content .icon_wrapper {
           display: block;
           width: 95%; } }
       @media screen and (max-width: 414px) {
-        .choose_facility_wrapper .content .iocn_wrapper {
+        .choose_facility_wrapper .content .icon_wrapper {
           display: block;
           width: 95%; } }
-      .choose_facility_wrapper .content .iocn_wrapper .facility_icon {
+      .choose_facility_wrapper .content .icon_wrapper .facility_icon {
         width: 30%;
         padding: 8% 0;
         margin: 1%;
@@ -51,22 +52,22 @@
         position: relative;
         overflow: hidden; }
         @media screen and (min-width: 415px) and (max-width: 1024px) {
-          .choose_facility_wrapper .content .iocn_wrapper .facility_icon {
+          .choose_facility_wrapper .content .icon_wrapper .facility_icon {
             display: block;
             width: 90%;
             margin: 2% auto;
             padding: 25% 0; } }
         @media screen and (max-width: 414px) {
-          .choose_facility_wrapper .content .iocn_wrapper .facility_icon {
+          .choose_facility_wrapper .content .icon_wrapper .facility_icon {
             display: block;
             width: 90%;
             margin: 2% auto;
             padding: 25% 0; } }
-        .choose_facility_wrapper .content .iocn_wrapper .facility_icon:hover {
+        .choose_facility_wrapper .content .icon_wrapper .facility_icon:hover {
           cursor: pointer; }
-        .choose_facility_wrapper .content .iocn_wrapper .facility_icon:hover .facility_name {
+        .choose_facility_wrapper .content .icon_wrapper .facility_icon:hover .facility_name {
           opacity: 1; }
-        .choose_facility_wrapper .content .iocn_wrapper .facility_icon .facility_name {
+        .choose_facility_wrapper .content .icon_wrapper .facility_icon .facility_name {
           width: 100%;
           height: 200px;
           background: rgba(32, 32, 32, 0.8);
@@ -85,14 +86,14 @@
           transition: 0.8s;
           letter-spacing: 10px; }
           @media screen and (min-width: 415px) and (max-width: 1024px) {
-            .choose_facility_wrapper .content .iocn_wrapper .facility_icon .facility_name {
+            .choose_facility_wrapper .content .icon_wrapper .facility_icon .facility_name {
               width: 50%;
               height: 200px;
               font-size: 36px;
               letter-spacing: 8px;
               opacity: 0.8; } }
           @media screen and (max-width: 414px) {
-            .choose_facility_wrapper .content .iocn_wrapper .facility_icon .facility_name {
+            .choose_facility_wrapper .content .icon_wrapper .facility_icon .facility_name {
               width: 50%;
               height: 50px;
               font-size: 36px;
@@ -103,7 +104,7 @@
               left: 0;
               margin: auto;
               opacity: 0.8; } }
-          .choose_facility_wrapper .content .iocn_wrapper .facility_icon .facility_name:after {
+          .choose_facility_wrapper .content .icon_wrapper .facility_icon .facility_name:after {
             content: '';
             display: block;
             width: 90%;
@@ -115,19 +116,52 @@
             bottom: 0;
             left: 0;
             margin: auto; }
-      .choose_facility_wrapper .content .iocn_wrapper .facility_01 {
+      .choose_facility_wrapper .content .icon_wrapper .facility_01 {
         background-image: url("../img/facilityInfo/sub_6365_LL.png"); }
-      .choose_facility_wrapper .content .iocn_wrapper .facility_02 {
+      .choose_facility_wrapper .content .icon_wrapper .facility_02 {
         background-image: url("../img/facilityInfo/VR robo.jpg"); }
-      .choose_facility_wrapper .content .iocn_wrapper .facility_03 {
+      .choose_facility_wrapper .content .icon_wrapper .facility_03 {
         background-image: url("../img/facilityInfo/img_16_m.jpg"); }
-      .choose_facility_wrapper .content .iocn_wrapper .facility_04 {
+      .choose_facility_wrapper .content .icon_wrapper .facility_04 {
         background-image: url("../img/facilityInfo/ferris.jpg"); }
-      .choose_facility_wrapper .content .iocn_wrapper .facility_05 {
+      .choose_facility_wrapper .content .icon_wrapper .facility_05 {
         background-image: url("../img/facilityInfo/sub_6365_LL.png"); }
-      .choose_facility_wrapper .content .iocn_wrapper .facility_06 {
+      .choose_facility_wrapper .content .icon_wrapper .facility_06 {
         background-image: url("../img/facilityInfo/VR robo.jpg"); }
-      .choose_facility_wrapper .content .iocn_wrapper .facility_07 {
+      .choose_facility_wrapper .content .icon_wrapper .facility_07 {
         background-image: url("../img/facilityInfo/img_16_m.jpg"); }
-      .choose_facility_wrapper .content .iocn_wrapper .facility_08 {
+      .choose_facility_wrapper .content .icon_wrapper .facility_08 {
         background-image: url("../img/facilityInfo/ferris.jpg"); }
+    .choose_facility_wrapper .content .show_where_now {
+      width: 80%;
+      height: 60vh;
+      margin: 0 auto;
+      display: none; }
+      .choose_facility_wrapper .content .show_where_now #show_where_photo {
+        width: 60%;
+        height: 50vh;
+        margin: 0 auto;
+        display: block; }
+      .choose_facility_wrapper .content .show_where_now button {
+        display: block;
+        margin: 5% auto;
+        width: 20%;
+        height: 10%;
+        font-size: 16px;
+        font-family: "微軟正黑體";
+        font-weight: bold;
+        letter-spacing: 10px;
+        transition: 0.2s linear;
+        border: 2px solid #292929;
+        outline: none;
+        background: transparent; }
+        @media screen and (min-width: 415px) and (max-width: 1024px) {
+          .choose_facility_wrapper .content .show_where_now button {
+            font-size: 36px; } }
+        @media screen and (max-width: 414px) {
+          .choose_facility_wrapper .content .show_where_now button {
+            font-size: 36px; } }
+        .choose_facility_wrapper .content .show_where_now button:hover {
+          cursor: pointer;
+          background-color: #292929;
+          color: #fff; }
