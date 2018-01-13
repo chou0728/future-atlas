@@ -421,7 +421,7 @@ session_start();
 		<div class="confirmLightbox">
 			<p class="content"></p>
 			<a href="javascript:void(0)" id="confirm">確認</a>
-			<a href="javascript:void(0)" id="cancel">取消</a>		
+			<a href="javascript:void(0)" id="nope">取消</a>		
 		</div>
 	</div>
 </div>
@@ -453,7 +453,7 @@ session_start();
 </body>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script src="js/page_load_unload.js"></script>
-<script src="js/00nav.js"></script>
+<!-- <script src="js/00nav.js"></script> -->
 <script type="text/javascript">
 function init(){
 	//-INPUT NUMBER
@@ -550,14 +550,14 @@ function init(){
 	function cautionMessage(){
 		fullBlack = document.getElementById("fullBlack");
 		var confirm = document.getElementById("confirm");
-		var cancel = document.getElementById("cancel");
+		var nope = document.getElementById("nope");
 		var content = document.getElementsByClassName("content")[0];
 		var inner = _this.parentElement.children[0].children[1].innerHTML;
 		fullBlack.style.display = "block";
 		//跳出確認視窗
 		content.innerHTML = "確定取消購物車內【"+inner+"】的票券嗎?";
 		confirm.onclick = clearFromStorage;
-		cancel.onclick = closeMessage;
+		nope.onclick = closeMessage;
 
 	}
 	function clearFromStorage(){
@@ -590,6 +590,96 @@ function init(){
 	}
 window.addEventListener('load',init);
 window.addEventListener('load',l_storage);
+//-導覽列RWD-----------------------------------
+//-導覽列RWD-----------------------------------
+			function navOpen(){
+				var headerOpenBtn = document.getElementsByClassName("headerOpenBtn")[0];
+				headerOpenBtn.addEventListener("click",headerAppearClose);
+				
+
+				var navOpenBtn = document.getElementsByClassName("navOpenBtn")[0];
+				navOpenBtn.addEventListener("click",navAppearClose);
+				
+
+				var logoBtn = document.getElementsByClassName("logo")[0];
+				logoBtn.addEventListener("click",allNavClose);
+				
+			}
+			function headerAppearClose(){
+					var header = document.getElementsByClassName("header")[0];
+					var li_top = document.getElementsByClassName("li_top");
+					var ul_box = document.getElementsByClassName("ul_box")[0];
+
+					if(ul_box.id =="navAppear" && header.id !="headerAppear"){
+						header.setAttribute("id","headerAppear");
+						for(var i =0;i<li_top.length;i++){
+							li_top[i].setAttribute("id","liAppear");
+						}
+						ul_box.id="";
+
+					}else if(header.id !="headerAppear"&&header.id !="navAppear"){
+						header.setAttribute("id","headerAppear");
+						for(var i =0;i<li_top.length;i++){
+							li_top[i].setAttribute("id","liAppear");
+						}
+					}else{
+						header.id="";
+						for(var i =0;i<li_top.length;i++){
+							li_top[i].id="";
+						}
+
+					
+
+					
+					}	
+			}
+			function navAppearClose(){
+				var header = document.getElementsByClassName("header")[0];
+				var li_top = document.getElementsByClassName("li_top");
+				var ul_box = document.getElementsByClassName("ul_box")[0];
+					if(ul_box.id !="navAppear" && header.id !="headerAppear"){
+						ul_box.setAttribute("id","navAppear");
+						
+					}else if(ul_box.id !="navAppear" && header.id =="headerAppear"){
+						ul_box.setAttribute("id","navAppear");
+						header.id="";
+						for(var i =0;i<li_top.length;i++){
+							li_top[i].id="";
+						}
+
+					}else{
+						ul_box.id="";
+
+					}
+			}
+			function allNavClose(){
+				var header = document.getElementsByClassName("header")[0];
+				var li_top = document.getElementsByClassName("li_top");
+				var ul_box = document.getElementsByClassName("ul_box")[0];
+
+						for(var i =0;i<li_top.length;i++){
+							li_top[i].id="";
+						}
+						ul_box.id="";
+						header.id="";
+
+			}
+
+			// 原始購物車外觀
+			function iniCart(){
+				var storage = localStorage;
+				var facility_ticket_list = storage.getItem("facility_ticket_list");
+				if(facility_ticket_list != null){
+		        	var iniCart = Math.floor((facility_ticket_list.split("/").length-1)/2);
+		        	var aa = document.getElementById("cartimgid").src.substr(-5,1);
+		        	aa = iniCart;
+			        document.getElementById("cartimgid").src = "img/cart/wallet_"+iniCart+".png";
+			        document.getElementById("howmanytickets").innerHTML = facility_ticket_list.split("/").length-1;
+		        }
+			}
+			window.addEventListener('load',iniCart);
+			window.addEventListener('load',navOpen);
+			window.addEventListener('resize',allNavClose);
 //-登入-----------------------------------
 			function login() {
 
