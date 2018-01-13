@@ -1,130 +1,133 @@
-@charset "UTF-8";
-* {
-  box-sizing: border-box;
-  padding: 0;
-  margin: 0; }
-
-body {
-  padding: 0;
-  margin: 0;
-  font-family: "微軟正黑體"; }
-
-.wrapper {
+.choose_facility_wrapper {
   width: 100%;
   height: 100vh;
   max-width: 1440px;
-  background: #000;
-  padding-top: 8%; }
+  padding-top: 10%; }
   @media screen and (min-width: 415px) and (max-width: 1024px) {
-    .wrapper {
-      padding-top: 15%; } }
+    .choose_facility_wrapper {
+      padding-top: 25%; } }
   @media screen and (max-width: 414px) {
-    .wrapper {
-      padding-top: 15%; } }
-  .wrapper h1 {
+    .choose_facility_wrapper {
+      padding-top: 25%; } }
+  .choose_facility_wrapper h1 {
     width: 100%;
-    color: #fff;
+    color: #000;
     text-align: center;
-    font-size: 36px; }
+    font-size: 36px;
+    font-weight: bold; }
     @media screen and (min-width: 415px) and (max-width: 1024px) {
-      .wrapper h1 {
-        font-size: 28px; } }
+      .choose_facility_wrapper h1 {
+        display: none; } }
     @media screen and (max-width: 414px) {
-      .wrapper h1 {
-        font-size: 28px; } }
-  .wrapper .content {
+      .choose_facility_wrapper h1 {
+        display: none; } }
+  .choose_facility_wrapper .content {
     width: 100%;
     display: flex;
     flex-direction: column;
     justify-content: space-around;
     padding-top: 1%; }
-    .wrapper .content .iocn_wrapper {
+    .choose_facility_wrapper .content .iocn_wrapper {
       width: 90%;
       margin: 0 auto;
       display: flex;
       flex-direction: row;
       justify-content: space-around; }
       @media screen and (min-width: 415px) and (max-width: 1024px) {
-        .wrapper .content .iocn_wrapper {
-          flex-direction: column;
+        .choose_facility_wrapper .content .iocn_wrapper {
+          display: block;
           width: 95%; } }
       @media screen and (max-width: 414px) {
-        .wrapper .content .iocn_wrapper {
-          flex-direction: column;
+        .choose_facility_wrapper .content .iocn_wrapper {
+          display: block;
           width: 95%; } }
-      .wrapper .content .iocn_wrapper .rwd_wrapper {
-        width: 50%;
-        height: 35vh;
-        display: flex;
-        flex-direction: row;
-        justify-content: space-around; }
-        @media screen and (min-width: 415px) and (max-width: 1024px) {
-          .wrapper .content .iocn_wrapper .rwd_wrapper {
-            width: 100%;
-            height: 20vh; } }
-        @media screen and (max-width: 414px) {
-          .wrapper .content .iocn_wrapper .rwd_wrapper {
-            width: 100%;
-            height: 20vh; } }
-      .wrapper .content .iocn_wrapper .facility_icon {
-        width: 100%;
+      .choose_facility_wrapper .content .iocn_wrapper .facility_icon {
+        width: 30%;
         padding: 8% 0;
         margin: 1%;
-        border: 4px solid #37fff3;
         background-repeat: no-repeat;
         background-size: cover;
         background-position: 50% 50%;
         position: relative;
         overflow: hidden; }
         @media screen and (min-width: 415px) and (max-width: 1024px) {
-          .wrapper .content .iocn_wrapper .facility_icon {
-            margin: 2%; } }
+          .choose_facility_wrapper .content .iocn_wrapper .facility_icon {
+            display: block;
+            width: 90%;
+            margin: 2% auto;
+            padding: 25% 0; } }
         @media screen and (max-width: 414px) {
-          .wrapper .content .iocn_wrapper .facility_icon {
-            margin: 2%; } }
-        .wrapper .content .iocn_wrapper .facility_icon:hover {
+          .choose_facility_wrapper .content .iocn_wrapper .facility_icon {
+            display: block;
+            width: 90%;
+            margin: 2% auto;
+            padding: 25% 0; } }
+        .choose_facility_wrapper .content .iocn_wrapper .facility_icon:hover {
           cursor: pointer; }
-        .wrapper .content .iocn_wrapper .facility_icon:hover .facility_name {
-          opacity: 1;
-          bottom: 0; }
-        .wrapper .content .iocn_wrapper .facility_icon .facility_name {
+        .choose_facility_wrapper .content .iocn_wrapper .facility_icon:hover .facility_name {
+          opacity: 1; }
+        .choose_facility_wrapper .content .iocn_wrapper .facility_icon .facility_name {
           width: 100%;
-          background: rgba(55, 255, 243, 0.8);
+          height: 200px;
+          background: rgba(32, 32, 32, 0.8);
           text-align: center;
           position: absolute;
-          bottom: -10%;
-          color: #000;
+          top: 0;
+          right: 0;
+          bottom: 0;
+          left: 0;
+          margin: auto;
+          line-height: 200px;
+          color: #fff;
           font-weight: bold;
           font-size: 24px;
           opacity: 0;
           transition: 0.8s;
-          padding: 10% 0;
           letter-spacing: 10px; }
           @media screen and (min-width: 415px) and (max-width: 1024px) {
-            .wrapper .content .iocn_wrapper .facility_icon .facility_name {
-              font-size: 18px;
-              letter-spacing: 4px;
-              bottom: 0%;
+            .choose_facility_wrapper .content .iocn_wrapper .facility_icon .facility_name {
+              width: 50%;
+              height: 200px;
+              font-size: 36px;
+              letter-spacing: 8px;
               opacity: 0.8; } }
           @media screen and (max-width: 414px) {
-            .wrapper .content .iocn_wrapper .facility_icon .facility_name {
-              font-size: 18px;
-              letter-spacing: 4px;
-              bottom: 0%;
+            .choose_facility_wrapper .content .iocn_wrapper .facility_icon .facility_name {
+              width: 50%;
+              height: 50px;
+              font-size: 36px;
+              letter-spacing: 8px;
+              top: 0;
+              right: 0;
+              bottom: 0;
+              left: 0;
+              margin: auto;
               opacity: 0.8; } }
-      .wrapper .content .iocn_wrapper .facility_01 {
+          .choose_facility_wrapper .content .iocn_wrapper .facility_icon .facility_name:after {
+            content: '';
+            display: block;
+            width: 90%;
+            height: 150px;
+            border: 2px solid #fff;
+            position: absolute;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            margin: auto; }
+      .choose_facility_wrapper .content .iocn_wrapper .facility_01 {
         background-image: url("../img/facilityInfo/sub_6365_LL.png"); }
-      .wrapper .content .iocn_wrapper .facility_02 {
+      .choose_facility_wrapper .content .iocn_wrapper .facility_02 {
         background-image: url("../img/facilityInfo/VR robo.jpg"); }
-      .wrapper .content .iocn_wrapper .facility_03 {
+      .choose_facility_wrapper .content .iocn_wrapper .facility_03 {
         background-image: url("../img/facilityInfo/img_16_m.jpg"); }
-      .wrapper .content .iocn_wrapper .facility_04 {
+      .choose_facility_wrapper .content .iocn_wrapper .facility_04 {
         background-image: url("../img/facilityInfo/ferris.jpg"); }
-      .wrapper .content .iocn_wrapper .facility_05 {
+      .choose_facility_wrapper .content .iocn_wrapper .facility_05 {
         background-image: url("../img/facilityInfo/sub_6365_LL.png"); }
-      .wrapper .content .iocn_wrapper .facility_06 {
+      .choose_facility_wrapper .content .iocn_wrapper .facility_06 {
         background-image: url("../img/facilityInfo/VR robo.jpg"); }
-      .wrapper .content .iocn_wrapper .facility_07 {
+      .choose_facility_wrapper .content .iocn_wrapper .facility_07 {
         background-image: url("../img/facilityInfo/img_16_m.jpg"); }
-      .wrapper .content .iocn_wrapper .facility_08 {
+      .choose_facility_wrapper .content .iocn_wrapper .facility_08 {
         background-image: url("../img/facilityInfo/ferris.jpg"); }
