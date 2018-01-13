@@ -8,7 +8,7 @@
 	<link rel="stylesheet" type="text/css" href="css/header.css">
 	<link rel="stylesheet" type="text/css" href="css/facilityInfo_main.css">
 	<style type="text/css">
-		body::after {
+		body::after,.facilityBox::after{
 			content: '';
 			position: fixed;
 			top: 0;
@@ -24,6 +24,9 @@
 		}
 		body.fadeout::after {
  			opacity: 1;
+		}
+		.fadeout::after{
+			opacity: 1;
 		}
 	</style>
 </head>
@@ -72,7 +75,7 @@
             </li>
         </ul>
         <h1 style="display: none">FutureAtlas_未來主題樂園</h1>
-        <a href="index.html#page1" class="logo_a">
+        <a href="front_index.html" class="logo_a">
             <img src="img/LOGO.png" class="logo">
         </a>
         <ul class="ul_right">
@@ -170,14 +173,14 @@
 		<div class="f_box" data-category="1"><!-- 0:VR,1:刺激,2:兒童,3:情侶,4:雨天 -->
 		<div class="bcover_border">
 			<div class="f_mainphoto">
-				<a href="iframe_01.html" target="iframe">
+				<a href="javascript:void(0)">
 					<img src="img/facilityInfo/sub_6365_LL.png" alt="rollerimg">
 				</a>
 				<div class="fi_caution">
-					<a href="iframe_01.html" target="iframe">Information<span>!</span></a>
+					<a href="javascript:void(0)">Information<span>!</span></a>
 				</div>
 				</div>
-			<a href="iframe_01.html" target="iframe" class="bigA">
+			<a href="javascript:void(0)" class="bigA">
 				<h2>宇宙雲霄飛車</h2>
 				<div class="points">
 					<img src="img/facilityInfo/star-dami.png" alt="">
@@ -202,12 +205,12 @@
 		<div class="f_box" data-category="234">
 			<div class="bcover_border">
 			<div class="f_mainphoto">
-				<a href="iframe_02.html" target="iframe">
+				<a href="javascript:void(0)">
 					<img src="img/facilityInfo/ferris.jpg" alt="rollerimg">
 				</a>
-				<div class="fi_caution"><a href="iframe_02.html" target="iframe">Information<span>!</span></a></div>
+				<div class="fi_caution"><a href="javascript:void(0)">Information<span>!</span></a></div>
 			</div>
-			<a href="iframe_02.html" target="iframe" class="bigA">
+			<a href="javascript:void(0)" class="bigA">
 				<h2>FA摩天輪</h2>
 				<div class="points">
 					<img src="img/facilityInfo/star-dami.png" alt="">
@@ -233,12 +236,12 @@
 		<div class="f_box" data-category="234">
 			<div class="bcover_border">
 			<div class="f_mainphoto">
-				<a href="iframe_02.html" target="iframe">
+				<a href="javascript:void(0)">
 					<img src="img/facilityInfo/flying island.jpg" alt="flying islandimg">
 				</a>
-				<div class="fi_caution"><a href="javascript:void(0)" target="iframe">Information<span>!</span></a></div>
+				<div class="fi_caution"><a href="javascript:void(0)">Information<span>!</span></a></div>
 			</div>
-			<a href="javascript:void(0)" target="iframe" class="bigA">
+			<a href="javascript:void(0)" class="bigA">
 				<h2>特區飛碟</h2>
 				<div class="points">
 					<img src="img/facilityInfo/star-dami.png" alt="">
@@ -263,12 +266,12 @@
 		<div class="f_box" data-category="234">
 			<div class="bcover_border">
 			<div class="f_mainphoto">
-			  <a href="iframe_02.html" target="iframe">
+			  <a href="iframe_02.html">
 				<img src="img/facilityInfo/210.jpg" alt="station">
 			  </a>
-				<div class="fi_caution"><a href="javascript:void(0)" target="iframe">Information<span>!</span></a></div>
+				<div class="fi_caution"><a href="javascript:void(0)">Information<span>!</span></a></div>
 			</div>
-			<a href="javascript:void(0)" target="iframe" class="bigA">
+			<a href="javascript:void(0)" class="bigA">
 				<h2>未來中心</h2>
 				<div class="points"><!-- 休息/美食街/諮詢中心 -->
 					<img src="img/facilityInfo/star-dami.png" alt="">
@@ -294,7 +297,7 @@
 			<div class="bcover_border">
 			<div class="f_mainphoto">
 				<img src="img/facilityInfo/gd.png" alt="gdvrimg">
-				<div class="fi_caution"><a href="javascript:void(0)" target="iframe">Information<span>!</span></a></div>
+				<div class="fi_caution"><a href="javascript:void(0)">Information<span>!</span></a></div>
 			</div>
 			<a href="javascript:void(0)" class="bigA">
 				<h2>VR機器人戰鬥</h2>
@@ -321,7 +324,7 @@
 			<div class="bcover_border">
 			<div class="f_mainphoto">
 				<img src="img/facilityInfo/dami.jpg" alt="dami">
-				<div class="fi_caution"><a href="javascript:void(0)" target="iframe">Information<span>!</span></a></div>
+				<div class="fi_caution"><a href="javascript:void(0)">Information<span>!</span></a></div>
 			</div>
 			<a href="javascript:void(0)" class="bigA">
 				<h2>404VR雲霄飛車</h2>
@@ -390,8 +393,117 @@
 		</div>
 		
 	</section>
-	<div class="facility01" id="facility01"><!-- id for IOS mobile-->
-		<iframe name="iframe" src="iframe_01.html" frameborder="0"></iframe>
+
+
+<!-- ======================================= 設施01 ======================================= -->
+	<div class="facilityBox facility01 fadeout" id="facility01">
+		<section class="lightbox_wrapper">
+			<span class="file shuffle">FacilityInfo_01</span>
+			<div class="main_photo">
+				<img src="img/facilityInfo/sub_6365_LL.png">
+				<h2 class="title">宇宙雲霄飛車</h2>
+				<span class="subTitle">COSMOS ROLLER COASTER</span>
+			</div>
+			<div class="content">
+				
+
+				<div class="inlineB paraLeft">
+					<ul>
+						<li>全長<span>1250</span>公尺</li>
+						<li>速度最高<span>92</span>公里/小時</li>
+						<li>高度最高<span>32</span>公尺</li>
+					</ul>
+				</div>
+
+				<div class="inlineB paraRight">
+
+					<div class="parameter">
+						<div class="paraContent">
+							<span>心跳指數</span>
+							
+							<svg viewBox="0 0 54 64" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns"><defs></defs>
+							  <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" sketch:type="MSPage">
+							    <path class="beat-loader" d="M0.5,38.5 L16,38.5 L19,25.5 L24.5,57.5 L31.5,7.5 L37.5,46.5 L43,38.5 L53.5,38.5" id="Path-2" stroke-width="1" sketch:type="MSShapeGroup"></path>
+							  </g>
+							</svg>
+							<div class="heartbeat">120下/1min</div>
+						</div>
+					</div>
+
+					<div class="parameter">
+						
+						<p class="paraContent middleLinehight">
+							<span>適合對象</span>
+							想感受刺激的人
+						</p>
+					</div>
+
+					<div class="parameter">	
+						<p class="paraContent middleLinehight">
+							<span>身高限制</span>
+							130cm~200cm
+						</p>
+					</div>
+				</div>
+			</div>
+
+			<div class="hr">
+				<div class="trai"></div>	
+			</div>
+			<a href="facilityBuyTicket.html" id="getTicket">立即前往購票</a>
+			<div class="content">
+			<div class="scoreTitle">設施介紹</div>		
+				<p class="info">
+					雲霄飛車是一種機動遊樂設施，常見於遊樂園和主題樂園中。Thompson是第一個註冊雲霄飛車相關專利技術的人（1865年1月20日），並曾製造過十數個雲霄飛車設施，因此被譽稱為「重力之父」。一個基本的雲霄飛車構造中，包含了爬昇、滑落、倒轉，其軌道的設計不一定是一個完整的迴圈，也可以設計為車體在軌道上的運行方式為來回移動。
+					
+				</p>
+			</div>
+
+
+			<div class="content">
+				<div class="scoreTitle">設施評價</div>
+				<div class="scoreContainer">
+					<ul>
+						<li class="scoreAverage">總平均<span>4.5</span>分</li>
+						<li class="star">★★★★★</li>
+						<li class="kai">總評分次數<span>1583</span>次</li>
+					</ul>
+				</div>
+				<div id="comment">
+					<div class="memcommentBox">
+						<span class="memName">FutureAttak</span>
+						<span class="memScore">★★★★★</span>
+						<span class="memComment">noComment</span>
+					</div>
+					<div class="memcommentBox">
+						<span class="memName">5-0DX</span>
+						<span class="memScore">★★★★★</span>
+						<span class="memComment">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed dtempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.</span>
+					</div>
+					<div class="memcommentBox">
+						<span class="memName">T'Vulcia</span>
+						<span class="memScore">★★★★★</span>
+						<span class="memComment">Great!</span>
+					</div>
+					<div class="memcommentBox">
+						<span class="memName">T'Vulcia</span>
+						<span class="memScore">★★★★★</span>
+						<span class="memComment">Great!</span>
+					</div>
+					<div class="memcommentBox">
+						<span class="memName">T'Vulcia</span>
+						<span class="memScore">★★★★★</span>
+						<span class="memComment">Great!</span>
+					</div>
+					<div class="memcommentBox">
+						<span class="memName">Au'Vhadu</span>
+						<span class="memScore">★★★★★</span>
+						<span class="memComment">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmo tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+						quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo.</span>
+					</div>
+				</div>
+			</div>
+		</section>
 	</div>
 	
 	<div id="close"><img src="img/facilityInfo/close.png"></div>
