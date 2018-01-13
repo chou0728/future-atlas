@@ -169,20 +169,20 @@
         <div class="creditCardinfo">
             <p>信用卡號碼</p>
             <p style="font-size:10px;">
-                <input type="text" size=2 id="Card1" class="inputs" maxlength="4" onchange="creditCard()">-
-                <input type="text" size=2 id="Card2" class="inputs" maxlength="4"  onchange="creditCard()">-
-                <input type="text" size=2 id="Card3" class="inputs" maxlength="4"  onchange="creditCard()">-
-                <input type="text" size=2 id="Card4" class="inputs" maxlength="4"  onchange="creditCard()">
+                <input type="number" style="width:50px;"font-size:23px;" id="Card1" class="inputs" maxlength="4" onchange="creditCard()">-
+                <input type="number" style="width:50px;" id="Card2" class="inputs" maxlength="4"  onchange="creditCard()">-
+                <input type="number" style="width:50px;" id="Card3" class="inputs" maxlength="4"  onchange="creditCard()">-
+                <input type="number" style="width:50px;" id="Card4" class="inputs" maxlength="4"  onchange="creditCard()">
             </p>
             <p>到期日</p>
             <p style="font-size:5px;">
-                <input type="text" size=2  maxlength="2" class="inputs" onchange="creditCard()"> /
-                <input type="text" size=2  maxlength="2" class="inputs" onchange="creditCard()">
+                <input type="text" style="width:40px;"  maxlength="2" class="inputs" onchange="creditCard()"> /
+                <input type="text" style="width:40px;"  maxlength="2" class="inputs" onchange="creditCard()">
             </p>
             <!-- size是設定input大小 -->
             <p>驗證碼</p>
             <p>
-                <input type="text" size=2  maxlength="3"  onchange="creditCard()">
+                <input type="text" style="width:40px;"  maxlength="3"  onchange="creditCard()">
             </p>
         </div>
 
@@ -253,11 +253,19 @@
         }
 
         //扣掉積分
+        var totalScoreNumber = 400;
         function changeScoreNumber() {
             var theater_total = storage.getItem('theater_total');
 
             var Scorenumber = Number(document.getElementById('Scorenumber').value);
-
+            if(Scorenumber<0){
+                Scorenumber= 0;
+                document.getElementById('Scorenumber').value="0";
+            }
+            if(Scorenumber>totalScoreNumber){
+                document.getElementById('Scorenumber').value=totalScoreNumber;
+               Scorenumber = totalScoreNumber;
+            }
             //值要連動到id是integral的欄位
             document.getElementById('integral').innerHTML = "-" + Scorenumber + "元";
 
