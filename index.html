@@ -47,7 +47,6 @@
 	<link rel="stylesheet" type="text/css" href="css/04activity_calendar.css">
 	<link rel="stylesheet" type="text/css" href="css/05ticket.css">
 	<link rel="stylesheet" type="text/css" href="css/javascript.fullPage.css" />
-
 </head>
 
 <body class="fadeout">
@@ -58,22 +57,24 @@
         </div>
         <li class="li_top">
             <a href="SignUp.html" id="registerUser">
-                <img src="img/member/member_0.png" alt="註冊icon" title="註冊">
+                <img src="img/member/member_0.png">
+                <span class="register">註冊</span>
             </a>
         </li>
         <li class="li_top">
-            <a href="#" id="singUpBtn"><img src='img/member/member_1.png' alt='登入icon' title='登入'></a>
+            <a href="#" id="singUpBtn">
+                <img src="img/member/member_1.png">
+                <span class="login">登入</span>
+            </a>
         </li>
         <li class="li_top">
-            <!-- 增加 -->
              <a href="input_cart.html">
+                <img id="cartimgid" src="img/cart/wallet_0.png">
                 <span id="howmanytickets">0</span>
-                <img id="cartimgid" src="img/cart/wallet_0.png" alt="登入icon" title="購物車">
             </a>
-                <div id="showCartContent">購物車內容
+                <div id="showCartContent">預覽購物車
                     <table id="showCartContenttb"></table>
                 </div>
-            <!-- 增加end -->
         </li>
     </ul>
 </div>
@@ -1110,7 +1111,12 @@
 
 			//-登入-----------------------------------
 			window.onload = function () {
-
+				var storage = localStorage;
+				if(storage.getItem("mem_name") != null){
+					document.getElementById("registerUser").innerHTML = "我的資料";
+					document.getElementById("singUpBtn").childNodes[1].src = "img/member/member_2.png";
+					document.getElementById("singUpBtn").childNodes[3].innerHTML = "登出";
+				}	
 				/*註冊登入按鈕*/
 				var singUpBtn = document.getElementById('singUpBtn');
 

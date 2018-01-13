@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>FA後台</title>
+	<!-- ======請複製==== -->
+	<link rel="stylesheet" type="text/css" href="css/RESET.css">
+	<link rel="stylesheet" type="text/css" href="css/11back_nav.css">
+	<link rel="stylesheet" type="text/css" href="css/back_TheaterMang.css">
+	<!-- ========== -->
+</head>
+<body>
+<!-- ============================================================================== -->
+	<header>
+		<h1 class="logo">
+			<img src="img/LOGO.png" alt="FA">
+			<span>後台管理系統</span>
+		</h1>
+		<ul class="nav">
+			<li class="navList">
+				<a href="">設施驗票</a>
+				<span class="listcover"></span>
+				<span class="spancover"></span>
+			</li>
+			<li class="navList">
+				<a href="">劇場驗票</a>
+				<span class="listcover"></span>
+				<span class="spancover"></span>
+			</li>
+			<li class="navList">
+				<a href="back_facilityM.html">設施管理</a>
+				<span class="listcover"></span>
+				<span class="spancover"></span>
+			</li>
+			<li class="navList">
+				<a href="back_TheaterMang.html">劇場管理</a>
+				<span class="listcover"></span>
+				<span class="spancover"></span>
+			</li>
+			<li class="navList">
+				<a href="back_activity.html" style="color: black;">活動管理</a>
+				<span class="listcover" style="width: 100%;background-color: rgba(90, 230, 219,0.9);"></span>
+				<span class="spancover"></span>
+			</li>
+			<li class="navList">
+				<a href="">會員管理</a>
+				<span class="listcover"></span>
+				<span class="spancover"></span>
+			</li>
+			<li class="navList">
+				<a href="">諮詢管理</a>
+				<span class="listcover"></span>
+				<span class="spancover"></span>
+			</li>
+			<li class="navList">
+				<a href="">權限管理</a>
+				<span class="listcover"></span>
+				<span class="spancover"></span>
+			</li>
+		</ul>
+	</header>
+	<div class="loginBox mobileLoginBox">
+			您好!<span id="managerId">最高管理員</span><span id="managerName">Manna</span>
+			<a href="javascript:void(0)">登出</a>
+	</div>
+<!-- ===NAV結束=========================================================================== -->
+<!-- ===右邊區塊固定格式=============================================================== -->
+	<div class="back_wrapper_right">
+		<div class="b_content">
+			<div class="b_sub_nav">
+				<a href="javascript:void(0)" class="b_sn_btn" id="active">活動登錄</a>
+			</div>
+							<!-- ===========請加內容至此===========-->
+				<h2 class="titleh2">活動管理</h2>
+	<table>
+		<tr>
+			<th>活動編號</th>
+			<th>活動起始日</th>
+			<th>活動結束日</th>
+			<th>活動時間</th>
+			<th>活動簡介</th>
+			<th>活動週期</th>
+			<th>活動圖片檔名</th>
+		</tr>
+		<tr>			
+			<td name="activity_no">1</td>
+			<td><input type="date" name="start_day"></td>			
+			<td><input type="date" name="end_date"></td>
+			<td><input type="number" min="9" max="21" name="start_time"></td>
+			<td><input type="text" rows="3" cols="20" name="intro"></td>
+			<td><input type="radio" name="cycle" value="perweek">周
+				<input type="radio" name="cycle" value="perdoubleweek">雙周
+				<input type="radio" name="cycle" value="permonth">月
+				<input type="radio" name="cycle" value="perdoubleweek">雙月
+			</td>
+			<td><input type="file" name="input_filename"></td>
+		</tr>
+	</table>
+					<!-- ===========請加內容至此===========-->
+		</div>
+	</div>
+</body>
+</html>

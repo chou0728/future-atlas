@@ -92,7 +92,7 @@
 // 小nav
 $(document).ready(function(){
 	$(window).scroll(function(){
-		if($(document).scrollTop() > 180){
+		if($(document).scrollTop() > 80){
 			$(".nav").addClass("smallnav");
 			$(".lever").addClass("leverOnScroll");
 			$(".ul_top").addClass("ul_top_onScroll");
@@ -102,12 +102,12 @@ $(document).ready(function(){
 			$(".ul_top").removeClass("ul_top_onScroll");
 		}
 	});
-	$(".lever").mouseover(function(){
+	$(".header").click(function(){
 		$(".lever").removeClass("leverOnScroll");
 		$(".ul_top").removeClass("ul_top_onScroll");
 	})
-	// $(".ul_top").mouseover(function(){
-	// 	$(".lever").addClass("leverOnScroll");
-	// 	$(".ul_top").addClass("ul_top_onScroll");
-	// })
+	$(".ul_top").mouseleave(function(){
+		$(".lever").addClass("leverOnScroll");
+		$(".ul_top").addClass("ul_top_onScroll");
+	})
 });

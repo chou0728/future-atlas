@@ -112,7 +112,7 @@
                 <td>張數</td>
                 <td>
                     <!-- <input type="number" min="1" name="ticketNum" value="1"> -->
-                    <input style="width:30px;font-size:23px;" type="number" id="quantity" value="1" min="1" onchange="changeQuantity()" />
+                    <input style="width:60px;font-size:23px;" type="number" id="quantity" value="1" min="1" onchange="changeQuantity()" />
                 </td>
             </tr>
             <tr>
@@ -124,22 +124,8 @@
         </table>
     </div>
     <div class="buyTTicketBtn">
-            <a href="Theaterbuyticket.html" class="Previouspage">上一頁</a>
+            <a href="Theaterbuyticket.html" class="Previouspage">上一步</a>
             <a  onclick="checkLogin()" class="buyticket">確認購買</a>
     </div>
     <script src="js/00nav.js"></script>
-    <script type="text/javascript">
-        //判斷是否有登入
-        //跳去登入頁面?
-        var loginFlag = true;
-        function checkLogin(){
-            if(loginFlag == true){
-                window.location.href='Booking_details.html';
-            }else{
-                //登入頁面
-                window.location.href='http://www.cwb.gov.tw/V7/index.htm';
-            }
-        }
-    </script>
-</body>
 </html>

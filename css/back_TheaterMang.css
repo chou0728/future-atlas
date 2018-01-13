@@ -4,10 +4,11 @@
             font-size: 16px;
             /*margin-left:23.7%;*/
             border-collapse: collapse ;
-            
+            font-family: "微軟正黑體";
         }
         .Newprogram{
             /*text-align: right;*/
+            font-family: "微軟正黑體";
         }
         .titleh2{
             margin:30px 30px;
@@ -31,13 +32,16 @@
             border-radius: 30px;
             text-decoration:none;
         }
-        .okcancel{
+
+        .okcancel button{
             margin:0 auto;
+            font-family: "微軟正黑體";
         }
         .treebtn{
             width:100%;
             text-align: center;
             margin-top:5%;
             display: inline-block;
+            font-family: "微軟正黑體";
 
         }

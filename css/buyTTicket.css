@@ -115,8 +115,8 @@
     }
 
     .buyTTicketBtn{
-      width: 40%;
-      font-size: 23px;
+      width:24%;
+      font-size:16px;
       margin:0 auto;
       margin-top:20px;
       margin-bottom:30px;
@@ -136,7 +136,7 @@
     .buyTTicketBtn .Previouspage {
       float: left;
       display: inline-block;
-      font-size: 23px;
+      font-size: 16px;
     }
     /*.buyTTicketBtn .Previouspage a {
       color: white;
@@ -179,7 +179,7 @@
     .buyTTicketBtn .buyticket {
         float: right;
         display: inline-block;
-        font-size: 23px;
+        font-size:16px;
         cursor: pointer;
     }
     .buyTTicketBtn .buyticket a{

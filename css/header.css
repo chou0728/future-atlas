@@ -25,6 +25,7 @@
 	.nav{
 		top:0;
 		height: 45px;
+		padding-top:0;
 		background-color:rgba(0,0,0,0.8);
 		box-shadow: 0 4px 0px -2px rgba(71, 161, 226,0.8); 
 	}
@@ -102,7 +103,7 @@
 		min-width: 150px;
 		display: block;
 		position:fixed;
-		top:1.5%;
+		top:11px;
 		left:50%;
 		transform: translateX(-50%);
 	}
@@ -215,10 +216,12 @@
 	right: 0;
 	background-color: rgb(10,25,34);
 	transition: 1s;
+	list-style: none;
 }
-.ul_top_onScroll{
-	transform: translate(96px,0);
+.lever{
+	cursor: pointer;
 }
+@media screen and (min-width: 1024px){
 .lever{
 	position: absolute;
 	right: 45%;
@@ -229,6 +232,9 @@
 	background-color: rgb(10,25,34);
 	transition: opacity .5s -.2s,right .7s -.3s;
 	z-index: -999;
+}
+.ul_top_onScroll{
+	transform: translate(96px,0);
 }
 .leverOnScroll{
 	opacity:1;
@@ -249,7 +255,16 @@
 	z-index: -1;
 }
 .lever img:hover{
-	filter: brightness(1.5);
+	filter: brightness(1.1);
+}
+}
+@media screen and (max-width: 1024px){
+	.header .ul_top{
+		top: 30px;
+	}
+	.lever img{
+		display: none;
+	}
 }
 .header .ul_top li:before{
 	content: "";
@@ -274,7 +289,7 @@
 .header .ul_top li a{
 	display: block;
 	padding: 0.5%;
-	color: white;
+	color: azure;
 	text-decoration: none;
 	color: #fff;
 	font-size: 16px;
@@ -287,7 +302,7 @@
 .header .ul_top li a .login,
 .header .ul_top li a #howmanytickets{
 	font-size: 14px;
-	color: white;
+	color: azure;
 	display: inline-block;
 	vertical-align: middle;
 }
