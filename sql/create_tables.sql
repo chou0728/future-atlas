@@ -85,3 +85,16 @@ CREATE TABLE facility_order(
 );
 
 show tables;
+
+insert into member (mem_name,mem_nick,password,mem_mail,mem_phone)
+values ("dd","dd","dd","dd","dd");
+
+select * from member;
+
+select * from member where mem_name = "Chen";
+select * from facility;
+
+select * from member where mem_name = "father";
+
+insert into member (mem_name,mem_nick,password,mem_mail,mem_phone)
+values ("dd","dd","dd","sbxew99@gmail.com","0926704627");

@@ -91,17 +91,17 @@
 			window.addEventListener('resize',allNavClose);
 // 小nav
 $(document).ready(function(){
-	$(window).scroll(function(){
-		if($(document).scrollTop() > 80){
-			$(".nav").addClass("smallnav");
-			$(".lever").addClass("leverOnScroll");
-			$(".ul_top").addClass("ul_top_onScroll");
-		}else{
-			$(".nav").removeClass("smallnav");
-			$(".lever").removeClass("leverOnScroll");
-			$(".ul_top").removeClass("ul_top_onScroll");
-		}
-	});
+	// $(window).scroll(function(){
+	// 	if($(document).scrollTop() > 80){
+	// 		$(".nav").addClass("smallnav");
+	// 		$(".lever").addClass("leverOnScroll");
+	// 		$(".ul_top").addClass("ul_top_onScroll");
+	// 	}else{
+	// 		$(".nav").removeClass("smallnav");
+	// 		$(".lever").removeClass("leverOnScroll");
+	// 		$(".ul_top").removeClass("ul_top_onScroll");
+	// 	}
+	// });
 	$(".header").click(function(){
 		$(".lever").removeClass("leverOnScroll");
 		$(".ul_top").removeClass("ul_top_onScroll");
