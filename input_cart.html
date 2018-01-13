@@ -263,16 +263,24 @@ function showSubTotal(){
 	document.getElementById("cart_total").innerHTML = total;
 }
 
-document.getElementById("nextStep").onclick = nextStep;
-function nextStep(){
-	document.location.href="http://www.w3school.com.cn/jsref/met_win_confirm.asp";
-}
+// document.getElementById("nextStep").onclick = nextStep;
+// function nextStep(){
+// 	if(){
+		
+// 		window.location = "";
+// 	}
+// }
 
 loginOrNot();
 function loginOrNot(){
-	if( storage.getItem("memId")){
+	if(storage.getItem("facility_ticket_list").search("/") < 0){
+		$("#nextStep").attr("href","facilityBuyTicket.html");
+		$("#nextStep").click(function(){
+			alert("您還沒有購買任何票券唷！");
+		})
+	}else if( storage.getItem("memId")){
 		// 已經登入 
-		$("#nextStep").attr("href","input_cart_detail.html");
+		$("#nextStep").attr("href","input_cart_detail.php");
 	}else{
 		// 尚未登入
 		$("#nextStep").attr("href","http://www.w3school.com.cn/jsref/met_win_confirm.asp");
@@ -381,6 +389,6 @@ var storage = localStorage;
 storage.setItem("memId","1");
 // var facility_ticket_list = storage.getItem("facility_ticket_list");
 </script>
-<!-- <script src="js/00nav.js"></script> -->
+<script src="js/00nav.js"></script>
 </body>
 </html>

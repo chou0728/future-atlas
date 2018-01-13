@@ -1,6 +1,6 @@
 #lightBox{
     border: 4px solid rgba(55, 255, 243,1);
-   box-shadow: 0px 0px 10px 0px rgba(55, 255, 243,1);
+    box-shadow: 0px 0px 10px 0px rgba(55, 255, 243,1);
     width:30%;
     background-color: rgba(10, 10, 10,0.9);
     margin: 0 auto;
@@ -8,10 +8,6 @@
     top:50%;
     left:50%;
     transform: translate(-50%,-50%);
-    /* display: none; */
-    opacity: 0;
-    z-index: 999;
-    visibility: hidden;
     transition: 0.5s ;
     box-sizing: border-box;
     padding-top: 20px;
@@ -28,7 +24,7 @@
     }
 
 }
-.leftLine{
+/*.leftLine{
     top: 5px;
     right: 20px;
     width: 5px;
@@ -36,8 +32,8 @@
     background-color: #fff;
     position: absolute;
     transform: rotate(45deg) translate(9px, 1px);
-}
-.rightLine{
+}*/
+/*.rightLine{
     top: 5px;
     right: 10px;
     width: 5px;
@@ -46,7 +42,7 @@
     position: absolute;
     transform: rotate(-45deg) translate(-8px, 2px);
     
-}
+}*/
  /* #cancel{
     width: 33px;
     height: 16px;

@@ -4,7 +4,6 @@ session_start();
 ?>
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
 	<meta charset="UTF-8">
@@ -52,6 +51,8 @@ session_start();
 	<link rel="stylesheet" type="text/css" href="css/05ticket.css">
 	<link rel="stylesheet" type="text/css" href="css/javascript.fullPage.css" />
 </head>
+<!-- 登入區 -->
+
 
 <body class="fadeout">
 <div class="header">
@@ -62,13 +63,29 @@ session_start();
         <li class="li_top">
             <a href="SignUp.html" id="registerUser">
                 <img src="img/member/member_0.png">
-                <span class="register">註冊</span>
+                <span class="register">
+                	<?php
+                		if(isset($_SESSION["mem_nick"])===true){
+                			echo $_SESSION["mem_nick"]."你好!";
+                		}else{
+                			echo "註冊";
+                		}
+                	?>
+                </span>
             </a>
         </li>
         <li class="li_top">
-            <a href="#" id="singUpBtn">
+            <a href="login.php" id="singUpBtn">
                 <img src="img/member/member_1.png">
-                <span class="login">登入</span>
+                <span class="login">
+                	<?php
+                		if(isset($_SESSION["mem_nick"])===true){
+                			echo "登出";
+                		}else{
+                			echo "登入";
+                		}
+                	?>
+                </span>
             </a>
         </li>
         <li class="li_top">
@@ -746,7 +763,9 @@ session_start();
 	            <ul id="selectActivityClass">
 	                <li id="icon1" class="icons">
 	                    <img src="img/forthSection/theater.png" alt="劇場" title="劇場">
-	                    <span>劇場時間</span>
+	                    <span>
+	                    劇場時間
+	                	</span>
 	                </li>
 	                <li id="icon2" class="icons">
 	                    <img src="img/forthSection/outoforder.png" alt="維修月曆" title="維修月曆">
@@ -1110,113 +1129,8 @@ session_start();
 					$("#intro.current").css('background-image', 'url("' + pic[a %= 2] + '")');
 					a++;
 				}, 2800);
-
 			});
-
-			//-登入-----------------------------------
-			window.onload = function () {
-				var storage = localStorage;
-				if(storage.getItem("mem_name") != null){
-					document.getElementById("registerUser").innerHTML = "我的資料";
-					document.getElementById("singUpBtn").childNodes[1].src = "img/member/member_2.png";
-					document.getElementById("singUpBtn").childNodes[3].innerHTML = "登出";
-				}	
-				/*註冊登入按鈕*/
-				var singUpBtn = document.getElementById('singUpBtn');
-
-				/*註冊燈箱*/
-				var lightBox = document.getElementById('lightBox');
-
-				/*註冊燈箱關閉按鈕*/
-				var cancel = document.getElementById('cancel');
-
-				/*建立登入按鈕點擊事件聆聽功能*/
-				singUpBtn.addEventListener('click', showLogin, false);
-
-
-
-				/*建立關閉登入燈箱按鈕點擊事件聆聽功能*/
-				cancel.addEventListener('click', closeLogin, false);
-
-
-				/*點案登入show出登入燈箱 以及判斷登出按鈕*/
-				function showLogin() {
-					/*如果singUpBtn為登入時*/
-					fullCover = document.getElementById('all-page');/*叫出燈箱時的墊背*/
-					if(document.getElementById("singUpBtn").innerHTML == '<img src="img/member/member_1.png" alt="登入icon" title="登入">'){
-						/*show出燈箱*/
-						lightBox.style.opacity = 1;
-						fullCover.style.display="block";
-						lightBox.style.visibility = 'visible'
-						lightBox.style.display = "block";
-						bannerMousewheelClose();
-						allNavClose();
-
-					/*其他(登出)將其餘文字變更*/
-					}else{
-						closeLogin();
-						document.getElementById("singUpBtn").innerHTML = '<img src="img/member/member_1.png" alt="登入icon" title="登入">';
-						document.getElementById("registerUser").innerHTML = '<img src="img/member/member_0.png" alt="註冊icon" title="註冊">';
-						document.getElementById("registerUser").href = "SignUp.html";
-
-					}
-					
-				}
-				
-
-
-				/*點案登入關閉登入燈箱*/
-				function closeLogin() {
-					lightBox.style.opacity = 0;
-					lightBox.style.visibility = 'hidden';
-					fullCover.style.display="";
-				}
-				/*註冊登入點擊事件*/
-				var submit = document.getElementById("submit");
-				submit.onclick = sendForm;
-				
-				
-			}
-
-
-			/*登入功能*/
-			
-			function sendForm(){
-				/*註冊會員ID*/
-				var memId = document.getElementById("memId");
-
-				/*註冊會員PSW*/
-				var memPsw = document.getElementById("memPsw");
-
-				/*註冊lightBox用來點擊消失*/
-				var lightBox=document.getElementById("lightBox");
-
-				var registerUser = document.getElementById("registerUser");
-
-					/*判斷帳號密碼是否正確*/
-					if(memId.value =="Sara" && memPsw.value == "111"){
-
-						/*若是帳號密碼正確lightBox消失*/
-						lightBox.style.display = "none";
-						fullCover.style.display="";
-
-						/*帳號密碼正確登入文字變成登出*/
-						document.getElementById("singUpBtn").innerHTML = '<img src="img/member/member_2.png" alt="登出icon" title="登出">';
-
-						/*registerUser原本是"註冊" 變更為"我的資料"*/
-						document.getElementById("registerUser").innerHTML = "我的資料";
-						/*也將連結改變*/
-						document.getElementById("registerUser").href = "iframe_02.html";
-					}else{
-
-						/*帳號密碼錯誤跳出此題是文字*/
-						alert('帳號密碼錯誤，請重新輸入。');
-					}
-			}
-			
-
-		</script>
-
+</script>
 
 </body>
 
