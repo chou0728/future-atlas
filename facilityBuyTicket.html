@@ -509,9 +509,6 @@ function init(){
 	function closeMessage(){
 		fullBlack.style.display = "none";
 	}
-window.addEventListener('load',init);
-window.addEventListener('load',l_storage);
-
 	
 	function changeCartImg(){
 		var newlevel = Math.floor((facility_ticket_list.split("/").length-1)/2);
@@ -522,6 +519,8 @@ window.addEventListener('load',l_storage);
         console.log(facility_ticket_list.split("/").length-1);
         clearTimeout(changeCartImg);
 	}
+window.addEventListener('load',init);
+window.addEventListener('load',l_storage);
 
         
 
