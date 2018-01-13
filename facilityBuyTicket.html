@@ -439,6 +439,7 @@ function init(){
 
 	function l_storage(){
 		storage = localStorage;
+		console.log(storage.getItem("facility_ticket_list"));
 		if(storage.getItem("facility_ticket_list")){
 			facility_ticket_list = storage.getItem("facility_ticket_list");
 		}else{
@@ -464,6 +465,7 @@ function init(){
 				if(facility_ticket_list.indexOf(fn)==-1){
 					facility_ticket_list += fn+"/" ;
 					storage.setItem("facility_ticket_list", facility_ticket_list);
+					setTimeout(changeCartImg,50);
 				}
 				
 		}else if(ad==0&&cd==0){
@@ -502,34 +504,25 @@ function init(){
         document.getElementById("cartimgid").src = "img/cart/wallet_"+aa+".png";
         document.getElementById("howmanytickets").innerHTML = facility_ticket_list.split("/").length-1;
 	}
+
+
 	function closeMessage(){
 		fullBlack.style.display = "none";
 	}
-window.addEventListener('load',init);
-window.addEventListener('load',l_storage);
-
-
-$(document).ready(function(){
-	$(".f_submit").click(function(){
-        // 更新購物車外觀
-        var newlevel = Math.floor((facility_ticket_list.split("/").length-1)/2);
+	
+	function changeCartImg(){
+		var newlevel = Math.floor((facility_ticket_list.split("/").length-1)/2);
         var aa = document.getElementById("cartimgid").src.substr(-5,1);
         aa = newlevel;
         document.getElementById("cartimgid").src = "img/cart/wallet_"+aa+".png";
         document.getElementById("howmanytickets").innerHTML = facility_ticket_list.split("/").length-1;
-	        
-        // 更新購物車預覽
-            $("#showCartContenttb").empty();
-            for(var i = 1; i < 7; i++){
-                if(storage.getItem(i) != null){
-                    var fn = storage.getItem(i).split("/")[1];
-                    var hn = storage.getItem(i).split("/")[3];
-                    if(fn != 0 || hn != 0){
-                    $("#showCartContenttb").append("<tr><td>設施"+i+"全票"+fn+"張 半票"+hn+"張</td></tr>");                    
-                }
-            }
-        }
-	});
-});
+        console.log(facility_ticket_list.split("/").length-1);
+        clearTimeout(changeCartImg);
+	}
+window.addEventListener('load',init);
+window.addEventListener('load',l_storage);
+
+        
+
 </script>
 </html>
