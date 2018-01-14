@@ -132,7 +132,7 @@ session_start();
         </a>
         <ul class="ul_right">
             <li>
-                <a href="#page2">園區地圖</a>
+                <a href="#page2" id="NavClose">園區地圖</a>
             </li>
             <li>
                 <a href="activity.html">活動月曆</a>
@@ -1071,10 +1071,10 @@ session_start();
 		<script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
 		<!-- <script src="https://code.jquery.com/jquery-3.2.1.js"></script> -->
 		<script src="js/javascript.fullPage.js"></script>
+		<script src="js/00nav.js"></script>
 		<script src="js/01main.js"></script>
 		<script src="js/02map.js"></script>
 		<script src="js/04calendar.js"></script>
-		<script src="js/00nav.js"></script>
 		<script src="js/page_load_unload.js"></script>
 		<script>
 			// FULLPAGE------------------------------------------
@@ -1194,8 +1194,7 @@ session_start();
 				
 				
 			}
-			
-
+		
 </script>
 
 </body>
