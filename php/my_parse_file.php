@@ -74,6 +74,23 @@
 			$statement->bindValue(7,$Scorenumber);
 			$statement->bindValue(8,$CardInfo);
 			$statement->execute();
+		//扣掉會員積分
+		$sql="select * from member where mem_id=$member_id";
+		$member = $pdo->query( $sql );
+		if( $member->rowCount()==0){
+		 	echo "<center>查無此會員資料</center>";
+		 }else{
+		 	$prodRow = $member->fetchObject();
+		 	$prodRow->mem_id;
+		 	$mem_points = $prodRow->mem_points-$Scorenumber;
+		 	$sql="update member set mem_points=$mem_points
+		         where mem_id=$prodRow->mem_id";
+		    $member = $pdo->prepare( $sql );
+		 	$member->bindValue(":mem_id" ,$prodRow->mem_id);
+		 	$member->bindValue(":mem_points" , $mem_points);
+		 	$member->execute();
+		 }
+	 	
 		?>
 		<?php
 			echo "輸入完成";	
