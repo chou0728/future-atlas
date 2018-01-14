@@ -103,7 +103,7 @@ session_start();
             </a>
         </li>
         <li class="li_top">
-             <a href="input_cart.html">
+             <a href="input_cart.php">
                 <img id="cartimgid" src="img/cart/wallet_0.png">
                 <span id="howmanytickets">0</span>
             </a>
@@ -1075,7 +1075,6 @@ session_start();
 		<script src="js/02map.js"></script>
 		<script src="js/04calendar.js"></script>
 		<script src="js/00nav.js"></script>
-		<!-- <script src="js/login&logout.js"></script> -->
 		<script src="js/page_load_unload.js"></script>
 		<script>
 			// FULLPAGE------------------------------------------
