@@ -713,10 +713,7 @@ window.addEventListener('load',l_storage);
 						fullCover.style.display="block";
 						lightBox.style.visibility = 'visible'
 						lightBox.style.display = "block";
-						bannerMousewheelClose();
 						allNavClose();
-					}else{
-						Session.Abandon();
 					}
 				}
 				

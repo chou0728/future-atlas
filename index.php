@@ -126,7 +126,7 @@ if(isset($_SESSION["login_error"])===true){
                 <a href="facilityBuyTicket.php">設施購票</a>
             </li>
             <li>
-                <a href="facilityInfo.html">設施介紹</a>
+                <a href="facilityInfo.php">設施介紹</a>
             </li>
         </ul>
         <h1 style="display: none">FutureAtlas_未來主題樂園</h1>
@@ -135,7 +135,7 @@ if(isset($_SESSION["login_error"])===true){
         </a>
         <ul class="ul_right">
             <li>
-                <a href="#page2">園區地圖</a>
+                <a href="#page2" id="NavClose">園區地圖</a>
             </li>
             <li>
                 <a href="activity.html">活動月曆</a>
@@ -1074,10 +1074,10 @@ if(isset($_SESSION["login_error"])===true){
 		<script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
 		<!-- <script src="https://code.jquery.com/jquery-3.2.1.js"></script> -->
 		<script src="js/javascript.fullPage.js"></script>
+		<script src="js/00nav.js"></script>
 		<script src="js/01main.js"></script>
 		<script src="js/02map.js"></script>
 		<script src="js/04calendar.js"></script>
-		<script src="js/00nav.js"></script>
 		<script src="js/page_load_unload.js"></script>
 		<script>
 			// FULLPAGE------------------------------------------
@@ -1183,8 +1183,6 @@ if(isset($_SESSION["login_error"])===true){
 						lightBox.style.display = "block";
 						bannerMousewheelClose();
 						allNavClose();
-					}else{
-						Session.Abandon();
 					}
 				}
 				
@@ -1199,8 +1197,7 @@ if(isset($_SESSION["login_error"])===true){
 				
 				
 			}
-			
-
+		
 </script>
 
 </body>
