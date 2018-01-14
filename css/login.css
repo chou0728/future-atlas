@@ -1,4 +1,6 @@
 #lightBox{
+    opacity: 0;
+    display: none;
     border: 4px solid rgba(55, 255, 243,1);
     box-shadow: 0px 0px 10px 0px rgba(55, 255, 243,1);
     width:30%;
@@ -8,9 +10,10 @@
     top:50%;
     left:50%;
     transform: translate(-50%,-50%);
-    transition: 0.5s ;
+    transition: 0.5s;
     box-sizing: border-box;
-    padding-top: 20px;
+    padding: 20px;
+    z-index: 9999;
 }
 @media screen and (min-width:415px) and (max-width:1024px){
     #lightBox{
@@ -24,46 +27,39 @@
     }
 
 }
-/*.leftLine{
-    top: 5px;
-    right: 20px;
-    width: 5px;
-    height: 22px;
+.leftLine{
+    top: 50%;
+    left: 50%;
+    width: 28px;
+    height: 4px;
     background-color: #fff;
     position: absolute;
-    transform: rotate(45deg) translate(9px, 1px);
-}*/
-/*.rightLine{
-    top: 5px;
-    right: 10px;
-    width: 5px;
-    height: 22px;
+    transform: translate(-50%,-50%);
+}
+.rightLine{
+    top: 50%;
+    left: 50%;
+    width: 4px;
+    height: 28px;
     background-color: #fff;
     position: absolute;
-    transform: rotate(-45deg) translate(-8px, 2px);
+    transform: translate(-50%,-50%);
     
-}*/
- /* #cancel{
+}
+  #cancel{
+    position: absolute;
     width: 33px;
-    height: 16px;
+    height: 33px;
     top: 10px;
     right: 10px;
-} */
+    transform: rotate(45deg);
+} 
 #lightBox #cancel:hover{
-    background-color: rgb(142, 230, 27);
+    filter: drop-shadow(0px 0px 2px rgba(255,255,255,0.5));
     cursor: pointer;
 }
 
 
-/*燈箱bar*/
-#lightBox .bar{
-    width:100%;
-    height: 15px;
-    position: absolute;
-    left: 0;
-    top: 0;
-}
-/*燈箱bar結束*/
 
 
 #lightBox .singUp{

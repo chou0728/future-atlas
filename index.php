@@ -1,19 +1,24 @@
 <?php
 ob_start();
 session_start();
+if(isset($_SESSION["login_status"]) === true){
+	echo "<script>alert('帳密錯誤！請新登入');</script>";
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
 	<meta charset="UTF-8">
-
 	<title>FA未來主題樂園</title>
 	<link rel="stylesheet" type="text/css" href="css/RESET.css">
 	<style type="text/css">
 		*{
 			text-decoration: none;
 			box-sizing: border-box;
+		}
+		body{
+			overflow: hidden;
 		}
 		body::after {
 			  content: '';
@@ -40,7 +45,7 @@ session_start();
 
 	</style>
 	<link rel="stylesheet" type="text/css" href="css/header.css">
-<!-- 	<link rel="stylesheet" type="text/css" href="css/login.css"> -->
+	<link rel="stylesheet" type="text/css" href="css/login.css">
 	<link rel="stylesheet" type="text/css" href="css/01main.css">
 	<link rel="stylesheet" type="text/css" href="css/01main_ferris_wheel.css">
 	<link rel="stylesheet" type="text/css" href="css/02map.css">
@@ -61,7 +66,13 @@ session_start();
             <img src="img/Usericon1.png">
         </div>
         <li class="li_top">
-            <a href="SignUp.html" id="registerUser">
+            <a href=<?php
+            	if(isset($_SESSION["mem_id"])===true){
+                			echo "'javascript:void(0)'";
+                		}else{
+                			echo "'SignUp.html'";
+                		}
+            ?> id="registerUser">
                 <img src="img/member/member_0.png">
                 <span class="register">
                 	<?php
@@ -75,21 +86,27 @@ session_start();
             </a>
         </li>
         <li class="li_top">
-            <a href="login.php" id="singUpBtn">
+            <a href=<?php
+                		if(isset($_SESSION["mem_id"])===true){
+                			echo"'logoutheadforindex.php'";
+                		}else{
+                			echo"'javascript:void(0)'";
+                		}
+                	?> id="singUpBtn">
                 <img src="img/member/member_1.png">
                 <span class="login">
                 	<?php
                 		if(isset($_SESSION["mem_id"])===true){
-                			echo "登出";
+                			echo"登出";
                 		}else{
-                			echo "登入";
+                			echo"登入";
                 		}
                 	?>
                 </span>
             </a>
         </li>
         <li class="li_top">
-             <a href="input_cart.html">
+             <a href="input_cart.php">
                 <img id="cartimgid" src="img/cart/wallet_0.png">
                 <span id="howmanytickets">0</span>
             </a>
@@ -106,10 +123,10 @@ session_start();
                 <a href="Theaterbuyticket.html">劇場購票</a>
             </li>
             <li>
-                <a href="facilityBuyTicket.html">設施購票</a>
+                <a href="facilityBuyTicket.php">設施購票</a>
             </li>
             <li>
-                <a href="facilityInfo.html">設施介紹</a>
+                <a href="facilityInfo.php">設施介紹</a>
             </li>
         </ul>
         <h1 style="display: none">FutureAtlas_未來主題樂園</h1>
@@ -118,7 +135,7 @@ session_start();
         </a>
         <ul class="ul_right">
             <li>
-                <a href="#page2">園區地圖</a>
+                <a href="#page2" id="NavClose">園區地圖</a>
             </li>
             <li>
                 <a href="activity.html">活動月曆</a>
@@ -1025,18 +1042,18 @@ session_start();
 				<div class="rightLine"></div>
 			</div>
 			<!-- <img class="bar" src="img/bar.png" alt="bar"> -->
-			<form class="singUp" action="" method="get">
+			<form class="singUp" action="loginheadforindex.php" method="post">
 				<h2>會員登入</h2>
 				<div class="text">
-					會員帳號：<input type="text" name="memId" id="memId" value="" required placeholder="輸入帳號">
+					會員帳號：<input type="text" name="memName" id="memId" value="" required placeholder="輸入帳號">
 					<br>
 					會員密碼：<input type="password" name="memPsw"  id="memPsw" value="" required placeholder="輸入密碼">
 					<br>
 				</div>
-				<div class="btn">
-					<input type="button" name="" id="submit" value="登入">
-					<!-- <input type="reset" name="reset" value="取消"> -->
-				</div>
+				        <div class="btn">
+				            <input type="submit" name="" id="submit" value="登入">
+				            <input type="reset" name="reset" value="RESET">
+        				</div>
 			</form>
 		</div>
 
@@ -1057,14 +1074,13 @@ session_start();
 		<script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
 		<!-- <script src="https://code.jquery.com/jquery-3.2.1.js"></script> -->
 		<script src="js/javascript.fullPage.js"></script>
+		<script src="js/00nav.js"></script>
 		<script src="js/01main.js"></script>
 		<script src="js/02map.js"></script>
 		<script src="js/04calendar.js"></script>
-		<script src="js/00nav.js"></script>
-		<!-- <script src="js/login&logout.js"></script> -->
 		<script src="js/page_load_unload.js"></script>
 		<script>
-// FULLPAGE------------------------------------------
+			// FULLPAGE------------------------------------------
 			fullpage.initialize('#fullpage', {
 				anchors: ['page1', 'page2', 'page3', 'page4', 'page5'],
 				css3: true,
@@ -1131,6 +1147,57 @@ session_start();
 					a++;
 				}, 2800);
 			});
+			//-登入-----------------------------------
+			window.onload = function () {
+				document.getElementsByTagName("body")[0].style.overflow = "hidden";// !!BUG
+
+				var storage = localStorage;
+				/*註冊登入按鈕*/
+				var singUpBtn = document.getElementById('singUpBtn');
+
+				/*註冊燈箱*/
+				var lightBox = document.getElementById('lightBox');
+
+				/*註冊燈箱關閉按鈕*/
+				var cancel = document.getElementById('cancel');
+
+				/*建立登入按鈕點擊事件聆聽功能*/
+				singUpBtn.addEventListener('click', showLogin, false);
+
+
+
+				/*建立關閉登入燈箱按鈕點擊事件聆聽功能*/
+				cancel.addEventListener('click', closeLogin, false);
+
+
+				/*點案登入show出登入燈箱 以及判斷登出按鈕*/
+				function showLogin() {
+					console.log(singUpBtn.innerText);
+					/*如果singUpBtn為登入時*/
+					fullCover = document.getElementById('all-page');/*叫出燈箱時的墊背*/
+					if(singUpBtn.innerText.indexOf("登入") != -1){
+						/*show出燈箱*/
+						lightBox.style.opacity = 1;
+						fullCover.style.display="block";
+						lightBox.style.visibility = 'visible'
+						lightBox.style.display = "block";
+						bannerMousewheelClose();
+						allNavClose();
+					}
+				}
+				
+
+
+				/*點案登入關閉登入燈箱*/
+				function closeLogin() {
+					lightBox.style.opacity = 0;
+					lightBox.style.visibility = 'hidden';
+					fullCover.style.display="";
+				}
+				
+				
+			}
+		
 </script>
 
 </body>

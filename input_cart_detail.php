@@ -1,3 +1,7 @@
+<?php
+ob_start();
+session_start();
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -99,24 +103,18 @@ body::-webkit-scrollbar-thumb {
     <img src="img/Usericon.png" class="memIcon">
     
 </div>
-
-    <!-- header end-->
-<!-- 會員資訊 -->
-<?php
-$mem_id = ?>
-<script>
-	var memId = localStorage; storage.getItem("memId");
-</script>
-
+<!-- header end-->
+<!-- 輸出會員資訊 -->
 <?php
 try {
 	require_once("php/connectBooks.php");
-	$sql = "select * from member where mem_id = :mem_id";
+	$sql = "select * from member where mem_nick = :mem_id";
 	$statement = $pdo -> prepare($sql);
 	$statement->bindParam("mem_id",$mem_id);
 
-} catch (Exception $e) {
-	
+}catch(PDOException $ex){
+	echo "資料庫操作失敗,原因：",$ex->getMessage(),"<br>";
+	echo "行號：",$ex->getLine(),"<br>";
 }
 
 ?>
