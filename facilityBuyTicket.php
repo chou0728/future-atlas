@@ -91,7 +91,7 @@ session_start();
             </a>
         </li>
         <li class="li_top">
-             <a href="input_cart.html">
+             <a href="input_cart.php">
                 <img id="cartimgid" src="img/cart/wallet_0.png">
                 <span id="howmanytickets">0</span>
             </a>
@@ -713,10 +713,7 @@ window.addEventListener('load',l_storage);
 						fullCover.style.display="block";
 						lightBox.style.visibility = 'visible'
 						lightBox.style.display = "block";
-						bannerMousewheelClose();
 						allNavClose();
-					}else{
-						Session.Abandon();
 					}
 				}
 				

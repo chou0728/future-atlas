@@ -1,6 +1,9 @@
 <?php
 ob_start();
 session_start();
+if(isset($_SESSION["login_status"]) === true){
+	echo "<script>alert('帳密錯誤！請新登入');</script>";
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -103,7 +106,7 @@ session_start();
             </a>
         </li>
         <li class="li_top">
-             <a href="input_cart.html">
+             <a href="input_cart.php">
                 <img id="cartimgid" src="img/cart/wallet_0.png">
                 <span id="howmanytickets">0</span>
             </a>
@@ -123,7 +126,7 @@ session_start();
                 <a href="facilityBuyTicket.php">設施購票</a>
             </li>
             <li>
-                <a href="facilityInfo.html">設施介紹</a>
+                <a href="facilityInfo.php">設施介紹</a>
             </li>
         </ul>
         <h1 style="display: none">FutureAtlas_未來主題樂園</h1>
@@ -132,7 +135,7 @@ session_start();
         </a>
         <ul class="ul_right">
             <li>
-                <a href="#page2">園區地圖</a>
+                <a href="#page2" id="NavClose">園區地圖</a>
             </li>
             <li>
                 <a href="activity.html">活動月曆</a>
@@ -1071,11 +1074,10 @@ session_start();
 		<script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
 		<!-- <script src="https://code.jquery.com/jquery-3.2.1.js"></script> -->
 		<script src="js/javascript.fullPage.js"></script>
+		<script src="js/00nav.js"></script>
 		<script src="js/01main.js"></script>
 		<script src="js/02map.js"></script>
 		<script src="js/04calendar.js"></script>
-		<script src="js/00nav.js"></script>
-		<!-- <script src="js/login&logout.js"></script> -->
 		<script src="js/page_load_unload.js"></script>
 		<script>
 			// FULLPAGE------------------------------------------
@@ -1181,8 +1183,6 @@ session_start();
 						lightBox.style.display = "block";
 						bannerMousewheelClose();
 						allNavClose();
-					}else{
-						Session.Abandon();
 					}
 				}
 				
@@ -1197,8 +1197,7 @@ session_start();
 				
 				
 			}
-			
-
+		
 </script>
 
 </body>

@@ -12,6 +12,10 @@
 
 				var logoBtn = document.getElementsByClassName("logo")[0];
 				logoBtn.addEventListener("click",allNavClose);
+
+				var NavClose = document.getElementById("NavClose");
+				NavClose.addEventListener("click",allNavClose);
+				
 				
 			}
 			function headerAppearClose(){
@@ -65,7 +69,6 @@
 				var header = document.getElementsByClassName("header")[0];
 				var li_top = document.getElementsByClassName("li_top");
 				var ul_box = document.getElementsByClassName("ul_box")[0];
-
 						for(var i =0;i<li_top.length;i++){
 							li_top[i].id="";
 						}
@@ -106,7 +109,7 @@ $(document).ready(function(){
 		$(".lever").removeClass("leverOnScroll");
 		$(".ul_top").removeClass("ul_top_onScroll");
 	})
-	$(".ul_top").mouseleave(function(){
+	$(".ul_top").click(function(){
 		$(".lever").addClass("leverOnScroll");
 		$(".ul_top").addClass("ul_top_onScroll");
 	})

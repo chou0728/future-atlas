@@ -15,23 +15,23 @@ $pre_url=$_SERVER['HTTP_REFERER'];
 <?php
 try {
 	require_once("php/connectBooks.php");
-	$sql = "select * from member where mem_name = :mem_name";
+	$sql = "select * from member where mem_name = :mem_name and password = :password";
 	$mem_name = $_REQUEST["memName"];
 	$mem_psw = $_REQUEST["memPsw"];
 	$member = $pdo -> prepare($sql);
 	$member -> bindParam(":mem_name",$mem_name);
+	$member -> bindParam(":password",$mem_psw);
 	$member -> execute();
 
 	if( $member->rowCount() !=0 ){
 		$memRow = $member->fetchObject();
-		echo $memRow->mem_nick, "您好，登入成功<br>！頁面將自動跳轉";
 		$_SESSION["mem_id"] = $memRow->mem_id;
         $_SESSION["mem_nick"] = $memRow->mem_nick;
-        echo $_SESSION["mem_id"];
+        unset($_SESSION["login_status"]);
         header("location:$pre_url");
 	}else{
-		echo "查無此密密，請重新登入";
-		header("refresh:5; url=index.php");
+		$_SESSION["login_status"] = 0;
+		header("location:$pre_url");
 	}
 } catch (Exception $ex) {
 	echo "資料庫操作失敗,原因：",$ex->getMessage(),"<br>";
