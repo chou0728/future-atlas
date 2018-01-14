@@ -1,7 +1,7 @@
 <?php
 ob_start();
 session_start();
-if(isset($_SESSION["login_error"])===true){
+if(isset($_SESSION["login_status"]) === true){
 	echo "<script>alert('帳密錯誤！請新登入');</script>";
 }
 ?>

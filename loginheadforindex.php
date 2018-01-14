@@ -11,11 +11,6 @@ $pre_url=$_SERVER['HTTP_REFERER'];
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
 </head>
-<script type="text/javascript">
-	function alert(){
-		alert("查無此密密，請重新登入");
-	};
-</script>
 <body>
 <?php
 try {
@@ -30,12 +25,14 @@ try {
 
 	if( $member->rowCount() !=0 ){
 		$memRow = $member->fetchObject();
+		echo $memRow->mem_nick, "您好，登入成功<br>！頁面將自動跳轉";
 		$_SESSION["mem_id"] = $memRow->mem_id;
         $_SESSION["mem_nick"] = $memRow->mem_nick;
+        echo $_SESSION["mem_id"];
         header("location:$pre_url");
 	}else{
-		$_SESSION["login_error"] = 1;
-		header("location:index.php");
+		$_SESSION["login_status"] = 0;
+		header("location:$pre_url");
 	}
 } catch (Exception $ex) {
 	echo "資料庫操作失敗,原因：",$ex->getMessage(),"<br>";
