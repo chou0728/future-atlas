@@ -25,10 +25,9 @@ try {
 
 	if( $member->rowCount() !=0 ){
 		$memRow = $member->fetchObject();
-		echo $memRow->mem_nick, "您好，登入成功<br>！頁面將自動跳轉";
 		$_SESSION["mem_id"] = $memRow->mem_id;
         $_SESSION["mem_nick"] = $memRow->mem_nick;
-        echo $_SESSION["mem_id"];
+        unset($_SESSION["login_status"]);
         header("location:$pre_url");
 	}else{
 		$_SESSION["login_status"] = 0;
