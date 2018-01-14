@@ -1,14 +1,10 @@
-<?php
-ob_start();
-session_start();
-?>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-<title>input_cart_detail</title>
+<title>lulala</title>
 <script src="js/cart_detail.js"></script>
 <link rel="stylesheet" type="text/css" href="css/header.css">
 <link rel="stylesheet" type="text/css" href="css/cart.css">
@@ -104,18 +100,21 @@ body::-webkit-scrollbar-thumb {
     
 </div>
 <!-- header end-->
-<!-- 輸出會員資訊 --><div id="detailWrapper">
+<!-- 輸出會員資訊 -->
+<div id="detailWrapper">
 	<h1 id="title">確認訂單明細</h1>
 	<table id="member_info" cellspacing="0">
-		<tr><th colspan="2" class="tbtitle">會員資訊</th></tr>
-		<tr>
-			<td>暱稱</td><td id="member_id"><?php echo $mem_nick ?></td>
+		<tr><th colspan="2" class="tbtitle">會員資訊</th>
+			<input type="hidden" name="" id="mem_id">
 		</tr>
 		<tr>
-			<td>Email</td><td id="member_email"><?php echo $mem_email ?></td>
+			<td>暱稱</td><td id="mem_nick" style="color: white"></td>
 		</tr>
 		<tr>
-			<td>積分</td><td id="member_points"><?php echo $mem_points ?></td>
+			<td>Email</td><td id="mem_mail"></td>
+		</tr>
+		<tr>
+			<td>積分</td><td id="mem_points"></td>
 		</tr>
 	</table>
 
@@ -213,6 +212,40 @@ body::-webkit-scrollbar-thumb {
 	<a href="input_cart.html" class="highlight" id="backToShop">上一步</a>
 	<a href="MembersOnly.html" id="nextStep" class="highlight">確認結帳</a>
 </div>
-<script src="js/00nav.js"></script>
+<!-- <script src="js/00nav.js"></script> -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script type="text/javascript">
+window.addEventListener("load",showMemberInfo);
+function showMemberInfo(){
+	// 連線資料庫取得會員資料
+	var storage = localStorage;
+	document.getElementById("mem_id").value = storage.getItem("mem_id");
+	var mem_id = document.getElementById("mem_id").value;
+	var xhr = new XMLHttpRequest();
+	xhr.onload = function (){
+	if( xhr.status == 200){ //OK
+	    if( xhr.responsetText == "sqlerror"){
+	        alert("Server端無法正常運作");
+	    }else{
+	    //show會員資料
+	    document.getElementById("mem_nick").innerHTML = xhr.responseText.split("/")[0];
+	    document.getElementById("mem_mail").innerHTML = xhr.responseText.split("/")[1];
+	    document.getElementById("mem_points").innerHTML = parseInt(xhr.responseText.split("/")[2]);
+	    }
+	    }
+	}
+	var url = "show_member_info.php?mem_id=" + mem_id;
+	xhr.open("get",url, true);
+	xhr.send(null);
+
+	// 會員面板顯示改為登入狀態
+	var storage = localStorage;
+	if( storage.getItem("mem_id") > 0){
+		$(".register").text("我的資料");
+		$(".login").text("登出");
+		$(".login").prev().attr("src","img/member/member_2.png");
+	}
+}
+</script>
 </body>
 </html>

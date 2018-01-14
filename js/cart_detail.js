@@ -1,14 +1,15 @@
-var storage = localStorage;
-var d = new Date();
-d.setFullYear(2019);
-var e = d.toString().substr(4,11).replace(" ","-")
-var member_id = "Sara168";
-var member_email = "Sara168@gmail.com";
-var member_points = 50;
 var length = document.getElementsByClassName("sub_total").length;
-
-
-window.onload = function(){
+window.addEventListener("load",init);
+function init(){
+	// 會員面板顯示改為登入狀態
+	var storage = localStorage;
+	if( storage.getItem("mem_id") > 0){
+		document.getElementsByClassName("register")[0].innerHTML("我的資料");
+		document.getElementsByClassName("login")[0].innerHTML("登出");
+		document.getElementsByClassName("login")[0].previousSiblingElement().setAttribute("src","img/member/member_2.png");
+	}
+	// 為甚麼這行不能起作用???var member_points = document.getElementById("mem_points").innerHTML; 
+	// 產生購票明細
 	for( i = 6 ; i > 0 ; i--){
 		var fn = i;
 		if( storage.getItem(i) != null ){
@@ -101,16 +102,10 @@ document.getElementsByClassName("points")[0].onchange = function(){
 	$("#points_remain").css("opacity","0");
 
 }
-
 // 確認結帳
 $("#nextStep").click(function(){
 	storage.removeItem("facility_ticket_list");
 });
-
-$("#member_id").html(member_id);
-$("#member_email").html(member_email);
-$("#member_points").html(member_points);
-
 };
 
 function setBlur(obj,target2)

@@ -27,10 +27,13 @@ try {
 		$memRow = $member->fetchObject();
 		$_SESSION["mem_id"] = $memRow->mem_id;
         $_SESSION["mem_nick"] = $memRow->mem_nick;
-        unset($_SESSION["login_status"]);
+        $_SESSION["mem_mail"] = $memRow->mem_mail;
+        $_SESSION["mem_phone"] = $memRow->mem_phone;
+        $_SESSION["mem_points"] = $memRow->mem_points;
+        unset($_SESSION["log_out"]);
         header("location:$pre_url");
 	}else{
-		$_SESSION["login_status"] = 0;
+		$_SESSION["log_out"] = 0;
 		header("location:$pre_url");
 	}
 } catch (Exception $ex) {

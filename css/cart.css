@@ -32,7 +32,7 @@ body{
 	padding-top: 30px;
 	padding-bottom: 5px;
 	border: none;
-	border-bottom: 1px solid azure;
+	border-bottom: 1px solid #555;
 }
 
 #cartWrapper title{
