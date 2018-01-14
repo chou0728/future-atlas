@@ -106,7 +106,7 @@ $(document).ready(function(){
 		$(".lever").removeClass("leverOnScroll");
 		$(".ul_top").removeClass("ul_top_onScroll");
 	})
-	$(".ul_top").mouseleave(function(){
+	$(".ul_top").click(function(){
 		$(".lever").addClass("leverOnScroll");
 		$(".ul_top").addClass("ul_top_onScroll");
 	})

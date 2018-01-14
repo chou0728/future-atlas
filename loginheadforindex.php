@@ -15,11 +15,12 @@ $pre_url=$_SERVER['HTTP_REFERER'];
 <?php
 try {
 	require_once("php/connectBooks.php");
-	$sql = "select * from member where mem_name = :mem_name";
+	$sql = "select * from member where mem_name = :mem_name and password = :password";
 	$mem_name = $_REQUEST["memName"];
 	$mem_psw = $_REQUEST["memPsw"];
 	$member = $pdo -> prepare($sql);
 	$member -> bindParam(":mem_name",$mem_name);
+	$member -> bindParam(":password",$mem_psw);
 	$member -> execute();
 
 	if( $member->rowCount() !=0 ){
