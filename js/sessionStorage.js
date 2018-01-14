@@ -3,7 +3,6 @@ var storage = sessionStorage;
 
 //用節目名稱來分日期
 //抓取日期
-var programName = "尋找星生命";
 // document.getElementById("quantity").onchange = function() {myFunction()};
 $(document).ready(function(){
 	var today = new Date();
@@ -90,7 +89,7 @@ $(document).ready(function(){
 		}
 	}
 });							 																														  																													 
-
+//var programName = "尋找星生命";
 //改變節目名稱之後，直接存到sessionStorage 
 function changeTheaterName() {
     // document.querySelector('input[name="programName"]:checked').value;
@@ -114,6 +113,7 @@ function changeDate() {
     //儲存到sessionStorage
     //一開始抓日期
     //var programDate = document.getElementById("programDate").value;
+    var programName = document.querySelector('input[name="programName"]:checked').value;
     //用節目名稱來分日期
 	if(programName == "尋找星生命"){
 		var programDate = document.getElementById("theater1").value;
