@@ -7614,11 +7614,7 @@ sass/02map.scss
 *.scss
 *.json
 prepros-6.config
-.php
 login_test_Manna.html
-css/Theaterbuyticket.css
-css/Theaterbuyticket.css
-SignUp.html
-facilityBuyTicket.php
-php/connectBooks.php
-php/connectBooks.php
+node_modules/*
+MySQL資料表/MySQL指令(志峰)/修改MYSQL中文亂碼問題.sql
+MySQL資料表/MySQL指令(志峰)/create_facility_table.sql
