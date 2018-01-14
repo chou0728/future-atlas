@@ -16,6 +16,7 @@
 				var NavClose = document.getElementById("NavClose");
 				NavClose.addEventListener("click",allNavClose);
 				
+				
 			}
 			function headerAppearClose(){
 					var header = document.getElementsByClassName("header")[0];
