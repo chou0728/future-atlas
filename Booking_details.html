@@ -114,7 +114,7 @@
                         <input type="radio" name="Scorepoints" value="0" onchange="Userpoints()">不使用積分
                         <br>
                         <input type="radio" name="Scorepoints" value="1" checked onchange="Userpoints()">使用積分
-                        <input type="text" id="Scorenumber" value="500" size=10 style="font-size:16px;" onchange="changeScoreNumber()">
+                        <input type="text" id="Scorenumber" value="100" size=10 style="font-size:16px;" onchange="changeScoreNumber()">
                     </td>
                     <td style="padding-top: 40px;"id="integral"> 
                     </td>
@@ -196,8 +196,8 @@
     <!-- <button  onclick="ajax_post()">php</button> -->
     
     <!-- 顯示資料有到php -->
-   <!--  <div id="status" style="color:white;"> 
-    </div> -->
+    <!-- <div id="status" style="color:white;"> 
+    </div>  -->
 
     <script type="text/javascript">
         var storage = sessionStorage;
@@ -296,6 +296,7 @@
         function ajax_post(){
             // Create our XMLHttpRequest object
             //產生XMLHttpRequest物件
+            
             var hr = new XMLHttpRequest();
             // Create some variables we need to send to our PHP file
             //把 vars裡面資輛傳到my_parse_file.php檔案(設定參數)

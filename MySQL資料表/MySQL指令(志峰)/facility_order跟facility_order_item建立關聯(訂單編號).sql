@@ -1,0 +1,1 @@
+ALTER TABLE `facility_order_item` ADD FOREIGN KEY (`order_no`) REFERENCES `facility_order`(`order _no`) ON DELETE RESTRICT ON UPDATE RESTRICT;
