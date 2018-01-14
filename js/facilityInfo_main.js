@@ -1,4 +1,5 @@
 window.onload = function(){
+	console.log("00");
 	f_box = document.getElementsByClassName('f_box');
 	for(i=0;i<f_box.length;i++){
 		f_box[i].addEventListener("click",openlightBoxF);
