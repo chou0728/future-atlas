@@ -7616,3 +7616,5 @@ sass/02map.scss
 prepros-6.config
 login_test_Manna.html
 node_modules/*
+MySQL資料表/MySQL指令(志峰)/修改MYSQL中文亂碼問題.sql
+MySQL資料表/MySQL指令(志峰)/create_facility_table.sql
