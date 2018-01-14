@@ -182,12 +182,8 @@
                     <h2 class="titleh2">劇場場次清單</h2>
                     <table class="TheaterSessionListTable">
                        <!--  <button onclick="searchSession"  class="searchSession">查詢</button> -->
-                       <select name="月份">
-                        　<option value="1月">1月</option>
-                        　<option value="2月">2月</option>
-                        　<option value="3月">3月</option>
-                        　<option value="4月">4月</option>
-                        </select>
+                        節目編號:<input type="text" value="1" name="programNo">
+                            <button  class="searchOrderList" onclick="showSessionList()">查詢</button>
                         <tr>
                             <th>場次編號</th>
                             <th>節目編號</th>
@@ -199,33 +195,37 @@
                         </tr>
                         <?php 
                             try {
+
                                 require_once("connectBooks.php");
+                                //利用programNo查尋sessionList
+
                                 // require_once("connectbd103g3.php");
-                                $recPerPage=100;
-                                $start = 0;
+                                // $recPerPage=100;
+                                // $start = 0;
                                 
-                                $sql = "select * from theater_session_list ";
-                                $theater_session_list= $pdo->query($sql);
+                                // $sql = "select * from theater_session_list  ";
+                                // $theater_session_list= $pdo->query($sql);
 
-                                $total_count = $theater_session_list -> rowCount();  
+                                // $total_count = $theater_session_list -> rowCount();  
 
-                                $total_pages = ceil($total_count / $recPerPage ) ;
-                                if(isset($_GET["page"])){
-                                     $page = $_GET["page"];
-                                }else{
-                                    $page=1;
-                                }
+                                // $total_pages = ceil($total_count / $recPerPage ) ;
+                                // if(isset($_GET["page"])){
+                                //      $page = $_GET["page"];
+                                // }else{
+                                //     $page=1;
+                                // }
                                 //一打開停留在第一頁
-                                $start = ($page-1) * $recPerPage;
+                                //$start = ($page-1) * $recPerPage;
 
-                                $sql = "select * from theater_session_list limit $start,$recPerPage ";
+                                $sql = "select * from theater_session_list ";
                                 $theater_session_list = $pdo->query($sql);
                                 // echo $total_pages;       
                                 //跑迴圈，印出資料
                                 foreach( $theater_session_list as $i=>$prodRow){
-                                ?>
+                        ?>
                                 <tr>
-                                    <td><?php echo  $prodRow["session_no"] ?></td>  
+                                    <td><?php echo  $prodRow["session_no"] ?>
+                                    </td>  
                                     <td>
                                         <?php echo  $prodRow["program_no"] ?>
                                     </td>
@@ -245,7 +245,8 @@
                             <?php       
                                 }
                             ?>
-                            <?php
+
+                        <?php
                             } catch (PDOException $e) {
                                 echo "錯誤原因 : " , $e->getMessage() , "<br>";
                                 echo "錯誤行號 : " , $e->getLine() , "<br>";
@@ -263,7 +264,7 @@
                 <form method="get" action="" align="center" enctype="multipart/form-data">
                     <h2 class="titleh2">劇場票劵訂單</h2>
                     <table class="TheaterOrderListTable">
-                        訂單編號:<input type="text" name="">
+                        場次編號:<input type="text" value="1">
                             <button onclick="searchOrderList"  class="searchOrderList">查詢</button>
                         <tr>
                             <th>訂單編號</th>
@@ -366,9 +367,10 @@
 
             evt.currentTarget.setAttribute("id","active");
         }
-
         // Get the element with id="defaultOpen" and click on it
         document.getElementById("active").click();
+
+
     </script>
 </body>
 </html>

@@ -61,6 +61,7 @@
 			$theater_session_list->bindValue(":last_ticket" , $last_ticket);
 			$theater_session_list->execute();
 		}
+		//預設會員ID
 		$member_id=2;
 		$sql = "INSERT into theater_order_list (session_no,member_id,number_purchase,used_ticket,order_date,original_amount,points_discount,credit_card) values(?,?,?,?,?,?,?,?)";
 			$statement = $pdo->prepare($sql);
