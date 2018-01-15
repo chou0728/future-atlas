@@ -117,33 +117,63 @@
                         <div class="select_amount">
                             <div>
                                 <span>全票：</span>
-                                <input id="full_num" type="number" min="0">
-                                <span>張</span>
-                            </div>
-                            <div>
-                                <span>半票：</span>
-                                <input id="half_num" type="number" min="0">
-                                <span>張</span>
+
+                                <?php
+                                      try{
+                                        require_once("connectBooks.php");
+                                        $sql = "select * from facility_order_item where order_no = ?;";
+                                        $facility_order = $pdo->prepare($sql);
+                                        $facility_order->bindValue(1,1); 
+                                        // 這個 1 到時候要從QR code帶入的資料拿，現在先寫死 (order_no)
+                                        $facility_order->execute();
+
+                                        if( $facility_order->rowCount() == 0 ){ //找不到
+                                          //傳回沒有的訊息
+                                          
+                                          echo "查無此票券";
+                                        }else{ //找得到
+
+                                           //取回該訂單的全部資料
+                                          $order_item = $facility_order->fetchObject();
+
+                                          //取回該筆訂單中全票數量欄位的資料
+                                          $full_fare_num = $order_item->full_fare_num;
+                                          
+                                          //取回該筆訂單中半票數量欄位的資料
+                                          $half_fare_num = $order_item->half_fare_num;
+
+                                          
+                                          echo "<input id='full_num' type='number' value='$full_fare_num' min='0'>";
+                                          echo "<span>張</span>";
+                                          echo "</div>";
+                                          echo "<div>";
+                                          echo "<span>半票：</span>";
+                                          echo "<input id='half_num' type='number' value='$half_fare_num' min='0'>";
+                                          echo "<span>張</span>";
+                                          
+                                        } 
+                                        
+                                      }catch(PDOException $e){
+                                        echo $e->getMessage();
+                                      }
+                                  ?>
+
                             </div>
                         </div>
                         <div class="button_area">
                             <button id="submit">確定註記</button>
-                            <button id="reset">重新註記</button>
+                            <button id="reset">重選數量</button>
                         </div>
                     </div>
-                    <div class="info">
+                    <div class="info" >
                         <h2>註記紀錄</h2>
-                        <div class="info_used_record" id="broad">
-                            <div class="records">
+                        <div class="info_used_record" id="used_record">
+                            <!-- <div class="records">
                                 <p>時間：2018/1/1 10:00　am</p>
                                 <p>註記張數：全票1張 半票1張　共2張</p>
-                                <p>註記人員：李小明</p>
-                            </div>
-                            <div class="records">
-                                <p>時間：2018/1/1 10:00　am</p>
-                                <p>註記張數：全票1張 半票1張　共2張</p>
-                                <p>註記人員：李小明</p>
-                            </div>
+                                
+                            </div> -->
+                            
                         </div>
                     </div>
                     <!-- <div id="light_box_back">
@@ -166,36 +196,57 @@
     <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
     <script src="js/back_check_facility_tickets.js"></script>
     <script type="text/javascript">
-    window.addEventListener("load" ,function()
-    {
-        
-        var xhr = new XMLHttpRequest();
-        xhr.onload = function()
-        {
+      
+      window.onload = record_amount;
 
-            if (xhr.status == 200)
-            {   
-                // var full_num = document.getElementById('full_num');
-                // full_num.value = parseInt(xhr.responseText);
-                console.log(xhr.responseText);
-                var order_item = JSON.parse(xhr.responseText);
-                console.log(order_item.full_fare_num);
-                var full_num = document.getElementById('full_num');
-                full_num.value = order_item.full_fare_num;
-            }
-            else
-            {
-                alert(xhr.status);
-            }
+      function record_amount(){
+         full_num = document.getElementById('full_num');
+         half_num = document.getElementById('half_num');
+        initial_full_num = full_num.value;
+        initial_half_num = half_num.value;
+      };
+
+      //reset按下後重新抓回原始值
+      var reset = document.getElementById('reset');
+      reset.addEventListener('click',function(){
+        full_num.value = initial_full_num;
+        half_num.value = initial_half_num;
+      });
+
+
+      var used_record = document.getElementById('used_record');
+
+      var submit = document.getElementById('submit');
+      submit.addEventListener('click',function(){
             
-        }
+          var full  = parseInt(full_num.value, 10);
+          var half = parseInt(half_num.value, 10);
+          var total = full + half;
 
-        var url = "fetch_from(facility_order_item).php";
-        xhr.open("Get", url, true);
-        xhr.send();
-    } , false);
 
-   
+            //創造2個p節點
+            var p1 = document.createElement("p"); 
+            var p2 = document.createElement("p");
+            p1.innerHTML = "時間：2018/1/1 10:00　am";
+            p2.innerHTML = "註記張數：全票"+ full + "張　半票" + half + "張　共" + total + "張";
+
+            //創造一個div節點，並給予class名稱
+            var records = document.createElement("div"); 
+            records.setAttribute('class','records');
+
+            //div節點加進去父層used_record_wrapper
+            used_record.appendChild(records);
+
+            //把2個p節點加進去父層div節點
+            records.appendChild(p1);
+            records.appendChild(p2);
+
+            
+
+
+
+      });
+
     </script>
 </body>
 
