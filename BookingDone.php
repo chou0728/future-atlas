@@ -1,21 +1,19 @@
-<?php
-ob_start();
-session_start();
-?> 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" type="text/css" href="css/RESET.css">
     <link rel="stylesheet" type="text/css" href="css/header.css">
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>																					 
-    <link rel="stylesheet" href="css/buyTTicket.css" />
-    <script src="js/sessionStorage.js"></script>
-    <title>buyTTicket</title>
+    <link rel="stylesheet" type="text/css" href="css/BookingDone.css">
+    <title>BookingDone</title>
+    
 </head>
+
 <body>
+   <!-- header -->
     <div class="header">
         <ul class="ul_top">
             <li class="li_top">
@@ -72,66 +70,81 @@ session_start();
     </div>
     <!-- header end-->
     
-    <!-- 購買票劵 -->
-    <div class="buyticketarea">
-       <!--  <h2>購買票劵</h2> -->
-        <h2 class="verticalh2">購買票劵</h2>
-        <form name="form" action="" method="get">  
+    <div class="container">
+        <h1 class="Bookingh1">劇場訂票明細<br>(購買成功)</h1>
+        <h2 class="Bookingh2">會員資訊</h2>
+        <div class="memberinfo">
+            <p>帳號:Leon wang</p>
+            <p>Email:Leon wang@gmail.com</p>
+        </div>
+
+        <h2 class="Bookingh2">訂單訊息</h2>
+        <div class="orderinfo">
+            <p>訂票編號:CXXXXXXX</p>
+            <p>訂票日期:
+                <span id="orderdate"></span>
+            </p>
+        </div>
+        <!-- <table font-weight: bold;>
+            <tr>
+                <td>訂票日期:</td>
+                <td id="orderdate"></td>
+            </tr>
+        </table> -->
+        <div class="orderlistsection">
+            <h2 class="Bookingh2">訂票明細</h2>
             <table>
                 <tr>
                     <td>節目名稱</td>
-                    <td>
-                        <input type="radio" name="programName" value="尋找星生命" checked onchange="changeTheaterName()">尋找星生命
-                        <br>
-                        <input type="radio" name="programName" value="末世決戰" onchange="changeTheaterName()">末世決戰
-                    </td>
+                    <td id="program_name">尋找星球</td>
                 </tr>
                 <tr>
                     <td>節目日期</td>
-                    <td>
-                      <!-- <input type="date" id="programDate" name="programdate" required onchange="changeDate()" style="font-size:23px;">-->
-    				 <select id="theater1" onchange="changeDate()" style="font-size:23px;">
-    					<option>尋找星生命</option>
-    				 </select>
-    				 <select id="theater2" onchange="changeDate()" style="font-size:23px;">
-    					<option>末世決戰</option>
-    				 </select>				  
-                    </td>
+                    <td id="Time_date">xxxx-xx-xx</td>
                 </tr>
                 <tr>
                     <td>場次</td>
+                    <td id="Time_Event">xx:xx</td>
+                </tr>
+                <tr>
+                    <td>數量</td>
+                    <td id="unused_ ticket">xx</td>
+                </tr>
+                <tr>
+                    <td>單價</td>
+                    <td>500</td>
+                </tr>
+                <tr>
+                    <td>小計</td>
+                    <td id="unpoints_total">xx</td>
+                </tr>
+                <tr>
                     <td>
-                        <select id="programTime" onchange="changeEvent()" style="width:140px; font-size:23px;">
-                            <option value="11:00">11:00</option>
-                            <option value="14:00">14:00</option>
-                            <option value="15:00">15:00</option>
-                            <option value="19:00">19:00</option>
-                        </select>
+                        <input type="radio" name="Scorepoints" value="0" onchange="Userpoints()">不使用積分
+                        <br>
+                        <input type="radio" name="Scorepoints" value="1" checked onchange="Userpoints()">使用積分
+                        <!-- <input type="text" id="Scorenumber" value="500" size=10 style="font-size:16px;" onchange="changeScoreNumber()"> -->
+                    </td>
+                    <td style="padding-top: 40px;" id="integral">xx
                     </td>
                 </tr>
                 <tr>
-                    <td>票價</td>
-                    <td>500元</td>
-                </tr>
-                <tr>
-                    <td>張數</td>
-                    <td>
-                        <!-- <input type="number" min="1" name="ticketNum" value="1"> -->
-                        <input style="width:60px;font-size:23px;" type="number" id="quantity" value="1" min="1" onchange="changeQuantity()" />
-                    </td>
-                </tr>
-                <tr>
-                    <td>總共金額</td>
-                    <td id="total">
-                        500元
-                    </td>
+                    <td>總計:</td>
+                    <td id="total">xx</td>
                 </tr>
             </table>
-        </form>
+        </div> 
     </div>
-    <div class="buyTTicketBtn">
-            <a href="Theaterbuyticket.html" class="Previouspage">上一步</a>
-            <a  onclick="checkLogin()" class="buyticket">確認購買</a>
-    </div>
+    
     <script src="js/00nav.js"></script>
+    <script>
+        var now = new Date();
+        var year = now.getFullYear();
+        var month = now.getMonth() + 1; // getMonth() is zero-based
+        var day = now.getDate();
+        // var date= now.getYear() + "-" + now.getMonth() + "-" + now.getDate();
+        document.getElementById('orderdate').innerText = year + "-" + month + "-" + day;
+    </script>
+</body>
+
 </html>

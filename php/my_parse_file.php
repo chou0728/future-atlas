@@ -94,7 +94,9 @@
 	 	
 		?>
 		<?php
-			echo "輸入完成";	
+			echo "購買完成";
+			//轉到BookingDone.php
+			// header("location:BookingDone.php");	
 		} catch (PDOException $e) {
 		  echo "錯誤行號 : ", $e->getLine(), "<br>";
 		  echo "錯誤訊息 : ", $e->getMessage(), "<br>";	
