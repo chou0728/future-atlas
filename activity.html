@@ -373,8 +373,8 @@ body::-webkit-scrollbar-thumb {
 
 	});
 
-// 於月曆&活動之間滾動
 $(document).ready(function(){
+	// 於月曆&活動之間滾動
 	$("#toCal").click(function(){
 		$("html,body").animate({scrollTop:$("#wrapper").offset().top}, 400);
 	});
@@ -384,6 +384,16 @@ $(document).ready(function(){
 	$("#toActivity").click(function(){
 		$("html,body").animate({scrollTop:$("#mycal tr:last-child").offset().top}, 400);
 	});
+
+	// 若登入改變會員panel顯示
+	var storage = localStorage;
+	if( storage.getItem("mem_id") > 0){
+		// 已經登入
+		$("#nextStep").attr("href","input_cart_detail.html");
+		$(".register").text("我的資料");
+		$(".login").text("登出");
+		$(".login").prev().attr("src","img/member/member_2.png");
+	}
 });
 </script>
 </body>

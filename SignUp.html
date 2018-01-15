@@ -127,7 +127,9 @@
 			<div class="text">
 				帳號：<input type="text" name="mem_name" placeholder="6-20碼" maxlength="20" id="name_hint_input" required>
     			<!-- <span class="hint" id="name_hint">長度不足</span> -->
-				<!-- <button id="check_mem_id">檢查</button> -->
+    			<!-- <form action="checkmemnameduplicate.php" method="post"> -->
+				<!-- <input type="submit" name="" value="檢查"> -->
+    			<!-- </form> -->
     			<br>
     			暱稱：<input type="text" name="mem_nick" placeholder="6-20碼" maxlength="20" id="nick_hint_input" required>
     			<!-- <span class="hint" id="nick_hint">長度不足</span> -->
@@ -144,7 +146,7 @@
 			</div>	
 			<div class="btn">
 				<input type="reset" name="" value="重設" class="signupbtn">
-				<a href="index.php"><input type="submit" name="" value="確認" class="signupbtn" id="submit"></a>
+				<input type="submit" name="" value="確認" class="signupbtn" id="submit">
 			</div>
 		</form>
 	</div>

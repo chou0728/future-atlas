@@ -219,8 +219,7 @@ window.addEventListener("load",showMemberInfo);
 function showMemberInfo(){
 	// 連線資料庫取得會員資料
 	var storage = localStorage;
-	document.getElementById("mem_id").value = storage.getItem("mem_id");
-	var mem_id = document.getElementById("mem_id").value;
+	var mem_id = storage.getItem("mem_id");
 	var xhr = new XMLHttpRequest();
 	xhr.onload = function (){
 	if( xhr.status == 200){ //OK

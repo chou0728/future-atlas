@@ -1,13 +1,7 @@
 var length = document.getElementsByClassName("sub_total").length;
+var storage = localStorage;
 window.addEventListener("load",init);
 function init(){
-	// 會員面板顯示改為登入狀態
-	var storage = localStorage;
-	if( storage.getItem("mem_id") > 0){
-		document.getElementsByClassName("register")[0].innerHTML("我的資料");
-		document.getElementsByClassName("login")[0].innerHTML("登出");
-		document.getElementsByClassName("login")[0].previousSiblingElement().setAttribute("src","img/member/member_2.png");
-	}
 	// 為甚麼這行不能起作用???var member_points = document.getElementById("mem_points").innerHTML; 
 	// 產生購票明細
 	for( i = 6 ; i > 0 ; i--){
