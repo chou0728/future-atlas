@@ -223,12 +223,9 @@ window.onload=function(){
     var storage = localStorage;
     var mem_id = storage.getItem("mem_id");
     var xhr = new XMLHttpRequest();
-    alert("mem_id="+mem_id);
     xhr.onload = function (){
     if( xhr.status == 200){ //OK
-        alert("秀出會員資料!!");
         //show會員資料
-        alert("已取得會員資料");
         document.getElementById("mem_nick").innerHTML = xhr.responseText.split("/")[0];
         document.getElementById("mem_mail").innerHTML = xhr.responseText.split("/")[1];
         document.getElementById("mem_points").innerHTML = xhr.responseText.split("/")[2];
