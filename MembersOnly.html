@@ -218,8 +218,7 @@
 
 </div>
 <script type="text/javascript">
-window.addEventListener("load",showMemberInfo);
-function showMemberInfo(){
+window.onload=function(){
     // 連線資料庫取得會員資料
     var storage = localStorage;
     var mem_id = storage.getItem("mem_id");
@@ -228,10 +227,6 @@ function showMemberInfo(){
     xhr.onload = function (){
     if( xhr.status == 200){ //OK
         alert("秀出會員資料!!");
-        if( xhr.responsetText == "sqlerror"){
-            alert("Server端無法正常運作");
-            console.log("Server端無法正常運作");
-        }else{
         //show會員資料
         alert("已取得會員資料");
         document.getElementById("mem_nick").innerHTML = xhr.responseText.split("/")[0];
@@ -245,8 +240,7 @@ function showMemberInfo(){
     var url = "show_member_info.php?mem_id=" + mem_id;
     xhr.open("get",url, true);
     xhr.send(null);
-}
-}
+};
 </script>
 </body>
 </html>
