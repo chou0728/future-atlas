@@ -1,8 +1,12 @@
 <?php
 ob_start();
 session_start();
-if(isset($_SESSION["login_status"]) === true){
+if(isset($_SESSION["login_error"]) === true){
 	echo "<script>alert('帳密錯誤！請新登入');</script>";
+	unset($_SESSION["login_error"]);
+}else if(isset($_SESSION["log_register"])===true){
+	echo "<script>alert('註冊成功，歡迎你~~');</script>";
+	unset($_SESSION["log_register"]);
 }
 ?>
 <!DOCTYPE html>
@@ -77,7 +81,7 @@ if(isset($_SESSION["login_status"]) === true){
                 <span class="register">
                 	<?php
                 		if(isset($_SESSION["mem_id"])===true){
-                			echo $_SESSION["mem_nick"]."你好!";
+                			echo "<a href='MembersOnly.html'>我的資料</a>";
                 		}else{
                 			echo "註冊";
                 		}
@@ -93,7 +97,13 @@ if(isset($_SESSION["login_status"]) === true){
                 			echo"'javascript:void(0)'";
                 		}
                 	?> id="singUpBtn">
-                <img src="img/member/member_1.png">
+                <img src=<?php
+                		if(isset($_SESSION['mem_id'])===true){
+                			echo 'img/member/member_2.png';
+                		}else{
+                			echo 'img/member/member_1.png';
+                		}
+					?>>
                 <span class="login">
                 	<?php
                 		if(isset($_SESSION["mem_id"])===true){
@@ -106,7 +116,7 @@ if(isset($_SESSION["login_status"]) === true){
             </a>
         </li>
         <li class="li_top">
-             <a href="input_cart.php">
+             <a href="input_cart.html">
                 <img id="cartimgid" src="img/cart/wallet_0.png">
                 <span id="howmanytickets">0</span>
             </a>
@@ -1149,7 +1159,7 @@ if(isset($_SESSION["login_status"]) === true){
 			});
 			//-登入-----------------------------------
 			window.onload = function () {
-				document.getElementsByTagName("body")[0].style.overflow = "hidden";// !!BUG
+				// document.getElementsByTagName("body")[0].style.overflow = "hidden";// !!BUG
 
 				var storage = localStorage;
 				/*註冊登入按鈕*/
@@ -1195,9 +1205,20 @@ if(isset($_SESSION["login_status"]) === true){
 					fullCover.style.display="";
 				}
 				
-				
+				// 若登入，將mem_id存入localStorage
+				var storage = localStorage;
+				storage.setItem("mem_id",
+					<?php
+	               		if(isset($_SESSION["mem_id"])===true){
+	               			echo $_SESSION["mem_id"];
+	               		}else{
+	               			echo "0";
+	               			// 若未登入，mem_id為0
+	               		}
+                	?>
+					);
 			}
-		
+
 </script>
 
 </body>

@@ -65,9 +65,8 @@
 	<div class="back_wrapper_right">
 		<div class="b_content">
 			<div class="b_sub_nav">
-				<a href="javascript:void(0)" class="b_sn_btn">subNav01</a>
-				<a href="javascript:void(0)" class="b_sn_btn">subNav01</a>
-				<a href="javascript:void(0)" class="b_sn_btn">subNav01</a>
+				<a href="javascript:void(0)" class="b_sn_btn" id="active" onclick="openCity(event,'class1')" >設施介紹</a>
+				<a href="javascript:void(0)" class="b_sn_btn" onclick="openCity(event,'class2')" >設施上架</a>
 			</div>
 			<!-- ===========請加內容至此===========-->
 			<!-- ===========請加內容至此===========-->
@@ -76,7 +75,28 @@
 			</div>
 		</div>
 	</div>
+<script>
+        function openCity (evt,list) {
 
+            var i, tabcontent, b_sn_btn;
+            tabcontent = document.getElementsByClassName("tabcontent");
+            for (i = 0; i < tabcontent.length; i++) {
+                tabcontent[i].style.display = "none";
+            }
+            b_sn_btn = document.getElementsByClassName("b_sn_btn");
+            for (i = 0; i < b_sn_btn.length; i++) {
+                b_sn_btn[i].className = b_sn_btn[i].className.replace(" active", "");
+                b_sn_btn[i].setAttribute("id","");
+            }
+            document.getElementById(list).style.display = "block";
+            evt.currentTarget.className += " active";
+
+            evt.currentTarget.setAttribute("id","active");
+        }
+
+        // Get the element with id="defaultOpen" and click on it
+        document.getElementById("active").click();
+</script>
 
 </body>
 </html>

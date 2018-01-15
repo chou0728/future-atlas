@@ -1,6 +1,7 @@
-/* *{
-    outline: 1px solid red;
-} */
+*{
+    /*outline: 1px solid red;*/
+    font-family: 微軟正黑體;
+} 
 body{
     background-color: #000;
 }
@@ -8,7 +9,7 @@ body{
     width:100%;
     max-width: 1200px;
     text-align: center;
-    margin: 0 auto;
+    margin: 100px auto 0 auto;
 }
 .MembersBox .content{ 
     width: 100%;

@@ -126,7 +126,7 @@ session_start();
         </a>
         <ul class="ul_right">
             <li>
-                <a href="index.html#page2">園區地圖</a>
+                <a href="index.html#page2" id="NavClose">園區地圖</a>
             </li>
             <li>
                 <a href="activity.html">活動月曆</a>

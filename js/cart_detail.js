@@ -1,14 +1,8 @@
-var storage = localStorage;
-var d = new Date();
-d.setFullYear(2019);
-var e = d.toString().substr(4,11).replace(" ","-")
-var member_id = "Sara168";
-var member_email = "Sara168@gmail.com";
-var member_points = 50;
 var length = document.getElementsByClassName("sub_total").length;
-
-
-window.onload = function(){
+var storage = localStorage;
+window.addEventListener("load",init);
+function init(){
+	// 產生購票明細
 	for( i = 6 ; i > 0 ; i--){
 		var fn = i;
 		if( storage.getItem(i) != null ){
@@ -17,13 +11,15 @@ window.onload = function(){
 			if( full_fare_num > 0 ){
 				var full_fare = info[0];
 				var full_fare_subtotal = full_fare * full_fare_num;			
-				$("#ticket_row").after("<tr><td>"+fn+"</td><td>"+"設施icon"+"</td><td>"+"設施名稱"+"</td><td>"+"全票"+"</td><td>"+full_fare+"</td><td>"+full_fare_num+"</td><td class='sub_total' colspan='2'>"+full_fare_subtotal+"</td></tr>");
+				$("#ticket_row").after("<tr><td style='text-align:center;'>"+fn+"</td><td class='facility_name facility_name_"+fn+"'></td><td style='text-align:center;'>"+"全票"+"</td><td style='text-align:right;'>"+full_fare+"</td><td>"+full_fare_num+"</td><td class='sub_total' colspan='2'>"+full_fare_subtotal+"</td></tr>");
+				// show_facility_name(fn);
 			}
 			var half_fare_num = info[3];
 			if( half_fare_num > 0){
 				var half_fare = info[2];
 				var half_fare_subtotal = half_fare * half_fare_num;
-				$("#ticket_row").after("<tr><td>"+fn+"</td><td>"+"設施icon"+"</td><td>"+"設施名稱"+"</td><td>"+"半票"+"</td><td>"+half_fare+"</td><td>"+half_fare_num+"</td><td class='sub_total' colspan='2'>"+half_fare_subtotal+"</td></tr>");
+				$("#ticket_row").after("<tr><td style='text-align:center;'>"+fn+"</td><td class='facility_name facility_name_"+fn+"'></td><td style='text-align:center;'>"+"半票"+"</td><td style='text-align:right;'>"+half_fare+"</td><td>"+half_fare_num+"</td><td class='sub_total' colspan='2'>"+half_fare_subtotal+"</td></tr>");
+				// show_facility_name(fn);
 			}
 		}
 	}
@@ -37,12 +33,33 @@ window.onload = function(){
 		$("#input_discount").before("<tr id='cart_total_row'><td colspan='7'>"+"總計："+"</td><td name='cart_sub_total' id='cart_sub_total'>"+total+"</td></tr>");	
 		document.getElementById("cart_sub_total").innerHTML = total;
 		document.getElementById("total").innerHTML = total;
+		document.getElementById("total_hidden").innerHTML = total;
 
 var points_confirm = document.getElementById("points_confirm");
 points_confirm.addEventListener("click",output_total);
 
+// function show_facility_name(fn){
+// 	var facility_no = fn;
+// 	var xhr = new XMLHttpRequest();
+// 	xhr.onload = function (){
+// 	if( xhr.status == 200){ //OK
+// 	    if( xhr.responsetText == "sqlerror"){
+// 	        alert("Server端無法正常運作");
+// 	    }else{
+// 	    for(var i =0; i<2;i++){
+// 	    	document.getElementsByClassName("facility_name_"+fn)[i].innerHTML = xhr.responseText;	
+// 	    }
+// 	    }
+// 	    }
+// 	}
+// 	var url = "../show_facility_name.php?facility_no=" + facility_no;
+// 	xhr.open("get",url, true);
+// 	xhr.send(null);
+// }
+
 function output_total(){
 	total = initial_total;
+	var member_points = document.getElementById("mem_points").innerHTML;
 	var discount = parseInt(document.getElementById("points").value);
 	if( discount <= member_points && discount > 0 && discount != null){
 		document.getElementsByClassName("points")[1].blur();
@@ -101,16 +118,13 @@ document.getElementsByClassName("points")[0].onchange = function(){
 	$("#points_remain").css("opacity","0");
 
 }
-
-// 確認結帳
+// 確認結帳,清空localStorage儲存票券資料
 $("#nextStep").click(function(){
 	storage.removeItem("facility_ticket_list");
+	for(var i=1;i=6;i++){
+		storage.removeItem(i);
+	}
 });
-
-$("#member_id").html(member_id);
-$("#member_email").html(member_email);
-$("#member_points").html(member_points);
-
 };
 
 function setBlur(obj,target2)
