@@ -69,19 +69,49 @@
 				<a href="javascript:void(0)" class="b_sn_btn" onclick="openCity(event,'facilityTickets')" >設施上架管理</a>
 			</div>
 			<!-- ===========請加內容至此===========-->
+			<div class="b_inner_content">
 				<div id="facilityInfo" class="tabcontent">
 					<div class="row">
-						<div class="row-title">設施編號</div>
-						<div class="row-title">設施名稱</div>
-						<div class="row-title">主要照片</div>
-						<div class="row-title">設施完整介紹</div>
-						<div class="row-title">設施狀態</div>
-						<div class="row-title">設施人潮</div>
+						<div class="col col-title">設施編號</div>
+						<div class="col col-title">設施名稱</div>
+						<div class="col col-title">主要照片</div>
+						<div class="col col-title">設施完整介紹</div>
+						<div class="col col-title">設施狀態</div>
+						<div class="col col-title">設施人潮</div>
+					</div>
+					<div class="row">
+						<div class="col"></div><!-- 自動串號 -->
+						<div class="col">
+							<input type="text" name="facility_name" value="<?php 
+							echo '設施人潮';
+
+							?>">
+						</div>
+						<div class="col">
+							<input type="text" name="facility_mphoto" value="<?php 
+							echo '';
+
+							?>">
+						</div>
+						<div class="col">
+							<input type="text" name="facility_description" value="<?php 
+							echo '';
+
+							?>">
+						</div>
+						<div class="col">
+							<input type="text" name="facility_status" value="<?php 
+							echo '';
+
+							?>">
+						</div>
+						<div class="col"></div>
 					</div>
 				</div>
 				<div id="facilityTickets" class="tabcontent">
 					
 				</div>
+			</div>
 			<!-- ===========請加內容至此===========-->
 		</div>
 	</div>
