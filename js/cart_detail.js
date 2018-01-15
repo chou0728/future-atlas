@@ -2,7 +2,6 @@ var length = document.getElementsByClassName("sub_total").length;
 var storage = localStorage;
 window.addEventListener("load",init);
 function init(){
-	// 為甚麼這行不能起作用???var member_points = document.getElementById("mem_points").innerHTML; 
 	// 產生購票明細
 	for( i = 6 ; i > 0 ; i--){
 		var fn = i;
@@ -12,13 +11,15 @@ function init(){
 			if( full_fare_num > 0 ){
 				var full_fare = info[0];
 				var full_fare_subtotal = full_fare * full_fare_num;			
-				$("#ticket_row").after("<tr><td>"+fn+"</td><td>"+"設施icon"+"</td><td>"+"設施名稱"+"</td><td>"+"全票"+"</td><td>"+full_fare+"</td><td>"+full_fare_num+"</td><td class='sub_total' colspan='2'>"+full_fare_subtotal+"</td></tr>");
+				$("#ticket_row").after("<tr><td>"+fn+"</td><td class='facility_name_'"+fn+"'></td><td>"+"全票"+"</td><td>"+full_fare+"</td><td>"+full_fare_num+"</td><td class='sub_total' colspan='2'>"+full_fare_subtotal+"</td></tr>");
+				show_facility_name(fn);
 			}
 			var half_fare_num = info[3];
 			if( half_fare_num > 0){
 				var half_fare = info[2];
 				var half_fare_subtotal = half_fare * half_fare_num;
-				$("#ticket_row").after("<tr><td>"+fn+"</td><td>"+"設施icon"+"</td><td>"+"設施名稱"+"</td><td>"+"半票"+"</td><td>"+half_fare+"</td><td>"+half_fare_num+"</td><td class='sub_total' colspan='2'>"+half_fare_subtotal+"</td></tr>");
+				$("#ticket_row").after("<tr><td>"+fn+"</td><td class='facility_name_'"+fn+"'></td><td>"+"半票"+"</td><td>"+half_fare+"</td><td>"+half_fare_num+"</td><td class='sub_total' colspan='2'>"+half_fare_subtotal+"</td></tr>");
+				show_facility_name(fn);
 			}
 		}
 	}
@@ -35,6 +36,26 @@ function init(){
 
 var points_confirm = document.getElementById("points_confirm");
 points_confirm.addEventListener("click",output_total);
+
+function show_facility_name(fn){
+	alert("秀出設施名稱!!!");
+	var facility_no = fn;
+	var xhr = new XMLHttpRequest();
+	xhr.onload = function (){
+	if( xhr.status == 200){ //OK
+	    if( xhr.responsetText == "sqlerror"){
+	        alert("Server端無法正常運作");
+	    }else{
+	    for(var i =0; i<2;i++){
+	    	document.getElementsByClassName("facility_name_"+fn)[i].innerHTML = xhr.responseText;	
+	    }
+	    }
+	    }
+	}
+	var url = "../show_facility_name.php?facility_no=" + facility_no;
+	xhr.open("get",url, true);
+	xhr.send(null);
+}
 
 function output_total(){
 	total = initial_total;
