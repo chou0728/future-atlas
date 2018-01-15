@@ -4,6 +4,7 @@
 }
 body{
 	background-color:#ccc;
+	overflow-x: hidden;
 }
 header{
 	position: fixed;
@@ -104,6 +105,7 @@ header .nav .navList a:hover{
 /*NAVCSS結束*/
 .b_content{
 	width:100%;
+	/*overflow-x: auto;*/
 	/*height:100vh;*/
 	background-color:#ccc;
 	padding:100px 0 0 15%;
