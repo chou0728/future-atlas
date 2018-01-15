@@ -1,4 +1,109 @@
+/**{
+	outline: 1px solid red;
+}*/
+*{
+	box-sizing: border-box;
+}
+.table{
+	border-style: solid;
+	border-color: #000;
+	border-width: 2px 2px 0px 0px;
+	width:1280px;
+	margin: 0 auto;
+	font-family: "微軟正黑體";
+	background-color: #ddd;
+}
 .row{
-	width: 95%;
+	width: 100%;
+	font-size: 0;
+
+}
+
+.col{
+	width: 230px;
+	height: 40px;
+	display: table-cell;
+	vertical-align: middle;
+	text-align: center;
+	font-size: 16px;
+	border-style: solid;
+	border-color: #000;
+	border-width: 0 0px 2px 2px;
+	padding: 5px;
+	line-height: 1.5;
+
+}
+.col img{
+	width: 100%;
+	height: auto;
+}
+
+.col-title{
+	display: table-cell;
+	font-weight: bold;
+	text-align: center;
+	background-color: #bbb;
+}
+.col-big{
+	width: 500px;
+}
+.col-number{
+	width:80px;
+}
+.col .edit{
+	width: 50px;
+	height: 30px;
+	line-height: 30px;
+	background-color: #444;
+	color: white;
+	box-shadow: 1px 1px 1px rgba(0,0,0,0.3);
 	margin: auto;
+	cursor: pointer;
+}
+/*<!-- ===========燈箱==============================-->*/
+#lightBox{
+	display: none;
+	border: 3px solid #aaa;
+	box-shadow: 1px 2px 1px rgba(0,0,0,0.3);
+	width: 800px;
+	height: 80vh;
+	position: fixed;
+	top:50%;
+	left: 50%;
+	transform: translate(-50%,-50%);
+	background-color: #eee;
+	padding: 15px 20px;
+	overflow-y:scroll;
+	font-family: "微軟正黑體";
+}
+.lightBox-row{
+	width: 100%;
+	padding: 10px 0;
+}
+.lightBox-row .subtitle{
+	display: inline-block;
+	width: 130px;
+	text-align: right;
+}
+.lightBox-row .caution{
+	color: red;
+	font-size: 12px;
+	vertical-align: baseline;
+}
+.lightBox-row > textarea{
+	vertical-align: middle;
+	width: 450px;
+	height: 90px;
+	resize: none;
+}
+.lightBox-title{
+	text-align: center;
+	font-size: 20px;
+	font-weight: bold;
+	background-color: #333;
+	color: #eee;
+	margin-bottom: 15px;
+}
+.lightBox-submit{
+	text-align: center;
 }
