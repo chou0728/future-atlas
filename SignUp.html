@@ -122,31 +122,38 @@
 	<div class="cont">
 		<img class="bar" src="img/bar.png" alt="bar">
 	
-		<form class="SingUp" action="index.php" method="post">
+		<form class="SingUp" action="registerheadforindex.php" method="post">
 			<h3 class="title">註冊會員</h3>
 			<div class="text">
-				帳號：<input type="text" name="mem_name" placeholder="6-20碼" maxlength="20" id="name_hint_input">
-    			<span class="hint" id="name_hint">長度不足</span>
-				<!-- <button id="check_mem_id">檢查</button> -->
+				帳號：<input type="text" name="mem_name" placeholder="6-20碼" maxlength="20" id="name_hint_input" required>
+    			<!-- <span class="hint" id="name_hint">長度不足</span> -->
+    			<!-- <form action="checkmemnameduplicate.php" method="post"> -->
+				<!-- <input type="submit" name="" value="檢查"> -->
+    			<!-- </form> -->
     			<br>
-    			暱稱：<input type="text" name="mem_nick" placeholder="6-20碼" maxlength="20" id="nick_hint_input">
-    			<span class="hint" id="nick_hint">長度不足</span><br>
-    			密碼：<input type="password" name="mem_password" placeholder="6-20碼" maxlength="20" id="psw_hint_input">
-    			<span class="hint" id="psw_hint">長度不足</span><br>
-    			信箱：<input type="email" name="mem_mail">
-				<span class="hint hint_hidden">長度不足</span><br>
-    			手機：<input type="text" name="mem_phone" onkeyup="this.value=this.value.replace(/[^0-9]/g,'')">
-    			<span class="hint hint_hidden" id="name_hint">長度不足</span><br>
+    			暱稱：<input type="text" name="mem_nick" placeholder="6-20碼" maxlength="20" id="nick_hint_input" required>
+    			<!-- <span class="hint" id="nick_hint">長度不足</span> -->
+    			<br>
+    			密碼：<input type="password" name="password" placeholder="6-20碼" maxlength="20" id="psw_hint_input" required>
+    			<!-- <span class="hint" id="psw_hint">長度不足</span> -->
+    			<br>
+    			信箱：<input type="email" name="mem_mail" required>
+				<!-- <span class="hint hint_hidden">長度不足</span> -->
+				<br>
+    			手機：<input type="text" name="mem_phone" onkeyup="this.value=this.value.replace(/[^0-9]/g,'')" required>
+    			<!-- <span class="hint hint_hidden" id="name_hint">長度不足</span> -->
+    			<br>
 			</div>	
 			<div class="btn">
 				<input type="reset" name="" value="重設" class="signupbtn">
-				<a href="index.php"><input type="submit" name="" value="確認" class="signupbtn" id="submit"></a>
+				<input type="submit" name="" value="確認" class="signupbtn" id="submit">
 			</div>
 		</form>
 	</div>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script type="text/javascript">
 $(document).ready(function(){
+	// 輸入長度提示
 	var char_remain1 = 20;
 	var char_remain2 = 20;
 	var char_remain3 = 20;
@@ -170,14 +177,6 @@ $(document).ready(function(){
 	});
 });
 // 判斷這個帳號是不是有人用過
-
-// 登入資訊寫入web storage
-var storage = localStorage;
-document.getElementById("submit").onclick = function(){
-	var name_hint_input = document.getElementById("name_hint_input").value;
-	storage.setItem("mem_name", name_hint_input);
-}
-
 </script>
 </body>
 </html>
