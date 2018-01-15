@@ -275,7 +275,7 @@
                 document.getElementById('Scorenumber').value="0";
             }
             if(Scorenumber>totalScoreNumber){
-                alert("超出你的積分，請看上面會員資訊積分");
+                alert("超出你的積分，請重新輸入積分");
                 document.getElementById('Scorenumber').value=totalScoreNumber;
                Scorenumber = totalScoreNumber;
             }
