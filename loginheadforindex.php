@@ -30,7 +30,7 @@ try {
         $_SESSION["mem_mail"] = $memRow->mem_mail;
         $_SESSION["mem_phone"] = $memRow->mem_phone;
         $_SESSION["mem_points"] = $memRow->mem_points;
-        unset($_SESSION["log_out"]);
+        unset($_SESSION["login_error"]);
         header("location:$pre_url");
 	}else{
 		$_SESSION["log_out"] = 0;
