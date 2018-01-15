@@ -165,8 +165,8 @@ function changeQuantity() {
     		return ;
     	}
         if(loginFlag == true){
-            window.location.href='Booking_details.html';
-            // window.location.href='Booking_details.php';
+            //window.location.href='Booking_details.html';
+            window.location.href='Booking_details.php';
         }else{
             //登入頁面
             window.location.href='http://www.cwb.gov.tw/V7/index.htm';
