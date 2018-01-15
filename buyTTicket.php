@@ -1,6 +1,6 @@
 <?php
-ob_start();
-session_start();
+    ob_start();
+    session_start();
 ?> 
 <!DOCTYPE html>
 <html lang="en">
@@ -10,7 +10,8 @@ session_start();
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" type="text/css" href="css/RESET.css">
     <link rel="stylesheet" type="text/css" href="css/header.css">
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>																					 
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>						
+    <link rel="stylesheet" type="text/css" href="css/login.css">								 
     <link rel="stylesheet" href="css/buyTTicket.css" />
     <script src="js/sessionStorage.js"></script>
     <title>buyTTicket</title>
@@ -18,14 +19,57 @@ session_start();
 <body>
     <div class="header">
         <ul class="ul_top">
+            <div class="lever">
+                <img src="img/Usericon1.png">
+            </div>
             <li class="li_top">
-                <a href="SignUp.html" id="registerUser">註冊</a>
+                <a href=<?php
+                    if(isset($_SESSION["mem_id"])===true){
+                        echo "'javascript:void(0)'";
+                    }else{
+                        echo "'SignUp.html'";
+                    }
+                ?> id="registerUser">
+                    <img src="img/member/member_0.png">
+                    <span class="register">
+                        <?php
+                            if(isset($_SESSION["mem_id"])===true){
+                                echo $_SESSION["mem_nick"]."你好!";
+                            }else{
+                                echo "註冊";
+                            }
+                        ?>
+                    </span>
+                </a>
             </li>
             <li class="li_top">
-                <a href="#" id="singUpBtn">登入</a>
+                <a href=<?php
+                            if(isset($_SESSION["mem_id"])===true){
+                                echo"'logoutheadforindex.php'";
+                            }else{
+                                echo"'javascript:void(0)'";
+                            }
+                        ?> id="singUpBtn">
+                    <img src="img/member/member_1.png">
+                    <span class="login">
+                        <?php
+                            if(isset($_SESSION["mem_id"])===true){
+                                echo"登出";
+                            }else{
+                                echo"登入";
+                            }
+                        ?>
+                    </span>
+                </a>
             </li>
             <li class="li_top">
-                <a href="input_cart.html">購物車</a>
+                 <a href="input_cart.php">
+                    <img id="cartimgid" src="img/cart/wallet_0.png">
+                    <span id="howmanytickets">0</span>
+                </a>
+                    <div id="showCartContent">預覽購物車
+                        <table id="showCartContenttb"></table>
+                    </div>
             </li>
         </ul>
     </div>
@@ -131,7 +175,45 @@ session_start();
     </div>
     <div class="buyTTicketBtn">
             <a href="Theaterbuyticket.html" class="Previouspage">上一步</a>
-            <a  onclick="checkLogin()" class="buyticket">確認購買</a>
+            <a href="javascript: return false;" onclick="checkLogin()" class="buyticket">確認購買</a>
     </div>
+    <!-- 會員登入燈箱 -->
+    <div id="all-page"></div><!-- 叫出時背景-->
+    <div id="lightBox">
+    <div id="cancel">
+        <div class="leftLine"></div>
+        <div class="rightLine"></div>
+    </div>
+        
+        <form class="singUp" action="loginheadforindex.php" method="post">
+            <h2>會員登入</h2>
+            <div class="text">
+                會員帳號：<input type="text" name="memName" id="memId" value="" required placeholder="輸入帳號">
+                <br>
+                會員密碼：<input type="password" name="memPsw"  id="memPsw" value="" required placeholder="輸入密碼">
+                <br>
+            </div>
+            <div class="btn">
+                <input type="submit" name="" id="submit" value="登入">
+                <input type="reset" name="reset" value="RESET">
+            </div>
+        </form>
+</div>
     <script src="js/00nav.js"></script>
+    <script type="text/javascript">
+            
+            window.onload=function (){
+                var storage = localStorage;
+                    storage.setItem("mem_id",
+                    <?php
+                        if(isset($_SESSION["mem_id"])===true){
+                            echo $_SESSION["mem_id"];
+                        }else{
+                            echo "0";
+                            // 若未登入，mem_id為0
+                        }
+                    ?>
+                );
+            };
+    </script>
 </html>

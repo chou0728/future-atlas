@@ -78,6 +78,7 @@
             <div class="memberinfo">
             <?php 
                 $mem_id=1;
+                //$mem_id=$_SESSION['mem_id'];
                 require_once("php/connectBooks.php");
                 $sql ="select * from member where mem_id=$mem_id";
                 $member= $pdo->query( $sql );
