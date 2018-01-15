@@ -3,8 +3,9 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Document</title>
-	<link rel="stylesheet" type="text/css" href="css/RESET.css">
-	<link rel="stylesheet" type="text/css" href="css/11back_nav.css">
+	<link rel="stylesheet" href="css/RESET.css">
+	<link rel="stylesheet" href="css/11back_nav.css">
+	<link rel="stylesheet" href="css/back_facility_M.css">
 </head>
 <body>
 	<header>
@@ -65,17 +66,58 @@
 	<div class="back_wrapper_right">
 		<div class="b_content">
 			<div class="b_sub_nav">
-				<a href="javascript:void(0)" class="b_sn_btn" id="active" onclick="openCity(event,'class1')" >設施介紹</a>
-				<a href="javascript:void(0)" class="b_sn_btn" onclick="openCity(event,'class2')" >設施上架</a>
+				<a href="javascript:void(0)" class="b_sn_btn" id="active" onclick="openCity(event,'facilityInfo')" >設施介紹管理</a>
+				<a href="javascript:void(0)" class="b_sn_btn" onclick="openCity(event,'facilityTickets')" >設施上架管理</a>
 			</div>
-			<!-- ===========請加內容至此===========-->
 			<!-- ===========請加內容至此===========-->
 			<div class="b_inner_content">
-				
+				<div id="facilityInfo" class="tabcontent">
+					<div class="row">
+						<div class="col col-title">設施編號</div>
+						<div class="col col-title">設施名稱</div>
+						<div class="col col-title">主要照片</div>
+						<div class="col col-title">設施完整介紹</div>
+						<div class="col col-title">設施狀態</div>
+						<div class="col col-title">設施人潮</div>
+					</div>
+					<div class="row">
+						<div class="col"></div><!-- 自動串號 -->
+						<div class="col">
+							<input type="text" name="facility_name" value="<?php 
+							echo '設施人潮';
+
+							?>">
+						</div>
+						<div class="col">
+							<input type="text" name="facility_mphoto" value="<?php 
+							echo '';
+
+							?>">
+						</div>
+						<div class="col">
+							<input type="text" name="facility_description" value="<?php 
+							echo '';
+
+							?>">
+						</div>
+						<div class="col">
+							<input type="text" name="facility_status" value="<?php 
+							echo '';
+
+							?>">
+						</div>
+						<div class="col"></div>
+					</div>
+				</div>
+				<div id="facilityTickets" class="tabcontent">
+					
+				</div>
 			</div>
+			<!-- ===========請加內容至此===========-->
 		</div>
 	</div>
-<script>
+
+	<script>
         function openCity (evt,list) {
 
             var i, tabcontent, b_sn_btn;
@@ -96,7 +138,6 @@
 
         // Get the element with id="defaultOpen" and click on it
         document.getElementById("active").click();
-</script>
-
+    </script>
 </body>
 </html>

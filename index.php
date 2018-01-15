@@ -1159,7 +1159,7 @@ if(isset($_SESSION["login_error"]) === true){
 			});
 			//-登入-----------------------------------
 			window.onload = function () {
-				document.getElementsByTagName("body")[0].style.overflow = "hidden";// !!BUG
+				// document.getElementsByTagName("body")[0].style.overflow = "hidden";// !!BUG
 
 				var storage = localStorage;
 				/*註冊登入按鈕*/
