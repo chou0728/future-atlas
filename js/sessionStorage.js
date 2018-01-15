@@ -170,5 +170,5 @@ function changeQuantity() {
         }else{
             //登入頁面
             window.location.href='http://www.cwb.gov.tw/V7/index.htm';
-            }
         }
+     }
