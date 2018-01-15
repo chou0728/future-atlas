@@ -65,17 +65,28 @@
 	<div class="back_wrapper_right">
 		<div class="b_content">
 			<div class="b_sub_nav">
-				<a href="javascript:void(0)" class="b_sn_btn" id="active" onclick="openCity(event,'class1')" >設施介紹</a>
-				<a href="javascript:void(0)" class="b_sn_btn" onclick="openCity(event,'class2')" >設施上架</a>
+				<a href="javascript:void(0)" class="b_sn_btn" id="active" onclick="openCity(event,'facilityInfo')" >設施介紹管理</a>
+				<a href="javascript:void(0)" class="b_sn_btn" onclick="openCity(event,'facilityTickets')" >設施上架管理</a>
 			</div>
 			<!-- ===========請加內容至此===========-->
+				<div id="facilityInfo" class="tabcontent">
+					<div class="row">
+						<div class="row-title">設施編號</div>
+						<div class="row-title">設施名稱</div>
+						<div class="row-title">主要照片</div>
+						<div class="row-title">設施完整介紹</div>
+						<div class="row-title">設施狀態</div>
+						<div class="row-title">設施人潮</div>
+					</div>
+				</div>
+				<div id="facilityTickets" class="tabcontent">
+					
+				</div>
 			<!-- ===========請加內容至此===========-->
-			<div class="b_inner_content">
-				
-			</div>
 		</div>
 	</div>
-<script>
+
+	<script>
         function openCity (evt,list) {
 
             var i, tabcontent, b_sn_btn;
@@ -96,7 +107,6 @@
 
         // Get the element with id="defaultOpen" and click on it
         document.getElementById("active").click();
-</script>
-
+    </script>
 </body>
 </html>
