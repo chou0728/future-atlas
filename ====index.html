@@ -1,0 +1,40 @@
+<?php
+ob_start();
+session_start();
+?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>選擇前後端</title>
+    <style>
+    .wrapper{
+        margin: 0;
+        padding: 0;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+    }
+    .wrapper a{
+        display: block;
+        width: 40%;
+        height: 50vh;
+        border: 2px solid #000;
+        text-align: center;
+        font-size: 50px;
+        line-height: 50vh;
+        text-decoration: none;
+    }
+    </style>
+</head>
+<body>
+    <div class="wrapper">
+            <a href="front_index.html">前端</a>
+            <a href="back_check_facility_tickets.html">後端</a>
+
+    </div>
+    
+</body>
+</html>
