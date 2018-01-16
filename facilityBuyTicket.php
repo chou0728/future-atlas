@@ -527,7 +527,8 @@ function init(){
 		var adp = this.previousElementSibling.previousElementSibling.dataset.val;/*全票價格*/
 		var cd = this.previousElementSibling.children[2].children[1].children[0].value;/*半票張數*/
 		var cdp = this.previousElementSibling.dataset.val;/*半票價格*/
-		var addToCart = adp+"/"+ad+"/"+cdp+"/"+cd;
+		var fname = this.previousElementSibling.previousElementSibling.previousElementSibling.previousElementSibling.previousElementSibling.children[1].innerText;
+		var addToCart = adp+"/"+ad+"/"+cdp+"/"+cd+"/"+fname;
 		if(ad!=0||cd!=0){//判斷全票半票皆不為0張
 			storage.setItem(fn,addToCart);
 			
