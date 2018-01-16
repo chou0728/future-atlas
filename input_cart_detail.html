@@ -213,7 +213,7 @@ body::-webkit-scrollbar-thumb {
 
 <div id="button">
 	<a href="input_cart.html" class="highlight" id="backToShop">上一步</a>
-	<a href="MembersOnly.html"><input type="submit" name="" id="nextStep" class="highlight" value="確認結帳"></a>
+	<input type="submit" name="" id="nextStep" class="highlight" value="確認結帳">
 </div>
 </form>
 <!-- <script src="js/00nav.js"></script> -->
@@ -250,22 +250,22 @@ function showMemberInfo(){
 	}
 }
 
-// document.getElementById("nextStep").addEventListener("click",save_to_db);
-// function save_to_db(){
+document.getElementById("nextStep").addEventListener("click",save_to_db);
+function save_to_db(){
 	// 儲存訂單主檔
-	// var storage = localStorage;
+	var storage = localStorage;
 	// 逐一準備傳到資料庫的主要數據
-	// document.getElementById("mem_id_hidden").value = storage.getItem("mem_id");
-	// document.getElementById("cart_sub_total_hidden").value = document.getElementById("cart_sub_total").innerHTML;
-	// document.getElementById("discount_hidden").value = document.getElementById("points").value;
-	// 	var creditcard_num = document.getElementById("credit_card1").value+
-	// 					 document.getElementById("credit_card2").value+
-	// 					 document.getElementById("credit_card3").value+
-	// 					 document.getElementById("credit_card4").value;
-	// document.getElementById("creditcard_num_hidden").value = creditcard_num;	
+	document.getElementById("mem_id_hidden").value = storage.getItem("mem_id");
+	document.getElementById("cart_sub_total_hidden").value = document.getElementById("cart_sub_total").innerHTML;
+	document.getElementById("discount_hidden").value = document.getElementById("points").value;
+		var creditcard_num = document.getElementById("credit_card1").value+
+						 document.getElementById("credit_card2").value+
+						 document.getElementById("credit_card3").value+
+						 document.getElementById("credit_card4").value;
+	document.getElementById("creditcard_num_hidden").value = creditcard_num;	
 	// 儲存訂單副檔
 	// 修改會員剩餘積分
-
+}
 
 </script>
 </body>

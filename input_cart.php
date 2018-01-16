@@ -193,7 +193,7 @@ body::-webkit-scrollbar-thumb {
 <script src="js/00nav.js"></script>
 <script type="text/javascript" src="js/cart.js" async></script>
 <script type="text/javascript" async>
-window.onload=function (){
+window.onload = function (){
     // 若登入，將mem_id存入localStorage
     var storage = localStorage;
     storage.setItem("mem_id",

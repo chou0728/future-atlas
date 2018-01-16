@@ -201,19 +201,9 @@
 </div>
     <script src="js/00nav.js"></script>
     <script type="text/javascript">
-            
             window.onload=function (){
                 var storage = localStorage;
-                    storage.setItem("mem_id",
-                    <?php
-                        if(isset($_SESSION["mem_id"])===true){
-                            echo $_SESSION["mem_id"];
-                        }else{
-                            echo "0";
-                            // 若未登入，mem_id為0
-                        }
-                    ?>
-                );
+                    storage.setItem("mem_id",<?php if(isset($_SESSION["mem_id"])===true){echo $_SESSION["mem_id"];}else{echo "0";} ?>);
             };
     </script>
 </html>
