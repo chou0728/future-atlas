@@ -35,7 +35,7 @@
                 <span class="spancover"></span>
             </li>
             <li class="navList">
-                 <a href="back_TheaterMang.php" style="color: black;">劇場管理
+                 <a href="back_theater_mang.php" style="color: black;">劇場管理
                 </a>
                 <span class="listcover" style="width: 100%;background-color: rgba(90, 230, 219,0.9);"></span>
                 <span class="spancover"></span>
@@ -183,10 +183,14 @@
                 <!-- 劇場場次清單 -->
                 
                     <h2 class="titleh2" align="center">劇場場次清單</h2>
-                    <table class="TheaterSessionListTable">
+                    
                        <!--  <button onclick="searchSession"  class="searchSession">查詢</button> -->
-                        節目編號:<input type="text" value="1" name="programNo">
+                        <div class="programNoSerch" align="center">
+                             節目編號:<input type="text" value="1" name="programNo" id="programNo">
                             <button  class="searchOrderList" onclick="showSessionList()">查詢</button>
+                            <div id="showPanel"></div>
+                        </div>
+                    <table class="TheaterSessionListTable" id="TheaterSessionListTable">   
                         <tr>
                             <th>場次編號</th>
                             <th>節目編號</th>
@@ -358,6 +362,7 @@
         </div>
     </div>
     <script>
+        //tab 換頁
         function openCity (evt,list) {
 
             var i, tabcontent, b_sn_btn;
@@ -378,7 +383,23 @@
         // Get the element with id="defaultOpen" and click on it
         document.getElementById("active").click();
 
-
+        //傳送節目編號
+        function showSessionList() {
+            var xhr = new XMLHttpRequest();
+            xhr.onload=function (){
+                if( xhr.status == 200 ){
+                    //alert( xhr.responseText );  
+                     //modify_here  TheaterSessionListTable
+                    document.getElementById("TheaterSessionListTable").innerHTML = xhr.responseText;
+                }else{
+                    alert( xhr.status );
+                }
+            }//xhr.onreadystatechange
+          
+            var url = "get_program_no.php?programNo=" + document.getElementById("programNo").value;
+            xhr.open("Get", url, true);
+            xhr.send( null );
+        }
     </script>
 </body>
 </html>
