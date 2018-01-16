@@ -79,10 +79,10 @@
             <!-- 劇場節目 -->
             <div id="TheaterMang" class="tabcontent">
                 <span onclick="this.parentElement.style.display='none'" class="topright"></span>
-                <form method="get" action="updateTheaterMang.php" align="center" enctype="multipart/form-data">
-                    <h2 class="titleh2">劇場節目</h2>
+                
+                    <h2 class="titleh2" align="center">劇場節目</h2>
                     <table>
-                        <button onclick="Newprogram"  class="Newprogram">新增</button>
+                        <button onclick="Newprogram()"  class="Newprogram" >新增</button>
                         <tr>
                             <th>節目編號</th>
                             <th>節目名稱</th>
@@ -119,6 +119,8 @@
                                 //跑迴圈，印出資料
                                 foreach( $theater_program as $i=>$prodRow){
                                 ?>
+                                <form method="get" action="updateTheaterMang.php" align="center" enctype="multipart/form-data">
+
                                 <input type="hidden" name="program_no" value="<?php echo  $prodRow["program_no"] ?>">
                                 <tr>
                                     <td><?php echo  $prodRow["program_no"] ?>
@@ -153,6 +155,7 @@
                                         <input type="submit" style="font-family:微軟正黑體;" value="儲存">
                                     </td>
                                 </tr>
+                                </form>
                             <?php       
                                 }
                             ?>
@@ -173,13 +176,13 @@
                             取消
                         </button>
                     </div> -->
-                </form>
+                
             </div>
             <div id="theater_session_List" class="tabcontent">
                 <span onclick="this.parentElement.style.display='none'" class="topright"></span>
                 <!-- 劇場場次清單 -->
-                <form method="get" action="" align="center" enctype="multipart/form-data">
-                    <h2 class="titleh2">劇場場次清單</h2>
+                
+                    <h2 class="titleh2" align="center">劇場場次清單</h2>
                     <table class="TheaterSessionListTable">
                        <!--  <button onclick="searchSession"  class="searchSession">查詢</button> -->
                         節目編號:<input type="text" value="1" name="programNo">
@@ -219,10 +222,14 @@
 
                                 $sql = "select * from theater_session_list ";
                                 $theater_session_list = $pdo->query($sql);
-                                // echo $total_pages;       
+                                // echo $total_pages; 
+                                    
                                 //跑迴圈，印出資料
                                 foreach( $theater_session_list as $i=>$prodRow){
-                        ?>
+                        ?>       
+                                <form method="get" action="update_theater_session_List.php" align="center" >
+
+                                <input type="hidden" name="session_no" value="<?php echo  $prodRow["session_no"] ?>">  
                                 <tr>
                                     <td><?php echo  $prodRow["session_no"] ?>
                                     </td>  
@@ -235,13 +242,14 @@
                                     <td><?php echo  $prodRow["time_date"] ?>
                                     </td>
                                     <td>
-                                        <input type="number" style="width:50px;" value="<?php echo  $prodRow["total_ticket"] ?>">
+                                        <input type="number" style="width:50px;" value="<?php echo  $prodRow["total_ticket"] ?>" name="total_ticket">
                                     </td>
                                     <td> 
-                                        <input type="number" style="width:50px;" value="<?php echo  $prodRow["last_ticket"] ?>">   
+                                        <input type="number" style="width:50px;" value="<?php echo  $prodRow["last_ticket"] ?>"  name="last_ticket">   
                                     </td>
-                                    <td><a href="#">修改</a></td>
+                                    <td> <input type="submit" style="font-family:微軟正黑體;" value="修改"></td>
                                 </tr>
+                                </form> 
                             <?php       
                                 }
                             ?>
@@ -255,7 +263,7 @@
                             }
                         ?> 
                     </table>
-                </form> 
+                
             </div>
 
             <div id="theater_order_List" class="tabcontent">

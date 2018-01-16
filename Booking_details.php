@@ -15,16 +15,59 @@
 
 <body>
     <!-- header -->
-    <div class="header">
+     <div class="header">
         <ul class="ul_top">
+            <div class="lever">
+                <img src="img/Usericon1.png">
+            </div>
             <li class="li_top">
-                <a href="SignUp.html" id="registerUser">註冊</a>
+                <a href=<?php
+                    if(isset($_SESSION["mem_id"])===true){
+                        echo "'javascript:void(0)'";
+                    }else{
+                        echo "'SignUp.html'";
+                    }
+                ?> id="registerUser">
+                    <img src="img/member/member_0.png">
+                    <span class="register">
+                        <?php
+                            if(isset($_SESSION["mem_id"])===true){
+                                echo $_SESSION["mem_nick"]."你好!";
+                            }else{
+                                echo "註冊";
+                            }
+                        ?>
+                    </span>
+                </a>
             </li>
             <li class="li_top">
-                <a href="#" id="singUpBtn">登入</a>
+                <a href=<?php
+                            if(isset($_SESSION["mem_id"])===true){
+                                echo"'logoutheadforindex.php'";
+                            }else{
+                                echo"'javascript:void(0)'";
+                            }
+                        ?> id="singUpBtn">
+                    <img src="img/member/member_1.png">
+                    <span class="login">
+                        <?php
+                            if(isset($_SESSION["mem_id"])===true){
+                                echo"登出";
+                            }else{
+                                echo"登入";
+                            }
+                        ?>
+                    </span>
+                </a>
             </li>
             <li class="li_top">
-                <a href="input_cart.html">購物車</a>
+                 <a href="input_cart.php">
+                    <img id="cartimgid" src="img/cart/wallet_0.png">
+                    <span id="howmanytickets">0</span>
+                </a>
+                    <div id="showCartContent">預覽購物車
+                        <table id="showCartContenttb"></table>
+                    </div>
             </li>
         </ul>
     </div>
@@ -78,7 +121,7 @@
             <div class="memberinfo">
             <?php 
                 $mem_id=1;
-                //$mem_id=$_SESSION['mem_id'];
+                //$mem_id=$_POST['mem_id'];
                 require_once("php/connectBooks.php");
                 $sql ="select * from member where mem_id=$mem_id";
                 $member= $pdo->query( $sql );
@@ -209,12 +252,17 @@
     
     <!-- 顯示資料有到php -->
     <!-- <div id="status" style="color:white;"> 
-    </div>  -->
-
+    </div> --> 
+    <!-- <script type="text/javascript">
+        //抓取mem_id
+        var mem_id =localStorage.getItem('mem_id');
+    </script>
+    -->
     <script type="text/javascript">
         var storage = sessionStorage;
         //儲存信用卡資訊
         var CardInfo;
+
         //從sessionStorage，取出節目名稱
         var programName = storage.getItem('programName');
         document.getElementById('program_name').innerText = programName;
@@ -237,6 +285,8 @@
 
         //取出使用者輸入的積分
         var Scorenumber = Number(document.getElementById('Scorenumber').value);
+
+       
 
         //id是integral的欄位之預設值
         document.getElementById('integral').innerHTML = "-" + Scorenumber + "元";
