@@ -5,9 +5,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <title>Theater progress</title>
     <!-- ======請複製==== -->
-    <link rel="stylesheet" type="text/css" href="../css/RESET.css">
-    <link rel="stylesheet" type="text/css" href="../css/11back_nav.css">
-    <link rel="stylesheet" type="text/css" href="../css/back_TheaterMang.css">
+    <link rel="stylesheet" type="text/css" href="css/RESET.css">
+    <link rel="stylesheet" type="text/css" href="css/11back_nav.css">
+    <link rel="stylesheet" type="text/css" href="css/back_TheaterMang.css">
     <!-- ========== -->
 
 </head>
@@ -15,7 +15,7 @@
     <!-- ============================================================================== -->
     <header>
         <h1 class="logo">
-            <img src="../img/LOGO.png" alt="FA">
+            <img src="img/LOGO.png" alt="FA">
             <span>後台管理系統</span>
         </h1>
         <ul class="nav">
@@ -82,7 +82,7 @@
                 
                     <h2 class="titleh2" align="center">劇場節目</h2>
                     <table>
-                        <button onclick="Newprogram()"  class="Newprogram" >新增</button>
+                        <!-- <button onclick="Newprogram()"  class="Newprogram" >新增</button> -->
                         <tr>
                             <th>節目編號</th>
                             <th>節目名稱</th>
@@ -94,7 +94,7 @@
                         </tr>
                         <?php 
                             try {
-                                require_once("connectBooks.php");
+                                require_once("php/connectBooks.php");
                                 // require_once("connectbd103g3.php");
                                 $recPerPage=50;
                                 $start = 0;
@@ -119,7 +119,7 @@
                                 //跑迴圈，印出資料
                                 foreach( $theater_program as $i=>$prodRow){
                                 ?>
-                                <form method="get" action="updateTheaterMang.php" align="center" enctype="multipart/form-data">
+                                <form method="get" action="php/updateTheaterMang.php" align="center" enctype="multipart/form-data">
 
                                 <input type="hidden" name="program_no" value="<?php echo  $prodRow["program_no"] ?>">
                                 <tr>
@@ -203,7 +203,7 @@
                         <?php 
                             try {
 
-                                require_once("connectBooks.php");
+                                require_once("php/connectBooks.php");
                                 //利用programNo查尋sessionList
 
                                 // require_once("connectbd103g3.php");
@@ -231,7 +231,7 @@
                                 //跑迴圈，印出資料
                                 foreach( $theater_session_list as $i=>$prodRow){
                         ?>       
-                                <form method="get" action="update_theater_session_List.php" align="center" >
+                                <form method="get" action="php/update_theater_session_List.php" align="center" >
 
                                 <input type="hidden" name="session_no" value="<?php echo  $prodRow["session_no"] ?>">  
                                 <tr>
@@ -291,7 +291,7 @@
                         </tr>
                         <?php 
                             try {
-                                require_once("connectBooks.php");
+                                require_once("php/connectBooks.php");
                                 // require_once("connectbd103g3.php");
                                 $recPerPage=100;
                                 $start = 0;
@@ -396,7 +396,7 @@
                 }
             }//xhr.onreadystatechange
           
-            var url = "get_program_no.php?programNo=" + document.getElementById("programNo").value;
+            var url = "php/get_program_no.php?programNo=" + document.getElementById("programNo").value;
             xhr.open("Get", url, true);
             xhr.send( null );
         }

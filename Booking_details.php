@@ -1,3 +1,7 @@
+<?php
+    ob_start();
+    session_start();
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -119,9 +123,16 @@
         <div class="memberinfosection">
             <h2 class="Bookingh2">會員資訊</h2>
             <div class="memberinfo">
+                <!-- <script type='text/javascript'>
+                    var mem_id =localStorage.getItem('mem_id');
+                    //alert(mem_id);
+                    <?php echo $mem_id = mem_id   ?>
+
+                </script>
+ -->
+    
             <?php 
-                $mem_id=1;
-                //$mem_id=$_POST['mem_id'];
+                $mem_id =1;
                 require_once("php/connectBooks.php");
                 $sql ="select * from member where mem_id=$mem_id";
                 $member= $pdo->query( $sql );
@@ -253,11 +264,8 @@
     <!-- 顯示資料有到php -->
     <!-- <div id="status" style="color:white;"> 
     </div> --> 
-    <!-- <script type="text/javascript">
-        //抓取mem_id
-        var mem_id =localStorage.getItem('mem_id');
-    </script>
-    -->
+    
+
     <script type="text/javascript">
         var storage = sessionStorage;
         //儲存信用卡資訊

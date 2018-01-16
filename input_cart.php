@@ -206,7 +206,7 @@ function loginss(){
             }
         ?>
         );
-};
+}
 window.addEventListener("load",loginss);
 </script>
 </body>
