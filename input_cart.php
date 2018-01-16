@@ -120,7 +120,7 @@ body::-webkit-scrollbar-thumb {
         </a>
         <ul class="ul_right">
             <li>
-                <a href="index.html#page2">園區地圖</a>
+                <a href="index.html#page2" id="NavClose">園區地圖</a>
             </li>
             <li>
                 <a href="activity.html">活動月曆</a>
@@ -185,15 +185,15 @@ body::-webkit-scrollbar-thumb {
 			</tr>
 		</table>
 	<div id="button">
-		<a href="facilityBuyTicket.html" class="highlight" id="backToShop">繼續購物</a>
+		<a href="facilityBuyTicket.php" class="highlight" id="backToShop">繼續購物</a>
 		<a href="" id="nextStep" class="highlight">下一步</a>
 	</div>
 	</form>
 </div>
 <script src="js/00nav.js"></script>
-<script type="text/javascript" src="js/cart.js" async></script>
-<script type="text/javascript" async>
-window.onload=function (){
+<script type="text/javascript" src="js/cart.js"></script>
+<script type="text/javascript">
+function loginss(){
     // 若登入，將mem_id存入localStorage
     var storage = localStorage;
     storage.setItem("mem_id",
@@ -206,7 +206,8 @@ window.onload=function (){
             }
         ?>
         );
-};
+}
+window.addEventListener("load",loginss);
 </script>
 </body>
 </html>
