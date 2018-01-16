@@ -225,7 +225,7 @@ try {
 			<div class="lightBox-row">
 				<span class="subtitle">主要照片：</span>
 				<input type="hidden" name="MAX_FILE_SIZE" value="5242880">
-				<input type="file" name="facility_mphoto">
+				<input type="file" name="facility_mphoto" id="fm">
 				<span class="caution">*檔名最多20字/檔案最大5M</span>
 			</div>
 			<div class="lightBox-row mphoto">
@@ -298,6 +298,11 @@ function init(){
 	var changeType = document.getElementById("change-type");
 	changeType.onclick = changeImgType;
 
+	var fm = document.getElementById("fm");
+	fm.onchange = function(){
+		
+	}
+
 
 }
 window.addEventListener("load",init);
@@ -357,6 +362,7 @@ function resetLightBox(){
 	facility_name.value = _facility_name;
 	facility_mphoto.src = _facility_mphoto;
 	facility_description.value = _facility_description;
+	fm.value = "";
 	switch(_status){
 		case "正常":
 		facility_status.options[0].selected=true;
