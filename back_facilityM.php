@@ -228,8 +228,11 @@ try {
 				<input type="file" name="facility_mphoto">
 				<span class="caution">*檔名最多20字/檔案最大5M</span>
 			</div>
-			<div class="lightBox-row">
-			<img src="" id="facility_mphoto">
+			<div class="lightBox-row mphoto">
+				<div id="change-type"></div>
+				<div class="mphoto-img">
+					<img src="" id="facility_mphoto">
+				</div>
 			</div>
 			<div class="lightBox-row">
 				<span class="subtitle">完整介紹：</span>
@@ -254,7 +257,7 @@ try {
 				</select>
 			</div>
 			<div class="lightBox-row lightBox-submit">
-				<input type="reset" name="" value="清除修改">
+				<input type="button" name="" value="清除修改" id="reset">
 				<input type="submit" name="" value="確認修改">
 			</div>
 		</form>
@@ -274,11 +277,9 @@ try {
             }
             b_sn_btn = document.getElementsByClassName("b_sn_btn");
             for (i = 0; i < b_sn_btn.length; i++) {
-                b_sn_btn[i].className = b_sn_btn[i].className.replace(" active", "");
                 b_sn_btn[i].setAttribute("id","");
             }
             document.getElementById(list).style.display = "block";
-            evt.currentTarget.className += " active";
 
             evt.currentTarget.setAttribute("id","active");
         }
@@ -287,21 +288,41 @@ try {
         document.getElementById("active").click();
 
 //---燈箱
+function init(){
+	var edit = document.getElementsByClassName('edit');
+	for(i=0;i<edit.length;i++){
+		edit[i].onclick = openLightBox;
+	}
+	var reset = document.getElementById("reset");
+	reset.onclick = resetLightBox;
 
-function openLightBox(){
-	
+
+}
+window.addEventListener("load",init);
+
+function openLightBox(){	
 	var no = this.parentElement.parentElement.children[0].innerText;
 	var name = this.parentElement.parentElement.children[1].innerText;
 	var mphoto = this.parentElement.parentElement.children[2].innerHTML.split('"')[1];
 	var description= this.parentElement.parentElement.children[3].innerText;
 	var status = this.parentElement.parentElement.children[4].innerText;
 	var crowds = this.parentElement.parentElement.children[5].innerText;
-	var facility_no = document.getElementById("facility_no");
-	var facility_name = document.getElementById("facility_name");
-	var facility_mphoto = document.getElementById("facility_mphoto");
-	var facility_description = document.getElementById("facility_description");
-	var facility_status = document.getElementById("facility_status");
-	var facility_crowd = document.getElementById("facility_crowd");
+	lightBox= document.getElementById("lightBox");
+	facility_no = document.getElementById("facility_no");
+	facility_name = document.getElementById("facility_name");
+	facility_mphoto = document.getElementById("facility_mphoto");
+	facility_description = document.getElementById("facility_description");
+	facility_status = document.getElementById("facility_status");
+	facility_crowd = document.getElementById("facility_crowd");
+
+	//resetLightBox用
+	_facility_no = no;
+	_facility_name = name;
+	_facility_mphoto = mphoto;
+	_facility_description = description;
+	_status = status;
+	_crowds = crowds;
+
 	facility_no.innerHTML = no;
 	facility_name.value = name;
 	facility_mphoto.src = mphoto;
@@ -317,28 +338,46 @@ function openLightBox(){
 	}
 	switch(crowds){
 		case "擁擠":
-		facility_status.options[0].selected=true;
+		facility_crowd.options[0].selected=true;
 		break;
 		case "普通":
-		facility_status.options[1].selected=true;
+		facility_crowd.options[1].selected=true;
 		break;
 		case "空曠":
-		facility_status.options[2].selected=true;
+		facility_crowd.options[2].selected=true;
 		break;
 	}
-	var lightBox= document.getElementById("lightBox");
-	lightBox.style.display = "block";
-
-
-
-
-	
+	lightBox.style.display = "block";	
 }
 
+function resetLightBox(){
+	facility_no.innerHTML= _facility_no;
+	facility_name.value = _facility_name;
+	facility_mphoto.src = _facility_mphoto;
+	facility_description.value = _facility_description;
+	switch(_status){
+		case "正常":
+		facility_status.options[0].selected=true;
+		break;
+		case "維修中":
+		facility_status.options[1].selected=true;
+		break;
 
-var edit = document.getElementsByClassName('edit');
-for(i=0;i<edit.length;i++){
-	edit[i].onclick = openLightBox;
+	}
+	switch(_crowds){
+		case "擁擠":
+		facility_crowd.options[0].selected=true;
+		break;
+		case "普通":
+		facility_crowd.options[1].selected=true;
+		break;
+		case "空曠":
+		facility_crowd.options[2].selected=true;
+		break;
+	}
+}
+function closeLightBox(){
+	lightBox.style.display = "block";
 }
 
 
