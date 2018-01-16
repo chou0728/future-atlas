@@ -311,5 +311,4 @@ function loginOrNot(){
 					lightBox.style.visibility = 'hidden';
 					fullCover.style.display="";
 				}
-
 };
