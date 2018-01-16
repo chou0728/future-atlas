@@ -8,18 +8,20 @@ function init(){
 		if( storage.getItem(i) != null ){
 			var info = storage.getItem(i).split("/");
 			var full_fare_num = info[1];
+			// 準備存入訂單副檔的sql指令
+			var full_sql = "insert into facility_order_item ('facility_no', 'full_fare_num', subtotal') values (";
 			if( full_fare_num > 0 ){
 				var full_fare = info[0];
-				var full_fare_subtotal = full_fare * full_fare_num;			
-				$("#ticket_row").after("<tr><td style='text-align:center;'>"+fn+"</td><td class='facility_name facility_name_"+fn+"'></td><td style='text-align:center;'>"+"全票"+"</td><td style='text-align:right;'>"+full_fare+"</td><td>"+full_fare_num+"</td><td class='sub_total' colspan='2'>"+full_fare_subtotal+"</td></tr>");
-				// show_facility_name(fn);
+				var full_fare_subtotal = full_fare * full_fare_num;
+				$("#ticket_row").after("<tr><td style='text-align:center;'>"+fn+"</td><td class='facility_name'>"+info[4]+"</td><td style='text-align:center;'>"+"全票"+"</td><td style='text-align:right;'>"+full_fare+"</td><td>"+full_fare_num+"</td><td class='sub_total' colspan='2'>"+full_fare_subtotal+"</td></tr>");
+				
+				var per_full_sql = info[1]+","+full_fare_subtotal+");";
 			}
 			var half_fare_num = info[3];
 			if( half_fare_num > 0){
 				var half_fare = info[2];
 				var half_fare_subtotal = half_fare * half_fare_num;
-				$("#ticket_row").after("<tr><td style='text-align:center;'>"+fn+"</td><td class='facility_name facility_name_"+fn+"'></td><td style='text-align:center;'>"+"半票"+"</td><td style='text-align:right;'>"+half_fare+"</td><td>"+half_fare_num+"</td><td class='sub_total' colspan='2'>"+half_fare_subtotal+"</td></tr>");
-				// show_facility_name(fn);
+				$("#ticket_row").after("<tr><td style='text-align:center;'>"+fn+"</td><td class='facility_name'>"+info[4]+"</td><td style='text-align:center;'>"+"半票"+"</td><td style='text-align:right;'>"+half_fare+"</td><td>"+half_fare_num+"</td><td class='sub_total' colspan='2'>"+half_fare_subtotal+"</td></tr>");
 			}
 		}
 	}
@@ -37,25 +39,6 @@ function init(){
 
 var points_confirm = document.getElementById("points_confirm");
 points_confirm.addEventListener("click",output_total);
-
-// function show_facility_name(fn){
-// 	var facility_no = fn;
-// 	var xhr = new XMLHttpRequest();
-// 	xhr.onload = function (){
-// 	if( xhr.status == 200){ //OK
-// 	    if( xhr.responsetText == "sqlerror"){
-// 	        alert("Server端無法正常運作");
-// 	    }else{
-// 	    for(var i =0; i<2;i++){
-// 	    	document.getElementsByClassName("facility_name_"+fn)[i].innerHTML = xhr.responseText;	
-// 	    }
-// 	    }
-// 	    }
-// 	}
-// 	var url = "../show_facility_name.php?facility_no=" + facility_no;
-// 	xhr.open("get",url, true);
-// 	xhr.send(null);
-// }
 
 function output_total(){
 	total = initial_total;
