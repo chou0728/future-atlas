@@ -103,17 +103,9 @@ body::-webkit-scrollbar-thumb {
 <!-- 輸出會員資訊 -->
 <div id="detailWrapper">
 	<h1 id="title">確認訂單明細</h1>
-	<form action="facility_order_save_database.php" method="post">
+	<!-- <form action="facility_order_save_database.php" method="post" onsubmit="alert(2);console.log(this);"> -->
 	<table id="member_info" cellspacing="0">
 		<tr><th colspan="2" class="tbtitle">會員資訊</th>
-			<!-- 隱藏欄位區 -->
-			<input type="hidden" name="mem_id_hidden" id="mem_id_hidden">
-			<input type="hidden" name="total_hidden" id="total_hidden">
-			<input type="hidden" name="cart_sub_total_hidden" id="cart_sub_total_hidden">
-			<input type="hidden" name="creditcard_num_hidden" id="creditcard_num_hidden">
-			<input type="hidden" name="discount_hidden" id="discount_hidden">
-			<input type="hidden" name="order_date" id="order_date">
-			<!-- 隱藏欄位區 end -->
 		</tr>
 		<tr>
 			<td>暱稱</td><td id="mem_nick" style="color: white"></td>
@@ -143,7 +135,7 @@ body::-webkit-scrollbar-thumb {
 			<td style="width: 350px; text-align: right" colspan="7" id="discount_input">
 				<input type="radio" name="points" class="points"> 之後再使用
 				<input type="radio" name="points" class="points"> 使用
-				<input type="number" id="points" class="points" min="0"> 點
+				<input type="number" id="points" class="points" min="0" value="0"> 點
 				<div id="points_confirm">確定</div>
 					<div id="points_remain">(剩餘點數：
 						<span id="points_remain_input"></span>)點
@@ -190,6 +182,15 @@ body::-webkit-scrollbar-thumb {
 				</div>
 			</td>
 		</tr>
+		<form action="facility_order_save_database.php" method="post" onsubmit="alert(2);" id="test">
+			<!-- 隱藏欄位區 -->
+			<input type="hidden" name="mem_id_hidden" id="mem_id_hidden">
+			<input type="hidden" name="total_hidden" id="total_hidden">
+			<input type="hidden" name="cart_sub_total_hidden" id="cart_sub_total_hidden">
+			<input type="hidden" name="creditcard_num_hidden" id="creditcard_num_hidden">
+			<input type="hidden" name="discount_hidden" id="discount_hidden">
+			<input type="hidden" name="order_date" id="order_date">
+			<!-- 隱藏欄位區 end -->
 		<tr><td colspan="2">信用卡卡號</td></tr>
 		<tr>
 			<td colspan="2" class="credit_card" name="credit_card" id="credit_card">
