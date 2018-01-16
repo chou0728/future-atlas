@@ -103,7 +103,6 @@ body::-webkit-scrollbar-thumb {
 <!-- 輸出會員資訊 -->
 <div id="detailWrapper">
 	<h1 id="title">確認訂單明細</h1>
-	<!-- <form action="facility_order_save_database.php" method="post" onsubmit="alert(2);console.log(this);"> -->
 	<table id="member_info" cellspacing="0">
 		<tr><th colspan="2" class="tbtitle">會員資訊</th>
 		</tr>
@@ -182,7 +181,7 @@ body::-webkit-scrollbar-thumb {
 				</div>
 			</td>
 		</tr>
-		<form action="facility_order_save_database.php" method="post" onsubmit="alert(2);" id="test">
+		<form action="facility_order_save_database.php" method="post">
 			<!-- 隱藏欄位區 -->
 			<input type="hidden" name="mem_id_hidden" id="mem_id_hidden">
 			<input type="hidden" name="total_hidden" id="total_hidden">
@@ -190,6 +189,7 @@ body::-webkit-scrollbar-thumb {
 			<input type="hidden" name="creditcard_num_hidden" id="creditcard_num_hidden">
 			<input type="hidden" name="discount_hidden" id="discount_hidden">
 			<input type="hidden" name="order_date" id="order_date">
+			<input type="hidden" name="sql_order_item" id="sql_order_item">
 			<!-- 隱藏欄位區 end -->
 		<tr><td colspan="2">信用卡卡號</td></tr>
 		<tr>
@@ -214,7 +214,7 @@ body::-webkit-scrollbar-thumb {
 	</table>
 
 <div id="button">
-	<a href="input_cart.html" class="highlight" id="backToShop">上一步</a>
+	<a href="input_cart.php" class="highlight" id="backToShop">上一步</a>
 	<input type="submit" name="" id="nextStep" class="highlight" value="確認結帳">
 </div>
 </form>

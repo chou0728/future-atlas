@@ -148,7 +148,7 @@ if(isset($_SESSION["login_error"]) === true){
                 <a href="#page2" id="NavClose">園區地圖</a>
             </li>
             <li>
-                <a href="activity.html">活動月曆</a>
+                <a href="activity.php">活動月曆</a>
             </li>
             <li>
                 <a href="robot.html">諮詢專區</a>
