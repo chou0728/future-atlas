@@ -1,6 +1,6 @@
 
 *{
-	outline: 1px solid red;
+	/*outline: 1px solid red;*/
 	box-sizing: border-box;
 }
 .table{
@@ -64,7 +64,7 @@
 	display: none;
 	border: 3px solid #aaa;
 	box-shadow: 1px 2px 1px rgba(0,0,0,0.3);
-	width: 800px;
+	width: 900px;
 	height: 80vh;
 	position: fixed;
 	top:50%;
@@ -108,44 +108,45 @@
 	text-align: center;
 }
 .mphoto{
-	background-color: #bbb;
+	background-color: #777;
 }
 .mphoto:before{
 	width: 100%;
+	color: white;
+	letter-spacing: 1px;
 	content: '設施總覽呈現預覽圖：';
+	padding: 10px;
 }
-.change-type{
-	width: 30px;
-	height: 30px;
-	background-color: red;
+.lightBox-row #change-type{
+	outline: none;
 	position: absolute;
-	left: 0 ;
-	bottom: 50px;
-
+	color: #444;
+	right:10px;
+	top: 8px;
 }
-.mphoto-lb{
+.mlb{
 	background-color: #ccc;
 }
-.mphoto-lb:before{
+.mlb:before{
 	width: 100%;
 	content: '設施總覽燈箱呈現預覽圖：';
 }
 .mphoto .mphoto-img{
-		width:300px;
+		width:270px;
 		clip-path: polygon(25% 0%, 100% 0%, 75% 100%, 0% 100%);
 		-webkit-clip-path: polygon(25% 0%, 100% 0%, 75% 100%, 0% 100%);
 		margin: auto;
 }
-.mphoto-lb .mphoto-img{
+.mlb .mphoto-img{
 	width: 85%;
 	margin: auto;
 }
-.mphoto-lb .mphoto-img #facility_mphoto{
+.mlb .mphoto-img #facility_mphoto{
 	width: 100%;
 }
 
 .mphoto .mphoto-img #facility_mphoto{
-		width: 901px;
+		width: 811px;
 		transform: translateX(-30%);
 }
 /*380:1152

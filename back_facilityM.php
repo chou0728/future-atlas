@@ -229,7 +229,7 @@ try {
 				<span class="caution">*檔名最多20字/檔案最大5M</span>
 			</div>
 			<div class="lightBox-row mphoto">
-				<div id="change-type"></div>
+				<input type="button" name="" value="切換預覽" id="change-type">
 				<div class="mphoto-img">
 					<img src="" id="facility_mphoto">
 				</div>
@@ -295,6 +295,8 @@ function init(){
 	}
 	var reset = document.getElementById("reset");
 	reset.onclick = resetLightBox;
+	var changeType = document.getElementById("change-type");
+	changeType.onclick = changeImgType;
 
 
 }
@@ -379,8 +381,15 @@ function resetLightBox(){
 function closeLightBox(){
 	lightBox.style.display = "block";
 }
-
-
+function changeImgType(){
+	var lightBoxRow = document.getElementsByClassName('lightBox-row')[4];
+	if(lightBoxRow.className.indexOf("mphoto")!=-1){
+		lightBoxRow.className = lightBoxRow.className.replace("mphoto","mlb");
+	}else{
+		lightBoxRow.className = lightBoxRow.className.replace("mlb","mphoto");
+	}
+	
+}
 </script>
 
 </body>
