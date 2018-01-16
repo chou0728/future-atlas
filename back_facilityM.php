@@ -225,11 +225,11 @@ try {
 			<div class="lightBox-row">
 				<span class="subtitle">主要照片：</span>
 				<input type="hidden" name="MAX_FILE_SIZE" value="5242880">
-				<input type="file" name="facility_mphoto">
+				<input type="file" name="facility_mphoto" id="fm">
 				<span class="caution">*檔名最多20字/檔案最大5M</span>
 			</div>
 			<div class="lightBox-row mphoto">
-				<div id="change-type"></div>
+				<input type="button" name="" value="切換預覽" id="change-type">
 				<div class="mphoto-img">
 					<img src="" id="facility_mphoto">
 				</div>
@@ -295,6 +295,13 @@ function init(){
 	}
 	var reset = document.getElementById("reset");
 	reset.onclick = resetLightBox;
+	var changeType = document.getElementById("change-type");
+	changeType.onclick = changeImgType;
+
+	var fm = document.getElementById("fm");
+	fm.onchange = function(){
+		
+	}
 
 
 }
@@ -355,6 +362,7 @@ function resetLightBox(){
 	facility_name.value = _facility_name;
 	facility_mphoto.src = _facility_mphoto;
 	facility_description.value = _facility_description;
+	fm.value = "";
 	switch(_status){
 		case "正常":
 		facility_status.options[0].selected=true;
@@ -379,8 +387,15 @@ function resetLightBox(){
 function closeLightBox(){
 	lightBox.style.display = "block";
 }
-
-
+function changeImgType(){
+	var lightBoxRow = document.getElementsByClassName('lightBox-row')[4];
+	if(lightBoxRow.className.indexOf("mphoto")!=-1){
+		lightBoxRow.className = lightBoxRow.className.replace("mphoto","mlb");
+	}else{
+		lightBoxRow.className = lightBoxRow.className.replace("mlb","mphoto");
+	}
+	
+}
 </script>
 
 </body>
