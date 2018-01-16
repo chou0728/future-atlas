@@ -104,7 +104,7 @@ document.getElementsByClassName("points")[0].onchange = function(){
 // 確認結帳,清空localStorage儲存票券資料
 $("#nextStep").click(function(){
 	storage.removeItem("facility_ticket_list");
-	for(var i=1;i=6;i++){
+	for(var i=6;i>=0;i--){
 		storage.removeItem(i);
 	}
 });

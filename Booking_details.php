@@ -123,16 +123,8 @@
         <div class="memberinfosection">
             <h2 class="Bookingh2">會員資訊</h2>
             <div class="memberinfo">
-                <!-- <script type='text/javascript'>
-                    var mem_id =localStorage.getItem('mem_id');
-                    //alert(mem_id);
-                    <?php echo $mem_id = mem_id   ?>
-
-                </script>
- -->
-    
             <?php 
-                $mem_id =1;
+                $mem_id =$_SESSION["mem_id"];
                 require_once("php/connectBooks.php");
                 $sql ="select * from member where mem_id=$mem_id";
                 $member= $pdo->query( $sql );
@@ -142,7 +134,7 @@
                     $prodRow = $member->fetchObject();
                 }
             ?>    
-                <p>帳號:<?php echo $mem_id ?></p>
+                <p>會員ID:<?php echo $mem_id ?></p>
                 <p>Email:<?php echo $prodRow->mem_mail?></p>
                 <p>積分:<?php echo $prodRow->mem_points ?></p>
             </div>

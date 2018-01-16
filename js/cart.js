@@ -234,28 +234,6 @@ function showSubTotal(){
 	document.getElementById("cart_total").innerHTML = total;
 }
 
-loginOrNot();
-function loginOrNot(){
-	if(storage.getItem("facility_ticket_list").search("/") < 0){
-		$("#nextStep").attr("href","facilityBuyTicket.html");
-		$("#nextStep").click(function(){
-			alert("您還沒有購買任何票券唷！");
-		})
-	}else if( storage.getItem("mem_id") > 0){
-		// 已經登入 
-		$("#nextStep").attr("href","input_cart_detail.php");
-		$(".register").text("我的資料");
-		$(".login").text("登出");
-		$(".login").prev().attr("src","img/member/member_2.png");
-	}else{
-		// 尚未登入
-		$("#nextStep").attr("javascript:void(0)");
-		document.getElementById("nextStep").onclick = function(){
-		alert("請先登入~~");
-	}
-	}
-}
-
 				/*註冊登入按鈕*/
 				var singUpBtn = document.getElementById('singUpBtn');
 				/*註冊燈箱*/
@@ -291,3 +269,21 @@ function loginOrNot(){
 					fullCover.style.display="";
 				}
 };
+
+document.getElementById("nextStep").addEventListener("click",loginOrNot);
+function loginOrNot(){
+	if(storage.getItem("facility_ticket_list").search("/") < 0){
+		$("#nextStep").attr("href","facilityBuyTicket.html");
+			alert("您還沒有購買任何票券唷！");
+	}else if( storage.getItem("mem_id") > 0){
+		// 已經登入 
+		$("#nextStep").attr("href","input_cart_detail.php");
+		$(".register").text("我的資料");
+		$(".login").text("登出");
+		$(".login").prev().attr("src","img/member/member_2.png");
+	}else{
+		// 尚未登入
+		$("#nextStep").attr("javascript:void(0)");
+		alert("請先登入~~");
+	}
+}

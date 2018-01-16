@@ -256,9 +256,6 @@
                                 </form> 
                             <?php       
                                 }
-                            ?>
-
-                        <?php
                             } catch (PDOException $e) {
                                 echo "錯誤原因 : " , $e->getMessage() , "<br>";
                                 echo "錯誤行號 : " , $e->getLine() , "<br>";
@@ -388,8 +385,8 @@
             var xhr = new XMLHttpRequest();
             xhr.onload=function (){
                 if( xhr.status == 200 ){
-                    //alert( xhr.responseText );  
-                     //modify_here  TheaterSessionListTable
+                    //console.log( xhr.responseText );  
+                    //modify_here  TheaterSessionListTable
                     document.getElementById("TheaterSessionListTable").innerHTML = xhr.responseText;
                 }else{
                     alert( xhr.status );
