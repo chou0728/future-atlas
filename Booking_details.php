@@ -134,7 +134,7 @@
                     $prodRow = $member->fetchObject();
                 }
             ?>    
-                <p>會員ID:<?php echo $mem_id ?></p>
+                <p>會員帳號:<?php echo $mem_id ?></p>
                 <p>Email:<?php echo $prodRow->mem_mail?></p>
                 <p>積分:<?php echo $prodRow->mem_points ?></p>
             </div>

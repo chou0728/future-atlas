@@ -62,7 +62,7 @@ session_start();
                 <span class="register">
                 	<?php
                 		if(isset($_SESSION["mem_id"])===true){
-                			echo $_SESSION["mem_nick"]."你好!";
+                			echo "<a href='MembersOnly.html'>我的資料</a>";
                 		}else{
                 			echo "註冊";
                 		}
@@ -78,7 +78,13 @@ session_start();
                 			echo"'javascript:void(0)'";
                 		}
                 	?> id="singUpBtn">
-                <img src="img/member/member_1.png">
+                <img src=<?php
+                		if(isset($_SESSION['mem_id'])===true){
+                			echo 'img/member/member_2.png';
+                		}else{
+                			echo 'img/member/member_1.png';
+                		}
+					?>>
                 <span class="login">
                 	<?php
                 		if(isset($_SESSION["mem_id"])===true){
@@ -95,7 +101,7 @@ session_start();
                 <img id="cartimgid" src="img/cart/wallet_0.png">
                 <span id="howmanytickets">0</span>
             </a>
-                <div id="showCartContent">購物車內容
+                <div id="showCartContent">預覽購物車
                     <table id="showCartContenttb"></table>
                 </div>
         </li>
@@ -726,6 +732,18 @@ window.addEventListener('load',l_storage);
 					lightBox.style.visibility = 'hidden';
 					fullCover.style.display="";
 				}
+				// 若登入，將mem_id存入localStorage
+				var storage = localStorage;
+				storage.setItem("mem_id",
+					<?php
+	               		if(isset($_SESSION["mem_id"])===true){
+	               			echo $_SESSION["mem_id"];
+	               		}else{
+	               			echo "0";
+	               			// 若未登入，mem_id為0
+	               		}
+                	?>
+					);
 				
 				
 			}
