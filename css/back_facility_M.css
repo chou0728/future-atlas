@@ -109,6 +109,7 @@
 }
 .mphoto{
 	background-color: #777;
+	padding-top:20px;
 }
 .mphoto:before{
 	width: 100%;
@@ -126,6 +127,8 @@
 }
 .mlb{
 	background-color: #ccc;
+	padding-top: 20px;
+	padding-bottom: 50px;
 }
 .mlb:before{
 	width: 100%;
@@ -135,7 +138,7 @@
 	margin-bottom: 50px;
 }
 .mphoto .mphoto-img{
-		width:270px;
+		width:250px;
 		clip-path: polygon(25% 0%, 100% 0%, 75% 100%, 0% 100%);
 		-webkit-clip-path: polygon(25% 0%, 100% 0%, 75% 100%, 0% 100%);
 		margin: auto;
@@ -151,7 +154,7 @@
 }
 
 .mphoto .mphoto-img #facility_mphoto{
-		width: 811px;
+		width: 751px;
 		transform: translateX(-30%);
 }
 /*380:1152

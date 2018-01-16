@@ -299,9 +299,7 @@ function init(){
 	changeType.onclick = changeImgType;
 
 	var fm = document.getElementById("fm");
-	fm.onchange = function(){
-		
-	}
+	fm.onchange = showImg;
 
 
 }
@@ -395,6 +393,26 @@ function changeImgType(){
 		lightBoxRow.className = lightBoxRow.className.replace("mlb","mphoto");
 	}
 	
+}
+  // var openFile = function(event) {
+  //   var input = event.target;
+
+  //   var reader = new FileReader();
+  //   reader.onload = function(){
+  //     var dataURL = reader.result;
+  //     var output = document.getElementById('output');
+  //     output.src = dataURL;
+  //   };
+  //   reader.readAsDataURL(input.files[0]);
+  // };
+
+function showImg(){
+	var reader = new FileReader();
+	reader.onload = function(){
+		var dataURL = reader.result;
+		facility_mphoto.src= dataURL;
+	};
+	reader.readAsDataURL(this.files[0]);
 }
 </script>
 
