@@ -96,6 +96,7 @@
 		<?php
 			echo "購買完成";
 			//轉到BookingDone.php
+			//echo "<a href='MembersOnly.html'>會員專區</a>";
 			// header("location:BookingDone.php");	
 		} catch (PDOException $e) {
 		  echo "錯誤行號 : ", $e->getLine(), "<br>";
