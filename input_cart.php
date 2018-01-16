@@ -115,7 +115,7 @@ body::-webkit-scrollbar-thumb {
             </li>
         </ul>
         <h1 style="display: none">FutureAtlas_未來主題樂園</h1>
-        <a href="index.html#page1" class="logo_a">
+        <a href="====index.php" class="logo_a">
             <img src="img/LOGO.png" class="logo">
         </a>
         <ul class="ul_right">
@@ -191,6 +191,22 @@ body::-webkit-scrollbar-thumb {
 	</form>
 </div>
 <script src="js/00nav.js"></script>
-<script type="text/javascript" src="js/cart.js"></script>
+<script type="text/javascript" src="js/cart.js" async></script>
+<script type="text/javascript" async>
+window.onload=function (){
+    // 若登入，將mem_id存入localStorage
+    var storage = localStorage;
+    storage.setItem("mem_id",
+        <?php
+            if(isset($_SESSION["mem_id"])===true){
+                echo $_SESSION["mem_id"];
+            }else{
+                echo "0";
+                // 若未登入，mem_id為0
+            }
+        ?>
+        );
+};
+</script>
 </body>
 </html>
