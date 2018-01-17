@@ -24,14 +24,18 @@ try {
 
 //--------
 			if(isset($_REQUEST["facility_no"])===false){
-				$sql="insert into facility()";
+				echo"新增";
 
-			}else if(isset($_REQUEST["info_already"])===false){
+			}else if($_REQUEST["info_already"]==3){
 					$sql="update facility set facility_name=:facility_name, 
 	                          facility_mphoto=:facility_mphoto,
 	                          facility_description=:facility_description, 
 	                          facility_status=:facility_status,
-	                          facility_crowd=:facility_crowd where facility_no=:facility_no";
+	                          facility_crowd=:facility_crowd,
+	                          facility_phrase=:facility_phrase,
+	                          facility_heart=:facility_heart,
+	                          facility_suit=:facility_suit,
+	                          facility_limit=:facility_limit where facility_no=:facility_no";
 
 						$products = $pdo->prepare( $sql );
 						$products->bindValue(":facility_no" , $_REQUEST["facility_no"]);
@@ -40,11 +44,15 @@ try {
 						$products->bindValue(":facility_description" , $_REQUEST["facility_description"]);
 						$products->bindValue(":facility_status" , $_REQUEST["facility_status"]);
 						$products->bindValue(":facility_crowd" , $_REQUEST["facility_crowd"]);
+						$products->bindValue(":facility_phrase" , $_REQUEST["facility_phrase"]);
+						$products->bindValue(":facility_heart" , $_REQUEST["facility_heart"]);
+						$products->bindValue(":facility_suit" , $_REQUEST["facility_suit"]);
+						$products->bindValue(":facility_limit" , $_REQUEST["facility_limit"]);
 						$products->execute();
 		
 
 						echo "異動成功<br>";
-						header("location:back_facilityM.php");
+					// 	header("location:back_facilityM.php");
 			}
 			
 //--------		
@@ -62,18 +70,15 @@ try {
 		echo "上傳檔案不完整<br>";
 		break;	
 	case 4:
-			if(isset($_REQUEST["info_already"])===true){
-				$sql="update facility set info_already=:info_already where facility_no=:facility_no";
-				$products = $pdo->prepare( $sql );
-				$products->bindValue(":facility_no" , $_REQUEST["facility_no"]);
-				$products->bindValue(":info_already" , $_REQUEST["info_already"]);
-				$products->execute();
-				header("location:back_facilityM.php");
-			}else{
+			if($_REQUEST["info_already"]==3){
 				$sql="update facility set facility_name=:facility_name,
 	                          facility_description=:facility_description, 
 	                          facility_status=:facility_status,
-	                          facility_crowd=:facility_crowd where facility_no=:facility_no";
+	                          facility_crowd=:facility_crowd,
+	                          facility_phrase=:facility_phrase,
+	                          facility_heart=:facility_heart,
+	                          facility_suit=:facility_suit,
+	                          facility_limit=:facility_limit where facility_no=:facility_no";
 
 						$products = $pdo->prepare( $sql );
 						$products->bindValue(":facility_no" , $_REQUEST["facility_no"]);
@@ -81,13 +86,23 @@ try {
 						$products->bindValue(":facility_description" , $_REQUEST["facility_description"]);
 						$products->bindValue(":facility_status" , $_REQUEST["facility_status"]);
 						$products->bindValue(":facility_crowd" , $_REQUEST["facility_crowd"]);
+						$products->bindValue(":facility_phrase" , $_REQUEST["facility_phrase"]);
+						$products->bindValue(":facility_heart" , $_REQUEST["facility_heart"]);
+						$products->bindValue(":facility_suit" , $_REQUEST["facility_suit"]);
+						$products->bindValue(":facility_limit" , $_REQUEST["facility_limit"]);
 						$products->execute();
-		
-
-						echo "異動成功<br>";
-						header("location:back_facilityM.php");
+						echo "4-1";
+						// header("location:back_facilityM.php");
+			}else if($_REQUEST["info_already"]==0||$_REQUEST["info_already"]==1){
+				echo "4-2";
+				$sql="update facility set info_already=:info_already where facility_no=:facility_no";
+				$products = $pdo->prepare( $sql );
+				$products->bindValue(":facility_no" , $_REQUEST["facility_no"]);
+				$products->bindValue(":info_already" , $_REQUEST["info_already"]);
+				$products->execute();
+				header("location:back_facilityM.php");
 			}
-		echo "尚未挑選檔案";
+		// echo "尚未挑選檔案";
 		break;
 	default:
 	    echo "error code : " , $_FILES["facility_mphoto"]["error"] , "<br>";
@@ -96,6 +111,10 @@ try {
 	echo "錯誤原因 : " , $e->getMessage() , "<br>";
 	echo "錯誤行號 : " , $e->getLine() , "<br>";	
 }
-?>	
+
+?>
+
+
+
 </body>
 </html>
