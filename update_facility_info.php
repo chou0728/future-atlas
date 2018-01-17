@@ -29,30 +29,30 @@ try {
 			}else if($_REQUEST["info_already"]==3){
 					$sql="update facility set facility_name=:facility_name, 
 	                          facility_mphoto=:facility_mphoto,
-	                          facility_description=:facility_description, 
-	                          facility_status=:facility_status,
-	                          facility_crowd=:facility_crowd,
 	                          facility_phrase=:facility_phrase,
 	                          facility_heart=:facility_heart,
 	                          facility_suit=:facility_suit,
-	                          facility_limit=:facility_limit where facility_no=:facility_no";
+	                          facility_limit=:facility_limit,
+	                          facility_description=:facility_description, 
+	                          facility_status=:facility_status,
+	                          facility_crowd=:facility_crowd where facility_no=:facility_no";
 
 						$products = $pdo->prepare( $sql );
 						$products->bindValue(":facility_no" , $_REQUEST["facility_no"]);
 						$products->bindValue(":facility_name" , $_REQUEST["facility_name"]);
 						$products->bindValue(":facility_mphoto" , $_FILES["facility_mphoto"]["name"]);
-						$products->bindValue(":facility_description" , $_REQUEST["facility_description"]);
-						$products->bindValue(":facility_status" , $_REQUEST["facility_status"]);
-						$products->bindValue(":facility_crowd" , $_REQUEST["facility_crowd"]);
 						$products->bindValue(":facility_phrase" , $_REQUEST["facility_phrase"]);
 						$products->bindValue(":facility_heart" , $_REQUEST["facility_heart"]);
 						$products->bindValue(":facility_suit" , $_REQUEST["facility_suit"]);
 						$products->bindValue(":facility_limit" , $_REQUEST["facility_limit"]);
+						$products->bindValue(":facility_description" , $_REQUEST["facility_description"]);
+						$products->bindValue(":facility_status" , $_REQUEST["facility_status"]);
+						$products->bindValue(":facility_crowd" , $_REQUEST["facility_crowd"]);
 						$products->execute();
 		
 
 						echo "異動成功<br>";
-					// 	header("location:back_facilityM.php");
+						header("location:back_facilityM.php");
 			}
 			
 //--------		
@@ -71,28 +71,30 @@ try {
 		break;	
 	case 4:
 			if($_REQUEST["info_already"]==3){
-				$sql="update facility set facility_name=:facility_name,
-	                          facility_description=:facility_description, 
-	                          facility_status=:facility_status,
-	                          facility_crowd=:facility_crowd,
+					$sql="update facility set facility_name=:facility_name, 
 	                          facility_phrase=:facility_phrase,
 	                          facility_heart=:facility_heart,
 	                          facility_suit=:facility_suit,
-	                          facility_limit=:facility_limit where facility_no=:facility_no";
+	                          facility_limit=:facility_limit,
+	                          facility_description=:facility_description, 
+	                          facility_status=:facility_status,
+	                          facility_crowd=:facility_crowd where facility_no=:facility_no";
 
 						$products = $pdo->prepare( $sql );
 						$products->bindValue(":facility_no" , $_REQUEST["facility_no"]);
 						$products->bindValue(":facility_name" , $_REQUEST["facility_name"]);
-						$products->bindValue(":facility_description" , $_REQUEST["facility_description"]);
-						$products->bindValue(":facility_status" , $_REQUEST["facility_status"]);
-						$products->bindValue(":facility_crowd" , $_REQUEST["facility_crowd"]);
 						$products->bindValue(":facility_phrase" , $_REQUEST["facility_phrase"]);
 						$products->bindValue(":facility_heart" , $_REQUEST["facility_heart"]);
 						$products->bindValue(":facility_suit" , $_REQUEST["facility_suit"]);
 						$products->bindValue(":facility_limit" , $_REQUEST["facility_limit"]);
+						$products->bindValue(":facility_description" , $_REQUEST["facility_description"]);
+						$products->bindValue(":facility_status" , $_REQUEST["facility_status"]);
+						$products->bindValue(":facility_crowd" , $_REQUEST["facility_crowd"]);
 						$products->execute();
-						echo "4-1";
-						// header("location:back_facilityM.php");
+		
+
+						echo "異動成功<br>";
+						header("location:back_facilityM.php");
 			}else if($_REQUEST["info_already"]==0||$_REQUEST["info_already"]==1){
 				echo "4-2";
 				$sql="update facility set info_already=:info_already where facility_no=:facility_no";

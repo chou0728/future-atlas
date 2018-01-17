@@ -350,8 +350,8 @@ function init(){
 	for(i=0;i<edit.length;i++){
 		edit[i].onclick = openLightBox;
 	}
-	var reset = document.getElementById("reset");
-	reset.onclick = resetLightBox;
+	// var reset = document.getElementById("reset");
+	// reset.onclick = resetLightBox;
 	var changeType = document.getElementById("change-type");
 	changeType.onclick = changeImgType;
 
@@ -368,7 +368,7 @@ function frontAppear(){
 	var already = document.getElementsByName("already")[0];
 	var submit_true = document.getElementById("submit_true");
 	var info_already = document.getElementsByName("info_already")[0];
-	var dami_mphoto = document.getElementsByName("facility_mphoto")[1];
+	var dami_mphoto = document.getElementsByName("facility_mphoto")[0];
 	info_already.value = submit_true.dataset.already;
 	dami_mphoto.value = "";
 	already.submit();
@@ -387,7 +387,7 @@ function openLightBox(){
 	lightBox= document.getElementById("lightBox");
 	facility_no = document.getElementById("facility_no");
 	facility_name = document.getElementById("facility_name");
-	facility_no_input = document.getElementsByName("facility_no")[0];
+	facility_no_input = document.getElementsByName("facility_no")[1];
 	facility_mphoto = document.getElementById("facility_mphoto");
 	fm = document.getElementById("fm");//file
 	facility_description = document.getElementById("facility_description");
@@ -444,34 +444,34 @@ function openLightBox(){
 	lightBox.style.display = "block";	
 }
 
-function resetLightBox(){
-	facility_no.innerHTML= _facility_no;
-	facility_name.value = _facility_name;
-	facility_mphoto.src = _facility_mphoto;
-	facility_no_input.value = _facility_no;
-	facility_description.value = _facility_description;
-	fm.value = "";
-	switch(_status){
-		case "正常":
-		facility_status.options[0].selected=true;
-		break;
-		case "維修中":
-		facility_status.options[1].selected=true;
-		break;
+// function resetLightBox(){
+// 	facility_no.innerHTML= _facility_no;
+// 	facility_name.value = _facility_name;
+// 	facility_mphoto.src = _facility_mphoto;
+// 	facility_no_input.value = _facility_no;
+// 	facility_description.value = _facility_description;
+// 	fm.value = "";
+// 	switch(_status){
+// 		case "正常":
+// 		facility_status.options[0].selected=true;
+// 		break;
+// 		case "維修中":
+// 		facility_status.options[1].selected=true;
+// 		break;
 
-	}
-	switch(_crowds){
-		case "擁擠":
-		facility_crowd.options[0].selected=true;
-		break;
-		case "普通":
-		facility_crowd.options[1].selected=true;
-		break;
-		case "空曠":
-		facility_crowd.options[2].selected=true;
-		break;
-	}
-}
+// 	}
+// 	switch(_crowds){
+// 		case "擁擠":
+// 		facility_crowd.options[0].selected=true;
+// 		break;
+// 		case "普通":
+// 		facility_crowd.options[1].selected=true;
+// 		break;
+// 		case "空曠":
+// 		facility_crowd.options[2].selected=true;
+// 		break;
+// 	}
+// }
 function closeLightBox(){
 	lightBox.style.display = "none";
 }
