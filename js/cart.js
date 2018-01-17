@@ -11,7 +11,7 @@ window.onload = function(){
 			if( full_fare_num > 0 ){
 				var full_fare = info[0];
 				var full_fare_subtotal = full_fare * full_fare_num;			
-				$("table#cartContent").append("<tr id='full_"+fn+"'><td class='fn_id'>"+fn+"</td><td class='icon_td'><img src='img/facilityIcon/"+fn+"icon.png'></td><td class='facility_name'>"+info[4]+"</td><td class='full_td'>全票</td><td id='full_fare_id_"+fn+"'>"+full_fare+"</td><td><div class='ctrl'><div class='ctrl-button ctrl-button-decrement' id='full_decrement_"+fn+"'>-</div><div class='ctrl-counter'><input class='ctrl-counter-input' maxlength='3' type='text' value="+full_fare_num+" id='full_fare_num_id_"+fn+"'></div><div class='ctrl-button ctrl-button-increment' id='full_increment_"+fn+"'>+</div></td><td class='sub_total' id='full_fare_subtotal_id_"+fn+"'>"+full_fare_subtotal+"</td><td class='delete_btn_td'><button class='delete_btn' id='full_fare_delete_btn_id_"+fn+"'>Ｘ</button></td></tr>");
+				$("table#cartContent").append("<tr id='full_"+fn+"'><td class='fn_id'>"+fn+"</td><td class='icon_td'><img src='img/facilityIcon/"+fn+"icon.png'></td><td class='facility_name'>"+info[4]+"</td><td class='full_td'>全票</td><td id='full_fare_id_"+fn+"'>"+full_fare+"</td><td><div class='ctrl'><div class='ctrl-button ctrl-button-decrement' id='full_decrement_"+fn+"'>-</div><div class='ctrl-counter'><input class='ctrl-counter-input' maxlength='3' type='text' onkeyup='this.value=this.value.replace(/[^0-9]/g,'')' value="+full_fare_num+" id='full_fare_num_id_"+fn+"'></div><div class='ctrl-button ctrl-button-increment' id='full_increment_"+fn+"'>+</div></td><td class='sub_total' id='full_fare_subtotal_id_"+fn+"'>"+full_fare_subtotal+"</td><td class='delete_btn_td'><button class='delete_btn' id='full_fare_delete_btn_id_"+fn+"'>Ｘ</button></td></tr>");
 
 				document.getElementById("full_fare_num_id_"+fn).onchange = changeNum;
 				document.getElementById("full_decrement_"+fn).onclick = minusNumPanel;
@@ -23,7 +23,7 @@ window.onload = function(){
 			if( half_fare_num > 0){
 				var half_fare = info[2];
 				var half_fare_subtotal = half_fare * half_fare_num;
-				$("table#cartContent").append("<tr id='half_"+fn+"'><td class='fn_id'>"+fn+"</td><td class='icon_td'><img src='img/facilityIcon/"+fn+"icon.png'></td><td class='facility_name'>"+info[4]+"</td><td class='half_td'>半票</td><td id='half_fare_id_"+fn+"'>"+half_fare+"</td><td><div class='ctrl'><div class='ctrl-button ctrl-button-decrement' id='half_decrement_"+fn+"'>-</div><div class='ctrl-counter'><input class='ctrl-counter-input' maxlength='3' type='text' value="+half_fare_num+" id='half_fare_num_id_"+fn+"'></div><div class='ctrl-button ctrl-button-increment' id='half_increment_"+fn+"'>+</div></td><td class='sub_total' id='half_fare_subtotal_id_"+fn+"'>"+half_fare_subtotal+"</td><td class='delete_btn_td'><button class='delete_btn' id='half_fare_delete_btn_id_"+fn+"'>Ｘ</button></td></tr>");
+				$("table#cartContent").append("<tr id='half_"+fn+"'><td class='fn_id'>"+fn+"</td><td class='icon_td'><img src='img/facilityIcon/"+fn+"icon.png'></td><td class='facility_name'>"+info[4]+"</td><td class='half_td'>半票</td><td id='half_fare_id_"+fn+"'>"+half_fare+"</td><td><div class='ctrl'><div class='ctrl-button ctrl-button-decrement' id='half_decrement_"+fn+"'>-</div><div class='ctrl-counter'><input class='ctrl-counter-input' maxlength='3' type='text' onkeyup='this.value=this.value.replace(/[^0-9]/g,'')' value="+half_fare_num+" id='half_fare_num_id_"+fn+"'></div><div class='ctrl-button ctrl-button-increment' id='half_increment_"+fn+"'>+</div></td><td class='sub_total' id='half_fare_subtotal_id_"+fn+"'>"+half_fare_subtotal+"</td><td class='delete_btn_td'><button class='delete_btn' id='half_fare_delete_btn_id_"+fn+"'>Ｘ</button></td></tr>");
 
 				document.getElementById("half_fare_num_id_"+fn).onchange = changeNum;
 				document.getElementById("half_decrement_"+fn).onclick = minusNumPanel;
@@ -119,8 +119,8 @@ function minusNumPanel(){
 			}else if( newNum < 1){
 				var confirm_status = confirm("您確定要刪除這張票券？");
 				if( confirm_status == true){
-					var delete_row_id = this.id;
-					deleteRow(delete_row_id);
+					var delete_row_id = this.id.replace("_decrement","");
+					document.getElementById(delete_row_id).remove();
 				}else{
 					newNum = 1;
 					this.nextElementSibling.children[0].value = 1;
@@ -143,7 +143,7 @@ function changeNum(){
 		var fare = parseInt(document.getElementById(aa).innerHTML);
 		// 新數量
 		var num = this.value;
-			if( num != 0){
+			if( num > 0){
 				// 新subtotal
 				document.getElementById(this.id.replace('num','subtotal')).innerHTML = fare*num;
 				showSubTotal();
@@ -164,15 +164,17 @@ function changeNum(){
 			}else{
 				var confirm_status = confirm("您確定要刪除？");
 				if( confirm_status == true){
-					var ff = this.id.replace("decrement","fare_num_id");
-					deleteRow(ff);
+					var ff = this.id.replace("_fare_num_id","");
+					document.getElementById(ff).remove();
 				}else{
 					this.value = 1;
 				}
 			}
+			
 }
 
-function deleteRow(changeTOZero){
+function deleteRow(changeTOZero,event){
+event.preventDefault();
 	if( changeTOZero != null){
 		var temp1 = changeTOZero.replace("_decrement","");
 		document.getElementById(temp1).remove();
@@ -196,9 +198,10 @@ function deleteRow(changeTOZero){
 	showSubTotal();
 }
 
-function deleteRowByClick(){
-	var temp2 = this.id.replace("_fare_delete_btn_id","");
-	document.getElementById(temp2).remove();
+function deleteRowByClick(event){
+	event.preventDefault();
+	// var temp2 = this.id.replace("_fare_delete_btn_id","");
+	// document.getElementById(temp2).remove();
 	// 修改為全票
 	if( this.id.search("full") == 0){
 		var cc = storage.getItem(this.id.substr(this.id.length-1,1)).split("/");

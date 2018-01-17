@@ -74,7 +74,7 @@
 	<!-- ===========請加內容至此===========-->
 	<div id="insert_activity" class="tabcontent">
 	<h2 class="titleh2">新增活動</h2>
-	<form action="back_activity.php" method="post">
+	<form action="insert_activity.php" method="post">
 	<table>
 		<tr>
 			<th>編號</th>
@@ -90,23 +90,23 @@
 		</tr>
 		<tr>			
 			<td name="activity_no">1</td>
-			<td><input type="textarea" name="activity_name" placeholder="10字內" size="10" rows="5"></td>			
-			<td><input type="textarea" name="activity_short_name" placeholder="5字內" size="5" rows="5"></td>
+			<td><input type="textarea" wrap="virtual" name="activity_name" id="activity_name" placeholder="10字內" size="10" rows="2" required></td>			
+			<td><input type="textarea" wrap="virtual" name="activity_short_name" id="activity_short_name" placeholder="5字內" size="5" rows="2" required></td>
 			<td>
-				<select>
-					<option value="1">未來大道</option>
-					<option value="2">明日之廳</option>
-					<option value="3">國際會議中心</option>
-					<option value="4">演講廳</option>
-					<option value="5">貿易中心</option>
-					<option value="6">空中花園</option>
-					<option value="7">旋轉餐廳</option>
+				<select name="activity_location" required>
+					<option value="未來大道">未來大道</option>
+					<option value="明日之廳">明日之廳</option>
+					<option value="國際會議中心">國際會議中心</option>
+					<option value="演講廳">演講廳</option>
+					<option value="貿易中心">貿易中心</option>
+					<option value="空中花園">空中花園</option>
+					<option value="旋轉餐廳">旋轉餐廳</option>
 				</select>
 			</td>
-			<td><input type="date" value="activity_date"></td>
-			<td><input type="time" name="activity_start_time"></td>
-			<td><input type="time" name="activity_end_time"></td>
-			<td><input type="text" name="activity_intro" placeholder="15字內" size="10"></td>
+			<td><input type="date" name="activity_date" required></td>
+			<td><input type="time" name="activity_start_time" required></td>
+			<td><input type="time" name="activity_end_time" required></td>
+			<td><input type="textarea" wrap="virtual" name="activity_intro" placeholder="15字內" size="10" rows="3" required></td>
 			<!-- <td><input type="file" name="activity_filename"></td> -->
 			<td><input type="reset" name="">
 				<input type="submit" name="" value="上架">
@@ -129,29 +129,17 @@
 			<th>開始時間</th>
 			<th>結束時間</th>
 			<th>活動簡介</th>
-			<!-- <th id="activity_filename">圖片檔名</th> -->
 			<th>設定</th>
 		</tr>
 		<tr>			
-			<td name="activity_no"></td>
-			<td name="activity_name"><input type="textarea"  placeholder="10字內" size="10" rows="5"></td>			
-			<td><input type="textarea" name="activity_short_name" placeholder="5字內" size="5" rows="5"></td>
-			<td>
-				<select>
-					<option value="1">未來大道</option>
-					<option value="2">明日之廳</option>
-					<option value="3">國際會議中心</option>
-					<option value="4">演講廳</option>
-					<option value="5">貿易中心</option>
-					<option value="6">空中花園</option>
-					<option value="7">旋轉餐廳</option>
-				</select>
-			</td>
-			<td><input type="date" value="activity_date"></td>
-			<td><input type="time" name="activity_start_time"></td>
-			<td><input type="time" name="activity_end_time"></td>
-			<td><input type="text" name="activity_intro" placeholder="15字內" size="10"></td>
-			<!-- <td><input type="file" name="activity_filename"></td> -->
+			<td class="b_activity_no"></td>
+			<td class="b_activity_name"></td>			
+			<td class="b_activity_short_name"></td>
+			<td class="b_activity_location"></td>
+			<td class="b_activity_date"></td>
+			<td class="b_activity_start_time"></td>
+			<td class="b_activity_end_time"></td>
+			<td class="b_activity_intro"></td>
 			<td><input type="reset" name="" value="修改"><br>
 				<input type="submit" value="確定"><br>
 				<input type="button" name="" value="刪除">
@@ -162,6 +150,16 @@
 		</div>
 	</div>
 <script>
+		// 調出歷史資料
+		document.getElementsByClassName("b_sn_btn")[1].addEventListener("click",history_activity);
+		function history_activity(){
+			var xhr = XMLHttpRequest();
+			xhr.onload = function (){
+    			if( xhr.status == 200){ //OK}
+    				
+				}
+			}
+		}
         //tab 換頁
         function openCity (evt,list) {
 

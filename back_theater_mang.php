@@ -274,7 +274,8 @@
                     <h2 class="titleh2">劇場票劵訂單</h2>
                     <table class="TheaterOrderListTable" id='TheaterOrderListTable'>
                         會員ID:<input type="text" value="1" id='member_id'>
-                            <button onclick="searchOrderList()"  class="searchOrderList">查詢</button>
+                            <!-- button類型要改成type="button"，預設type="submit" -->
+                            <button type="button" onclick="searchOrderList()"  class="searchOrderList">查詢</button>
                             <div id="showPanel"></div>
                         <tr>
                             <th>訂單編號</th>
@@ -399,14 +400,12 @@
             xhr.send( null );
         }
 
-        //傳送會員ID  搜尋完，會跳到劇場節目內籤??
+        //傳送會員ID  
         function searchOrderList(){
             var xhr = new XMLHttpRequest();
             xhr.onload=function (){
                 if( xhr.status == 200 ){
-                    //console.log( xhr.responseText );  
-                    //modify_here  TheaterSessionListTable
-                    document.getElementById("showPanel").innerHTML = xhr.responseText;
+                    document.getElementById("TheaterOrderListTable").innerHTML = xhr.responseText;
                 }else{
                     alert( xhr.status );
                 }
