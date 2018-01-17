@@ -142,7 +142,7 @@ try {
 						</div>
 						<div class="col">
 							<form name="already" action="update_facility_info.php" method="post" enctype="multipart/form-data">
-								<input type="hidden" name="info_already" value="">
+								<input type="hidden" name="info_already">
 								<input type="hidden" name="facility_no" value="<?php echo $prodRow->facility_no ?>">
 								<input type="file" name="facility_mphoto" style="display: none;">
 								<?php 
@@ -221,7 +221,7 @@ try {
 						</div>
 						<div class="col">
 							<form name="already" action="update_facility_ticket.php" method="post" enctype="multipart/form-data">
-								<input type="hidden" name="ticket_already" value="">
+								<input type="hidden" name="ticket_already">
 								<input type="hidden" name="facility_no" value="<?php echo $prodRow->facility_no ?>">
 								<input type="file" name="facility_tphoto" style="display: none;">
 								<?php switch ($prodRow->ticket_already) {
@@ -256,32 +256,29 @@ try {
 <div id="facility_new" class="tabcontent">
 	<div class="facility_new_table">
 		<form action="update_facility_info.php" method="post" enctype="multipart/form-data">
-			<input type="hidden" name="info_already" value="3">
+			<input type="file" name="facility_mphoto" style="display: none;">
+			<input type="hidden" name="info_already">
 			<div class="lightBox-row">
 				<span class="subtitle">設施名稱：</span>
-				<input type="text" name="facility_name" value="" maxlength="10" required>
+				<input type="text" name="facility_name" maxlength="10" required>
 				<span class="caution">*必填-最多10字</span>
 			</div>
 			<div class="lightBox-row">
 				<span class="subtitle">英文名稱：</span>
-				<input type="text" name="facility_subname" value="" maxlength="10">
-				<span class="caution">*最多10字</span>
+				<input type="text" name="facility_subname" maxlength="25">
+				<span class="caution">*最多25字</span>
 			</div>
 			<div class="lightBox-row">
 				<span class="subtitle">行銷用語：</span>
-				<textarea name="facility_phrase" maxlength="200"></textarea>
-			</div>
-			<div class="lightBox-row">
-				<span class="subtitle">心跳指數：</span>
-				<input type="text" name="facility_heart" value="" maxlength="10">
+				<textarea name="facility_phrase" maxlength="50"></textarea>
 			</div>
 			<div class="lightBox-row">
 				<span class="subtitle">適合對象：</span>
-				<input type="text" name="facility_suit" value="" maxlength="15">
+				<input type="text" name="facility_suit" maxlength="15">
 			</div>
 			<div class="lightBox-row">
 				<span class="subtitle">限制：</span>
-				<input type="text" name="facility_limit" value="" maxlength="15">
+				<input type="text" name="facility_limit" maxlength="15">
 			</div>
 			<div class="lightBox-row">
 				<span class="subtitle">完整介紹：</span>
@@ -295,11 +292,11 @@ try {
 			</div>
 			<div class="lightBox-row">
 				<span class="subtitle">全票票價：</span>
-				<input type="text" name="full_fare" value="">
+				<input type="text" name="full_fare">
 			</div>
 			<div class="lightBox-row">
 				<span class="subtitle">半票票價：</span>
-				<input type="text" name="half_fare" value="">
+				<input type="text" name="half_fare">
 			</div>
 			<div class="lightBox-row lightBox-submit">
 				<input type="button" name="" value="清除修改" id="reset">
@@ -318,19 +315,19 @@ try {
 		<div class="lightBox-row lightBox-title">修改設施介紹資料</div>
 		<form action="update_facility_info.php" method="post" enctype="multipart/form-data">
 			<input type="hidden" name="info_already" value="3">
-			<input type="hidden" name="facility_no" value="" id="facility_no_info">
+			<input type="hidden" name="facility_no" id="facility_no_info">
 			<div class="lightBox-row">
 				<span class="subtitle">設施編號：</span>
 				<span id="facility_no"></span>
 			</div>
 			<div class="lightBox-row">
 				<span class="subtitle">設施名稱：</span>
-				<input type="text" name="facility_name" id="facility_name" value="" maxlength="10">
+				<input type="text" name="facility_name" id="facility_name" maxlength="10">
 				<span class="caution">*最多10字</span>
 			</div>
 			<div class="lightBox-row">
 				<span class="subtitle">英文名稱：</span>
-				<input type="text" name="facility_subname" id="facility_subname" value="" maxlength="25">
+				<input type="text" name="facility_subname" id="facility_subname" maxlength="25">
 				<span class="caution">*最多25字</span>
 			</div>
 			<div class="lightBox-row">
@@ -351,15 +348,15 @@ try {
 			</div>
 			<div class="lightBox-row">
 				<span class="subtitle">心跳指數：</span>
-				<input type="text" name="facility_heart" id="facility_heart" value="" maxlength="10">
+				<input type="text" name="facility_heart" id="facility_heart" maxlength="10">
 			</div>
 			<div class="lightBox-row">
 				<span class="subtitle">適合對象：</span>
-				<input type="text" name="facility_suit" id="facility_suit" value="" maxlength="15">
+				<input type="text" name="facility_suit" id="facility_suit" maxlength="15">
 			</div>
 			<div class="lightBox-row">
 				<span class="subtitle">限制：</span>
-				<input type="text" name="facility_limit" id="facility_limit" value="" maxlength="15">
+				<input type="text" name="facility_limit" id="facility_limit" maxlength="15">
 			</div>
 			<div class="lightBox-row">
 				<span class="subtitle">完整介紹：</span>
@@ -393,7 +390,7 @@ try {
 	<div class="lightBox-row lightBox-title">修改設施票券資料</div>
 	<form action="update_facility_ticket.php" method="post" enctype="multipart/form-data">
 			<input type="hidden" name="ticket_already" value="3">
-			<input type="hidden" name="facility_no" id="facility_no_tickets" value="">
+			<input type="hidden" name="facility_no" id="facility_no_tickets">
 			<div class="lightBox-row">
 				<span class="subtitle">設施編號：</span>
 				<span id="facility_no_ticket"></span>
@@ -420,11 +417,11 @@ try {
 			</div>
 			<div class="lightBox-row">
 				<span class="subtitle">全票票價：</span>
-				<input type="text" name="full_fare" value="">
+				<input type="text" name="full_fare">
 			</div>
 			<div class="lightBox-row">
 				<span class="subtitle">半票票價：</span>
-				<input type="text" name="half_fare" value="">
+				<input type="text" name="half_fare">
 			</div>
 			<div class="lightBox-row lightBox-submit">
 				<input type="button" name="" value="清除修改" id="reset">
@@ -507,7 +504,8 @@ function openLightBox(){
 	var heart = this.parentElement.parentElement.children[7].innerText;
 	var suit = this.parentElement.parentElement.children[8].innerText;
 	var limit = this.parentElement.parentElement.children[9].innerText;
-	var subnames = this.parentElement.parentElement.children[10].innerText;
+	subnames = this.parentElement.parentElement.children[10].innerText;
+	console.log(subnames);
 	lightBox= document.getElementById("lightBox");
 	facility_no = document.getElementById("facility_no");
 	facility_name = document.getElementById("facility_name");

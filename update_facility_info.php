@@ -25,23 +25,22 @@ try {
 		if(copy( $from, $to) ){
 
 //--------
-			if(isset($_REQUEST["facility_no"])===false){
-				echo"新增";
-
-			}else if($_REQUEST["info_already"]==3){
+			if($_REQUEST["info_already"]==3){
 					$sql="update facility set facility_name=:facility_name, 
-	                          facility_mphoto=:facility_mphoto,
-	                          facility_phrase=:facility_phrase,
-	                          facility_heart=:facility_heart,
-	                          facility_suit=:facility_suit,
-	                          facility_limit=:facility_limit,
-	                          facility_description=:facility_description, 
-	                          facility_status=:facility_status,
-	                          facility_crowd=:facility_crowd where facility_no=:facility_no";
+							facility_subname=:facility_subname,
+	                        facility_mphoto=:facility_mphoto,
+	                        facility_phrase=:facility_phrase,
+	                        facility_heart=:facility_heart,
+	                        facility_suit=:facility_suit,
+	                        facility_limit=:facility_limit,
+	                        facility_description=:facility_description, 
+	                        facility_status=:facility_status,
+	                        facility_crowd=:facility_crowd where facility_no=:facility_no";
 
 						$products = $pdo->prepare( $sql );
 						$products->bindValue(":facility_no" , $_REQUEST["facility_no"]);
 						$products->bindValue(":facility_name" , $_REQUEST["facility_name"]);
+						$products->bindValue(":facility_subname" , $_REQUEST["facility_subname"]);
 						$products->bindValue(":facility_mphoto" , $_FILES["facility_mphoto"]["name"]);
 						$products->bindValue(":facility_phrase" , $_REQUEST["facility_phrase"]);
 						$products->bindValue(":facility_heart" , $_REQUEST["facility_heart"]);
@@ -73,18 +72,20 @@ try {
 		break;	
 	case 4:
 			if($_REQUEST["info_already"]==3){
-					$sql="update facility set facility_name=:facility_name, 
-	                          facility_phrase=:facility_phrase,
-	                          facility_heart=:facility_heart,
-	                          facility_suit=:facility_suit,
-	                          facility_limit=:facility_limit,
-	                          facility_description=:facility_description, 
-	                          facility_status=:facility_status,
-	                          facility_crowd=:facility_crowd where facility_no=:facility_no";
+					$sql="update facility set facility_name=:facility_name,
+							facility_subname=:facility_subname,
+	                        facility_phrase=:facility_phrase,
+	                        facility_heart=:facility_heart,
+	                        facility_suit=:facility_suit,
+	                        facility_limit=:facility_limit,
+	                        facility_description=:facility_description, 
+	                        facility_status=:facility_status,
+	                        facility_crowd=:facility_crowd where facility_no=:facility_no";
 
 						$products = $pdo->prepare( $sql );
 						$products->bindValue(":facility_no" , $_REQUEST["facility_no"]);
 						$products->bindValue(":facility_name" , $_REQUEST["facility_name"]);
+						$products->bindValue(":facility_subname" , $_REQUEST["facility_subname"]);
 						$products->bindValue(":facility_phrase" , $_REQUEST["facility_phrase"]);
 						$products->bindValue(":facility_heart" , $_REQUEST["facility_heart"]);
 						$products->bindValue(":facility_suit" , $_REQUEST["facility_suit"]);
@@ -95,8 +96,23 @@ try {
 						$products->execute();
 		
 
-						echo "異動成功<br>";
-						// header("location:back_facilityM.php");
+						header("location:back_facilityM.php");
+			}else if(isset($_REQUEST["facility_no"])===false){
+				$sql = "insert into facility(facility_name,facility_subname,facility_phrase,facility_suit,facility_limit,facility_description,facility_intro,full_fare,half_fare) 
+				value(facility_name=:facility_name,facility_subname=:facility_subname,facility_phrase=:facility_phrase,facility_suit=:facility_suit,facility_limit=:facility_limit,facility_description=:facility_description,facility_intro=:facility_intro,full_fare=:full_fare,half_fare=:half_fare)";
+						$products = $pdo->prepare($sql);
+						$products->bindValue(":facility_name" , $_REQUEST["facility_name"]);
+						$products->bindValue(":facility_subname" , $_REQUEST["facility_subname"]);
+						$products->bindValue(":facility_phrase" , $_REQUEST["facility_phrase"]);
+						$products->bindValue(":facility_suit" , $_REQUEST["facility_suit"]);
+						$products->bindValue(":facility_limit" , $_REQUEST["facility_limit"]);
+						$products->bindValue(":facility_description" , $_REQUEST["facility_description"]);
+						$products->bindValue(":facility_intro" , $_REQUEST["facility_intro"]);
+						$products->bindValue(":full_fare" , $_REQUEST["full_fare"]);
+						$products->bindValue(":half_fare" , $_REQUEST["half_fare"]);
+						$products->execute();
+				// 		header("location:back_facilityM.php");
+						echo "facility_subname";
 			}else if($_REQUEST["info_already"]==0||$_REQUEST["info_already"]==1){
 				echo "4-2";
 				$sql="update facility set info_already=:info_already where facility_no=:facility_no";
