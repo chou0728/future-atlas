@@ -28,17 +28,17 @@
 				<span class="spancover"></span>
 			</li>
 			<li class="navList">
-				<a href="back_facilityM.html">設施管理</a>
+				<a href="back_facilityM.php">設施管理</a>
 				<span class="listcover"></span>
 				<span class="spancover"></span>
 			</li>
 			<li class="navList">
-				<a href="back_TheaterMang.html">劇場管理</a>
+				<a href="back_TheaterMang.php">劇場管理</a>
 				<span class="listcover"></span>
 				<span class="spancover"></span>
 			</li>
 			<li class="navList">
-				<a href="back_activity.html" style="color: black;">活動管理</a>
+				<a href="back_activity.php" style="color: black;">活動管理</a>
 				<span class="listcover" style="width: 100%;background-color: rgba(90, 230, 219,0.9);"></span>
 				<span class="spancover"></span>
 			</li>
@@ -63,8 +63,8 @@
 			您好!<span id="managerId">最高管理員</span><span id="managerName">Manna</span>
 			<a href="javascript:void(0)">登出</a>
 	</div>
-<!-- ===NAV結束=========================================================================== -->
-<!-- ===右邊區塊固定格式=============================================================== -->
+<!-- ===NAV結束=== -->
+<!-- ===右邊區塊固定格式=== -->
 	<div class="back_wrapper_right">
 		<div class="b_content">
 			<div class="b_sub_nav">
@@ -85,13 +85,12 @@
 			<th>開始時間</th>
 			<th>結束時間</th>
 			<th>簡介</th>
-			<!-- <th id="activity_filename">圖片檔名</th> -->
 			<th>設定</th>
 		</tr>
 		<tr>			
 			<td name="activity_no">1</td>
-			<td><input type="textarea" wrap="virtual" name="activity_name" id="activity_name" placeholder="10字內" size="10" rows="2" required></td>			
-			<td><input type="textarea" wrap="virtual" name="activity_short_name" id="activity_short_name" placeholder="5字內" size="5" rows="2" required></td>
+			<td><input type="textarea" wrap="virtual" name="activity_name" id="activity_name" placeholder="10字內" maxlength="10" size="10" rows="2" required></td>			
+			<td><input type="textarea" wrap="virtual" name="activity_short_name" id="activity_short_name" placeholder="5字內" maxlength="5" size="5" rows="2" required></td>
 			<td>
 				<select name="activity_location" required>
 					<option value="未來大道">未來大道</option>
@@ -106,8 +105,7 @@
 			<td><input type="date" name="activity_date" required></td>
 			<td><input type="time" name="activity_start_time" required></td>
 			<td><input type="time" name="activity_end_time" required></td>
-			<td><input type="textarea" wrap="virtual" name="activity_intro" placeholder="15字內" size="10" rows="3" required></td>
-			<!-- <td><input type="file" name="activity_filename"></td> -->
+			<td><input type="textarea" wrap="virtual" name="activity_intro" placeholder="15字內" maxlength="15" size="10" rows="3" required></td>
 			<td><input type="reset" name="">
 				<input type="submit" name="" value="上架">
 			</td>
@@ -137,22 +135,21 @@ try {
 	$activity = $pdo->query($sql);
 	while($activityRow = $activity->fetchObject()){
 ?>
-	<form action="activityAdd.php" method="post">
+	<form action="activityUpdate.php" method="post">
 		<tr>
-			<td><?php echo $activityRow->activity_no ?></td>
-			<td><input type='text' width='5' value="<?php echo $activityRow->activity_name ?>" class='data readOnlyStyle' readonly></td>
-			<td><input type='text' width='5' value="<?php echo $activityRow->activity_short_name ?>" class='data readOnlyStyle' readonly></td>
-			<td><input type='text' width='5' value="<?php echo $activityRow->activity_location ?>" class='data readOnlyStyle' readonly></td>
-			<td><input type='text' width='5' value="<?php echo $activityRow->activity_date ?>" class='data readOnlyStyle' readonly></td>
-			<td><input type='text' width='5' value="<?php echo $activityRow->activity_start_time ?>" class='data readOnlyStyle' readonly></td>
-			<td><input type='text' width='5' alue="<?php echo $activityRow->activity_end_time ?>" class='data readOnlyStyle' readonly></td>
-			<td><input type='text' width='5' value="<?php echo $activityRow->activity_intro ?>" class='data readOnlyStyle' readonly></td>
-			<td><input type="reset" name="" value="修改" id="test">
-				<input type="button" name="" value="刪除">
+			<td><input type="text" cols="5" class="no readOnlyStyle" name="activity_no" value="<?php echo $activityRow->activity_no ?>"></td>
+			<td><input type='text' name="activity_name" value="<?php echo $activityRow->activity_name ?>" cols="5" class='data readOnlyStyle' readonly></td>
+			<td><input type='text' name="activity_short_name" value="<?php echo $activityRow->activity_short_name ?>" class='data readOnlyStyle' readonly></td>
+			<td><input type='text' name="activity_location" value="<?php echo $activityRow->activity_location ?>" cols="5" class='data readOnlyStyle' readonly></td>
+			<td><input type='text' name="activity_date" value="<?php echo $activityRow->activity_date ?>" cols="5" class='data readOnlyStyle' readonly></td>
+			<td><input type='text' name="activity_start_time" value="<?php echo $activityRow->activity_start_time ?>" class='data readOnlyStyle' readonly></td>
+			<td><input type='text' name="activity_end_time" value="<?php echo $activityRow->activity_end_time ?>" cols="5" class='data readOnlyStyle' readonly></td>
+			<td><input type='text' name="activity_intro" value="<?php echo $activityRow->activity_intro ?>" cols="5" class='data readOnlyStyle' readonly></td>
+			<td><input class="input_btn" name="" value="修改" class="switchMode">
+				<input class="input_btn" type="submit" name="" value="儲存">
 			</td>
 		</tr>
 	</form>
-
 <?php		
 	}
 } catch (PDOException $e) {
@@ -168,11 +165,12 @@ try {
 <script type="text/javascript">
 // 可修改歷史活動
 	$(document).ready(function(){
-		$("#test").click(function(){
-			$(".data").toggleClass("ediStyle");
+		$(".switchMode").click(function(){
+			$(".data").toggleClass("editStyle");
 		})
-		$('#test').click(function() {
+		$('.switchMode').click(function() {
 	    var $data = $('.data');
+	    var $switchMode = $('.switchMode');
 	    if ($data.attr('readonly')) {
 	        $data.removeAttr('readonly');
 	    } else {
@@ -201,24 +199,6 @@ try {
 	}
 	// Get the element with id="defaultOpen" and click on it
 	document.getElementById("active").click();
-
-	//傳送節目編號
-	function showSessionList() {
-	    var xhr = new XMLHttpRequest();
-	    xhr.onload=function (){
-	        if( xhr.status == 200 ){
-	            //console.log( xhr.responseText );  
-	            //modify_here  TheaterSessionListTable
-	            document.getElementById("TheaterSessionListTable").innerHTML = xhr.responseText;
-	        }else{
-	            alert( xhr.status );
-	        }
-	    }//xhr.onreadystatechange
-	  
-	    var url = "php/get_program_no.php?programNo=" + document.getElementById("programNo").value;
-	    xhr.open("Get", url, true);
-	    xhr.send( null );
-	}
 </script>
 </body>
 </html>

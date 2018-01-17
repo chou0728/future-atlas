@@ -332,14 +332,13 @@ body::-webkit-scrollbar-thumb {
 			<!-- <div id="switchBlock" class="inline_src"></div> -->
 		</div>
     </div>
-    
     <div class="actHr"></div>
     <div id="showRow">
-    	<div class="showRowUnitWrapper">
-	    	<div class="acTitle showRowText">活動名稱稱</div>
-	    	<div class="acLoc showRowText">活動地點點</div>
-	    	<div class="acTime showRowText">00:00-00:00</div>
-	    	<div class="acIntro showRowText">活動介紹(15字內不然沒人看)</div>
+    	<div id="showRowUnitWrapper" style="font-size: 16px;">
+<!-- 	    	<div class="showRowText">活動名稱稱</div>
+	    	<div class="showRowText">活動地點點</div>
+	    	<div class="showRowText">00:00-00:00</div>
+	    	<div class="showRowText">活動介紹(15字內不然沒人看)</div> -->
     	</div>
     </div>
 

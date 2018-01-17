@@ -4,10 +4,6 @@
             border:1px solid black;
             margin:30px auto ;
             font-size: 16px;
-            border-collapse: collapse ;
-            font-family: "微軟正黑體";
-        }
-        .Newprogram button{
             font-family: "微軟正黑體";
         }
         .titleh2{
@@ -25,16 +21,42 @@
             vertical-align: middle;
             border:1px solid black; 
             padding: 10px 10px;
+            font-family: "微軟正黑體";
+            overflow-x: auto;
         }#activity_name, #activity_short_name, #activity_intro{
             width: 80px;
             height: 100px;
-            /*vertical-align: top;*/
         }
         .readOnlyStyle{
             border: none;
             background-color: #ccc;
         }.editStyle{
-            border: 1px solid gray;
+            border: 1px solid black;
+            background-color: white;
         }#history_activity_table{
             width: 400px;
+        }input.no{
+            width: 30px;
+        }
+        input.data{
+            width: 120px;
+        }input.input_btn{
+            width: 60px;
+            display: inline-block;
+            background-color: aqua;
+            margin: 5px 0;
+            padding: 5px;
+            border: none;
+            outline: none;
+            cursor: pointer;
+        }input.input_btn:nth-of-type(2){
+            background-color: #555;
+            color: white;
+        }
+        td.wider{
+            width: 160px;
+        }input{
+            font-size: 16px;
+            width: 90%;
+
         }
