@@ -255,7 +255,7 @@
     
     <!-- 顯示資料有到php -->
     <!-- <div id="status" style="color:white;"> 
-    </div> --> 
+    </div> -->
     
 
     <script type="text/javascript">
@@ -355,7 +355,8 @@
             // CardInfo += document.getElementById('Card7').value+"-";
             storage.setItem("CardInfo", CardInfo);    
         }
-
+        var localstorage = localStorage;
+        var mem_id = localstorage.getItem("mem_id");
         //資料傳送到php
         function ajax_post(){
             // Create our XMLHttpRequest object
@@ -365,13 +366,14 @@
             // Create some variables we need to send to our PHP file
             //把 vars裡面資輛傳到my_parse_file.php檔案(設定參數)
             var url = "php/my_parse_file.php";
-            var vars = "programName="+programName+
+            var vars = "mem_id=" + mem_id+
+                       "&programName="+programName+
                        "&programDate="+programDate+
                        "&programTime="+programTime+
                        "&theater_quantity="+theater_quantity+
                        "&theater_total="+theater_total+
                        "&Scorenumber="+Scorenumber+
-                          "&CardInfo="+ CardInfo;
+                       "&CardInfo="+ CardInfo;
             //利用POST方式傳遞
             // open() 的第一個參數是 HTTP request 的方法
             //第二個參數是請求頁面的 URL

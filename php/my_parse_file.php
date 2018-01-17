@@ -6,6 +6,8 @@
  // echo $_POST['theater_total'],'<br>';
  // echo $_POST['Scorenumber'],'<br>';
  // echo $_POST['CardInfo'],'<br>';
+	$mem_id=$_POST['mem_id'];
+	// echo $mem_id;
 	$programName=$_POST['programName'];
 	//日期
 	$programDate=$_POST['programDate'];
@@ -40,10 +42,10 @@
 			echo "<center>查無此場次資料</center>";
 		}else{
 			$prodRow = $theater_session_list->fetchObject();
-			$prodRow->session_no;
+			$session_no = $prodRow->session_no;
 		}
 		//利用session_no尋找last_ticket，剩餘數量last_ticket減去數量theater_quantity
-		$sql ="select * from theater_session_list where session_no=$prodRow->session_no";
+		$sql ="select * from theater_session_list where session_no=".$session_no;
 		$theater_session_list = $pdo->query( $sql );
 		if( $theater_session_list->rowCount()==0){
 			echo "<center>查無此剩餘票數資料</center>";
@@ -62,7 +64,7 @@
 			$theater_session_list->execute();
 		}
 		//預設會員ID
-		$member_id=2;
+		$member_id=$mem_id;
 		$sql = "INSERT into theater_order_list (session_no,member_id,number_purchase,used_ticket,order_date,original_amount,points_discount,credit_card) values(?,?,?,?,?,?,?,?)";
 			$statement = $pdo->prepare($sql);
 			$statement->bindValue(1,$session_no);
