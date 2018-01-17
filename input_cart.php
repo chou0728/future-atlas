@@ -191,7 +191,7 @@ body::-webkit-scrollbar-thumb {
 	</form>
 </div>
 <script src="js/00nav.js"></script>
-<script type="text/javascript" src="js/cart.js"></script>
+<script type="text/javascript" src="js/cart.js" async></script>
 <script type="text/javascript">
 function loginss(){
     // 若登入，將mem_id存入localStorage
