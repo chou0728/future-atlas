@@ -6,9 +6,6 @@
 </head>
 <body>
 <?php
-
-
-
 try {
 	require_once("connectBooks.php");
 
@@ -94,7 +91,7 @@ try {
 		
 
 						echo "異動成功<br>";
-						header("location:back_facilityM.php");
+						// header("location:back_facilityM.php");
 			}else if($_REQUEST["info_already"]==0||$_REQUEST["info_already"]==1){
 				echo "4-2";
 				$sql="update facility set info_already=:info_already where facility_no=:facility_no";
