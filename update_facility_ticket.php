@@ -1,3 +1,7 @@
+<?php
+ob_start();
+session_start();
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -83,7 +87,9 @@ try {
 				$products->bindValue(":facility_no" , $_REQUEST["facility_no"]);
 				$products->bindValue(":ticket_already" , $_REQUEST["ticket_already"]);
 				$products->execute();
+				$_SESSION["session"] = "ticket";
 				header("location:back_facilityM.php");
+
 			}
 		// echo "尚未挑選檔案";
 		break;

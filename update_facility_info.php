@@ -1,3 +1,8 @@
+<?php
+ob_start();
+session_start();
+unset($_SESSION["session"]);
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>

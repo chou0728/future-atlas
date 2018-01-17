@@ -1,3 +1,7 @@
+<?php
+ob_start();
+session_start();
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -131,6 +135,7 @@ try {
 						<div class="col" style="display: none"><?php echo $prodRow->facility_heart ?></div>
 						<div class="col" style="display: none"><?php echo $prodRow->facility_suit ?></div>
 						<div class="col" style="display: none"><?php echo $prodRow->facility_limit ?></div>
+						<div class="col" style="display: none"><?php echo $prodRow->facility_subname ?></div>
 						<!-- 隱藏欄位1 limit-->
 						<div class="col col-number">
 							<div class="edit">EDIT</div>
@@ -254,38 +259,38 @@ try {
 			<input type="hidden" name="info_already" value="3">
 			<div class="lightBox-row">
 				<span class="subtitle">設施名稱：</span>
-				<input type="text" name="facility_name" id="facility_name" value="" maxlength="10" required>
+				<input type="text" name="facility_name" value="" maxlength="10" required>
 				<span class="caution">*必填-最多10字</span>
 			</div>
 			<div class="lightBox-row">
 				<span class="subtitle">英文名稱：</span>
-				<input type="text" name="facility_name" id="facility_name" value="" maxlength="10" required>
+				<input type="text" name="facility_subname" value="" maxlength="10">
 				<span class="caution">*最多10字</span>
 			</div>
 			<div class="lightBox-row">
 				<span class="subtitle">行銷用語：</span>
-				<textarea name="facility_phrase" maxlength="200" id="facility_phrase"></textarea>
+				<textarea name="facility_phrase" maxlength="200"></textarea>
 			</div>
 			<div class="lightBox-row">
 				<span class="subtitle">心跳指數：</span>
-				<input type="text" name="facility_heart" id="facility_heart" value="" maxlength="10">
+				<input type="text" name="facility_heart" value="" maxlength="10">
 			</div>
 			<div class="lightBox-row">
 				<span class="subtitle">適合對象：</span>
-				<input type="text" name="facility_suit" id="facility_suit" value="" maxlength="15">
+				<input type="text" name="facility_suit" value="" maxlength="15">
 			</div>
 			<div class="lightBox-row">
 				<span class="subtitle">限制：</span>
-				<input type="text" name="facility_limit" id="facility_limit" value="" maxlength="15">
+				<input type="text" name="facility_limit" value="" maxlength="15">
 			</div>
 			<div class="lightBox-row">
 				<span class="subtitle">完整介紹：</span>
-				<textarea name="facility_description" maxlength="200" id="facility_description"></textarea>
+				<textarea name="facility_description" maxlength="200"></textarea>
 				<span class="caution">*用於設施介紹頁面-最多200字</span>
 			</div>
 			<div class="lightBox-row">
 				<span class="subtitle">設施簡介：</span>
-				<textarea name="facility_intro" maxlength="20" id="facility_intro"></textarea>
+				<textarea name="facility_intro" maxlength="20"></textarea>
 				<span class="caution">*用於設施購票頁面-最多20字</span>
 			</div>
 			<div class="lightBox-row">
@@ -322,6 +327,11 @@ try {
 				<span class="subtitle">設施名稱：</span>
 				<input type="text" name="facility_name" id="facility_name" value="" maxlength="10">
 				<span class="caution">*最多10字</span>
+			</div>
+			<div class="lightBox-row">
+				<span class="subtitle">英文名稱：</span>
+				<input type="text" name="facility_subname" id="facility_subname" value="" maxlength="25">
+				<span class="caution">*最多25字</span>
 			</div>
 			<div class="lightBox-row">
 				<span class="subtitle">主要照片：</span>
@@ -430,7 +440,7 @@ try {
 //---換分頁
         function openCity (evt,list) {
 
-            var i, tabcontent, b_sn_btn;
+            var i, tabcontent;
             tabcontent = document.getElementsByClassName("tabcontent");
             for (i = 0; i < tabcontent.length; i++) {
                 tabcontent[i].style.display = "none";
@@ -449,6 +459,8 @@ try {
 
 //---燈箱
 function init(){
+
+
 	var edit = document.getElementsByClassName('edit');
 	for(i=0;i<edit.length;i++){
 		edit[i].onclick = openLightBox;
@@ -484,7 +496,7 @@ function frontAppear(){
 	dami_mphoto.value = "";
 	form.submit();
 }
-function openLightBox(){	
+function openLightBox(){
 	var no = this.parentElement.parentElement.children[0].innerText;
 	var name = this.parentElement.parentElement.children[1].innerText;
 	mphoto = this.parentElement.parentElement.children[2].innerHTML.split('"')[1];
@@ -495,6 +507,7 @@ function openLightBox(){
 	var heart = this.parentElement.parentElement.children[7].innerText;
 	var suit = this.parentElement.parentElement.children[8].innerText;
 	var limit = this.parentElement.parentElement.children[9].innerText;
+	var subnames = this.parentElement.parentElement.children[10].innerText;
 	lightBox= document.getElementById("lightBox");
 	facility_no = document.getElementById("facility_no");
 	facility_name = document.getElementById("facility_name");
@@ -508,6 +521,7 @@ function openLightBox(){
 	facility_heart = document.getElementById("facility_heart");
 	facility_suit = document.getElementById("facility_suit");
 	facility_limit = document.getElementById("facility_limit");
+	facility_subname = document.getElementById("facility_subname");
 
 	//resetLightBox用
 
@@ -521,6 +535,7 @@ function openLightBox(){
 	_facility_heart  = heart;
 	_facility_suit = suit;
 	_facility_limit = limit;
+	_facility_subname = subnames;
 
 	facility_no_input.value = no;
 	facility_no.innerHTML = no;
@@ -532,6 +547,7 @@ function openLightBox(){
 	facility_suit.value = suit;
 	facility_limit.value = limit;
 	facility_description.value = description;
+	facility_subname.value = subnames;
 	switch(status){
 		case "正常":
 		facility_status.options[0].selected=true;
@@ -567,8 +583,8 @@ function openLightBox_ticket(){
 	var facility_name_ticket =document.getElementById("facility_name_ticket");
 	facility_tphoto = document.getElementById("facility_tphoto");
 	var facility_intro = document.getElementById("facility_intro");
-	var full_f = document.getElementsByName("full_fare")[0];
-	var half_f = document.getElementsByName("half_fare")[0];
+	var full_f = document.getElementsByName("full_fare")[1];
+	var half_f = document.getElementsByName("half_fare")[1];
 	facility_no_ticket.innerHTML = no;
 	ticket_no.value = no;
 	facility_name_ticket.innerHTML = name;
@@ -618,7 +634,7 @@ function closeLightBox(){
 	lightBox.style.display = "none";
 }
 function changeImgType(){
-	var lightBoxRow = document.getElementsByClassName('lightBox-row')[4];
+	var lightBoxRow = this.parentElement;
 	if(lightBoxRow.className.indexOf("mphoto")!=-1){
 		lightBoxRow.className = lightBoxRow.className.replace("mphoto","mlb");
 	}else{
@@ -636,6 +652,6 @@ function showImg(){
 }
 // function checkthe
 </script>
-
+<?php if(isset($_SESSION["session"])==true){ echo "<script>b_sn_btn[0].setAttribute('id','');b_sn_btn[1].setAttribute('id','active');document.getElementById('facilityTickets').style.display = 'block';document.getElementById('facilityInfo').style.display = 'none';document.getElementById('facility_new').style.display = 'none';</script>"; unset($_SESSION["session"]);} ?>
 </body>
 </html>
