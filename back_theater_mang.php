@@ -188,7 +188,7 @@
                         <div class="programNoSerch" align="center">
                              節目編號:<input type="text" value="1" name="programNo" id="programNo">
                             <button  class="searchOrderList" onclick="showSessionList()">查詢</button>
-                            <div id="showPanel"></div>
+                            <!-- <div id="showPanel"></div> -->
                         </div>
                     <table class="TheaterSessionListTable" id="TheaterSessionListTable">   
                         <tr>
@@ -272,9 +272,10 @@
                 <span onclick="this.parentElement.style.display='none'" class="topright"></span>
                 <form method="get" action="" align="center" enctype="multipart/form-data">
                     <h2 class="titleh2">劇場票劵訂單</h2>
-                    <table class="TheaterOrderListTable">
-                        場次編號:<input type="text" value="1">
-                            <button onclick="searchOrderList"  class="searchOrderList">查詢</button>
+                    <table class="TheaterOrderListTable" id='TheaterOrderListTable'>
+                        會員ID:<input type="text" value="1" id='member_id'>
+                            <button onclick="searchOrderList()"  class="searchOrderList">查詢</button>
+                            <div id="showPanel"></div>
                         <tr>
                             <th>訂單編號</th>
                             <th>場次編號</th>
@@ -394,6 +395,24 @@
             }//xhr.onreadystatechange
           
             var url = "php/get_program_no.php?programNo=" + document.getElementById("programNo").value;
+            xhr.open("Get", url, true);
+            xhr.send( null );
+        }
+
+        //傳送會員ID  搜尋完，會跳到劇場節目內籤??
+        function searchOrderList(){
+            var xhr = new XMLHttpRequest();
+            xhr.onload=function (){
+                if( xhr.status == 200 ){
+                    //console.log( xhr.responseText );  
+                    //modify_here  TheaterSessionListTable
+                    document.getElementById("showPanel").innerHTML = xhr.responseText;
+                }else{
+                    alert( xhr.status );
+                }
+            }//xhr.onreadystatechange
+          
+            var url = "php/search_member_id.php?member_id=" + document.getElementById("member_id").value;
             xhr.open("Get", url, true);
             xhr.send( null );
         }
