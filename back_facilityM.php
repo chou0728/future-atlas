@@ -74,7 +74,7 @@
 						<div class="col col-title col-number">設施狀態</div>
 						<div class="col col-title col-number">設施人潮</div>
 						<div class="col col-title col-number">修改</div>
-						<div class="col col-title">顯示至前台</div>
+						<div class="col col-title">是否顯示至前台</div>
 					</div>
 
 <?php 
@@ -125,23 +125,38 @@ try {
 								}
 							?>
 						</div>
+						<!-- 隱藏欄位1 limit-->
+						<div class="col" style="display: none"><?php echo $prodRow->facility_phrase ?></div>
+						<div class="col" style="display: none"><?php echo $prodRow->facility_heart ?></div>
+						<div class="col" style="display: none"><?php echo $prodRow->facility_suit ?></div>
+						<div class="col" style="display: none"><?php echo $prodRow->facility_limit ?></div>
+						<!-- 隱藏欄位1 limit-->
 						<div class="col col-number">
 							<div class="edit">EDIT</div>
 						</div>
 						<div class="col">
+							<form name="already" action="update_facility_info.php" method="post" enctype="multipart/form-data">
+							<input type="hidden" name="info_already" value="">
+							<input type="hidden" name="facility_no" value="<?php echo $prodRow->facility_no ?>">
+							<input type="file" name="facility_mphoto" style="display: none;">
 							<?php 
-								echo $prodRow->info_already;
+								
 
 								switch ($prodRow->info_already) {
 								case '0':
-									echo "<div class='btn is-selected'>上架</div><div class='btn'>下架</div>";
+									echo "
+											<div class='btn' id='submit_true' data-already='1'>顯示</div>
+
+											<div class='btn is-selected' data-already='0'>隱藏</div>";
 									break;
 								
 								case '1':
-									echo "<div class='btn'>上架</div><div class='btn is-selected'>下架</div>";
+									echo "<div class='btn is-selected' data-already='1'>顯示</div>
+											<div class='btn' id='submit_true' data-already='0'>隱藏</div>";
 									break;
 								}
 							?>
+							</form>
 						</div>
 					</div>
 <?php		
@@ -167,6 +182,7 @@ try {
 						<div class="col col-title col-number">全票票價</div>
 						<div class="col col-title col-number">半票票價</div>
 						<div class="col col-title col-number">修改</div>
+						<div class="col col-title">是否上架</div>
 					</div>
 
 <?php 
@@ -202,11 +218,15 @@ try {
 							<form>
 							<?php switch ($prodRow->info_already) {
 								case '0':
-									echo "<div class='btn is-selected'>上架</div><div class='btn'>下架</div>";
+									echo "<div class='btn' data-already='1'>上架</div>
+
+											<div class='btn is-selected' data-already='0'>下架</div>";
 									break;
 								
 								case '1':
-									echo "<div class='btn'>上架</div><div class='btn is-selected'>下架</div>";
+									echo "<div class='btn is-selected' data-already='1'>上架</div>
+
+											<div class='btn' data-already='0'>下架</div>";
 									break;
 								}
 							?>
@@ -235,6 +255,7 @@ try {
 
 		<div class="lightBox-row lightBox-title">修改設施介紹資料</div>
 		<form action="update_facility_info.php" method="post" enctype="multipart/form-data">
+			<input type="hidden" name="info_already" value="3">
 			<input type="hidden" name="facility_no" value="">
 			<div class="lightBox-row">
 				<span class="subtitle">設施編號：</span>
@@ -256,6 +277,22 @@ try {
 				<div class="mphoto-img">
 					<img src="" id="facility_mphoto">
 				</div>
+			</div>
+			<div class="lightBox-row">
+				<span class="subtitle">行銷用語：</span>
+				<textarea name="facility_phrase" maxlength="200" id="facility_phrase"></textarea>
+			</div>
+			<div class="lightBox-row">
+				<span class="subtitle">心跳指數：</span>
+				<input type="text" name="facility_heart" id="facility_heart" value="" maxlength="10">
+			</div>
+			<div class="lightBox-row">
+				<span class="subtitle">適合對象：</span>
+				<input type="text" name="facility_suit" id="facility_suit" value="" maxlength="15">
+			</div>
+			<div class="lightBox-row">
+				<span class="subtitle">限制：</span>
+				<input type="text" name="facility_limit" id="facility_limit" value="" maxlength="15">
 			</div>
 			<div class="lightBox-row">
 				<span class="subtitle">完整介紹：</span>
@@ -313,34 +350,53 @@ function init(){
 	for(i=0;i<edit.length;i++){
 		edit[i].onclick = openLightBox;
 	}
-	var reset = document.getElementById("reset");
-	reset.onclick = resetLightBox;
+	// var reset = document.getElementById("reset");
+	// reset.onclick = resetLightBox;
 	var changeType = document.getElementById("change-type");
 	changeType.onclick = changeImgType;
 
 	var fm = document.getElementById("fm");
 	fm.onchange = showImg;
 
+	var submit_true = document.getElementById("submit_true");
+	submit_true.onclick = frontAppear;
+
 
 }
 window.addEventListener("load",init);
-
+function frontAppear(){
+	var already = document.getElementsByName("already")[0];
+	var submit_true = document.getElementById("submit_true");
+	var info_already = document.getElementsByName("info_already")[0];
+	var dami_mphoto = document.getElementsByName("facility_mphoto")[0];
+	info_already.value = submit_true.dataset.already;
+	dami_mphoto.value = "";
+	already.submit();
+}
 function openLightBox(){	
 	var no = this.parentElement.parentElement.children[0].innerText;
 	var name = this.parentElement.parentElement.children[1].innerText;
-	var mphoto = this.parentElement.parentElement.children[2].innerHTML.split('"')[1];
+	mphoto = this.parentElement.parentElement.children[2].innerHTML.split('"')[1];
 	var description= this.parentElement.parentElement.children[3].innerText;
 	var status = this.parentElement.parentElement.children[4].innerText;
 	var crowds = this.parentElement.parentElement.children[5].innerText;
+	var phrase = this.parentElement.parentElement.children[6].innerHTML;
+	var heart = this.parentElement.parentElement.children[7].innerText;
+	var suit = this.parentElement.parentElement.children[8].innerText;
+	var limit = this.parentElement.parentElement.children[9].innerText;
 	lightBox= document.getElementById("lightBox");
 	facility_no = document.getElementById("facility_no");
 	facility_name = document.getElementById("facility_name");
-	facility_no_input = document.getElementsByName("facility_no")[0];
+	facility_no_input = document.getElementsByName("facility_no")[1];
 	facility_mphoto = document.getElementById("facility_mphoto");
 	fm = document.getElementById("fm");//file
 	facility_description = document.getElementById("facility_description");
 	facility_status = document.getElementById("facility_status");
 	facility_crowd = document.getElementById("facility_crowd");
+	facility_phrase = document.getElementById("facility_phrase");
+	facility_heart = document.getElementById("facility_heart");
+	facility_suit = document.getElementById("facility_suit");
+	facility_limit = document.getElementById("facility_limit");
 
 	//resetLightBox用
 
@@ -350,13 +406,20 @@ function openLightBox(){
 	_facility_description = description;
 	_status = status;
 	_crowds = crowds;
+	_facility_phrase = phrase;
+	_facility_heart  = heart;
+	_facility_suit = suit;
+	_facility_limit = limit;
 
 	facility_no_input.value = no;
 	facility_no.innerHTML = no;
 	facility_name.value = name;
 	facility_mphoto.src = mphoto;
 	fm.filename = mphoto;
-	console.log(fm.filename);
+	facility_phrase.value = phrase;
+	facility_heart.value  = heart;
+	facility_suit.value = suit;
+	facility_limit.value = limit;
 	facility_description.value = description;
 	switch(status){
 		case "正常":
@@ -381,34 +444,34 @@ function openLightBox(){
 	lightBox.style.display = "block";	
 }
 
-function resetLightBox(){
-	facility_no.innerHTML= _facility_no;
-	facility_name.value = _facility_name;
-	facility_mphoto.src = _facility_mphoto;
-	facility_no_input.value = _facility_no;
-	facility_description.value = _facility_description;
-	fm.value = "";
-	switch(_status){
-		case "正常":
-		facility_status.options[0].selected=true;
-		break;
-		case "維修中":
-		facility_status.options[1].selected=true;
-		break;
+// function resetLightBox(){
+// 	facility_no.innerHTML= _facility_no;
+// 	facility_name.value = _facility_name;
+// 	facility_mphoto.src = _facility_mphoto;
+// 	facility_no_input.value = _facility_no;
+// 	facility_description.value = _facility_description;
+// 	fm.value = "";
+// 	switch(_status){
+// 		case "正常":
+// 		facility_status.options[0].selected=true;
+// 		break;
+// 		case "維修中":
+// 		facility_status.options[1].selected=true;
+// 		break;
 
-	}
-	switch(_crowds){
-		case "擁擠":
-		facility_crowd.options[0].selected=true;
-		break;
-		case "普通":
-		facility_crowd.options[1].selected=true;
-		break;
-		case "空曠":
-		facility_crowd.options[2].selected=true;
-		break;
-	}
-}
+// 	}
+// 	switch(_crowds){
+// 		case "擁擠":
+// 		facility_crowd.options[0].selected=true;
+// 		break;
+// 		case "普通":
+// 		facility_crowd.options[1].selected=true;
+// 		break;
+// 		case "空曠":
+// 		facility_crowd.options[2].selected=true;
+// 		break;
+// 	}
+// }
 function closeLightBox(){
 	lightBox.style.display = "none";
 }
