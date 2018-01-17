@@ -119,7 +119,7 @@
                                 //跑迴圈，印出資料
                                 foreach( $theater_program as $i=>$prodRow){
                                 ?>
-                                <form method="get" action="php/updateTheaterMang.php" align="center" enctype="multipart/form-data">
+                                <form method="post" action="php/updateTheaterMang.php" align="center" enctype="multipart/form-data">
 
                                 <input type="hidden" name="program_no" value="<?php echo  $prodRow["program_no"] ?>">
                                 <tr>
@@ -132,7 +132,7 @@
                                         <input type="text" size=50  name="program_intro" value="<?php echo  $prodRow["program_intro"]?>">
                                     </td>
                                     <td>
-                                        <input type="file" name="program_photo" multiple>
+                                        <input type="file" name="program_photo">
                                     </td>
                                     <td>
                                         <input type="number" style="width:50px;" value="<?php echo  $prodRow["program_fare"] ?>" name="program_fare">
@@ -387,8 +387,6 @@
             var xhr = new XMLHttpRequest();
             xhr.onload=function (){
                 if( xhr.status == 200 ){
-                    //console.log( xhr.responseText );  
-                    //modify_here  TheaterSessionListTable
                     document.getElementById("TheaterSessionListTable").innerHTML = xhr.responseText;
                 }else{
                     alert( xhr.status );

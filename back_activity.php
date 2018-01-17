@@ -78,13 +78,13 @@
 	<table>
 		<tr>
 			<th>編號</th>
-			<th>活動名稱</th>
-			<th>活動簡稱</th>
-			<th>活動地點</th>
-			<th>活動日期</th>
+			<th>名稱</th>
+			<th>簡稱</th>
+			<th>地點</th>
+			<th>日期</th>
 			<th>開始時間</th>
 			<th>結束時間</th>
-			<th>活動簡介</th>
+			<th>簡介</th>
 			<!-- <th id="activity_filename">圖片檔名</th> -->
 			<th>設定</th>
 		</tr>
@@ -118,86 +118,107 @@
 	<!-- ===========請加內容至此===========-->
 	<div id="history_activity" class="tabcontent">
 	<h2 class="titleh2">歷史活動</h2>
-	<form action="back_activity.php" method="post">
-	<table>
+	<table id="history_activity_table">
 		<tr>
 			<th>編號</th>
-			<th>活動名稱</th>
-			<th>活動簡稱</th>
-			<th>活動地點</th>
-			<th>活動日期</th>
+			<th>名稱</th>
+			<th>簡稱</th>
+			<th>地點</th>
+			<th>日期</th>
 			<th>開始時間</th>
 			<th>結束時間</th>
-			<th>活動簡介</th>
+			<th>簡介</th>
 			<th>設定</th>
 		</tr>
-		<tr>			
-			<td class="b_activity_no"></td>
-			<td class="b_activity_name"></td>			
-			<td class="b_activity_short_name"></td>
-			<td class="b_activity_location"></td>
-			<td class="b_activity_date"></td>
-			<td class="b_activity_start_time"></td>
-			<td class="b_activity_end_time"></td>
-			<td class="b_activity_intro"></td>
-			<td><input type="reset" name="" value="修改"><br>
-				<input type="submit" value="確定"><br>
+<?php
+try {
+	require_once("connectBooks.php");
+	$sql = "select * from activity order by activity_no";
+	$activity = $pdo->query($sql);
+	while($activityRow = $activity->fetchObject()){
+?>
+	<form action="activityAdd.php" method="post">
+		<tr>
+			<td><?php echo $activityRow->activity_no ?></td>
+			<td><input type='text' width='5' value="<?php echo $activityRow->activity_name ?>" class='data readOnlyStyle' readonly></td>
+			<td><input type='text' width='5' value="<?php echo $activityRow->activity_short_name ?>" class='data readOnlyStyle' readonly></td>
+			<td><input type='text' width='5' value="<?php echo $activityRow->activity_location ?>" class='data readOnlyStyle' readonly></td>
+			<td><input type='text' width='5' value="<?php echo $activityRow->activity_date ?>" class='data readOnlyStyle' readonly></td>
+			<td><input type='text' width='5' value="<?php echo $activityRow->activity_start_time ?>" class='data readOnlyStyle' readonly></td>
+			<td><input type='text' width='5' alue="<?php echo $activityRow->activity_end_time ?>" class='data readOnlyStyle' readonly></td>
+			<td><input type='text' width='5' value="<?php echo $activityRow->activity_intro ?>" class='data readOnlyStyle' readonly></td>
+			<td><input type="reset" name="" value="修改" id="test">
 				<input type="button" name="" value="刪除">
 			</td>
 		</tr>
-	</table>
 	</form>
-		</div>
+
+<?php		
+	}
+} catch (PDOException $e) {
+	echo "錯誤原因 : " , $e->getMessage() , "<br>";
+	echo "錯誤行號 : " , $e->getLine() , "<br>";
+}
+?>
+</table>
 	</div>
-<script>
-		// 調出歷史資料
-		document.getElementsByClassName("b_sn_btn")[1].addEventListener("click",history_activity);
-		function history_activity(){
-			var xhr = XMLHttpRequest();
-			xhr.onload = function (){
-    			if( xhr.status == 200){ //OK}
-    				
-				}
-			}
-		}
-        //tab 換頁
-        function openCity (evt,list) {
+	</div>
+	
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script type="text/javascript">
+// 可修改歷史活動
+	$(document).ready(function(){
+		$("#test").click(function(){
+			$(".data").toggleClass("ediStyle");
+		})
+		$('#test').click(function() {
+	    var $data = $('.data');
+	    if ($data.attr('readonly')) {
+	        $data.removeAttr('readonly');
+	    } else {
+	        $data.attr('readonly', true);
+	    }
+		});
+	});
 
-            var i, tabcontent, b_sn_btn;
-            tabcontent = document.getElementsByClassName("tabcontent");
-            for (i = 0; i < tabcontent.length; i++) {
-                tabcontent[i].style.display = "none";
-            }
-            b_sn_btn = document.getElementsByClassName("b_sn_btn");
-            for (i = 0; i < b_sn_btn.length; i++) {
-                b_sn_btn[i].className = b_sn_btn[i].className.replace(" active", "");
-                b_sn_btn[i].setAttribute("id","");
-            }
-            document.getElementById(list).style.display = "block";
-            evt.currentTarget.className += " active";
+//tab 換頁
+	function openCity (evt,list) {
 
-            evt.currentTarget.setAttribute("id","active");
-        }
-        // Get the element with id="defaultOpen" and click on it
-        document.getElementById("active").click();
+	    var i, tabcontent, b_sn_btn;
+	    tabcontent = document.getElementsByClassName("tabcontent");
+	    for (i = 0; i < tabcontent.length; i++) {
+	        tabcontent[i].style.display = "none";
+	    }
+	    b_sn_btn = document.getElementsByClassName("b_sn_btn");
+	    for (i = 0; i < b_sn_btn.length; i++) {
+	        b_sn_btn[i].className = b_sn_btn[i].className.replace(" active", "");
+	        b_sn_btn[i].setAttribute("id","");
+	    }
+	    document.getElementById(list).style.display = "block";
+	    evt.currentTarget.className += " active";
 
-        //傳送節目編號
-        function showSessionList() {
-            var xhr = new XMLHttpRequest();
-            xhr.onload=function (){
-                if( xhr.status == 200 ){
-                    //console.log( xhr.responseText );  
-                    //modify_here  TheaterSessionListTable
-                    document.getElementById("TheaterSessionListTable").innerHTML = xhr.responseText;
-                }else{
-                    alert( xhr.status );
-                }
-            }//xhr.onreadystatechange
-          
-            var url = "php/get_program_no.php?programNo=" + document.getElementById("programNo").value;
-            xhr.open("Get", url, true);
-            xhr.send( null );
-        }
-    </script>
+	    evt.currentTarget.setAttribute("id","active");
+	}
+	// Get the element with id="defaultOpen" and click on it
+	document.getElementById("active").click();
+
+	//傳送節目編號
+	function showSessionList() {
+	    var xhr = new XMLHttpRequest();
+	    xhr.onload=function (){
+	        if( xhr.status == 200 ){
+	            //console.log( xhr.responseText );  
+	            //modify_here  TheaterSessionListTable
+	            document.getElementById("TheaterSessionListTable").innerHTML = xhr.responseText;
+	        }else{
+	            alert( xhr.status );
+	        }
+	    }//xhr.onreadystatechange
+	  
+	    var url = "php/get_program_no.php?programNo=" + document.getElementById("programNo").value;
+	    xhr.open("Get", url, true);
+	    xhr.send( null );
+	}
+</script>
 </body>
 </html>
