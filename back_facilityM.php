@@ -60,6 +60,7 @@
 			<div class="b_sub_nav">
 				<a href="javascript:void(0)" class="b_sn_btn" id="active" onclick="openCity(event,'facilityInfo')" >設施介紹管理</a>
 				<a href="javascript:void(0)" class="b_sn_btn" onclick="openCity(event,'facilityTickets')" >設施上架管理</a>
+				<a href="javascript:void(0)" class="b_sn_btn" onclick="openCity(event,'facility_new')" >設施新增</a>
 			</div>
 <!-- =====================請加內容至此====================-->
 			<div class="b_inner_content">
@@ -136,26 +137,26 @@ try {
 						</div>
 						<div class="col">
 							<form name="already" action="update_facility_info.php" method="post" enctype="multipart/form-data">
-							<input type="hidden" name="info_already" value="">
-							<input type="hidden" name="facility_no" value="<?php echo $prodRow->facility_no ?>">
-							<input type="file" name="facility_mphoto" style="display: none;">
-							<?php 
-								
+								<input type="hidden" name="info_already" value="">
+								<input type="hidden" name="facility_no" value="<?php echo $prodRow->facility_no ?>">
+								<input type="file" name="facility_mphoto" style="display: none;">
+								<?php 
+									
 
-								switch ($prodRow->info_already) {
-								case '0':
-									echo "
-											<div class='btn' id='submit_true' data-already='1'>顯示</div>
+									switch ($prodRow->info_already) {
+									case '0':
+										echo "
+												<div class='btn submit_true' data-already='1'>顯示</div>
 
-											<div class='btn is-selected' data-already='0'>隱藏</div>";
-									break;
-								
-								case '1':
-									echo "<div class='btn is-selected' data-already='1'>顯示</div>
-											<div class='btn' id='submit_true' data-already='0'>隱藏</div>";
-									break;
-								}
-							?>
+												<div class='btn is-selected' data-already='0'>隱藏</div>";
+										break;
+									
+									case '1':
+										echo "<div class='btn is-selected' data-already='1'>顯示</div>
+												<div class='btn submit_true' data-already='0'>隱藏</div>";
+										break;
+									}
+								?>
 							</form>
 						</div>
 					</div>
@@ -169,7 +170,6 @@ try {
 }
 ?> 				
 				</div>
-<div id="newfacilityInfo"></div>
 				</div>
 	<!-- ===================2====================== -->
 				<div id="facilityTickets" class="tabcontent">
@@ -212,24 +212,27 @@ try {
 							<?php echo $prodRow->half_fare ?>
 						</div>
 						<div class="col col-number">
-							<div class="edit">EDIT</div>
+							<div class="edit_ticket">EDIT</div>
 						</div>
 						<div class="col">
-							<form>
-							<?php switch ($prodRow->info_already) {
-								case '0':
-									echo "<div class='btn' data-already='1'>上架</div>
+							<form name="already" action="update_facility_ticket.php" method="post" enctype="multipart/form-data">
+								<input type="hidden" name="ticket_already" value="">
+								<input type="hidden" name="facility_no" value="<?php echo $prodRow->facility_no ?>">
+								<input type="file" name="facility_tphoto" style="display: none;">
+								<?php switch ($prodRow->ticket_already) {
+									case '0':
+										echo "<div class='btn submit_true' data-already='1'>上架</div>
 
-											<div class='btn is-selected' data-already='0'>下架</div>";
-									break;
-								
-								case '1':
-									echo "<div class='btn is-selected' data-already='1'>上架</div>
+												<div class='btn is-selected' data-already='0'>下架</div>";
+										break;
+									
+									case '1':
+										echo "<div class='btn is-selected' data-already='1'>上架</div>
 
-											<div class='btn' data-already='0'>下架</div>";
-									break;
-								}
-							?>
+												<div class='btn submit_true' data-already='0'>下架</div>";
+										break;
+									}
+								?>
 							</form>
 						</div>
 					</div>
@@ -245,18 +248,72 @@ try {
 					
 				</div>
 				</div>
-
+<div id="facility_new" class="tabcontent">
+	<div class="facility_new_table">
+		<form action="update_facility_info.php" method="post" enctype="multipart/form-data">
+			<input type="hidden" name="info_already" value="3">
+			<div class="lightBox-row">
+				<span class="subtitle">設施名稱：</span>
+				<input type="text" name="facility_name" id="facility_name" value="" maxlength="10" required>
+				<span class="caution">*必填-最多10字</span>
+			</div>
+			<div class="lightBox-row">
+				<span class="subtitle">英文名稱：</span>
+				<input type="text" name="facility_name" id="facility_name" value="" maxlength="10" required>
+				<span class="caution">*最多10字</span>
+			</div>
+			<div class="lightBox-row">
+				<span class="subtitle">行銷用語：</span>
+				<textarea name="facility_phrase" maxlength="200" id="facility_phrase"></textarea>
+			</div>
+			<div class="lightBox-row">
+				<span class="subtitle">心跳指數：</span>
+				<input type="text" name="facility_heart" id="facility_heart" value="" maxlength="10">
+			</div>
+			<div class="lightBox-row">
+				<span class="subtitle">適合對象：</span>
+				<input type="text" name="facility_suit" id="facility_suit" value="" maxlength="15">
+			</div>
+			<div class="lightBox-row">
+				<span class="subtitle">限制：</span>
+				<input type="text" name="facility_limit" id="facility_limit" value="" maxlength="15">
+			</div>
+			<div class="lightBox-row">
+				<span class="subtitle">完整介紹：</span>
+				<textarea name="facility_description" maxlength="200" id="facility_description"></textarea>
+				<span class="caution">*用於設施介紹頁面-最多200字</span>
+			</div>
+			<div class="lightBox-row">
+				<span class="subtitle">設施簡介：</span>
+				<textarea name="facility_intro" maxlength="20" id="facility_intro"></textarea>
+				<span class="caution">*用於設施購票頁面-最多20字</span>
+			</div>
+			<div class="lightBox-row">
+				<span class="subtitle">全票票價：</span>
+				<input type="text" name="full_fare" value="">
+			</div>
+			<div class="lightBox-row">
+				<span class="subtitle">半票票價：</span>
+				<input type="text" name="half_fare" value="">
+			</div>
+			<div class="lightBox-row lightBox-submit">
+				<input type="button" name="" value="清除修改" id="reset">
+				<input type="submit" name="" value="確認修改">
+			</div>
+		</form>
+	</div>
+</div>
 				
 			</div>
 			<!-- ===========請加內容至此===========-->
 
-<!-- ===========燈箱======================================-->
+<!-- ===========燈箱 for Info======================================-->
 <div id="lightBox">
 
 		<div class="lightBox-row lightBox-title">修改設施介紹資料</div>
 		<form action="update_facility_info.php" method="post" enctype="multipart/form-data">
 			<input type="hidden" name="info_already" value="3">
-			<input type="hidden" name="facility_no" value="">
+			<input type="hidden" name="facility_no" value="" id="facility_no_info">
 			<div class="lightBox-row">
 				<span class="subtitle">設施編號：</span>
 				<span id="facility_no"></span>
@@ -320,6 +377,52 @@ try {
 			</div>
 		</form>
 </div>
+<!-- ===========燈箱 for Info END======================================-->
+<!-- ===========燈箱 for TICKET======================================-->
+<div id="lightBox_ticket">
+	<div class="lightBox-row lightBox-title">修改設施票券資料</div>
+	<form action="update_facility_ticket.php" method="post" enctype="multipart/form-data">
+			<input type="hidden" name="ticket_already" value="3">
+			<input type="hidden" name="facility_no" id="facility_no_tickets" value="">
+			<div class="lightBox-row">
+				<span class="subtitle">設施編號：</span>
+				<span id="facility_no_ticket"></span>
+			</div>
+			<div class="lightBox-row">
+				<span class="subtitle">設施名稱：</span>
+				<span id="facility_name_ticket"></span>
+			</div>
+			<div class="lightBox-row">
+				<span class="subtitle">票券照片：</span>
+				<input type="hidden" name="MAX_FILE_SIZE" value="5242880">
+				<input type="file" name="facility_tphoto" id="tm">
+				<span class="caution">*檔名最多20字/檔案最大5M</span>
+			</div>
+			<div class="lightBox-row tphoto">
+				<div class="tphoto-img">
+					<img src="" id="facility_tphoto">
+				</div>
+			</div>
+			<div class="lightBox-row">
+				<span class="subtitle">設施簡介：</span>
+				<textarea name="facility_intro" maxlength="20" id="facility_intro"></textarea>
+				<span class="caution">*最多20字</span>
+			</div>
+			<div class="lightBox-row">
+				<span class="subtitle">全票票價：</span>
+				<input type="text" name="full_fare" value="">
+			</div>
+			<div class="lightBox-row">
+				<span class="subtitle">半票票價：</span>
+				<input type="text" name="half_fare" value="">
+			</div>
+			<div class="lightBox-row lightBox-submit">
+				<input type="button" name="" value="清除修改" id="reset">
+				<input type="submit" name="" value="確認修改">
+			</div>
+	</form>
+</div>
+<!-- ===========燈箱 for TICKET END======================================-->
 		</div>
 	</div>
 
@@ -350,28 +453,36 @@ function init(){
 	for(i=0;i<edit.length;i++){
 		edit[i].onclick = openLightBox;
 	}
-	// var reset = document.getElementById("reset");
-	// reset.onclick = resetLightBox;
+	var edit_ticket = document.getElementsByClassName('edit_ticket');
+	for(i=0;i<edit_ticket.length;i++){
+		edit_ticket[i].onclick = openLightBox_ticket;
+	}
+	
+	var reset = document.getElementById("reset");
+	reset.onclick = resetLightBox;
+
 	var changeType = document.getElementById("change-type");
 	changeType.onclick = changeImgType;
 
 	var fm = document.getElementById("fm");
 	fm.onchange = showImg;
 
-	var submit_true = document.getElementById("submit_true");
-	submit_true.onclick = frontAppear;
+	var submit_true = document.getElementsByClassName("submit_true");
+	for(a=0;a<submit_true.length;a++){
+		submit_true[a].onclick = frontAppear;
+	}
+	
 
 
 }
 window.addEventListener("load",init);
 function frontAppear(){
-	var already = document.getElementsByName("already")[0];
-	var submit_true = document.getElementById("submit_true");
-	var info_already = document.getElementsByName("info_already")[0];
+	var info_already = this.parentElement.children[0];
 	var dami_mphoto = document.getElementsByName("facility_mphoto")[0];
-	info_already.value = submit_true.dataset.already;
+	var form = this.parentElement;
+	info_already.value = this.dataset.already;
 	dami_mphoto.value = "";
-	already.submit();
+	form.submit();
 }
 function openLightBox(){	
 	var no = this.parentElement.parentElement.children[0].innerText;
@@ -387,7 +498,7 @@ function openLightBox(){
 	lightBox= document.getElementById("lightBox");
 	facility_no = document.getElementById("facility_no");
 	facility_name = document.getElementById("facility_name");
-	facility_no_input = document.getElementsByName("facility_no")[1];
+	facility_no_input = document.getElementById("facility_no_info");
 	facility_mphoto = document.getElementById("facility_mphoto");
 	fm = document.getElementById("fm");//file
 	facility_description = document.getElementById("facility_description");
@@ -443,35 +554,66 @@ function openLightBox(){
 	}
 	lightBox.style.display = "block";	
 }
+function openLightBox_ticket(){
+	var lightBox_ticket = document.getElementById("lightBox_ticket");
+	var ticket_no = document.getElementById("facility_no_tickets");
+	var no = this.parentElement.parentElement.children[0].innerText;
+	var name = this.parentElement.parentElement.children[1].innerText;
+	tphoto = this.parentElement.parentElement.children[2].innerHTML.split('"')[1];
+	var intro= this.parentElement.parentElement.children[3].innerText;
+	var full_fare = this.parentElement.parentElement.children[4].innerText;
+	var half_fare = this.parentElement.parentElement.children[5].innerText;
+	var facility_no_ticket = document.getElementById("facility_no_ticket");
+	var facility_name_ticket =document.getElementById("facility_name_ticket");
+	facility_tphoto = document.getElementById("facility_tphoto");
+	var facility_intro = document.getElementById("facility_intro");
+	var full_f = document.getElementsByName("full_fare")[0];
+	var half_f = document.getElementsByName("half_fare")[0];
+	facility_no_ticket.innerHTML = no;
+	ticket_no.value = no;
+	facility_name_ticket.innerHTML = name;
+	facility_tphoto.src = tphoto;
+	facility_intro.innerHTML = intro;
+	full_f.value = full_fare;
+	half_f.value =half_fare;
+	lightBox_ticket.style.display ="block";
 
-// function resetLightBox(){
-// 	facility_no.innerHTML= _facility_no;
-// 	facility_name.value = _facility_name;
-// 	facility_mphoto.src = _facility_mphoto;
-// 	facility_no_input.value = _facility_no;
-// 	facility_description.value = _facility_description;
-// 	fm.value = "";
-// 	switch(_status){
-// 		case "正常":
-// 		facility_status.options[0].selected=true;
-// 		break;
-// 		case "維修中":
-// 		facility_status.options[1].selected=true;
-// 		break;
 
-// 	}
-// 	switch(_crowds){
-// 		case "擁擠":
-// 		facility_crowd.options[0].selected=true;
-// 		break;
-// 		case "普通":
-// 		facility_crowd.options[1].selected=true;
-// 		break;
-// 		case "空曠":
-// 		facility_crowd.options[2].selected=true;
-// 		break;
-// 	}
-// }
+
+}
+function resetLightBox(){
+	facility_no.innerHTML= _facility_no;
+	facility_name.value = _facility_name;
+	facility_mphoto.src = _facility_mphoto;
+	facility_no_input.value = _facility_no;
+	facility_description.value = _facility_description;
+	facility_phrase.value = _facility_phrase;
+	facility_heart.value = _facility_heart;
+	facility_suit.value = _facility_suit;
+	facility_limit.value = _facility_limit;
+
+	fm.value = "";
+	switch(_status){
+		case "正常":
+		facility_status.options[0].selected=true;
+		break;
+		case "維修中":
+		facility_status.options[1].selected=true;
+		break;
+
+	}
+	switch(_crowds){
+		case "擁擠":
+		facility_crowd.options[0].selected=true;
+		break;
+		case "普通":
+		facility_crowd.options[1].selected=true;
+		break;
+		case "空曠":
+		facility_crowd.options[2].selected=true;
+		break;
+	}
+}
 function closeLightBox(){
 	lightBox.style.display = "none";
 }
