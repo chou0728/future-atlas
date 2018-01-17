@@ -17,42 +17,34 @@
 			<li class="navList">
 				<a href="">設施驗票</a>
 				<span class="listcover"></span>
-				<span class="spancover"></span>
 			</li>
 			<li class="navList">
 				<a href="">劇場驗票</a>
 				<span class="listcover"></span>
-				<span class="spancover"></span>
 			</li>
 			<li class="navList">
 				<a href="back_facilityM.html" style="color: black;">設施管理</a>
 				<span class="listcover" style="width: 100%;background-color: rgba(90, 230, 219,0.9);"></span>
-				<span class="spancover"></span>
 			</li>
 			<li class="navList">
-				<a href="back_TheaterMang.html">劇場管理</a>
+				<a href="back_TheaterMang.">劇場管理</a>
 				<span class="listcover"></span>
-				<span class="spancover"></span>
 			</li>
 			<li class="navList">
 				<a href="back_activity.html">活動管理</a>
 				<span class="listcover"></span>
-				<span class="spancover"></span>
 			</li>
 			<li class="navList">
 				<a href="">會員管理</a>
 				<span class="listcover"></span>
-				<span class="spancover"></span>
 			</li>
 			<li class="navList">
 				<a href="">諮詢管理</a>
 				<span class="listcover"></span>
-				<span class="spancover"></span>
 			</li>
 			<li class="navList">
 				<a href="">權限管理</a>
 				<span class="listcover"></span>
-				<span class="spancover"></span>
 			</li>
 		</ul>
 	</header>
@@ -82,6 +74,7 @@
 						<div class="col col-title col-number">設施狀態</div>
 						<div class="col col-title col-number">設施人潮</div>
 						<div class="col col-title col-number">修改</div>
+						<div class="col col-title">顯示至前台</div>
 					</div>
 
 <?php 
@@ -99,7 +92,7 @@ try {
 							<?php echo $prodRow->facility_name ?>
 						</div>
 						<div class="col">
-							<img src="img/<?php echo $prodRow->facility_mphoto ?>">
+							<img src="img/facilityInfo/<?php echo $prodRow->facility_mphoto ?>">
 						</div>
 						<div class="col col-article col-big">
 							<?php echo $prodRow->facility_description?>
@@ -135,6 +128,21 @@ try {
 						<div class="col col-number">
 							<div class="edit">EDIT</div>
 						</div>
+						<div class="col">
+							<?php 
+								echo $prodRow->info_already;
+
+								switch ($prodRow->info_already) {
+								case '0':
+									echo "<div class='btn is-selected'>上架</div><div class='btn'>下架</div>";
+									break;
+								
+								case '1':
+									echo "<div class='btn'>上架</div><div class='btn is-selected'>下架</div>";
+									break;
+								}
+							?>
+						</div>
 					</div>
 <?php		
 	}
@@ -144,9 +152,9 @@ try {
 	// echo "getCode : " , $e->getCode() , "<br>";
 	// echo "異動失敗,請聯絡系統維護人員";
 }
-?> 
-					
+?> 				
 				</div>
+<div id="newfacilityInfo"></div>
 				</div>
 	<!-- ===================2====================== -->
 				<div id="facilityTickets" class="tabcontent">
@@ -176,7 +184,7 @@ try {
 							<?php echo $prodRow->facility_name ?>
 						</div>
 						<div class="col">
-							<img src="img/<?php echo $prodRow->facility_tphoto ?>">
+							<img src="img/facilityInfo/<?php echo $prodRow->facility_tphoto ?>">
 						</div>
 						<div class="col col-big">
 							<?php echo $prodRow->facility_intro?>
@@ -189,6 +197,20 @@ try {
 						</div>
 						<div class="col col-number">
 							<div class="edit">EDIT</div>
+						</div>
+						<div class="col">
+							<form>
+							<?php switch ($prodRow->info_already) {
+								case '0':
+									echo "<div class='btn is-selected'>上架</div><div class='btn'>下架</div>";
+									break;
+								
+								case '1':
+									echo "<div class='btn'>上架</div><div class='btn is-selected'>下架</div>";
+									break;
+								}
+							?>
+							</form>
 						</div>
 					</div>
 <?php		
@@ -210,8 +232,9 @@ try {
 
 <!-- ===========燈箱======================================-->
 <div id="lightBox">
+
 		<div class="lightBox-row lightBox-title">修改設施介紹資料</div>
-		<form action="" method="post">
+		<form action="update_facility_info.php" method="post" enctype="multipart/form-data">
 			<input type="hidden" name="facility_no" value="">
 			<div class="lightBox-row">
 				<span class="subtitle">設施編號：</span>
@@ -241,16 +264,14 @@ try {
 			</div>
 			<div class="lightBox-row">
 				<span class="subtitle">設施狀態：</span>
-				<input type="hidden" name="facility_status" value="">
-				<select id="facility_status">
+				<select id="facility_status" name="facility_status">
 					<option value="1">正常</option>
 					<option value="0">維修中</option>
 				</select>
 			</div>
 			<div class="lightBox-row">
 				<span class="subtitle">設施人潮：</span>
-				<input type="hidden" name="facility_crowd" value="">
-				<select id="facility_crowd">
+				<select id="facility_crowd" name="facility_crowd">
 					<option value="1">擁擠</option>
 					<option value="2">普通</option>
 					<option value="3">空曠</option>
@@ -262,7 +283,6 @@ try {
 			</div>
 		</form>
 </div>
-
 		</div>
 	</div>
 
@@ -315,12 +335,15 @@ function openLightBox(){
 	lightBox= document.getElementById("lightBox");
 	facility_no = document.getElementById("facility_no");
 	facility_name = document.getElementById("facility_name");
+	facility_no_input = document.getElementsByName("facility_no")[0];
 	facility_mphoto = document.getElementById("facility_mphoto");
+	fm = document.getElementById("fm");//file
 	facility_description = document.getElementById("facility_description");
 	facility_status = document.getElementById("facility_status");
 	facility_crowd = document.getElementById("facility_crowd");
 
 	//resetLightBox用
+
 	_facility_no = no;
 	_facility_name = name;
 	_facility_mphoto = mphoto;
@@ -328,9 +351,12 @@ function openLightBox(){
 	_status = status;
 	_crowds = crowds;
 
+	facility_no_input.value = no;
 	facility_no.innerHTML = no;
 	facility_name.value = name;
 	facility_mphoto.src = mphoto;
+	fm.filename = mphoto;
+	console.log(fm.filename);
 	facility_description.value = description;
 	switch(status){
 		case "正常":
@@ -359,6 +385,7 @@ function resetLightBox(){
 	facility_no.innerHTML= _facility_no;
 	facility_name.value = _facility_name;
 	facility_mphoto.src = _facility_mphoto;
+	facility_no_input.value = _facility_no;
 	facility_description.value = _facility_description;
 	fm.value = "";
 	switch(_status){
@@ -383,7 +410,7 @@ function resetLightBox(){
 	}
 }
 function closeLightBox(){
-	lightBox.style.display = "block";
+	lightBox.style.display = "none";
 }
 function changeImgType(){
 	var lightBoxRow = document.getElementsByClassName('lightBox-row')[4];
@@ -394,18 +421,6 @@ function changeImgType(){
 	}
 	
 }
-  // var openFile = function(event) {
-  //   var input = event.target;
-
-  //   var reader = new FileReader();
-  //   reader.onload = function(){
-  //     var dataURL = reader.result;
-  //     var output = document.getElementById('output');
-  //     output.src = dataURL;
-  //   };
-  //   reader.readAsDataURL(input.files[0]);
-  // };
-
 function showImg(){
 	var reader = new FileReader();
 	reader.onload = function(){
@@ -414,6 +429,7 @@ function showImg(){
 	};
 	reader.readAsDataURL(this.files[0]);
 }
+// function checkthe
 </script>
 
 </body>

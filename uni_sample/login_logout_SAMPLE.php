@@ -13,7 +13,7 @@ session_start();
 <link rel="stylesheet" type="text/css" href="css/login.css">
 <style type="text/css">
 	#all-page{
-			position: absolute;
+			position: fixed;
 			top:0;
 			left: 0;
 			width: 100%;
@@ -109,6 +109,23 @@ session_start();
 				
 				
 			}
+
+function loginss(){
+    // 若登入，將mem_id存入localStorage
+    var storage = localStorage;
+    storage.setItem("mem_id",
+        <?php
+            if(isset($_SESSION["mem_id"])===true){
+                echo $_SESSION["mem_id"];
+            }else{
+                echo "0";
+                // 若未登入，mem_id為0
+            }
+        ?>
+        );
+}
+window.addEventListener("load",loginss);
 </script>
+
 
 <!-- 總結:如果改成php後有一些奇怪的事情發生，請先檢查自己的ｈｔｍｌ架構 -->

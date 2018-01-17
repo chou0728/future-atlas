@@ -148,7 +148,7 @@ if(isset($_SESSION["login_error"]) === true){
                 <a href="#page2" id="NavClose">園區地圖</a>
             </li>
             <li>
-                <a href="activity.html">活動月曆</a>
+                <a href="activity.php">活動月曆</a>
             </li>
             <li>
                 <a href="robot.html">諮詢專區</a>
@@ -948,7 +948,7 @@ if(isset($_SESSION["login_error"]) === true){
 		            	<td><a class="convert">詳情</a>
 		            </tr>
 		            <tr>
-		                <td colspan="2">夢境遊行夢境遊行夢境遊行夢境遊行夢境遊行</td>
+		                <td colspan="2">夢境遊行夢</td>
 		            </tr>
 		            <tr>
 		            	<th>11:00-12:00</th>

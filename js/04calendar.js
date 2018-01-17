@@ -182,8 +182,8 @@ $(document).ready(function(){
 function autoIconLoop1(){
 	$(".claContent").html("");
 	$(".sun").html("尋找星生命");
-	$(".mon").html("");
-	$(".tue").html("末世決戰");
+	$(".mon").html("末世決戰");
+	$(".tue").html("");
 	$(".wed").html("尋找星生命");
 	$(".thu").html("");
 	$(".fri").html("尋找星生命");
@@ -193,20 +193,20 @@ function autoIconLoop1(){
 };
 function autoIconLoop2(){
 	$(".claContent").html("");
-	$(".claContent:eq(5)").append("設施1");
-	$(".claContent:eq(10)").append("設施2");
-	$(".claContent:eq(15)").append("設施3");
-	$(".claContent:eq(20)").append("設施4");
-	$(".claContent:eq(25)").append("設施5");
-	$(".claContent:eq(30)").append("設施6");
+	$(".claContent:eq(5)").append("旋轉木馬");
+	$(".claContent:eq(10)").append("VR體驗");
+	$(".claContent:eq(15)").append("碰碰車");
+	$(".claContent:eq(20)").append("摩天輪");
+	$(".claContent:eq(25)").append("海盜船");
+	$(".claContent:eq(30)").append("未來鐵道");
 	$("#icon2").css("background-color","orange").fadeIn();
 	$(".icons").not("#icon2").css("background-color","transparent");
 };
 function autoIconLoop3(){
 	$(".claContent").html("");
 	$(".sun").html("9-22");
-	$(".mon").html("休園");
-	$(".tue").html("10-22");
+	$(".mon").html("10-22");
+	$(".tue").html("休園");
 	$(".wed").html("10-22");
 	$(".thu").html("10-22");
 	$(".fri").html("10-24");

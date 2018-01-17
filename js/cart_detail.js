@@ -8,14 +8,10 @@ function init(){
 		if( storage.getItem(i) != null ){
 			var info = storage.getItem(i).split("/");
 			var full_fare_num = info[1];
-			// 準備存入訂單副檔的sql指令
-			var full_sql = "insert into facility_order_item ('facility_no', 'full_fare_num', subtotal') values (";
 			if( full_fare_num > 0 ){
 				var full_fare = info[0];
 				var full_fare_subtotal = full_fare * full_fare_num;
 				$("#ticket_row").after("<tr><td style='text-align:center;'>"+fn+"</td><td class='facility_name'>"+info[4]+"</td><td style='text-align:center;'>"+"全票"+"</td><td style='text-align:right;'>"+full_fare+"</td><td>"+full_fare_num+"</td><td class='sub_total' colspan='2'>"+full_fare_subtotal+"</td></tr>");
-				
-				var per_full_sql = info[1]+","+full_fare_subtotal+");";
 			}
 			var half_fare_num = info[3];
 			if( half_fare_num > 0){
@@ -78,6 +74,20 @@ function output_total(){
 	document.getElementById("cartimgid").src = "img/cart/wallet_"+iniCart+".png";
 	document.getElementById("howmanytickets").innerHTML = facility_ticket_list.split("/").length-1;
 
+// 確認結帳,形成訂單副檔sql指令
+	var sql_order_item = "insert into facility_order_item values";
+	for(var i=1;i<7;i++)
+	if(storage.getItem(i) != null){
+		var info = storage.getItem(i).split("/");
+		var subtotal = info[0]*info[1] + info[2]*info[3];
+		// (2,2,"碰碰車",5,0,5,0,800,"尚未評分",0,"2018-01-16-20-20-20"),
+		var sql_increment = "/,"+i+",'"+info[4]+"',"+info[1]+",0,"+info[3]+",0,"+subtotal+",'尚未評分',0,'0000-00-00-00-00-00'),";
+		sql_order_item += sql_increment;
+	}
+	document.getElementById("sql_order_item").value = (sql_order_item.substring(0, sql_order_item.length-1)+";");
+	console.log(document.getElementById("sql_order_item").value);
+};
+
 // 使用者輸入積點
 document.getElementsByClassName("points")[2].onfocus = function(){
 	document.getElementsByClassName("points")[2].style.backgroundColor = "rgba(100,255,243,0.6)";
@@ -99,16 +109,17 @@ document.getElementsByClassName("points")[0].onchange = function(){
 	document.getElementById("total").innerHTML = initial_total;
 	$("#points_remain_input").html(discount);
 	$("#points_remain").css("opacity","0");
-
 }
+
+
 // 確認結帳,清空localStorage儲存票券資料
 $("#nextStep").click(function(){
+	var storage = localStorage;
 	storage.removeItem("facility_ticket_list");
 	for(var i=6;i>=0;i--){
 		storage.removeItem(i);
 	}
 });
-};
 
 function setBlur(obj,target2)
  	{
