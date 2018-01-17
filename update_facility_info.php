@@ -14,14 +14,20 @@ try {
 
 	switch($_FILES["facility_mphoto"]["error"]){
 	case UPLOAD_ERR_OK:	
-		$dir = "images/";
+		$dir = "img/facilityInfo/";
 		if( file_exists($dir)===false){ //make directory
 			mkdir( $dir );
 		}
 		$from = $_FILES["facility_mphoto"]["tmp_name"];
 		$to = $dir . $_FILES["facility_mphoto"]["name"];//
 		if(copy( $from, $to) ){
-			$sql="update facility set facility_name=:facility_name, 
+
+//--------
+			if(isset($_REQUEST["facility_no"])===false){
+				$sql="insert into facility()";
+
+			}else if(isset($_REQUEST["info_already"])===false){
+					$sql="update facility set facility_name=:facility_name, 
 	                          facility_mphoto=:facility_mphoto,
 	                          facility_description=:facility_description, 
 	                          facility_status=:facility_status,
@@ -37,9 +43,11 @@ try {
 						$products->execute();
 		
 
-		echo "異動成功<br>";
-		header("location:back_facilityM.php");
-		
+						echo "異動成功<br>";
+						header("location:back_facilityM.php");
+			}
+			
+//--------		
 		}else{
 			echo "上傳失敗<br>";
 		}	
@@ -54,6 +62,31 @@ try {
 		echo "上傳檔案不完整<br>";
 		break;	
 	case 4:
+			if(isset($_REQUEST["info_already"])===true){
+				$sql="update facility set info_already=:info_already where facility_no=:facility_no";
+				$products = $pdo->prepare( $sql );
+				$products->bindValue(":facility_no" , $_REQUEST["facility_no"]);
+				$products->bindValue(":info_already" , $_REQUEST["info_already"]);
+				$products->execute();
+				header("location:back_facilityM.php");
+			}else{
+				$sql="update facility set facility_name=:facility_name,
+	                          facility_description=:facility_description, 
+	                          facility_status=:facility_status,
+	                          facility_crowd=:facility_crowd where facility_no=:facility_no";
+
+						$products = $pdo->prepare( $sql );
+						$products->bindValue(":facility_no" , $_REQUEST["facility_no"]);
+						$products->bindValue(":facility_name" , $_REQUEST["facility_name"]);
+						$products->bindValue(":facility_description" , $_REQUEST["facility_description"]);
+						$products->bindValue(":facility_status" , $_REQUEST["facility_status"]);
+						$products->bindValue(":facility_crowd" , $_REQUEST["facility_crowd"]);
+						$products->execute();
+		
+
+						echo "異動成功<br>";
+						header("location:back_facilityM.php");
+			}
 		echo "尚未挑選檔案";
 		break;
 	default:
