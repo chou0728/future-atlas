@@ -5,17 +5,16 @@
             margin:30px auto ;
             font-size: 16px;
             border-collapse: collapse ;
-            font-family: 微軟正黑體;
+            font-family: "微軟正黑體";
         }
         .Newprogram button{
-            /*text-align: right;*/
             font-family: "微軟正黑體";
         }
         .titleh2{
             margin:30px 30px;
             font-size:24px;
             text-align: center;
-            font-family: 微軟正黑體;
+            font-family: "微軟正黑體";
         }
         th{
             text-align:center;
@@ -23,12 +22,19 @@
             padding: 10px 10px;
         }
         td{ 
-            
-            text-align:center;
+            vertical-align: middle;
             border:1px solid black; 
             padding: 10px 10px;
         }#activity_name, #activity_short_name, #activity_intro{
             width: 80px;
             height: 100px;
             /*vertical-align: top;*/
+        }
+        .readOnlyStyle{
+            border: none;
+            background-color: #ccc;
+        }.editStyle{
+            border: 1px solid gray;
+        }#history_activity_table{
+            width: 400px;
         }
