@@ -25,7 +25,7 @@ $(document).ready(function(){
 		$('.sq-two').toggleClass("move");
     //延遲一秒後才會跳到TheaterInfo.html
 		setTimeout(function(){
-			window.location.href = 'TheaterInfo.html';
+			window.location.href = 'TheaterInfo.php';
 		},300); 
 	}); 
 });

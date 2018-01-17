@@ -245,7 +245,7 @@
         </div>
 
         <div class="yesmodifyBtn">
-            <a href="buyTTicket.html">上一步</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <a href="buyTTicket.php">上一步</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             <a href="javascript: return false;" onclick="ajax_post()">結帳</a>   
         </div>
     </div>

@@ -84,7 +84,7 @@ $(document).ready(function(){
 			// $("select#theater1").append("<option value="+Vtoday+" >"+new Date(todayYear+"-"+todayMonth+"-"+(print+i)).toString().substr(4,6)+"　"+"</option>");
 		}
 		// 末世決戰
-		if( today != "Sun" && today != "Mon" && today != "Wed" && today != "Thu" && today != "Fri"){
+		if( today != "Sun" && today != "Tue" && today != "Wed" && today != "Thu" && today != "Fri"){
 			$("select#theater2").append("<option value="+Vtoday+" >"+todayYear+"-"+tMonth+"-"+ttoday+"</option>");
 		}
 	}

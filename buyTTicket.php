@@ -174,7 +174,7 @@
         </form>
     </div>
     <div class="buyTTicketBtn">
-            <a href="Theaterbuyticket.html" class="Previouspage">上一步</a>
+            <a href="Theaterbuyticket.php" class="Previouspage">上一步</a>
             <a href="javascript: return false;" onclick="checkLogin()" class="buyticket">確認購買</a>
     </div>
     <!-- 會員登入燈箱 -->

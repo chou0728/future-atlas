@@ -948,7 +948,7 @@ if(isset($_SESSION["login_error"]) === true){
 		            	<td><a class="convert">詳情</a>
 		            </tr>
 		            <tr>
-		                <td colspan="2">夢境遊行夢境遊行夢境遊行夢境遊行夢境遊行</td>
+		                <td colspan="2">夢境遊行夢</td>
 		            </tr>
 		            <tr>
 		            	<th>11:00-12:00</th>
