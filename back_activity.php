@@ -89,8 +89,8 @@
 		</tr>
 		<tr>			
 			<td name="activity_no">1</td>
-			<td><input type="textarea" wrap="virtual" name="activity_name" id="activity_name" placeholder="10字內" maxlength="10" size="10" rows="2" required></td>			
-			<td><input type="textarea" wrap="virtual" name="activity_short_name" id="activity_short_name" placeholder="5字內" maxlength="5" size="5" rows="2" required></td>
+			<td><input type="textarea" wrap="hard" name="activity_name" id="activity_name" placeholder="10字內" maxlength="10" size="10" rows="2" required></td>			
+			<td><input type="textarea" wrap="hard" name="activity_short_name" id="activity_short_name" placeholder="5字內" maxlength="5" size="5" rows="2" required></td>
 			<td>
 				<select name="activity_location" required>
 					<option value="未來大道">未來大道</option>
