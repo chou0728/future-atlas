@@ -31,7 +31,7 @@ session_start();
 				<span class="listcover" style="width: 100%;background-color: rgba(90, 230, 219,0.9);"></span>
 			</li>
 			<li class="navList">
-				<a href="back_TheaterMang.">劇場管理</a>
+				<a href="back_TheaterMang.php">劇場管理</a>
 				<span class="listcover"></span>
 			</li>
 			<li class="navList">
@@ -70,17 +70,18 @@ session_start();
 			<div class="b_inner_content">
 	<!-- ===================1====================== -->
 				<div id="facilityInfo" class="tabcontent">
-					<div class="table">
-					<div class="row">
-						<div class="col col-title col-number">設施編號</div>
-						<div class="col col-title">設施名稱</div>
-						<div class="col col-title">主要照片</div>
-						<div class="col col-title col-big">設施完整介紹</div>
-						<div class="col col-title col-number">設施狀態</div>
-						<div class="col col-title col-number">設施人潮</div>
-						<div class="col col-title col-number">修改</div>
-						<div class="col col-title">是否顯示至前台</div>
-					</div>
+						<div class="table">
+						<div class="row">
+							<div class="col col-title col-number">設施編號</div>
+							<div class="col col-title">設施名稱</div>
+							<div class="col col-title">主要照片</div>
+							<div class="col col-title col-big">設施完整介紹</div>
+							<div class="col col-title col-number">設施狀態</div>
+							<div class="col col-title col-number">設施人潮</div>
+							<div class="col col-title col-number">修改</div>
+							<div class="col col-title">是否顯示至前台</div>
+						</div>
+					<div class="overflow-auto">
 
 <?php 
 try {
@@ -90,81 +91,86 @@ try {
 
 	while($prodRow = $products->fetchObject()){
 ?>
-					<div class="row">
-						<div class="col col-number"><?php 
-							echo $prodRow->facility_no ?></div><!-- 自動串號 -->
-						<div class="col">
-							<?php echo $prodRow->facility_name ?>
-						</div>
-						<div class="col">
-							<img src="img/facilityInfo/<?php echo $prodRow->facility_mphoto ?>">
-						</div>
-						<div class="col col-article col-big">
-							<?php echo $prodRow->facility_description?>
-						</div>
-						<div class="col col-number">
-							<?php switch ($prodRow->facility_status) {
-								case '0':
-									echo "維修中";
-									break;
-								
-								case '1':
-									echo "正常";
-									break;
-								}
-							?>
-						</div>
-						<div class="col col-number">
-							<?php switch ($prodRow->facility_crowd) {
-								case '1':
-									echo "擁擠";
-									break;
-								
-								case '2':
-									echo "普通";
-									break;
+						<div class="row">
+							<div class="col col-number"><?php 
+								echo $prodRow->facility_no ?></div><!-- 自動串號 -->
+							<div class="col">
+								<?php echo $prodRow->facility_name ?>
+							</div>
+							<div class="col">
+								<img src="img/facilityInfo/<?php if($prodRow->facility_mphoto == null){
+									echo "dami_.jpg";
 
-								case '3':
-									echo "空曠";
-									break;
-								}
-							?>
-						</div>
-						<!-- 隱藏欄位1 limit-->
-						<div class="col" style="display: none"><?php echo $prodRow->facility_phrase ?></div>
-						<div class="col" style="display: none"><?php echo $prodRow->facility_heart ?></div>
-						<div class="col" style="display: none"><?php echo $prodRow->facility_suit ?></div>
-						<div class="col" style="display: none"><?php echo $prodRow->facility_limit ?></div>
-						<div class="col" style="display: none"><?php echo $prodRow->facility_subname ?></div>
-						<!-- 隱藏欄位1 limit-->
-						<div class="col col-number">
-							<div class="edit">EDIT</div>
-						</div>
-						<div class="col">
-							<form name="already" action="update_facility_info.php" method="post" enctype="multipart/form-data">
-								<input type="hidden" name="info_already">
-								<input type="hidden" name="facility_no" value="<?php echo $prodRow->facility_no ?>">
-								<input type="file" name="facility_mphoto" style="display: none;">
-								<?php 
-									
-
-									switch ($prodRow->info_already) {
+								}else{
+									echo $prodRow->facility_mphoto;
+								} ?>">
+							</div>
+							<div class="col col-article col-big">
+								<?php echo $prodRow->facility_description?>
+							</div>
+							<div class="col col-number">
+								<?php switch ($prodRow->facility_status) {
 									case '0':
-										echo "
-												<div class='btn submit_true' data-already='1'>顯示</div>
-
-												<div class='btn is-selected' data-already='0'>隱藏</div>";
+										echo "維修中";
 										break;
 									
 									case '1':
-										echo "<div class='btn is-selected' data-already='1'>顯示</div>
-												<div class='btn submit_true' data-already='0'>隱藏</div>";
+										echo "正常";
 										break;
 									}
 								?>
-							</form>
+							</div>
+							<div class="col col-number">
+								<?php switch ($prodRow->facility_crowd) {
+									case '1':
+										echo "擁擠";
+										break;
+									
+									case '2':
+										echo "普通";
+										break;
+
+									case '3':
+										echo "空曠";
+										break;
+									}
+								?>
+							</div>
+							<!-- 隱藏欄位1 limit-->
+							<div class="col" style="display: none"><?php echo $prodRow->facility_phrase ?></div>
+							<div class="col" style="display: none"><?php echo $prodRow->facility_heart ?></div>
+							<div class="col" style="display: none"><?php echo $prodRow->facility_suit ?></div>
+							<div class="col" style="display: none"><?php echo $prodRow->facility_limit ?></div>
+							<div class="col" style="display: none"><?php echo $prodRow->facility_subname ?></div>
+							<!-- 隱藏欄位1 limit-->
+							<div class="col col-number">
+								<div class="edit">EDIT</div>
+							</div>
+							<div class="col  col-sp">
+								<form name="already" action="update_facility_info.php" method="post" enctype="multipart/form-data">
+									<input type="hidden" name="info_already">
+									<input type="hidden" name="facility_no" value="<?php echo $prodRow->facility_no ?>">
+									<input type="file" name="facility_mphoto" style="display: none;">
+									<?php 
+										
+
+										switch ($prodRow->info_already) {
+										case '0':
+											echo "
+													<div class='btn submit_true' data-already='1'>顯示</div>
+
+													<div class='btn is-selected' data-already='0'>隱藏</div>";
+											break;
+										
+										case '1':
+											echo "<div class='btn is-selected' data-already='1'>顯示</div>
+													<div class='btn submit_true' data-already='0'>隱藏</div>";
+											break;
+										}
+									?>
+								</form>
+							</div>
 						</div>
-					</div>
 <?php		
 	}
 } catch (PDOException $e) {
@@ -173,22 +179,24 @@ try {
 	// echo "getCode : " , $e->getCode() , "<br>";
 	// echo "異動失敗,請聯絡系統維護人員";
 }
-?> 				
-				</div>
-				</div>
+?>
+				</div>	
+					</div>
+					</div>
 	<!-- ===================2====================== -->
 				<div id="facilityTickets" class="tabcontent">
-					<div class="table">
-					<div class="row">
-						<div class="col col-title col-number">設施編號</div>
-						<div class="col col-title">設施名稱</div>
-						<div class="col col-title">票券照片</div>
-						<div class="col col-title col-big">設施簡介</div>
-						<div class="col col-title col-number">全票票價</div>
-						<div class="col col-title col-number">半票票價</div>
-						<div class="col col-title col-number">修改</div>
-						<div class="col col-title">是否上架</div>
-					</div>
+						<div class="table">
+						<div class="row">
+							<div class="col col-title col-number">設施編號</div>
+							<div class="col col-title">設施名稱</div>
+							<div class="col col-title">票券照片</div>
+							<div class="col col-title col-big">設施簡介</div>
+							<div class="col col-title col-number">全票票價</div>
+							<div class="col col-title col-number">半票票價</div>
+							<div class="col col-title col-number">修改</div>
+							<div class="col col-title">是否上架</div>
+						</div>
+					<div class="overflow-auto">
 
 <?php 
 try {
@@ -197,50 +205,55 @@ try {
 	$products = $pdo->query($sql);
 
 	while($prodRow = $products->fetchObject()){
-?>
-					<div class="row">
-						<div class="col col-number"><?php 
-							echo $prodRow->facility_no ?></div><!-- 自動串號 -->
-						<div class="col">
-							<?php echo $prodRow->facility_name ?>
-						</div>
-						<div class="col">
-							<img src="img/facilityInfo/<?php echo $prodRow->facility_tphoto ?>">
-						</div>
-						<div class="col col-big">
-							<?php echo $prodRow->facility_intro?>
-						</div>
-						<div class="col col-number">
-							<?php echo $prodRow->full_fare ?>
-						</div>
-						<div class="col col-number">
-							<?php echo $prodRow->half_fare ?>
-						</div>
-						<div class="col col-number">
-							<div class="edit_ticket">EDIT</div>
-						</div>
-						<div class="col">
-							<form name="already" action="update_facility_ticket.php" method="post" enctype="multipart/form-data">
-								<input type="hidden" name="ticket_already">
-								<input type="hidden" name="facility_no" value="<?php echo $prodRow->facility_no ?>">
-								<input type="file" name="facility_tphoto" style="display: none;">
-								<?php switch ($prodRow->ticket_already) {
-									case '0':
-										echo "<div class='btn submit_true' data-already='1'>上架</div>
+?>				
+						<div class="row">
+							<div class="col col-number"><?php 
+								echo $prodRow->facility_no ?></div><!-- 自動串號 -->
+							<div class="col">
+								<?php echo $prodRow->facility_name ?>
+							</div>
+							<div class="col">
+								<img src="img/facilityInfo/<?php if($prodRow->facility_tphoto == null){
+									echo "dami_.jpg";
 
-												<div class='btn is-selected' data-already='0'>下架</div>";
-										break;
-									
-									case '1':
-										echo "<div class='btn is-selected' data-already='1'>上架</div>
+								}else{
+									echo $prodRow->facility_tphoto;
+								} ?>">
+							</div>
+							<div class="col col-big">
+								<?php echo $prodRow->facility_intro?>
+							</div>
+							<div class="col col-number">
+								<?php echo $prodRow->full_fare ?>
+							</div>
+							<div class="col col-number">
+								<?php echo $prodRow->half_fare ?>
+							</div>
+							<div class="col col-number">
+								<div class="edit_ticket">EDIT</div>
+							</div>
+							<div class="col col-sp">
+								<form name="already" action="update_facility_ticket.php" method="post" enctype="multipart/form-data">
+									<input type="hidden" name="ticket_already">
+									<input type="hidden" name="facility_no" value="<?php echo $prodRow->facility_no ?>">
+									<input type="file" name="facility_tphoto" style="display: none;">
+									<?php switch ($prodRow->ticket_already) {
+										case '0':
+											echo "<div class='btn submit_true' data-already='1'>上架</div>
 
-												<div class='btn submit_true' data-already='0'>下架</div>";
-										break;
-									}
-								?>
-							</form>
+													<div class='btn is-selected' data-already='0'>下架</div>";
+											break;
+										
+										case '1':
+											echo "<div class='btn is-selected' data-already='1'>上架</div>
+
+													<div class='btn submit_true' data-already='0'>下架</div>";
+											break;
+										}
+									?>
+								</form>
+							</div>
 						</div>
-					</div>
 <?php		
 	}
 } catch (PDOException $e) {
@@ -250,7 +263,7 @@ try {
 	// echo "異動失敗,請聯絡系統維護人員";
 }
 ?> 
-					
+			</div>				
 				</div>
 				</div>
 <div id="facility_new" class="tabcontent">
@@ -292,15 +305,15 @@ try {
 			</div>
 			<div class="lightBox-row">
 				<span class="subtitle">全票票價：</span>
-				<input type="text" name="full_fare">
+				<input type="text" name="full_fare" value="0">
 			</div>
 			<div class="lightBox-row">
 				<span class="subtitle">半票票價：</span>
-				<input type="text" name="half_fare">
+				<input type="text" name="half_fare" value="0">
 			</div>
 			<div class="lightBox-row lightBox-submit">
-				<input type="button" name="" value="清除修改" id="reset">
-				<input type="submit" name="" value="確認修改">
+				<input type="reset" name="" value="清除">
+				<input type="submit" name="" value="確認新增">
 			</div>
 		</form>
 	</div>
@@ -474,7 +487,9 @@ function init(){
 	changeType.onclick = changeImgType;
 
 	var fm = document.getElementById("fm");
+	var tm = document.getElementById("tm");
 	fm.onchange = showImg;
+	tm.onchange = showImg;
 
 	var submit_true = document.getElementsByClassName("submit_true");
 	for(a=0;a<submit_true.length;a++){
@@ -605,6 +620,7 @@ function resetLightBox(){
 	facility_heart.value = _facility_heart;
 	facility_suit.value = _facility_suit;
 	facility_limit.value = _facility_limit;
+	facility_subname.value=_facility_subname;
 
 	fm.value = "";
 	switch(_status){
@@ -642,12 +658,24 @@ function changeImgType(){
 }
 function showImg(){
 	var reader = new FileReader();
-	reader.onload = function(){
+	if(this ==fm){
+		reader.onload = function(){
 		var dataURL = reader.result;
 		facility_mphoto.src= dataURL;
-	};
-	reader.readAsDataURL(this.files[0]);
+		};
+		reader.readAsDataURL(this.files[0]);
+	}else if(this ==tm){
+		reader.onload = function(){
+		var dataURL = reader.result;
+		facility_tphoto.src= dataURL;
+		};
+		reader.readAsDataURL(this.files[0]);
+	}
+		
 }
+
+
+
 // function checkthe
 </script>
 <?php if(isset($_SESSION["session"])==true){ echo "<script>b_sn_btn[0].setAttribute('id','');b_sn_btn[1].setAttribute('id','active');document.getElementById('facilityTickets').style.display = 'block';document.getElementById('facilityInfo').style.display = 'none';document.getElementById('facility_new').style.display = 'none';</script>"; unset($_SESSION["session"]);} ?>
