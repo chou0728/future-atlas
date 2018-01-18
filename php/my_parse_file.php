@@ -99,9 +99,9 @@
 	 	
 		?>
 		<?php
-			echo "購買完成!<br>訂單編號:$prder_no";
+			echo "購買完成! 訂單編號:$prder_no";
 			//echo "<a href='MembersOnly.html'>會員專區</a>";
-			header("refresh:5; url=MembersOnly.html");	
+			//header("refresh:5; url=MembersOnly.html");	
 		} catch (PDOException $e) {
 		  echo "錯誤行號 : ", $e->getLine(), "<br>";
 		  echo "錯誤訊息 : ", $e->getMessage(), "<br>";	
