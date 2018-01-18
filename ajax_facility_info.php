@@ -3,7 +3,7 @@ try{
   require_once("connectBooks.php");
   $sql = "select * from facility where facility_no=:facility_no;";
   $facility_PDO = $pdo->prepare($sql);
-  $facility_PDO->bindValue(":facility_no",$_REQUEST["f_no"]); 
+  $facility_PDO->bindValue(":facility_no",$_REQUEST["facility_no"]); 
   $facility_PDO->execute();
   if( $facility_PDO->rowCount() == 0 ){ //找不到的話
     

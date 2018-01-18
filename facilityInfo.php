@@ -585,8 +585,8 @@ function ajax_lightbox(e) {
                 subTitle.innerText = facility.facility_subname;//透過物件的操作就可以帶值進去span中(SQL中欄位名稱直接變屬性)
                 paraLeft.innerHTML = facility.facility_phrase;
                 heartbeat.innerText = facility.facility_heart;
-                suit.innerText += facility.facility_suit;
-                limit.innerText += facility.facility_limit;
+                suit.innerHTML += facility.facility_suit;
+                limit.innerHTML += facility.facility_limit;
                 if((facility.facility_no)==7){
 						getTicket.href = "Theaterbuyticket.php";
 					}else{
