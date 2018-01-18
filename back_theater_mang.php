@@ -198,7 +198,7 @@
                             <th>演出日期</th>
                             <th>總票數</th>
                             <th>剩餘票數</th>
-                            <th>修改</th>
+                            <!-- <th>修改</th> -->
                         </tr>
                         <?php 
                             try {
@@ -246,12 +246,12 @@
                                     <td><?php echo  $prodRow["time_date"] ?>
                                     </td>
                                     <td>
-                                        <input type="number" style="width:50px;" value="<?php echo  $prodRow["total_ticket"] ?>" name="total_ticket">
+                                        <?php echo  $prodRow["total_ticket"] ?>
                                     </td>
                                     <td> 
-                                        <input type="number" style="width:50px;" value="<?php echo  $prodRow["last_ticket"] ?>"  name="last_ticket">   
+                                        <?php echo  $prodRow["last_ticket"] ?>   
                                     </td>
-                                    <td> <input type="submit" style="font-family:微軟正黑體;" value="修改"></td>
+                                    <!-- <td> <input type="submit" style="font-family:微軟正黑體;" value="修改"></td> -->
                                 </tr>
                                 </form> 
                             <?php       
@@ -287,6 +287,7 @@
                             <th>原始總額</th>
                             <th>積分折扣</th>
                             <th>信用卡卡號</th>
+                            <th>節目編號</th>
                         </tr>
                         <?php 
                             try {
@@ -340,6 +341,9 @@
                                     </td>
                                     <td> 
                                         <?php echo  $prodRow["credit_card"] ?>  
+                                    </td>
+                                    <td> 
+                                        <?php echo  $prodRow["program_no"] ?>  
                                     </td>
                                     <!-- <td><a href="#">修改</a></td> -->
                                 </tr>

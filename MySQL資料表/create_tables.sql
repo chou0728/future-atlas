@@ -35,6 +35,7 @@ foreign KEY (facility_no) references facility (facility_no)
 
 create table backend_manager(
 manager_id int AUTO_INCREMENT,
+manager_name varchar(20),
 password varchar(20),
 top_manager boolean,
 manager_status boolean,

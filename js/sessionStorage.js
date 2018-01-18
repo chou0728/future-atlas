@@ -157,7 +157,6 @@ function changeQuantity() {
     // storage.setItem("theater_quantity",theater_quantity);
 }
 	//判斷是否有登入
-    //跳去登入頁面?
     var loginFlag = false;
     function checkLogin(){
     	var storage = localStorage;

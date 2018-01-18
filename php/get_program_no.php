@@ -20,7 +20,6 @@
                     <th>演出日期</th>
                     <th>總票數</th>
                     <th>剩餘票數</th>
-                    <th>修改</th>
               </tr>";	    
 	    while( $sessionlistRow = $theater_session_list->fetchObject()){
 	      //傳回html結構
@@ -30,9 +29,9 @@
 		  $str .= "<td>" . $sessionlistRow->program_no . "</td>";
 		  $str .= "<td>" . $sessionlistRow->session_time . "</td>";
 		  $str .= "<td>" . $sessionlistRow->time_date . "</td>";
-		  $str .= "<td>" . '<input type="number" style="width:50px;" value="'. $sessionlistRow->total_ticket . '" name="total_ticket">' . "</td>";
-		  $str .= "<td>" . '<input type="number" style="width:50px;" value="' . $sessionlistRow->last_ticket .  '" name="last_ticket"> ' . "</td>";
-		  $str .= "<td>" . '<input type="submit" style="font-family:微軟正黑體;" value="修改" onclick="alert(1);">'. "</td></tr>";
+		  $str .= "<td>" . $sessionlistRow->total_ticket. "</td>";
+		  $str .= "<td>" .  $sessionlistRow->last_ticket ."</td>";
+		  // $str .= "<td>" . '<input type="submit" style="font-family:微軟正黑體;" value="修改" onclick="alert(1);">'. "</td></tr>";
 		  $str .= "</form>";
 	    }
 		  $str .=  "</table>";

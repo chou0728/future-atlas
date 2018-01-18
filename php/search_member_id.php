@@ -23,6 +23,7 @@
                     <th>原始總額</th>
                     <th>積分折扣</th>
                     <th>信用卡卡號</th>
+                    <th>節目編號</th>
               </tr>";	    
 	    while( $orderlistRow = $theater_order_list->fetchObject()){
 	      //傳回html結構
@@ -37,6 +38,7 @@
 		  $str .= "<td>" . $orderlistRow->original_amount . "</td>";
 		  $str .= "<td>" . $orderlistRow->points_discount . "</td>";
 		  $str .= "<td>" . $orderlistRow->credit_card . "</td>";
+		   $str .= "<td>" . $orderlistRow->program_no . "</td>";
 		  // $str .= "<td>" . '<input type="number" style="width:50px;" value="'. $orderlistRow->total_ticket . '" name="total_ticket">' . "</td>";
 		  // $str .= "<td>" . '<input type="number" style="width:50px;" value="' . $orderlistRow->last_ticket .  '" name="last_ticket"> ' . "</td>";
 		  // $str .= "<td>" . '<input type="submit" style="font-family:微軟正黑體;" value="修改" onclick="alert(1);">'. "</td></tr>";

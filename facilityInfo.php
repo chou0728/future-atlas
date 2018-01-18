@@ -3,7 +3,7 @@ ob_start();
 session_start();
 ?>
 <!DOCTYPE html>
-<html lang="en">
+<meta charset="utf-8">
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -374,13 +374,11 @@ try {
 					<div class="parameter">
 						
 						<p class="paraContent middleLinehight suit">
-							<span>適合對象</span>
 						</p>
 					</div>
 
 					<div class="parameter">	
 						<p class="paraContent middleLinehight limit">
-							<span>身高限制</span>
 						</p>
 					</div>
 				</div>
@@ -585,8 +583,8 @@ function ajax_lightbox(e) {
                 subTitle.innerText = facility.facility_subname;//透過物件的操作就可以帶值進去span中(SQL中欄位名稱直接變屬性)
                 paraLeft.innerHTML = facility.facility_phrase;
                 heartbeat.innerText = facility.facility_heart;
-                suit.innerHTML += facility.facility_suit;
-                limit.innerHTML += facility.facility_limit;
+                suit.innerHTML = "<span>適合對象</span>"+facility.facility_suit;
+                limit.innerHTML = "<span>限制</span>"+facility.facility_limit;
                 if((facility.facility_no)==7){
 						getTicket.href = "Theaterbuyticket.php";
 					}else{
