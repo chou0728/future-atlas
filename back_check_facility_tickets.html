@@ -14,6 +14,7 @@
 <body>
     <!-- ==== header ==== -->
     <header>
+        <img src="img/back_menu_default.png" id="ham">
         <h1 class="logo">
             <img src="img/LOGO.png" alt="FA">
             <span>後台管理系統</span>
@@ -22,47 +23,39 @@
             <li class="navList">
                 <a href="back_check_facility_tickets.html" style="color: black;">設施驗票</a>
                 <span class="listcover" style="width: 100%;background-color: rgba(90, 230, 219,0.9);"></span>
-                <span class="spancover"></span>
             </li>
             <li class="navList">
                 <a href="back_check_theater_tickets.html">劇場驗票</a>
                 <span class="listcover"></span>
-                <span class="spancover"></span>
             </li>
             <li class="navList">
-                <a href="back_facilityM.html">設施管理</a>
+                <a href="back_facilityM.php">設施管理</a>
                 <span class="listcover"></span>
-                <span class="spancover"></span>
             </li>
             <li class="navList">
                 <a href="back_TheaterMang.html">劇場管理</a>
                 <span class="listcover"></span>
-                <span class="spancover"></span>
             </li>
             <li class="navList">
-                <a href="back_activity.html">活動管理</a>
+                <a href="back_activity.php">活動管理</a>
                 <span class="listcover"></span>
-                <span class="spancover"></span>
             </li>
             <li class="navList">
                 <a href="">會員管理</a>
                 <span class="listcover"></span>
-                <span class="spancover"></span>
             </li>
             <li class="navList">
                 <a href="">諮詢管理</a>
                 <span class="listcover"></span>
-                <span class="spancover"></span>
             </li>
             <li class="navList">
                 <a href="">權限管理</a>
                 <span class="listcover"></span>
-                <span class="spancover"></span>
             </li>
         </ul>
     </header>
     <div class="loginBox mobileLoginBox">
-        您好!
+        <span id="hello">您好!</span>
         <span id="managerId">最高管理員</span>
         <span id="managerName">Manna</span>
         <a href="javascript:void(0)">登出</a>
