@@ -65,7 +65,7 @@
 		}
 		//預設會員ID
 		$member_id=$mem_id;
-		$sql = "INSERT into theater_order_list (session_no,member_id,number_purchase,used_ticket,order_date,original_amount,points_discount,credit_card) values(?,?,?,?,?,?,?,?)";
+		$sql = "INSERT into theater_order_list (session_no,mem_id,number_purchase,used_ticket,order_date,original_amount,points_discount,credit_card) values(?,?,?,?,?,?,?,?)";
 			$statement = $pdo->prepare($sql);
 			$statement->bindValue(1,$session_no);
 			$statement->bindValue(2,$member_id);
@@ -99,7 +99,7 @@
 	 	
 		?>
 		<?php
-			echo "購買完成!<br>訂單編號:$prder_no<br><a href='MembersOnly.html'>會員專區</a>";
+			echo "購買完成!<br>訂單編號:$prder_no";
 			//echo "<a href='MembersOnly.html'>會員專區</a>";
 			header("refresh:5; url=MembersOnly.html");	
 		} catch (PDOException $e) {
@@ -108,4 +108,3 @@
 		}
 
 	?>
-?>

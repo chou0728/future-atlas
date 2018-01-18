@@ -246,7 +246,7 @@
 
         <div class="yesmodifyBtn">
             <a href="buyTTicket.php">上一步</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            <a href="javascript: return false;" onclick="ajax_post()">結帳</a>   
+            <a href="javascript: return false;" id="Checked" onclick="ajax_post()">結帳</a>   
         </div>
     </div>
 
@@ -259,6 +259,8 @@
     
 
     <script type="text/javascript">
+      
+
         var storage = sessionStorage;
         //儲存信用卡資訊
         var CardInfo;
@@ -389,7 +391,8 @@
             hr.onreadystatechange = function() {
                 if(hr.readyState == 4 && hr.status == 200) {
                     var return_data = hr.responseText;
-                    document.getElementById("status").innerHTML = return_data;
+                    // document.getElementById("status").innerHTML = return_data;
+                    alert(return_data);
                 }
             }
             // Send the data to PHP now... and wait for response to update the status div
