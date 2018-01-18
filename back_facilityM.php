@@ -71,7 +71,7 @@ session_start();
 				<a href="javascript:void(0)" class="b_sn_btn" onclick="openCity(event,'facility_new')" >設施新增</a>
 			</div>
 <!-- =====================請加內容至此====================-->
-			<div class="b_inner_content">
+			<div class="b_inner_content" id="not-check-ticket">
 	<!-- ===================1====================== -->
 				<div id="facilityInfo" class="tabcontent">
 						<div class="table">
@@ -447,6 +447,12 @@ try {
 	</form>
 </div>
 <!-- ===========燈箱 for TICKET END======================================-->
+
+
+<div id="RWD-page"><span>驗票系統</span></div><!-- ===========RWD用cover===============-->
+
+
+
 		</div>
 	</div>
 <script type="text/javascript" src="js/11back_nav.js"></script>
