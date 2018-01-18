@@ -183,25 +183,33 @@ event.preventDefault();
 			if( temp1.search("full") == 0){
 				var cc = storage.getItem(temp1.substr(temp1.length-1,1)).split("/");
 				cc[1] = 0;
-				storage.setItem(temp1.substr(temp1.length-1,1),cc.join("/"));
+				console.log(cc);
+				storage.setItem(temp1.substr(temp1.length-1,1), cc.join("/"));
+
+				// if(cc[1] == 0 && cc[3] == 0){
+					// storage.removeItem(temp1.substr(temp1.length-1,1));
+				// }
 			}
 			// 修改為半票
 			else{
 				var cc = storage.getItem(temp1.substr(temp1.length-1,1)).split("/");
 				cc[3] = 0;
-				storage.setItem(temp1.substr(temp1.length-1,1),cc.join("/"));
+				storage.setItem(temp1.substr(temp1.length-1,1), cc.join("/"));
+
+				if(cc[1] == 0 && cc[3] == 0){
+					storage.removeItem(temp1.substr(temp1.length-1,1));
+				}
 			}
 	}else{
 		var cc = this.id.replace("_fare_num_id","");
-		console.log(cc);
+		
 	}
 	showSubTotal();
 }
 
-function deleteRowByClick(event){
-	event.preventDefault();
-	// var temp2 = this.id.replace("_fare_delete_btn_id","");
-	// document.getElementById(temp2).remove();
+function deleteRowByClick(){
+	var temp2 = this.id.replace("_fare_delete_btn_id","");
+	document.getElementById(temp2).remove();
 	// 修改為全票
 	if( this.id.search("full") == 0){
 		var cc = storage.getItem(this.id.substr(this.id.length-1,1)).split("/");

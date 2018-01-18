@@ -11,10 +11,13 @@ try{
 	if( $activity->rowCount() == 0 ){
     echo "本日無活動";
   	}else{
-    $activityRow = $activity->fetch(PDO::FETCH_ASSOC);
-	$str="";
+    	$activityRow = $activity->fetchAll(PDO::FETCH_ASSOC);
+		$str="";
 	foreach( $activityRow as $i => $data ){
-	  $str .= "<div class='showRowText'>" . $data . "</div>" ;
+	 	$str .= "<div class='showRowDiv'><span class='showRowText acTitle'>" . $data["activity_name"] . "</span>
+	 			 <span class='showRowText acLoc'>" . $data["activity_location"] . "</span>
+				 <span class='showRowText acTime'>" . $data["activity_start_time"] . "-" . $data["activity_end_time"] . "</span>
+				 <span class='showRowText acIntro'>" . $data["activity_intro"] . "</span></div>";
 	}
 	echo $str;
   }	
