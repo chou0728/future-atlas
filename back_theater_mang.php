@@ -198,7 +198,7 @@
                             <th>演出日期</th>
                             <th>總票數</th>
                             <th>剩餘票數</th>
-                            <th>修改</th>
+                            <!-- <th>修改</th> -->
                         </tr>
                         <?php 
                             try {
@@ -246,12 +246,12 @@
                                     <td><?php echo  $prodRow["time_date"] ?>
                                     </td>
                                     <td>
-                                        <input type="number" style="width:50px;" value="<?php echo  $prodRow["total_ticket"] ?>" name="total_ticket">
+                                        <?php echo  $prodRow["total_ticket"] ?>
                                     </td>
                                     <td> 
-                                        <input type="number" style="width:50px;" value="<?php echo  $prodRow["last_ticket"] ?>"  name="last_ticket">   
+                                        <?php echo  $prodRow["last_ticket"] ?>   
                                     </td>
-                                    <td> <input type="submit" style="font-family:微軟正黑體;" value="修改"></td>
+                                    <!-- <td> <input type="submit" style="font-family:微軟正黑體;" value="修改"></td> -->
                                 </tr>
                                 </form> 
                             <?php       
