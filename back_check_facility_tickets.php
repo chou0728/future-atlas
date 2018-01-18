@@ -217,6 +217,7 @@
       var used_record = document.getElementById('used_record');
 
       var submit = document.getElementById('submit');
+      
       submit.addEventListener('click',function(){
             
           var full  = parseInt(full_num.value, 10);

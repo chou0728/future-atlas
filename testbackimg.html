@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        #photo{
+            width: 500px;
+            height: 500px;
+            border: 2px solid #f00;
+            /* background-image: url("img/facilityInfo/sub_6365_LL.png"); */
+            background-size: cover;
+                background-repeat: no-repeat;
+                background-position: 50% 50%;
+
+        }
+    </style>
+</head>
+<body>
+    <div id="photo">
+    </div>
+</body>
+<script>
+
+    var photo = document.getElementById('photo');
+    var i = 'sub_6365_LL.png';
+    var whole = 'img/facilityInfo/'+ i;
+    photo.style.backgroundImage = "url(" + whole + ")";
+    // alert(whole);
+
+</script>
+</html>

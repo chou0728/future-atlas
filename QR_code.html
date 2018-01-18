@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>QR code</title>
+</head>
+<body>
+    <img id="qr_code" src="https://chart.googleapis.com/chart?chs=400x400&cht=qr&chl=https://github.com/chou0728?order_id=1" alt="">
+</body>
+<script>
+
+    var qr_code = document.getElementById('qr_code');
+    var qr_src = qr_code.getAttribute('src');
+    
+   
+    // alert( qr_src.substr(-1,1));
+    var  href = location.href;  //取得目前網址
+    var source =  href.substr(-12); //取得網址裡面後面數來12個字元
+    alert(source);
+
+
+</script>
+</html>
