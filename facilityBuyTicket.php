@@ -150,8 +150,17 @@ session_start();
 </div>
 
     <!-- header end-->
-    
 <div class="fbtWrapper">
+
+<?php 
+try {
+	require_once("php/connectBooks.php");
+	$sql = "select * from facility where ticket_already=1";
+	$products = $pdo->query($sql);
+$a = 0;
+	while($prodRow = $products->fetchObject()){
+		
+?>
 	<!-- /////01-->
 	<div class="ticketbox">
 		<div class="ticketTitlebox">
@@ -159,46 +168,57 @@ session_start();
 				<figure class="front">
 					<img src="img/facilityBuyTicket/launched-rocket.png" class="icon">
 				</figure>
-				<figure class="back">1</figure>
+				<figure class="back"><?php echo $prodRow->facility_no ?></figure>
 			</div>
-			<h2 class="ticketTitle">宇宙雲霄飛車</h2>
+			<h2 class="ticketTitle"><?php echo $prodRow->facility_name ?></h2>
 		</div>
 
 	
 		<div class="f_img">
-			<img src="img/facilityBuyTicket/p_01.jpg"><span class="cover"></span>
+			<img src="img/facilityInfo/<?php echo $prodRow->facility_tphoto ?>"><span class="cover"></span>
 		</div>
 		<div class="shortInfo">
-			史上最快最高的宇宙雲霄飛車
+			<?php echo $prodRow->facility_intro ?>
 		</div>
 
-		<div class="adult" data-val="190">
-			<span>全票</span><span class="price">190元/1張</span>
+		<div class="adult" data-val="<?php echo $prodRow->full_fare ?>">
+			<span>全票</span><span class="price"><?php echo $prodRow->full_fare ?>元/1張</span>
 			<div class='ctrl'>
 				 <div class='ctrl-button ctrl-button-decrement'>-</div>
 					  <div class='ctrl-counter'>
-					  	<input class='ctrl-counter-input' maxlength='3' type='text' value='0' data-no="0" onkeyup="this.value=this.value.replace(/[^0-9]/g,'')">
+					  	<input class='ctrl-counter-input' maxlength='3' type='text' value='0' data-no="<?php echo $a ?>" onkeyup="this.value=this.value.replace(/[^0-9]/g,'')">
 					  </div>
 					  <div class='ctrl-button ctrl-button-increment'>+</div>
 				</div>
 		</div>
 
-		<div class="child" data-val="90">
-			<span>半票</span><span class="price">90元/1張</span>
+		<div class="child" data-val="<?php echo $prodRow->half_fare ?>">
+			<span>半票</span><span class="price"><?php echo $prodRow->half_fare ?>元/1張</span>
 			<div class='ctrl'>
 				 <div class='ctrl-button ctrl-button-decrement'>-</div>
 					  <div class='ctrl-counter'>
-					  	<input class='ctrl-counter-input' maxlength='3' type='text' value='0' data-no="1" onkeyup="this.value=this.value.replace(/[^0-9]/g,'')">	
+					  	<input class='ctrl-counter-input' maxlength='3' type='text' value='0' data-no="<?php echo $a+1 ?>" onkeyup="this.value=this.value.replace(/[^0-9]/g,'')">	
 					  </div>
 					<div class='ctrl-button ctrl-button-increment'>+</div>
 				</div>
 		</div>
-		<div class="f_submit" data-fn="1">
+		<div class="f_submit" data-fn="<?php echo $prodRow->facility_no ?>">
 			加入購物車
 		</div>
 	</div>
+
+<?php
+$a+=2;	
+	}
+} catch (PDOException $e) {
+	echo "錯誤原因 : " , $e->getMessage() , "<br>";
+	echo "錯誤行號 : " , $e->getLine() , "<br>";
+	// echo "getCode : " , $e->getCode() , "<br>";
+	// echo "異動失敗,請聯絡系統維護人員";
+}
+?> 
 	<!-- /////02-->
-		<div class="ticketbox">
+<!-- 		<div class="ticketbox">
 		<div class="ticketTitlebox">
 			<div class="ticket">
 				<figure class="front">
@@ -241,9 +261,9 @@ session_start();
 		<div class="f_submit" data-fn="2">
 			加入購物車
 		</div>
-	</div>
+	</div> -->
 	<!-- /////03-->
-		<div class="ticketbox">
+<!-- 		<div class="ticketbox">
 		<div class="ticketTitlebox">
 			<div class="ticket">
 				<figure class="front">
@@ -286,9 +306,9 @@ session_start();
 		<div class="f_submit" data-fn="3">
 			加入購物車
 		</div>
-	</div>
+	</div> -->
 	<!-- /////04-->
-	<div class="ticketbox">
+<!-- 	<div class="ticketbox">
 		<div class="ticketTitlebox">
 			<div class="ticket">
 				<figure class="front">
@@ -331,9 +351,9 @@ session_start();
 		<div class="f_submit" data-fn="4">
 			加入購物車
 		</div>
-	</div>
+	</div> -->
 	<!-- /////5-->
-		<div class="ticketbox">
+<!-- 		<div class="ticketbox">
 		<div class="ticketTitlebox">
 			<div class="ticket">
 				<figure class="front">
@@ -376,9 +396,9 @@ session_start();
 		<div class="f_submit" data-fn="5">
 			加入購物車
 		</div>
-	</div>
+	</div> -->
 	<!-- /////06-->
-			<div class="ticketbox">
+<!-- 			<div class="ticketbox">
 		<div class="ticketTitlebox">
 			<div class="ticket">
 				<figure class="front">
@@ -421,7 +441,7 @@ session_start();
 		<div class="f_submit" data-fn="6">
 			加入購物車
 		</div>
-	</div>
+	</div> -->
 	<!-- /////-->
 	<div id="fullBlack">
 		<div class="confirmLightbox">
