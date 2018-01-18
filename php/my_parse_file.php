@@ -29,10 +29,10 @@
 			echo "<center>查無此節目資料</center>";
 		}else{
 			$prodRow = $theater_program->fetchObject();
-			$prodRow->program_no;
+			$program_no = $prodRow->program_no;
 		}
 		//用日期programDate、節目編號program_no、場次時間programTime，去theater_session_list查場次編號session_no
-		$sql ="select * from theater_session_list where program_no=$prodRow->program_no AND time_date='$programDate' AND session_time='$programTime'";
+		$sql ="select * from theater_session_list where program_no=$program_no AND time_date='$programDate' AND session_time='$programTime'";
 		$theater_session_list = $pdo->query( $sql );
 		$theater_session_list -> bindValue(":program_no",$prodRow->program_no);
 		$theater_session_list -> bindValue(":time_date",'$programDate');
@@ -65,7 +65,7 @@
 		}
 		//預設會員ID
 		$member_id=$mem_id;
-		$sql = "INSERT into theater_order_list (session_no,mem_id,number_purchase,used_ticket,order_date,original_amount,points_discount,credit_card) values(?,?,?,?,?,?,?,?)";
+		$sql = "INSERT into theater_order_list (session_no,mem_id,number_purchase,used_ticket,order_date,original_amount,points_discount,credit_card,program_no) values(?,?,?,?,?,?,?,?,?)";
 			$statement = $pdo->prepare($sql);
 			$statement->bindValue(1,$session_no);
 			$statement->bindValue(2,$member_id);
@@ -76,6 +76,7 @@
 			$statement->bindValue(6,$theater_total);
 			$statement->bindValue(7,$Scorenumber);
 			$statement->bindValue(8,$CardInfo);
+			$statement->bindValue(9,$program_no);
 			$statement->execute();
 			//抓取訂單編號
 			$prder_no = $pdo->lastInsertId();
@@ -99,9 +100,9 @@
 	 	
 		?>
 		<?php
-			echo "購買完成!<br>訂單編號:$prder_no";
+			echo "購買完成! 訂單編號:$prder_no";
 			//echo "<a href='MembersOnly.html'>會員專區</a>";
-			header("refresh:5; url=MembersOnly.html");	
+			//header("refresh:5; url=MembersOnly.html");	
 		} catch (PDOException $e) {
 		  echo "錯誤行號 : ", $e->getLine(), "<br>";
 		  echo "錯誤訊息 : ", $e->getMessage(), "<br>";	
