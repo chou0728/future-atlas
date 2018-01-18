@@ -11,18 +11,18 @@ window.onload = function(){
 	
 }
 
-function openlightBoxF(){
-	no = this.dataset.no;
-	var body = document.getElementsByTagName("body")[0];
-	lightBoxF = document.getElementsByClassName('facilityBox');
-	var close = document.getElementById('close');
-	body.style.overflow = "hidden";
-	lightBoxF[no].style.height = "100vh";
-	lightBoxF[no].style.opacity = "1";
-	close.style.display = "block";
-	close.onclick = closelightBoxF;
+// function openlightBoxF(){
+// 	no = this.dataset.no;
+// 	var body = document.getElementsByTagName("body")[0];
+// 	lightBoxF = document.getElementsByClassName('facilityBox');
+// 	var close = document.getElementById('close');
+// 	body.style.overflow = "hidden";
+// 	lightBoxF[no].style.height = "100vh";
+// 	lightBoxF[no].style.opacity = "1";
+// 	close.style.display = "block";
+// 	close.onclick = closelightBoxF;
 
-}
+// }
 
 function closelightBoxF(){
 	var body = document.getElementsByTagName("body")[0];
