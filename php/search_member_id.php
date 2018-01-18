@@ -1,9 +1,9 @@
 <?php
 	try{
 		require_once("connectBooks.php");
-		$sql = "select * from theater_order_list where member_id=:member_id";
+		$sql = "select * from theater_order_list where mem_id=:mem_id";
 		$theater_order_list = $pdo->prepare($sql);
-		$theater_order_list->bindValue(":member_id",$_REQUEST["member_id"]);
+		$theater_order_list->bindValue(":mem_id",$_REQUEST["mem_id"]);
 		$theater_order_list->execute();
 
 	  if( $theater_order_list->rowCount() == 0 ){ //找不到
@@ -30,7 +30,7 @@
 	      // $str .= '<input type="hidden" name="session_no" value="'.$sessionlistRow->session_no.'">';
 		  $str .= "<tr><td>" . $orderlistRow->theaterticket_no . "</td>";
 		  $str .= "<td>" . $orderlistRow->session_no . "</td>";
-		  $str .= "<td>" . $orderlistRow->member_id . "</td>";
+		  $str .= "<td>" . $orderlistRow->mem_id . "</td>";
 		  $str .= "<td>" . $orderlistRow->number_purchase . "</td>";
 		  $str .= "<td>" . $orderlistRow->used_ticket . "</td>";
 		  $str .= "<td>" . $orderlistRow->order_date . "</td>";

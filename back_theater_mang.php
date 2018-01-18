@@ -273,7 +273,7 @@
                 <form method="get" action="" align="center" enctype="multipart/form-data">
                     <h2 class="titleh2">劇場票劵訂單</h2>
                     <table class="TheaterOrderListTable" id='TheaterOrderListTable'>
-                        會員ID:<input type="text" value="1" id='member_id'>
+                        會員ID:<input type="text" value="1" id='mem_id'>
                             <!-- button類型要改成type="button"，預設type="submit" -->
                             <button type="button" onclick="searchOrderList()"  class="searchOrderList">查詢</button>
                             <div id="showPanel"></div>
@@ -322,7 +322,7 @@
                                         <?php echo  $prodRow["session_no"] ?>
                                     </td>
                                     <td >
-                                        <?php echo  $prodRow["member_id"] ?>
+                                        <?php echo  $prodRow["mem_id"] ?>
                                     </td>
                                     <td><?php echo  $prodRow["number_purchase"] ?>
                                     </td>
@@ -409,7 +409,7 @@
                 }
             }//xhr.onreadystatechange
           
-            var url = "php/search_member_id.php?member_id=" + document.getElementById("member_id").value;
+            var url = "php/search_member_id.php?mem_id=" + document.getElementById("mem_id").value;
             xhr.open("Get", url, true);
             xhr.send( null );
         }
