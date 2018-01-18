@@ -58,7 +58,7 @@ body::-webkit-scrollbar-thumb {
             	if(isset($_SESSION["mem_id"])===true){
                 			echo "'javascript:void(0)'";
                 		}else{
-                			echo "'SignUp.html'";
+                			echo "'register.html'";
                 		}
             ?> id="registerUser">
                 <img src="img/member/member_0.png">
@@ -335,7 +335,7 @@ body::-webkit-scrollbar-thumb {
     <div class="actHr"></div>
     <div id="showRow">
     	<div id="showRowUnitWrapper" style="font-size: 16px;">
-<!-- 	    	<div class="showRowText">活動名稱稱</div>
+<!-- 	    <div class="showRowText">活動名稱稱</div>
 	    	<div class="showRowText">活動地點點</div>
 	    	<div class="showRowText">00:00-00:00</div>
 	    	<div class="showRowText">活動介紹(15字內不然沒人看)</div> -->
@@ -402,7 +402,6 @@ body::-webkit-scrollbar-thumb {
 		<div class="leftLine"></div>
 		<div class="rightLine"></div>
 	</div>
-		
 		<form class="singUp" action="loginheadforindex.php" method="post">
 			<h2>會員登入</h2>
 			<div class="text">

@@ -74,7 +74,7 @@ if(isset($_SESSION["login_error"]) === true){
             	if(isset($_SESSION["mem_id"])===true){
                 			echo "'javascript:void(0)'";
                 		}else{
-                			echo "'SignUp.html'";
+                			echo "'register.html'";
                 		}
             ?> id="registerUser">
                 <img src="img/member/member_0.png">
