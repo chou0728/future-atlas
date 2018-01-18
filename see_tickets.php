@@ -161,8 +161,8 @@ session_start();
                             <span class="used"><?php echo $order_item_row["full_fare_num_used"] + $order_item_row["half_fare_num_used"] ?>張</span>
                         </p>
                         <div class="button_area">
-                            <a class="more_info" href="vaild_facility_tickets.html">詳細資訊</a>
-                            <a class="rate_faci" href="rate_facility.html">評價設施</a>
+                            <a class="more_info" href="vaild_facility_tickets.php">詳細資訊</a>
+                            <a class="rate_faci" href="rate_facility.php">評價設施</a>
                         </div>
 
                     </div>
@@ -224,7 +224,7 @@ session_start();
                                 <span class="unused"><?php echo $order_item_row["number_purchase"] ?>張</span>　已使用：
                                 <span class="used"><?php echo $order_item_row["used_ticket"] ?>張</span>
                             </p>
-                            <a class="more_info_theater" href="vaild_theater_tickets.html">詳細資訊</a>
+                            <a class="more_info_theater" href="vaild_theater_tickets.php">詳細資訊</a>
                         </div>
                     </div>
             
