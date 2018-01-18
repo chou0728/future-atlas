@@ -534,13 +534,15 @@ body{
 	font-size: 16px;
 }
 .showRowText{
-	  padding: 5px 10px;
-	  font-size: 16px;
-	  color: azure;
-		min-width: 100px;
-		width: 100%;
-	  display: inline-block;
-	  /*border: 1px solid white;*/
+	padding: 5px 10px;
+	font-size: 16px;
+	color: azure;
+	min-width: 100px;
+	width: 100%;
+	display: inline-block;
+}.showRowDiv{
+	display: block;
+	width: 100%;
 }
 
 

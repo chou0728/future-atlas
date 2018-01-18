@@ -227,20 +227,20 @@
         <div class="creditCardinfo">
             <p>信用卡號碼</p>
             <p style="font-size:10px;">
-                <input type="number" style="width:50px;" id="Card1" class="inputs" maxlength="4" onchange="creditCard()">-
-                <input type="number" style="width:50px;" id="Card2" class="inputs" maxlength="4"  onchange="creditCard()">-
-                <input type="number" style="width:50px;" id="Card3" class="inputs" maxlength="4"  onchange="creditCard()">-
-                <input type="number" style="width:50px;" id="Card4" class="inputs" maxlength="4"  onchange="creditCard()">
+                <input type="text" style="width:50px;" id="Card1" class="inputs" maxlength="4" onchange="creditCard()"  onkeyup="this.value=this.value.replace(/[^0-9]/g,'')">-
+                <input type="text" style="width:50px;" id="Card2" class="inputs" maxlength="4"  onchange="creditCard()"  onkeyup="this.value=this.value.replace(/[^0-9]/g,'')">-
+                <input type="text" style="width:50px;" id="Card3" class="inputs" maxlength="4"  onchange="creditCard()"  onkeyup="this.value=this.value.replace(/[^0-9]/g,'')">-
+                <input type="text" style="width:50px;" id="Card4" class="inputs" maxlength="4"  onchange="creditCard()"  onkeyup="this.value=this.value.replace(/[^0-9]/g,'')">
             </p>
             <p>到期日</p>
             <p style="font-size:5px;">
-                <input type="text" style="width:40px;"  maxlength="2" class="inputs" onchange="creditCard()"> /
-                <input type="text" style="width:40px;"  maxlength="2" class="inputs" onchange="creditCard()">
+                <input type="text" style="width:40px;"  maxlength="2" class="inputs" onchange="creditCard()" onkeyup="this.value=this.value.replace(/[^0-9]/g,'')"> /
+                <input type="text" style="width:40px;"  maxlength="2" class="inputs" onchange="creditCard()" onkeyup="this.value=this.value.replace(/[^0-9]/g,'')">
             </p>
             <!-- size是設定input大小 -->
             <p>驗證碼</p>
             <p>
-                <input type="text" style="width:40px;"  maxlength="3"  onchange="creditCard()">
+                <input type="text" style="width:40px;"  maxlength="3"  onchange="creditCard()" onkeyup="this.value=this.value.replace(/[^0-9]/g,'')">
             </p>
         </div>
 
@@ -254,8 +254,8 @@
     <!-- <button  onclick="ajax_post()">php</button> -->
     
     <!-- 顯示資料有到php -->
-    <!-- <div id="status" style="color:white;"> 
-    </div> -->
+    <div id="status" style="color:white;"> 
+    </div>
     
 
     <script type="text/javascript">

@@ -1,0 +1,210 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Examples</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style type="text/css">
+</style>
+</head>
+<style type="text/css">
+*{
+	font-family: 微軟正黑體;
+	color: azure;
+	/*border: 1px solid lightgray;*/
+	margin: 0;
+}
+body{
+	background-color: #222;
+}
+#signupwrapper{
+	width: 32%;
+	margin: 100px auto 0 auto;
+	height: 500px;
+	border: 1px solid black;
+	background-color: #555;
+	text-align: center;
+	padding: 20px;
+	box-shadow: 1px 1px 20px #575757;
+}.title{
+	font-size: 36px;
+	margin: 20px 0;
+}
+.subtitle{
+	font-size: 14px;
+	color: #dedede;
+}
+.inputdiv{
+	height: 30px;
+	position: relative;
+	margin: 25px 0;
+}.inputTitle,.inputbox,.hint{
+	position: absolute;
+	vertical-align: middle;
+}.inputTitle{
+	font-size: 18px;
+	top: 5%;
+	right: 70%;
+}.inputbox{
+	top:0;
+	left:30%;
+}
+.inputbox{
+	width: 230px;
+	height: 16px;
+}.inputbox input{
+	width: 100%;
+	height: 23px;
+	font-size: 16px;
+	background-color: #333;
+	border-radius: 10px;
+	text-indent: 20px;
+	box-shadow: none;
+	border: 1px solid #222;
+	outline: none;
+}
+.hint{
+	font-size: 12px;
+	color: pink;
+	height: 30px;
+	position: absolute;
+	top: 180%;
+	right: 0%;
+}#check_mem_id{
+	font-size: 12px;
+	position: absolute;
+	top: 30%;
+	right: -15%;
+}
+@media screen and (max-width: 767px){
+	#signupwrapper{
+		width: 85%;
+	}.inputTitle,.inputbox{
+		font-size: 16px;
+	}.inputTitle{
+		top:10%;
+		right: 75%;
+	}.inputbox{
+		left: 25%;
+	}
+}
+@media screen and (min-width: 768px) and (max-width: 1200px){
+	#signupwrapper{
+		width: 60%;
+	}
+}
+@media screen and (min-width: 1200px){
+
+}
+
+
+
+</style>
+<body>	
+<div id="signupwrapper">
+<div class="title">註冊會員</div>
+<div class="subtitle">立即享受50分贈點，可折抵票券消費！<br>搭乘玩設施後給我們評價，還可獲得5分積點，不亦樂乎！</div>
+<div class="inputdiv">
+	<div class="inputTitle">帳號：</div>
+	<div class="inputbox">
+		<input type="text" name="mem_name" id="mem_name" maxlength="20" placeholder="6-20碼英數" required>
+		<div class="hint">長度不足</div>
+		<div id="check_mem_id">檢查</div>
+	</div>
+</div>
+<div class="inputdiv">
+	<div class="inputTitle">暱稱：</div>
+	<div class="inputbox">
+		<input type="text" name="mem_nick" placeholder="6-20碼英數">
+		<div class="hint">長度不足</div>
+	</div>
+</div>
+<div class="inputdiv">
+	<div class="inputTitle">密碼：</div>
+	<div class="inputbox">
+		<input type="password" name="mem_password" id="mem_password" maxlength="20" placeholder="6-20碼英數" required>
+		<div class="hint">長度不足</div>
+	</div>
+</div>
+<div class="inputdiv">
+	<div class="inputTitle">驗證密碼：</div>
+	<div class="inputbox">
+		<input type="password" name="mem_password_verify" id="mem_password_verify" maxlength="20" placeholder="再次輸入密碼" required>
+	<div class="hint">再次輸入密碼</div>
+	</div>
+</div>
+<div class="inputdiv">
+	<div class="inputTitle">信箱：</div>
+	<div class="inputbox">
+		<input type="email" name="mem_mail" maxlength="20" required></div>
+	<!-- <div class="hint"></div> -->
+</div>
+<div class="inputdiv">
+	<div class="inputTitle">手機：</div>
+	<div class="inputbox">
+		<input type="text" name="mem_phone" id="mem_phone" maxlength="10" required>
+		<div class="hint">格式：09XXXXXXXX</div>
+	</div>
+</div>
+</div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+	// 輸入長度提示
+	var char_remain1 = 20;
+	var char_remain2 = 20;
+	var char_remain3 = 20;
+	$("#name_hint_input").keyup(function(){
+		if(char_remain1 > 0){
+			char_remain1--;
+			$("#name_hint").html("剩餘"+char_remain1+"字");
+		}
+	});
+	$("#nick_hint_input").keyup(function(){
+		if(char_remain2 > 0){
+			char_remain2--;
+			$("#nick_hint").html("剩餘"+char_remain2+"字");
+		}
+	});
+	$("#psw_hint_input").keyup(function(){
+		if(char_remain3 > 0){
+			char_remain3--;
+			$("#psw_hint").html("剩餘"+char_remain3+"字");
+		}
+	});
+});
+// 判斷這個帳號是不是有人用過
+// 帳號、密碼正規表達式
+document.getElementById("mem_name").onchange = function(){
+	var pattern = new RegExp('[^A-Za-z0-9_]');
+	var str = document.getElementById("mem_name").value;
+	if(str.match(pattern)){
+	    alert("格式錯誤，不能含有特殊字元");
+	}else{
+		alert("格式正確！");
+	}
+}
+document.getElementById("mem_password").onchange = function(){
+	var pattern = new RegExp('[^A-Za-z0-9_]');
+	var str = document.getElementById("mem_password").value;
+	if(str.match(pattern)){
+	    alert("格式錯誤，不能含有特殊字元");
+	}else{
+		alert("格式正確！");
+	}
+}
+// 手機正規表達式
+document.getElementById("mem_phone").onchange = function(){
+	var pattern = new RegExp(/^09\d{8}$/);
+	var str = document.getElementById("mem_phone").value;
+	if(str.match(pattern)){
+	    alert("格式正確。");
+	}else{
+		alert("格式錯誤！");
+	}
+}
+</script>
+</body>
+</html>
