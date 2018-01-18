@@ -62,7 +62,7 @@ body::-webkit-scrollbar-thumb {
                 <span class="register">
                     <?php
                         if(isset($_SESSION["mem_id"])===true){
-                            echo $_SESSION["mem_nick"]."你好!";
+                            echo "會員專區";
                         }else{
                             echo "註冊";
                         }

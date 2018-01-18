@@ -12,50 +12,54 @@ session_start();
 	<link rel="stylesheet" href="css/back_facility_M.css">
 </head>
 <body>
-	<header>
-		<h1 class="logo">
-			<img src="img/LOGO.png" alt="FA">
-			<span>後台管理系統</span>
-		</h1>
-		<ul class="nav">
-			<li class="navList">
-				<a href="">設施驗票</a>
-				<span class="listcover"></span>
-			</li>
-			<li class="navList">
-				<a href="">劇場驗票</a>
-				<span class="listcover"></span>
-			</li>
-			<li class="navList">
-				<a href="back_facilityM.html" style="color: black;">設施管理</a>
-				<span class="listcover" style="width: 100%;background-color: rgba(90, 230, 219,0.9);"></span>
-			</li>
-			<li class="navList">
-				<a href="back_TheaterMang.php">劇場管理</a>
-				<span class="listcover"></span>
-			</li>
-			<li class="navList">
-				<a href="back_activity.html">活動管理</a>
-				<span class="listcover"></span>
-			</li>
-			<li class="navList">
-				<a href="">會員管理</a>
-				<span class="listcover"></span>
-			</li>
-			<li class="navList">
-				<a href="">諮詢管理</a>
-				<span class="listcover"></span>
-			</li>
-			<li class="navList">
-				<a href="">權限管理</a>
-				<span class="listcover"></span>
-			</li>
-		</ul>
-	</header>
-	<div class="loginBox mobileLoginBox">
-			您好!<span id="managerId">最高管理員</span><span id="managerName">Manna</span>
-			<a href="javascript:void(0)">登出</a>
-	</div>
+	 <header>
+        <img src="img/back_menu_default.png" id="ham">
+        <h1 class="logo">
+            <img src="img/LOGO.png" alt="FA">
+            <span>後台管理系統</span>
+        </h1>
+        <ul class="nav">
+            <li class="navList">
+                <a href="back_check_facility_tickets.html">設施驗票</a>
+                <span class="listcover"></span>
+            </li>
+            <li class="navList">
+                <a href="back_check_theater_tickets.html">劇場驗票</a>
+                <span class="listcover"></span>
+            </li>
+            <li class="navList">
+                <a href="back_facilityM.php" style="color: black;">設施管理</a>
+                <span class="listcover"  style="width: 100%;background-color: rgba(90, 230, 219,0.9);"></span>
+                
+            </li>
+            <li class="navList">
+                <a href="back_TheaterMang.html">劇場管理</a>
+                <span class="listcover"></span>
+            </li>
+            <li class="navList">
+                <a href="back_activity.php">活動管理</a>
+                <span class="listcover"></span>
+            </li>
+            <li class="navList">
+                <a href="">會員管理</a>
+                <span class="listcover"></span>
+            </li>
+            <li class="navList">
+                <a href="">諮詢管理</a>
+                <span class="listcover"></span>
+            </li>
+            <li class="navList">
+                <a href="">權限管理</a>
+                <span class="listcover"></span>
+            </li>
+        </ul>
+    </header>
+    <div class="loginBox mobileLoginBox">
+        <span id="hello">您好!</span>
+        <span id="managerId">最高管理員</span>
+        <span id="managerName">Manna</span>
+        <a href="javascript:void(0)">登出</a>
+    </div>
 
 
 <!-- ===請由此複製============================================================= -->
@@ -445,7 +449,7 @@ try {
 <!-- ===========燈箱 for TICKET END======================================-->
 		</div>
 	</div>
-
+<script type="text/javascript" src="js/11back_nav.js"></script>
 <script>
 //---換分頁
         function openCity (evt,list) {
