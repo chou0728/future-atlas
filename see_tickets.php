@@ -161,7 +161,7 @@ session_start();
                             <span class="used"><?php echo $order_item_row["full_fare_num_used"] + $order_item_row["half_fare_num_used"] ?>張</span>
                         </p>
                         <div class="button_area">
-                            <a class="more_info" href="vaild_facility_tickets.php">詳細資訊</a>
+                            <a class="more_info" href="facility_tickets_detail.php" data-order-no="<?php echo $order_item_row["order_no"] ?>" data-facility-no="<?php echo $order_item_row["facility_no"] ?>">詳細資訊</a>
                             <a class="rate_faci" href="rate_facility.php">評價設施</a>
                         </div>
 
@@ -224,7 +224,7 @@ session_start();
                                 <span class="unused"><?php echo $order_item_row["number_purchase"] ?>張</span>　已使用：
                                 <span class="used"><?php echo $order_item_row["used_ticket"] ?>張</span>
                             </p>
-                            <a class="more_info_theater" href="vaild_theater_tickets.php">詳細資訊</a>
+                            <a class="more_info_theater" href="theater_tickets_detail.php" href="vaild_facility_tickets.php" data-theater-ticket-no="<?php echo $order_item_row["theater_ticket_no"] ?>" data-session-no="<?php echo $order_item_row["session_no"] ?>"  data-program-no="<?php echo $order_item_row["program_no"] ?>">詳細資訊</a>
                         </div>
                     </div>
             
@@ -251,8 +251,7 @@ session_start();
 
 </body>
 <!-- <script src="js/00nav.js"></script> -->
-<!-- <script src="js/see_tickets.js"></script> -->
-
+<script src="js/see_tickets.js"></script>
 
 
 

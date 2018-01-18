@@ -11,7 +11,7 @@ session_start();
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>有效設施票券</title>
+    <title>設施票券明細</title>
     <link rel="stylesheet" href="css/vaild_facility_tickets.css">
     <link rel="stylesheet" href="css/header.css">
     <link rel="stylesheet" href="css/login.css">
@@ -120,44 +120,85 @@ session_start();
                 <img src="img/Usericon.png" class="memIcon">
                 
             </div>
+
+
+
     <!-- content -->
+    
+    
     <div class="wrapper">
         <div class="content">
             <div class="info QR_info">
-                <h2>可使用數量</h2>
+
+            <?php
+
+                                
+                try {
+                    require_once("connectBooks.php");
+                    $sql = "SELECT c.facility_no,c.facility_name,b.order_date,a.order_no,b.original_total,b.discount,a.subtotal,(a.full_fare_num - a.full_fare_num_used) full_remain,(a.half_fare_num-a.half_fare_num_used) half_remain,a.full_fare_num_used,a.half_fare_num_used,a.full_fare_num,a.half_fare_num
+                    FROM facility_order_item a JOIN facility_order b ON a.order_no = b.order_no JOIN facility c ON a.facility_no = c.facility_no
+                    WHERE a.mem_id = ? AND a.order_no =? AND a.facility_no = ?";
+                    $order_item_PDO = $pdo->prepare($sql);
+                    $order_item_PDO->bindValue(1,$_COOKIE["mem_id"]);
+                    $order_item_PDO->bindValue(2,$_COOKIE["order_no"]); 
+                    $order_item_PDO->bindValue(3,$_COOKIE["facility_no"]);  
+                    $order_item_PDO->execute();
+                    $order_item = $order_item_PDO->fetchAll(PDO::FETCH_ASSOC);
+                    
+                    foreach( $order_item as $i=>$order_item_row){
+            ?>
+
+
+
+
+                <h2>設施名稱：<?php echo $order_item_row["facility_name"] ?></h2>
                 <div class="info_ticket_QR">
-                    <div class="QR">
-                        <img id="QR_code" src="../img/qrcode.jpg" alt="QR_code">
-                    </div>
+                    
+                    <img class="QR" src="https://chart.googleapis.com/chart?chs=200x200&cht=qr&chl=https://www.youtube.com/?<?php echo $order_item_row["order_no"] ?>.<?php echo $order_item_row["facility_no"] ?>"></img>
+                    
                     <div class="ticket_info">
-                        <p>設施名稱：宇宙雲霄飛車</p>
-                        <p>訂單編號：0001</p>
-                        <p>全票：2張　半票:1張　共3張</p>
+                        
+                        <p>購買日期：<?php echo $order_item_row["order_date"] ?></p>
+                        <p>訂單編號：<?php echo $order_item_row["order_no"] ?></p>
+                        <p>訂單總金額：<?php echo $order_item_row["original_total"] ?></p>
+                        <p>折扣金額：<?php echo $order_item_row["discount"] ?></p>
+                        <p>折扣後總金額：<?php echo $order_item_row["subtotal"] ?></p>
+                        <p>全票：<?php echo $order_item_row["full_fare_num"] ?>張　半票：<?php echo $order_item_row["half_fare_num"] ?>張　總計<?php echo $order_item_row["full_fare_num"] + $order_item_row["half_fare_num"] ?>張</p>
                     </div>
                 </div>
 
             </div>
             <div class="info">
-                <h2>使用紀錄</h2>
+                <h2>使用狀況</h2>
                 <div class="info_used_record">
                         <div class="records">
-                                <p>時間：2018/1/1 10:00　am</p>
-                                <p>註記張數：全票1張 半票1張　共2張</p>
-                                <p>註記人員：李小明</p>
+                            <h3>未使用票券</h3>
+                            <div class="records_info">
+                                <p>全票：<?php echo $order_item_row["full_remain"] ?>張</p>
+                                <p>半票：<?php echo $order_item_row["half_remain"] ?>張</p>
+                                <p>共：<?php echo $order_item_row["full_remain"] + $order_item_row["half_remain"] ?>張</p>
+                            </div>
+                            <h3>已使用張數</h3>
+                            <div class="records_info">
+                                <p>全票：<?php echo $order_item_row["full_fare_num_used"] ?>張</p>
+                                <p>半票：<?php echo $order_item_row["half_fare_num_used"] ?>張</p>
+                                <p>共：<?php echo $order_item_row["full_fare_num_used"] + $order_item_row["half_fare_num_used"] ?>張</p>
+                            </div>
                         </div>
-                        <div class="records">
-                                <p>時間：2018/1/1 10:00　am</p>
-                                <p>註記張數：全票1張 半票1張　共2張</p>
-                                <p>註記人員：李小明</p>
-                        </div>
-                        <div class="records">
-                                <p>時間：2018/1/1 10:00　am</p>
-                                <p>註記張數：全票1張 半票1張　共2張</p>
-                                <p>註記人員：李小明</p>
-                        </div>
-                       
-                    
                 </div>
+            
+
+                <?php
+                    }
+
+                    } catch (PDOException $e) {
+                        echo "錯誤原因 : " , $e->getMessage() , "<br>";
+                        echo "錯誤行號 : " , $e->getLine() , "<br>";
+                    }
+                ?>
+
+
+
 
             </div>
         </div>
