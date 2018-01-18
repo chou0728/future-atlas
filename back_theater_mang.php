@@ -287,6 +287,7 @@
                             <th>原始總額</th>
                             <th>積分折扣</th>
                             <th>信用卡卡號</th>
+                            <th>節目編號</th>
                         </tr>
                         <?php 
                             try {
@@ -340,6 +341,9 @@
                                     </td>
                                     <td> 
                                         <?php echo  $prodRow["credit_card"] ?>  
+                                    </td>
+                                    <td> 
+                                        <?php echo  $prodRow["program_no"] ?>  
                                     </td>
                                     <!-- <td><a href="#">修改</a></td> -->
                                 </tr>
