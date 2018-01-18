@@ -1,5 +1,5 @@
 *{
-/*	outline: 1px solid red;*/
+	outline: 1px solid red;
 	box-sizing: border-box;
   text-decoration: none;
   color: white;
@@ -227,9 +227,12 @@ body::-webkit-scrollbar-thumb {
   font-size: 20px;
 }
 
-
+/*340:220;*/
 .f_img{
 	position: relative;
+  width: 100%;
+  height: 64.7%;
+  overflow: hidden;
 }
 .f_img img{
 	width: 100%;

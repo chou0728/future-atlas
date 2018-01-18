@@ -620,7 +620,7 @@ session_start();
 
 					<div class="parameter">	
 						<p class="paraContent middleLinehight">
-							<span>身高限制</span>
+							<span>限制</span>
 							130cm~200cm
 						</p>
 					</div>
