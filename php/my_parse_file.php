@@ -77,6 +77,9 @@
 			$statement->bindValue(7,$Scorenumber);
 			$statement->bindValue(8,$CardInfo);
 			$statement->execute();
+			//抓取訂單編號
+			$prder_no = $pdo->lastInsertId();
+
 		//扣掉會員積分
 		$sql="select * from member where mem_id=$member_id";
 		$member = $pdo->query( $sql );
@@ -96,10 +99,9 @@
 	 	
 		?>
 		<?php
-			echo "購買完成";
-			//轉到BookingDone.php
+			echo "購買完成!<br>訂單編號:$prder_no<br><a href='MembersOnly.html'>會員專區</a>";
 			//echo "<a href='MembersOnly.html'>會員專區</a>";
-			// header("location:BookingDone.php");	
+			header("refresh:5; url=MembersOnly.html");	
 		} catch (PDOException $e) {
 		  echo "錯誤行號 : ", $e->getLine(), "<br>";
 		  echo "錯誤訊息 : ", $e->getMessage(), "<br>";	

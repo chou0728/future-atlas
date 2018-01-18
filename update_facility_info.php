@@ -99,7 +99,7 @@ try {
 						header("location:back_facilityM.php");
 			}else if(isset($_REQUEST["facility_no"])===false){
 				$sql = "insert into facility(facility_name,facility_subname,facility_phrase,facility_suit,facility_limit,facility_description,facility_intro,full_fare,half_fare) 
-				value(facility_name=:facility_name,facility_subname=:facility_subname,facility_phrase=:facility_phrase,facility_suit=:facility_suit,facility_limit=:facility_limit,facility_description=:facility_description,facility_intro=:facility_intro,full_fare=:full_fare,half_fare=:half_fare)";
+				value(:facility_name,:facility_subname,:facility_phrase,:facility_suit,:facility_limit,:facility_description,:facility_intro,:full_fare,:half_fare)";
 						$products = $pdo->prepare($sql);
 						$products->bindValue(":facility_name" , $_REQUEST["facility_name"]);
 						$products->bindValue(":facility_subname" , $_REQUEST["facility_subname"]);
@@ -111,8 +111,8 @@ try {
 						$products->bindValue(":full_fare" , $_REQUEST["full_fare"]);
 						$products->bindValue(":half_fare" , $_REQUEST["half_fare"]);
 						$products->execute();
-				// 		header("location:back_facilityM.php");
-						echo "facility_subname";
+						header("location:back_facilityM.php");
+						
 			}else if($_REQUEST["info_already"]==0||$_REQUEST["info_already"]==1){
 				echo "4-2";
 				$sql="update facility set info_already=:info_already where facility_no=:facility_no";
