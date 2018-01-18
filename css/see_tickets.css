@@ -11,8 +11,10 @@ body {
 
 .wrapper {
   width: 100%;
+  height: 100vh;
   max-width: 1440px;
-  background: #000; }
+  background: #000;
+  padding-bottom: 20px; }
   .wrapper .content {
     width: 100%;
     display: flex;
