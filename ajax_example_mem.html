@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>用ajax搭配json撈取資料</title>
+    
+</head>
+
+<body>
+
+    <span id="show_json"></span>
+    <br>
+    會員id：  <span id="mem_id"></span>
+    <br>
+    會員暱稱：  <span id="mem_nick"></span>
+    <br>
+    會員密碼 <span id="password"></span>
+    <br>
+
+</body>
+<script>
+    window.addEventListener("load", function () {
+
+        var xhr = new XMLHttpRequest();
+        xhr.onload = function () {
+
+            if (xhr.status == 200) {
+                
+                var show_json = document.getElementById('show_json');
+                var mem_id = document.getElementById('mem_id');
+                var mem_nick = document.getElementById('mem_nick');
+                var password = document.getElementById('password');
+                
+                var member = JSON.parse(xhr.responseText);//將透過ajax傳回來的json型態的資料轉換成js的物件
+
+                show_json.innerHTML = JSON.stringify(member);//透過JSON.stringify()這個方法可以把 facility 這個json物件轉成字串
+
+
+                mem_id.innerHTML = member.mem_id;
+
+                mem_nick.innerHTML = member.mem_nick;//透過物件的操作就可以帶值進去span中(SQL中欄位名稱直接變屬性)
+
+                password.innerHTML = member.password;//透過物件的操作就可以帶值進去span中(SQL中欄位名稱直接變屬性)
+                
+            } else {
+                alert(xhr.status);
+            }
+
+        }
+
+        var url = "ajax_example.php";
+        xhr.open("Get", url, true);
+        xhr.send();
+
+    }, false);
+</script>
+
+</html>

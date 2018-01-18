@@ -6,6 +6,8 @@
  // echo $_POST['theater_total'],'<br>';
  // echo $_POST['Scorenumber'],'<br>';
  // echo $_POST['CardInfo'],'<br>';
+	$mem_id=$_POST['mem_id'];
+	// echo $mem_id;
 	$programName=$_POST['programName'];
 	//日期
 	$programDate=$_POST['programDate'];
@@ -40,10 +42,10 @@
 			echo "<center>查無此場次資料</center>";
 		}else{
 			$prodRow = $theater_session_list->fetchObject();
-			$prodRow->session_no;
+			$session_no = $prodRow->session_no;
 		}
 		//利用session_no尋找last_ticket，剩餘數量last_ticket減去數量theater_quantity
-		$sql ="select * from theater_session_list where session_no=$prodRow->session_no";
+		$sql ="select * from theater_session_list where session_no=".$session_no;
 		$theater_session_list = $pdo->query( $sql );
 		if( $theater_session_list->rowCount()==0){
 			echo "<center>查無此剩餘票數資料</center>";
@@ -62,8 +64,8 @@
 			$theater_session_list->execute();
 		}
 		//預設會員ID
-		$member_id=2;
-		$sql = "INSERT into theater_order_list (session_no,member_id,number_purchase,used_ticket,order_date,original_amount,points_discount,credit_card) values(?,?,?,?,?,?,?,?)";
+		$member_id=$mem_id;
+		$sql = "INSERT into theater_order_list (session_no,mem_id,number_purchase,used_ticket,order_date,original_amount,points_discount,credit_card) values(?,?,?,?,?,?,?,?)";
 			$statement = $pdo->prepare($sql);
 			$statement->bindValue(1,$session_no);
 			$statement->bindValue(2,$member_id);
@@ -75,6 +77,9 @@
 			$statement->bindValue(7,$Scorenumber);
 			$statement->bindValue(8,$CardInfo);
 			$statement->execute();
+			//抓取訂單編號
+			$prder_no = $pdo->lastInsertId();
+
 		//扣掉會員積分
 		$sql="select * from member where mem_id=$member_id";
 		$member = $pdo->query( $sql );
@@ -94,13 +99,12 @@
 	 	
 		?>
 		<?php
-			echo "購買完成";
-			//轉到BookingDone.php
-			// header("location:BookingDone.php");	
+			echo "購買完成!<br>訂單編號:$prder_no";
+			//echo "<a href='MembersOnly.html'>會員專區</a>";
+			header("refresh:5; url=MembersOnly.html");	
 		} catch (PDOException $e) {
 		  echo "錯誤行號 : ", $e->getLine(), "<br>";
 		  echo "錯誤訊息 : ", $e->getMessage(), "<br>";	
 		}
 
 	?>
-?>

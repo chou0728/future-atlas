@@ -100,7 +100,7 @@ $(document).ready(function(){
 		$('.sq-two').toggleClass("move");
     //延遲一秒後才會跳到Theaterbuyticket.html
 		setTimeout(function(){
-			window.location.href = 'Theaterbuyticket.html';
+			window.location.href = 'Theaterbuyticket.php';
 		},300); 
 	}); 
 });

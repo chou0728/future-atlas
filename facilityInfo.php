@@ -68,7 +68,7 @@ session_start();
                 <span class="register">
                 	<?php
                 		if(isset($_SESSION["mem_id"])===true){
-                			echo $_SESSION["mem_nick"]."你好!";
+                			echo "<a href='MembersOnly.html'>我的資料</a>";
                 		}else{
                 			echo "註冊";
                 		}
@@ -84,7 +84,13 @@ session_start();
                 			echo"'javascript:void(0)'";
                 		}
                 	?> id="singUpBtn">
-                <img src="img/member/member_1.png">
+                <img src=<?php
+                		if(isset($_SESSION['mem_id'])===true){
+                			echo 'img/member/member_2.png';
+                		}else{
+                			echo 'img/member/member_1.png';
+                		}
+					?>>
                 <span class="login">
                 	<?php
                 		if(isset($_SESSION["mem_id"])===true){
@@ -97,11 +103,11 @@ session_start();
             </a>
         </li>
         <li class="li_top">
-             <a href="input_cart.html">
+             <a href="input_cart.php">
                 <img id="cartimgid" src="img/cart/wallet_0.png">
                 <span id="howmanytickets">0</span>
             </a>
-                <div id="showCartContent">購物車內容
+                <div id="showCartContent">預覽購物車
                     <table id="showCartContenttb"></table>
                 </div>
         </li>
@@ -216,18 +222,60 @@ session_start();
 
 	<!--設施區塊-->
 	<section class="fi_panel">
-		<div class="f_box" data-category="1" data-no="0"><!-- 0:VR,1:刺激,2:兒童,3:情侶,4:雨天 -->
+
+<?php 
+try {
+	require_once("php/connectBooks.php");
+	$sql = "select * from facility where info_already=1";
+	$products = $pdo->query($sql);
+	$a = 0;//data-category寫死
+	while($prodRow = $products->fetchObject()){
+	switch ($prodRow->facility_no) {
+		case '1':
+			$a = "1";
+			break;
+		case '2':
+			$a = "234";
+			break;
+		case '3':
+			$a = "234";
+			break;
+		case '4':
+			$a = "014";
+			break;
+		case '5':
+			$a = "23";
+			break;
+		case '6':
+			$a = "014";
+			break;
+		case '7':
+			$a = "234";
+			break;
+		case '8':
+			$a = "34";
+			break;
+		case '9':
+			$a = "4";
+			break;
+		default:
+			$a = "0123"
+			break;
+	}
+		
+?>
+		<div class="f_box" data-category="<?php echo $a ?>" data-no="<?php $prodRow->facility_no ?>"><!-- 0:VR,1:刺激,2:兒童,3:情侶,4:雨天 -->
 		<div class="bcover_border">
 			<div class="f_mainphoto">
 				<a href="javascript:void(0)">
-					<img src="img/facilityInfo/sub_6365_LL.png" alt="rollerimg">
+					<img src="img/facilityInfo/<?php $prodRow->facility_mphoto ?>" alt="<?php $prodRow->facility_name ?>img">
 				</a>
 				<div class="fi_caution">
 					<a href="javascript:void(0)">Information<span>!</span></a>
 				</div>
 				</div>
 			<a href="javascript:void(0)" class="bigA">
-				<h2>宇宙雲霄飛車</h2>
+				<h2><?php $prodRow->facility_name ?></h2>
 				<div class="points">
 					<img src="img/facilityInfo/star-dami.png" alt="">
 					<img src="img/facilityInfo/star-dami.png" alt="">
@@ -420,42 +468,7 @@ session_start();
 			</div>
 		</div>
 		</div>
-
-		<div class="f_box"  data-category="04" data-no="7">
-			<div class="bcover_border">
-			<div class="f_mainphoto">
-				<img src="img/facilityInfo/dami.jpg" alt="dami">
-			</div>
-			<h2>404劇場</h2>
-			<div class="points">
-				<img src="img/facilityInfo/star-dami.png" alt="">
-				<img src="img/facilityInfo/star-dami.png" alt="">
-				<img src="img/facilityInfo/star-dami.png" alt="">
-				<img src="img/facilityInfo/star-dami.png" alt="">
-				<img src="img/facilityInfo/star-dami.png" alt="">
-				<span>(0)</span>
-			</div>
-		</div>
-	</div>
-	</div>
 <!-- -s- -->
-		<div class="f_box"  data-category="04" data-no="8">
-			<div class="bcover_border">
-			<div class="f_mainphoto">
-				<img src="img/facilityInfo/dami.jpg" alt="dami">
-			</div>
-			<h2>404</h2>
-			<div class="points">
-				<img src="img/facilityInfo/star-dami.png" alt="">
-				<img src="img/facilityInfo/star-dami.png" alt="">
-				<img src="img/facilityInfo/star-dami.png" alt="">
-				<img src="img/facilityInfo/star-dami.png" alt="">
-				<img src="img/facilityInfo/star-dami.png" alt="">
-				<span>(0)</span>
-			</div>
-		</div>
-		</div>
-		
 	</section>
 
 
@@ -569,447 +582,7 @@ session_start();
 			</div>
 		</section>
 	</div>
-<!-- ======================================= 設施02 ======================================= -->
-	<div class="facilityBox fadeout" id="facility02">
-		<section class="lightbox_wrapper">
-			<span class="file shuffle">FacilityInfo_02</span>
-			<div class="main_photo">
-				<img src="img/facilityInfo/sub_6365_LL.png">
-				<h2 class="title">宇宙雲霄飛車2</h2>
-				<span class="subTitle">COSMOS ROLLER COASTER</span>
-			</div>
-			<div class="content">
-				
-
-				<div class="inlineB paraLeft">
-					<ul>
-						<li>全長<span>1250</span>公尺</li>
-						<li>速度最高<span>92</span>公里/小時</li>
-						<li>高度最高<span>32</span>公尺</li>
-					</ul>
-				</div>
-
-				<div class="inlineB paraRight">
-
-					<div class="parameter">
-						<div class="paraContent">
-							<span>心跳指數</span>
-							
-							<svg viewBox="0 0 54 64" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns"><defs></defs>
-							  <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" sketch:type="MSPage">
-							    <path class="beat-loader" d="M0.5,38.5 L16,38.5 L19,25.5 L24.5,57.5 L31.5,7.5 L37.5,46.5 L43,38.5 L53.5,38.5" id="Path-2" stroke-width="1" sketch:type="MSShapeGroup"></path>
-							  </g>
-							</svg>
-							<div class="heartbeat">120下/1min</div>
-						</div>
-					</div>
-
-					<div class="parameter">
-						
-						<p class="paraContent middleLinehight">
-							<span>適合對象</span>
-							想感受刺激的人
-						</p>
-					</div>
-
-					<div class="parameter">	
-						<p class="paraContent middleLinehight">
-							<span>身高限制</span>
-							130cm~200cm
-						</p>
-					</div>
-				</div>
-			</div>
-
-			<div class="hr">
-				<div class="trai"></div>	
-			</div>
-			<a href="facilityBuyTicket.html" id="getTicket">立即前往購票</a>
-			<div class="content">
-			<div class="scoreTitle">設施介紹</div>		
-				<p class="info">
-					雲霄飛車是一種機動遊樂設施，常見於遊樂園和主題樂園中。Thompson是第一個註冊雲霄飛車相關專利技術的人（1865年1月20日），並曾製造過十數個雲霄飛車設施，因此被譽稱為「重力之父」。一個基本的雲霄飛車構造中，包含了爬昇、滑落、倒轉，其軌道的設計不一定是一個完整的迴圈，也可以設計為車體在軌道上的運行方式為來回移動。
-					
-				</p>
-			</div>
-
-
-			<div class="content">
-				<div class="scoreTitle">設施評價</div>
-				<div class="scoreContainer">
-					<ul>
-						<li class="scoreAverage">總平均<span>4.5</span>分</li>
-						<li class="star">★★★★★</li>
-						<li class="kai">總評分次數<span>1583</span>次</li>
-					</ul>
-				</div>
-				<div id="comment">
-					<div class="memcommentBox">
-						<span class="memName">FutureAttak</span>
-						<span class="memScore">★★★★★</span>
-						<span class="memComment">noComment</span>
-					</div>
-					<div class="memcommentBox">
-						<span class="memName">5-0DX</span>
-						<span class="memScore">★★★★★</span>
-						<span class="memComment">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed dtempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.</span>
-					</div>
-					<div class="memcommentBox">
-						<span class="memName">T'Vulcia</span>
-						<span class="memScore">★★★★★</span>
-						<span class="memComment">Great!</span>
-					</div>
-					<div class="memcommentBox">
-						<span class="memName">T'Vulcia</span>
-						<span class="memScore">★★★★★</span>
-						<span class="memComment">Great!</span>
-					</div>
-					<div class="memcommentBox">
-						<span class="memName">T'Vulcia</span>
-						<span class="memScore">★★★★★</span>
-						<span class="memComment">Great!</span>
-					</div>
-					<div class="memcommentBox">
-						<span class="memName">Au'Vhadu</span>
-						<span class="memScore">★★★★★</span>
-						<span class="memComment">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmo tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-						quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo.</span>
-					</div>
-				</div>
-			</div>
-		</section>
-	</div>
-<!-- ======================================= 設施03 ======================================= -->
-	<div class="facilityBox fadeout" id="facility03">
-		<section class="lightbox_wrapper">
-			<span class="file shuffle">FacilityInfo_03</span>
-			<div class="main_photo">
-				<img src="img/facilityInfo/sub_6365_LL.png">
-				<h2 class="title">宇宙雲霄飛車3</h2>
-				<span class="subTitle">COSMOS ROLLER COASTER</span>
-			</div>
-			<div class="content">
-				
-
-				<div class="inlineB paraLeft">
-					<ul>
-						<li>全長<span>1250</span>公尺</li>
-						<li>速度最高<span>92</span>公里/小時</li>
-						<li>高度最高<span>32</span>公尺</li>
-					</ul>
-				</div>
-
-				<div class="inlineB paraRight">
-
-					<div class="parameter">
-						<div class="paraContent">
-							<span>心跳指數</span>
-							
-							<svg viewBox="0 0 54 64" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns"><defs></defs>
-							  <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" sketch:type="MSPage">
-							    <path class="beat-loader" d="M0.5,38.5 L16,38.5 L19,25.5 L24.5,57.5 L31.5,7.5 L37.5,46.5 L43,38.5 L53.5,38.5" id="Path-2" stroke-width="1" sketch:type="MSShapeGroup"></path>
-							  </g>
-							</svg>
-							<div class="heartbeat">120下/1min</div>
-						</div>
-					</div>
-
-					<div class="parameter">
-						
-						<p class="paraContent middleLinehight">
-							<span>適合對象</span>
-							想感受刺激的人
-						</p>
-					</div>
-
-					<div class="parameter">	
-						<p class="paraContent middleLinehight">
-							<span>身高限制</span>
-							130cm~200cm
-						</p>
-					</div>
-				</div>
-			</div>
-
-			<div class="hr">
-				<div class="trai"></div>	
-			</div>
-			<a href="facilityBuyTicket.html" id="getTicket">立即前往購票</a>
-			<div class="content">
-			<div class="scoreTitle">設施介紹</div>		
-				<p class="info">
-					雲霄飛車是一種機動遊樂設施，常見於遊樂園和主題樂園中。Thompson是第一個註冊雲霄飛車相關專利技術的人（1865年1月20日），並曾製造過十數個雲霄飛車設施，因此被譽稱為「重力之父」。一個基本的雲霄飛車構造中，包含了爬昇、滑落、倒轉，其軌道的設計不一定是一個完整的迴圈，也可以設計為車體在軌道上的運行方式為來回移動。
-					
-				</p>
-			</div>
-
-
-			<div class="content">
-				<div class="scoreTitle">設施評價</div>
-				<div class="scoreContainer">
-					<ul>
-						<li class="scoreAverage">總平均<span>4.5</span>分</li>
-						<li class="star">★★★★★</li>
-						<li class="kai">總評分次數<span>1583</span>次</li>
-					</ul>
-				</div>
-				<div id="comment">
-					<div class="memcommentBox">
-						<span class="memName">FutureAttak</span>
-						<span class="memScore">★★★★★</span>
-						<span class="memComment">noComment</span>
-					</div>
-					<div class="memcommentBox">
-						<span class="memName">5-0DX</span>
-						<span class="memScore">★★★★★</span>
-						<span class="memComment">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed dtempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.</span>
-					</div>
-					<div class="memcommentBox">
-						<span class="memName">T'Vulcia</span>
-						<span class="memScore">★★★★★</span>
-						<span class="memComment">Great!</span>
-					</div>
-					<div class="memcommentBox">
-						<span class="memName">T'Vulcia</span>
-						<span class="memScore">★★★★★</span>
-						<span class="memComment">Great!</span>
-					</div>
-					<div class="memcommentBox">
-						<span class="memName">T'Vulcia</span>
-						<span class="memScore">★★★★★</span>
-						<span class="memComment">Great!</span>
-					</div>
-					<div class="memcommentBox">
-						<span class="memName">Au'Vhadu</span>
-						<span class="memScore">★★★★★</span>
-						<span class="memComment">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmo tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-						quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo.</span>
-					</div>
-				</div>
-			</div>
-		</section>
-	</div>
-<!-- ======================================= 設施04 ======================================= -->
-	<div class="facilityBox fadeout" id="facility04">
-		<section class="lightbox_wrapper">
-			<span class="file shuffle">FacilityInfo_04</span>
-			<div class="main_photo">
-				<img src="img/facilityInfo/sub_6365_LL.png">
-				<h2 class="title">宇宙雲霄飛車4</h2>
-				<span class="subTitle">COSMOS ROLLER COASTER</span>
-			</div>
-			<div class="content">
-				
-
-				<div class="inlineB paraLeft">
-					<ul>
-						<li>全長<span>1250</span>公尺</li>
-						<li>速度最高<span>92</span>公里/小時</li>
-						<li>高度最高<span>32</span>公尺</li>
-					</ul>
-				</div>
-
-				<div class="inlineB paraRight">
-
-					<div class="parameter">
-						<div class="paraContent">
-							<span>心跳指數</span>
-							
-							<svg viewBox="0 0 54 64" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns"><defs></defs>
-							  <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" sketch:type="MSPage">
-							    <path class="beat-loader" d="M0.5,38.5 L16,38.5 L19,25.5 L24.5,57.5 L31.5,7.5 L37.5,46.5 L43,38.5 L53.5,38.5" id="Path-2" stroke-width="1" sketch:type="MSShapeGroup"></path>
-							  </g>
-							</svg>
-							<div class="heartbeat">120下/1min</div>
-						</div>
-					</div>
-
-					<div class="parameter">
-						
-						<p class="paraContent middleLinehight">
-							<span>適合對象</span>
-							想感受刺激的人
-						</p>
-					</div>
-
-					<div class="parameter">	
-						<p class="paraContent middleLinehight">
-							<span>身高限制</span>
-							130cm~200cm
-						</p>
-					</div>
-				</div>
-			</div>
-
-			<div class="hr">
-				<div class="trai"></div>	
-			</div>
-			<a href="facilityBuyTicket.html" id="getTicket">立即前往購票</a>
-			<div class="content">
-			<div class="scoreTitle">設施介紹</div>		
-				<p class="info">
-					雲霄飛車是一種機動遊樂設施，常見於遊樂園和主題樂園中。Thompson是第一個註冊雲霄飛車相關專利技術的人（1865年1月20日），並曾製造過十數個雲霄飛車設施，因此被譽稱為「重力之父」。一個基本的雲霄飛車構造中，包含了爬昇、滑落、倒轉，其軌道的設計不一定是一個完整的迴圈，也可以設計為車體在軌道上的運行方式為來回移動。
-					
-				</p>
-			</div>
-
-
-			<div class="content">
-				<div class="scoreTitle">設施評價</div>
-				<div class="scoreContainer">
-					<ul>
-						<li class="scoreAverage">總平均<span>4.5</span>分</li>
-						<li class="star">★★★★★</li>
-						<li class="kai">總評分次數<span>1583</span>次</li>
-					</ul>
-				</div>
-				<div id="comment">
-					<div class="memcommentBox">
-						<span class="memName">FutureAttak</span>
-						<span class="memScore">★★★★★</span>
-						<span class="memComment">noComment</span>
-					</div>
-					<div class="memcommentBox">
-						<span class="memName">5-0DX</span>
-						<span class="memScore">★★★★★</span>
-						<span class="memComment">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed dtempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.</span>
-					</div>
-					<div class="memcommentBox">
-						<span class="memName">T'Vulcia</span>
-						<span class="memScore">★★★★★</span>
-						<span class="memComment">Great!</span>
-					</div>
-					<div class="memcommentBox">
-						<span class="memName">T'Vulcia</span>
-						<span class="memScore">★★★★★</span>
-						<span class="memComment">Great!</span>
-					</div>
-					<div class="memcommentBox">
-						<span class="memName">T'Vulcia</span>
-						<span class="memScore">★★★★★</span>
-						<span class="memComment">Great!</span>
-					</div>
-					<div class="memcommentBox">
-						<span class="memName">Au'Vhadu</span>
-						<span class="memScore">★★★★★</span>
-						<span class="memComment">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmo tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-						quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo.</span>
-					</div>
-				</div>
-			</div>
-		</section>
-	</div>
-<!-- ======================================= 設施05 ======================================= -->
-	<div class="facilityBox fadeout" id="facility05">
-		<section class="lightbox_wrapper">
-			<span class="file shuffle">FacilityInfo_05</span>
-			<div class="main_photo">
-				<img src="img/facilityInfo/sub_6365_LL.png">
-				<h2 class="title">宇宙雲霄飛車5</h2>
-				<span class="subTitle">COSMOS ROLLER COASTER</span>
-			</div>
-			<div class="content">
-				
-
-				<div class="inlineB paraLeft">
-					<ul>
-						<li>全長<span>1250</span>公尺</li>
-						<li>速度最高<span>92</span>公里/小時</li>
-						<li>高度最高<span>32</span>公尺</li>
-					</ul>
-				</div>
-
-				<div class="inlineB paraRight">
-
-					<div class="parameter">
-						<div class="paraContent">
-							<span>心跳指數</span>
-							
-							<svg viewBox="0 0 54 64" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns"><defs></defs>
-							  <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" sketch:type="MSPage">
-							    <path class="beat-loader" d="M0.5,38.5 L16,38.5 L19,25.5 L24.5,57.5 L31.5,7.5 L37.5,46.5 L43,38.5 L53.5,38.5" id="Path-2" stroke-width="1" sketch:type="MSShapeGroup"></path>
-							  </g>
-							</svg>
-							<div class="heartbeat">120下/1min</div>
-						</div>
-					</div>
-
-					<div class="parameter">
-						
-						<p class="paraContent middleLinehight">
-							<span>適合對象</span>
-							想感受刺激的人
-						</p>
-					</div>
-
-					<div class="parameter">	
-						<p class="paraContent middleLinehight">
-							<span>身高限制</span>
-							130cm~200cm
-						</p>
-					</div>
-				</div>
-			</div>
-
-			<div class="hr">
-				<div class="trai"></div>	
-			</div>
-			<a href="facilityBuyTicket.html" id="getTicket">立即前往購票</a>
-			<div class="content">
-			<div class="scoreTitle">設施介紹</div>		
-				<p class="info">
-					雲霄飛車是一種機動遊樂設施，常見於遊樂園和主題樂園中。Thompson是第一個註冊雲霄飛車相關專利技術的人（1865年1月20日），並曾製造過十數個雲霄飛車設施，因此被譽稱為「重力之父」。一個基本的雲霄飛車構造中，包含了爬昇、滑落、倒轉，其軌道的設計不一定是一個完整的迴圈，也可以設計為車體在軌道上的運行方式為來回移動。
-					
-				</p>
-			</div>
-
-
-			<div class="content">
-				<div class="scoreTitle">設施評價</div>
-				<div class="scoreContainer">
-					<ul>
-						<li class="scoreAverage">總平均<span>4.5</span>分</li>
-						<li class="star">★★★★★</li>
-						<li class="kai">總評分次數<span>1583</span>次</li>
-					</ul>
-				</div>
-				<div id="comment">
-					<div class="memcommentBox">
-						<span class="memName">FutureAttak</span>
-						<span class="memScore">★★★★★</span>
-						<span class="memComment">noComment</span>
-					</div>
-					<div class="memcommentBox">
-						<span class="memName">5-0DX</span>
-						<span class="memScore">★★★★★</span>
-						<span class="memComment">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed dtempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.</span>
-					</div>
-					<div class="memcommentBox">
-						<span class="memName">T'Vulcia</span>
-						<span class="memScore">★★★★★</span>
-						<span class="memComment">Great!</span>
-					</div>
-					<div class="memcommentBox">
-						<span class="memName">T'Vulcia</span>
-						<span class="memScore">★★★★★</span>
-						<span class="memComment">Great!</span>
-					</div>
-					<div class="memcommentBox">
-						<span class="memName">T'Vulcia</span>
-						<span class="memScore">★★★★★</span>
-						<span class="memComment">Great!</span>
-					</div>
-					<div class="memcommentBox">
-						<span class="memName">Au'Vhadu</span>
-						<span class="memScore">★★★★★</span>
-						<span class="memComment">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmo tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-						quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo.</span>
-					</div>
-				</div>
-			</div>
-		</section>
-	</div>
-</section>
+<!-- ======================================= 設施 ======================================= -->
 	<div id="close"><img src="img/facilityInfo/close.png"></div>
 
 	<div id="all-page"></div><!-- login登箱叫出時背景-->
@@ -1085,6 +658,19 @@ session_start();
 					lightBox.style.visibility = 'hidden';
 					fullCover.style.display="";
 				}
+								// 若登入，將mem_id存入localStorage
+				var storage = localStorage;
+				storage.setItem("mem_id",
+					<?php
+	               		if(isset($_SESSION["mem_id"])===true){
+	               			echo $_SESSION["mem_id"];
+	               		}else{
+	               			echo "0";
+	               			// 若未登入，mem_id為0
+	               		}
+                	?>
+					);
+				
 				
 				
 			}

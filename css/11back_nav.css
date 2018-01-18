@@ -4,7 +4,7 @@
 }
 body{
 	background-color:#ccc;
-	overflow-x: hidden;
+	/*overflow-x: hidden;*/
 }
 header{
 	position: fixed;

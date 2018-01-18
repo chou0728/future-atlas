@@ -1,3 +1,7 @@
+<?php
+ob_start();
+session_start();
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -7,6 +11,7 @@
 <title>activity</title>
 <link rel="stylesheet" type="text/css" href="css/activity_calendar.css">
 <link rel="stylesheet" type="text/css" href="css/header.css">
+<link rel="stylesheet" type="text/css" href="css/login.css">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
 <script src="js/modernizr.custom.97074.js"></script>
 <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
@@ -29,6 +34,17 @@ body::-webkit-scrollbar-thumb {
   background-color: rgba(100,255,243,1);
  /* outline: 1px solid rgba(100,255,243,1);*/
 }
+#all-page{
+	position: fixed;
+	top:0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background: repeating-linear-gradient(transparent 0px, transparent 1px,transparent 1px, transparent 3px,rgba(0,0, 0,0.5) 3px, rgba(0, 0, 0,0.8) 4px);
+	background-color: #222;
+	display: none;
+	opacity: 0.7;
+}
 </style>
 </head>
 <body>
@@ -38,23 +54,57 @@ body::-webkit-scrollbar-thumb {
             <img src="img/Usericon1.png">
         </div>
         <li class="li_top">
-            <a href="SignUp.html" id="registerUser">
+            <a href=<?php
+            	if(isset($_SESSION["mem_id"])===true){
+                			echo "'javascript:void(0)'";
+                		}else{
+                			echo "'register.html'";
+                		}
+            ?> id="registerUser">
                 <img src="img/member/member_0.png">
-                <span class="register">註冊</span>
+                <span class="register">
+                	<?php
+                		if(isset($_SESSION["mem_id"])===true){
+                			echo "<a href='MembersOnly.html'>我的資料</a>";
+                		}else{
+                			echo "註冊";
+                		}
+                	?>
+                </span>
             </a>
         </li>
         <li class="li_top">
-            <a href="#" id="singUpBtn">
-                <img src="img/member/member_1.png">
-                <span class="login">登入</span>
+            <a href=<?php
+                		if(isset($_SESSION["mem_id"])===true){
+                			echo"'logoutheadforindex.php'";
+                		}else{
+                			echo"'javascript:void(0)'";
+                		}
+                	?> id="singUpBtn">
+                <img src=<?php
+                		if(isset($_SESSION['mem_id'])===true){
+                			echo 'img/member/member_2.png';
+                		}else{
+                			echo 'img/member/member_1.png';
+                		}
+					?>>
+                <span class="login">
+                	<?php
+                		if(isset($_SESSION["mem_id"])===true){
+                			echo"登出";
+                		}else{
+                			echo"登入";
+                		}
+                	?>
+                </span>
             </a>
         </li>
         <li class="li_top">
-             <a href="input_cart.html">
+             <a href="input_cart.php">
                 <img id="cartimgid" src="img/cart/wallet_0.png">
                 <span id="howmanytickets">0</span>
             </a>
-                <div id="showCartContent">購物車內容
+                <div id="showCartContent">預覽購物車
                     <table id="showCartContenttb"></table>
                 </div>
         </li>
@@ -67,19 +117,19 @@ body::-webkit-scrollbar-thumb {
                 <a href="Theaterbuyticket.html">劇場購票</a>
             </li>
             <li>
-                <a href="facilityBuyTicket.html">設施購票</a>
+                <a href="facilityBuyTicket.php">設施購票</a>
             </li>
             <li>
-                <a href="facilityInfo.html">設施介紹</a>
+                <a href="facilityInfo.php">設施介紹</a>
             </li>
         </ul>
         <h1 style="display: none">FutureAtlas_未來主題樂園</h1>
-        <a href="index.html#page1" class="logo_a">
+        <a href="====index.php" class="logo_a">
             <img src="img/LOGO.png" class="logo">
         </a>
         <ul class="ul_right">
             <li>
-                <a href="index.html#page2">園區地圖</a>
+                <a href="#page2" id="NavClose">園區地圖</a>
             </li>
             <li>
                 <a href="activity.html">活動月曆</a>
@@ -102,8 +152,7 @@ body::-webkit-scrollbar-thumb {
     
 </div>
 
-    <!-- header end-->
-
+<!-- header end-->
 
 <div id="wrapper">
 
@@ -283,14 +332,13 @@ body::-webkit-scrollbar-thumb {
 			<!-- <div id="switchBlock" class="inline_src"></div> -->
 		</div>
     </div>
-    
     <div class="actHr"></div>
     <div id="showRow">
-    	<div class="showRowUnitWrapper">
-	    	<div class="acTitle showRowText">活動名稱稱</div>
-	    	<div class="acLoc showRowText">活動地點點</div>
-	    	<div class="acTime showRowText">00:00-00:00</div>
-	    	<div class="acIntro showRowText">活動介紹(15字內不然沒人看)</div>
+    	<div id="showRowUnitWrapper" style="font-size: 16px;">
+<!-- 	    <div class="showRowText">活動名稱稱</div>
+	    	<div class="showRowText">活動地點點</div>
+	    	<div class="showRowText">00:00-00:00</div>
+	    	<div class="showRowText">活動介紹(15字內不然沒人看)</div> -->
     	</div>
     </div>
 
@@ -347,6 +395,28 @@ body::-webkit-scrollbar-thumb {
 		</a>
 	</li>
 	</ul>
+<!-- 登入燈箱 -->
+<div id="all-page"></div><!-- 叫出時背景-->
+<div id="lightBox">
+	<div id="cancel">
+		<div class="leftLine"></div>
+		<div class="rightLine"></div>
+	</div>
+		<form class="singUp" action="loginheadforindex.php" method="post">
+			<h2>會員登入</h2>
+			<div class="text">
+				會員帳號：<input type="text" name="memName" id="memId" value="" required placeholder="輸入帳號" style="font-size: 16px">
+				<br>
+				會員密碼：<input type="password" name="memPsw"  id="memPsw" value="" required placeholder="輸入密碼" style="font-size: 16px">
+				<br>
+			</div>
+			<div class="btn">
+				<input type="submit" name="" id="submit" value="登入">
+				<input type="reset" name="reset" value="RESET">
+        	</div>
+		</form>
+</div>
+<!-- 登入燈箱 -->
 <script src="js/00nav.js"></script>
 <script type="text/javascript" src="js/04calendar.js"></script>
 
@@ -395,6 +465,72 @@ $(document).ready(function(){
 		$(".login").prev().attr("src","img/member/member_2.png");
 	}
 });
+
+	//-登入-----------------------------------
+			window.addEventListener("load",openLoginBox);
+			function openLoginBox() {
+
+				var storage = localStorage;
+				/*註冊登入按鈕*/
+				var singUpBtn = document.getElementById('singUpBtn');
+
+				/*註冊燈箱*/
+				var lightBox = document.getElementById('lightBox');
+
+				/*註冊燈箱關閉按鈕*/
+				var cancel = document.getElementById('cancel');
+
+				/*建立登入按鈕點擊事件聆聽功能*/
+				singUpBtn.addEventListener('click', showLogin, false);
+
+
+
+				/*建立關閉登入燈箱按鈕點擊事件聆聽功能*/
+				cancel.addEventListener('click', closeLogin, false);
+
+
+				/*點案登入show出登入燈箱 以及判斷登出按鈕*/
+				function showLogin() {
+					console.log(singUpBtn.innerText);
+					/*如果singUpBtn為登入時*/
+					fullCover = document.getElementById('all-page');/*叫出燈箱時的墊背*/
+					if(singUpBtn.innerText.indexOf("登入") != -1){
+						/*show出燈箱*/
+						lightBox.style.opacity = 1;
+						fullCover.style.display="block";
+						lightBox.style.visibility = 'visible'
+						lightBox.style.display = "block";
+						allNavClose();
+					}
+				}
+				
+
+
+				/*點案登入關閉登入燈箱*/
+				function closeLogin() {
+					lightBox.style.opacity = 0;
+					lightBox.style.visibility = 'hidden';
+					fullCover.style.display="";
+				}
+				
+				
+			}
+
+function loginss(){
+    // 若登入，將mem_id存入localStorage
+    var storage = localStorage;
+    storage.setItem("mem_id",
+        <?php
+            if(isset($_SESSION["mem_id"])===true){
+                echo $_SESSION["mem_id"];
+            }else{
+                echo "0";
+                // 若未登入，mem_id為0
+            }
+        ?>
+        );
+}
+window.addEventListener("load",loginss);
 </script>
 </body>
 </html>

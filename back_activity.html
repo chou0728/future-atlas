@@ -6,7 +6,7 @@
 	<!-- ======請複製==== -->
 	<link rel="stylesheet" type="text/css" href="css/RESET.css">
 	<link rel="stylesheet" type="text/css" href="css/11back_nav.css">
-	<link rel="stylesheet" type="text/css" href="css/back_TheaterMang.css">
+	<link rel="stylesheet" type="text/css" href="css/back_activity.css">
 	<!-- ========== -->
 </head>
 <body>
@@ -68,36 +68,138 @@
 	<div class="back_wrapper_right">
 		<div class="b_content">
 			<div class="b_sub_nav">
-				<a href="javascript:void(0)" class="b_sn_btn" id="active">活動登錄</a>
+				<a href="javascript:void(0)" class="b_sn_btn" onclick="openCity(event,'insert_activity')" id="active">新增活動</a>
+                <a href="javascript:void(0)" class="b_sn_btn" onclick="openCity(event,'history_activity')">歷史活動</a>
 			</div>
-							<!-- ===========請加內容至此===========-->
-				<h2 class="titleh2">活動管理</h2>
+	<!-- ===========請加內容至此===========-->
+	<div id="insert_activity" class="tabcontent">
+	<h2 class="titleh2">新增活動</h2>
+	<form action="back_activity.php" method="post">
 	<table>
 		<tr>
-			<th>活動編號</th>
-			<th>活動起始日</th>
-			<th>活動結束日</th>
-			<th>活動時間</th>
+			<th>編號</th>
+			<th>活動名稱</th>
+			<th>活動簡稱</th>
+			<th>活動地點</th>
+			<th>活動日期</th>
+			<th>開始時間</th>
+			<th>結束時間</th>
 			<th>活動簡介</th>
-			<th>活動週期</th>
-			<th>活動圖片檔名</th>
+			<!-- <th id="activity_filename">圖片檔名</th> -->
+			<th>設定</th>
 		</tr>
 		<tr>			
 			<td name="activity_no">1</td>
-			<td><input type="date" name="start_day"></td>			
-			<td><input type="date" name="end_date"></td>
-			<td><input type="number" min="9" max="21" name="start_time"></td>
-			<td><input type="text" rows="3" cols="20" name="intro"></td>
-			<td><input type="radio" name="cycle" value="perweek">周
-				<input type="radio" name="cycle" value="perdoubleweek">雙周
-				<input type="radio" name="cycle" value="permonth">月
-				<input type="radio" name="cycle" value="perdoubleweek">雙月
+			<td><input type="textarea" name="activity_name" placeholder="10字內" size="10" rows="5"></td>			
+			<td><input type="textarea" name="activity_short_name" placeholder="5字內" size="5" rows="5"></td>
+			<td>
+				<select>
+					<option value="1">未來大道</option>
+					<option value="2">明日之廳</option>
+					<option value="3">國際會議中心</option>
+					<option value="4">演講廳</option>
+					<option value="5">貿易中心</option>
+					<option value="6">空中花園</option>
+					<option value="7">旋轉餐廳</option>
+				</select>
 			</td>
-			<td><input type="file" name="input_filename"></td>
+			<td><input type="date" value="activity_date"></td>
+			<td><input type="time" name="activity_start_time"></td>
+			<td><input type="time" name="activity_end_time"></td>
+			<td><input type="text" name="activity_intro" placeholder="15字內" size="10"></td>
+			<!-- <td><input type="file" name="activity_filename"></td> -->
+			<td><input type="reset" name="">
+				<input type="submit" name="" value="上架">
+			</td>
 		</tr>
 	</table>
-					<!-- ===========請加內容至此===========-->
+	</form>
+	</div>
+	<!-- ===========請加內容至此===========-->
+	<div id="history_activity" class="tabcontent">
+	<h2 class="titleh2">歷史活動</h2>
+	<form action="back_activity.php" method="post">
+	<table>
+		<tr>
+			<th>編號</th>
+			<th>活動名稱</th>
+			<th>活動簡稱</th>
+			<th>活動地點</th>
+			<th>活動日期</th>
+			<th>開始時間</th>
+			<th>結束時間</th>
+			<th>活動簡介</th>
+			<!-- <th id="activity_filename">圖片檔名</th> -->
+			<th>設定</th>
+		</tr>
+		<tr>			
+			<td name="activity_no"></td>
+			<td name="activity_name"><input type="textarea"  placeholder="10字內" size="10" rows="5"></td>			
+			<td><input type="textarea" name="activity_short_name" placeholder="5字內" size="5" rows="5"></td>
+			<td>
+				<select>
+					<option value="1">未來大道</option>
+					<option value="2">明日之廳</option>
+					<option value="3">國際會議中心</option>
+					<option value="4">演講廳</option>
+					<option value="5">貿易中心</option>
+					<option value="6">空中花園</option>
+					<option value="7">旋轉餐廳</option>
+				</select>
+			</td>
+			<td><input type="date" value="activity_date"></td>
+			<td><input type="time" name="activity_start_time"></td>
+			<td><input type="time" name="activity_end_time"></td>
+			<td><input type="text" name="activity_intro" placeholder="15字內" size="10"></td>
+			<!-- <td><input type="file" name="activity_filename"></td> -->
+			<td><input type="reset" name="" value="修改"><br>
+				<input type="submit" value="確定"><br>
+				<input type="button" name="" value="刪除">
+			</td>
+		</tr>
+	</table>
+	</form>
 		</div>
 	</div>
+<script>
+        //tab 換頁
+        function openCity (evt,list) {
+
+            var i, tabcontent, b_sn_btn;
+            tabcontent = document.getElementsByClassName("tabcontent");
+            for (i = 0; i < tabcontent.length; i++) {
+                tabcontent[i].style.display = "none";
+            }
+            b_sn_btn = document.getElementsByClassName("b_sn_btn");
+            for (i = 0; i < b_sn_btn.length; i++) {
+                b_sn_btn[i].className = b_sn_btn[i].className.replace(" active", "");
+                b_sn_btn[i].setAttribute("id","");
+            }
+            document.getElementById(list).style.display = "block";
+            evt.currentTarget.className += " active";
+
+            evt.currentTarget.setAttribute("id","active");
+        }
+        // Get the element with id="defaultOpen" and click on it
+        document.getElementById("active").click();
+
+        //傳送節目編號
+        function showSessionList() {
+            var xhr = new XMLHttpRequest();
+            xhr.onload=function (){
+                if( xhr.status == 200 ){
+                    //console.log( xhr.responseText );  
+                    //modify_here  TheaterSessionListTable
+                    document.getElementById("TheaterSessionListTable").innerHTML = xhr.responseText;
+                }else{
+                    alert( xhr.status );
+                }
+            }//xhr.onreadystatechange
+          
+            var url = "php/get_program_no.php?programNo=" + document.getElementById("programNo").value;
+            xhr.open("Get", url, true);
+            xhr.send( null );
+        }
+    </script>
 </body>
 </html>

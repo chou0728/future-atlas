@@ -2,17 +2,21 @@
             border:1px solid black;
             margin:30px auto ;
             font-size: 16px;
-            /*margin-left:23.7%;*/
             border-collapse: collapse ;
             font-family: "微軟正黑體";
         }
-        .Newprogram{
+        .Newprogram button{
             /*text-align: right;*/
             font-family: "微軟正黑體";
         }
         .titleh2{
             margin:30px 30px;
             font-size:24px;
+            text-align: center;
+        }
+        .programNoSerch{
+            width: 100%;
+            margin:0 auto;
         }
         th{
             text-align:center;

@@ -1,3 +1,7 @@
+<?php
+    ob_start();
+    session_start();
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -15,16 +19,59 @@
 
 <body>
     <!-- header -->
-    <div class="header">
+     <div class="header">
         <ul class="ul_top">
+            <div class="lever">
+                <img src="img/Usericon1.png">
+            </div>
             <li class="li_top">
-                <a href="SignUp.html" id="registerUser">註冊</a>
+                <a href=<?php
+                    if(isset($_SESSION["mem_id"])===true){
+                        echo "'javascript:void(0)'";
+                    }else{
+                        echo "'SignUp.html'";
+                    }
+                ?> id="registerUser">
+                    <img src="img/member/member_0.png">
+                    <span class="register">
+                        <?php
+                            if(isset($_SESSION["mem_id"])===true){
+                                echo $_SESSION["mem_nick"]."你好!";
+                            }else{
+                                echo "註冊";
+                            }
+                        ?>
+                    </span>
+                </a>
             </li>
             <li class="li_top">
-                <a href="#" id="singUpBtn">登入</a>
+                <a href=<?php
+                            if(isset($_SESSION["mem_id"])===true){
+                                echo"'logoutheadforindex.php'";
+                            }else{
+                                echo"'javascript:void(0)'";
+                            }
+                        ?> id="singUpBtn">
+                    <img src="img/member/member_1.png">
+                    <span class="login">
+                        <?php
+                            if(isset($_SESSION["mem_id"])===true){
+                                echo"登出";
+                            }else{
+                                echo"登入";
+                            }
+                        ?>
+                    </span>
+                </a>
             </li>
             <li class="li_top">
-                <a href="input_cart.html">購物車</a>
+                 <a href="input_cart.php">
+                    <img id="cartimgid" src="img/cart/wallet_0.png">
+                    <span id="howmanytickets">0</span>
+                </a>
+                    <div id="showCartContent">預覽購物車
+                        <table id="showCartContenttb"></table>
+                    </div>
             </li>
         </ul>
     </div>
@@ -77,8 +124,7 @@
             <h2 class="Bookingh2">會員資訊</h2>
             <div class="memberinfo">
             <?php 
-                $mem_id=1;
-                //$mem_id=$_SESSION['mem_id'];
+                $mem_id =$_SESSION["mem_id"];
                 require_once("php/connectBooks.php");
                 $sql ="select * from member where mem_id=$mem_id";
                 $member= $pdo->query( $sql );
@@ -88,7 +134,7 @@
                     $prodRow = $member->fetchObject();
                 }
             ?>    
-                <p>帳號:<?php echo $mem_id ?></p>
+                <p>會員帳號:<?php echo $mem_id ?></p>
                 <p>Email:<?php echo $prodRow->mem_mail?></p>
                 <p>積分:<?php echo $prodRow->mem_points ?></p>
             </div>
@@ -181,26 +227,26 @@
         <div class="creditCardinfo">
             <p>信用卡號碼</p>
             <p style="font-size:10px;">
-                <input type="number" style="width:50px;" id="Card1" class="inputs" maxlength="4" onchange="creditCard()">-
-                <input type="number" style="width:50px;" id="Card2" class="inputs" maxlength="4"  onchange="creditCard()">-
-                <input type="number" style="width:50px;" id="Card3" class="inputs" maxlength="4"  onchange="creditCard()">-
-                <input type="number" style="width:50px;" id="Card4" class="inputs" maxlength="4"  onchange="creditCard()">
+                <input type="text" style="width:50px;" id="Card1" class="inputs" maxlength="4" onchange="creditCard()"  onkeyup="this.value=this.value.replace(/[^0-9]/g,'')">-
+                <input type="text" style="width:50px;" id="Card2" class="inputs" maxlength="4"  onchange="creditCard()"  onkeyup="this.value=this.value.replace(/[^0-9]/g,'')">-
+                <input type="text" style="width:50px;" id="Card3" class="inputs" maxlength="4"  onchange="creditCard()"  onkeyup="this.value=this.value.replace(/[^0-9]/g,'')">-
+                <input type="text" style="width:50px;" id="Card4" class="inputs" maxlength="4"  onchange="creditCard()"  onkeyup="this.value=this.value.replace(/[^0-9]/g,'')">
             </p>
             <p>到期日</p>
             <p style="font-size:5px;">
-                <input type="text" style="width:40px;"  maxlength="2" class="inputs" onchange="creditCard()"> /
-                <input type="text" style="width:40px;"  maxlength="2" class="inputs" onchange="creditCard()">
+                <input type="text" style="width:40px;"  maxlength="2" class="inputs" onchange="creditCard()" onkeyup="this.value=this.value.replace(/[^0-9]/g,'')"> /
+                <input type="text" style="width:40px;"  maxlength="2" class="inputs" onchange="creditCard()" onkeyup="this.value=this.value.replace(/[^0-9]/g,'')">
             </p>
             <!-- size是設定input大小 -->
             <p>驗證碼</p>
             <p>
-                <input type="text" style="width:40px;"  maxlength="3"  onchange="creditCard()">
+                <input type="text" style="width:40px;"  maxlength="3"  onchange="creditCard()" onkeyup="this.value=this.value.replace(/[^0-9]/g,'')">
             </p>
         </div>
 
         <div class="yesmodifyBtn">
-            <a href="buyTTicket.html">上一步</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            <a href="javascript: return false;" onclick="ajax_post()">結帳</a>   
+            <a href="buyTTicket.php">上一步</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <a href="javascript: return false;" id="Checked" onclick="ajax_post()">結帳</a>   
         </div>
     </div>
 
@@ -208,13 +254,17 @@
     <!-- <button  onclick="ajax_post()">php</button> -->
     
     <!-- 顯示資料有到php -->
-    <!-- <div id="status" style="color:white;"> 
-    </div>  -->
+    <div id="status" style="color:white;"> 
+    </div>
+    
 
     <script type="text/javascript">
+      
+
         var storage = sessionStorage;
         //儲存信用卡資訊
         var CardInfo;
+
         //從sessionStorage，取出節目名稱
         var programName = storage.getItem('programName');
         document.getElementById('program_name').innerText = programName;
@@ -237,6 +287,8 @@
 
         //取出使用者輸入的積分
         var Scorenumber = Number(document.getElementById('Scorenumber').value);
+
+       
 
         //id是integral的欄位之預設值
         document.getElementById('integral').innerHTML = "-" + Scorenumber + "元";
@@ -305,7 +357,8 @@
             // CardInfo += document.getElementById('Card7').value+"-";
             storage.setItem("CardInfo", CardInfo);    
         }
-
+        var localstorage = localStorage;
+        var mem_id = localstorage.getItem("mem_id");
         //資料傳送到php
         function ajax_post(){
             // Create our XMLHttpRequest object
@@ -315,13 +368,14 @@
             // Create some variables we need to send to our PHP file
             //把 vars裡面資輛傳到my_parse_file.php檔案(設定參數)
             var url = "php/my_parse_file.php";
-            var vars = "programName="+programName+
+            var vars = "mem_id=" + mem_id+
+                       "&programName="+programName+
                        "&programDate="+programDate+
                        "&programTime="+programTime+
                        "&theater_quantity="+theater_quantity+
                        "&theater_total="+theater_total+
                        "&Scorenumber="+Scorenumber+
-                          "&CardInfo="+ CardInfo;
+                       "&CardInfo="+ CardInfo;
             //利用POST方式傳遞
             // open() 的第一個參數是 HTTP request 的方法
             //第二個參數是請求頁面的 URL
@@ -337,7 +391,8 @@
             hr.onreadystatechange = function() {
                 if(hr.readyState == 4 && hr.status == 200) {
                     var return_data = hr.responseText;
-                    document.getElementById("status").innerHTML = return_data;
+                    // document.getElementById("status").innerHTML = return_data;
+                    alert(return_data);
                 }
             }
             // Send the data to PHP now... and wait for response to update the status div

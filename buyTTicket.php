@@ -146,6 +146,7 @@
                     <td>場次</td>
                     <td>
                         <select id="programTime" onchange="changeEvent()" style="width:140px; font-size:23px;">
+                            <option >場次</option>
                             <option value="11:00">11:00</option>
                             <option value="14:00">14:00</option>
                             <option value="15:00">15:00</option>
@@ -174,7 +175,7 @@
         </form>
     </div>
     <div class="buyTTicketBtn">
-            <a href="Theaterbuyticket.html" class="Previouspage">上一步</a>
+            <a href="Theaterbuyticket.php" class="Previouspage">上一步</a>
             <a href="javascript: return false;" onclick="checkLogin()" class="buyticket">確認購買</a>
     </div>
     <!-- 會員登入燈箱 -->
@@ -201,19 +202,9 @@
 </div>
     <script src="js/00nav.js"></script>
     <script type="text/javascript">
-            
             window.onload=function (){
                 var storage = localStorage;
-                    storage.setItem("mem_id",
-                    <?php
-                        if(isset($_SESSION["mem_id"])===true){
-                            echo $_SESSION["mem_id"];
-                        }else{
-                            echo "0";
-                            // 若未登入，mem_id為0
-                        }
-                    ?>
-                );
+                    storage.setItem("mem_id",<?php if(isset($_SESSION["mem_id"])===true){echo $_SESSION["mem_id"];}else{echo "0";} ?>);
             };
     </script>
 </html>

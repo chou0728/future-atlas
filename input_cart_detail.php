@@ -103,16 +103,8 @@ body::-webkit-scrollbar-thumb {
 <!-- 輸出會員資訊 -->
 <div id="detailWrapper">
 	<h1 id="title">確認訂單明細</h1>
-	<form action="facility_order_save_database.php" method="post">
 	<table id="member_info" cellspacing="0">
 		<tr><th colspan="2" class="tbtitle">會員資訊</th>
-			<!-- 隱藏欄位區 -->
-			<input type="hidden" name="mem_id_hidden" id="mem_id_hidden">
-			<input type="hidden" name="total_hidden" id="total_hidden">
-			<input type="hidden" name="cart_sub_total_hidden" id="cart_sub_total_hidden">
-			<input type="hidden" name="creditcard_num_hidden" id="creditcard_num_hidden">
-			<input type="hidden" name="discount_hidden" id="discount_hidden">
-			<!-- 隱藏欄位區 end -->
 		</tr>
 		<tr>
 			<td>暱稱</td><td id="mem_nick" style="color: white"></td>
@@ -142,7 +134,7 @@ body::-webkit-scrollbar-thumb {
 			<td style="width: 350px; text-align: right" colspan="7" id="discount_input">
 				<input type="radio" name="points" class="points"> 之後再使用
 				<input type="radio" name="points" class="points"> 使用
-				<input type="number" id="points" class="points" min="0"> 點
+				<input type="number" id="points" class="points" min="0" value="0"> 點
 				<div id="points_confirm">確定</div>
 					<div id="points_remain">(剩餘點數：
 						<span id="points_remain_input"></span>)點
@@ -189,13 +181,23 @@ body::-webkit-scrollbar-thumb {
 				</div>
 			</td>
 		</tr>
+		<form action="facility_order_save_database.php" method="post">
+			<!-- 隱藏欄位區 -->
+			<input type="hidden" name="mem_id_hidden" id="mem_id_hidden">
+			<input type="hidden" name="total_hidden" id="total_hidden">
+			<input type="hidden" name="cart_sub_total_hidden" id="cart_sub_total_hidden">
+			<input type="hidden" name="creditcard_num_hidden" id="creditcard_num_hidden">
+			<input type="hidden" name="discount_hidden" id="discount_hidden">
+			<input type="hidden" name="order_date" id="order_date">
+			<input type="hidden" name="sql_order_item" id="sql_order_item">
+			<!-- 隱藏欄位區 end -->
 		<tr><td colspan="2">信用卡卡號</td></tr>
 		<tr>
 			<td colspan="2" class="credit_card" name="credit_card" id="credit_card">
-				<input type="text" maxlength="4" id="credit_card1" name="credit_card1" onkeyup="setBlur(this,'credit_card2');this.value=this.value.replace(/[^0-9]/g,'')" required>-
-				<input type="text" maxlength="4" id="credit_card2" name="credit_card2" onkeyup="setBlur(this,'credit_card3');this.value=this.value.replace(/[^0-9]/g,'')" required>-
-				<input type="text" maxlength="4" id="credit_card3" name="credit_card3" onkeyup="setBlur(this,'credit_card4');this.value=this.value.replace(/[^0-9]/g,'')" required>-
-				<input type="text" maxlength="4" id="credit_card4" name="credit_card4" onkeyup="this.value=this.value.replace(/[^0-9]/g,'')" required>
+				<input type="text" size="4" minlength="4" maxlength="4" id="credit_card1" name="credit_card1" onkeyup="setBlur(this,'credit_card2');this.value=this.value.replace(/[^0-9]/g,'')" required>-
+				<input type="text" size="4" minlength="4" maxlength="4" id="credit_card2" name="credit_card2" onkeyup="setBlur(this,'credit_card3');this.value=this.value.replace(/[^0-9]/g,'')" required>-
+				<input type="text" size="4" minlength="4" maxlength="4" id="credit_card3" name="credit_card3" onkeyup="setBlur(this,'credit_card4');this.value=this.value.replace(/[^0-9]/g,'')" required>-
+				<input type="text" size="4" minlength="4" maxlength="4" id="credit_card4" name="credit_card4" onkeyup="this.value=this.value.replace(/[^0-9]/g,'')" required>
 			</td>
 		<tr>
 			<td>到期年月</td><td>驗證碼</td>
@@ -212,14 +214,16 @@ body::-webkit-scrollbar-thumb {
 	</table>
 
 <div id="button">
-	<a href="input_cart.html" class="highlight" id="backToShop">上一步</a>
-	<a href="MembersOnly.html"><input type="submit" name="" id="nextStep" class="highlight" value="確認結帳"></a>
+	<a href="input_cart.php" class="highlight" id="backToShop">上一步</a>
+	<input type="submit" name="" id="nextStep" class="highlight" value="確認結帳">
 </div>
 </form>
 <!-- <script src="js/00nav.js"></script> -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script type="text/javascript">
 window.addEventListener("load",showMemberInfo);
+window.addEventListener("load",bindToHiddenName);
+
 function showMemberInfo(){
 	// 連線資料庫取得會員資料
 	var storage = localStorage;
@@ -250,23 +254,20 @@ function showMemberInfo(){
 	}
 }
 
-// document.getElementById("nextStep").addEventListener("click",save_to_db);
-// function save_to_db(){
-	// 儲存訂單主檔
-	// var storage = localStorage;
-	// 逐一準備傳到資料庫的主要數據
-	// document.getElementById("mem_id_hidden").value = storage.getItem("mem_id");
-	// document.getElementById("cart_sub_total_hidden").value = document.getElementById("cart_sub_total").innerHTML;
-	// document.getElementById("discount_hidden").value = document.getElementById("points").value;
-	// 	var creditcard_num = document.getElementById("credit_card1").value+
-	// 					 document.getElementById("credit_card2").value+
-	// 					 document.getElementById("credit_card3").value+
-	// 					 document.getElementById("credit_card4").value;
-	// document.getElementById("creditcard_num_hidden").value = creditcard_num;	
+function bindToHiddenName(){
+	document.getElementById("cart_sub_total_hidden").value = document.getElementById("cart_sub_total").innerHTML;
+	document.getElementById("credit_card7").onchange = function(){
+		document.getElementById("discount_hidden").value = document.getElementById("points").value;
+		var creditcard_num = document.getElementById("credit_card1").value+
+						 document.getElementById("credit_card2").value+
+						 document.getElementById("credit_card3").value+
+						 document.getElementById("credit_card4").value;
+		document.getElementById("creditcard_num_hidden").value = creditcard_num;
+		console.log(creditcard_num);
+	}
 	// 儲存訂單副檔
 	// 修改會員剩餘積分
-
-
+}
 </script>
 </body>
 </html>

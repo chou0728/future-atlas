@@ -1,7 +1,6 @@
-/**{
-	outline: 1px solid red;
-}*/
+
 *{
+	/*outline: 1px solid red;*/
 	box-sizing: border-box;
 }
 .table{
@@ -13,14 +12,41 @@
 	font-family: "微軟正黑體";
 	background-color: #ddd;
 }
+
+.overflow-auto{
+	width: 100%;
+	height: 80vh;
+	margin-bottom: 50px;
+	overflow-y: auto;
+}
+.newfacilityInfo{
+	text-align: center;
+	color: black;
+	background-color: red;
+	display: inline-block;
+	font-size: 16px;
+	width: 50px;
+	height: 30px;
+	line-height: 30px;
+	background-color: #444;
+	color: white;
+	box-shadow: 1px 1px 1px rgba(0,0,0,0.3);
+	margin: 10px 0;
+	cursor: pointer;
+
+}
 .row{
 	width: 100%;
 	font-size: 0;
 
 }
-
+.is-right{
+	width: 1280px;
+	text-align: right;
+	margin: 0 auto;
+}
 .col{
-	width: 230px;
+	width: 220px;
 	height: 40px;
 	display: table-cell;
 	vertical-align: middle;
@@ -29,7 +55,7 @@
 	border-style: solid;
 	border-color: #000;
 	border-width: 0 0px 2px 2px;
-	padding: 5px;
+	padding: 2px;
 	line-height: 1.5;
 
 }
@@ -45,7 +71,7 @@
 	background-color: #bbb;
 }
 .col-big{
-	width: 500px;
+	width:300px;
 }
 .col-number{
 	width:80px;
@@ -60,12 +86,39 @@
 	margin: auto;
 	cursor: pointer;
 }
+.col-sp{
+	width: 203px;
+}
+.btn{
+	width: 60px;
+	height: 30px;
+	line-height: 30px;
+	display: inline-block;
+	margin: 5px;
+	color: #ddd;
+	background-color: #999;
+	border-bottom: 1px solid #555;
+	border-right: 1px solid #555;
+	box-shadow: 0px 1px 2px rgba(0,0,0,0.5);
+	cursor: pointer;
+}
+.is-selected{
+	box-shadow: inset 0px 1px 2px rgba(0,0,0,0.5);
+	color:black;
+	font-weight: bold;
+	background-color: rgb(84,210,201);
+	cursor: default;
+}
+.facility_new_table{
+	width: 800px;
+	margin:  10px auto;
+}
 /*<!-- ===========燈箱==============================-->*/
 #lightBox{
 	display: none;
 	border: 3px solid #aaa;
 	box-shadow: 1px 2px 1px rgba(0,0,0,0.3);
-	width: 800px;
+	width: 900px;
 	height: 80vh;
 	position: fixed;
 	top:50%;
@@ -79,11 +132,12 @@
 .lightBox-row{
 	width: 100%;
 	padding: 10px 0;
+	position: relative;
 }
 .lightBox-row .subtitle{
 	display: inline-block;
-	width: 130px;
-	text-align: right;
+	width: 100px;
+	text-align: left;
 }
 .lightBox-row .caution{
 	color: red;
@@ -106,4 +160,89 @@
 }
 .lightBox-submit{
 	text-align: center;
+}
+.mphoto{
+	background-color: #777;
+	padding-top:20px;
+}
+.mphoto:before{
+	width: 100%;
+	color: white;
+	letter-spacing: 1px;
+	content: '設施總覽呈現預覽圖：';
+	padding: 10px;
+}
+.lightBox-row #change-type{
+	outline: none;
+	position: absolute;
+	color: #444;
+	right:10px;
+	top: 8px;
+}
+.mlb{
+	background-color: #ccc;
+	padding-top: 20px;
+	padding-bottom: 50px;
+}
+.mlb:before{
+	width: 100%;
+	letter-spacing: 1px;
+	padding: 10px;
+	content: '設施總覽燈箱呈現預覽圖：';
+	margin-bottom: 50px;
+}
+.mphoto .mphoto-img{
+		width:250px;
+		height: 525px;
+		clip-path: polygon(25% 0%, 100% 0%, 75% 100%, 0% 100%);
+		-webkit-clip-path: polygon(25% 0%, 100% 0%, 75% 100%, 0% 100%);
+		margin: auto;
+}
+.mlb .mphoto-img{
+	width: 811px;
+	height: 338px;
+	overflow:hidden;
+	margin: auto;
+}
+.mlb .mphoto-img #facility_mphoto{
+	width: 811px;
+}
+
+.mphoto .mphoto-img #facility_mphoto{
+		width: 751px;
+		transform: translateX(-30%);
+}
+.tphoto-img{
+	width: 340px;
+	height: 220px;
+	overflow: hidden;
+}
+.tphoto-img img{
+	width: 100%;
+}
+/*==燈箱TICKET*/
+#lightBox_ticket{
+	display: none;
+	border: 3px solid #aaa;
+	box-shadow: 1px 2px 1px rgba(0,0,0,0.3);
+	width: 900px;
+	height: 80vh;
+	position: fixed;
+	top:50%;
+	left: 50%;
+	transform: translate(-50%,-50%);
+	background-color: #eee;
+	padding: 15px 20px;
+	overflow-y:scroll;
+	font-family: "微軟正黑體";
+}
+.col .edit_ticket{
+	width: 50px;
+	height: 30px;
+	line-height: 30px;
+	background-color: #444;
+	color: white;
+	box-shadow: 1px 1px 1px rgba(0,0,0,0.3);
+	margin: auto;
+	cursor: pointer;
 }

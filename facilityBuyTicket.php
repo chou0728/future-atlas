@@ -62,7 +62,7 @@ session_start();
                 <span class="register">
                 	<?php
                 		if(isset($_SESSION["mem_id"])===true){
-                			echo $_SESSION["mem_nick"]."你好!";
+                			echo "<a href='MembersOnly.html'>我的資料</a>";
                 		}else{
                 			echo "註冊";
                 		}
@@ -78,7 +78,13 @@ session_start();
                 			echo"'javascript:void(0)'";
                 		}
                 	?> id="singUpBtn">
-                <img src="img/member/member_1.png">
+                <img src=<?php
+                		if(isset($_SESSION['mem_id'])===true){
+                			echo 'img/member/member_2.png';
+                		}else{
+                			echo 'img/member/member_1.png';
+                		}
+					?>>
                 <span class="login">
                 	<?php
                 		if(isset($_SESSION["mem_id"])===true){
@@ -91,11 +97,11 @@ session_start();
             </a>
         </li>
         <li class="li_top">
-             <a href="input_cart.html">
+             <a href="input_cart.php">
                 <img id="cartimgid" src="img/cart/wallet_0.png">
                 <span id="howmanytickets">0</span>
             </a>
-                <div id="showCartContent">購物車內容
+                <div id="showCartContent">預覽購物車
                     <table id="showCartContenttb"></table>
                 </div>
         </li>
@@ -144,8 +150,17 @@ session_start();
 </div>
 
     <!-- header end-->
-    
 <div class="fbtWrapper">
+
+<?php 
+try {
+	require_once("php/connectBooks.php");
+	$sql = "select * from facility where ticket_already=1";
+	$products = $pdo->query($sql);
+$a = 0;
+	while($prodRow = $products->fetchObject()){
+		
+?>
 	<!-- /////01-->
 	<div class="ticketbox">
 		<div class="ticketTitlebox">
@@ -153,46 +168,57 @@ session_start();
 				<figure class="front">
 					<img src="img/facilityBuyTicket/launched-rocket.png" class="icon">
 				</figure>
-				<figure class="back">1</figure>
+				<figure class="back"><?php echo $prodRow->facility_no ?></figure>
 			</div>
-			<h2 class="ticketTitle">宇宙雲霄飛車</h2>
+			<h2 class="ticketTitle"><?php echo $prodRow->facility_name ?></h2>
 		</div>
 
 	
 		<div class="f_img">
-			<img src="img/facilityBuyTicket/p_01.jpg"><span class="cover"></span>
+			<img src="img/facilityInfo/<?php echo $prodRow->facility_tphoto ?>"><span class="cover"></span>
 		</div>
 		<div class="shortInfo">
-			史上最快最高的宇宙雲霄飛車
+			<?php echo $prodRow->facility_intro ?>
 		</div>
 
-		<div class="adult" data-val="190">
-			<span>全票</span><span class="price">190元/1張</span>
+		<div class="adult" data-val="<?php echo $prodRow->full_fare ?>">
+			<span>全票</span><span class="price"><?php echo $prodRow->full_fare ?>元/1張</span>
 			<div class='ctrl'>
 				 <div class='ctrl-button ctrl-button-decrement'>-</div>
 					  <div class='ctrl-counter'>
-					  	<input class='ctrl-counter-input' maxlength='3' type='text' value='0' data-no="0" onkeyup="this.value=this.value.replace(/[^0-9]/g,'')">
+					  	<input class='ctrl-counter-input' maxlength='3' type='text' value='0' data-no="<?php echo $a ?>" onkeyup="this.value=this.value.replace(/[^0-9]/g,'')">
 					  </div>
 					  <div class='ctrl-button ctrl-button-increment'>+</div>
 				</div>
 		</div>
 
-		<div class="child" data-val="90">
-			<span>半票</span><span class="price">90元/1張</span>
+		<div class="child" data-val="<?php echo $prodRow->half_fare ?>">
+			<span>半票</span><span class="price"><?php echo $prodRow->half_fare ?>元/1張</span>
 			<div class='ctrl'>
 				 <div class='ctrl-button ctrl-button-decrement'>-</div>
 					  <div class='ctrl-counter'>
-					  	<input class='ctrl-counter-input' maxlength='3' type='text' value='0' data-no="1" onkeyup="this.value=this.value.replace(/[^0-9]/g,'')">	
+					  	<input class='ctrl-counter-input' maxlength='3' type='text' value='0' data-no="<?php echo $a+1 ?>" onkeyup="this.value=this.value.replace(/[^0-9]/g,'')">	
 					  </div>
 					<div class='ctrl-button ctrl-button-increment'>+</div>
 				</div>
 		</div>
-		<div class="f_submit" data-fn="1">
+		<div class="f_submit" data-fn="<?php echo $prodRow->facility_no ?>">
 			加入購物車
 		</div>
 	</div>
+
+<?php
+$a+=2;	
+	}
+} catch (PDOException $e) {
+	echo "錯誤原因 : " , $e->getMessage() , "<br>";
+	echo "錯誤行號 : " , $e->getLine() , "<br>";
+	// echo "getCode : " , $e->getCode() , "<br>";
+	// echo "異動失敗,請聯絡系統維護人員";
+}
+?> 
 	<!-- /////02-->
-		<div class="ticketbox">
+<!-- 		<div class="ticketbox">
 		<div class="ticketTitlebox">
 			<div class="ticket">
 				<figure class="front">
@@ -235,9 +261,9 @@ session_start();
 		<div class="f_submit" data-fn="2">
 			加入購物車
 		</div>
-	</div>
+	</div> -->
 	<!-- /////03-->
-		<div class="ticketbox">
+<!-- 		<div class="ticketbox">
 		<div class="ticketTitlebox">
 			<div class="ticket">
 				<figure class="front">
@@ -280,9 +306,9 @@ session_start();
 		<div class="f_submit" data-fn="3">
 			加入購物車
 		</div>
-	</div>
+	</div> -->
 	<!-- /////04-->
-	<div class="ticketbox">
+<!-- 	<div class="ticketbox">
 		<div class="ticketTitlebox">
 			<div class="ticket">
 				<figure class="front">
@@ -325,9 +351,9 @@ session_start();
 		<div class="f_submit" data-fn="4">
 			加入購物車
 		</div>
-	</div>
+	</div> -->
 	<!-- /////5-->
-		<div class="ticketbox">
+<!-- 		<div class="ticketbox">
 		<div class="ticketTitlebox">
 			<div class="ticket">
 				<figure class="front">
@@ -370,9 +396,9 @@ session_start();
 		<div class="f_submit" data-fn="5">
 			加入購物車
 		</div>
-	</div>
+	</div> -->
 	<!-- /////06-->
-			<div class="ticketbox">
+<!-- 			<div class="ticketbox">
 		<div class="ticketTitlebox">
 			<div class="ticket">
 				<figure class="front">
@@ -415,7 +441,7 @@ session_start();
 		<div class="f_submit" data-fn="6">
 			加入購物車
 		</div>
-	</div>
+	</div> -->
 	<!-- /////-->
 	<div id="fullBlack">
 		<div class="confirmLightbox">
@@ -527,7 +553,8 @@ function init(){
 		var adp = this.previousElementSibling.previousElementSibling.dataset.val;/*全票價格*/
 		var cd = this.previousElementSibling.children[2].children[1].children[0].value;/*半票張數*/
 		var cdp = this.previousElementSibling.dataset.val;/*半票價格*/
-		var addToCart = adp+"/"+ad+"/"+cdp+"/"+cd;
+		var fname = this.previousElementSibling.previousElementSibling.previousElementSibling.previousElementSibling.previousElementSibling.children[1].innerText;
+		var addToCart = adp+"/"+ad+"/"+cdp+"/"+cd+"/"+fname;
 		if(ad!=0||cd!=0){//判斷全票半票皆不為0張
 			storage.setItem(fn,addToCart);
 			
@@ -725,6 +752,18 @@ window.addEventListener('load',l_storage);
 					lightBox.style.visibility = 'hidden';
 					fullCover.style.display="";
 				}
+				// 若登入，將mem_id存入localStorage
+				var storage = localStorage;
+				storage.setItem("mem_id",
+					<?php
+	               		if(isset($_SESSION["mem_id"])===true){
+	               			echo $_SESSION["mem_id"];
+	               		}else{
+	               			echo "0";
+	               			// 若未登入，mem_id為0
+	               		}
+                	?>
+					);
 				
 				
 			}
