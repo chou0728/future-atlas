@@ -1,9 +1,4 @@
 window.onload = function(){
-	console.log("00");
-	f_box = document.getElementsByClassName('f_box');
-	for(i=0;i<f_box.length;i++){
-		f_box[i].addEventListener("click",openlightBoxF);
-	}
 	i_info = document.getElementsByClassName('i_info');
 	for(a=0;a<i_info.length;a++){
 		i_info[a].addEventListener("click",category);
@@ -11,24 +6,11 @@ window.onload = function(){
 	
 }
 
-// function openlightBoxF(){
-// 	no = this.dataset.no;
-// 	var body = document.getElementsByTagName("body")[0];
-// 	lightBoxF = document.getElementsByClassName('facilityBox');
-// 	var close = document.getElementById('close');
-// 	body.style.overflow = "hidden";
-// 	lightBoxF[no].style.height = "100vh";
-// 	lightBoxF[no].style.opacity = "1";
-// 	close.style.display = "block";
-// 	close.onclick = closelightBoxF;
-
-// }
-
 function closelightBoxF(){
 	var body = document.getElementsByTagName("body")[0];
 	var close = document.getElementById('close');
-	lightBoxF[no].style.height = "0";
-	lightBoxF[no].style.opacity = "0";
+	lightBoxF.style.height = "0";
+	lightBoxF.style.opacity = "0";
 	close.style.display = "none";
 	body.style.overflow = "auto";
 }

@@ -229,53 +229,62 @@ try {
 	$sql = "select * from facility where info_already=1";
 	$products = $pdo->query($sql);
 	$a = 0;//data-category寫死
+	$a_icon = 0;
 	while($prodRow = $products->fetchObject()){
 	switch ($prodRow->facility_no) {
 		case '1':
 			$a = "1";
+			$a_icon = "<img src='img/facilityInfo/heart305.png'>";
 			break;
 		case '2':
 			$a = "234";
+			$a_icon = "<img src='img/facilityInfo/child.png'><img src='img/facilityInfo/love.png'><img src='img/facilityInfo/umbrella.png'>";
 			break;
 		case '3':
 			$a = "234";
+			$a_icon = "<img src='img/facilityInfo/child.png'><img src='img/facilityInfo/love.png'><img src='img/facilityInfo/umbrella.png'>";
 			break;
 		case '4':
 			$a = "014";
+			$a_icon = "<img src='img/facilityInfo/VR.png'><img src='img/facilityInfo/heart305.png'><img src='img/facilityInfo/umbrella.png'>";
 			break;
 		case '5':
 			$a = "23";
+			$a_icon = "<img src='img/facilityInfo/child.png'><img src='img/facilityInfo/love.png'>";
 			break;
 		case '6':
 			$a = "014";
+			$a_icon = "<img src='img/facilityInfo/VR.png'><img src='img/facilityInfo/heart305.png'><img src='img/facilityInfo/umbrella.png'>";
 			break;
 		case '7':
 			$a = "234";
+			$a_icon = "<img src='img/facilityInfo/child.png'><img src='img/facilityInfo/love.png'><img src='img/facilityInfo/umbrella.png'>";
 			break;
 		case '8':
 			$a = "34";
+			$a_icon = "<img src='img/facilityInfo/love.png'><img src='img/facilityInfo/umbrella.png'>";
 			break;
 		case '9':
 			$a = "4";
+			$a_icon = "<img src='img/facilityInfo/umbrella.png'>";
 			break;
 		default:
-			$a = "0123"
+			$a = "0123";
+			$a_icon = "<img src='img/facilityInfo/VR.png'><img src='img/facilityInfo/heart305.png'><img src='img/facilityInfo/child.png'><img src='img/facilityInfo/love.png'>";
 			break;
 	}
 		
 ?>
-		<div class="f_box" data-category="<?php echo $a ?>" data-no="<?php $prodRow->facility_no ?>"><!-- 0:VR,1:刺激,2:兒童,3:情侶,4:雨天 -->
+		<div class="f_box" data-category="<?php echo $a ?>" data-no="<?php echo $prodRow->facility_no ?>"><!-- 0:VR,1:刺激,2:兒童,3:情侶,4:雨天 -->
 		<div class="bcover_border">
 			<div class="f_mainphoto">
-				<a href="javascript:void(0)">
-					<img src="img/facilityInfo/<?php $prodRow->facility_mphoto ?>" alt="<?php $prodRow->facility_name ?>img">
-				</a>
+					<img src="img/facilityInfo/<?php echo $prodRow->facility_mphoto ?>" alt="<?php echo $prodRow->facility_name ?>img">
 				<div class="fi_caution">
 					<a href="javascript:void(0)">Information<span>!</span></a>
 				</div>
 				</div>
-			<a href="javascript:void(0)" class="bigA">
-				<h2><?php $prodRow->facility_name ?></h2>
+			<div href="javascript:void(0)" class="bigA">
+				<h2><?php echo $prodRow->facility_name ?></h2>
 				<div class="points">
 					<img src="img/facilityInfo/star-dami.png" alt="">
 					<img src="img/facilityInfo/star-dami.png" alt="">
@@ -289,185 +298,46 @@ try {
 				</div>
 
 				<div class="category">
-					<img src="img/facilityInfo/heart305.png">
+					<?php echo $a_icon ?>
 				</div>
 				
-				<div class="marquee_crowds" style="background-color: #712828;">
-					<div class="marquee" data-marquee="目前狀態:擁擠"></div>
-				</div>
-			</a>
-			</div>
-		</div>
+				<div class="marquee_crowds" style="<?php switch($prodRow->facility_crowd){
+					case '1':
+						echo 'background-color: #712828';
+					break;
+					case '2':
+						echo 'background-color: #8D681A';
+					break;
+					case '3':
+						echo 'background-color: #50CCC2';
+					break;
 
-		<div class="f_box" data-category="234" data-no="1">
-			<div class="bcover_border">
-			<div class="f_mainphoto">
-				<a href="javascript:void(0)">
-					<img src="img/facilityInfo/ferris.jpg" alt="rollerimg">
-				</a>
-				<div class="fi_caution"><a href="javascript:void(0)">Information<span>!</span></a></div>
-			</div>
-			<a href="javascript:void(0)" class="bigA">
-				<h2>FA摩天輪</h2>
-				<div class="points">
-					<img src="img/facilityInfo/star-dami.png" alt="">
-					<img src="img/facilityInfo/star-dami.png" alt="">
-					<img src="img/facilityInfo/star-dami.png" alt="">
-					<img src="img/facilityInfo/star-dami.png" alt="">
-					<img src="img/facilityInfo/star-dami.png" alt="">
-					<span>(0)</span>
-				</div>
-				<div class="mobile375_points">
-					分數:<span>0/5</span>
-				</div>
-				<div class="category">
-					<img src="img/facilityInfo/child.png">
-					<img src="img/facilityInfo/love.png">
-					<img src="img/facilityInfo/umbrella.png">
-				</div>
-				<div class="marquee_crowds" style="background-color: #712828;">
-					<div class="marquee" data-marquee="目前狀態:擁擠"></div>
-				</div>
-			</a>
-			</div>
-		</div>
+				} ?>">
+					<div class="marquee" data-marquee="目前狀態:<?php switch($prodRow->facility_crowd){
+					case '1':
+						echo '擁擠';
+					break;
+					case '2':
+						echo "普通";
+					break;
+					case '3':
+						echo "空曠";
+					break;
 
-
-		<div class="f_box" data-category="234" data-no="2">
-			<div class="bcover_border">
-			<div class="f_mainphoto">
-				<a href="javascript:void(0)">
-					<img src="img/facilityInfo/flying island.jpg" alt="flying islandimg">
-				</a>
-				<div class="fi_caution"><a href="javascript:void(0)">Information<span>!</span></a></div>
+				} ?>"></div>
+				</div>
 			</div>
-			<a href="javascript:void(0)" class="bigA">
-				<h2>特區飛碟</h2>
-				<div class="points">
-					<img src="img/facilityInfo/star-dami.png" alt="">
-					<img src="img/facilityInfo/star-dami.png" alt="">
-					<img src="img/facilityInfo/star-dami.png" alt="">
-					<img src="img/facilityInfo/star-dami.png" alt="">
-					<img src="img/facilityInfo/star-dami.png" alt="">
-					<span>(0)</span>
-				</div>
-				<div class="mobile375_points">
-					分數:<span>0/5</span>
-				</div>
-				<div class="category">
-					<img src="img/facilityInfo/child.png">
-					<img src="img/facilityInfo/love.png">
-					<img src="img/facilityInfo/umbrella.png">
-				</div>
-				<div class="marquee_crowds" style="background-color: #8D681A;">
-					<div class="marquee" data-marquee="目前狀態:普通"></div>
-				</div>
-			</a>
-			</div>	
-		</div>
-
-		<div class="f_box" data-category="234" data-no="3">
-			<div class="bcover_border">
-			<div class="f_mainphoto">
-			  <a href="iframe_02.html">
-				<img src="img/facilityInfo/210.jpg" alt="station">
-			  </a>
-				<div class="fi_caution"><a href="javascript:void(0)">Information<span>!</span></a></div>
-			</div>
-			<a href="javascript:void(0)" class="bigA">
-				<h2>未來中心</h2>
-				<div class="points"><!-- 休息/美食街/諮詢中心 -->
-					<img src="img/facilityInfo/star-dami.png" alt="">
-					<img src="img/facilityInfo/star-dami.png" alt="">
-					<img src="img/facilityInfo/star-dami.png" alt="">
-					<img src="img/facilityInfo/star-dami.png" alt="">
-					<img src="img/facilityInfo/star-dami.png" alt="">
-					<span>(0)</span>
-				</div>
-				<div class="mobile375_points">
-					分數:<span>0/5</span>
-				</div>
-				<div class="category">
-					<img src="img/facilityInfo/child.png">
-					<img src="img/facilityInfo/love.png">
-					<img src="img/facilityInfo/umbrella.png">
-				</div>
-				<div class="marquee_crowds" style="background-color: #50CCC2;">
-					<div class="marquee" data-marquee="目前狀態:空曠"></div>
-				</div>
-			</a>
-		</div>
-		</div>
-
-		<div class="f_box" data-category="04" data-no="4">
-			<div class="bcover_border">
-			<div class="f_mainphoto">
-				<img src="img/facilityInfo/gd.png" alt="gdvrimg">
-				<div class="fi_caution"><a href="javascript:void(0)">Information<span>!</span></a></div>
-			</div>
-			<a href="javascript:void(0)" class="bigA">
-				<h2>VR機器人戰鬥</h2>
-				<div class="points">
-					<img src="img/facilityInfo/star-dami.png" alt="">
-					<img src="img/facilityInfo/star-dami.png" alt="">
-					<img src="img/facilityInfo/star-dami.png" alt="">
-					<img src="img/facilityInfo/star-dami.png" alt="">
-					<img src="img/facilityInfo/star-dami.png" alt="">
-					<span>(0)</span>
-				</div>
-				<div class="mobile375_points">
-					分數:<span>0/5</span>
-				</div>
-				<div class="category">
-					<img src="img/facilityInfo/VR.png">
-					<img src="img/facilityInfo/umbrella.png">
-				</div>
-				<div class="marquee_crowds" style="background-color: #50CCC2;">
-					<div class="marquee" data-marquee="目前狀態:空曠"></div>
-				</div>
-			</a>
-		</div>
-		</div>
-
-		<div class="f_box"  data-category="04" data-no="5">
-			<div class="bcover_border">
-			<div class="f_mainphoto">
-				<img src="img/facilityInfo/dami.jpg" alt="dami">
-				<div class="fi_caution"><a href="javascript:void(0)">Information<span>!</span></a></div>
-			</div>
-			<a href="javascript:void(0)" class="bigA">
-				<h2>404VR雲霄飛車</h2>
-				<div class="points">
-					<img src="img/facilityInfo/star-dami.png" alt="">
-					<img src="img/facilityInfo/star-dami.png" alt="">
-					<img src="img/facilityInfo/star-dami.png" alt="">
-					<img src="img/facilityInfo/star-dami.png" alt="">
-					<img src="img/facilityInfo/star-dami.png" alt="">
-					<span>(0)</span>
-				</div>
-				<div class="mobile375_points">
-					分數:<span>0/5</span>
-				</div>
-			</a>
-		</div>
-		</div>
-
-		<div class="f_box"  data-category="23" data-no="6">
-			<div class="bcover_border">
-			<div class="f_mainphoto">
-				<img src="img/facilityInfo/dami.jpg" alt="dami">
-			</div>
-			<h2>404飛行船</h2>
-			<div class="points">
-				<img src="img/facilityInfo/star-dami.png" alt="">
-				<img src="img/facilityInfo/star-dami.png" alt="">
-				<img src="img/facilityInfo/star-dami.png" alt="">
-				<img src="img/facilityInfo/star-dami.png" alt="">
-				<img src="img/facilityInfo/star-dami.png" alt="">
-				<span>(0)</span>
 			</div>
 		</div>
-		</div>
+<?php		
+	}
+} catch (PDOException $e) {
+	echo "錯誤原因 : " , $e->getMessage() , "<br>";
+	echo "錯誤行號 : " , $e->getLine() , "<br>";
+	// echo "getCode : " , $e->getCode() , "<br>";
+	// echo "異動失敗,請聯絡系統維護人員";
+}
+?>
 <!-- -s- -->
 	</section>
 
@@ -475,21 +345,15 @@ try {
 <!-- ======================================= 設施01 ======================================= -->
 	<div class="facilityBox fadeout" id="facility01">
 		<section class="lightbox_wrapper">
-			<span class="file shuffle">FacilityInfo_01</span>
 			<div class="main_photo">
-				<img src="img/facilityInfo/sub_6365_LL.png">
-				<h2 class="title">宇宙雲霄飛車</h2>
-				<span class="subTitle">COSMOS ROLLER COASTER</span>
+				<span id="main_photo"></span>
+				<h2 class="title"></h2>
+				<span class="subTitle"></span>
 			</div>
 			<div class="content">
 				
 
 				<div class="inlineB paraLeft">
-					<ul>
-						<li>全長<span>1250</span>公尺</li>
-						<li>速度最高<span>92</span>公里/小時</li>
-						<li>高度最高<span>32</span>公尺</li>
-					</ul>
 				</div>
 
 				<div class="inlineB paraRight">
@@ -503,22 +367,20 @@ try {
 							    <path class="beat-loader" d="M0.5,38.5 L16,38.5 L19,25.5 L24.5,57.5 L31.5,7.5 L37.5,46.5 L43,38.5 L53.5,38.5" id="Path-2" stroke-width="1" sketch:type="MSShapeGroup"></path>
 							  </g>
 							</svg>
-							<div class="heartbeat">120下/1min</div>
+							<div class="heartbeat"></div>
 						</div>
 					</div>
 
 					<div class="parameter">
 						
-						<p class="paraContent middleLinehight">
+						<p class="paraContent middleLinehight suit">
 							<span>適合對象</span>
-							想感受刺激的人
 						</p>
 					</div>
 
 					<div class="parameter">	
-						<p class="paraContent middleLinehight">
+						<p class="paraContent middleLinehight limit">
 							<span>身高限制</span>
-							130cm~200cm
 						</p>
 					</div>
 				</div>
@@ -527,12 +389,10 @@ try {
 			<div class="hr">
 				<div class="trai"></div>	
 			</div>
-			<a href="facilityBuyTicket.html" id="getTicket">立即前往購票</a>
+			<a href="" id="getTicket">立即前往購票</a>
 			<div class="content">
 			<div class="scoreTitle">設施介紹</div>		
 				<p class="info">
-					雲霄飛車是一種機動遊樂設施，常見於遊樂園和主題樂園中。Thompson是第一個註冊雲霄飛車相關專利技術的人（1865年1月20日），並曾製造過十數個雲霄飛車設施，因此被譽稱為「重力之父」。一個基本的雲霄飛車構造中，包含了爬昇、滑落、倒轉，其軌道的設計不一定是一個完整的迴圈，也可以設計為車體在軌道上的運行方式為來回移動。
-					
 				</p>
 			</div>
 
@@ -675,6 +535,82 @@ try {
 				
 			}
 			window.addEventListener('load', login, false);
-	</script>
+
+
+
+
+//--AJAX
+function ajax_init(){
+	var bcover_border = document.getElementsByClassName("bcover_border");
+	for(var a =0;a<bcover_border.length;a++){
+		bcover_border[a].addEventListener("click",ajax_lightbox,false);
+	}
+}
+
+
+
+window.addEventListener('load',ajax_init);
+function ajax_lightbox(e) {
+
+	var body = document.getElementsByTagName("body")[0];
+	lightBoxF = document.getElementById('facility01');
+	var close = document.getElementById('close');
+	body.style.overflow = "hidden";
+	lightBoxF.style.height = "100vh";
+	lightBoxF.style.opacity = "1";
+	close.style.display = "block";
+	close.onclick = closelightBoxF;
+	var f_no = e.currentTarget.parentElement.dataset.no;
+
+        var xhr = new XMLHttpRequest();
+        xhr.onload = function () {
+
+            if (xhr.status == 200) {
+                var show_facility_JSON = document.getElementById("show_facility_JSON");
+                var main_photo = document.getElementById('main_photo');
+                var title = document.getElementsByClassName('title')[0];
+                var subTitle = document.getElementsByClassName('subTitle')[0];
+                var paraLeft = document.getElementsByClassName('paraLeft')[0];
+                var heartbeat = document.getElementsByClassName('heartbeat')[0];
+                var suit = document.getElementsByClassName('suit')[0];
+                var limit = document.getElementsByClassName('limit')[0];
+                var getTicket = document.getElementById("getTicket");
+                var info = document.getElementsByClassName('info')[0];
+                
+                var facility = JSON.parse(xhr.responseText);//將透過ajax傳回來的json型態的資料轉換成js的物件
+
+
+                main_photo.innerHTML = "<img src='img/facilityInfo/"+facility.facility_mphoto+"'>";
+                title.innerText = facility.facility_name;
+                subTitle.innerText = facility.facility_subname;//透過物件的操作就可以帶值進去span中(SQL中欄位名稱直接變屬性)
+                paraLeft.innerHTML = facility.facility_phrase;
+                heartbeat.innerText = facility.facility_heart;
+                suit.innerHTML += facility.facility_suit;
+                limit.innerHTML += facility.facility_limit;
+                if((facility.facility_no)==7){
+						getTicket.href = "Theaterbuyticket.php";
+					}else{
+						getTicket.href = "facilityBuyTicket.php";
+					}
+				info.innerText = facility.facility_description;
+
+				                
+				            
+
+
+				 } else{
+				      alert(xhr.status);
+				            
+				  }
+
+		}
+
+        var url = "ajax_facility_info.php?facility_no="+f_no;
+        xhr.open("Get", url, true);
+        xhr.send(null);
+
+    };
+</script>
+	
 </body>
 </html>
