@@ -1,0 +1,50 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>無標題文件</title>
+<style type="text/css">
+th {background-color : pink;}
+td {border-bottom:1px dotted deeppink;}
+</style>
+</head>
+
+<body>
+
+
+
+<div>首頁>>會員專區</div>
+<center>
+
+ 
+  <input type="number" id="input">
+  <div id="test"></div>
+
+<div ></div>
+</center>
+
+<script>
+
+  window.onload = getMember;
+
+
+function getMember(){
+  var xhr = new XMLHttpRequest();
+  xhr.onload=function (){
+       if( xhr.status == 200 ){
+          //alert( xhr.responseText );  
+          //modify_here
+          document.getElementById("input").value = parseInt(xhr.responseText);
+          console.log(xhr.responseText);
+       }else{
+          alert( xhr.status );
+       }
+  }//xhr.onreadystatechange
+  
+  var url = "getMore_innerHTML_C.php";
+  xhr.open("Get", url, true);
+  xhr.send( null );
+}
+</script>
+</body>
+</html>

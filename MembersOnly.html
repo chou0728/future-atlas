@@ -2,14 +2,84 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
+    <link rel="stylesheet" type="text/css" href="css/header.css">
     <link rel="stylesheet" href="css/MembersOnly.css">
     
 </head>
 
 <body>
+<div class="header">
+    <ul class="ul_top">
+        <div class="lever">
+            <img src="img/Usericon1.png">
+        </div>
+        <li class="li_top">
+            <a href="SignUp.html" id="registerUser">
+                <img src="img/member/member_0.png">
+                <span class="register">註冊</span>
+            </a>
+        </li>
+        <li class="li_top">
+            <a href="#" id="singUpBtn">
+                <img src="img/member/member_1.png">
+                <span class="login">登入</span>
+            </a>
+        </li>
+        <li class="li_top">
+             <a href="input_cart.html">
+                <img id="cartimgid" src="img/cart/wallet_0.png">
+                <span id="howmanytickets">0</span>
+            </a>
+                <div id="showCartContent">購物車內容
+                    <table id="showCartContenttb"></table>
+                </div>
+        </li>
+    </ul>
+</div>
+<div class="nav">
+    <div class="ul_box">
+        <ul class="ul_left">
+            <li>
+                <a href="Theaterbuyticket.html">劇場購票</a>
+            </li>
+            <li>
+                <a href="facilityBuyTicket.html">設施購票</a>
+            </li>
+            <li>
+                <a href="facilityInfo.html">設施介紹</a>
+            </li>
+        </ul>
+        <h1 style="display: none">FutureAtlas_未來主題樂園</h1>
+        <a href="index.html#page1" class="logo_a">
+            <img src="img/LOGO.png" class="logo">
+        </a>
+        <ul class="ul_right">
+            <li>
+                <a href="index.html#page2">園區地圖</a>
+            </li>
+            <li>
+                <a href="activity.html">活動月曆</a>
+            </li>
+            <li>
+                <a href="robot.html">諮詢專區</a>
+            </li>
+        </ul>
+    </div>
+    <div class="navOpenBtn"><!-- RWD left btn-->
+        <div class="ham"></div>
+        <div class="ham"></div>
+        <div class="ham"></div>
+        <div class="ham"></div>
+    </div>
+</div>
+<div class="headerOpenBtn"><!-- RWD right btn-->
+    <img src="img/Usericon1.png" class="memIcon">
+    <img src="img/Usericon.png" class="memIcon">
+    
+</div>
 
+    <!-- header end-->
 
     <div class="MembersBox">
         <div class="content"> 
@@ -22,10 +92,10 @@
                 <div class="nameBox">
                     <div class="nameBox_value">
                         <img src="img/memberOnly/memberOnly2.png" alt="暱稱">
-                        <p class="place" id="mem_nick">暱稱</p>
+                        <p class="place" id="mem_nick_title">暱稱</p>
                     </div>
                     <div class="nameBox_value_place">
-                        <p class="place_value" id="mem_nick_value">Davis Chen</p>
+                        <p class="place_value" id="mem_nick">null</p>
                     </div>
                     
                 </div>
@@ -34,10 +104,10 @@
                 <div class="nameBox">
                     <div class="nameBox_value">
                         <img src="img/memberOnly/memberOnly2.png" alt="帳號">
-                        <p class="place" id="mem_name">帳號</p>
+                        <p class="place" id="mem_name_title">帳號</p>
                     </div>
                     <div class="nameBox_value_place">
-                        <p class="place_value" id="mem_name_value">ld22365</p>
+                        <p class="place_value" id="mem_name">null</p>
                     </div>
                 </div>
                 
@@ -45,10 +115,10 @@
                 <div class="nameBox">
                     <div class="nameBox_value">
                         <img src="img/memberOnly/memberOnly2.png" alt="密碼">
-                        <p class="place" id="mem_password">密碼</p>
+                        <p class="place" id="mem_password_title">密碼</p>
                     </div>
                     <div class="nameBox_value_place">
-                        <p class="place_value" id="mem_password_value">********</p>
+                        <p class="place_value" id="password">null</p>
                     </div>
                 </div>
 
@@ -56,10 +126,10 @@
                 <div class="nameBox">
                     <div class="nameBox_value">
                         <img src="img/memberOnly/memberOnly2.png" alt="積分">
-                        <p class="place" id="mem_points">積分</p>
+                        <p class="place" id="mem_points_title">積分</p>
                     </div>
                     <div class="nameBox_value_place">
-                        <p class="place_value" id="mem_points_value">100分</p>
+                        <p class="place_value" id="mem_points">null</p>
                     </div>
                 </div>
 
@@ -67,10 +137,14 @@
                 <div class="nameBox">
                     <div class="nameBox_value">
                         <img src="img/memberOnly/memberOnly2.png" alt="信箱">
-                        <p class="place" id="mem_mail">信箱</p>
+                        <p class="place" id="mem_mail_title">信箱</p>
                     </div>
                     <div class="nameBox_value_place">
+<<<<<<< HEAD
                         <p class="place_value" id="mem_mail_value">ld22365@gmail.com</p>
+=======
+                        <p class="place_value" id="mem_mail">null</p>
+>>>>>>> ffb2d7b9c9c07e21e858d7677f03dc1a6343061d
                     </div>
                 </div>
 
@@ -78,10 +152,14 @@
                 <div class="nameBox">
                     <div class="nameBox_value">
                         <img src="img/memberOnly/memberOnly2.png" alt="電話">
-                        <p class="place" id="mem_phone">電話</p>
+                        <p class="place" id="mem_phone_title">電話</p>
                     </div>
                     <div class="nameBox_value_place">
+<<<<<<< HEAD
                         <p class="place_value" id="mem_phone_value">0988111223</p>
+=======
+                        <p class="place_value" id="mem_phone">null</p>
+>>>>>>> ffb2d7b9c9c07e21e858d7677f03dc1a6343061d
                     </div>  
                 </div>  
                 
@@ -141,17 +219,28 @@
 
 
 
-    </div>
-
-    
-    
-
-
-
-    
-
-
-
-
+</div>
+<script type="text/javascript">
+window.onload=function(){
+    // 連線資料庫取得會員資料
+    var storage = localStorage;
+    var mem_id = storage.getItem("mem_id");
+    var xhr = new XMLHttpRequest();
+    xhr.onload = function (){
+    if( xhr.status == 200){ //OK
+        //show會員資料
+        document.getElementById("mem_nick").innerHTML = xhr.responseText.split("/")[0];
+        document.getElementById("mem_mail").innerHTML = xhr.responseText.split("/")[1];
+        document.getElementById("mem_points").innerHTML = xhr.responseText.split("/")[2];
+        document.getElementById("mem_name").innerHTML = xhr.responseText.split("/")[3];
+        document.getElementById("password").innerHTML = xhr.responseText.split("/")[4];
+        document.getElementById("mem_phone").innerHTML = xhr.responseText.split("/")[5];
+        }
+    }
+    var url = "show_member_info.php?mem_id=" + mem_id;
+    xhr.open("get",url, true);
+    xhr.send(null);
+};
+</script>
 </body>
 </html>

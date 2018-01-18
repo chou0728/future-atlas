@@ -1,8 +1,12 @@
 <?php
 ob_start();
 session_start();
-if(isset($_SESSION["log_out"]) === true){
+if(isset($_SESSION["login_error"]) === true){
 	echo "<script>alert('帳密錯誤！請新登入');</script>";
+	unset($_SESSION["login_error"]);
+}else if(isset($_SESSION["log_register"])===true){
+	echo "<script>alert('註冊成功，歡迎你~~');</script>";
+	unset($_SESSION["log_register"]);
 }
 ?>
 <!DOCTYPE html>
@@ -112,7 +116,7 @@ if(isset($_SESSION["log_out"]) === true){
             </a>
         </li>
         <li class="li_top">
-             <a href="input_cart.html">
+             <a href="input_cart.php">
                 <img id="cartimgid" src="img/cart/wallet_0.png">
                 <span id="howmanytickets">0</span>
             </a>
@@ -144,7 +148,7 @@ if(isset($_SESSION["log_out"]) === true){
                 <a href="#page2" id="NavClose">園區地圖</a>
             </li>
             <li>
-                <a href="activity.html">活動月曆</a>
+                <a href="activity.php">活動月曆</a>
             </li>
             <li>
                 <a href="robot.html">諮詢專區</a>
@@ -944,7 +948,7 @@ if(isset($_SESSION["log_out"]) === true){
 		            	<td><a class="convert">詳情</a>
 		            </tr>
 		            <tr>
-		                <td colspan="2">夢境遊行夢境遊行夢境遊行夢境遊行夢境遊行</td>
+		                <td colspan="2">夢境遊行夢</td>
 		            </tr>
 		            <tr>
 		            	<th>11:00-12:00</th>
@@ -1155,7 +1159,7 @@ if(isset($_SESSION["log_out"]) === true){
 			});
 			//-登入-----------------------------------
 			window.onload = function () {
-				document.getElementsByTagName("body")[0].style.overflow = "hidden";// !!BUG
+				// document.getElementsByTagName("body")[0].style.overflow = "hidden";// !!BUG
 
 				var storage = localStorage;
 				/*註冊登入按鈕*/

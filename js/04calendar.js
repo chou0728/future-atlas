@@ -136,6 +136,16 @@ $(document).ready(function(){
 		$("#showActivityWrapper").css("right","0");
 		$("#cal").addClass("calFadeOut");
 		var showDate = $(this).text();
+
+		// 預備透過ajax抓取當日活動的param
+		var d = new Date();
+			if( d.getMonth() < 9){
+				var month = "0"+(d.getMonth()+1);
+			}
+		var activity_date = todayYear+"-"+month+"-"+$(this).text();
+		show_activity(activity_date);
+		console.log(activity_date);
+
 		if( !showDate){
 			showDate = "今日";
 		}else{
@@ -155,6 +165,19 @@ $(document).ready(function(){
 		$("#cal").removeClass("calFadeOut");
 	});
 });
+
+function show_activity(activity_date){
+	var xhr = new XMLHttpRequest();
+	xhr.onload = function(){
+		if( xhr.readyState === 4 && xhr.status === 200){ //OK
+    		// show活動內容
+    		$("#showRowUnitWrapper").html(xhr.responseText);
+		}
+	}
+	var url = "show_activity.php?activity_date=" + activity_date;
+	xhr.open("get",url, true);
+	xhr.send(null);
+}
 
 // 自動輪播月曆模式
 $(document).ready(function(){
@@ -182,8 +205,8 @@ $(document).ready(function(){
 function autoIconLoop1(){
 	$(".claContent").html("");
 	$(".sun").html("尋找星生命");
-	$(".mon").html("");
-	$(".tue").html("末世決戰");
+	$(".mon").html("末世決戰");
+	$(".tue").html("");
 	$(".wed").html("尋找星生命");
 	$(".thu").html("");
 	$(".fri").html("尋找星生命");
@@ -193,20 +216,20 @@ function autoIconLoop1(){
 };
 function autoIconLoop2(){
 	$(".claContent").html("");
-	$(".claContent:eq(5)").append("設施1");
-	$(".claContent:eq(10)").append("設施2");
-	$(".claContent:eq(15)").append("設施3");
-	$(".claContent:eq(20)").append("設施4");
-	$(".claContent:eq(25)").append("設施5");
-	$(".claContent:eq(30)").append("設施6");
+	$(".claContent:eq(5)").append("旋轉木馬");
+	$(".claContent:eq(10)").append("VR體驗");
+	$(".claContent:eq(15)").append("碰碰車");
+	$(".claContent:eq(20)").append("摩天輪");
+	$(".claContent:eq(25)").append("海盜船");
+	$(".claContent:eq(30)").append("未來鐵道");
 	$("#icon2").css("background-color","orange").fadeIn();
 	$(".icons").not("#icon2").css("background-color","transparent");
 };
 function autoIconLoop3(){
 	$(".claContent").html("");
 	$(".sun").html("9-22");
-	$(".mon").html("休園");
-	$(".tue").html("10-22");
+	$(".mon").html("10-22");
+	$(".tue").html("休園");
 	$(".wed").html("10-22");
 	$(".thu").html("10-22");
 	$(".fri").html("10-24");
@@ -272,17 +295,14 @@ function stopShiftMode(){
         });
         data.success(
                 function(msg){
-                	console.log(msg);
                     $("#result").append("<span id='temperature'>"+msg.main.temp.toFixed(1)+"°C</span>");
                     $("#result").append("<span id='weather'>"+msg.weather[0].description+"</span><br>");
                     $("#result").append($("<img style='width:70px; height:70px'>").attr("src","http://openweathermap.org/img/w/"+msg.weather[0].icon+".png"));
-                    console.log(msg);
                     $("#result").append("<br><span id='source'>即時氣象來源：openweathermap.org</span>")
                 }
             );
         data.error(
                 function(msg){
-                    console.log(msg);
                 }
             );
     }

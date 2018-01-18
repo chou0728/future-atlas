@@ -1,37 +1,8 @@
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-<link rel="stylesheet" type="text/css" href="css/header.css">
-<link rel="stylesheet" type="text/css" href="css/cart.css">
-<style type="text/css">
-body{
-	position: relative;
-}
-body{
-	background: black;
-}
-body::-webkit-scrollbar {
-    width: 10px;
-}
-body::-webkit-scrollbar-track {
-	-webkit-border-radius: 10px;
-    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
-    background-color: rgb(0,5,50);
-}
-body::-webkit-scrollbar-thumb {
-  background-color: rgba(100,255,243,1);
- /* outline: 1px solid rgba(100,255,243,1);*/
-}
-</style>
-<title>檢視購物車</title>
-<script type="text/javascript">
 var storage = localStorage;
 var expire_date = "2018/12/31";
 
 window.onload = function(){
+
 	for( i = 1 ; i < 7 ; i++){
 		var fn = i;
 		if( storage.getItem(i) != null ){
@@ -40,7 +11,7 @@ window.onload = function(){
 			if( full_fare_num > 0 ){
 				var full_fare = info[0];
 				var full_fare_subtotal = full_fare * full_fare_num;			
-				$("table#cartContent").append("<tr id='full_"+fn+"'><td class='fn_id'>"+fn+"</td><td class='icon_td'>設施icon</td><td>設施名稱</td><td class='full_td'>全票</td><td id='full_fare_id_"+fn+"'>"+full_fare+"</td><td><div class='ctrl'><div class='ctrl-button ctrl-button-decrement' id='full_decrement_"+fn+"'>-</div><div class='ctrl-counter'><input class='ctrl-counter-input' maxlength='3' type='text' value="+full_fare_num+" id='full_fare_num_id_"+fn+"'></div><div class='ctrl-button ctrl-button-increment' id='full_increment_"+fn+"'>+</div></td><td class='sub_total' id='full_fare_subtotal_id_"+fn+"'>"+full_fare_subtotal+"</td><td class='delete_btn_td'><button class='delete_btn' id='full_fare_delete_btn_id_"+fn+"'>Ｘ</button></td></tr>");
+				$("table#cartContent").append("<tr id='full_"+fn+"'><td class='fn_id'>"+fn+"</td><td class='icon_td'><img src='img/facilityIcon/"+fn+"icon.png'></td><td class='facility_name'>"+info[4]+"</td><td class='full_td'>全票</td><td id='full_fare_id_"+fn+"'>"+full_fare+"</td><td><div class='ctrl'><div class='ctrl-button ctrl-button-decrement' id='full_decrement_"+fn+"'>-</div><div class='ctrl-counter'><input class='ctrl-counter-input' maxlength='3' type='text' onkeyup='this.value=this.value.replace(/[^0-9]/g,'')' value="+full_fare_num+" id='full_fare_num_id_"+fn+"'></div><div class='ctrl-button ctrl-button-increment' id='full_increment_"+fn+"'>+</div></td><td class='sub_total' id='full_fare_subtotal_id_"+fn+"'>"+full_fare_subtotal+"</td><td class='delete_btn_td'><button class='delete_btn' id='full_fare_delete_btn_id_"+fn+"'>Ｘ</button></td></tr>");
 
 				document.getElementById("full_fare_num_id_"+fn).onchange = changeNum;
 				document.getElementById("full_decrement_"+fn).onclick = minusNumPanel;
@@ -52,7 +23,7 @@ window.onload = function(){
 			if( half_fare_num > 0){
 				var half_fare = info[2];
 				var half_fare_subtotal = half_fare * half_fare_num;
-				$("table#cartContent").append("<tr id='half_"+fn+"'><td class='fn_id'>"+fn+"</td><td class='icon_td'>設施icon</td><td>設施名稱</td><td class='half_td'>半票</td><td id='half_fare_id_"+fn+"'>"+half_fare+"</td><td><div class='ctrl'><div class='ctrl-button ctrl-button-decrement' id='half_decrement_"+fn+"'>-</div><div class='ctrl-counter'><input class='ctrl-counter-input' maxlength='3' type='text' value="+half_fare_num+" id='half_fare_num_id_"+fn+"'></div><div class='ctrl-button ctrl-button-increment' id='half_increment_"+fn+"'>+</div></td><td class='sub_total' id='half_fare_subtotal_id_"+fn+"'>"+half_fare_subtotal+"</td><td class='delete_btn_td'><button class='delete_btn' id='half_fare_delete_btn_id_"+fn+"'>Ｘ</button></td></tr>");
+				$("table#cartContent").append("<tr id='half_"+fn+"'><td class='fn_id'>"+fn+"</td><td class='icon_td'><img src='img/facilityIcon/"+fn+"icon.png'></td><td class='facility_name'>"+info[4]+"</td><td class='half_td'>半票</td><td id='half_fare_id_"+fn+"'>"+half_fare+"</td><td><div class='ctrl'><div class='ctrl-button ctrl-button-decrement' id='half_decrement_"+fn+"'>-</div><div class='ctrl-counter'><input class='ctrl-counter-input' maxlength='3' type='text' onkeyup='this.value=this.value.replace(/[^0-9]/g,'')' value="+half_fare_num+" id='half_fare_num_id_"+fn+"'></div><div class='ctrl-button ctrl-button-increment' id='half_increment_"+fn+"'>+</div></td><td class='sub_total' id='half_fare_subtotal_id_"+fn+"'>"+half_fare_subtotal+"</td><td class='delete_btn_td'><button class='delete_btn' id='half_fare_delete_btn_id_"+fn+"'>Ｘ</button></td></tr>");
 
 				document.getElementById("half_fare_num_id_"+fn).onchange = changeNum;
 				document.getElementById("half_decrement_"+fn).onclick = minusNumPanel;
@@ -148,8 +119,8 @@ function minusNumPanel(){
 			}else if( newNum < 1){
 				var confirm_status = confirm("您確定要刪除這張票券？");
 				if( confirm_status == true){
-					var delete_row_id = this.id;
-					deleteRow(delete_row_id);
+					var delete_row_id = this.id.replace("_decrement","");
+					document.getElementById(delete_row_id).remove();
 				}else{
 					newNum = 1;
 					this.nextElementSibling.children[0].value = 1;
@@ -172,7 +143,7 @@ function changeNum(){
 		var fare = parseInt(document.getElementById(aa).innerHTML);
 		// 新數量
 		var num = this.value;
-			if( num != 0){
+			if( num > 0){
 				// 新subtotal
 				document.getElementById(this.id.replace('num','subtotal')).innerHTML = fare*num;
 				showSubTotal();
@@ -193,15 +164,17 @@ function changeNum(){
 			}else{
 				var confirm_status = confirm("您確定要刪除？");
 				if( confirm_status == true){
-					var ff = this.id.replace("decrement","fare_num_id");
-					deleteRow(ff);
+					var ff = this.id.replace("_fare_num_id","");
+					document.getElementById(ff).remove();
 				}else{
 					this.value = 1;
 				}
 			}
+			
 }
 
-function deleteRow(changeTOZero){
+function deleteRow(changeTOZero,event){
+event.preventDefault();
 	if( changeTOZero != null){
 		var temp1 = changeTOZero.replace("_decrement","");
 		document.getElementById(temp1).remove();
@@ -225,9 +198,10 @@ function deleteRow(changeTOZero){
 	showSubTotal();
 }
 
-function deleteRowByClick(){
-	var temp2 = this.id.replace("_fare_delete_btn_id","");
-	document.getElementById(temp2).remove();
+function deleteRowByClick(event){
+	event.preventDefault();
+	// var temp2 = this.id.replace("_fare_delete_btn_id","");
+	// document.getElementById(temp2).remove();
 	// 修改為全票
 	if( this.id.search("full") == 0){
 		var cc = storage.getItem(this.id.substr(this.id.length-1,1)).split("/");
@@ -263,133 +237,56 @@ function showSubTotal(){
 	document.getElementById("cart_total").innerHTML = total;
 }
 
-// document.getElementById("nextStep").onclick = nextStep;
-// function nextStep(){
-// 	if(){
-		
-// 		window.location = "";
-// 	}
-// }
+				/*註冊登入按鈕*/
+				var singUpBtn = document.getElementById('singUpBtn');
+				/*註冊燈箱*/
+				var lightBox = document.getElementById('lightBox');
+				/*註冊燈箱關閉按鈕*/
+				var cancel = document.getElementById('cancel');
+				/*建立登入按鈕點擊事件聆聽功能*/
+				singUpBtn.addEventListener('click', showLogin, false);
 
-loginOrNot();
+
+				/*建立關閉登入燈箱按鈕點擊事件聆聽功能*/
+				cancel.addEventListener('click', closeLogin, false);
+
+				/*點案登入show出登入燈箱 以及判斷登出按鈕*/
+				function showLogin() {
+					console.log(singUpBtn.innerText);
+					/*如果singUpBtn為登入時*/
+					fullCover = document.getElementById('all-page');/*叫出燈箱時的墊背*/
+					if(singUpBtn.innerText.indexOf("登入") != -1){
+						/*show出燈箱*/
+						lightBox.style.opacity = 1;
+						fullCover.style.display="block";
+						lightBox.style.visibility = 'visible'
+						lightBox.style.display = "block";
+						allNavClose();
+					}
+				}
+				
+				/*點案登入關閉登入燈箱*/
+				function closeLogin() {
+					lightBox.style.opacity = 0;
+					lightBox.style.visibility = 'hidden';
+					fullCover.style.display="";
+				}
+};
+
+document.getElementById("nextStep").addEventListener("click",loginOrNot);
 function loginOrNot(){
 	if(storage.getItem("facility_ticket_list").search("/") < 0){
 		$("#nextStep").attr("href","facilityBuyTicket.html");
-		$("#nextStep").click(function(){
 			alert("您還沒有購買任何票券唷！");
-		})
 	}else if( storage.getItem("mem_id") > 0){
 		// 已經登入 
-		$("#nextStep").attr("href","input_cart_detail.html");
+		$("#nextStep").attr("href","input_cart_detail.php");
 		$(".register").text("我的資料");
 		$(".login").text("登出");
 		$(".login").prev().attr("src","img/member/member_2.png");
 	}else{
 		// 尚未登入
-		$("#nextStep").attr("href","index.php");
-		document.getElementById("nextStep").onclick = function(){
+		$("#nextStep").attr("javascript:void(0)");
 		alert("請先登入~~");
 	}
-	}
 }
-
-};
-</script>
-<body>
-<div class="header">
-    <ul class="ul_top">
-        <div class="lever">
-            <img src="img/Usericon1.png">
-        </div>
-        <li class="li_top">
-            <a href="SignUp.html" id="registerUser">
-                <img src="img/member/member_0.png">
-                <span class="register">註冊</span>
-            </a>
-        </li>
-        <li class="li_top">
-            <a href="#" id="singUpBtn">
-                <img src="img/member/member_1.png">
-                <span class="login">登入</span>
-            </a>
-        </li>
-        <li class="li_top">
-             <a href="input_cart.html">
-                <img id="cartimgid" src="img/cart/wallet_0.png">
-                <span id="howmanytickets">0</span>
-            </a>
-                <div id="showCartContent">購物車內容
-                    <table id="showCartContenttb"></table>
-                </div>
-        </li>
-    </ul>
-</div>
-<div class="nav">
-    <div class="ul_box">
-        <ul class="ul_left">
-            <li>
-                <a href="Theaterbuyticket.html">劇場購票</a>
-            </li>
-            <li>
-                <a href="facilityBuyTicket.html">設施購票</a>
-            </li>
-            <li>
-                <a href="facilityInfo.html">設施介紹</a>
-            </li>
-        </ul>
-        <h1 style="display: none">FutureAtlas_未來主題樂園</h1>
-        <a href="index.html#page1" class="logo_a">
-            <img src="img/LOGO.png" class="logo">
-        </a>
-        <ul class="ul_right">
-            <li>
-                <a href="index.html#page2">園區地圖</a>
-            </li>
-            <li>
-                <a href="activity.html">活動月曆</a>
-            </li>
-            <li>
-                <a href="robot.html">諮詢專區</a>
-            </li>
-        </ul>
-    </div>
-    <div class="navOpenBtn"><!-- RWD left btn-->
-        <div class="ham"></div>
-        <div class="ham"></div>
-        <div class="ham"></div>
-        <div class="ham"></div>
-    </div>
-</div>
-<div class="headerOpenBtn"><!-- RWD right btn-->
-    <img src="img/Usericon1.png" class="memIcon">
-    <img src="img/Usericon.png" class="memIcon">
-    
-</div>
-
-    <!-- header end-->
-
-<div id="cartWrapper">
-	<div id="cartTitle">您的購物車</div>
-	<form>
-		<table id="cartContent" border="1" cellspacing="0">
-			<tr id="cart_header">
-				<th id="fn_th">設施編號</th>
-				<th id="icon_th">圖示</th>
-				<th id="fname_th">設施名稱</th>
-				<th id="tt_th">票種</th>
-				<th id="fare_th">票價</th>
-				<th id="tn_th" style='text-align: right'>張數</th>
-				<th id="subtotal_th" style='text-align: right'>小計</th
-				>
-				<th colspan="2"></th>
-			</tr>
-		</table>
-	<div id="button">
-		<a href="facilityBuyTicket.html" class="highlight" id="backToShop">繼續購物</a>
-		<a href="" id="nextStep" class="highlight">下一步</a>
-	</div>
-	</form>
-</div>
-<script src="js/00nav.js"></script>
-</body>
-</html>

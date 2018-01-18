@@ -7615,11 +7615,5 @@ sass/02map.scss
 *.json
 prepros-6.config
 login_test_Manna.html
-css/Theaterbuyticket.css
-css/Theaterbuyticket.css
-SignUp.html
-facilityBuyTicket.php
-php/connectBooks.php
-php/connectBooks.php
-php/connectBooks.php
 node_modules/*
+buyTTicket.php

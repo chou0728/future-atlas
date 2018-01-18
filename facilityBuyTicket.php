@@ -62,7 +62,7 @@ session_start();
                 <span class="register">
                 	<?php
                 		if(isset($_SESSION["mem_id"])===true){
-                			echo $_SESSION["mem_nick"]."你好!";
+                			echo "<a href='MembersOnly.html'>我的資料</a>";
                 		}else{
                 			echo "註冊";
                 		}
@@ -78,7 +78,13 @@ session_start();
                 			echo"'javascript:void(0)'";
                 		}
                 	?> id="singUpBtn">
-                <img src="img/member/member_1.png">
+                <img src=<?php
+                		if(isset($_SESSION['mem_id'])===true){
+                			echo 'img/member/member_2.png';
+                		}else{
+                			echo 'img/member/member_1.png';
+                		}
+					?>>
                 <span class="login">
                 	<?php
                 		if(isset($_SESSION["mem_id"])===true){
@@ -91,11 +97,11 @@ session_start();
             </a>
         </li>
         <li class="li_top">
-             <a href="input_cart.html">
+             <a href="input_cart.php">
                 <img id="cartimgid" src="img/cart/wallet_0.png">
                 <span id="howmanytickets">0</span>
             </a>
-                <div id="showCartContent">購物車內容
+                <div id="showCartContent">預覽購物車
                     <table id="showCartContenttb"></table>
                 </div>
         </li>
@@ -527,7 +533,8 @@ function init(){
 		var adp = this.previousElementSibling.previousElementSibling.dataset.val;/*全票價格*/
 		var cd = this.previousElementSibling.children[2].children[1].children[0].value;/*半票張數*/
 		var cdp = this.previousElementSibling.dataset.val;/*半票價格*/
-		var addToCart = adp+"/"+ad+"/"+cdp+"/"+cd;
+		var fname = this.previousElementSibling.previousElementSibling.previousElementSibling.previousElementSibling.previousElementSibling.children[1].innerText;
+		var addToCart = adp+"/"+ad+"/"+cdp+"/"+cd+"/"+fname;
 		if(ad!=0||cd!=0){//判斷全票半票皆不為0張
 			storage.setItem(fn,addToCart);
 			
@@ -725,6 +732,18 @@ window.addEventListener('load',l_storage);
 					lightBox.style.visibility = 'hidden';
 					fullCover.style.display="";
 				}
+				// 若登入，將mem_id存入localStorage
+				var storage = localStorage;
+				storage.setItem("mem_id",
+					<?php
+	               		if(isset($_SESSION["mem_id"])===true){
+	               			echo $_SESSION["mem_id"];
+	               		}else{
+	               			echo "0";
+	               			// 若未登入，mem_id為0
+	               		}
+                	?>
+					);
 				
 				
 			}

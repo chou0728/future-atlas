@@ -1,0 +1,62 @@
+
+        table {
+            width: 80%; 
+            border:1px solid black;
+            margin:30px auto ;
+            font-size: 16px;
+            font-family: "微軟正黑體";
+        }
+        .titleh2{
+            margin:30px 30px;
+            font-size:24px;
+            text-align: center;
+            font-family: "微軟正黑體";
+        }
+        th{
+            text-align:center;
+            border:1px solid black; 
+            padding: 10px 10px;
+        }
+        td{ 
+            vertical-align: middle;
+            border:1px solid black; 
+            padding: 10px 10px;
+            font-family: "微軟正黑體";
+            overflow-x: auto;
+        }#activity_name, #activity_short_name, #activity_intro{
+            width: 80px;
+            height: 100px;
+        }
+        .readOnlyStyle{
+            border: none;
+            background-color: #ccc;
+        }.editStyle{
+            border: 1px solid black;
+            background-color: white;
+        }#history_activity_table{
+            width: 400px;
+        }input.no{
+            width: 30px;
+        }
+        input.data{
+            width: 120px;
+        }input.input_btn{
+            width: 60px;
+            display: inline-block;
+            background-color: aqua;
+            margin: 5px 0;
+            padding: 5px;
+            border: none;
+            outline: none;
+            cursor: pointer;
+        }input.input_btn:nth-of-type(2){
+            background-color: #555;
+            color: white;
+        }
+        td.wider{
+            width: 160px;
+        }input{
+            font-size: 16px;
+            width: 90%;
+
+        }

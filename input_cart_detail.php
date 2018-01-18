@@ -1,14 +1,10 @@
-<?php
-ob_start();
-session_start();
-?>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-<title>input_cart_detail</title>
+<title>lulala</title>
 <script src="js/cart_detail.js"></script>
 <link rel="stylesheet" type="text/css" href="css/header.css">
 <link rel="stylesheet" type="text/css" href="css/cart.css">
@@ -76,7 +72,7 @@ body::-webkit-scrollbar-thumb {
             </li>
         </ul>
         <h1 style="display: none">FutureAtlas_未來主題樂園</h1>
-        <a href="index.html#page1" class="logo_a">
+        <a href="index.php" class="logo_a">
             <img src="img/LOGO.png" class="logo">
         </a>
         <ul class="ul_right">
@@ -104,18 +100,20 @@ body::-webkit-scrollbar-thumb {
     
 </div>
 <!-- header end-->
-<!-- 輸出會員資訊 --><div id="detailWrapper">
+<!-- 輸出會員資訊 -->
+<div id="detailWrapper">
 	<h1 id="title">確認訂單明細</h1>
 	<table id="member_info" cellspacing="0">
-		<tr><th colspan="2" class="tbtitle">會員資訊</th></tr>
-		<tr>
-			<td>暱稱</td><td id="member_id"><?php echo $mem_nick ?></td>
+		<tr><th colspan="2" class="tbtitle">會員資訊</th>
 		</tr>
 		<tr>
-			<td>Email</td><td id="member_email"><?php echo $mem_email ?></td>
+			<td>暱稱</td><td id="mem_nick" style="color: white"></td>
 		</tr>
 		<tr>
-			<td>積分</td><td id="member_points"><?php echo $mem_points ?></td>
+			<td>Email</td><td id="mem_mail"></td>
+		</tr>
+		<tr>
+			<td>積分</td><td id="mem_points"></td>
 		</tr>
 	</table>
 
@@ -124,7 +122,6 @@ body::-webkit-scrollbar-thumb {
 		<tr><th colspan="8" class="tbtitle" id="detail_row_title" style="font-size: 24px;">訂單明細</th></tr>
 		<tr id="ticket_row">
 			<th id="fn_th">設施編號</th>
-			<th id="icon_th">圖示</th>
 			<th id="fname_th">設施名稱</th>
 			<th id="tt_th">票種</th>
 			<th id="fare_th">票價</th>
@@ -137,7 +134,7 @@ body::-webkit-scrollbar-thumb {
 			<td style="width: 350px; text-align: right" colspan="7" id="discount_input">
 				<input type="radio" name="points" class="points"> 之後再使用
 				<input type="radio" name="points" class="points"> 使用
-				<input type="number" id="points" class="points" min="0"> 點
+				<input type="number" id="points" class="points" min="0" value="0"> 點
 				<div id="points_confirm">確定</div>
 					<div id="points_remain">(剩餘點數：
 						<span id="points_remain_input"></span>)點
@@ -150,8 +147,6 @@ body::-webkit-scrollbar-thumb {
 			<td name="total" id="total"></td>
 		</tr>
 	</table>
-
-
 	<!--輸入信用卡 -->
 	<table id="pay_info">
 		<tr>
@@ -186,13 +181,23 @@ body::-webkit-scrollbar-thumb {
 				</div>
 			</td>
 		</tr>
+		<form action="facility_order_save_database.php" method="post">
+			<!-- 隱藏欄位區 -->
+			<input type="hidden" name="mem_id_hidden" id="mem_id_hidden">
+			<input type="hidden" name="total_hidden" id="total_hidden">
+			<input type="hidden" name="cart_sub_total_hidden" id="cart_sub_total_hidden">
+			<input type="hidden" name="creditcard_num_hidden" id="creditcard_num_hidden">
+			<input type="hidden" name="discount_hidden" id="discount_hidden">
+			<input type="hidden" name="order_date" id="order_date">
+			<input type="hidden" name="sql_order_item" id="sql_order_item">
+			<!-- 隱藏欄位區 end -->
 		<tr><td colspan="2">信用卡卡號</td></tr>
 		<tr>
 			<td colspan="2" class="credit_card" name="credit_card" id="credit_card">
-				<input type="text" maxlength="4" id="credit_card1" onkeyup="setBlur(this,'credit_card2');this.value=this.value.replace(/[^0-9]/g,'')">-
-				<input type="text" maxlength="4" id="credit_card2" onkeyup="setBlur(this,'credit_card3');this.value=this.value.replace(/[^0-9]/g,'')">-
-				<input type="text" maxlength="4" id="credit_card3" onkeyup="setBlur(this,'credit_card4');this.value=this.value.replace(/[^0-9]/g,'')">-
-				<input type="text" maxlength="4" id="credit_card4" onkeyup="this.value=this.value.replace(/[^0-9]/g,'')">
+				<input type="text" size="4" minlength="4" maxlength="4" id="credit_card1" name="credit_card1" onkeyup="setBlur(this,'credit_card2');this.value=this.value.replace(/[^0-9]/g,'')" required>-
+				<input type="text" size="4" minlength="4" maxlength="4" id="credit_card2" name="credit_card2" onkeyup="setBlur(this,'credit_card3');this.value=this.value.replace(/[^0-9]/g,'')" required>-
+				<input type="text" size="4" minlength="4" maxlength="4" id="credit_card3" name="credit_card3" onkeyup="setBlur(this,'credit_card4');this.value=this.value.replace(/[^0-9]/g,'')" required>-
+				<input type="text" size="4" minlength="4" maxlength="4" id="credit_card4" name="credit_card4" onkeyup="this.value=this.value.replace(/[^0-9]/g,'')" required>
 			</td>
 		<tr>
 			<td>到期年月</td><td>驗證碼</td>
@@ -207,12 +212,62 @@ body::-webkit-scrollbar-thumb {
 		</tr>
 		</tr>
 	</table>
-</div>
 
 <div id="button">
-	<a href="input_cart.html" class="highlight" id="backToShop">上一步</a>
-	<a href="MembersOnly.html" id="nextStep" class="highlight">確認結帳</a>
+	<a href="input_cart.php" class="highlight" id="backToShop">上一步</a>
+	<input type="submit" name="" id="nextStep" class="highlight" value="確認結帳">
 </div>
-<script src="js/00nav.js"></script>
+</form>
+<!-- <script src="js/00nav.js"></script> -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script type="text/javascript">
+window.addEventListener("load",showMemberInfo);
+window.addEventListener("load",bindToHiddenName);
+
+function showMemberInfo(){
+	// 連線資料庫取得會員資料
+	var storage = localStorage;
+	var mem_id = storage.getItem("mem_id");
+	var xhr = new XMLHttpRequest();
+	xhr.onload = function (){
+	if( xhr.status == 200){ //OK
+	    if( xhr.responsetText == "sqlerror"){
+	        alert("Server端無法正常運作");
+	    }else{
+	    //show會員資料
+	    document.getElementById("mem_nick").innerHTML = xhr.responseText.split("/")[0];
+	    document.getElementById("mem_mail").innerHTML = xhr.responseText.split("/")[1];
+	    document.getElementById("mem_points").innerHTML = parseInt(xhr.responseText.split("/")[2]);
+	    }
+	    }
+	}
+	var url = "show_member_info.php?mem_id=" + mem_id;
+	xhr.open("get",url, true);
+	xhr.send(null);
+
+	// 會員面板顯示改為登入狀態
+	var storage = localStorage;
+	if( storage.getItem("mem_id") > 0){
+		$(".register").text("我的資料");
+		$(".login").text("登出");
+		$(".login").prev().attr("src","img/member/member_2.png");
+	}
+}
+
+function bindToHiddenName(){
+	document.getElementById("cart_sub_total_hidden").value = document.getElementById("cart_sub_total").innerHTML;
+	document.getElementById("credit_card7").onchange = function(){
+		document.getElementById("discount_hidden").value = document.getElementById("points").value;
+		var creditcard_num = document.getElementById("credit_card1").value+
+						 document.getElementById("credit_card2").value+
+						 document.getElementById("credit_card3").value+
+						 document.getElementById("credit_card4").value;
+		document.getElementById("creditcard_num_hidden").value = creditcard_num;
+		console.log(creditcard_num);
+	}
+	// 儲存訂單副檔
+	// 修改會員剩餘積分
+}
+</script>
 </body>
 </html>

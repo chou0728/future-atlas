@@ -5,9 +5,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <title>Theater progress</title>
     <!-- ======請複製==== -->
-    <link rel="stylesheet" type="text/css" href="../css/RESET.css">
-    <link rel="stylesheet" type="text/css" href="../css/11back_nav.css">
-    <link rel="stylesheet" type="text/css" href="../css/back_TheaterMang.css">
+    <link rel="stylesheet" type="text/css" href="css/RESET.css">
+    <link rel="stylesheet" type="text/css" href="css/11back_nav.css">
+    <link rel="stylesheet" type="text/css" href="css/back_TheaterMang.css">
     <!-- ========== -->
 
 </head>
@@ -15,7 +15,7 @@
     <!-- ============================================================================== -->
     <header>
         <h1 class="logo">
-            <img src="../img/LOGO.png" alt="FA">
+            <img src="img/LOGO.png" alt="FA">
             <span>後台管理系統</span>
         </h1>
         <ul class="nav">
@@ -35,7 +35,7 @@
                 <span class="spancover"></span>
             </li>
             <li class="navList">
-                 <a href="back_TheaterMang.php" style="color: black;">劇場管理
+                 <a href="back_theater_mang.php" style="color: black;">劇場管理
                 </a>
                 <span class="listcover" style="width: 100%;background-color: rgba(90, 230, 219,0.9);"></span>
                 <span class="spancover"></span>
@@ -79,10 +79,10 @@
             <!-- 劇場節目 -->
             <div id="TheaterMang" class="tabcontent">
                 <span onclick="this.parentElement.style.display='none'" class="topright"></span>
-                <form method="get" action="updateTheaterMang.php" align="center" enctype="multipart/form-data">
-                    <h2 class="titleh2">劇場節目</h2>
+                
+                    <h2 class="titleh2" align="center">劇場節目</h2>
                     <table>
-                        <button onclick="Newprogram"  class="Newprogram">新增</button>
+                        <!-- <button onclick="Newprogram()"  class="Newprogram" >新增</button> -->
                         <tr>
                             <th>節目編號</th>
                             <th>節目名稱</th>
@@ -94,7 +94,7 @@
                         </tr>
                         <?php 
                             try {
-                                require_once("connectBooks.php");
+                                require_once("php/connectBooks.php");
                                 // require_once("connectbd103g3.php");
                                 $recPerPage=50;
                                 $start = 0;
@@ -119,6 +119,8 @@
                                 //跑迴圈，印出資料
                                 foreach( $theater_program as $i=>$prodRow){
                                 ?>
+                                <form method="post" action="php/updateTheaterMang.php" align="center" enctype="multipart/form-data">
+
                                 <input type="hidden" name="program_no" value="<?php echo  $prodRow["program_no"] ?>">
                                 <tr>
                                     <td><?php echo  $prodRow["program_no"] ?>
@@ -130,7 +132,7 @@
                                         <input type="text" size=50  name="program_intro" value="<?php echo  $prodRow["program_intro"]?>">
                                     </td>
                                     <td>
-                                        <input type="file" name="program_photo" multiple>
+                                        <input type="file" name="program_photo">
                                     </td>
                                     <td>
                                         <input type="number" style="width:50px;" value="<?php echo  $prodRow["program_fare"] ?>" name="program_fare">
@@ -153,6 +155,7 @@
                                         <input type="submit" style="font-family:微軟正黑體;" value="儲存">
                                     </td>
                                 </tr>
+                                </form>
                             <?php       
                                 }
                             ?>
@@ -173,17 +176,21 @@
                             取消
                         </button>
                     </div> -->
-                </form>
+                
             </div>
             <div id="theater_session_List" class="tabcontent">
                 <span onclick="this.parentElement.style.display='none'" class="topright"></span>
                 <!-- 劇場場次清單 -->
-                <form method="get" action="" align="center" enctype="multipart/form-data">
-                    <h2 class="titleh2">劇場場次清單</h2>
-                    <table class="TheaterSessionListTable">
+                
+                    <h2 class="titleh2" align="center">劇場場次清單</h2>
+                    
                        <!--  <button onclick="searchSession"  class="searchSession">查詢</button> -->
-                        節目編號:<input type="text" value="1" name="programNo">
+                        <div class="programNoSerch" align="center">
+                             節目編號:<input type="text" value="1" name="programNo" id="programNo">
                             <button  class="searchOrderList" onclick="showSessionList()">查詢</button>
+                            <!-- <div id="showPanel"></div> -->
+                        </div>
+                    <table class="TheaterSessionListTable" id="TheaterSessionListTable">   
                         <tr>
                             <th>場次編號</th>
                             <th>節目編號</th>
@@ -196,7 +203,7 @@
                         <?php 
                             try {
 
-                                require_once("connectBooks.php");
+                                require_once("php/connectBooks.php");
                                 //利用programNo查尋sessionList
 
                                 // require_once("connectbd103g3.php");
@@ -219,10 +226,14 @@
 
                                 $sql = "select * from theater_session_list ";
                                 $theater_session_list = $pdo->query($sql);
-                                // echo $total_pages;       
+                                // echo $total_pages; 
+                                    
                                 //跑迴圈，印出資料
                                 foreach( $theater_session_list as $i=>$prodRow){
-                        ?>
+                        ?>       
+                                <form method="get" action="php/update_theater_session_List.php" align="center" >
+
+                                <input type="hidden" name="session_no" value="<?php echo  $prodRow["session_no"] ?>">  
                                 <tr>
                                     <td><?php echo  $prodRow["session_no"] ?>
                                     </td>  
@@ -235,18 +246,16 @@
                                     <td><?php echo  $prodRow["time_date"] ?>
                                     </td>
                                     <td>
-                                        <input type="number" style="width:50px;" value="<?php echo  $prodRow["total_ticket"] ?>">
+                                        <input type="number" style="width:50px;" value="<?php echo  $prodRow["total_ticket"] ?>" name="total_ticket">
                                     </td>
                                     <td> 
-                                        <input type="number" style="width:50px;" value="<?php echo  $prodRow["last_ticket"] ?>">   
+                                        <input type="number" style="width:50px;" value="<?php echo  $prodRow["last_ticket"] ?>"  name="last_ticket">   
                                     </td>
-                                    <td><a href="#">修改</a></td>
+                                    <td> <input type="submit" style="font-family:微軟正黑體;" value="修改"></td>
                                 </tr>
+                                </form> 
                             <?php       
                                 }
-                            ?>
-
-                        <?php
                             } catch (PDOException $e) {
                                 echo "錯誤原因 : " , $e->getMessage() , "<br>";
                                 echo "錯誤行號 : " , $e->getLine() , "<br>";
@@ -255,7 +264,7 @@
                             }
                         ?> 
                     </table>
-                </form> 
+                
             </div>
 
             <div id="theater_order_List" class="tabcontent">
@@ -263,9 +272,11 @@
                 <span onclick="this.parentElement.style.display='none'" class="topright"></span>
                 <form method="get" action="" align="center" enctype="multipart/form-data">
                     <h2 class="titleh2">劇場票劵訂單</h2>
-                    <table class="TheaterOrderListTable">
-                        場次編號:<input type="text" value="1">
-                            <button onclick="searchOrderList"  class="searchOrderList">查詢</button>
+                    <table class="TheaterOrderListTable" id='TheaterOrderListTable'>
+                        會員ID:<input type="text" value="1" id='member_id'>
+                            <!-- button類型要改成type="button"，預設type="submit" -->
+                            <button type="button" onclick="searchOrderList()"  class="searchOrderList">查詢</button>
+                            <div id="showPanel"></div>
                         <tr>
                             <th>訂單編號</th>
                             <th>場次編號</th>
@@ -279,7 +290,7 @@
                         </tr>
                         <?php 
                             try {
-                                require_once("connectBooks.php");
+                                require_once("php/connectBooks.php");
                                 // require_once("connectbd103g3.php");
                                 $recPerPage=100;
                                 $start = 0;
@@ -350,6 +361,7 @@
         </div>
     </div>
     <script>
+        //tab 換頁
         function openCity (evt,list) {
 
             var i, tabcontent, b_sn_btn;
@@ -370,7 +382,37 @@
         // Get the element with id="defaultOpen" and click on it
         document.getElementById("active").click();
 
+        //傳送節目編號
+        function showSessionList() {
+            var xhr = new XMLHttpRequest();
+            xhr.onload=function (){
+                if( xhr.status == 200 ){
+                    document.getElementById("TheaterSessionListTable").innerHTML = xhr.responseText;
+                }else{
+                    alert( xhr.status );
+                }
+            }//xhr.onreadystatechange
+          
+            var url = "php/get_program_no.php?programNo=" + document.getElementById("programNo").value;
+            xhr.open("Get", url, true);
+            xhr.send( null );
+        }
 
+        //傳送會員ID  
+        function searchOrderList(){
+            var xhr = new XMLHttpRequest();
+            xhr.onload=function (){
+                if( xhr.status == 200 ){
+                    document.getElementById("TheaterOrderListTable").innerHTML = xhr.responseText;
+                }else{
+                    alert( xhr.status );
+                }
+            }//xhr.onreadystatechange
+          
+            var url = "php/search_member_id.php?member_id=" + document.getElementById("member_id").value;
+            xhr.open("Get", url, true);
+            xhr.send( null );
+        }
     </script>
 </body>
 </html>

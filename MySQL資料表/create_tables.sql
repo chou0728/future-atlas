@@ -59,16 +59,21 @@ foreign KEY (order_no) references facility_order (order_no)
 create table facility(
 facility_no int auto_increment not null,
 facility_name varchar(10) not null,
-facility_mphoto varchar(20) not null,
+facility_subname varchar(25),
+facility_mphoto varchar(20),
 facility_tphoto varchar(20),
-facility_sphoto1 varchar(20),
-facility_sphoto2 varchar(20),
 facility_intro varchar(20),
+facility_phrase varchar(120),
+facility_heart varchar(10),
+facility_suit varchar(15),
+facility_limit varchar(15),
 facility_description varchar(200),
-facility_status boolean,
-facility_crowd int,
+facility_status boolean not null default '1',
+facility_crowd int not null default '2',
 full_fare int,
 half_fare int,
+info_already boolean not null default '0',
+ticket_already boolean not null default '0',
 PRIMARY KEY(facility_no)
 );
 

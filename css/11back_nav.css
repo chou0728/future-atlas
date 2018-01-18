@@ -4,6 +4,7 @@
 }
 body{
 	background-color:#ccc;
+	/*overflow-x: hidden;*/
 }
 header{
 	position: fixed;
@@ -104,9 +105,10 @@ header .nav .navList a:hover{
 /*NAVCSS結束*/
 .b_content{
 	width:100%;
+	/*overflow-x: auto;*/
 	/*height:100vh;*/
 	background-color:#ccc;
-	padding:0px 0 0 15%;
+	padding:100px 0 0 15%;
 }
 @media screen and (min-width: 415px) and (max-width:1024px) {
 	.b_content{
@@ -150,7 +152,9 @@ header .nav .navList a:hover{
 		justify-content: space-around;
 	}
 }
-
+/*.b_inner_content{
+	padding-top: 75px;
+}*/
 .b_sub_nav .b_sn_btn{
 	text-decoration:none;
 	color:#111;
