@@ -129,6 +129,14 @@
 	overflow-y:scroll;
 	font-family: "微軟正黑體";
 }
+.lb-close-icon{
+	width: 30px;
+	position: fixed;
+	top:19px;
+	right: 30px;
+	cursor: pointer;
+	z-index: 999;
+}
 .lightBox-row{
 	width: 100%;
 	padding: 10px 0;
@@ -160,6 +168,9 @@
 }
 .lightBox-submit{
 	text-align: center;
+}
+.lightBox-submit input{
+	margin: 15px 20px;
 }
 .mphoto{
 	background-color: #777;
@@ -220,6 +231,7 @@
 .tphoto-img img{
 	width: 100%;
 }
+
 /*==燈箱TICKET*/
 #lightBox_ticket{
 	display: none;

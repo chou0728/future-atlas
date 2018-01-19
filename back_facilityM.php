@@ -116,7 +116,7 @@ try {
 								<?php echo $prodRow->facility_name ?>
 							</div>
 							<div class="col">
-								<img src="img/facilityInfo/<?php if($prodRow->facility_mphoto == null){
+								<img src="img/facilityInfo/<?php if($prodRow->facility_mphoto == '0'){
 									echo "dami_.jpg";
 
 								}else{
@@ -231,7 +231,7 @@ try {
 								<?php echo $prodRow->facility_name ?>
 							</div>
 							<div class="col">
-								<img src="img/facilityInfo/<?php if($prodRow->facility_tphoto == 0){
+								<img src="img/facilityInfo/<?php if($prodRow->facility_tphoto == '0'){
 									echo "dami_.jpg";
 
 								}else{
@@ -342,7 +342,7 @@ try {
 
 <!-- ===========燈箱 for Info======================================-->
 <div id="lightBox">
-
+	<img src="img/facilityInfo/bclose.png" class="lb-close-icon">
 		<div class="lightBox-row lightBox-title">修改設施介紹資料</div>
 		<form action="update_facility_info.php" method="post" enctype="multipart/form-data">
 			<input type="hidden" name="info_already" value="3">
@@ -410,7 +410,7 @@ try {
 				</select>
 			</div>
 			<div class="lightBox-row lightBox-submit">
-				<input type="button" name="" value="清除修改" id="reset">
+				<input type="button" name="" value="清除修改" class="reset">
 				<input type="submit" name="" value="確認修改">
 			</div>
 		</form>
@@ -418,6 +418,7 @@ try {
 <!-- ===========燈箱 for Info END======================================-->
 <!-- ===========燈箱 for TICKET======================================-->
 <div id="lightBox_ticket">
+	<img src="img/facilityInfo/bclose.png" class="lb-close-icon">
 	<div class="lightBox-row lightBox-title">修改設施票券資料</div>
 	<form action="update_facility_ticket.php" method="post" enctype="multipart/form-data">
 			<input type="hidden" name="ticket_already" value="3">
@@ -455,7 +456,7 @@ try {
 				<input type="text" name="half_fare">
 			</div>
 			<div class="lightBox-row lightBox-submit">
-				<input type="button" name="" value="清除修改" id="reset">
+				<input type="button" name="" value="清除修改" class="reset">
 				<input type="submit" name="" value="確認修改">
 			</div>
 	</form>
@@ -504,8 +505,10 @@ function init(){
 		edit_ticket[i].onclick = openLightBox_ticket;
 	}
 	
-	var reset = document.getElementById("reset");
-	reset.onclick = resetLightBox;
+	var resetInfo = document.getElementsByClassName("reset")[0];
+	var resetTic = document.getElementsByClassName("reset")[1];
+	resetInfo.onclick = resetLightBox;
+	resetTic.onclick =resetLightBox_ticket;
 
 	var changeType = document.getElementById("change-type");
 	changeType.onclick = changeImgType;
@@ -515,9 +518,17 @@ function init(){
 	fm.onchange = showImg;
 	tm.onchange = showImg;
 
-	var submit_true = document.getElementsByClassName("submit_true");
-	for(a=0;a<submit_true.length;a++){
-		submit_true[a].onclick = frontAppear;
+	submit_true = document.getElementsByClassName("submit_true");
+	for(i=0;i<submit_true.length;i++){
+		submit_true[i].onclick = frontAppear;
+	}
+	var lbCloseIcon =document.getElementsByClassName("lb-close-icon");
+	var b_sn_btn = document.getElementsByClassName("b_sn_btn");
+	for(i=0;i<lbCloseIcon.length;i++){
+	lbCloseIcon[i].onclick = closeLightBox;
+	}
+	for(i=0;i<b_sn_btn.length;i++){
+	b_sn_btn[i].addEventListener('click',closeLightBox);
 	}
 	
 
@@ -544,7 +555,6 @@ function openLightBox(){
 	var suit = this.parentElement.parentElement.children[8].innerText;
 	var limit = this.parentElement.parentElement.children[9].innerText;
 	subnames = this.parentElement.parentElement.children[10].innerText;
-	console.log(subnames);
 	lightBox= document.getElementById("lightBox");
 	facility_no = document.getElementById("facility_no");
 	facility_name = document.getElementById("facility_name");
@@ -579,6 +589,7 @@ function openLightBox(){
 	facility_name.value = name;
 	facility_mphoto.src = mphoto;
 	fm.filename = mphoto;
+	fm.value = "";
 	facility_phrase.value = phrase;
 	facility_heart.value  = heart;
 	facility_suit.value = suit;
@@ -608,8 +619,8 @@ function openLightBox(){
 	lightBox.style.display = "block";	
 }
 function openLightBox_ticket(){
-	var lightBox_ticket = document.getElementById("lightBox_ticket");
-	var ticket_no = document.getElementById("facility_no_tickets");
+	lightBox_ticket = document.getElementById("lightBox_ticket");
+	ticket_no = document.getElementById("facility_no_tickets");
 	var no = this.parentElement.parentElement.children[0].innerText;
 	var name = this.parentElement.parentElement.children[1].innerText;
 	tphoto = this.parentElement.parentElement.children[2].innerHTML.split('"')[1];
@@ -619,14 +630,19 @@ function openLightBox_ticket(){
 	var facility_no_ticket = document.getElementById("facility_no_ticket");
 	var facility_name_ticket =document.getElementById("facility_name_ticket");
 	facility_tphoto = document.getElementById("facility_tphoto");
-	var facility_intro = document.getElementById("facility_intro");
-	var full_f = document.getElementsByName("full_fare")[1];
-	var half_f = document.getElementsByName("half_fare")[1];
+	facility_intro = document.getElementById("facility_intro");
+	full_f = document.getElementsByName("full_fare")[1];
+	half_f = document.getElementsByName("half_fare")[1];
+	_ticket_no = ticket_no;
+	_full_fare = full_fare;
+	_half_fare = half_fare;
+	_intro = intro;
+	_tphoto = tphoto;
 	facility_no_ticket.innerHTML = no;
 	ticket_no.value = no;
 	facility_name_ticket.innerHTML = name;
 	facility_tphoto.src = tphoto;
-	facility_intro.innerHTML = intro;
+	facility_intro.value = intro;
 	full_f.value = full_fare;
 	half_f.value =half_fare;
 	lightBox_ticket.style.display ="block";
@@ -668,8 +684,22 @@ function resetLightBox(){
 		break;
 	}
 }
+function resetLightBox_ticket(){
+	ticket_no.value = _ticket_no;
+	full_f.value = _full_fare;
+	half_f.value = _half_fare;
+	facility_intro.value = _intro;
+	facility_tphoto.src = _tphoto;
+	var tm = document.getElementById('tm');
+	tm.value = "";
+}
 function closeLightBox(){
-	lightBox.style.display = "none";
+	if(lightBox.style.display == "block"){
+		lightBox.style.display = "none";
+	}else if(lightBox_ticket.style.display =="block"){
+		lightBox_ticket.style.display = "none";
+	}
+	
 }
 function changeImgType(){
 	var lightBoxRow = this.parentElement;
