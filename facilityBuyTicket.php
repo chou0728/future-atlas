@@ -446,8 +446,8 @@ $a+=2;
 	<div id="fullBlack">
 		<div class="confirmLightbox">
 			<p class="content"></p>
-			<a href="javascript:void(0)" id="confirm">確認</a>
-			<a href="javascript:void(0)" id="nope">取消</a>		
+			<a href="javascript:void(0)" id="nope">取消</a>
+			<a href="javascript:void(0)" id="confirm">確認</a>		
 		</div>
 	</div>
 </div>

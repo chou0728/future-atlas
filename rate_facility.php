@@ -1,3 +1,9 @@
+<?php
+ob_start();
+session_start();
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -128,6 +134,7 @@
         </div>
     </div>
     <script src="js/00nav.js"></script>
+    <!-- <script src="js/rate_facility.js"></script> -->
 
 </body>
 

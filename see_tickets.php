@@ -14,6 +14,11 @@ session_start();
     <link rel="stylesheet" href="css/see_tickets.css">
     <link rel="stylesheet" href="css/header.css">
     <link rel="stylesheet" href="css/login.css">	
+    <style>
+    .wrapper{
+            height:auto;        
+    }
+    </style>
 </head>
 
 <body>
@@ -162,7 +167,7 @@ session_start();
                         </p>
                         <div class="button_area">
                             <a class="more_info" href="facility_tickets_detail.php" data-order-no="<?php echo $order_item_row["order_no"] ?>" data-facility-no="<?php echo $order_item_row["facility_no"] ?>">詳細資訊</a>
-                            <a class="rate_faci" href="rate_facility.php">評價設施</a>
+                            <a class="rate_faci" href="rate_facility.php" data-order-no="<?php echo $order_item_row["order_no"] ?>" data-facility-no="<?php echo $order_item_row["facility_no"] ?>">評價設施</a>
                         </div>
 
                     </div>

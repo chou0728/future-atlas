@@ -138,8 +138,34 @@ body::-webkit-scrollbar-thumb {
   display: block;
   clear: both;
 }
-/*ticket icon-rotate*/
+@media screen and (max-width:1024px){
+    .fbtWrapper{
+    width:95%;
+    max-width: 1440px;
+    padding: 8% 1% 1% 1%;
+    margin: 0 auto;
+  }
+    .fbtWrapper .ticketbox{
+    width: 45%;
+    margin:4% 2.5%;
+    float: left;
 
+  }
+}
+@media screen and (max-width:414px){
+  .fbtWrapper{
+    width:95%;
+    max-width: 1440px;
+    padding: 50px 1% 1% 1%;
+    margin: 0 auto;
+  }
+
+    .fbtWrapper .ticketbox{
+    width: 100%;
+    margin:4% 0;
+  }
+}
+/*ticket icon-rotate*/
 .ticketbox .ticketTitlebox .ticket{
 	width: 35px;
   height: 35px;
@@ -226,7 +252,14 @@ body::-webkit-scrollbar-thumb {
   margin: 10px 0;
   font-size: 20px;
 }
-
+@media screen and (max-width:1024px){
+  .ticketbox .shortInfo{
+    width: 100%;
+    height: 40px;
+    margin: 10px 0;
+    font-size: 20px;
+  }
+}
 /*340:220;*/
 .f_img{
 	position: relative;
@@ -237,6 +270,17 @@ body::-webkit-scrollbar-thumb {
 }
 .f_img img{
 	width: 110%;
+}
+@media screen and (max-width:1024px){
+    .f_img{
+    position: relative;
+    width: 100%;
+    height: 170px;
+    overflow: hidden;
+  }
+  .f_img img{
+    width: 100%;
+  }
 }
 .f_img .cover{
 	display: block;
