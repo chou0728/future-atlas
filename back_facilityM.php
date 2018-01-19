@@ -1,6 +1,9 @@
 <?php
 ob_start();
 session_start();
+// if(isset($_SESSION["top_manager"])===false){
+// 	header("location:manager_login.php");
+// }
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -20,7 +23,7 @@ session_start();
         </h1>
         <ul class="nav">
             <li class="navList">
-                <a href="back_check_facility_tickets.html">設施驗票</a>
+                <a href="back_check_facility_tickets.html">設施驗票 </a>
                 <span class="listcover"></span>
             </li>
             <li class="navList">
@@ -48,8 +51,14 @@ session_start();
                 <a href="">諮詢管理</a>
                 <span class="listcover"></span>
             </li>
-            <li class="navList">
-                <a href="">權限管理</a>
+            <li class="navList"<?php
+				if(isset($_SESSION["top_manager"])==false){
+					echo " style='display:none;'";
+				}else if($_SESSION["top_manager"]==0) {
+					echo " style='display:none;'";
+				}
+			?>>
+                <a href="back_management_authority.php">權限管理</a>
                 <span class="listcover"></span>
             </li>
         </ul>
@@ -102,7 +111,7 @@ try {
 								<?php echo $prodRow->facility_name ?>
 							</div>
 							<div class="col">
-								<img src="img/facilityInfo/<?php if($prodRow->facility_mphoto == null){
+								<img src="img/facilityInfo/<?php if($prodRow->facility_mphoto == 0){
 									echo "dami_.jpg";
 
 								}else{
@@ -217,7 +226,7 @@ try {
 								<?php echo $prodRow->facility_name ?>
 							</div>
 							<div class="col">
-								<img src="img/facilityInfo/<?php if($prodRow->facility_tphoto == null){
+								<img src="img/facilityInfo/<?php if($prodRow->facility_tphoto == 0){
 									echo "dami_.jpg";
 
 								}else{
