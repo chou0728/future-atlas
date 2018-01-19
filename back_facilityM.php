@@ -116,7 +116,7 @@ try {
 								<?php echo $prodRow->facility_name ?>
 							</div>
 							<div class="col">
-								<img src="img/facilityInfo/<?php if($prodRow->facility_mphoto == 0){
+								<img src="img/facilityInfo/<?php if($prodRow->facility_mphoto == null){
 									echo "dami_.jpg";
 
 								}else{

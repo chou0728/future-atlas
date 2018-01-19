@@ -1,0 +1,95 @@
+@media screen and (max-width: 1024px) {
+	body{
+		overflow: auto;
+	}
+ 	.check_tickets_wrapper {
+      padding-top: 85px; 
+  	}
+
+
+    .check_tickets_wrapper .content {
+        flex-direction: column; 
+    } 
+
+    .check_tickets_wrapper .content .info {
+          width: 98%;
+          border: 3px solid #3f3f3f;
+          height: auto; 
+    }
+
+	.check_tickets_wrapper .content .info h2 {
+            font-size: 24px;
+            padding-bottom: 20px;
+            padding-top: 20px; 
+    }
+	.check_tickets_wrapper .content .info .photo {
+            display: none;
+            width: 90%;
+            margin: 0 auto; 
+
+    }
+
+	.check_tickets_wrapper .content .info .select_amount {
+            width: 80%;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+            padding: 5%  15%;
+    }
+    .check_tickets_wrapper .content .info .select_amount input {
+            width: 50%;
+            height: 30px;
+            font-size: 22px;
+
+    }
+
+	.check_tickets_wrapper .content .info .select_amount div {
+            width: 100%;
+            margin: 10px 0;
+    }
+	.check_tickets_wrapper .content .info .select_amount div span {
+            font-size: 20px;
+            line-height: 30px;
+
+    }
+    .check_tickets_wrapper .content .info .button_area {
+            width: 95%;
+            height: auto;
+            margin: 10px auto 20px auto; 
+            padding: 0  20%;
+    }
+    .check_tickets_wrapper .content .info .button_area button {
+            font-size: 20px;
+            letter-spacing: 2px;
+            width: 35%;
+            max-width: 250px;
+            transition: none;
+            cursor: pointer;
+            position: static;
+            background-color: #999;
+    }
+    .check_tickets_wrapper .content .info .button_area:after{
+        content:"";
+        display: block;
+        clear: both;
+    }
+
+
+
+
+
+
+
+}
+@media screen and (max-width: 767px){
+    .check_tickets_wrapper .content .info .select_amount {
+        padding: 5%  3%;
+    }
+    .check_tickets_wrapper .content .info .button_area {
+        padding: 5% 5%;
+    }
+        .check_tickets_wrapper .content .info .button_area button {
+
+        width: 45%;
+    }
+}
