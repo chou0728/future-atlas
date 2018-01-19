@@ -3,7 +3,7 @@ var storage = localStorage;
 window.addEventListener("load",init);
 function init(){
 	// 產生購票明細
-	for( i = 6 ; i > 0 ; i--){
+	for( i = 10 ; i > 0 ; i--){
 		var fn = i;
 		if( storage.getItem(i) != null ){
 			var info = storage.getItem(i).split("/");
@@ -76,7 +76,7 @@ function output_total(){
 
 // 確認結帳,形成訂單副檔sql指令
 	var sql_order_item = "insert into facility_order_item values";
-	for(var i=1;i<7;i++)
+	for(var i=1;i<11;i++)
 	if(storage.getItem(i) != null){
 		var info = storage.getItem(i).split("/");
 		var subtotal = info[0]*info[1] + info[2]*info[3];
