@@ -5,15 +5,62 @@ session_start();
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<meta charset="UTF-8">
-	<title>FA後台</title>
-	<!-- ======請複製==== -->
-	<link rel="stylesheet" type="text/css" href="css/RESET.css">
-	<link rel="stylesheet" type="text/css" href="css/11back_nav.css">
-	<!-- ========== -->
+<meta charset="UTF-8">
+<title>FA後台</title>
+<!-- ======請複製==== -->
+<link rel="stylesheet" type="text/css" href="css/RESET.css">
+<link rel="stylesheet" type="text/css" href="css/header.css">
+<!-- ========== -->
 <style type="text/css">
+*{
+	/*outline: 1px solid red;*/
+	box-sizing: border-box;
+	font-family: 微軟正黑體;
+}
+body{
+	background-color: #222;
+	position: relative;
+}
+#fullBlack{
+    position: fixed;
+    top:0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: repeating-linear-gradient(transparent 0px, transparent 1px,transparent 1px, transparent 3px,rgba(0,0, 0,0.5) 3px, rgba(0, 0, 0,0.8) 4px);
+    background-color: rgba(0,0,0,0.5);
+    /*display: none;*/
+}
+#lightBox{
+  width: 450px;
+  height: 250px;
+  border: 2px solid rgba(55,255,243,0.8);
+  box-shadow: 0 0 1px rgba(55,255,243,0.8),0 0 3px rgba(55,255,243,0.5),0 0 5px rgba(55,255,243,0.3);
+  background-color: black;
+  position: fixed;
+  top:50%;
+  left: 50%;
+  padding: 15px;
+  transform: translate(-50%,-50%);
+  text-align: center;
 
+}
 
+#lightBox .msg{
+	padding: 15% 10%;
+	height: 85%;
+	color: azure;
+	line-height: 24px;
+}
+#lightBox a{
+  /*margin: 0 30px;*/
+  letter-spacing: 2px;
+  padding: 5px 20px;
+  background-color: black;
+  color: rgb(55,255,243);
+  border: 1px solid rgba(55,255,243,0.8);
+  box-shadow: 0 0 1px rgba(55,255,243,0.8),0 0 3px rgba(55,255,243,0.5),0 0 5px rgba(55,255,243,0.3);
+}
 </style>
 </head>
 <body>
@@ -21,17 +68,17 @@ session_start();
     <div class="ul_box">
         <ul class="ul_left">
             <li>
-                <a href="Theaterbuyticket.html">劇場購票</a>
+                <a href="Theaterbuyticket.php">劇場購票</a>
             </li>
             <li>
                 <a href="facilityBuyTicket.php">設施購票</a>
             </li>
             <li>
-                <a href="facilityInfo.html">設施介紹</a>
+                <a href="facilityInfo.php">設施介紹</a>
             </li>
         </ul>
         <h1 style="display: none">FutureAtlas_未來主題樂園</h1>
-        <a href="#page1" class="logo_a">
+        <a href="index.php" class="logo_a">
             <img src="img/LOGO.png" class="logo">
         </a>
         <ul class="ul_right">
@@ -95,12 +142,13 @@ values (:mem_id,:order_date,:subtotal, :discount, :credit_card_num);";
 	$orderItems -> bindParam(":order_no",$order_no);
 	$orderItems -> execute();
 ?>
-	
+
+<div id="fullBlack">
 	<div id="lightBox">
-		<div class="msg">
-			<? echo "購買成功！您的訂單編號為：".$pure_no; ?>	
-		</div>
+		<p class="msg"><?php echo "購票成功！<br>您的訂單編號為：".$pure_no; ?></p>
+		<a href="MembersOnly.html" id="confirm">確認</a>
 	</div>
+</div>
 
 <?php
 
