@@ -23,13 +23,14 @@ try {
 			echo $_SESSION["manager_name"];
 			echo $_SESSION["password"];
 			echo $_SESSION["top_manager"];
-			Header("location:back_check_facility_tickets.php");
+			header("location:back_check_facility_tickets.html");
 		}else{
 			$_SESSION["banned"] = 1;
-			Header("location:manager_login.php");
+			header("location:manager_login.php");
+
 		}
 	}else{
-		echo "<script>alert('管理員帳密錯誤。');<script>";
+		echo "<script>alert('管理員帳密錯誤。');</script>";
 		// Header("refresh:3;url=manager_login.php");
 	}
 
