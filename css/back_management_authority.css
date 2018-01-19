@@ -3,9 +3,10 @@
 	padding: 0;
 	font-size: 0;
 	font-family: 微軟正黑體;
-	/*outline: 1px solid red;*/
+	box-sizing: border-box;
+	user-select: none;
 }
-h1{
+#managerListWrapper h2{
 	font-size: 36px;
 	margin:10px 0;
 }
@@ -21,21 +22,23 @@ h1{
 }
 .managerTD,.managerTH{
 	display: inline-block;
-	width: 16.3%;
+	width: 16%;
 	height:40px;
 	text-align: center;
+	/*border: 1px solid #aaa;*/
 }input{
 	width: 100%;
 	height: 100%;
 	font-size: 16px;
 	line-height: 16px;
+	padding: 4px;
 }
 .managerTH{
 	text-align: center;
 	padding-top: 6px;
-	height:30px;
+	height: 30px;
 }
-.managerRow:nth-child(odd){
+.managerRow:nth-child(even){
 	background-color: pink;
 }
 .managerTD{
@@ -44,11 +47,14 @@ h1{
 .managerRow .name,.managerRow .psw{
 	text-align: left;
 	/*text-indent: 50px;*/
-}#lulala{
+}select.i_top, select.i_status{
+	font-size: 16px;
+}
+
+#lulala{
 	font-size: 16px;
 }.operating{
 	display: inline-block;
-	margin: 0 6px;
 	font-size: 14px;
 	padding: 5px;
 	background-color: #222;
@@ -57,12 +63,19 @@ h1{
 	cursor: pointer;
 }
 
-/*切換修改input屬性*/
+/*切換修改input select屬性*/
 .readOnlyStyle{
-	border: none;
+	border: 1px solid transparent;
 	background-color: transparent;
+	color: black;
 }.editStyle{
 	border: 1px solid gray;
 	background-color: white;
 	outline: none;
+}
+
+/*修改按鈕 切換外觀*/
+.save{
+	background-color: red;
+	color: black;
 }

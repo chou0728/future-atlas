@@ -263,7 +263,6 @@ function bindToHiddenName(){
 						 document.getElementById("credit_card3").value+
 						 document.getElementById("credit_card4").value;
 		document.getElementById("creditcard_num_hidden").value = creditcard_num;
-		console.log(creditcard_num);
 	}
 	// 儲存訂單副檔
 	// 修改會員剩餘積分

@@ -33,7 +33,7 @@ try {
         unset($_SESSION["login_error"]);
         header("location:$pre_url");
 	}else{
-		$_SESSION["log_out"] = 0;
+		$_SESSION["login_error"] = 0;
 		header("location:$pre_url");
 	}
 } catch (Exception $ex) {

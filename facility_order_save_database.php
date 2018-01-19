@@ -1,6 +1,8 @@
 <?php
 ob_start();
 session_start();
+setcookie("order_no","",time()-3600);
+setcookie("mem_id","",time()-3600);
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -134,6 +136,7 @@ values (:mem_id,:order_date,:subtotal, :discount, :credit_card_num);";
 	
 	$order_no = "(".$pdo->lastInsertId();
 	$pure_no = $pdo->lastInsertId();
+
 	// 訂單副檔
 	$newStr = explode('/',$_REQUEST["sql_order_item"]);
 	$sql_order_item = implode($order_no, $newStr);
@@ -141,18 +144,22 @@ values (:mem_id,:order_date,:subtotal, :discount, :credit_card_num);";
 	$orderItems = $pdo -> prepare($sql_order_item);
 	$orderItems -> bindParam(":order_no",$order_no);
 	$orderItems -> execute();
+
+  // 產生要傳送給驗票介面的cookie
+  setcookie('order_id',$pure_no);
+  setcookie('mem_no',$mem_id);
 ?>
 
 <div id="fullBlack">
 	<div id="lightBox">
 		<p class="msg"><?php echo "購票成功！<br>您的訂單編號為：".$pure_no; ?></p>
-		<a href="MembersOnly.html" id="confirm">確認</a>
+		<a href="see_tickets.php" id="confirm">確認</a>
 	</div>
 </div>
 
 <?php
 
-	header("refresh:5; url=MembersOnly.html");
+	header("refresh:3; url=see_tickets.php");
 
 	// 扣除會員積分
 	$sql_discount = "update member set mem_points = mem_points - :discount where mem_id = :mem_id";

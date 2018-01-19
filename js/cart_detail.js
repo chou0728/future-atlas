@@ -85,7 +85,6 @@ function output_total(){
 		sql_order_item += sql_increment;
 	}
 	document.getElementById("sql_order_item").value = (sql_order_item.substring(0, sql_order_item.length-1)+";");
-	console.log(document.getElementById("sql_order_item").value);
 };
 
 // 使用者輸入積點

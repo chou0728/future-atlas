@@ -1,3 +1,7 @@
+<?php
+ob_start();
+session_start();
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -73,7 +77,7 @@
 			</div>
 			<!-- ===========請加內容至此===========-->
 <div id="managerListWrapper">
-	<h1>權限管理</h1>
+	<h2>權限管理</h2>
 
 	<div class="managerTHH">
 		<div class="managerTH id">管理員編號</div>
@@ -91,40 +95,48 @@ try {
 	while($managerRow = $manager->fetchObject()){
 ?>
 <form action="update_management_authority_php.php">
+	<!-- 隱藏欄位區 -->
+	<input type="hidden" name="i_id_hidden" value="<?php echo $managerRow->manager_id ?>">
+	<input type="hidden" name="i_name_hidden" class="i_name_hidden">
+	<input type="hidden" name="i_psw_hidden" class="i_psw_hidden">
+	<input type="hidden" name="i_top_hidden" class="i_top_hidden">
+	<input type="hidden" name="i_status_hidden" class="i_status_hidden">
+	<!-- 隱藏欄位區 -->
 	<div class="managerRow">
 		<div class="managerTD id">
 			<?php echo $managerRow->manager_id ?>
 		</div>
-		<div class="managerTD name"><input type="text" name="" value="<?php echo $managerRow->manager_name ?>" class="i_name readOnlyStyle" readonly></div>
-		<div class="managerTD psw"><input type="text" name="" value="<?php echo $managerRow->password ?>" class="i_psw readOnlyStyle" readonly></div>
+		<div class="managerTD name">
+			<input type="text" name="" value="<?php echo $managerRow->manager_name ?>" class="i_name readOnlyStyle" readonly>
+		</div>
+		<div class="managerTD psw">
+			<input type="text" name="" value="<?php echo $managerRow->password ?>" class="i_psw readOnlyStyle" readonly>
+		</div>
 		<div class="managerTD top">
-			<select name="" id="" class="i_top">
-				<option value="最高">最高</option>
-				<option value="一般">一般</option>
+			<select name="" id="" class="i_top data readOnlyStyle" disabled>
+				<option value="最高"	<?php if(($managerRow->top_manager) == 1 ){
+										echo "selected";
+									} ?>>最高</option>
+				<option value="一般"<?php if(($managerRow->top_manager) != 1 ){
+										echo "selected";
+									} ?>>一般</option>
 			</select>
-
-
-<!-- 			<?php if(($managerRow->top_manager) == 1 ){
-					echo "最高";
-				}else{
-					echo "一般";
-				} ?> -->
 		</div>
 		<div class="managerTD status">
-			<select name="" id="" class="i_status">
-				<option value="啟用">啟用</option>
-				<option value="停用">停用</option>
+			<select name="" id="" class="i_status data readOnlyStyle" disabled>
+				<option value="啟用"<?php if(($managerRow->manager_status) == 1 ){
+										echo "selected";
+									} ?>>啟用</option>
+				<option value="停用"<?php if(($managerRow->manager_status) != 1 ){
+										echo "selected";
+									} ?>>停用</option>
 			</select>
-
-<!-- 			<?php if(($managerRow->manager_status) == 1 ){
-					echo "啟用";
-				}else{
-					echo "停用";
-				} ?> -->
 		</div>
 		<div class="managerTD editBtn">
 			<div class="edit operating">修改</div>
-			<div class="save operating">儲存</div>
+			<div class="operating">
+				<input type="submit" name="" value="送出">
+			</div>
 		</div>
 	</div>
 </form>
@@ -146,17 +158,68 @@ try {
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script type="text/javascript">
 $(document).ready(function(){
+	// 按下儲存按鈕 將新的value值送進隱藏欄位
+		// 修改帳號
+		$(".managerRow .i_name").change(function(){
+			var index = $(".i_name").index(this);
+			var new_name = "default value";
+			new_name = $(".managerRow .i_name").eq(index).val();
+			$(".i_name_hidden").eq(index).val(new_name);
+		});
+		// 修改密碼
+		$(".managerRow .i_psw").change(function(){
+			var index = $(".i_psw").index(this);
+			var new_name = "default value";
+			new_name = $(".managerRow .i_psw").eq(index).val();
+			$(".i_psw_hidden").eq(index).val(new_name);
+		});
+		// 修改權限
+		$(".managerRow .i_top").change(function(){
+			var index = $(".i_top").index(this);
+			var new_name = "default value";
+			new_name = $(".managerRow .i_top").eq(index).val();
+			if(new_name=="最高"){
+				new_name = 1;
+			}else{
+				new_name = 0;
+			}
+			$(".i_top_hidden").eq(index).val(new_name);
+		});
+		// 修改狀態
+		$(".managerRow .i_status").change(function(){
+			var index = $(".i_status").index(this);
+			var new_name = "default value";
+			new_name = $(".managerRow .i_status").eq(index).val();
+			if(new_name=="啟用"){
+				new_name = 1;
+			}else{
+				new_name = 0;
+			}
+			$(".i_status_hidden").eq(index).val(new_name);
+		});
+	// 修改按鈕 切換修改和儲存
+	$(".edit").click(function(){
+		$(this).toggleClass("save");
+		var $text = $(this).text();
+		if($text=="修改"){
+			$(this).html("確定");
+		}else{
+			$(this).html("修改");
+		}
+	});
+	// 切換資料 修改與唯獨
 	$(".edit").click(function(){
 		var index = $(".edit").index(this);
 		$(".managerRow .i_name").eq(index).toggleClass("editStyle");
 		$(".managerRow .i_psw").eq(index).toggleClass("editStyle");
+		$(".managerRow .i_top").eq(index).toggleClass("editStyle");
+		$(".managerRow .i_status").eq(index).toggleClass("editStyle");
 	});
 	$(".edit").click(function(){
 		var index = $(".edit").index(this);
 		var $name = $('.i_name').eq(index);
 		    if ($name.attr('readonly')) {
 		        $name.removeAttr('readonly');
-		        console.log($name);
 		    } else {
 		        $name.attr('readonly', true);
 		    }
@@ -165,6 +228,18 @@ $(document).ready(function(){
 		        $psw.removeAttr('readonly');
 		    } else {
 		        $psw.attr('readonly', true);
+		    }
+		var $top = $('.i_top').eq(index);
+		    if ($top.attr('disabled')) {
+		        $top.removeAttr('disabled');
+		    } else {
+		        $top.attr('disabled', true);
+		    }
+		var $status = $('.i_status').eq(index);
+			if ($status.attr('disabled')) {
+		        $status.removeAttr('disabled');
+		    } else {
+		        $status.attr('disabled', true);
 		    }
 	});
 });

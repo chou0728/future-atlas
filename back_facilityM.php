@@ -24,7 +24,7 @@ if(isset($_SESSION["top_manager"])===false||isset($_SESSION["manager_name"])===f
         </h1>
         <ul class="nav">
             <li class="navList">
-                <a href="back_check_facility_tickets.php">設施驗票 </a>
+                <a href="back_check_facility_tickets.php">設施驗票</a>
                 <span class="listcover"></span>
             </li>
             <li class="navList">
