@@ -24,11 +24,11 @@ if(isset($_SESSION["top_manager"])===false||isset($_SESSION["manager_name"])===f
         </h1>
         <ul class="nav">
             <li class="navList">
-                <a href="back_check_facility_tickets.html">設施驗票 </a>
+                <a href="back_check_facility_tickets.php">設施驗票 </a>
                 <span class="listcover"></span>
             </li>
             <li class="navList">
-                <a href="back_check_theater_tickets.html">劇場驗票</a>
+                <a href="back_check_theater_tickets.php">劇場驗票</a>
                 <span class="listcover"></span>
             </li>
             <li class="navList">
@@ -37,7 +37,7 @@ if(isset($_SESSION["top_manager"])===false||isset($_SESSION["manager_name"])===f
                 
             </li>
             <li class="navList">
-                <a href="back_TheaterMang.html">劇場管理</a>
+                <a href="back_TheaterMang.php">劇場管理</a>
                 <span class="listcover"></span>
             </li>
             <li class="navList">
@@ -45,7 +45,7 @@ if(isset($_SESSION["top_manager"])===false||isset($_SESSION["manager_name"])===f
                 <span class="listcover"></span>
             </li>
             <li class="navList">
-                <a href="">會員管理</a>
+                <a href="back_member.php">會員管理</a>
                 <span class="listcover"></span>
             </li>
             <li class="navList">
@@ -53,10 +53,8 @@ if(isset($_SESSION["top_manager"])===false||isset($_SESSION["manager_name"])===f
                 <span class="listcover"></span>
             </li>
             <li class="navList"<?php
-				if(isset($_SESSION["top_manager"])==false){
-					echo " style='display:none;'";
-				}else if($_SESSION["top_manager"]==0) {
-					echo " style='display:none;'";
+            	if($_SESSION["top_manager"]==0) {
+					echo "style='display:none;'";
 				}
 			?>>
                 <a href="back_management_authority.php">權限管理</a>
@@ -74,7 +72,7 @@ if(isset($_SESSION["top_manager"])===false||isset($_SESSION["manager_name"])===f
 					}
 				?></span>
         <span id="managerName"><?php echo $_SESSION["manager_name"]; ?></span>
-        <a href="javascript:void(0)">登出</a>
+        <a href="manager_logout.php">登出</a>
     </div>
 
 
