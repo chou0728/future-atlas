@@ -25,7 +25,7 @@ try {
 			Header("location:manager_login.php");
 		}
 	}else{
-		echo "<script>alert('管理員帳密錯誤。');<script>";
+		echo "<script>alert('管理員帳密錯誤。');</script>";
 		// Header("refresh:3;url=manager_login.php");
 	}
 
