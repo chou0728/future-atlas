@@ -19,10 +19,15 @@ try {
 			$_SESSION["manager_name"] = $managerRow->manager_name;
 			$_SESSION["password"] 	  = $managerRow->password;
 			$_SESSION["top_manager"]  = $managerRow->top_manager;
-			Header("location:back_check_facility_tickets.html");
+			echo $_SESSION["manager_id"];
+			echo $_SESSION["manager_name"];
+			echo $_SESSION["password"];
+			echo $_SESSION["top_manager"];
+			header("location:back_check_facility_tickets.html");
 		}else{
 			$_SESSION["banned"] = 1;
-			Header("location:manager_login.php");
+			header("location:manager_login.php");
+
 		}
 	}else{
 		echo "<script>alert('管理員帳密錯誤。');</script>";

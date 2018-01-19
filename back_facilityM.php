@@ -1,9 +1,10 @@
 <?php
 ob_start();
 session_start();
-// if(isset($_SESSION["top_manager"])===false){
-// 	header("location:manager_login.php");
-// }
+if(isset($_SESSION["top_manager"])===false||isset($_SESSION["manager_name"])===false){
+	header("location:manager_login.php");
+	exit;
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -23,11 +24,11 @@ session_start();
         </h1>
         <ul class="nav">
             <li class="navList">
-                <a href="back_check_facility_tickets.html">設施驗票 </a>
+                <a href="back_check_facility_tickets.php">設施驗票 </a>
                 <span class="listcover"></span>
             </li>
             <li class="navList">
-                <a href="back_check_theater_tickets.html">劇場驗票</a>
+                <a href="back_check_theater_tickets.php">劇場驗票</a>
                 <span class="listcover"></span>
             </li>
             <li class="navList">
@@ -36,7 +37,7 @@ session_start();
                 
             </li>
             <li class="navList">
-                <a href="back_TheaterMang.html">劇場管理</a>
+                <a href="back_TheaterMang.php">劇場管理</a>
                 <span class="listcover"></span>
             </li>
             <li class="navList">
@@ -44,7 +45,7 @@ session_start();
                 <span class="listcover"></span>
             </li>
             <li class="navList">
-                <a href="">會員管理</a>
+                <a href="back_member.php">會員管理</a>
                 <span class="listcover"></span>
             </li>
             <li class="navList">
@@ -52,10 +53,8 @@ session_start();
                 <span class="listcover"></span>
             </li>
             <li class="navList"<?php
-				if(isset($_SESSION["top_manager"])==false){
-					echo " style='display:none;'";
-				}else if($_SESSION["top_manager"]==0) {
-					echo " style='display:none;'";
+            	if($_SESSION["top_manager"]==0) {
+					echo "style='display:none;'";
 				}
 			?>>
                 <a href="back_management_authority.php">權限管理</a>
@@ -65,9 +64,15 @@ session_start();
     </header>
     <div class="loginBox mobileLoginBox">
         <span id="hello">您好!</span>
-        <span id="managerId">最高管理員</span>
-        <span id="managerName">Manna</span>
-        <a href="javascript:void(0)">登出</a>
+        <span id="managerId"><?php
+        			if($_SESSION["top_manager"] == 1){
+						echo "最高管理員";
+					}else{
+						echo "管理員";
+					}
+				?></span>
+        <span id="managerName"><?php echo $_SESSION["manager_name"]; ?></span>
+        <a href="manager_logout.php">登出</a>
     </div>
 
 
@@ -458,12 +463,12 @@ try {
 <!-- ===========燈箱 for TICKET END======================================-->
 
 
-<div id="RWD-page"><span>驗票系統</span></div><!-- ===========RWD用cover===============-->
 
 
 
 		</div>
 	</div>
+<div id="RWD-page"><span>驗票系統</span></div><!-- ===========RWD用cover===============-->
 <script type="text/javascript" src="js/11back_nav.js"></script>
 <script>
 //---換分頁
