@@ -130,7 +130,7 @@ if(isset($_SESSION["login_error"]) === true){
     <div class="ul_box">
         <ul class="ul_left">
             <li>
-                <a href="Theaterbuyticket.html">劇場購票</a>
+                <a href="Theaterbuyticket.php">劇場購票</a>
             </li>
             <li>
                 <a href="facilityBuyTicket.php">設施購票</a>

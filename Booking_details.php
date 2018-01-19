@@ -250,7 +250,7 @@
             <a href="javascript: return false;" id="Checked" onclick="ajax_post()">結帳</a>   
         </div>
     </div>
-    
+
     <!-- 測試傳到php -->
     <!-- <button  onclick="ajax_post()">php</button> -->
     
@@ -395,7 +395,6 @@
                     // document.getElementById("status").innerHTML = return_data;
                     alert(return_data);
                     setTimeout(function(){
-                        // console.log('Hi...');
                         location.href="MembersOnly.html";
                     },2000)
                 }

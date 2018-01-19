@@ -1,3 +1,14 @@
+<!-- ===========1.加上session_start=========== -->
+<?php
+ob_start();
+session_start();
+//請複製:當無登入時會自動跳轉至登入頁面
+if(isset($_SESSION["top_manager"])===false||isset($_SESSION["manager_name"])===false){
+    header("location:manager_login.php");
+    exit;
+}
+?>
+<!-- ===========1 end=========== -->
 <!DOCTYPE html>
 <html>
 <head>
@@ -12,61 +23,68 @@
 
 </head>
 <body>
-    <!-- ============================================================================== -->
-    <header>
+    <!-- ====================2.導覽列請替換===================== -->
+<header>
+        <img src="img/back_menu_default.png" id="ham">
         <h1 class="logo">
             <img src="img/LOGO.png" alt="FA">
             <span>後台管理系統</span>
         </h1>
         <ul class="nav">
             <li class="navList">
-                <a href="">設施驗票</a>
+                <a href="back_check_facility_tickets.php">設施驗票 </a>
                 <span class="listcover"></span>
-                <span class="spancover"></span>
             </li>
             <li class="navList">
-                <a href="">劇場驗票</a>
+                <a href="back_check_theater_tickets.php">劇場驗票</a>
                 <span class="listcover"></span>
-                <span class="spancover"></span>
             </li>
             <li class="navList">
-                <a href="back_facilityM.html">設施管理</a>
+                <a href="back_facilityM.php" >設施管理</a>
                 <span class="listcover"></span>
-                <span class="spancover"></span>
+                
             </li>
             <li class="navList">
-                 <a href="back_theater_mang.php" style="color: black;">劇場管理
+                <a href="back_TheaterMang.php" style="color: black;">劇場管理
                 </a>
                 <span class="listcover" style="width: 100%;background-color: rgba(90, 230, 219,0.9);"></span>
-                <span class="spancover"></span>
+                <!-- <span class="spancover"></span> -->
             </li>
             <li class="navList">
-                <a href="">活動管理</a>
+                <a href="back_activity.php">活動管理</a>
                 <span class="listcover"></span>
-                <span class="spancover"></span>
             </li>
             <li class="navList">
-                <a href="">會員管理</a>
+                <a href="back_member.php">會員管理</a>
                 <span class="listcover"></span>
-                <span class="spancover"></span>
             </li>
             <li class="navList">
                 <a href="">諮詢管理</a>
                 <span class="listcover"></span>
-                <span class="spancover"></span>
             </li>
-            <li class="navList">
-                <a href="">權限管理</a>
+            <li class="navList"<?php
+                if($_SESSION["top_manager"]==0) {
+                    echo "style='display:none;'";
+                }
+            ?>>
+                <a href="back_management_authority.php">權限管理</a>
                 <span class="listcover"></span>
-                <span class="spancover"></span>
             </li>
         </ul>
     </header>
     <div class="loginBox mobileLoginBox">
-            您好!<span id="managerId">最高管理員</span><span id="managerName">Manna</span>
-            <a href="javascript:void(0)">登出</a>
+        <span id="hello">您好!</span>
+        <span id="managerId"><?php
+                    if($_SESSION["top_manager"] == 1){
+                        echo "最高管理員";
+                    }else{
+                        echo "管理員";
+                    }
+                ?></span>
+        <span id="managerName"><?php echo $_SESSION["manager_name"]; ?></span>
+        <a href="manager_logout.php">登出</a>
     </div>
-<!-- ===NAV結束=========================================================================== -->
+<!-- ===========================NAV結束==================================== -->
     <!-- ===右邊區塊固定格式=============================================================== -->
     <div class="back_wrapper_right">
         <div class="b_content">
@@ -268,7 +286,7 @@
                     </table>
                 
             </div>
-            
+
             <!-- 劇場票劵訂單 -->
             <div id="theater_order_List" class="tabcontent">
                 <!-- 劇場票劵訂單 -->
@@ -421,5 +439,10 @@
             xhr.send( null );
         }
     </script>
+    <!-- ===========請在最後加入!!===============-->
+<!-- ===========請在最後加入!!===============-->
+<!-- ===========請在最後加入!!===============-->
+<!-- ===========請在最後加入=!!==============-->
+    <div id="RWD-page"><span>驗票系統</span></div><!-- ===========請在最後加入=!!==============-->
 </body>
 </html>
