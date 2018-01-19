@@ -3,7 +3,7 @@ var expire_date = "2018/12/31";
 
 window.onload = function(){
 
-	for( i = 1 ; i < 7 ; i++){
+	for( i = 1 ; i < 11 ; i++){
 		var fn = i;
 		if( storage.getItem(i) != null ){
 			var info = storage.getItem(i).split("/");

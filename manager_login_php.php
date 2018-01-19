@@ -19,11 +19,15 @@ try {
 			$_SESSION["manager_name"] = $managerRow->manager_name;
 			$_SESSION["password"] 	  = $managerRow->password;
 			$_SESSION["top_manager"]  = $managerRow->top_manager;
+<<<<<<< HEAD
 			echo $_SESSION["manager_id"];
 			echo $_SESSION["manager_name"];
 			echo $_SESSION["password"];
 			echo $_SESSION["top_manager"];
 			header("location:back_check_facility_tickets.html");
+=======
+			Header("location:back_check_facility_tickets.html");
+>>>>>>> 17efe2f858f31be78a15c3a31bd805492a19795c
 		}else{
 			$_SESSION["banned"] = 1;
 			header("location:manager_login.php");

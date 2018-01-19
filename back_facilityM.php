@@ -289,7 +289,7 @@ try {
 <div id="facility_new" class="tabcontent">
 	<div class="facility_new_table">
 		<form action="update_facility_info.php" method="post" enctype="multipart/form-data">
-			<input type="file" name="facility_mphoto" style="display: none;">
+			<input type="file" name="facility_mphoto" value="0" style="display: none;">
 			<input type="hidden" name="info_already">
 			<div class="lightBox-row">
 				<span class="subtitle">設施名稱：</span>
