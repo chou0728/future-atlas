@@ -89,23 +89,3 @@ CREATE TABLE facility_order(
    PRIMARY KEY (order_no),
    foreign KEY (member_id) references member (mem_id)
 );
-
-show tables;
-
-insert into member (mem_name,mem_nick,password,mem_mail,mem_phone)
-values ("dd","dd","dd","dd","dd");
-
-select * from member;
-
-select * from member where mem_name = "Chen";
-select * from facility;
-
-select * from member where mem_name = "father";
-
-insert into member (mem_name,mem_nick,password,mem_mail,mem_phone)
-values ("bd103","classmate","123456","sbxew99@gmail.com","0926704627");
-
-RENAME TABLE fa.member TO bd103g3.member;
-drop table dept;
-
-

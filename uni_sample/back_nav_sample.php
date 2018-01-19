@@ -25,37 +25,30 @@ session_start();
 			<li class="navList">
 				<a href="back_check_facility_tickets.php">設施驗票</a>
 				<span class="listcover"></span>
-				<span class="spancover"></span>
 			</li>
 			<li class="navList">
 				<a href="back_check_theater_tickets.php">劇場驗票</a>
 				<span class="listcover"></span>
-				<span class="spancover"></span>
 			</li>
 			<li class="navList">
 				<a href="back_facilityM.php">設施管理</a>
 				<span class="listcover"></span>
-				<span class="spancover"></span>
 			</li>
 			<li class="navList">
 				<a href="back_theater_mang.php">劇場管理</a>
 				<span class="listcover"></span>
-				<span class="spancover"></span>
 			</li>
 			<li class="navList">
 				<a href="back_activity.php">活動管理</a>
 				<span class="listcover"></span>
-				<span class="spancover"></span>
 			</li>
 			<li class="navList">
 				<a href="back_member.php">會員管理</a>
 				<span class="listcover"></span>
-				<span class="spancover"></span>
 			</li>
 			<li class="navList">
 				<a href="">諮詢管理</a>
 				<span class="listcover"></span>
-				<span class="spancover"></span>
 			</li>
 			<li class="navList"
 			<?php
@@ -66,7 +59,6 @@ session_start();
 			>
 				<a href="back_management_authority.php">權限管理</a>
 				<span class="listcover"></span>
-				<span class="spancover"></span>
 			</li>
 		</ul>
 	</header>

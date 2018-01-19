@@ -12,6 +12,7 @@ session_start();
 <link rel="stylesheet" type="text/css" href="css/activity_calendar.css">
 <link rel="stylesheet" type="text/css" href="css/header.css">
 <link rel="stylesheet" type="text/css" href="css/login.css">
+<link rel="stylesheet" type="text/css" href="css/footer.css">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
 <script src="js/modernizr.custom.97074.js"></script>
 <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
@@ -395,6 +396,7 @@ body::-webkit-scrollbar-thumb {
 		</a>
 	</li>
 	</ul>
+
 <!-- 登入燈箱 -->
 <div id="all-page"></div><!-- 叫出時背景-->
 <div id="lightBox">
@@ -416,6 +418,139 @@ body::-webkit-scrollbar-thumb {
         	</div>
 		</form>
 </div>
+<!-- footer -->
+<div id="footerWrapper">
+	<div id="visitUs">welcome!<br><span style="font-size: 20px">立即規劃，造訪</span></div>
+	<div id="footerMap"></div>
+	<div id="footerText">
+		<ul id="footerWebMap">
+			<li class="footerWebMap">
+				<a href="#">Theater&nbsp|&nbsp</a>
+			</li>
+			<li class="footerWebMap">
+				<a href="#">Facility&nbsp|&nbsp</a>
+			</li>
+			<li class="footerWebMap">
+				<a href="#">Ticket&nbsp|&nbsp</a>
+			</li>
+			<li class="footerWebMap">
+				<a href="#">Map&nbsp|&nbsp</a>
+			</li>
+			<li class="footerWebMap">
+				<a href="#">Calendar&nbsp|&nbsp</a>
+			</li>
+			<li class="footerWebMap">
+				<a href="#">F&Q</a>
+			</li>
+			<li class="footerContactInfo">03-425-7387</li>
+			<li class="footerContactInfo">&nbsp|&nbsp320桃園市中壢區中大路300號</li>
+			<li class="footerContactInfo">&nbsp|&nbspfa@gmail.com</li>
+		</ul>
+	</div>
+	
+	<div id="copyRight">
+		2018 CopyRight by Future Atlas
+	</div>
+</div>
+
+<script>
+      function initMap() {
+        // Styles a map in night mode.
+        var map = new google.maps.Map(document.getElementById('footerMap'), {
+          center: {lat: 25, lng: 121.2},
+          zoom: 14,
+          styles: [
+            {elementType: 'geometry', stylers: [{color: '#242f3e'}]},
+            {elementType: 'labels.text.stroke', stylers: [{color: '#242f3e'}]},
+            {elementType: 'labels.text.fill', stylers: [{color: '#746855'}]},
+            {
+              featureType: 'administrative.locality',
+              elementType: 'labels.text.fill',
+              stylers: [{color: '#d59563'}]
+            },
+            {
+              featureType: 'poi',
+              elementType: 'labels.text.fill',
+              stylers: [{color: '#d59563'}]
+            },
+            {
+              featureType: 'poi.park',
+              elementType: 'geometry',
+              stylers: [{color: '#263c3f'}]
+            },
+            {
+              featureType: 'poi.park',
+              elementType: 'labels.text.fill',
+              stylers: [{color: '#6b9a76'}]
+            },
+            {
+              featureType: 'road',
+              elementType: 'geometry',
+              stylers: [{color: '#38414e'}]
+            },
+            {
+              featureType: 'road',
+              elementType: 'geometry.stroke',
+              stylers: [{color: '#212a37'}]
+            },
+            {
+              featureType: 'road',
+              elementType: 'labels.text.fill',
+              stylers: [{color: '#9ca5b3'}]
+            },
+            {
+              featureType: 'road.highway',
+              elementType: 'geometry',
+              stylers: [{color: '#746855'}]
+            },
+            {
+              featureType: 'road.highway',
+              elementType: 'geometry.stroke',
+              stylers: [{color: '#1f2835'}]
+            },
+            {
+              featureType: 'road.highway',
+              elementType: 'labels.text.fill',
+              stylers: [{color: '#f3d19c'}]
+            },
+            {
+              featureType: 'transit',
+              elementType: 'geometry',
+              stylers: [{color: '#2f3948'}]
+            },
+            {
+              featureType: 'transit.station',
+              elementType: 'labels.text.fill',
+              stylers: [{color: '#d59563'}]
+            },
+            {
+              featureType: 'water',
+              elementType: 'geometry',
+              stylers: [{color: '#17263c'}]
+            },
+            {
+              featureType: 'water',
+              elementType: 'labels.text.fill',
+              stylers: [{color: '#515c6d'}]
+            },
+            {
+              featureType: 'water',
+              elementType: 'labels.text.stroke',
+              stylers: [{color: '#17263c'}]
+            }
+          ]
+        });
+        var image = 'img/logo.png';
+        var beachMarker = new google.maps.Marker({
+          position: {lat: 25, lng: 121.2},
+          map: map,
+          icon: image
+        });
+      }
+    </script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBk5PngWPnFMu21eqgGYwpdhf8mSALH1wU&callback=initMap"
+    async defer></script>
+<!-- footer -->
 <!-- 登入燈箱 -->
 <script src="js/00nav.js"></script>
 <script type="text/javascript" src="js/04calendar.js"></script>
