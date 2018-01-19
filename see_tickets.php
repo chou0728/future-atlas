@@ -14,6 +14,11 @@ session_start();
     <link rel="stylesheet" href="css/see_tickets.css">
     <link rel="stylesheet" href="css/header.css">
     <link rel="stylesheet" href="css/login.css">	
+    <style>
+    .wrapper{
+            height:auto;        
+    }
+    </style>
 </head>
 
 <body>
@@ -133,7 +138,7 @@ session_start();
                         FROM facility_order_item a JOIN facility_order b ON a.order_no = b.order_no JOIN facility c ON a.facility_no = c.facility_no
                         WHERE a.mem_id = ?";
                         $order_item_PDO = $pdo->prepare($sql);
-                        $order_item_PDO->bindValue(1,1); //先寫死
+                        $order_item_PDO->bindValue(1,$_SESSION["mem_id"]); //先寫死
                         $order_item_PDO->execute();
                         $order_item = $order_item_PDO->fetchAll(PDO::FETCH_ASSOC);
 
