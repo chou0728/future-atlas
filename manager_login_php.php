@@ -23,7 +23,7 @@ try {
 			echo $_SESSION["manager_name"];
 			echo $_SESSION["password"];
 			echo $_SESSION["top_manager"];
-			header("location:back_check_facility_tickets.html");
+			header("location:back_check_facility_tickets.php");
 		}else{
 			$_SESSION["banned"] = 1;
 			header("location:manager_login.php");
