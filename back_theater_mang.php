@@ -178,6 +178,8 @@
                     </div> -->
                 
             </div>
+
+            <!-- 劇場場次清單 -->
             <div id="theater_session_List" class="tabcontent">
                 <span onclick="this.parentElement.style.display='none'" class="topright"></span>
                 <!-- 劇場場次清單 -->
@@ -266,7 +268,8 @@
                     </table>
                 
             </div>
-
+            
+            <!-- 劇場票劵訂單 -->
             <div id="theater_order_List" class="tabcontent">
                 <!-- 劇場票劵訂單 -->
                 <span onclick="this.parentElement.style.display='none'" class="topright"></span>

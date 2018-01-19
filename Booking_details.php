@@ -13,6 +13,7 @@
     <link rel="stylesheet" type="text/css" href="css/RESET.css">
     <link rel="stylesheet" type="text/css" href="css/header.css">
     <link rel="stylesheet" type="text/css" href="css/Booking_details.css">
+    <link rel="stylesheet" type="text/css" href="css/login.css">    
     <script type="text/javascript" src="js/jquery-3.2.1.min.js"></script>
     <!--<script src="js/Booking_details.js"></script> -->
 </head>
@@ -249,13 +250,13 @@
             <a href="javascript: return false;" id="Checked" onclick="ajax_post()">結帳</a>   
         </div>
     </div>
-
+    
     <!-- 測試傳到php -->
     <!-- <button  onclick="ajax_post()">php</button> -->
     
     <!-- 顯示資料有到php -->
-    <div id="status" style="color:white;"> 
-    </div>
+    <!-- <div id="status" style="color:white;"> 
+    </div> -->
     
 
     <script type="text/javascript">
@@ -392,10 +393,9 @@
                 if(hr.readyState == 4 && hr.status == 200) {
                     var return_data = hr.responseText;
                     // document.getElementById("status").innerHTML = return_data;
-                    
                     alert(return_data);
                     setTimeout(function(){
-                        console.log('Hi...');
+                        // console.log('Hi...');
                         location.href="MembersOnly.html";
                     },2000)
                 }
