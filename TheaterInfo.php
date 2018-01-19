@@ -159,8 +159,20 @@
         <h2 class="programonetitle">尋找星生命</h2>
         <span class="programoneline" id="programoneline"></span>
        <!--  <hr size="8px" align="center" width="48%" style="background-color:#35ffba" class="programoneHr" > -->
+        <?php
+            require_once("php/connectBooks.php");
+            $sql = "select * from theater_program where program_no=1";
+            $theater_program = $pdo->query( $sql );
+            if( $theater_program->rowCount()==0){
+              echo "<center>查無此節目資料</center>";
+            }else{
+              $prodRow = $theater_program->fetchObject();
+              $program_intro = $prodRow->program_intro;
+            }
+        ?>
         <p class="programonecontent">
-          廣大的宇宙中，到底有沒有外星人？跟著最先進的太空工作室，一窺宇宙前線，尋找外星新生命。
+          <?php echo $program_intro ?>
+          <!-- 廣大的宇宙中，到底有沒有外星人？跟著最先進的太空工作室，一窺宇宙前線，尋找外星新生命。 -->
         </p>
         <span class="programoneline2" id="programoneline2"></span>
         <!-- <hr size="10px" align="center" width="48%" style="background-color:#35ffba" class="programoneHr2" > -->
@@ -176,6 +188,17 @@
       <!-- 第二個節目 -->
       <div class="programtwo">
         <h2 class="programtwotitle">末世決戰</h2>
+        <?php
+            require_once("php/connectBooks.php");
+            $sql = "select * from theater_program where program_no=2";
+            $theater_program = $pdo->query( $sql );
+            if( $theater_program->rowCount()==0){
+              echo "<center>查無此節目資料</center>";
+            }else{
+              $prodRow = $theater_program->fetchObject();
+              $program_intro = $prodRow->program_intro;
+            }
+        ?>
         <p class="programtwocontent">
           傑克與瑪莉無意之間打開了宇宙通道，數以兆計的外星生物瞬間湧入地球，人類究竟該不該跟牠們成為朋友
         </p>

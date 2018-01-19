@@ -100,7 +100,7 @@
 	 	
 		?>
 		<?php
-			echo "購買完成! 訂單編號:$prder_no";
+			echo "購買完成! 您的訂單編號:$prder_no";
 			//echo "<a href='MembersOnly.html'>會員專區</a>";
 			//header("refresh:5; url=MembersOnly.html");	
 		} catch (PDOException $e) {
