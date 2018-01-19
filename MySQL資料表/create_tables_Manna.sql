@@ -1,5 +1,3 @@
-use fa;
-
 create table activity(
 	activity_no int NOT NULL AUTO_INCREMENT,
     activity_name varchar(10) NOT NULL,
