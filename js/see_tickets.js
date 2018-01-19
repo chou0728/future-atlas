@@ -4,9 +4,14 @@ window.addEventListener('load',function(){
 
     var more_info = document.getElementsByClassName('more_info');
     var more_info_theater = document.getElementsByClassName('more_info_theater');
+    var rate_faci = document.getElementsByClassName('rate_faci');
+
     for (let i = 0; i < more_info.length; i++) {
+
         more_info[i].addEventListener('click',getFacilityInfoToCookie);
-        more_info_theater[i].addEventListener('click',getTheaterInfoToCookie);
+        
+        rate_faci[i].addEventListener('click',getFacilityInfoToCookie);
+
         function getFacilityInfoToCookie(){
              var order_no = this.getAttribute('data-order-no');
              var facility_no = this.getAttribute('data-facility-no');
@@ -15,6 +20,14 @@ window.addEventListener('load',function(){
              document.cookie = "facility_no=" + facility_no;
              document.cookie = "mem_id=" + mem_id;
         }
+        
+
+    }
+
+    for (let a = 0; a < more_info_theater.length; a++) {
+
+        more_info_theater[a].addEventListener('click',getTheaterInfoToCookie);
+
         function getTheaterInfoToCookie(){
             var theater_ticket_no = this.getAttribute('data-theater-ticket-no');
             var session_no = this.getAttribute('data-session-no');
@@ -25,7 +38,6 @@ window.addEventListener('load',function(){
             document.cookie = "program_no=" + program_no;
             document.cookie = "mem_id=" + mem_id;
        }
-
     }
 
 

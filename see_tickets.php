@@ -138,7 +138,7 @@ session_start();
                         FROM facility_order_item a JOIN facility_order b ON a.order_no = b.order_no JOIN facility c ON a.facility_no = c.facility_no
                         WHERE a.mem_id = ?";
                         $order_item_PDO = $pdo->prepare($sql);
-                        $order_item_PDO->bindValue(1,$_SESSION["mem_id"]); //先寫死
+                        $order_item_PDO->bindValue(1,1); //先寫死
                         $order_item_PDO->execute();
                         $order_item = $order_item_PDO->fetchAll(PDO::FETCH_ASSOC);
 
@@ -167,7 +167,7 @@ session_start();
                         </p>
                         <div class="button_area">
                             <a class="more_info" href="facility_tickets_detail.php" data-order-no="<?php echo $order_item_row["order_no"] ?>" data-facility-no="<?php echo $order_item_row["facility_no"] ?>">詳細資訊</a>
-                            <a class="rate_faci" href="rate_facility.php">評價設施</a>
+                            <a class="rate_faci" href="rate_facility.php" data-order-no="<?php echo $order_item_row["order_no"] ?>" data-facility-no="<?php echo $order_item_row["facility_no"] ?>">評價設施</a>
                         </div>
 
                     </div>
