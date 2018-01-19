@@ -152,7 +152,7 @@ body::-webkit-scrollbar-thumb {
 
   }
 }
-@media screen and (max-width:414px){
+@media screen and (max-width:480px){
   .fbtWrapper{
     width:95%;
     max-width: 1440px;
@@ -162,7 +162,7 @@ body::-webkit-scrollbar-thumb {
 
     .fbtWrapper .ticketbox{
     width: 100%;
-    margin:4% 0;
+    margin:6% 0;
   }
 }
 /*ticket icon-rotate*/
@@ -394,3 +394,23 @@ body::-webkit-scrollbar-thumb {
   box-shadow: 0 0 1px rgba(55,255,243,0.8),0 0 3px rgba(55,255,243,0.5),0 0 5px rgba(55,255,243,0.3);
 }
 /*=========燈箱END==============================*/
+@media screen and (max-width:480px){
+  .confirmLightbox{
+  width: 90%;
+  height: 250px;
+  border: 2px solid rgba(55,255,243,0.8);
+  box-shadow: 0 0 1px rgba(55,255,243,0.8),0 0 3px rgba(55,255,243,0.5),0 0 5px rgba(55,255,243,0.3);
+  background-color: black;
+  position: fixed;
+  top:50%;
+  left: 50%;
+  padding: 15px;
+  transform: translate(-50%,-50%);
+  text-align: center;
+
+}
+.confirmLightbox .content{
+  line-height: 1.5;
+
+}
+}
