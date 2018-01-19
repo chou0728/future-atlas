@@ -142,7 +142,7 @@ session_start();
                     $order_item_PDO->bindValue(1,$_COOKIE["mem_id"]);
                     $order_item_PDO->bindValue(2,$_COOKIE["theater_ticket_no"]); 
                     $order_item_PDO->bindValue(3,$_COOKIE["session_no"]);  
-                    $order_item_PDO->bindValue(3,$_COOKIE["program_no"]); 
+                    $order_item_PDO->bindValue(4,$_COOKIE["program_no"]); 
                     $order_item_PDO->execute();
                     $order_item = $order_item_PDO->fetchAll(PDO::FETCH_ASSOC);
                     
@@ -176,7 +176,6 @@ session_start();
                         <div class="records">
                             <h3>未使用票券</h3>
                             <div class="records_info">
-                            
                                 <p>共：<?php echo $order_item_row["remain_ticket"] ?>張</p>
                             </div>
                             <h3>已使用張數</h3>
