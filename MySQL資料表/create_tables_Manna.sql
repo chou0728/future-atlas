@@ -1,15 +1,13 @@
 create table activity(
 	activity_no int NOT NULL AUTO_INCREMENT,
-    activity_name varchar(10) NOT NULL,
-    activity_short_name varchar(5) NOT NULL,
+    activity_date int not null,
+    activity_name varchar(15) NOT NULL,
+    activity_short_name varchar(10) NOT NULL,
     activity_location varchar(10) NOT NULL,
-    activity_start_date date,
-    activity_end_date date,
-    activity_time char(5),
-    activity_duration int,
-    activity_intro varchar(200),
-    activity_cycle int,
-    activity_filename varchar(20),
+    activity_start_time char(5),
+    activity_end_time char(5),
+    activity_intro varchar(20),
+    activity_news varchar(200),
 PRIMARY KEY (activity_no)
 );
 

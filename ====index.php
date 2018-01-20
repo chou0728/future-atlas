@@ -77,11 +77,18 @@ if(isset($_SESSION["login_error"]) === true){
                 			echo "'register.html'";
                 		}
             ?> id="registerUser">
-                <img src="img/member/member_0.png">
+                <img src=<?php
+                		if(isset($_SESSION['mem_id'])===true){
+                			echo 'img/member/member_3.png';
+                		}else{
+                			echo 'img/member/member_0.png';
+                		}
+					?>
+                >
                 <span class="register">
                 	<?php
                 		if(isset($_SESSION["mem_id"])===true){
-                			echo "<a href='MembersOnly.html'>我的資料</a>";
+                			echo "<a href='MembersOnly.html'>帳戶</a>";
                 		}else{
                 			echo "註冊";
                 		}
@@ -943,34 +950,8 @@ if(isset($_SESSION["login_error"]) === true){
 		    <div id="border_bottom"></div>
 		    <div id="content">
 		        <table id="activity">
-		            <tr>
-		            	<th>10:00-14:00</th>
-		            	<td><a class="convert">詳情</a>
-		            </tr>
-		            <tr>
-		                <td colspan="2">夢境遊行夢</td>
-		            </tr>
-		            <tr>
-		            	<th>11:00-12:00</th>
-		            	<td><a class="convert">購票</a></td>
-		            </tr>
-		            <tr>
-		                <td>未來狂想曲</td>
-		            </tr>
-		            <tr>
-		            <tr>
-		            	<th>13:00-13:10</th>
-						<td><a class="convert">詳情</a></td>
-		            </tr>
-		                <td colspan="2">啟用記者會</td>
-		            </tr>
-		            <tr>
-		            	<th>14:00-15:00</th>
-		            	<td><a class="convert">購票</a></td>
-		            </tr>
-		            <tr>
-		                <td colspan="2">星際漫遊</td>
-		            </tr>
+		            <tr><th>10:00-14:00</th><td><a class="convert">詳情</a></td></tr>
+		            <tr><td colspan="2">夢境遊行夢</td></tr>
 		        </table>
 		        <div id="weatherWrapper">
 		        	<div id="result">園區天氣<br>

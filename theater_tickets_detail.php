@@ -15,6 +15,7 @@ session_start();
     <link rel="stylesheet" href="css/vaild_facility_tickets.css">
     <link rel="stylesheet" href="css/header.css">
     <link rel="stylesheet" href="css/login.css">
+    
 
 </head>
 
@@ -139,10 +140,10 @@ session_start();
                     FROM theater_order_list a JOIN theater_program b ON a.program_no = b.program_no JOIN theater_session_list c ON a.session_no = c.session_no
                     WHERE a.mem_id = ? AND a.theater_ticket_no =? AND a.session_no = ? AND a.program_no = ?";
                     $order_item_PDO = $pdo->prepare($sql);
-                    $order_item_PDO->bindValue(1,$_COOKIE["mem_id"]);
-                    $order_item_PDO->bindValue(2,$_COOKIE["theater_ticket_no"]); 
-                    $order_item_PDO->bindValue(3,$_COOKIE["session_no"]);  
-                    $order_item_PDO->bindValue(4,$_COOKIE["program_no"]); 
+                    $order_item_PDO->bindValue(1,$_SESSION["mem_id"]);
+                    $order_item_PDO->bindValue(2,$_REQUEST["theater_ticket_no"]); 
+                    $order_item_PDO->bindValue(3,$_REQUEST["session_no"]);  
+                    $order_item_PDO->bindValue(4,$_REQUEST["program_no"]); 
                     $order_item_PDO->execute();
                     $order_item = $order_item_PDO->fetchAll(PDO::FETCH_ASSOC);
                     

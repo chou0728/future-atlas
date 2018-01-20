@@ -142,7 +142,7 @@ $(document).ready(function(){
 			if( d.getMonth() < 9){
 				var month = "0"+(d.getMonth()+1);
 			}
-		var activity_date = todayYear+"-"+month+"-"+$(this).text();
+		var activity_date = parseInt($(this).text());
 		show_activity(activity_date);
 		console.log(activity_date);
 
@@ -166,12 +166,27 @@ $(document).ready(function(){
 	});
 });
 
+
+window.addEventListener("load",getDate);
+function getDate(){
+	var d = new Date();
+	show_activity(d.getDate());	
+}
+
 function show_activity(activity_date){
 	var xhr = new XMLHttpRequest();
 	xhr.onload = function(){
 		if( xhr.readyState === 4 && xhr.status === 200){ //OK
     		// show活動內容
-    		$("#showRowUnitWrapper").html(xhr.responseText);
+    		var activities = xhr.responseText.split("|")
+    		console.log(activities);
+    		for(var i=0 ; i<activities.length;i++){
+    			console.log(activities[i]);
+    		}
+    		var innerPage = activities[0]+activities[2]+activities[4];
+    		var index 	  = activities[1]+activities[3]+activities[5];
+    		$("#showRowUnitWrapper").html(innerPage);
+    		$("#activity").html(index);
 		}
 	}
 	var url = "show_activity.php?activity_date=" + activity_date;

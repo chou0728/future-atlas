@@ -61,14 +61,21 @@ session_start();
             	if(isset($_SESSION["mem_id"])===true){
                 			echo "'javascript:void(0)'";
                 		}else{
-                			echo "'SignUp.html'";
+                			echo "'register.html'";
                 		}
             ?> id="registerUser">
-                <img src="img/member/member_0.png">
+                <img src=<?php
+                		if(isset($_SESSION['mem_id'])===true){
+                			echo 'img/member/member_3.png';
+                		}else{
+                			echo 'img/member/member_0.png';
+                		}
+					?>
+                >
                 <span class="register">
                 	<?php
                 		if(isset($_SESSION["mem_id"])===true){
-                			echo "<a href='MembersOnly.html'>我的資料</a>";
+                			echo "<a href='MembersOnly.html'>帳戶</a>";
                 		}else{
                 			echo "註冊";
                 		}
@@ -135,7 +142,7 @@ session_start();
                 <a href="index.html#page2" id="NavClose">園區地圖</a>
             </li>
             <li>
-                <a href="activity.html">活動月曆</a>
+                <a href="activity.php">活動月曆</a>
             </li>
             <li>
                 <a href="robot.html">諮詢專區</a>

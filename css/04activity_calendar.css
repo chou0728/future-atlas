@@ -424,8 +424,8 @@
 @media screen and (max-width:600px) and (max-width:1024px){
 	#showActivityWrapper{
 		position: absolute;
-		width: 90%;
-		height: 50%;
+		width: 50%;
+		height: 40%;
 		top: 0;
 		bottom: 0;
 		right: -200%;
@@ -486,6 +486,7 @@
 	padding: 2px;
 	padding: 10px 0 5px 0;
 	text-align: left;
+	width: 70%;
 }
 #activity th + td{
 	width: 100%;
@@ -526,7 +527,7 @@ a.convert{
 	margin-top: 20px;
 	padding-top: 10px;
 	font-size: 24px;
-	border-top: 1px solid azure;
+	border-top: 1px solid #555;
 }
 
 #temperature, #weather{
@@ -556,5 +557,5 @@ a.convert{
 	height: 1px;
 	width: 100%;
 	margin-top: 10px;
-	background: white;
+	background: #555;
 }
