@@ -80,10 +80,10 @@
                     <a href="Theaterbuyticket.php">劇場購票</a>
                 </li>
                 <li>
-                    <a href="facilityBuyTicket.html">設施購票</a>
+                    <a href="facilityBuyTicket.php">設施購票</a>
                 </li>
                 <li>
-                    <a href="facilityInfo.html">設施介紹</a>
+                    <a href="facilityInfo.php">設施介紹</a>
                 </li>
             </ul>
             <h1 style="display: none">FutureAtlas_未來主題樂園</h1>
@@ -95,7 +95,7 @@
                     <a href="index.html#page2">園區地圖</a>
                 </li>
                 <li>
-                    <a href="activity.html">活動月曆</a>
+                    <a href="activity.php">活動月曆</a>
                 </li>
                 <li>
                     <a href="robot.html">諮詢專區</a>

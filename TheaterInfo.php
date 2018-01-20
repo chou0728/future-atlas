@@ -83,7 +83,7 @@
                     <a href="facilityBuyTicket.php">設施購票</a>
                 </li>
                 <li>
-                    <a href="facilityInfo.html">設施介紹</a>
+                    <a href="facilityInfo.php">設施介紹</a>
                 </li>
             </ul>
             <h1 style="display: none">FutureAtlas_未來主題樂園</h1>
