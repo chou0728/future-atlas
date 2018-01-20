@@ -297,7 +297,7 @@
 
     <div id="fullBlack">
         <div id="buyticketlightBox" >
-            <<p class="msg" id="msg"></p> 
+            <p class="msg" id="msg"></p> 
             <a href="see_tickets.php" id="confirm">確認</a>
         </div>
     </div>
@@ -449,9 +449,9 @@
                     //buyticketlightBox.style.visibility = 'visible';
                     //buyticketlightBox.style.display = 'block';
                     //document.getElementById('msg').innerHTML =return_data ;
-                    // setTimeout(function(){
-                    //     location.href="MembersOnly.html";
-                    // },2000)
+                    setTimeout(function(){
+                         location.href="MembersOnly.html";
+                    },2000)
                 }
             }
             // Send the data to PHP now... and wait for response to update the status div
