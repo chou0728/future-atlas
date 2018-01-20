@@ -522,9 +522,9 @@ body{
   }
 
 #showRow {
+  padding:20px;
   width: 70%;
   margin-left: 15%;
-  height: 100px;
   display: inline-block;
   font-family: Inconsolata, 微軟正黑體;
    }
@@ -547,22 +547,22 @@ body{
 
 
 
-.acTitle{
+.acTime{
+	width: 20%;
+}.acTitle{
 	width: 20%;
 }.acLoc{
 	width: 20%;
-}.acTime{
-	width: 30%;
 }.acIntro{
-	width: 30%;		
+	width: 40%;		
 }
 @media screen and (max-width:415px){
-	.acTitle{
+	.acTime{
+		width: 40%;
+	}.acTitle{
 		width: 30%;
 	}.acLoc{
 		width: 30%;
-	}.acTime{
-		width: 40%;
 	}.acIntro{
 		width: 100%;
 	}
@@ -629,6 +629,7 @@ body{
   position: relative;
   margin: 20px auto;
   padding: 0;
+  margin-bottom: 100px;
 }
 
 #da-thumbs li {

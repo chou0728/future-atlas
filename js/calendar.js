@@ -185,9 +185,6 @@ $(document).ready(function(){
 		$(".fri").html("<img src='img/activity/lecture.png' style='width: 25px; height:25px'>");
 		$(".sat").html("<img src='img/activity/lecture.png' style='width: 25px; height:25px'>");
 	});
-	$("#clearCal").click(function(){
-		$(".claContent").html("");
-	});
 });
 
 // 於月曆&活動之間滾動
