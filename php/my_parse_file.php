@@ -34,7 +34,7 @@
 		//用日期programDate、節目編號program_no、場次時間programTime，去theater_session_list查場次編號session_no
 		$sql ="select * from theater_session_list where program_no=$program_no AND time_date='$programDate' AND session_time='$programTime'";
 		$theater_session_list = $pdo->query( $sql );
-		$theater_session_list -> bindValue(":program_no",$prodRow->program_no);
+		$theater_session_list -> bindValue(":program_no",$program_no);
 		$theater_session_list -> bindValue(":time_date",'$programDate');
 		$theater_session_list -> bindValue(":session_time",'$programTime');
 		$theater_session_list-> execute();
@@ -45,7 +45,7 @@
 			$session_no = $prodRow->session_no;
 		}
 		//利用session_no尋找last_ticket，剩餘數量last_ticket減去數量theater_quantity
-		$sql ="select * from theater_session_list where session_no=".$session_no;
+		$sql="select * from theater_session_list where session_no=".$session_no;
 		$theater_session_list = $pdo->query( $sql );
 		if( $theater_session_list->rowCount()==0){
 			echo "<center>查無此剩餘票數資料</center>";

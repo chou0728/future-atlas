@@ -8,7 +8,8 @@
 
 </head>
 <body>
-	<?php
+	<div id="dom-target" style="display: none;">
+		<?php
 		switch($_FILES["program_photo"]["error"]){
 			case UPLOAD_ERR_OK:	
 				$dir = "../img/theater_page/back/";
@@ -57,35 +58,17 @@
 				$theater_program->bindValue(":program_fare" , $_REQUEST["program_fare"]);
 				$theater_program->bindValue(":program_status" , $_REQUEST["program_status"]);
 				$theater_program->execute();
-				//echo "異動成功<br>";
-				echo '異動成功<br>
-				<script>
-				showLogin();
-				function showLogin() {
-				/*如果singUpBtn為登入時*/
-				fullCover = document.getElementById("all-page");/*叫出燈箱時的墊背*/
-				
-						/*show出燈箱*/
-						lightBox.style.opacity = 1;
-						fullCover.style.display="block";
-						lightBox.style.visibility = "visible";
-						lightBox.style.display = "block";
-				}
-			}
-				/*點案登入關閉登入燈箱*/
-				function closeLogin() {
-					lightBox.style.opacity = 0;
-					lightBox.style.visibility = "hidden";
-					fullCover.style.display="";
-				}
-				</script>';
+				echo "異動成功<br>";
 		} catch (Exception $e) {
 			echo "錯誤原因 : " , $e->getMessage() , "<br>";
 			echo "錯誤行號 : " , $e->getLine() , "<br>";	
 		}
 	?>
+
+	</div>
 	<script type="text/javascript">
-				
+		alert("異動成功");
+		window.location.href = '../back_TheaterMang.php';
 	</script>
 </body>
 </html>

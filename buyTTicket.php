@@ -125,7 +125,7 @@
                 <tr>
                     <td>節目名稱</td>
                     <td>
-                        <input type="radio" name="programName" value="尋找星生命" checked onchange="changeTheaterName()">尋找星生命
+                        <input type="radio" name="programName" value="尋找星生命"  onchange="changeTheaterName()">尋找星生命
                         <br>
                         <input type="radio" name="programName" value="末世決戰" onchange="changeTheaterName()">末世決戰
                     </td>
@@ -162,13 +162,13 @@
                     <td>張數</td>
                     <td>
                         <!-- <input type="number" min="1" name="ticketNum" value="1"> -->
-                        <input style="width:60px;font-size:23px;" type="number" id="quantity" value="1" min="1" onchange="changeQuantity()" />
+                    <input style="width:60px;font-size:23px;" type="number" id="quantity" value="0" min="0" onchange="changeQuantity()" />
                     </td>
                 </tr>
                 <tr>
                     <td>總共金額</td>
                     <td id="total">
-                        500元
+                        0元
                     </td>
                 </tr>
             </table>
@@ -206,6 +206,61 @@
                 var storage = localStorage;
                     storage.setItem("mem_id",<?php if(isset($_SESSION["mem_id"])===true){echo $_SESSION["mem_id"];}else{echo "0";} ?>);
             };
+    </script>
+    <!--↓js部分請補上這段 -->
+    <script type="text/javascript">
+        //-登入-----------------------------------
+                window.onload = function () {
+                    var storage = localStorage;
+                    /*註冊登入按鈕*/
+                    var singUpBtn = document.getElementById('singUpBtn');
+                    /*註冊燈箱*/
+                    var lightBox = document.getElementById('lightBox');
+                    /*註冊燈箱關閉按鈕*/
+                    var cancel = document.getElementById('cancel');
+                    /*建立登入按鈕點擊事件聆聽功能*/
+                    singUpBtn.addEventListener('click', showLogin, false);
+                    /*建立關閉登入燈箱按鈕點擊事件聆聽功能*/
+                    cancel.addEventListener('click', closeLogin, false);
+                    /*點案登入show出登入燈箱 以及判斷登出按鈕*/
+                    function showLogin() {
+                        console.log(singUpBtn.innerText);
+                        /*如果singUpBtn為登入時*/
+                        fullCover = document.getElementById('all-page');/*叫出燈箱時的墊背*/
+                        if(singUpBtn.innerText.indexOf("登入") != -1){
+                            /*show出燈箱*/
+                            lightBox.style.opacity = 1;
+                            fullCover.style.display="block";
+                            lightBox.style.visibility = 'visible'
+                            lightBox.style.display = "block";
+                            allNavClose();
+                        }
+                    }
+                    
+                    /*點案登入關閉登入燈箱*/
+                    function closeLogin() {
+                        lightBox.style.opacity = 0;
+                        lightBox.style.visibility = 'hidden';
+                        fullCover.style.display="";
+                    }
+                    
+                    
+                }
+    function loginss(){
+        // 若登入，將mem_id存入localStorage
+        var storage = localStorage;
+        storage.setItem("mem_id",
+            <?php
+                if(isset($_SESSION["mem_id"])===true){
+                    echo $_SESSION["mem_id"];
+                }else{
+                    echo "0";
+                    // 若未登入，mem_id為0
+                }
+            ?>
+            );
+    }
+    window.addEventListener("load",loginss);
     </script>
 </body>
 </html>

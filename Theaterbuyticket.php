@@ -15,6 +15,19 @@
     <script type="text/javascript" src="js/jquery-3.2.1.min.js"></script>
     <script src="js/Theaterbuyticket.js"></script>
     <title>Theaterbuyticket</title>
+    <style type="text/css">
+      #all-page{
+          position: fixed;
+          top:0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          background: repeating-linear-gradient(transparent 0px, transparent 1px,transparent 1px, transparent 3px,rgba(0,0, 0,0.5) 3px, rgba(0, 0, 0,0.8) 4px);
+          background-color: #222;
+          display: none;
+          opacity: 0.7;
+        }
+    </style>
     <!-- <link rel="stylesheet" href="css/example.css"> -->
 </head>
 
@@ -223,6 +236,102 @@
             </div>
         </div>
     </div>
+    <!-- 登入燈箱 -->
+    <div id="all-page"></div><!-- 叫出時背景-->
+    <div id="lightBox">
+      <div id="cancel">
+        <div class="leftLine"></div>
+        <div class="rightLine"></div>
+      </div>
+        
+        <form class="singUp" action="loginheadforindex.php" method="post">
+          <h2>會員登入</h2>
+          <div class="text">
+            會員帳號：<input type="text" name="memName" id="memId" value="" required placeholder="輸入帳號">
+            <br>
+            會員密碼：<input type="password" name="memPsw"  id="memPsw" value="" required placeholder="輸入密碼">
+            <br>
+          </div>
+          <div class="btn">
+            <input type="submit" name="" id="submit" value="登入">
+            <input type="reset" name="reset" value="RESET">
+              </div>
+        </form>
+    </div>
+    <!--   儲存會員資訊 -->
+    <script type="text/javascript">
+            window.onload=function (){
+                var storage = localStorage;
+                    storage.setItem("mem_id",<?php if(isset($_SESSION["mem_id"])===true){echo $_SESSION["mem_id"];}else{echo "0";} ?>);
+            };
+    </script>
+    <!--登入/註冊燈箱 -->
+    <script type="text/javascript">
+      //-登入-----------------------------------
+          window.onload = function () {
+
+            var storage = localStorage;
+            /*註冊登入按鈕*/
+            var singUpBtn = document.getElementById('singUpBtn');
+
+            /*註冊燈箱*/
+            var lightBox = document.getElementById('lightBox');
+
+            /*註冊燈箱關閉按鈕*/
+            var cancel = document.getElementById('cancel');
+
+            /*建立登入按鈕點擊事件聆聽功能*/
+            singUpBtn.addEventListener('click', showLogin, false);
+
+
+
+            /*建立關閉登入燈箱按鈕點擊事件聆聽功能*/
+            cancel.addEventListener('click', closeLogin, false);
+
+
+            /*點案登入show出登入燈箱 以及判斷登出按鈕*/
+            function showLogin() {
+              console.log(singUpBtn.innerText);
+              /*如果singUpBtn為登入時*/
+              fullCover = document.getElementById('all-page');/*叫出燈箱時的墊背*/
+              if(singUpBtn.innerText.indexOf("登入") != -1){
+                /*show出燈箱*/
+                lightBox.style.opacity = 1;
+                fullCover.style.display="block";
+                lightBox.style.visibility = 'visible'
+                lightBox.style.display = "block";
+                allNavClose();
+              }
+            }
+            
+
+
+            /*點案登入關閉登入燈箱*/
+            function closeLogin() {
+              lightBox.style.opacity = 0;
+              lightBox.style.visibility = 'hidden';
+              fullCover.style.display="";
+            }
+            
+            
+          }
+
+    function loginss(){
+        // 若登入，將mem_id存入localStorage
+        var storage = localStorage;
+        storage.setItem("mem_id",
+            <?php
+                if(isset($_SESSION["mem_id"])===true){
+                    echo $_SESSION["mem_id"];
+                }else{
+                    echo "0";
+                    // 若未登入，mem_id為0
+                }
+            ?>
+            );
+    }
+    window.addEventListener("load",loginss);
+    </script>
     <script src="js/00nav.js"></script>
 </body>
 
