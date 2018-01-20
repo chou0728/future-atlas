@@ -16,6 +16,50 @@
     <link rel="stylesheet" type="text/css" href="css/login.css">    
     <script type="text/javascript" src="js/jquery-3.2.1.min.js"></script>
     <!--<script src="js/Booking_details.js"></script> -->
+    <style type="text/css">
+        #fullBlack{
+            position: fixed;
+            top:0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: repeating-linear-gradient(transparent 0px, transparent 1px,transparent 1px, transparent 3px,rgba(0,0, 0,0.5) 3px, rgba(0, 0, 0,0.8) 4px);
+            background-color: rgba(0,0,0,0.5);
+            opacity: 0;
+            display: none;
+        }
+        #buyticketlightBox{
+          width: 450px;
+          height: 250px;
+          border: 2px solid rgba(55,255,243,0.8);
+          box-shadow: 0 0 1px rgba(55,255,243,0.8),0 0 3px rgba(55,255,243,0.5),0 0 5px rgba(55,255,243,0.3);
+          background-color: black;
+          position: fixed;
+          top:50%;
+          left: 50%;
+          padding: 15px;
+          transform: translate(-50%,-50%);
+          text-align: center;
+          opacity: 0;
+          display: none;
+        }
+
+        #buyticketlightBox .msg{
+            padding: 15% 10%;
+            height: 85%;
+            color: azure;
+            line-height: 24px;
+        }
+        #buyticketlightBox a{
+          /*margin: 0 30px;*/
+          letter-spacing: 2px;
+          padding: 5px 20px;
+          background-color: black;
+          color: rgb(55,255,243);
+          border: 1px solid rgba(55,255,243,0.8);
+          box-shadow: 0 0 1px rgba(55,255,243,0.8),0 0 3px rgba(55,255,243,0.5),0 0 5px rgba(55,255,243,0.3);
+        }
+    </style>
 </head>
 
 <body>
@@ -251,6 +295,13 @@
         </div>
     </div>
 
+    <div id="fullBlack">
+        <div id="buyticketlightBox" >
+            <p class="msg" id="msg"></p> 
+            <a href="see_tickets.php" id="confirm">確認</a>
+        </div>
+    </div>
+
     <!-- 測試傳到php -->
     <!-- <button  onclick="ajax_post()">php</button> -->
     
@@ -394,8 +445,12 @@
                     var return_data = hr.responseText;
                     // document.getElementById("status").innerHTML = return_data;
                     alert(return_data);
+                    //var buyticketlightBox = document.getElementById('buyticketlightBox');
+                    //buyticketlightBox.style.visibility = 'visible';
+                    //buyticketlightBox.style.display = 'block';
+                    //document.getElementById('msg').innerHTML =return_data ;
                     setTimeout(function(){
-                        location.href="MembersOnly.html";
+                         location.href="MembersOnly.html";
                     },2000)
                 }
             }
@@ -404,7 +459,7 @@
             //send() 的參數在以 POST 發出 request 時，可以是任何想傳給伺服器的東西
             hr.send(vars); // Actually execute the request
             //顯示目前狀態(還在連線中)
-            document.getElementById("status").innerHTML = "processing...";
+            //document.getElementById("status").innerHTML = "processing...";
         }
     </script>
     <!-- 導覽列 -->

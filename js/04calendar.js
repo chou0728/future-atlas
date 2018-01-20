@@ -178,7 +178,11 @@ function show_activity(activity_date){
 	xhr.onload = function(){
 		if( xhr.readyState === 4 && xhr.status === 200){ //OK
     		// show活動內容
-    		$("#showRowUnitWrapper").html(xhr.responseText);
+    		var activities = xhr.responseText.split("|");
+    		var innerPage = activities[0]+activities[2]+activities[4];
+    		var index 	  = activities[1]+activities[3]+activities[5];
+    		$("#showRowUnitWrapper").html(innerPage);
+    		$("#activity").html(index);
 		}
 	}
 	var url = "show_activity.php?activity_date=" + activity_date;
@@ -246,14 +250,21 @@ function autoIconLoop3(){
 };
 function autoIconLoop4(){
 	$(".claContent").html("");
-	$(".sun").html("");
-	$(".mon").html("");
-	$(".tue").html("未來商務展<br>");
-	$(".wed").html("未來商務展<br>");
-	$(".thu").html("");
-	$(".fri").html("");
-	$(".sat").html("隕石展<br>");
-	$(".claContent:lt(15)").append("成果展");
+	for(var activity_date=1; activity_date<=31; activity_date++){
+		var xhr = new XMLHttpRequest();
+		xhr.onload = function(){
+			if( xhr.readyState === 4 && xhr.status === 200){ //OK
+    		// show活動內容
+	    		for(var date=1;date<=31;date++){
+	    			var index = date -1;
+	    			$(".claContent").eq(date).html(xhr.responseText.split("|")[index]);
+	    		}
+			}
+		}
+		var url = "show_activity_on_calendar.php?activity_date=" + activity_date;
+		xhr.open("get",url, true);
+		xhr.send(null);
+	}
 	$("#icon4").css("background-color","orange").fadeIn();
 	$(".icons").not("#icon4").css("background-color","transparent");
 };

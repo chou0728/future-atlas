@@ -55,14 +55,21 @@ session_start();
             	if(isset($_SESSION["mem_id"])===true){
                 			echo "'javascript:void(0)'";
                 		}else{
-                			echo "'SignUp.html'";
+                			echo "'register.html'";
                 		}
             ?> id="registerUser">
-                <img src="img/member/member_0.png">
+                <img src=<?php
+                		if(isset($_SESSION['mem_id'])===true){
+                			echo 'img/member/member_3.png';
+                		}else{
+                			echo 'img/member/member_0.png';
+                		}
+					?>
+                >
                 <span class="register">
                 	<?php
                 		if(isset($_SESSION["mem_id"])===true){
-                			echo "<a href='MembersOnly.html'>我的資料</a>";
+                			echo "<a href='MembersOnly.html'>帳戶</a>";
                 		}else{
                 			echo "註冊";
                 		}
