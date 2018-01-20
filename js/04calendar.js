@@ -178,7 +178,15 @@ function show_activity(activity_date){
 	xhr.onload = function(){
 		if( xhr.readyState === 4 && xhr.status === 200){ //OK
     		// show活動內容
-    		$("#showRowUnitWrapper").html(xhr.responseText);
+    		var activities = xhr.responseText.split("|")
+    		console.log(activities);
+    		for(var i=0 ; i<activities.length;i++){
+    			console.log(activities[i]);
+    		}
+    		var innerPage = activities[0]+activities[2]+activities[4];
+    		var index 	  = activities[1]+activities[3]+activities[5];
+    		$("#showRowUnitWrapper").html(innerPage);
+    		$("#activity").html(index);
 		}
 	}
 	var url = "show_activity.php?activity_date=" + activity_date;

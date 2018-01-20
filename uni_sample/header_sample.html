@@ -11,11 +11,18 @@
                             echo "'register.html'";
                         }
             ?> id="registerUser">
-                <img src="img/member/member_0.png">
+                <img src=<?php
+                        if(isset($_SESSION['mem_id'])===true){
+                            echo 'img/member/member_3.png';
+                        }else{
+                            echo 'img/member/member_0.png';
+                        }
+                    ?>
+                >
                 <span class="register">
                     <?php
                         if(isset($_SESSION["mem_id"])===true){
-                            echo $_SESSION["mem_nick"]."你好!";
+                            echo "<a href='MembersOnly.html'>帳戶</a>";
                         }else{
                             echo "註冊";
                         }

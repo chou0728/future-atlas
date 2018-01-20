@@ -23,24 +23,31 @@
               <img src="img/Usericon1.png">
           </div>
           <li class="li_top">
-              <a href=<?php
-                  if(isset($_SESSION["mem_id"])===true){
-                              echo "'javascript:void(0)'";
-                          }else{
-                              echo "'SignUp.html'";
-                          }
-              ?> id="registerUser">
-                  <img src="img/member/member_0.png">
-                  <span class="register">
-                      <?php
-                          if(isset($_SESSION["mem_id"])===true){
-                              echo $_SESSION["mem_nick"]."你好!";
-                          }else{
-                              echo "註冊";
-                          }
-                      ?>
-                  </span>
-              </a>
+            <a href=<?php
+              if(isset($_SESSION["mem_id"])===true){
+                      echo "'javascript:void(0)'";
+                    }else{
+                      echo "'register.html'";
+                    }
+                ?> id="registerUser">
+                <img src=<?php
+                    if(isset($_SESSION['mem_id'])===true){
+                      echo 'img/member/member_3.png';
+                    }else{
+                      echo 'img/member/member_0.png';
+                    }
+                ?>
+                >
+                <span class="register">
+                  <?php
+                    if(isset($_SESSION["mem_id"])===true){
+                      echo "<a href='MembersOnly.html'>帳戶</a>";
+                    }else{
+                      echo "註冊";
+                    }
+                  ?>
+                </span>
+            </a>
           </li>
           <li class="li_top">
               <a href=<?php

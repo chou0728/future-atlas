@@ -146,7 +146,7 @@ body{
 		
 	</div>
 	<div class="inputDiv">
-		<div class="inputTitle">帳號：</div>
+		<div class="inputTitle">密碼：</div>
 		<input type="password" name="password" required>
 	</div>
 	<div id="btn">
