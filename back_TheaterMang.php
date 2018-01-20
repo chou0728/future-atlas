@@ -176,6 +176,7 @@ if(isset($_SESSION["top_manager"])===false||isset($_SESSION["manager_name"])===f
                                     </td>
                                 </tr>
                                 </form>
+                                
                             <?php       
                                 }
                             ?>
@@ -316,7 +317,7 @@ if(isset($_SESSION["top_manager"])===false||isset($_SESSION["manager_name"])===f
                             try {
                                 require_once("php/connectBooks.php");
                                 // require_once("connectbd103g3.php");
-                                $recPerPage=100;
+                                $recPerPage=1000;
                                 $start = 0;
                                 
                                 $sql = "select * from theater_order_list ";
@@ -387,28 +388,7 @@ if(isset($_SESSION["top_manager"])===false||isset($_SESSION["manager_name"])===f
             </div>
         </div>
     </div>
-     <!-- 修改上傳燈箱 -->
-    <div id="all-page"></div><!-- 叫出時背景-->
-    <div id="lightBox">
-        <div id="cancel">
-            <div class="leftLine"></div>
-            <div class="rightLine"></div>
-        </div>
-        
-        <form class="singUp" action="loginheadforindex.php" method="post">
-            <h2>會員登入</h2>
-            <div class="text">
-                會員帳號：<input type="text" name="memName" id="memId" value="" required placeholder="輸入帳號">
-                <br>
-                會員密碼：<input type="password" name="memPsw"  id="memPsw" value="" required placeholder="輸入密碼">
-                <br>
-            </div>
-            <div class="btn">
-                <input type="submit" name="" id="submit" value="登入">
-                <input type="reset" name="reset" value="RESET">
-            </div>
-        </form>
-    </div>
+    
     <script>
         //tab 換頁
         function openCity (evt,list) {
