@@ -118,42 +118,79 @@
             if (e.which == 13 || e.keyCode == 13) {
                 $("#robot_greet").removeClass("cursor");
                 var user_text = $("#input_box").val();
-                initIdentityResults_user(0);
+                getAnswer();
+                // initIdentityResults_user(0);
                 clearInputbox();
 
 
-                function initIdentityResults_user(i) {
-                    $("#user_message").addClass("cursor").text(user_text.substring(0, i));
-                    if (i < user_text.length) {
-                        setTimeout(function () {
-                            initIdentityResults_user(i + 1);
-                        }, 100);
-                    } else {
-                        $("#user_message").removeClass("cursor");
-                        var robot_answer = "園區開放時間為9:00am-9:00pm";
-                        initIdentityResults_robot_answer(0);
+                function getAnswer() {
 
-                        function initIdentityResults_robot_answer(i) {
-                            $("#robot_answer").addClass("cursor").text(robot_answer.substring(0, i));
-                            if (i < robot_answer.length) {
-                                setTimeout(function () {
-                                    initIdentityResults_robot_answer(i + 1);
-                                }, 100);
+                    var xhr = new XMLHttpRequest();
+                    xhr.onload = function () {
+
+                        if (xhr.status == 200) {
+
+                            var answer = xhr.responseText;
+                            initIdentityResults_user(0);
+
+                            function initIdentityResults_user(i) {
+                                $("#user_message").addClass("cursor").text(user_text.substring(0, i));
+                                if (i < user_text.length) {
+                                    setTimeout(function () {
+                                        initIdentityResults_user(i + 1);
+                                    }, 100);
+                                } else {
+                                    $("#user_message").removeClass("cursor");
+                                    var robot_answer = answer;
+                                    initIdentityResults_robot_answer(0);
+
+                                    function initIdentityResults_robot_answer(i) {
+                                        $("#robot_answer").addClass("cursor").text(robot_answer.substring(0,
+                                            i));
+                                        if (i < robot_answer.length) {
+                                            setTimeout(function () {
+                                                initIdentityResults_robot_answer(i + 1);
+                                            }, 100);
+                                        }
+
+                                    }
+                                }
+
                             }
-
+                        } else {
+                            alert(xhr.status);
                         }
-                    }
 
-                }
-                function clearInputbox(){
+
+
+                    } // xhr.onload
+
+                    //設定好所要連結的程式
+                    var url = "question_and_answer.php";
+                    xhr.open("post", url, true);
+
+                    //送出資料
+                    var data_info = "user_text=" + user_text;
+                    xhr.setRequestHeader("content-type","application/x-www-form-urlencoded");
+                    xhr.send( data_info );
+
+
+
+
+
+
+                } // function getAnswer()
+
+
+                function clearInputbox() {
                     $("#input_box").val("");
                 }
-            }
 
 
 
+            } //if (e.which == 13 || e.keyCode == 13){}
 
-        })
+        }); //$("#input_box").on('keydown', function (e) {})
     </script>
 
 
