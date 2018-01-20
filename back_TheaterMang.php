@@ -18,6 +18,7 @@ if(isset($_SESSION["top_manager"])===false||isset($_SESSION["manager_name"])===f
     <!-- ======請複製==== -->
     <link rel="stylesheet" type="text/css" href="css/RESET.css">
     <link rel="stylesheet" type="text/css" href="css/11back_nav.css">
+    <link rel="stylesheet" type="text/css" href="css/login.css">
     <link rel="stylesheet" type="text/css" href="css/back_TheaterMang.css">
     <!-- ========== -->
 
@@ -147,10 +148,11 @@ if(isset($_SESSION["top_manager"])===false||isset($_SESSION["manager_name"])===f
                                         <input type="text" size=6 value="<?php echo  $prodRow["program_name"] ?>" name="program_name">
                                     </td>
                                     <td >
-                                        <input type="text" size=50  name="program_intro" value="<?php echo  $prodRow["program_intro"]?>">
+                                        <textarea name="program_intro" rows="4" cols="30" maxlength="50"  ><?php echo  $prodRow["program_intro"]?></textarea>
+                                         <!-- <input type="text" size=50  name="program_intro"  style="word-break: break-word;" cols="5" row ="5" style="height:50px;" value="<?php echo  $prodRow["program_intro"]?>"> -->
                                     </td>
                                     <td>
-                                        <input type="file" name="program_photo">
+                                        <input type="file" name="program_photo" value="<?php echo  $prodRow["   program_photo"]?>">
                                     </td>
                                     <td>
                                         <input type="number" style="width:50px;" value="<?php echo  $prodRow["program_fare"] ?>" name="program_fare">
@@ -384,6 +386,28 @@ if(isset($_SESSION["top_manager"])===false||isset($_SESSION["manager_name"])===f
                 </form> 
             </div>
         </div>
+    </div>
+     <!-- 修改上傳燈箱 -->
+    <div id="all-page"></div><!-- 叫出時背景-->
+    <div id="lightBox">
+        <div id="cancel">
+            <div class="leftLine"></div>
+            <div class="rightLine"></div>
+        </div>
+        
+        <form class="singUp" action="loginheadforindex.php" method="post">
+            <h2>會員登入</h2>
+            <div class="text">
+                會員帳號：<input type="text" name="memName" id="memId" value="" required placeholder="輸入帳號">
+                <br>
+                會員密碼：<input type="password" name="memPsw"  id="memPsw" value="" required placeholder="輸入密碼">
+                <br>
+            </div>
+            <div class="btn">
+                <input type="submit" name="" id="submit" value="登入">
+                <input type="reset" name="reset" value="RESET">
+            </div>
+        </form>
     </div>
     <script>
         //tab 換頁

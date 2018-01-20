@@ -142,7 +142,7 @@ $(document).ready(function(){
 			if( d.getMonth() < 9){
 				var month = "0"+(d.getMonth()+1);
 			}
-		var activity_date = todayYear+"-"+month+"-"+$(this).text();
+		var activity_date = parseInt($(this).text());
 		show_activity(activity_date);
 		console.log(activity_date);
 
@@ -165,6 +165,13 @@ $(document).ready(function(){
 		$("#cal").removeClass("calFadeOut");
 	});
 });
+
+
+window.addEventListener("load",getDate);
+function getDate(){
+	var d = new Date();
+	show_activity(d.getDate());	
+}
 
 function show_activity(activity_date){
 	var xhr = new XMLHttpRequest();
