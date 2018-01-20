@@ -15,6 +15,7 @@ session_start();
     <link rel="stylesheet" href="css/vaild_facility_tickets.css">
     <link rel="stylesheet" href="css/header.css">
     <link rel="stylesheet" href="css/login.css">
+   
 
 </head>
 
@@ -139,9 +140,9 @@ session_start();
                     FROM facility_order_item a JOIN facility_order b ON a.order_no = b.order_no JOIN facility c ON a.facility_no = c.facility_no
                     WHERE a.mem_id = ? AND a.order_no =? AND a.facility_no = ?";
                     $order_item_PDO = $pdo->prepare($sql);
-                    $order_item_PDO->bindValue(1,$_COOKIE["mem_id"]);
-                    $order_item_PDO->bindValue(2,$_COOKIE["order_no"]); 
-                    $order_item_PDO->bindValue(3,$_COOKIE["facility_no"]);  
+                    $order_item_PDO->bindValue(1,$_SESSION["mem_id"]);
+                    $order_item_PDO->bindValue(2,$_REQUEST["order_no"]); 
+                    $order_item_PDO->bindValue(3,$_REQUEST["facility_no"]);  
                     $order_item_PDO->execute();
                     $order_item = $order_item_PDO->fetchAll(PDO::FETCH_ASSOC);
                     
