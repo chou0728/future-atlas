@@ -257,7 +257,7 @@ function changeQuantity() {
 					if(ticket > quantity){
 						window.location.href='Booking_details.php';
 					} else {
-						alert("票券剩餘 "+ticket+"張");
+						alert("本場次票券剩餘 "+ticket+"張");
 					}
                     // setTimeout(function(){
                     //     location.href="back_TheaterMang.php";
