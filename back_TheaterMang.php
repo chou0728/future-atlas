@@ -257,7 +257,7 @@ if(isset($_SESSION["top_manager"])===false||isset($_SESSION["manager_name"])===f
                                 //跑迴圈，印出資料
                                 foreach( $theater_session_list as $i=>$prodRow){
                         ?>       
-                                <form method="get" action="php/update_theater_session_List.php" align="center" >
+                                <!-- <form method="get" action="php/update_theater_session_List.php" align="center" > -->
 
                                 <input type="hidden" name="session_no" value="<?php echo  $prodRow["session_no"] ?>">  
                                 <tr>
@@ -279,7 +279,7 @@ if(isset($_SESSION["top_manager"])===false||isset($_SESSION["manager_name"])===f
                                     </td>
                                     <!-- <td> <input type="submit" style="font-family:微軟正黑體;" value="修改"></td> -->
                                 </tr>
-                                </form> 
+                                <!-- </form>  -->
                             <?php       
                                 }
                             } catch (PDOException $e) {
