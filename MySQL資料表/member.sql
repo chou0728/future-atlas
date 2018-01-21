@@ -41,4 +41,55 @@ insert into activity (activity_date,activity_name,activity_short_name,activity_l
 
 update activity set activity_date = 18 where activity_no = 22;
 
-select activity_short_name from activity where activity_date = 1 order by activity_start_time;
+select activity_short_name from activity where activity_date = 31 order by activity_start_time;
+select activity_short_name from activity where activity_date = 9 order by activity_start_time;
+
+create table qa(
+	keywords_no int auto_increment,
+    keywords varchar(5),
+    anwser varchar(50),
+    primary key(keywords_no)
+);
+select * from qa;
+insert into qa (keywords, anwser) values (
+"23",
+"99999"
+);
+
+select anwser from qa where keywords like "%2%";
+
+
+
+
+use fa;
+
+select * from facility;
+
+INSERT INTO facility (facility_name)
+VALUES ('宇宙雲霄飛車');
+
+select * from facility;
+
+show variables like '%character%';
+
+alter database fa
+character set utf8;
+show variables like '%character%';
+
+
+select * from facility;
+
+
+show variables like '%character%';
+
+
+
+ALTER TABLE qa CHANGE COLUMN anwser answer varchar(200);
+
+
+
+
+
+
+
+

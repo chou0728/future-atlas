@@ -58,13 +58,13 @@ body::-webkit-scrollbar-thumb {
 @media screen and (max-width:415px){
 	#detailWrapper{
 		width: 98%;
-		border: 1px solid blue;
+		/*border: 1px solid blue;*/
 	}
 }
 @media screen and (min-width:415px) and (max-width:1024px){
 	#detailWrapper{
 		width: 95%;
-		border: 1px solid yellow;
+		/*border: 1px solid yellow;*/
 	}
 	#ticket_row td{
 		width: 100%;	

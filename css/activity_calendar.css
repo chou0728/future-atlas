@@ -577,9 +577,15 @@ body{
 
 .recommendAct{
 	width: 70%;
+	/*height: 300px;*/
 	margin-left: 15%;
 	font-size: 32px;
 	color: azure;
+}
+.blocktitle{
+	font-size: 32px;
+	color: azure;
+	margin: 20px 0;
 }
 
 
@@ -610,7 +616,7 @@ body{
 		width: 90%;	
 		margin-left: 5%;
 	}.recommendAct,.actHr{
-		width: 50%;
+		width: 90%;
 	}
 }
 @media screen and (min-width:1024px){
@@ -618,14 +624,91 @@ body{
 }
 
 
+
+/* Tiny Circleslider */
+img { border: 0; }
+
+#rotatescroll {
+	height:300px; 
+	width:300px;
+	position: relative;
+	display: inline-block;
+}
+
+#rotatescrollBox{
+	display: inline-block;
+	width: 60%;
+	height: 300px;
+	background-color: #ccc;
+	outline: 1px solid red;
+	float: right;
+}
+#rotatescroll .viewport{
+	height:300px; 
+	position: relative; 
+	margin:0 auto; 
+	overflow:hidden; 
+	width:300px; 
+	pointer-events: none;
+}
+#rotatescroll .overview {
+	position: absolute; 
+	width: 798px; 
+	list-style: none; 
+	margin: 0; 
+	padding: 0;  
+	left: 0; 
+	top: 0;
+}
+#rotatescroll .overview li {
+	height:300px; 
+	width:300px; 
+	float: left; 
+	position: relative; 
+}
+#rotatescroll .overlay {
+	background:url(../img/activity/bg-rotatescroll.png) no-repeat 0 0; 
+	pointer-events: none; 
+	position: absolute; 
+	left: 0; 
+	top: 0; 
+	height:300px; 
+	width:300px; 
+}
+#rotatescroll .thumb {
+	background:url(../img/activity/bg-thumb.png) no-repeat 50% 50%; 
+	touch-action: none; 
+	-ms-touch-action: none; 
+	position: absolute;
+	top: -3px; 
+	left: 37px; 
+	width: 100px; 
+	height: 100px;
+	z-index: 200;  
+	cursor: pointer;
+}
+#rotatescroll .dot {
+	/*background:url(../img/activity/bg-dot.png) no-repeat 0 0;*/
+	display: none; 
+	height: 12px; 
+	width: 12px; 
+	position: absolute; 
+	left: 155px; 
+	top: 3px; 
+	z-index: 100; 
+}
+#rotatescroll .dot span {
+	display: none;
+}
+
+
 /*style.css*/
 #da-thumbs{
-  width: 70%;
-  margin-left: 15%;
+  width: 100%;
 }
 #da-thumbs ul{
   list-style: none;
-  width: 70%;
+  width: 10%;
   position: relative;
   margin: 20px auto;
   padding: 0;
@@ -670,9 +753,9 @@ body{
 
 .block-mode{
   display: inline-block;
-  width: 23%;
+  width: 24.6%;
   height: 23%;
-  margin: 1%;
+  margin: 0.2%;
   float: left;
 }
 .block-mode img{

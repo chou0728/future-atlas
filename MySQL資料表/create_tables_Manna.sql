@@ -29,7 +29,6 @@ create table facility_order_item(
 	half_fare_num int not null default '0',
 	half_fare_num_used int not null default '0',
 	subtotal int,
-	order_date date,
 	comment_content varchar(200),
 	comment_grade int,
 	comment_timestamp datetime,
