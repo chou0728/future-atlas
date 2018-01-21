@@ -40,6 +40,11 @@ body::-webkit-scrollbar-thumb {
       float: right;
 
     }
+    @media screen and (max-width:1280px){
+      .ctrl {
+        width: 40%;
+      }
+    }
     .ctrl-counter {
       position: absolute;
       width: 53.3%;
@@ -128,7 +133,6 @@ body::-webkit-scrollbar-thumb {
 }
 .fbtWrapper .ticketbox{
 	width: 25%;
-  min-width: 250px;
   margin:4.1%;
   float: left;
 
@@ -138,7 +142,7 @@ body::-webkit-scrollbar-thumb {
   display: block;
   clear: both;
 }
-@media screen and (max-width:1024px){
+@media screen and (max-width:1190px){
     .fbtWrapper{
     width:95%;
     max-width: 1440px;
@@ -249,6 +253,7 @@ body::-webkit-scrollbar-thumb {
 /*ticket icon-rotate end*/
 .ticketbox .shortInfo{
   width: 100%;
+  height:35px;
   margin: 10px 0;
   font-size: 20px;
 }
@@ -263,15 +268,20 @@ body::-webkit-scrollbar-thumb {
 /*340:220;*/
 .f_img{
 	position: relative;
-  width: 340px;
-  min-width: 300px; 
-  height: 220px;
+  width: 100%;
+  /*min-width: 300px; */
+  height: 190px;
   overflow: hidden;
 }
 .f_img img{
 	width: 110%;
 }
-@media screen and (max-width:1024px){
+@media screen and (max-width:1280px){
+    .f_img{
+      height: 130px;
+    }
+}
+@media screen and (max-width:1190px){
     .f_img{
     position: relative;
     width: 100%;
