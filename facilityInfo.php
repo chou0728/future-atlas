@@ -300,12 +300,10 @@ try {
 			<div href="javascript:void(0)" class="bigA">
 				<h2><?php echo $prodRow->facility_name ?></h2>
 				<div class="points">
-					<img src="img/facilityInfo/star-dami.png" alt="">
-					<img src="img/facilityInfo/star-dami.png" alt="">
-					<img src="img/facilityInfo/star-dami.png" alt="">
-					<img src="img/facilityInfo/star-dami.png" alt="">
-					<img src="img/facilityInfo/star-dami.png" alt="">
-					<span>(0)</span>
+					<div class="points_cover">
+						<span class="points_bar"></span>
+						<img src="img/facilityInfo/ratingCover_g.png" alt="cover">
+					</div>
 				</div>
 				<div class="mobile375_points">
 					分數:<span>0/5</span>

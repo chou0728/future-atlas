@@ -7,7 +7,7 @@
 	border-style: solid;
 	border-color: #333;
 	border-width: 2px 2px 0px 0px;
-	width:1280px;
+	width:1200px;
 	margin: 0 auto;
 	font-family: "微軟正黑體";
 	background-color: #ddd;
@@ -15,7 +15,7 @@
 
 .overflow-auto{
 	width: 100%;
-	height: 80vh;
+	height: 78vh;
 	margin-bottom: 0px;
 	overflow-y: auto;
 }
@@ -41,12 +41,12 @@
 
 }
 .is-right{
-	width: 1280px;
+	width: 1200px;
 	text-align: right;
 	margin: 0 auto;
 }
 .col{
-	width: 220px;
+	width: 205px;
 	height: 40px;
 	display: table-cell;
 	vertical-align: middle;
@@ -71,7 +71,7 @@
 	background-color: #bbb;
 }
 .col-big{
-	width:300px;
+	width:250px;
 }
 .col-number{
 	width:80px;
