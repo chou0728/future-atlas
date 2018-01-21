@@ -29,7 +29,7 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `activity` (
-  `activity_no` int(11) NOT NULL,
+  `activity_no` int(11) NOT NULL PRIMARY KEY,
   `activity_date` int(11) NOT NULL,
   `activity_name` varchar(15) NOT NULL,
   `activity_short_name` varchar(10) NOT NULL,
