@@ -303,7 +303,7 @@ try {
 					<div class="points_cover">
 						<?php
 							$_facility_no = $prodRow->facility_no;
-							$sql = "select * from facility_order_item where facility_no = $_facility_no";
+							$sql = "select comment_grade from facility_order_item where facility_no = $_facility_no";
 							$rating = $pdo->query($sql);
 							$b = 0;//數量
 							$r = 0;//分數
@@ -318,8 +318,8 @@ try {
 							if($r != 0){
 										$av = $r/$b;
 										$width = $av*20;
-										echo $b;
-										echo $av;
+								}else{
+									$width = 0;
 								}
 						 ?>
 
@@ -436,9 +436,9 @@ try {
 				<div class="scoreTitle">設施評價</div>
 				<div class="scoreContainer">
 					<ul>
-						<li class="scoreAverage">總平均<span>4.5</span>分</li>
+						<li class="scoreAverage"></li>
 						<li class="star">★★★★★</li>
-						<li class="kai">總評分次數<span>1583</span>次</li>
+						<li class="kai"></li>
 					</ul>
 				</div>
 				<div id="comment">
@@ -611,7 +611,9 @@ function ajax_lightbox(e) {
                 var limit = document.getElementsByClassName('limit')[0];
                 var getTicket = document.getElementById("getTicket");
                 var info = document.getElementsByClassName('info')[0];
-                
+                var scoreAverage = document.getElementsByClassName('scoreAverage')[0];
+                var counts = document.getElementsByClassName('kai')[0];
+
                 var facility = JSON.parse(xhr.responseText);//將透過ajax傳回來的json型態的資料轉換成js的物件
 
 
@@ -628,9 +630,16 @@ function ajax_lightbox(e) {
 						getTicket.href = "facilityBuyTicket.php";
 					}
 				info.innerText = facility.facility_description;
-
-				                
-				            
+				if(facility.av == 0){
+					scoreAverage.innerHTML = "總平均<span>"+facility.av.toFixed(0)+"</span>分";
+				}else if(facility.av.toFixed(1).split(".")[1]==0){
+					scoreAverage.innerHTML = "總平均<span>"+facility.av.toFixed(0)+"</span>分";
+				}else{
+					scoreAverage.innerHTML = "總平均<span>"+facility.av.toFixed(1)+"</span>分";
+				}
+				counts.innerHTML = "總評分次數<span>"+facility.counts+"</span>次";
+				
+				               
 
 
 				 } else{
