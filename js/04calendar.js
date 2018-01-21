@@ -249,7 +249,7 @@ function autoIconLoop3(){
 	$(".icons").not("#icon3").css("background-color","transparent");
 };
 function autoIconLoop4(){
-	$(".claContent").html("");
+	$(".claContent").html("-").css("font-size","6px");
 	for(var activity_date=1; activity_date<=31; activity_date++){
 		var xhr = new XMLHttpRequest();
 		xhr.onload = function(){

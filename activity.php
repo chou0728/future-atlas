@@ -14,7 +14,6 @@ session_start();
 <link rel="stylesheet" type="text/css" href="css/login.css">
 <link rel="stylesheet" type="text/css" href="css/footer.css">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
-<script src="js/modernizr.custom.97074.js"></script>
 <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
 <style type="text/css">
 body{
@@ -347,7 +346,30 @@ body::-webkit-scrollbar-thumb {
 
     
     <div class="actHr"></div>
+	<div class="recommendAct">
+		<div class="blocktitle">活動剪影</div>
+		<div id="rotatescroll">
+			<div class="viewport">
+				<ul class="overview">
+					<li><a href=""><img src="img/activity/hdr3.jpg"></a></li>
+					<li><a href=""><img src="img/activity/hdr2.jpg"></a></li>
+					<li><a href=""><img src="img/activity/hdr1.jpg"></a></li>
+					<li><a href=""><img src="img/activity/hdr4.jpg"></a></li>
+					<li><a href=""><img src="img/activity/hdr5.jpg"></a></li>
+				</ul>
+			</div>
+		<div class="dot"></div>
+		<div class="overlay"></div>
+		<div class="thumb"></div>
+		</div>
+
+	<div id="rotatescrollBox"></div>
+	</div>
+
+	<div class="actHr"></div>
 	<div class="recommendAct">推薦活動</div>
+
+
 	<ul id="da-thumbs" class="da-thumbs">
 	<li class="block-mode">
 		<a href="javascript:void(0)">
@@ -424,9 +446,10 @@ body::-webkit-scrollbar-thumb {
 <!-- 登入燈箱 -->
 <script src="js/00nav.js"></script>
 <script type="text/javascript" src="js/04calendar.js"></script>
-
-</script>
-<script type="text/javascript">
+<script src="js/jquery.hoverdir.js"></script>
+<script src="js/modernizr.custom.97074.js"></script>
+<script src="js/jquery.tinycircleslider.min.js"></script>
+<script>
 	// 塊狀 or 條列模式
 	$(document).ready(function(){
 		$("#switchBlock").click(function(){
@@ -435,11 +458,12 @@ body::-webkit-scrollbar-thumb {
 			$(this).toggleClass("block_src");
 		});
 	});
-</script>
-
-<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
-<script type="text/javascript" src="js/jquery.hoverdir.js"></script>	
-<script type="text/javascript">
+	// 套件：活動剪影
+	$(document).ready(function()
+	{
+		$('#rotatescroll').tinycircleslider({ interval: true, dotsSnap: true, dotsHide: true });
+	});
+	// 套件：方塊區hover效果
 	$(function() {
 
 		$(' #da-thumbs > li ').each( function() { $(this).hoverdir({

@@ -94,7 +94,6 @@ if(isset($_SESSION["login_error"]) === true){
                 		}
                 	?>
                 </span>
-            </a>
         </li>
         <li class="li_top">
             <a href=<?php
