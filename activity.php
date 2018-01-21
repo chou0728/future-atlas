@@ -334,7 +334,8 @@ body::-webkit-scrollbar-thumb {
 
     <div id="showDate">
     	<span id="activityDate" style="font-size: 32px">今日</span>
-    	<span id="activityDay"></span>活動一覽
+    	<span id="activityDay"></span>
+    	<span class="blocktitle">活動一覽</span>
 		<div id="shiftMode">
 		</div>
     </div>
@@ -363,13 +364,19 @@ body::-webkit-scrollbar-thumb {
 		<div class="thumb"></div>
 		</div>
 
-	<div id="rotatescrollBox"></div>
+		<div id="rotatescrollBox">
+			<div id="rotatescrollBox_1"></div>
+			<div id="rotatescrollBox_2"></div>
+			<div id="rotatescrollBox_3"></div>
+			<div id="rotatescrollBox_4"></div>
+			<div id="rotatescrollBox_5"></div>
+		</div>
 	</div>
 
 	<div class="actHr"></div>
-	<div class="recommendAct">推薦活動</div>
-
-
+	<div class="recommendAct">
+		<div class="blocktitle">推薦活動</div>
+	
 	<ul id="da-thumbs" class="da-thumbs">
 	<li class="block-mode">
 		<a href="javascript:void(0)">
@@ -420,6 +427,7 @@ body::-webkit-scrollbar-thumb {
 		</a>
 	</li>
 	</ul>
+	</div>
 
 <!-- 登入燈箱 -->
 <div id="all-page"></div><!-- 叫出時背景-->
@@ -462,6 +470,11 @@ body::-webkit-scrollbar-thumb {
 	$(document).ready(function()
 	{
 		$('#rotatescroll').tinycircleslider({ interval: true, dotsSnap: true, dotsHide: true });
+		var thumb = document.getElementsByClassName("thumb")[0];
+		var thumb_x = thumb.getBoundingClientRect().left;
+		var thumb_y = thumb.getBoundingClientRect().top;
+		console.log(thumb_x);
+		console.log(thumb_y);
 	});
 	// 套件：方塊區hover效果
 	$(function() {

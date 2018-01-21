@@ -172,5 +172,17 @@ values (:mem_id,:order_date,:subtotal, :discount, :credit_card_num);";
 	echo "行號：",$ex->getLine(),"<br>";
 }
 ?>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script type="text/javascript">
+// 確認結帳後,清空localStorage儲存票券資料
+$(document).ready(function(){
+  var storage = localStorage;
+  storage.removeItem("facility_ticket_list");
+  for(var i=11;i>=0;i--){
+    storage.removeItem(i);
+    console.log("清除2");
+  }
+});
+</script>
 </body>
 </html>

@@ -84,6 +84,7 @@ function output_total(){
 		var sql_increment = "/,"+i+",'"+info[4]+"',"+info[1]+",0,"+info[3]+",0,"+subtotal+",'尚未評分',0,'0000-00-00-00-00-00'),";
 		sql_order_item += sql_increment;
 	}
+	console.log(sql_order_item);
 	document.getElementById("sql_order_item").value = (sql_order_item.substring(0, sql_order_item.length-1)+";");
 };
 
@@ -109,16 +110,6 @@ document.getElementsByClassName("points")[0].onchange = function(){
 	$("#points_remain_input").html(discount);
 	$("#points_remain").css("opacity","0");
 }
-
-
-// 確認結帳,清空localStorage儲存票券資料
-$("#nextStep").click(function(){
-	var storage = localStorage;
-	storage.removeItem("facility_ticket_list");
-	for(var i=6;i>=0;i--){
-		storage.removeItem(i);
-	}
-});
 
 function setBlur(obj,target2)
  	{

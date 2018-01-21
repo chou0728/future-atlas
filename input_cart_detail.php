@@ -218,12 +218,11 @@ body::-webkit-scrollbar-thumb {
 	<input type="submit" name="" id="nextStep" class="highlight" value="確認結帳">
 </div>
 </form>
-<!-- <script src="js/00nav.js"></script> -->
+<script src="js/00nav.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script type="text/javascript">
 window.addEventListener("load",showMemberInfo);
 window.addEventListener("load",bindToHiddenName);
-
 function showMemberInfo(){
 	// 連線資料庫取得會員資料
 	var storage = localStorage;
@@ -264,8 +263,6 @@ function bindToHiddenName(){
 						 document.getElementById("credit_card4").value;
 		document.getElementById("creditcard_num_hidden").value = creditcard_num;
 	}
-	// 儲存訂單副檔
-	// 修改會員剩餘積分
 }
 </script>
 </body>

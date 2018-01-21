@@ -214,7 +214,7 @@ $(document).ready(function(){
 	}
 
 function autoIconLoop1(){
-	$(".claContent").html("");
+	$(".claContent").html("").css("font-size","16px");
 	$(".sun").html("尋找星生命");
 	$(".mon").html("末世決戰");
 	$(".tue").html("");
@@ -226,7 +226,7 @@ function autoIconLoop1(){
 	$(".icons").not("#icon1").css("background-color","transparent");
 };
 function autoIconLoop2(){
-	$(".claContent").html("");
+	$(".claContent").html("").css("font-size","16px");
 	$(".claContent:eq(5)").append("旋轉木馬");
 	$(".claContent:eq(10)").append("VR體驗");
 	$(".claContent:eq(15)").append("碰碰車");
@@ -237,7 +237,7 @@ function autoIconLoop2(){
 	$(".icons").not("#icon2").css("background-color","transparent");
 };
 function autoIconLoop3(){
-	$(".claContent").html("");
+	$(".claContent").html("").css("font-size","16px");
 	$(".sun").html("9-22");
 	$(".mon").html("10-22");
 	$(".tue").html("休園");
@@ -249,7 +249,7 @@ function autoIconLoop3(){
 	$(".icons").not("#icon3").css("background-color","transparent");
 };
 function autoIconLoop4(){
-	$(".claContent").html("-").css("font-size","6px");
+	$(".claContent").html("-").css("font-size","12px");
 	for(var activity_date=1; activity_date<=31; activity_date++){
 		var xhr = new XMLHttpRequest();
 		xhr.onload = function(){
