@@ -299,28 +299,28 @@ function stopShiftMode(){
 };
 });
 
-//calendar---------------------------------------------------
-	$(window).load(
-	    function(){ajaxCallJsonP("http://api.openweathermap.org/data/2.5/weather?","6696918");}
-	)
-    function ajaxCallJsonP(url, cityID){
-        console.log(url,cityID);
-        var data=$.getJSON(url,{
-            id:cityID,
-            lang:"zh_TW",
-            APPID:"9f77563bbcf008306ba9d8e72b57e524",
-            units:"metric"
-        });
-        data.success(
-                function(msg){
-                    $("#result").append("<span id='temperature'>"+msg.main.temp.toFixed(1)+"°C</span>");
-                    $("#result").append("<span id='weather'>"+msg.weather[0].description+"</span><br>");
-                    $("#result").append($("<img style='width:70px; height:70px'>").attr("src","http://openweathermap.org/img/w/"+msg.weather[0].icon+".png"));
-                    $("#result").append("<br><span id='source'>即時氣象來源：openweathermap.org</span>")
-                }
-            );
-        data.error(
-                function(msg){
-                }
-            );
-    }
+//天氣 ajax
+$(window).load(
+    function(){ajaxCallJsonP("http://api.openweathermap.org/data/2.5/weather?","6696918");}
+)
+function ajaxCallJsonP(url, cityID){
+    console.log(url,cityID);
+    var data=$.getJSON(url,{
+        id:cityID,
+        lang:"zh_TW",
+        APPID:"9f77563bbcf008306ba9d8e72b57e524",
+        units:"metric"
+    });
+    data.success(
+            function(msg){
+                $("#result").append("<span id='temperature'>"+msg.main.temp.toFixed(1)+"°C</span>");
+                $("#result").append("<span id='weather'>"+msg.weather[0].description+"</span><br>");
+                $("#result").append($("<img style='width:70px; height:70px'>").attr("src","http://openweathermap.org/img/w/"+msg.weather[0].icon+".png"));
+                $("#result").append("<br><span id='source'>即時氣象來源：openweathermap.org</span>")
+            }
+        );
+    data.error(
+            function(msg){
+            }
+        );
+}

@@ -1,6 +1,13 @@
 <?php
 ob_start();
 session_start();
+if(isset($_SESSION["login_error"]) === true){
+	echo "<script>alert('帳密錯誤！請新登入');</script>";
+	unset($_SESSION["login_error"]);
+}else if(isset($_SESSION["log_register"])===true){
+	echo "<script>alert('註冊成功，歡迎你~~');</script>";
+	unset($_SESSION["log_register"]);
+}
 ?>
 <!DOCTYPE html>
 <html>
@@ -352,11 +359,11 @@ body::-webkit-scrollbar-thumb {
 		<div id="rotatescroll">
 			<div class="viewport">
 				<ul class="overview">
-					<li><a href=""><img src="img/activity/hdr3.jpg"></a></li>
-					<li><a href=""><img src="img/activity/hdr2.jpg"></a></li>
-					<li><a href=""><img src="img/activity/hdr1.jpg"></a></li>
-					<li><a href=""><img src="img/activity/hdr4.jpg"></a></li>
-					<li><a href=""><img src="img/activity/hdr5.jpg"></a></li>
+					<li><a href=""><img src="img/activity/hdr1_s.jpg"></a></li>
+					<li><a href=""><img src="img/activity/hdr2_s.jpg"></a></li>
+					<li><a href=""><img src="img/activity/hdr3_s.jpg"></a></li>
+					<li><a href=""><img src="img/activity/hdr4_s.jpg"></a></li>
+					<li><a href=""><img src="img/activity/hdr5_s.jpg"></a></li>
 				</ul>
 			</div>
 		<div class="dot"></div>
@@ -365,11 +372,13 @@ body::-webkit-scrollbar-thumb {
 		</div>
 
 		<div id="rotatescrollBox">
-			<div id="rotatescrollBox_1"></div>
-			<div id="rotatescrollBox_2"></div>
-			<div id="rotatescrollBox_3"></div>
-			<div id="rotatescrollBox_4"></div>
-			<div id="rotatescrollBox_5"></div>
+			<div id="rotatescrollBoxWrapper">
+				<div class="rotatescrollBox">星際大戰變裝秀</div>
+				<div class="rotatescrollBox">機器人大賞</div>
+				<div class="rotatescrollBox">全新AR眼鏡發表會</div>
+				<div class="rotatescrollBox">智慧居家展</div>
+				<div class="rotatescrollBox">天文科學營</div>
+			</div>
 		</div>
 	</div>
 
@@ -470,12 +479,34 @@ body::-webkit-scrollbar-thumb {
 	$(document).ready(function()
 	{
 		$('#rotatescroll').tinycircleslider({ interval: true, dotsSnap: true, dotsHide: true });
+			setInterval(rotatescrollBoxWrapper_translate,100);
+	});
+
+	function rotatescrollBoxWrapper_translate(){
 		var thumb = document.getElementsByClassName("thumb")[0];
 		var thumb_x = thumb.getBoundingClientRect().left;
 		var thumb_y = thumb.getBoundingClientRect().top;
-		console.log(thumb_x);
-		console.log(thumb_y);
-	});
+		// console.log("y:"+thumb_y);
+		var wrpper = document.getElementById("rotatescrollBoxWrapper");
+		var left = -500;
+		if( thumb_x > 455){
+			// 二
+			wrpper.style.left = (left * 1 + 10)+"%";
+		}else if( thumb_x > 405 && thumb_x < 415 && thumb_y > 385){
+			// 三
+			wrpper.style.left = (left * 2 + 10)+"%";
+		}else if( thumb_x > 320 && thumb_x < 340 && thumb_y < 390){
+			// 一
+			wrpper.style.left = (left * 0 + 10) +"%";
+		}else if( thumb_x > 235 && thumb_x < 255 && thumb_y > 390){
+			// 四
+			wrpper.style.left = (left * 3 + 10) +"%";
+		}else if( thumb_x > 190 && thumb_x < 200){
+			// 五
+			wrpper.style.left = (left * 4 + 10) +"%";
+		}
+
+	}
 	// 套件：方塊區hover效果
 	$(function() {
 
@@ -496,15 +527,6 @@ $(document).ready(function(){
 	$("#toActivity").click(function(){
 		$("html,body").animate({scrollTop:$("#mycal tr:last-child").offset().top}, 400);
 	});
-
-	// 若登入改變會員panel顯示
-	var storage = localStorage;
-	if( storage.getItem("mem_id") > 0){
-		// 已經登入
-		$("#nextStep").attr("href","input_cart_detail.php");
-		$(".login").text("登出");
-		$(".login").prev().attr("src","img/member/member_2.png");
-	}
 });
 
 	//-登入-----------------------------------
@@ -558,18 +580,18 @@ $(document).ready(function(){
 			}
 
 function loginss(){
-    // 若登入，將mem_id存入localStorage
-    var storage = localStorage;
-    storage.setItem("mem_id",
-        <?php
-            if(isset($_SESSION["mem_id"])===true){
-                echo $_SESSION["mem_id"];
-            }else{
-                echo "0";
-                // 若未登入，mem_id為0
-            }
-        ?>
-        );
+// 若登入，將mem_id存入localStorage
+var storage = localStorage;
+storage.setItem("mem_id",
+    <?php
+        if(isset($_SESSION["mem_id"])===true){
+            echo $_SESSION["mem_id"];
+        }else{
+            echo "0";
+            // 若未登入，mem_id為0
+        }
+    ?>
+    );
 }
 window.addEventListener("load",loginss);
 </script>

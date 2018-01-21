@@ -1,6 +1,13 @@
 <?php
 ob_start();
 session_start();
+if(isset($_SESSION["login_error"]) === true){
+	echo "<script>alert('帳密錯誤！請新登入');</script>";
+	unset($_SESSION["login_error"]);
+}else if(isset($_SESSION["log_register"])===true){
+	echo "<script>alert('註冊成功，歡迎你~~');</script>";
+	unset($_SESSION["log_register"]);
+}
 ?>
 <!DOCTYPE html>
 <meta charset="utf-8">
