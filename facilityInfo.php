@@ -294,7 +294,32 @@ try {
 				<h2><?php echo $prodRow->facility_name ?></h2>
 				<div class="points">
 					<div class="points_cover">
-						<span class="points_bar"></span>
+						<?php
+							$_facility_no = $prodRow->facility_no;
+							$sql = "select * from facility_order_item where facility_no = $_facility_no";
+							$rating = $pdo->query($sql);
+							$b = 0;//數量
+							$r = 0;//分數
+							$av = 0;//平均分數
+							$width = 0;//腥腥用
+							while($ratingRow= $rating->fetchObject()){
+								if(isset($ratingRow->comment_grade)){
+									$b++;
+									$r = $r + $ratingRow->comment_grade;
+								}
+							}
+							if($r != 0){
+										$av = $r/$b;
+										$width = $av*20;
+										echo $b;
+										echo $av;
+								}
+						 ?>
+
+
+						<span class="points_bar_bo">
+						<span class="points_bar" style="width:<?php echo $width ?>%;"></span>
+
 						<img src="img/facilityInfo/ratingCover_g.png" alt="cover">
 					</div>
 				</div>

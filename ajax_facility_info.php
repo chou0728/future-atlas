@@ -5,6 +5,8 @@ try{
   $facility_PDO = $pdo->prepare($sql);
   $facility_PDO->bindValue(":facility_no",$_REQUEST["facility_no"]); 
   $facility_PDO->execute();
+  
+  $sql = "select * from facility where facility_no=:facility_no;";
   if( $facility_PDO->rowCount() == 0 ){ //找不到的話
     
     echo "查無資料";

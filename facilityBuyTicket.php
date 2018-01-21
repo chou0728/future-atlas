@@ -164,7 +164,7 @@ try {
 	require_once("php/connectBooks.php");
 	$sql = "select * from facility where ticket_already=1";
 	$products = $pdo->query($sql);
-$a = 0;
+	$a = 0;
 	while($prodRow = $products->fetchObject()){
 		
 ?>
