@@ -1186,7 +1186,7 @@ body::-webkit-scrollbar-thumb {
 /*================*/
 .lightbox_wrapper .content .scoreContainer{
 	width:25%;
-	padding:4% 0 4% 4%;
+	padding:2% 0 4% 4%;
 	height: 264px;
 	color: white;
 	display: inline-block;
@@ -1198,6 +1198,17 @@ body::-webkit-scrollbar-thumb {
 .lightbox_wrapper .content .scoreContainer li{	
 	letter-spacing: 2px;
 	padding-bottom: 10px;
+}
+#goComment{
+	font-size: 20px;
+	font-weight: bold;
+	margin-left: -2px;
+	margin-top: 20px;
+	text-align: center;
+	width: 50%;
+	padding: 10px 0;
+	background-color: rgba(255, 193, 22,0.2);
+	border: 2px solid rgba(255, 193, 22,0.8);
 }
 .star{
 	width: 100%;
@@ -1277,6 +1288,16 @@ body::-webkit-scrollbar-thumb {
 	}
 }*/
 @media screen and (max-width:1200px){
+	#goComment{
+		font-size: 20px;
+		font-weight: bold;
+		margin: 20px auto;
+		text-align: center;
+		width: 80%;
+		padding: 10px 0;
+		background-color: rgba(255, 193, 22,0.2);
+		border: 2px solid rgba(255, 193, 22,0.8);
+	}
 	.star .points_cover{
 		width: 179px;
 		height: 36px;
@@ -1361,6 +1382,7 @@ body::-webkit-scrollbar-thumb {
 	margin: auto;
 	background-color: rgba(120,255,225,0.1);
 	box-shadow: 0 0 2px rgba(180,255,225,0.9);
+	position: relative;
 }
 #comment .memcommentBox .memName{
 	display: inline-block;
@@ -1375,9 +1397,29 @@ body::-webkit-scrollbar-thumb {
 	min-width: 120px;
 	vertical-align: middle;
 }
+#comment .memcommentBox .commentTime{
+	width: 95px;
+	position: absolute;
+	top:16%;
+	right: 5px;
+
+}
+@media screen and (max-width:375px){
+	#comment .memcommentBox .memScore{
+		display: block;
+		margin-left: -5px;
+	}
+	#comment .memcommentBox .commentTime{
+	width: 95px;
+	position: absolute;
+	top:8px;
+	right: 5px;
+
+	}
+}
 #comment .memcommentBox .memComment{
 	display: inline-block;
-	width: 70%;
+	width: 95%;
 	padding: 1%;
 	vertical-align: middle;
 }
@@ -1412,7 +1454,4 @@ body::-webkit-scrollbar-thumb {
 	position: absolute;
 	top:0;
 	left:0;
-}
-@media screen and (max-width:1200px){
-
 }
