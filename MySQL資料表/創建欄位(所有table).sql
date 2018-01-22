@@ -52,11 +52,26 @@ CREATE TABLE `facility` (
   `half_fare` int(11),
   `info_already` tinyint(1) NOT NULL DEFAULT '0',
   `ticket_already` tinyint(1) NOT NULL DEFAULT '0',
-  `comment_content` varchar(200) COLLATE utf8_unicode_ci DEFAULT NULL COMMENT '預設:NULL',
+  `comment_content` varchar(200) COLLATE utf8_unicode_ci DEFAULT '' COMMENT '預設空值',
   `comment_grade` int(11) NOT NULL DEFAULT '0' COMMENT '1-5分',
-  `comment_timestamp` datetime NOT NULL,
+  `comment_timestamp` datetime,
   `comment_status` tinyint(1) NOT NULL DEFAULT '0' COMMENT '1:已評價 0:未評價',
   PRIMARY KEY (facility_no) -- PK
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+
+
+
+-- 資料表`facility_comment`   
+
+CREATE TABLE `facility_comment` (
+  `facility_no` int(11) NOT NULL COMMENT 'PK,FK',
+  `comment_content` varchar(200) COLLATE utf8_unicode_ci DEFAULT '' COMMENT '預設空值',
+  `comment_grade` int(11) NOT NULL DEFAULT '0' COMMENT '1-5分',
+  `comment_timestamp` datetime,
+  `comment_status` tinyint(1) NOT NULL DEFAULT '0' COMMENT '1:已評價 0:未評價',
+  PRIMARY KEY (facility_no), -- PK
+  KEY (facility_no) -- FK
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 
