@@ -113,7 +113,7 @@ if(isset($_SESSION["login_error"]) === true){
                 <span class="login">
                 	<?php
                 		if(isset($_SESSION["mem_id"])===true){
-                			echo"登出";
+                			echo"<a href='logoutheadforindex.php'>登出</a>";
                 		}else{
                 			echo"登入";
                 		}

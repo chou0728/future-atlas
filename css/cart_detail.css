@@ -1,5 +1,5 @@
 *{
-	/*border: 1px solid red;*/
+	/*outline: 1px solid red;*/
 	font-weight: normal;
 }
 body{
@@ -76,6 +76,9 @@ body::-webkit-scrollbar-thumb {
 @media screen and (min-width:1024px){
 
 }
+#subtotal_th{
+	width: 100%;
+}
 #ticket_rows{
 	width: 100%;
 	margin: 70px 0;
@@ -95,6 +98,7 @@ body::-webkit-scrollbar-thumb {
 	color: rgba(100,255,243,1);
 }
 .tbtitle{
+	width: 30%;
 	font-size: 24px;
 	text-align: left;
 	color: rgba(100,255,243,1);
@@ -120,7 +124,8 @@ body::-webkit-scrollbar-thumb {
 #credit_card span{
 	width: 100px;
 	height: 50px;
-}#points{
+}
+#points{
 	width: 60px;
 	height: 29px;
 	vertical-align: top;
@@ -139,8 +144,8 @@ body::-webkit-scrollbar-thumb {
 	vertical-align: top;
 	margin-top: -1px;
 }#points_remain{
-	opacity: 0;
 	border: none;
+	color: lightgray;
 }#points_remain span{
 	display: inline-block;
 }#pay_info{
@@ -161,11 +166,47 @@ body::-webkit-scrollbar-thumb {
 	width: 200px;
 }#pay_info input{
 	padding: 5px;
-	border-radius: 1%;
+	/*border-radius: 1%;*/
 }
 .credit_card input{
 	width: 40px;
+	height: 25px;
+	margin-bottom: 10px;
+	margin-right: 10px;
+	border: none;
+	box-shadow: none;
+	color: #dedede;
+	background-color: #565656;
+	border-radius: 10px;
 }#credit_card5, #credit_card6, #credit_card7{
 	width: 40px;
+	height: 25px;
+	margin-right: 10px;
 	display: inline-block;
+	border: none;
+	box-shadow: none;
+	color: #dedede;
+	background-color: #565656;
+	border-radius: 10px;
+}#credit_card7{
+	margin-left: 30px;
+}
+
+#button input{
+	border: none;
+	box-shadow: none;
+	padding: 0;
+	margin: 0;
+	margin-top: -5px;
+	width: 100%;
+	background-color: transparent;
+	font-family: 微軟正黑體;
+	color: white;
+	font-size: 20px;
+	font-weight: bold;
+	cursor: pointer;
+}
+
+#button a{
+	cursor: pointer;
 }

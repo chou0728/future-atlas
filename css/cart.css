@@ -88,8 +88,6 @@ body{
 	min-width: 50px;
 }#subtotal_th{
 	width: 95%;
-	/*min-width: 50px;*/
-	/*width: 150px;*/
 }
 /*以上*/
 
@@ -159,7 +157,7 @@ body{
 	text-align: center;
 	padding:1%;
 	position: relative;
-	width: 23.5%;
+	width: 25%;
 	color: white;
 	font-size: 20px;
 	font-weight: bold;
