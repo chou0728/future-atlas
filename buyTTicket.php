@@ -19,7 +19,7 @@ if(isset($_SESSION["login_error"]) === true){
     <link rel="stylesheet" type="text/css" href="css/header.css">
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>						
     <link rel="stylesheet" type="text/css" href="css/login.css">	
-    <link rel="stylesheet" href="css/buyTTicket.css" />
+    <link rel="stylesheet" type="text/css" href="css/buyTTicket.css" />
     <script src="js/sessionStorage.js"></script>
     <title>buyTTicket</title>
 </head>
@@ -68,7 +68,7 @@ if(isset($_SESSION["login_error"]) === true){
                     <span class="login">
                         <?php
                             if(isset($_SESSION["mem_id"])===true){
-                                echo"登出";
+                                echo"<a href='logoutheadforindex.php'>登出</a>";
                             }else{
                                 echo"登入";
                             }
@@ -139,9 +139,9 @@ if(isset($_SESSION["login_error"]) === true){
                 <tr>
                     <td>節目名稱</td>
                     <td>
-                        <input type="radio" name="programName" value="尋找星生命"  onchange="changeTheaterName()">尋找星生命
+                        <input type="radio"  name="programName" value="尋找星生命"  onchange="changeTheaterName()">尋找星生命
                         <br>
-                        <input type="radio" name="programName" value="末世決戰" onchange="changeTheaterName()">末世決戰
+                        <input type="radio"  name="programName" value="末世決戰" onchange="changeTheaterName()">末世決戰
                     </td>
                 </tr>
                 <tr>
@@ -190,7 +190,7 @@ if(isset($_SESSION["login_error"]) === true){
     </div>
     <div class="buyTTicketBtn">
             <a href="Theaterbuyticket.php" class="Previouspage">上一步</a>
-            <a href="javascript: return false;" onclick="checkLogin()" class="buyticket">確認購買</a>
+            <a  class="buyticket" >確認購買</a>
     </div>
     <!-- 會員登入燈箱 -->
     <div id="all-page"></div><!-- 叫出時背景-->
@@ -215,16 +215,23 @@ if(isset($_SESSION["login_error"]) === true){
         </form>
 </div>
     <script src="js/00nav.js"></script>
-    <script type="text/javascript">
-            window.onload=function (){
-                var storage = localStorage;
-                    storage.setItem("mem_id",<?php if(isset($_SESSION["mem_id"])===true){echo $_SESSION["mem_id"];}else{echo "0";} ?>);
-            };
-    </script>
     <!--↓js部分請補上這段 -->
     <script type="text/javascript">
+       
         //-登入-----------------------------------
-                window.onload = function () {
+        window.onload = function (){
+             loginss();
+             var buyticket = document.getElementsByClassName('buyticket');
+             buyticket[0].onclick=ajax_CheckTicket;
+
+             // ==============================存取會員ID開始=================
+            var storage = localStorage;
+            storage.setItem("mem_id",<?php if(isset($_SESSION["mem_id"])===true){echo $_SESSION["mem_id"];}else{echo "0";} ?>);
+
+            // ==============================存取會員ID結束=================
+
+            // =================登入/註冊開始==================================
+
                     var storage = localStorage;
                     /*註冊登入按鈕*/
                     var singUpBtn = document.getElementById('singUpBtn');
@@ -259,22 +266,70 @@ if(isset($_SESSION["login_error"]) === true){
                     }
                     
                     
+                
+                    function loginss(){
+                        // 若登入，將mem_id存入localStorage
+                        var storage = localStorage;
+                        storage.setItem("mem_id",
+                            <?php
+                                if(isset($_SESSION["mem_id"])===true){
+                                    echo $_SESSION["mem_id"];
+                                }else{
+                                    echo "0";
+                                    // 若未登入，mem_id為0
+                                }
+                            ?>
+                            );
+                    }
+                // window.addEventListener("load",loginss);
+            // =================登入/註冊結束=================================
+         // ===============檢查剩餘票數開始==================================
+            function ajax_CheckTicket(){
+                // Create our XMLHttpRequest object
+                //產生XMLHttpRequest物件
+                var storage = sessionStorage;
+                var programName = storage.getItem('programName');
+                var programDate = storage.getItem('programDate');
+                var programTime = storage.getItem('programTime');
+                var hr = new XMLHttpRequest();
+                // Create some variables we need to send to our PHP file
+                //把 vars裡面資輛傳到my_parse_file.php檔案(設定參數)
+                var url = "php/checkTicket.php";
+                var vars = "programName="+programName+
+                           "&programDate="+programDate+
+                           "&programTime="+programTime;
+                           //alert(vars);
+                //利用POST方式傳遞
+                // open() 的第一個參數是 HTTP request 的方法
+                //第二個參數是請求頁面的 URL
+                //第三個參數決定此 request是否不同步進行，
+                //如果設定為 TRUE則即使伺服器尚未傳回資料也會繼續執行其餘的程式
+                hr.open("POST", url, true);
+                //setRequestHeader()設定內容類型
+                //若發送表單類型資料，必須設置請求標頭'Content-Type'為'application/x-www-form-urlencoded'
+                hr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+                var quantity = Number(storage.getItem('theater_quantity'));
+
+                hr.onreadystatechange =function (){
+                     if(hr.readyState == 4 && hr.status == 200){
+                        //return_data = hr.responseText;
+                        //console.log(hr.responseText);
+                        // document.getElementById("status").innerHTML = return_data;
+                        var ticket = parseInt(JSON.parse(hr.responseText));
+                        if(quantity <= ticket ){
+                            window.location.href='Booking_details.php';
+                            //alert(111);
+                        }else{
+                            alert("本場次票券剩餘 "+ticket+"張");
+                        }
+                     }
                 }
-    function loginss(){
-        // 若登入，將mem_id存入localStorage
-        var storage = localStorage;
-        storage.setItem("mem_id",
-            <?php
-                if(isset($_SESSION["mem_id"])===true){
-                    echo $_SESSION["mem_id"];
-                }else{
-                    echo "0";
-                    // 若未登入，mem_id為0
-                }
-            ?>
-            );
-    }
-    window.addEventListener("load",loginss);
+                 hr.send(vars); // Actually execute the request
+            } 
+
+        }  
+
     </script>
+
 </body>
 </html>

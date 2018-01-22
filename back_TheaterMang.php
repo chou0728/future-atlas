@@ -173,7 +173,7 @@ if(isset($_SESSION["login_success"])==false){
                                         </select>    
                                     </td>
                                    <td>
-                                    <input type="submit" href="javascript: return false;" id="Checked" onclick="ajax_UpdateProgram()" value="儲存"></input>   
+                                    <input type="button" href="javascript: return false;" id="Checked" onclick="ajax_UpdateProgram()" value="儲存"></input>   
 								   <!-- <button href="javascript: return false;" id="Checked" onclick="ajax_UpdateProgram()">儲存</button>  -->  
                                  <!-- <input type="submit" style="font-family:微軟正黑體;" value="儲存"> -->
                                     </td>
@@ -279,7 +279,7 @@ if(isset($_SESSION["login_success"])==false){
                                     </td>
                                     <!-- <td> <input type="submit" style="font-family:微軟正黑體;" value="修改"></td> -->
                                 </tr>
-                                <!-- </form>  -->
+                                <!-- + -->
                             <?php       
                                 }
                             } catch (PDOException $e) {
@@ -344,7 +344,7 @@ if(isset($_SESSION["login_success"])==false){
                                 foreach( $theater_order_list as $i=>$prodRow){
                                 ?>
                                 <tr>
-                                    <td><?php echo  $prodRow["theaterticket_no"] ?>
+                                    <td><?php echo  $prodRow["theater_ticket_no"] ?>
                                     </td>  
                                     <td>
                                         <?php echo  $prodRow["session_no"] ?>

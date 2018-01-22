@@ -126,12 +126,15 @@
     }
 
     .buyTTicketBtn{
-      width:24%;
+      width:40%;
       font-size:16px;
       margin:0 auto;
       margin-top:20px;
       margin-bottom:30px;
       font-family: "微軟正黑體";
+      display: flex;
+      flex-direction: row;
+      justify-content: space-around;
     }
     @media screen and (max-width:1024px) and (min-width:415px){
       .buyTTicketBtn{
@@ -159,6 +162,7 @@
       display: block;
       width: 150px;
       height: 35px;
+      margin : 0 10px;
       text-align: center;
       line-height: 35px;
       background-color: rgba(255, 193, 22,0.3);

@@ -372,6 +372,7 @@ body::-webkit-scrollbar-thumb {
 		</div>
 
 		<div id="rotatescrollBox">
+			<img src="img/activity/rotatescrollBox.png" class="tvbox">
 			<div id="rotatescrollBoxWrapper">
 				<div class="rotatescrollBox">星際大戰變裝秀</div>
 				<div class="rotatescrollBox">機器人大賞</div>
@@ -483,25 +484,26 @@ body::-webkit-scrollbar-thumb {
 	});
 
 	function rotatescrollBoxWrapper_translate(){
-		var thumb = document.getElementsByClassName("thumb")[0];
-		var thumb_x = thumb.getBoundingClientRect().left;
-		var thumb_y = thumb.getBoundingClientRect().top;
-		// console.log("y:"+thumb_y);
+		var thumb   = document.getElementsByClassName("thumb")[0];
+		var thumb_x = thumb.offsetLeft;
+		var thumb_y = thumb.offsetTop;
 		var wrpper = document.getElementById("rotatescrollBoxWrapper");
 		var left = -500;
-		if( thumb_x > 455){
+		// 五個移動位置相對於父層的座標：
+		// (1)100,-40(2)233,57(3),182,214(4)18,214(5)-33,57
+		if( thumb_x > 230){
 			// 二
 			wrpper.style.left = (left * 1 + 10)+"%";
-		}else if( thumb_x > 405 && thumb_x < 415 && thumb_y > 385){
+		}else if( thumb_x > 180 && thumb_x < 185 && thumb_y > 210){
 			// 三
 			wrpper.style.left = (left * 2 + 10)+"%";
-		}else if( thumb_x > 320 && thumb_x < 340 && thumb_y < 390){
+		}else if( thumb_x > 95 && thumb_x < 105 && thumb_y < -35){
 			// 一
 			wrpper.style.left = (left * 0 + 10) +"%";
-		}else if( thumb_x > 235 && thumb_x < 255 && thumb_y > 390){
+		}else if( thumb_x > 15 && thumb_x < 22 && thumb_y > 210){
 			// 四
 			wrpper.style.left = (left * 3 + 10) +"%";
-		}else if( thumb_x > 190 && thumb_x < 200){
+		}else if( thumb_x > -40 && thumb_x < -30){
 			// 五
 			wrpper.style.left = (left * 4 + 10) +"%";
 		}

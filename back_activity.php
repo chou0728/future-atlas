@@ -84,8 +84,8 @@ if(isset($_SESSION["login_success"])==false){
 	<div class="back_wrapper_right">
 		<div class="b_content">
 			<div class="b_sub_nav">
-				<a href="javascript:void(0)" class="b_sn_btn" onclick="openCity(event,'insert_activity')" id="active">新增活動</a>
-                <a href="javascript:void(0)" class="b_sn_btn" onclick="openCity(event,'history_activity')">歷史活動</a>
+				<!-- <a href="javascript:void(0)" class="b_sn_btn" onclick="openCity(event,'insert_activity')" id="active">新增活動</a> -->
+                <!-- <a href="javascript:void(0)" class="b_sn_btn" onclick="openCity(event,'history_activity')">歷史活動</a> -->
 			</div>
 	<!-- ===========請加內容至此===========-->
 	<div id="insert_activity" class="tabcontent">
@@ -132,40 +132,60 @@ if(isset($_SESSION["login_success"])==false){
 	<!-- ===========請加內容至此===========-->
 	<div id="history_activity" class="tabcontent">
 	<h2 class="titleh2">歷史活動</h2>
-	<table id="history_activity_table">
-		<tr>
-			<th>編號</th>
-			<th>名稱</th>
-			<th>簡稱</th>
-			<th>地點</th>
-			<th>日期</th>
-			<th>開始時間</th>
-			<th>結束時間</th>
-			<th>簡介</th>
-			<th>設定</th>
-		</tr>
+	<div id="history_activity_table" class="show_as_table">
+		<div class="show_as_row">
+			<div class="date show_as_col">日期</div>
+			<div class="name show_as_col">名稱</div>
+			<div class="short show_as_col">簡稱</div>
+			<div class="location show_as_col">地點</div>
+			<div class="start show_as_col">開始時間</div>
+			<div class="end show_as_col">結束時間</div>
+			<div class="intro show_as_col">簡介</div>
+			<div class="show_as_col">設定</div>
+		</div>
+	</div>
 <?php
 try {
 	require_once("connectBooks.php");
-	$sql = "select * from activity order by activity_no";
+	$sql = "select * from activity order by activity_date";
 	$activity = $pdo->query($sql);
 	while($activityRow = $activity->fetchObject()){
 ?>
-	<form action="activityUpdate.php" method="post">
-		<tr>
-			<td><input type="text" cols="5" class="no readOnlyStyle" name="activity_no" value="<?php echo $activityRow->activity_no ?>"></td>
-			<td><input type='text' name="activity_name" value="<?php echo $activityRow->activity_name ?>" cols="5" class='data readOnlyStyle' readonly></td>
-			<td><input type='text' name="activity_short_name" value="<?php echo $activityRow->activity_short_name ?>" class='data readOnlyStyle' readonly></td>
-			<td><input type='text' name="activity_location" value="<?php echo $activityRow->activity_location ?>" cols="5" class='data readOnlyStyle' readonly></td>
-			<td><input type='text' name="activity_date" value="<?php echo $activityRow->activity_date ?>" cols="5" class='data readOnlyStyle' readonly></td>
-			<td><input type='text' name="activity_start_time" value="<?php echo $activityRow->activity_start_time ?>" class='data readOnlyStyle' readonly></td>
-			<td><input type='text' name="activity_end_time" value="<?php echo $activityRow->activity_end_time ?>" cols="5" class='data readOnlyStyle' readonly></td>
-			<td><input type='text' name="activity_intro" value="<?php echo $activityRow->activity_intro ?>" cols="5" class='data readOnlyStyle' readonly></td>
-			<td><input class="input_btn" name="" value="修改" class="switchMode">
-				<input class="input_btn" type="submit" name="" value="儲存">
-			</td>
-		</tr>
+<div class="show_as_table">
+	<form action="update_activity.php" method="post">
+		<div class="show_as_row">
+			<div class="no show_as_col" style="display: none">
+				<input type='hidden' name="no" value="<?php echo $activityRow->activity_no ?>">
+			</div>
+			<div class="date show_as_col">
+				<input type='text' name="date" value="<?php echo $activityRow->activity_date ?>" class='data readOnlyStyle' readonly>
+			</div>
+			<div class="name show_as_col">
+				<input type='text' name="name" value="<?php echo $activityRow->activity_name ?>" class='data readOnlyStyle' readonly>
+			</div>
+			<div class="short show_as_col">
+				<input type='text' name="short" value="<?php echo $activityRow->activity_short_name ?>" class='data readOnlyStyle' readonly>
+			</div>
+			<div class="location show_as_col">
+				<input type='text' name="location" value="<?php echo $activityRow->activity_location ?>" class='data readOnlyStyle' readonly>
+			</div>
+			<div class="start show_as_col">
+				<input type='text' name="start" value="<?php echo $activityRow->activity_start_time ?>" class='data readOnlyStyle' readonly>
+			</div>
+			<div class="end show_as_col">
+				<input type='text' name="end" value="<?php echo $activityRow->activity_end_time ?>" class='data readOnlyStyle' readonly>
+			</div>
+			<div class="intro show_as_col">
+				<input type='text' name="intro" value="<?php echo $activityRow->activity_intro ?>" class='data readOnlyStyle' readonly></div>
+			<div class="editBtn show_as_col">
+				<div class="edit operating">修改</div>
+				<div class="operating">
+					<input type="submit" name="" value="送出">
+				</div>
+			</div>
+		</div>
 	</form>
+</div>
 <?php		
 	}
 } catch (PDOException $e) {
@@ -181,18 +201,74 @@ try {
 <script type="text/javascript">
 // 可修改歷史活動
 	$(document).ready(function(){
-		$(".switchMode").click(function(){
-			$(".data").toggleClass("editStyle");
-		})
-		$('.switchMode').click(function() {
-	    var $data = $('.data');
-	    var $switchMode = $('.switchMode');
-	    if ($data.attr('readonly')) {
-	        $data.removeAttr('readonly');
-	    } else {
-	        $data.attr('readonly', true);
-	    }
+		// 修改按鈕 切換修改和儲存
+		$(".edit").click(function(){
+			$(this).toggleClass("save");
+			var $text = $(this).text();
+			if($text=="修改"){
+				$(this).html("確定");
+			}else{
+				$(this).html("修改");
+			}
 		});
+		// 抓到修改第幾列的index值
+		// 切換資料：改變外觀
+		$(".edit").click(function(){
+			var index = $(".edit").index(this) + 1;
+			$(".date").eq(index).toggleClass("editStyle");
+			$(".name").eq(index).toggleClass("editStyle");
+			$(".short").eq(index).toggleClass("editStyle");
+			$(".location").eq(index).toggleClass("editStyle");
+			$(".start").eq(index).toggleClass("editStyle");
+			$(".end").eq(index).toggleClass("editStyle");
+			$(".intro").eq(index).toggleClass("editStyle");
+		});
+		// 切換資料：唯獨 改成 可修改
+		$(".edit").click(function(){
+		var index = $(".edit").index(this) + 1;
+		var $date = $('.date').eq(index).children();
+		    if ($date.attr('readonly')) {
+		        $date.removeAttr('readonly');
+		    } else {
+		        $date.attr('readonly', true);
+		    }
+		var $name = $('.name').eq(index).children();;
+		    if ($name.attr('readonly')) {
+		        $name.removeAttr('readonly');
+		    } else {
+		        $name.attr('readonly', true);
+		    }
+		var $short = $('.short').eq(index).children();;
+		    if ($short.attr('readonly')) {
+		        $short.removeAttr('readonly');
+		    } else {
+		        $short.attr('readonly', true);
+		    }
+		var $location = $('.location').eq(index).children();;
+		    if ($short.attr('readonly')) {
+		        $short.removeAttr('readonly');
+		    } else {
+		        $short.attr('readonly', true);
+		    }
+		var $start = $('.start').eq(index).children();;
+			if ($start.attr('readonly')) {
+		        $start.removeAttr('readonly');
+		    } else {
+		        $start.attr('readonly', true);
+		    }
+		var $end = $('.end').eq(index).children();;
+			if ($end.attr('readonly')) {
+		        $end.removeAttr('readonly');
+		    } else {
+		        $end.attr('readonly', true);
+		    }
+		var $intro = $('.intro').eq(index).children();;
+			if ($intro.attr('readonly')) {
+		        $intro.removeAttr('readonly');
+		    } else {
+		        $intro.attr('readonly', true);
+		    }
+	});
 	});
 
 //tab 換頁
@@ -214,7 +290,7 @@ try {
 	    evt.currentTarget.setAttribute("id","active");
 	}
 	// Get the element with id="defaultOpen" and click on it
-	document.getElementById("active").click();
+	// document.getElementById("active").click();
 </script>
 <!-- ===========請在最後加入=!!==============-->
     <div id="RWD-page"><span>驗票系統</span></div><!-- ===========請在最後加入=!!==============-->

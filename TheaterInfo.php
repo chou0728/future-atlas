@@ -74,7 +74,7 @@
                   <span class="login">
                       <?php
                           if(isset($_SESSION["mem_id"])===true){
-                              echo"登出";
+                              echo"<a href='logoutheadforindex.php'>登出</a>";
                           }else{
                               echo"登入";
                           }
@@ -234,7 +234,7 @@
       
       <!-- 立即購買按鈕 -->
       <div class="buyticketBtn">
-        <a href="buyTTicket.php">立即購買</a>
+        <a href="javascript: return false;" onclick="checkLogin()" >立即購買</a>
       </div>
   </div>
   <!-- 登入燈箱 -->

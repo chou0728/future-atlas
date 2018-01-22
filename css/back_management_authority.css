@@ -9,6 +9,7 @@
 #managerListWrapper h2{
 	font-size: 36px;
 	margin:10px 0;
+	font-family: 微軟正黑體;
 }
 #managerListWrapper{
 	width: 90%;
@@ -19,6 +20,7 @@
 .managerTHH{
 	width: 100%;
 	background-color: #bbb;
+	font-family: 微軟正黑體;
 }
 .managerTD,.managerTH{
 	display: inline-block;
@@ -38,9 +40,6 @@
 	padding-top: 6px;
 	height: 30px;
 }
-.managerRow:nth-child(even){
-	background-color: pink;
-}
 .managerTD{
 	padding: 10px;
 }
@@ -53,14 +52,32 @@
 
 #lulala{
 	font-size: 16px;
-}.operating{
+}
+.operating{
 	display: inline-block;
 	font-size: 14px;
-	padding: 5px;
-	background-color: #222;
-	color: white;
-	border-radius: 10%;
 	cursor: pointer;
+	border: none;
+}.operating input{
+	width: 60px;
+    height: 30px;
+    line-height: 30px;
+    display: inline-block;
+    margin: 5px;
+    margin-top: 3px;
+    padding-top: 7px;
+    color: #ddd;
+    background-color: #ff6600;
+    border: none;
+    border-bottom: 1px solid #555;
+    border-right: 1px solid #555;
+    box-shadow: 0px 1px 2px rgba(0,0,0,0.5);
+    cursor: pointer;
+    box-sizing: border-box;
+    border-radius: 0;
+    font: inherit;
+    font-family: 微軟正黑體;
+    vertical-align: middle;
 }
 
 /*切換修改input select屬性*/
@@ -75,7 +92,29 @@
 }
 
 /*修改按鈕 切換外觀*/
+.edit{
+	width: 60px;
+    height: 30px;
+    line-height: 30px;
+    display: inline-block;
+    margin: 5px;
+    padding-top: 7px;
+    color: #ddd;
+    background-color: #999;
+    border-bottom: 1px solid #555;
+    border-right: 1px solid #555;
+    box-shadow: 0px 1px 2px rgba(0,0,0,0.5);
+    cursor: pointer;
+    box-sizing: border-box;
+    border-radius: 0;
+    font: inherit;
+    font-family: 微軟正黑體;
+    vertical-align: middle;
+}
 .save{
-	background-color: red;
-	color: black;
+	box-shadow: inset 0px 1px 2px rgba(0,0,0,0.5);
+    color: black;
+    font-weight: bold;
+    background-color: rgb(84,210,201);
+    cursor: default;
 }

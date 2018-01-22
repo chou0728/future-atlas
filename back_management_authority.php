@@ -81,6 +81,12 @@ if(isset($_SESSION["login_success"])==false){
     </div>
 <!-- ===NAV結束=========================================================================== -->
 <!-- ===右邊區塊固定格式=============================================================== -->
+<!-- ===訊息方塊========= -->
+<div class="msgBox">
+	<div class="msg"></div>
+	<div class="ok">確定</div>
+</div>
+<!-- ===訊息方塊 end===== -->
 	<div class="back_wrapper_right">
 		<div class="b_content">
 			<div class="b_sub_nav">
@@ -169,44 +175,49 @@ try {
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script type="text/javascript">
 $(document).ready(function(){
+	// 即或未修改，也將欄位值存入隱藏欄位
+	$(".i_name_hidden").val($(".managerRow .i_name").val());
+	$(".i_psw_hidden").val($(".managerRow .i_psw").val());
+	if($(".managerRow .i_top").val() == "最高"){
+		$(".i_top_hidden").val(1);
+	}else{
+		$(".i_top_hidden").val(0);
+	}
+	if($(".managerRow .i_status").val() == "啟用"){
+		$(".i_status_hidden").val(1);
+	}else{
+		$(".i_status_hidden").val(0);
+	}
 	// 按下儲存按鈕 將新的value值送進隱藏欄位
 		// 修改帳號
 		$(".managerRow .i_name").change(function(){
 			var index = $(".i_name").index(this);
-			var new_name = "default value";
-			new_name = $(".managerRow .i_name").eq(index).val();
-			$(".i_name_hidden").eq(index).val(new_name);
+			$(".i_name_hidden").eq(index).val($(".managerRow .i_name").eq(index).val());
 		});
 		// 修改密碼
 		$(".managerRow .i_psw").change(function(){
 			var index = $(".i_psw").index(this);
-			var new_name = "default value";
-			new_name = $(".managerRow .i_psw").eq(index).val();
-			$(".i_psw_hidden").eq(index).val(new_name);
+			$(".i_psw_hidden").eq(index).val($(".managerRow .i_psw").eq(index).val());
 		});
 		// 修改權限
 		$(".managerRow .i_top").change(function(){
 			var index = $(".i_top").index(this);
-			var new_name = "default value";
-			new_name = $(".managerRow .i_top").eq(index).val();
-			if(new_name=="最高"){
-				new_name = 1;
+			if($(".managerRow .i_top").eq(index).val() == "最高"){
+				$(".managerRow .i_top").eq(index).val() = 1;
 			}else{
-				new_name = 0;
+				$(".managerRow .i_top").eq(index).val() = 0;
 			}
-			$(".i_top_hidden").eq(index).val(new_name);
+			$(".i_top_hidden").eq(index).val($(".managerRow .i_top").eq(index).val());
 		});
 		// 修改狀態
 		$(".managerRow .i_status").change(function(){
 			var index = $(".i_status").index(this);
-			var new_name = "default value";
-			new_name = $(".managerRow .i_status").eq(index).val();
-			if(new_name=="啟用"){
-				new_name = 1;
+			if($(".managerRow .i_status").eq(index).val() == "啟用"){
+				$(".managerRow .i_status").eq(index).val() = 1;
 			}else{
-				new_name = 0;
+				$(".managerRow .i_status").eq(index).val() = 0;
 			}
-			$(".i_status_hidden").eq(index).val(new_name);
+			$(".i_status_hidden").eq(index).val($(".managerRow .i_status").eq(index).val());
 		});
 	// 修改按鈕 切換修改和儲存
 	$(".edit").click(function(){
