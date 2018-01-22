@@ -447,32 +447,6 @@ try {
 						<span class="memScore">★★★★★</span>
 						<span class="memComment">noComment</span>
 					</div>
-					<div class="memcommentBox">
-						<span class="memName">5-0DX</span>
-						<span class="memScore">★★★★★</span>
-						<span class="memComment">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed dtempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.</span>
-					</div>
-					<div class="memcommentBox">
-						<span class="memName">T'Vulcia</span>
-						<span class="memScore">★★★★★</span>
-						<span class="memComment">Great!</span>
-					</div>
-					<div class="memcommentBox">
-						<span class="memName">T'Vulcia</span>
-						<span class="memScore">★★★★★</span>
-						<span class="memComment">Great!</span>
-					</div>
-					<div class="memcommentBox">
-						<span class="memName">T'Vulcia</span>
-						<span class="memScore">★★★★★</span>
-						<span class="memComment">Great!</span>
-					</div>
-					<div class="memcommentBox">
-						<span class="memName">Au'Vhadu</span>
-						<span class="memScore">★★★★★</span>
-						<span class="memComment">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmo tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-						quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo.</span>
-					</div>
 				</div>
 			</div>
 		</section>
@@ -613,6 +587,7 @@ function ajax_lightbox(e) {
                 var info = document.getElementsByClassName('info')[0];
                 var scoreAverage = document.getElementsByClassName('scoreAverage')[0];
                 var counts = document.getElementsByClassName('kai')[0];
+                var comment = document.getElementById("comment");
 
                 var facility = JSON.parse(xhr.responseText);//將透過ajax傳回來的json型態的資料轉換成js的物件
 
@@ -639,11 +614,13 @@ function ajax_lightbox(e) {
 				}
 				counts.innerHTML = "總評分次數<span>"+facility.counts+"</span>次";
 				
+				comment.innerHTML = facility.comment;
+				
 				               
 
 
-				 } else{
-				      alert(xhr.status);
+			} else{
+				alert(xhr.status);
 				            
 				  }
 

@@ -3,9 +3,9 @@
 ob_start();
 session_start();
 //請複製:當無登入時會自動跳轉至登入頁面
-if(isset($_SESSION["top_manager"])===false||isset($_SESSION["manager_name"])===false){
-	header("location:manager_login.php");
-	exit;
+if(isset($_SESSION["login_success"])==false){
+    header("location:manager_login.php");
+    exit;
 }
 ?>
 <!-- ===========1 end=========== -->

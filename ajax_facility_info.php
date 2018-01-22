@@ -34,14 +34,38 @@ try{
     $r = 0;//分數
     $av = 0;//平均分數
     $width = 0;//腥腥用
+    $comment="";
     while ($rating= $rating_PDO->fetchObject()) {
-      $b++;
-      $r = $r + $rating->comment_grade;
+      if(isset($rating->comment_grade)){
+        $b++;
+        $r = $r + $rating->comment_grade;
+      //------
+      $mem_id = $rating->mem_id;
+      $sql = "select mem_name from member where mem_id = $mem_id";
+      $name_PDO = $pdo->query($sql);
+      $name_PDO->execute();
+      $name= $name_PDO->fetchObject();
+      
+      // swith($rating->comment_grade){
+      //   case '1':
+      //   $star = "★";
+                
 
-      $comment = "<div class='memcommentBox'><span class='memName'>FutureAttak</span><span class='memScore'>★★★★★</span><span class='memComment'>noComment</span></div>"
-
-
+      // }
+      // $star = $rating->comment_grade;
+      // $content = $rating->comment_content;
+//------
+      if(isset($name->mem_name)){
+        $comment = $comment.'<div class="memcommentBox">
+            <span class="memName">'.$name->mem_name.'</span>
+            <span class="memScore">'.$rating->comment_grade.'</span>
+            <span class="memComment">'.$rating->comment_content.'</span>
+          </div>';
+      }
+      
+      }
     }
+
     if($r != 0){
       $av = $r/$b;
       $width = $av*20;
@@ -64,7 +88,8 @@ try{
       "facility_description" => $facility_description,
       "av" => $av,
       "width" => $width,
-      "counts" => $b//評分幾次
+      "counts" => $b,//評分幾次
+      "comment" => $comment
 
 
 
