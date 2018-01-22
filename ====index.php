@@ -993,7 +993,18 @@ if(isset($_SESSION["login_error"]) === true){
 
 					<!-- 中間區塊 -->
 					<div class="midBox">
-						<div class="midContent">
+						<!-- 第一塊如何購票 -->
+						<div class="midContent_1" id="midContent_1">
+							<h3>*** INFO ***</h3>
+							<div class="pic"></div>
+							<hr>
+							<div class="text">
+								<p>進入購買票券頁面即可購買。
+								</p>
+							</div>
+						</div>
+						<!-- 第二塊票券模式 -->
+						<div class="midContent_2" id="midContent_2">
 							<h3>*** INFO ***</h3>
 							<div class="pic"></div>
 							<hr>
@@ -1002,6 +1013,17 @@ if(isset($_SESSION["login_error"]) === true){
 								</p>
 							</div>
 						</div>
+						<!-- 第三塊票卷期限 -->
+						<div class="midContent_3" id="midContent_3">
+							<h3>*** INFO ***</h3>
+							<div class="pic"></div>
+							<hr>
+							<div class="text">
+								<p>我們的線上電子票券期限為
+								</p>
+							</div>
+						</div>
+
 					</div>
 
 
@@ -1010,7 +1032,7 @@ if(isset($_SESSION["login_error"]) === true){
 					<div class="rightBox">
 						<h3>*** SCANNING ***</h3>
 						<div class="visual1">
-							<img src="img/fifthSection/QRcode_image.svg.png" alt="QR">
+							<img src="img/qrcode.png" alt="QR">
 						</div>
 
 						<div class="visual2">
@@ -1200,6 +1222,43 @@ if(isset($_SESSION["login_error"]) === true){
 			}
 
 </script>
+
+
+		<!-- 點擊變換中間內容 -->
+		<script>
+			window.addEventListener('load',function(){
+				// 選取button
+				let btns = document.querySelectorAll('.top_button button');
+				// 把每個button註冊click事件，事件發生時呼叫changeBox。
+				for(const i of btns){
+					i.addEventListener('click',changeBox);
+				}
+				// 中間內容
+				let content1 = document.getElementById("midContent_1");
+				let content2 = document.getElementById("midContent_2");
+				let content3 = document.getElementById("midContent_3");
+				
+				function changeBox(){
+
+					if(this.textContent == "如何購票"){
+						content1.style.opacity="1";
+						content2.style.opacity="0";
+						content3.style.opacity="0";
+					}else if(this.textContent == "票券模式"){
+						content1.style.opacity="0";
+						content2.style.opacity="1";
+						content3.style.opacity="0";
+					}else{
+						content1.style.opacity="0";
+						content2.style.opacity="0";
+						content3.style.opacity="1";
+					}
+					
+				}
+
+			});
+		
+		</script>
 
 </body>
 
