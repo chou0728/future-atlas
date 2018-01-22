@@ -114,7 +114,6 @@
     animation: flicker2 0.1s infinite alternate;
     color: #000;
     border: 1px solid transparent;
-    transform:scale(1.1, 1.1);
     background-color: rgb(253, 229, 17);
     box-shadow: 0 0 10px rgb(253, 229, 17), rgb(253, 229, 17);
 }
