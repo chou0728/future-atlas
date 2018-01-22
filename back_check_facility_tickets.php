@@ -2,9 +2,11 @@
 ob_start();
 session_start();
 //請複製:當無登入時會自動跳轉至登入頁面
+if(!isset($_SESSION["login_success"])){
     header("location:manager_login.php");
     exit;
 }
+   
 ?>
 
 
@@ -238,13 +240,18 @@ session_start();
 
             function getURL() { //到時候要帶值進url
                 var href = location.href;
-                href = href + '?1&2'; //第一個數字是order_no，第二個為facility_no
+                href = href + '?2.1.2'; //第一個數字是order_no，第二個為facility_no，第三個為mem_id
                 var index = href.indexOf('?'); //先判斷?的位置在哪(indexOf)
                 var key_str = href.substr(index + 1); //從index往後一個位置開始取字串到最後
-                var key_array = key_str.split("&"); //將取回的字串分割成陣列
+                var key_array = key_str.split("."); //將取回的字串分割成陣列
                 order_no = key_array[0]; //讓order_no變成全域
                 facility_no = key_array[1]; //讓facility_no變成全域
-
+                mem_id = key_array[2];
+                localStorage.setItem('order_no',order_no);
+                localStorage.setItem('facility_no',facility_no);
+                localStorage.setItem('mem_id',mem_id);
+                
+                
                 getOrder();
                 getFacility();
                 // var url_order_no = href.substr(-1);
@@ -302,8 +309,11 @@ session_start();
                     }
 
                 }
+                var order_no = localStorage.getItem('order_no');
+                var facility_no = localStorage.getItem('facility_no');
+                var mem_id =  localStorage.getItem('mem_id');
                 var determine = 'getOrder';
-                var url = "fetch_from(facility_order_item).php?order_no=" + order_no + "&facility_no=" + facility_no  + "&determine=" + determine;
+                var url = "fetch_from(facility_order_item).php?order_no=" + order_no + "&facility_no=" + facility_no + "&mem_id=" + mem_id + "&determine=" + determine;
                 xhr.open("Get", url, true);
                 xhr.send();
             };
@@ -312,7 +322,7 @@ session_start();
                 var used_up = document.getElementById('used_up');
                 if (input_full.value == 0 && input_hald.value == 0) {
                     used_up.style.display = "block";
-                    alert('use up');
+                    // alert('use up');
                 } else {
                     used_up.style.display = "none";
                 }
@@ -345,9 +355,12 @@ session_start();
                 var now_want_used_half = document.getElementById('half_num').value;
                 var new_used_full = parseInt(origin_used_amount_full) + parseInt(now_want_used_full);
                 var new_used_half = parseInt(origin_used_amount_half) + parseInt(now_want_used_half);
+                var order_no = localStorage.getItem('order_no');
+                var facility_no = localStorage.getItem('facility_no');
+                var mem_id =  localStorage.getItem('mem_id');
 
                 var url = "update_order(facility_order_item).php?order_no=" + order_no + "&facility_no=" + facility_no +
-                    "&now_used_full=" + new_used_full + "&now_used_half=" + new_used_half;
+                 "&mem_id=" + mem_id + "&now_used_full=" + new_used_full + "&now_used_half=" + new_used_half;
                 xhr2.open("Get", url, false); //false是指這個function要先做完才去做其他的function
                 xhr2.send();
 
@@ -414,7 +427,9 @@ session_start();
                     }
 
                 }
-
+               
+                var facility_no = localStorage.getItem('facility_no');
+                
                 var url = "fetch_from(facility).php?facility_no=" + facility_no;
                 xhr3.open("Get", url, true);
                 xhr3.send();
