@@ -44,12 +44,14 @@ window.onload = function(){
 		document.getElementById("cart_total").innerHTML = total;
 
 // 原始購物車外觀
-	var facility_ticket_list = storage.getItem("facility_ticket_list");
-	var iniCart = Math.floor((facility_ticket_list.split("/").length-1)/2);
-	var aa = document.getElementById("cartimgid").src.substr(-5,1);
-	aa = iniCart;
-	document.getElementById("cartimgid").src = "img/cart/wallet_"+iniCart+".png";
-	document.getElementById("howmanytickets").innerHTML = facility_ticket_list.split("/").length-1;
+	if( storage.getItem("facility_ticket_list") != null){
+		var facility_ticket_list = storage.getItem("facility_ticket_list");
+		var iniCart = Math.floor((facility_ticket_list.split("/").length-1)/2);
+		var aa = document.getElementById("cartimgid").src.substr(-5,1);
+		aa = iniCart;
+		document.getElementById("cartimgid").src = "img/cart/wallet_"+iniCart+".png";
+		document.getElementById("howmanytickets").innerHTML = facility_ticket_list.split("/").length-1;
+	}
 
 // 變動購物車外觀
 function changeCartOutlook(){
@@ -260,7 +262,7 @@ function showSubTotal(){
 
 				/*點案登入show出登入燈箱 以及判斷登出按鈕*/
 				function showLogin() {
-					console.log(singUpBtn.innerText);
+					// console.log(singUpBtn.innerText);
 					/*如果singUpBtn為登入時*/
 					fullCover = document.getElementById('all-page');/*叫出燈箱時的墊背*/
 					if(singUpBtn.innerText.indexOf("登入") != -1){
@@ -283,9 +285,8 @@ function showSubTotal(){
 
 document.getElementById("nextStep").addEventListener("click",loginOrNot);
 function loginOrNot(){
-	if(storage.getItem("facility_ticket_list").search("/") < 0){
-		$("#nextStep").attr("href","facilityBuyTicket.html");
-			alert("您還沒有購買任何票券唷！");
+	if(storage.getItem("facility_ticket_list") == null){
+		alert("您還沒有挑選任何票券唷！");
 	}else if( storage.getItem("mem_id") > 0){
 		// 已經登入 
 		$("#nextStep").attr("href","input_cart_detail.php");
@@ -294,7 +295,12 @@ function loginOrNot(){
 		$(".login").prev().attr("src","img/member/member_2.png");
 	}else{
 		// 尚未登入
-		$("#nextStep").attr("javascript:void(0)");
+		$("#nextStep").removeAttr("href");
 		alert("請先登入~~");
+		fullCover = document.getElementById('all-page');/*叫出燈箱時的墊背*/
+		lightBox.style.opacity = 1;
+		fullCover.style.display="block";
+		lightBox.style.visibility = 'visible'
+		lightBox.style.display = "block";
 	}
 }

@@ -2,6 +2,7 @@ body{
 	font-family: 微軟正黑體, arial;
 	background-color: #111;
 	color: azure;
+	/*overflow: hidden;*/
 }
 
 *{
