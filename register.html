@@ -14,7 +14,7 @@
 *{
 	font-family: 微軟正黑體;
 	color: azure;
-	/*border: 1px solid lightgray;*/
+	/*outline: 1px solid red;*/
 	margin: 0;
 }
 body{
@@ -22,7 +22,7 @@ body{
 	user-select: none;
 }
 #signupwrapper{
-	width: 32%;
+	width: 35%;
 	margin: 100px auto 0 auto;
 	height: 540px;
 	background-color: #555;
@@ -30,7 +30,7 @@ body{
 	padding: 20px;
 }.title{
 	font-size: 36px;
-	margin: 20px 0;
+	margin: 20px auto;
 }
 .subtitle{
 	font-size: 14px;
@@ -39,7 +39,8 @@ body{
 .inputdiv{
 	height: 30px;
 	position: relative;
-	margin: 25px 0;
+	width: 70%;	
+	margin: 25px auto;
 }.inputTitle,.inputbox,.hint{
 	position: absolute;
 	vertical-align: middle;
@@ -129,7 +130,28 @@ body{
 			height: 125%;
 			border: 2px solid rgba(255, 193, 22,0.8);
 		}
-@media screen and (max-width: 767px){
+
+@media screen and (max-width: 450px){
+	#signupwrapper{
+		width: 100%;
+		margin-left: -20px;
+		min-width: 400px;
+	}
+	.title{
+		margin: 25px auto;
+	}
+	.inputdiv{
+		height: 30px;
+		position: relative;
+		width: 100%;	
+		margin: 25px auto;
+	}
+	.btn{
+		width: 100px;
+		margin: 0;
+	}
+}
+@media screen and (min-width: 450px) and (max-width: 767px){
 	#signupwrapper{
 		width: 85%;
 	}.inputTitle,.inputbox{
@@ -154,7 +176,8 @@ body{
 }
 .ps_show{
 	visibility: visible;
-}.ps_hidden{
+}
+.ps_hidden{
 	visibility: hidden;
 }
 .ps_verify{
@@ -217,7 +240,7 @@ body{
 
 <div id="signupwrapper">
 <div class="title">註冊會員</div>
-<div class="subtitle">立即享受50分積分，可<span style="color:deeppink">折抵票券消費</span>！<br>搭乘玩設施後進行留言及評價可再拿積分，繼續玩透透！</div>
+<div class="subtitle">立即享受50分積分，可<span style="color:deeppink">折抵票券消費</span>！<br>搭乘完設施後進行評價可再拿積分，繼續玩透透！</div>
 
 <form action="registerheadforindex.php" method="post">
 <div class="inputdiv">

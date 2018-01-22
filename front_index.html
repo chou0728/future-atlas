@@ -1048,9 +1048,9 @@
 						<div class="leftContent">
 							<h3>*** GET TICKET ***</h3>
 							<div class="top_button">
-								<button>如何購票</button>
-								<button>票券模式</button>
-								<button>票券期限</button>
+								<button id="buyTicket">如何購票</button>
+								<button id="ticketMode">票券模式</button>
+								<button id="ticketTime">票券期限</button>
 							</div>
 							
 							<div class="down_button">
@@ -1065,7 +1065,18 @@
 
 					<!-- 中間區塊 -->
 					<div class="midBox">
-						<div class="midContent">
+						<!-- 第一塊如何購票 -->
+						<div class="midContent_1" id="midContent_1" onclick="changeBox()">
+							<h3>*** INFO ***</h3>
+							<div class="pic"></div>
+							<hr>
+							<div class="text">
+								<p>進入購買票卷頁面即可購買。
+								</p>
+							</div>
+						</div>
+						<!-- 第二塊票券模式 -->
+						<div class="midContent_2" id="midContent_2" onclick="changeBox()">
 							<h3>*** INFO ***</h3>
 							<div class="pic"></div>
 							<hr>
@@ -1074,6 +1085,17 @@
 								</p>
 							</div>
 						</div>
+						<!-- 第三塊票卷期限 -->
+						<div class="midContent_3" id="midContent_3" onclick="changeBox()">
+							<h3>*** INFO ***</h3>
+							<div class="pic"></div>
+							<hr>
+							<div class="text">
+								<p>我們的線上電子票券期限為
+								</p>
+							</div>
+						</div>
+
 					</div>
 
 
@@ -1329,6 +1351,52 @@
 			}
 			
 
+		</script>
+
+
+
+
+
+		<!-- 點擊變換中間內容 -->
+		<script>
+			window.addEventListener('load',function(){
+				// 按鈕
+				// 如何購票
+				document.getElementById("buyTicket");
+				// 票券模式
+				document.getElementById("ticketMode");
+				// 票卷期限
+				document.getElementById("ticketTime");
+
+
+				// 中間內容
+				document.getElementById("midContent_1");
+				document.getElementById("midContent_2");
+				document.getElementById("midContent_3");
+				
+				function changeBox(){
+					if(this.id == "buyTicket"){
+						document.getElementById("midContent_1").style.opacity="1";
+						document.getElementById("midContent_2").style.opacity="0";
+						document.getElementById("midContent_3").style.opacity="0";
+					}else if(this.id == "ticketMode"){
+						document.getElementById("midContent_1").style.opacity="0";
+						document.getElementById("midContent_2").style.opacity="1";
+						document.getElementById("midContent_3").style.opacity="0";
+					}else{
+						document.getElementById("midContent_1").style.opacity="0";
+						document.getElementById("midContent_2").style.opacity="0";
+						document.getElementById("midContent_3").style.opacity="1";
+					}
+					
+				}
+
+			});
+		
+		
+		
+		
+		
 		</script>
 
 

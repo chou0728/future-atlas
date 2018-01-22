@@ -3,9 +3,23 @@ window.onload = function(){
 	for(a=0;a<i_info.length;a++){
 		i_info[a].addEventListener("click",category);
 	}
-	
+	var goComment = document.getElementById('goComment');
+	 goComment.addEventListener('click',goCommentCheck);
 }
 
+
+
+function goCommentCheck(){
+	var storage = localStorage;
+	var mem_id = storage.getItem("mem_id");
+	var facility_no = this.dataset.facilityNo;
+	window.location = "facilityInfo_go_comment_check.php?mem_id="+mem_id+"&facility_no="+facility_no;
+    	
+
+}
+
+
+  
 function closelightBoxF(){
 	var body = document.getElementsByTagName("body")[0];
 	var close = document.getElementById('close');

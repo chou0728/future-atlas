@@ -89,7 +89,7 @@ body::-webkit-scrollbar-thumb {
                 <span class="login">
                     <?php
                         if(isset($_SESSION["mem_id"])===true){
-                            echo"登出";
+                            echo"<a href='logoutheadforindex.php'>登出</a>";
                         }else{
                             echo"登入";
                         }
@@ -197,7 +197,7 @@ body::-webkit-scrollbar-thumb {
 	</div>
 	</form>
 </div>
-<script src="js/00nav.js"></script>
+<!-- <script src="js/00nav.js"></script> -->
 <script type="text/javascript" src="js/cart.js" async></script>
 <script type="text/javascript">
 function loginss(){

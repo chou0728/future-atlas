@@ -1,6 +1,10 @@
 <?php
 ob_start();
 session_start();
+if(isset($_SESSION["login_error"])==true){
+	unset($_SESSION["login_error"]);
+	echo "<script>alert('管理員帳密錯誤。');</script>";
+}
 ?>
 <!DOCTYPE html>
 <html>
@@ -8,6 +12,7 @@ session_start();
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 <title>manager_login</title>
+<link rel="stylesheet" type="text/css" href="css/header.css">
 <style type="text/css">
 body{
 	background-color: #222;
@@ -21,7 +26,7 @@ body{
 }
 #loginWrapper{
 	width: 35%;
-	margin: 0 auto;
+	margin: 50px auto 0 auto;
 	text-align: center;
 	padding: 20px;
 	padding-bottom: 40px;
@@ -33,8 +38,9 @@ body{
 	margin: 20px auto;
 }
 .inputDiv{
-	margin: 20px 0;
+	margin: 20px auto;
 	position: relative;
+	width: 70%;
 }
 .inputTitle{
 	font-size: 16px;
@@ -42,10 +48,16 @@ body{
 	position: relative;
 }
 .inputDiv input{
-	font-size: 16px;
-	width: 180px;
+	color: #222;
+	width: 50%;
 	height: 23px;
-	color: black;
+	font-size: 16px;
+	background-color: #dedede;
+	border-radius: 10px;
+	text-indent: 20px;
+	box-shadow: none;
+	border: none;
+	outline: none;
 }
 @media screen and (max-width: 767px){
 	#loginWrapper{
@@ -72,8 +84,7 @@ body{
 			height: 35px;/*依照自己頁面的需求自行調整*/
 			text-align: center;/*文字置中*/
 			line-height: 35px;/*與height等高:文字置中*/
-			background-color: rgb(193,193,193);
-			filter: brightness(0.3);
+			background-color: rgb(255, 193, 22);
 			color: white;
 			position: relative;
 			transition: background-color .2s linear;
@@ -81,6 +92,8 @@ body{
 			outline: none;
 			display: inline-block;
 			cursor: pointer;
+		}.btn:nth-of-type(2){
+			margin-left: 10px;
 		}
 		.btn:after{
 			content: "";
@@ -90,17 +103,17 @@ body{
 			transform: translate(-50%,-50%);
 			width: 100%;
 			height: 100%;
-			border: 2px solid rgba(22,193,255,0.6);
+			border: 2px solid rgba(255, 193, 22,0.6);
 			transition: all .2s linear;
 		}
 		.btn:hover{
-			background-color: rgba(22,193,255,0.9);
+			background-color: rgba(255, 193, 22,0.9);
 			color: black;
 		}
 		.btn:hover:after{
 			width: 108%;
 			height: 125%;
-			border: 2px solid rgba(22,193,255,0.8);
+			border: 2px solid rgba(255, 193, 22,0.8);
 		}
 @media screen and (max-width: 767px){
 	.btn{
@@ -128,6 +141,27 @@ body{
 </style>
 </head>
 <body>
+
+<div class="nav">
+    <div class="ul_box">
+        <h1 style="display: none">FutureAtlas_未來主題樂園</h1>
+        <a href="index.html#page1" class="logo_a">
+            <img src="img/LOGO.png" class="logo">
+        </a>
+    </div>
+    <div class="navOpenBtn"><!-- RWD left btn-->
+        <div class="ham"></div>
+        <div class="ham"></div>
+        <div class="ham"></div>
+        <div class="ham"></div>
+    </div>
+</div>
+<div class="headerOpenBtn"><!-- RWD right btn-->
+    <img src="img/Usericon1.png" class="memIcon">
+    <img src="img/Usericon.png" class="memIcon">
+    
+</div>
+
 <div id="loginWrapper">
 <div id="loginTitle">管理員登入</div>
 <form action="manager_login_php.php" method="post">
@@ -143,7 +177,6 @@ body{
 			</div>
 		</div>
 		<input type="text" name="manager_name" required>
-		
 	</div>
 	<div class="inputDiv">
 		<div class="inputTitle">密碼：</div>
