@@ -1209,6 +1209,10 @@ body::-webkit-scrollbar-thumb {
 	padding: 10px 0;
 	background-color: rgba(255, 193, 22,0.2);
 	border: 2px solid rgba(255, 193, 22,0.8);
+	cursor: pointer;
+}
+#goComment:hover{
+
 }
 .star{
 	width: 100%;
