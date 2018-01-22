@@ -12,7 +12,7 @@ $(document).ready(function(){
 	var print = parseInt(today.toString().substr(8,2));
 	var day = ["(日)","(一)","(二)","(三)","(四)","(五)","(六)"];
 
-	for(var i = 1 ; i <= 14 ; i++){
+	for(var i = 0 ; i <= 14 ; i++){
 		if( todayMonth == 1 && (print+i) > 31){
 			print -= 31;
 			todayMonth++;
