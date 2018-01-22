@@ -45,16 +45,10 @@ try{
       $name_PDO = $pdo->query($sql);
       $name_PDO->execute();
       $name= $name_PDO->fetchObject();
-      
-      // swith($rating->comment_grade){
-      //   case '1':
-      //   $star = "★";
-                
+
 
       // }
       $stwidth = $rating->comment_grade*20;
-      // $star = $rating->comment_grade;
-      // $content = $rating->comment_content;
 //------
       if(isset($name->mem_name)){
         $comment = $comment.'<div class="memcommentBox">

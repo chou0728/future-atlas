@@ -7,10 +7,11 @@ if($_REQUEST["determine"] == "getOrder"){
 
     //抓TABLE中全部的SQL指令
     require_once("connectBooks.php");
-    $sql = "SELECT * FROM facility_order_item WHERE order_no = ? AND facility_no = ?;";
+    $sql = "SELECT * FROM facility_order_item WHERE order_no = ? AND facility_no = ? AND mem_id = ? ;";
     $facility_order_PDO = $pdo->prepare($sql);
     $facility_order_PDO->bindValue(1,$_REQUEST["order_no"]); 
     $facility_order_PDO->bindValue(2,$_REQUEST["facility_no"]); 
+    $facility_order_PDO->bindValue(3,$_REQUEST["mem_id"]); 
     $facility_order_PDO->execute();
 
     $order_item = $facility_order_PDO->fetchObject();   //fetch成物件
