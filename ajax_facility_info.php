@@ -66,6 +66,7 @@ try{
                   <img src="img/facilityInfo/ratingCover.png" alt="cover">
                 </div></span>
             <span class="memComment">'.$rating->comment_content.'</span>
+            <span class="commentTime">'.substr("2018-01-22-00-00-00",0,10).'</span>
           </div>';
       }
       

@@ -446,6 +446,7 @@ try {
 								</div>
 						</li>
 						<li class="kai"></li>
+						<li id="goComment">前往評價</li>
 					</ul>
 				</div>
 				<div id="comment">
