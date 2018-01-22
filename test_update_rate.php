@@ -29,7 +29,7 @@ if($_REQUEST["order_no"] == 0){//不用買票的設施(前端送0過來)
                     $order_item_PDO->bindValue(':comment_status',1); //直接寫 1 進去
                     $order_item_PDO->execute();
 
-                    header('location:facilityInfo.php'); //寫入db後返回到查看票券頁面
+                    header('location:see_tickets.php'); //寫入db後返回到查看票券頁面
 
                 }catch(PDOException $e){
                     echo "錯誤原因 : " , $e->getMessage() , "<br>";
