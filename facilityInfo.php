@@ -10,6 +10,19 @@ if(isset($_SESSION["login_error"]) === true){
 }else if(isset($_SESSION["no_login"])==true){
 	echo "<script>alert('立即成為會員，買票後即可評價(評價可獲得積分喔!)');</script>";
 	unset($_SESSION["no_login"]);
+	header("Refresh:0");
+}else if(isset($_SESSION["is_comment"])==true){
+	echo "<script>alert('目前對此設施都評價過囉!購買且使用新票券後即可再評價');</script>";
+	unset($_SESSION["is_comment"]);
+	header("Refresh:0");
+}else if(isset($_SESSION["is_comment_two"])==true){
+	echo "<script>alert('此設施已評價過!');</script>";
+	unset($_SESSION["is_comment_two"]);
+	header("Refresh:0");
+}else if(isset($_SESSION["no_getticket"])==true){
+	echo "<script>alert('沒有買過此設施票券喔!');</script>";
+	unset($_SESSION["no_getticket"]);
+	header("Refresh:0");
 }
 ?>
 <!DOCTYPE html>
