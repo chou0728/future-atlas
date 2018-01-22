@@ -19,10 +19,7 @@ try {
 			$_SESSION["manager_name"] = $managerRow->manager_name;
 			$_SESSION["password"] 	  = $managerRow->password;
 			$_SESSION["top_manager"]  = $managerRow->top_manager;
-			echo $_SESSION["manager_id"];
-			echo $_SESSION["manager_name"];
-			echo $_SESSION["password"];
-			echo $_SESSION["top_manager"];
+			$_SESSION["login_success"] = 1;
 			header("location:back_check_facility_tickets.php");
 		}else{
 			$_SESSION["banned"] = 1;
@@ -30,8 +27,8 @@ try {
 
 		}
 	}else{
-		echo "<script>alert('管理員帳密錯誤。');</script>";
-		// Header("refresh:3;url=manager_login.php");
+		$_SESSION["login_error"] = 1;
+		Header("location:manager_login.php");
 	}
 
 } catch (Exception $ex) {
