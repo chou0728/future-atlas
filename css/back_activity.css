@@ -1,62 +1,172 @@
+*{
+    /*outline: 1px solid red;*/
+    font-family: "微軟正黑體";
+}
+table {
+    width: 80%; 
+    border:1px solid black;
+    margin:30px auto ;
+    font-size: 16px;
+    font-family: "微軟正黑體";
+}
+.titleh2{
+    margin:30px 30px;
+    font-size:24px;
+    text-align: center;
+    font-family: "微軟正黑體";
+}
+#history_activity{
+    padding: 20px;
+    background-color: #dedede;
+}
+#history_activity_table{
+    width: 90%;
+}
+#activity_name, #activity_short_name, #activity_intro{
+    width: 80px;
+    height: 100px;
+}
+.readOnlyStyle{
+    border: none;
+    background-color: transparent;
+}.editStyle{
+    border: 1px solid black;
+    background-color: white;
+}#history_activity_table{
+    width: 400px;
+}input.no{
+    width: 30px;
+}
+input.data{
+    width: 120px;
+}input.input_btn{
+    width: 60px;
+    display: inline-block;
+    background-color: aqua;
+    margin: 5px 0;
+    padding: 5px;
+    border: none;
+    outline: none;
+    cursor: pointer;
+}input.input_btn:nth-of-type(2){
+    background-color: #555;
+    color: white;
+}
+td.wider{
+    width: 160px;
+}input{
+    font-size: 16px;
+    width: 90%;
+}
 
-        table {
-            width: 80%; 
-            border:1px solid black;
-            margin:30px auto ;
-            font-size: 16px;
-            font-family: "微軟正黑體";
-        }
-        .titleh2{
-            margin:30px 30px;
-            font-size:24px;
-            text-align: center;
-            font-family: "微軟正黑體";
-        }
-        th{
-            text-align:center;
-            border:1px solid black; 
-            padding: 10px 10px;
-        }
-        td{ 
-            vertical-align: middle;
-            border:1px solid black; 
-            padding: 10px 10px;
-            font-family: "微軟正黑體";
-            overflow-x: auto;
-        }#activity_name, #activity_short_name, #activity_intro{
-            width: 80px;
-            height: 100px;
-        }
-        .readOnlyStyle{
-            border: none;
-            background-color: #ccc;
-        }.editStyle{
-            border: 1px solid black;
-            background-color: white;
-        }#history_activity_table{
-            width: 400px;
-        }input.no{
-            width: 30px;
-        }
-        input.data{
-            width: 120px;
-        }input.input_btn{
-            width: 60px;
-            display: inline-block;
-            background-color: aqua;
-            margin: 5px 0;
-            padding: 5px;
-            border: none;
-            outline: none;
-            cursor: pointer;
-        }input.input_btn:nth-of-type(2){
-            background-color: #555;
-            color: white;
-        }
-        td.wider{
-            width: 160px;
-        }input{
-            font-size: 16px;
-            width: 90%;
 
-        }
+/*歷史活動.css*/
+.show_as_table{
+    width: 90%;
+    display: table;
+    font-size: 16px;
+    margin: 0 auto;
+}
+.show_as_row{
+    display: table-row;
+    font-size: 16px;
+    background-color: #dedede;
+    border-bottom: 1px solid lightblue;
+}.show_as_row:nth-of-type(odd){
+    background-color: lightblue;
+}
+.show_as_col{
+    display: table-cell;
+    font-size: 16px;
+    background-color: #dedede;
+    height: 100%;
+}
+
+.date, .date input{
+    width: 30px;
+}.name, .name input{
+    width: 210px;
+}
+.start, .start input, .end, .end input{
+    width: 70px;
+}.short{
+    width: 110px;
+}
+.short input{
+    width: 90px;
+}
+.location, .location input{
+    width: 110px;
+}
+.intro, .intro input{
+    width: 350px;
+}
+.editBtn{
+    width: 200px;
+    text-align: center;
+}
+
+
+.operating{
+    display: inline-block;
+    font-size: 14px;
+    cursor: pointer;
+    border: none;
+}.operating input{
+    width: 60px;
+    height: 30px;
+    line-height: 30px;
+    display: inline-block;
+    margin: 5px;
+    margin-top: 3px;
+    padding-top: 7px;
+    color: #ddd;
+    background-color: #ff6600;
+    border: none;
+    border-bottom: 1px solid #555;
+    border-right: 1px solid #555;
+    box-shadow: 0px 1px 2px rgba(0,0,0,0.5);
+    cursor: pointer;
+    box-sizing: border-box;
+    border-radius: 0;
+    font: inherit;
+    font-family: 微軟正黑體;
+    vertical-align: middle;
+}
+/*切換修改input select屬性*/
+.readOnlyStyle{
+    background-color: transparent;
+    color: #222;
+}.editStyle{
+    border: none;
+    background-color: pink;
+    outline: none;
+}
+
+/*修改按鈕 切換外觀*/
+.edit{
+    width: 60px;
+    height: 30px;
+    line-height: 30px;
+    display: inline-block;
+    margin: 5px;
+    padding-top: 7px;
+    color: #ddd;
+    background-color: #999;
+    border-bottom: 1px solid #555;
+    border-right: 1px solid #555;
+    box-shadow: 0px 1px 2px rgba(0,0,0,0.5);
+    cursor: pointer;
+    box-sizing: border-box;
+    border-radius: 0;
+    font: inherit;
+    font-family: 微軟正黑體;
+    vertical-align: middle;
+}
+.save{
+    box-shadow: inset 0px 1px 2px rgba(0,0,0,0.5);
+    color: black;
+    font-weight: bold;
+    background-color: rgb(84,210,201);
+    cursor: default;
+}

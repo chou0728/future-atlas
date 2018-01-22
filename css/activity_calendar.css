@@ -643,10 +643,20 @@ img { border: 0; }
 	float: right;
 	position: relative;
 	overflow-x: hidden;
-	background-image: url(../img/activity/rotatescrollBox.png);
 	-webkit-background-size: auto;
 	background-size: cover;
 	background-repeat: no-repeat;
+	z-index: 10;
+}
+
+#rotatescrollBox .tvbox{
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	top: 0;
+	left: 0;
+	filter: drop-shadow(0px 0px 2px white);
+	overflow: hidden;
 }
 
 #rotatescrollBoxWrapper{
@@ -655,7 +665,7 @@ img { border: 0; }
 	position: absolute;
 	top: 0;
 	left: 0;
-	z-index: -1;
+	z-index: -10;
 }
 
 .rotatescrollBox{
@@ -664,6 +674,7 @@ img { border: 0; }
 	font-size: 24px;
 	position: absolute;
 	top: 0;
+	z-index: -10;
 }.rotatescrollBox:nth-child(odd){
 	
 }.rotatescrollBox:nth-child(even){
@@ -743,7 +754,13 @@ img { border: 0; }
 	height: 100px;
 	z-index: 200;  
 	cursor: pointer;
-	/*margin-right: 100px;*/
+	transform: scale(0.8);
+	animation: icon_loop 1s linear infinite;
+}
+@keyframes icon_loop{
+	0%  {margin-top:-3px;}
+	50% {margin-top:-10px;}
+	100%{margin-top:-3px;}
 }
 #rotatescroll .dot {
 	/*background:url(../img/activity/bg-dot.png) no-repeat 0 0;*/

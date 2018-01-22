@@ -15,19 +15,21 @@ try {
 		$managerRow = $manager->fetchObject();
 		$_SESSION["status"] = $managerRow->manager_status;
 		if( $_SESSION["status"] == 1){
+			// 成功登入
 			$_SESSION["manager_id"] = $managerRow->manager_id;
 			$_SESSION["manager_name"] = $managerRow->manager_name;
 			$_SESSION["password"] 	  = $managerRow->password;
 			$_SESSION["top_manager"]  = $managerRow->top_manager;
-			$_SESSION["login_success"] = 1;
+			$_SESSION["login_success"] = true;
 			header("location:back_check_facility_tickets.php");
 		}else{
-			$_SESSION["banned"] = 1;
+			// 停權帳號
+			$_SESSION["banned"] = true;
 			header("location:manager_login.php");
-
 		}
 	}else{
-		$_SESSION["login_error"] = 1;
+		// 帳密錯誤
+		$_SESSION["login_error"] = true;
 		Header("location:manager_login.php");
 	}
 
