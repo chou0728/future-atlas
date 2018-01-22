@@ -76,7 +76,7 @@
                   <span class="login">
                       <?php
                           if(isset($_SESSION["mem_id"])===true){
-                              echo"登出";
+                              echo"<a href='logoutheadforindex.php'>登出</a>";
                           }else{
                               echo"登入";
                           }
@@ -203,7 +203,7 @@
                   <p>每星期三、五、日</p>
                   <p>場次：11:00、14:00、15:00、19:00</p>
                 </div>
-                <a href="buyTTicket.php" class="buyticket">立即購票</a>
+                <a href="javascript: return false;" onclick="checkLogin()" class="buyticket">立即購票</a>
             </div>
             <div class="info">
                 <div class="infoimg">
@@ -231,7 +231,7 @@
                   <p>每星期一、六</p>
                   <p>場次：11:00、14:00、15:00、19:00</p>
                 </div>
-                <a href="buyTTicket.php" class="buyticket">立即購票</a>
+                <a href="javascript: return false;" onclick="checkLogin()" class="buyticket">立即購票</a>
 
             </div>
         </div>

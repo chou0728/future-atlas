@@ -108,7 +108,7 @@
                     <span class="login">
                         <?php
                             if(isset($_SESSION["mem_id"])===true){
-                                echo"登出";
+                                echo"<a href='logoutheadforindex.php'>登出</a>";
                             }else{
                                 echo"登入";
                             }
@@ -226,7 +226,7 @@
                         <input type="radio" name="Scorepoints" value="1" checked onchange="Userpoints()">使用積分
                         <input type="text" id="Scorenumber" value="100" size=10 style="font-size:16px;" onchange="changeScoreNumber()">
                     </td>
-                    <td style="padding-top: 40px;"id="integral"> 
+                    <td style="padding-top: 40px;" id="integral"> 
                     </td>
                 </tr>
                 <tr>
@@ -389,7 +389,12 @@
             if(Scorenumber>totalScoreNumber){
                 alert("超出你的積分，請重新輸入積分");
                 document.getElementById('Scorenumber').value=totalScoreNumber;
-               Scorenumber = totalScoreNumber;
+                Scorenumber = totalScoreNumber;
+            }
+            if(Scorenumber>theater_total){
+                alert("超出你的小計，請重新輸入積分");
+                document.getElementById('Scorenumber').value=theater_total;
+               Scorenumber = theater_total;
             }
             //值要連動到id是integral的欄位
             document.getElementById('integral').innerHTML = "-" + Scorenumber + "元";
@@ -435,6 +440,8 @@
                        "&theater_total="+theater_total+
                        "&Scorenumber="+Scorenumber+
                        "&CardInfo="+ CardInfo;
+                       
+                       console.log(vars);
             //利用POST方式傳遞
             // open() 的第一個參數是 HTTP request 的方法
             //第二個參數是請求頁面的 URL
@@ -457,7 +464,7 @@
                     //buyticketlightBox.style.display = 'block';
                     //document.getElementById('msg').innerHTML =return_data ;
                     setTimeout(function(){
-                         location.href="MembersOnly.html";
+                         location.href="see_tickets.php";
                     },2000)
                 }
             }

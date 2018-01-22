@@ -65,14 +65,15 @@
 		}
 		//預設會員ID
 		$member_id=$mem_id;
-		$sql = "INSERT into theater_order_list (session_no,mem_id,number_purchase,used_ticket,order_date,original_amount,points_discount,credit_card,program_no) values(?,?,?,?,?,?,?,?,?)";
+		$datetime= date("Y/m/d H:i:s");
+		$sql = "INSERT into theater_order_list (theater_ticket_no,session_no,mem_id,number_purchase,used_ticket,order_date,original_amount,points_discount,credit_card,program_no) values(null,?,?,?,?,?,?,?,?,?)";
 			$statement = $pdo->prepare($sql);
 			$statement->bindValue(1,$session_no);
 			$statement->bindValue(2,$member_id);
 			$statement->bindValue(3,$theater_quantity);
 			$statement->bindValue(4,0);
 			//strftime('%F')--->取得當日時間
-			$statement->bindValue(5,strftime('%F'));
+			$statement->bindValue(5,$datetime);
 			$statement->bindValue(6,$theater_total);
 			$statement->bindValue(7,$Scorenumber);
 			$statement->bindValue(8,$CardInfo);

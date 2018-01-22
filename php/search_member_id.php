@@ -8,7 +8,7 @@
 
 	  if( $theater_order_list->rowCount() == 0 ){ //找不到
 	    //傳回空的字串
-	    echo "查無此節目";
+	    echo "查無此會員ID";
 	  }else{ //找得到
 	    //取回一筆資料
       $str = "";
@@ -29,7 +29,7 @@
 	      //傳回html結構
 	      // $str .= '<form method="get" action="php/update_theater_session_List.php">';
 	      // $str .= '<input type="hidden" name="session_no" value="'.$sessionlistRow->session_no.'">';
-		  $str .= "<tr><td>" . $orderlistRow->theaterticket_no . "</td>";
+		  $str .= "<tr><td>" . $orderlistRow->theater_ticket_no . "</td>";
 		  $str .= "<td>" . $orderlistRow->session_no . "</td>";
 		  $str .= "<td>" . $orderlistRow->mem_id . "</td>";
 		  $str .= "<td>" . $orderlistRow->number_purchase . "</td>";
