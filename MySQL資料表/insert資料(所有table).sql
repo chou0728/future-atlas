@@ -134,14 +134,15 @@ VALUES
 
 -- 資料表`member` 
 
-INSERT INTO `member` (`mem_id`, `mem_nick`, `password`, `mem_name`, `mem_points`, `mem_permissions`, `mem_mail`, `mem_phone`) VALUES
-(1, 'Davis', 'iaak01', 'Chen', 50, 1, 'cclm@gmail.com', '0942205923'),
-(2, 'dd', 'dd', 'dd', 50, 1, 'dd', 'dd'),
-(3, 'Davis', '111111', '111111', 50, 1, 'sbxew@ggg', '0926704627'),
-(4, 'father', '123456', 'Davis', 50, 1, 'sbxew99@gmail.com', '0926704627'),
-(5, 'mother', '123456', 'Rose', 50, 1, 'sbxew99@gmail.com', '0926704627'),
-(6, 'brother', '123456', 'Alex', 50, 1, 'sbxew99@gmail.com', '0926704627'),
-(7, 'classmate', '123456', 'bd103', 50, 1, 'sbxew99@gmail.com', '0926704627');
+INSERT INTO `member` (`mem_id`, `mem_name`, `password`, `mem_nick`, `mem_points`, `mem_permissions`, `mem_mail`, `mem_phone`) VALUES
+(1, 'david', '123456', 'David', 500, 1, 'cclm@gmail.com', '0942205923'),
+(2, 'handsome', '456789', 'Handsome', 500, 1, 'handsome@gmail.com', '0946505923'),
+(3, 'sara', '111', 'Sara', 500, 1, 'sbxew@ggg', '0926704627'),
+(4, 'rose', '123456', 'Rose', 500, 1, 'a123w99@gmail.com', '0926704627'),
+(5, 'alex', '123456', 'Alex', 500, 1, 'b12345699@gmail.com', '0926704627'),
+(6, 'eric', '123456', 'Eric', 500, 1, 'eric0728@gmail.com', '0926704627'),
+(7, 'manna', '123456', 'manna', 500, 1, 'manna99@gmail.com', '0926704627');
+
 
 
 
