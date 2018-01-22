@@ -45,7 +45,11 @@ CREATE TABLE `facility` (
   `full_fare` int(11) DEFAULT NULL,
   `half_fare` int(11) DEFAULT NULL,
   `info_already` tinyint(1) NOT NULL DEFAULT '0',
-  `ticket_already` tinyint(1) NOT NULL DEFAULT '0'
+  `ticket_already` tinyint(1) NOT NULL DEFAULT '0',
+  `comment_content` varchar(200) COLLATE utf8_unicode_ci DEFAULT NULL COMMENT '預設:NULL',
+  `comment_grade` int(11) NOT NULL DEFAULT '0' COMMENT '1-5分',
+  `comment_timestamp` datetime NOT NULL,
+  `comment_status` tinyint(1) NOT NULL DEFAULT '0' COMMENT '1:已評價 0:未評價'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --

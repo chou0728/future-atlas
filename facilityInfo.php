@@ -301,7 +301,32 @@ try {
 				<h2><?php echo $prodRow->facility_name ?></h2>
 				<div class="points">
 					<div class="points_cover">
-						<span class="points_bar"></span>
+						<?php
+							$_facility_no = $prodRow->facility_no;
+							$sql = "select comment_grade from facility_order_item where facility_no = $_facility_no";
+							$rating = $pdo->query($sql);
+							$b = 0;//數量
+							$r = 0;//分數
+							$av = 0;//平均分數
+							$width = 0;//腥腥用
+							while($ratingRow= $rating->fetchObject()){
+								if(isset($ratingRow->comment_grade)){
+									$b++;
+									$r = $r + $ratingRow->comment_grade;
+								}
+							}
+							if($r != 0){
+										$av = $r/$b;
+										$width = $av*20;
+								}else{
+									$width = 0;
+								}
+						 ?>
+
+
+						<span class="points_bar_bo">
+						<span class="points_bar" style="width:<?php echo $width ?>%;"></span>
+
 						<img src="img/facilityInfo/ratingCover_g.png" alt="cover">
 					</div>
 				</div>
@@ -411,9 +436,9 @@ try {
 				<div class="scoreTitle">設施評價</div>
 				<div class="scoreContainer">
 					<ul>
-						<li class="scoreAverage">總平均<span>4.5</span>分</li>
+						<li class="scoreAverage"></li>
 						<li class="star">★★★★★</li>
-						<li class="kai">總評分次數<span>1583</span>次</li>
+						<li class="kai"></li>
 					</ul>
 				</div>
 				<div id="comment">
@@ -421,32 +446,6 @@ try {
 						<span class="memName">FutureAttak</span>
 						<span class="memScore">★★★★★</span>
 						<span class="memComment">noComment</span>
-					</div>
-					<div class="memcommentBox">
-						<span class="memName">5-0DX</span>
-						<span class="memScore">★★★★★</span>
-						<span class="memComment">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed dtempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.</span>
-					</div>
-					<div class="memcommentBox">
-						<span class="memName">T'Vulcia</span>
-						<span class="memScore">★★★★★</span>
-						<span class="memComment">Great!</span>
-					</div>
-					<div class="memcommentBox">
-						<span class="memName">T'Vulcia</span>
-						<span class="memScore">★★★★★</span>
-						<span class="memComment">Great!</span>
-					</div>
-					<div class="memcommentBox">
-						<span class="memName">T'Vulcia</span>
-						<span class="memScore">★★★★★</span>
-						<span class="memComment">Great!</span>
-					</div>
-					<div class="memcommentBox">
-						<span class="memName">Au'Vhadu</span>
-						<span class="memScore">★★★★★</span>
-						<span class="memComment">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmo tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-						quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo.</span>
 					</div>
 				</div>
 			</div>
@@ -586,7 +585,10 @@ function ajax_lightbox(e) {
                 var limit = document.getElementsByClassName('limit')[0];
                 var getTicket = document.getElementById("getTicket");
                 var info = document.getElementsByClassName('info')[0];
-                
+                var scoreAverage = document.getElementsByClassName('scoreAverage')[0];
+                var counts = document.getElementsByClassName('kai')[0];
+                var comment = document.getElementById("comment");
+
                 var facility = JSON.parse(xhr.responseText);//將透過ajax傳回來的json型態的資料轉換成js的物件
 
 
@@ -603,13 +605,22 @@ function ajax_lightbox(e) {
 						getTicket.href = "facilityBuyTicket.php";
 					}
 				info.innerText = facility.facility_description;
+				if(facility.av == 0){
+					scoreAverage.innerHTML = "總平均<span>"+facility.av.toFixed(0)+"</span>分";
+				}else if(facility.av.toFixed(1).split(".")[1]==0){
+					scoreAverage.innerHTML = "總平均<span>"+facility.av.toFixed(0)+"</span>分";
+				}else{
+					scoreAverage.innerHTML = "總平均<span>"+facility.av.toFixed(1)+"</span>分";
+				}
+				counts.innerHTML = "總評分次數<span>"+facility.counts+"</span>次";
+				
+				comment.innerHTML = facility.comment;
+				
+				               
 
-				                
-				            
 
-
-				 } else{
-				      alert(xhr.status);
+			} else{
+				alert(xhr.status);
 				            
 				  }
 

@@ -393,7 +393,7 @@ body::-webkit-scrollbar-thumb {
 }
 .fi_wrapper .fi_panel .f_box .bcover_border .points{
 	width: 100%;
-	height: 25px;
+	height: 30px;
 	position: relative;
 	background-color: black;
 	
@@ -445,22 +445,31 @@ body::-webkit-scrollbar-thumb {
 	width: 130px;
 	height: 25px;
 	position: relative;
-	margin-left: 1.6%;
+	margin-left: 10px;
 	vertical-align: middle;
 	cursor: pointer;
 }
 .fi_wrapper .fi_panel .f_box .bcover_border .points .points_bar{
 	width: 100%;
 	height: 100%;
-	background-color: red;
+	display: block;
+	background-color: rgb(50,255,235);
 	position: absolute;
 	top:0;
 	left:0;
 }
+.fi_wrapper .fi_panel .f_box .bcover_border .points .points_bar_bo{
+	width: 100%;
+	height: 100%;
+	display: block;
+	position: absolute;
+	top:0;
+	left:0;
+	background-color: rgb(100,100,100);
+}
 .fi_wrapper .fi_panel .f_box .bcover_border .points img{
 	width: 100%;
 	height: 100%;
-	background-color: red;
 	position: absolute;
 	top:0;
 	left:0;
@@ -470,7 +479,7 @@ body::-webkit-scrollbar-thumb {
 @media screen and (max-width:1200px){
 
 	.fi_wrapper .fi_panel .f_box .bcover_border .points .points_cover{
-		margin-left: 15px;
+		margin-left: 20px;
 
 	}
 	.fi_wrapper .fi_panel .f_box .bcover_border .points img{
@@ -482,6 +491,7 @@ body::-webkit-scrollbar-thumb {
 	.fi_wrapper .fi_panel .f_box .bcover_border .points .points_cover{
 		width: 110px;
 		height: 20px;
+		margin-left: 10px;
 
 	}
 	.fi_wrapper .fi_panel .f_box .bcover_border .points img{
