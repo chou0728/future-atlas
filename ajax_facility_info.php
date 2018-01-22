@@ -52,13 +52,19 @@ try{
                 
 
       // }
+      $stwidth = $rating->comment_grade*20;
       // $star = $rating->comment_grade;
       // $content = $rating->comment_content;
 //------
       if(isset($name->mem_name)){
         $comment = $comment.'<div class="memcommentBox">
             <span class="memName">'.$name->mem_name.'</span>
-            <span class="memScore">'.$rating->comment_grade.'</span>
+            <span class="memScore">
+              <div class="points_cover">
+                  <span class="points_bar_bo">
+                  <span class="points_bar" style="width:'.$stwidth.'%;"></span>
+                  <img src="img/facilityInfo/ratingCover.png" alt="cover">
+                </div></span>
             <span class="memComment">'.$rating->comment_content.'</span>
           </div>';
       }
