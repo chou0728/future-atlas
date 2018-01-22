@@ -197,7 +197,7 @@ body::-webkit-scrollbar-thumb {
 	</div>
 	</form>
 </div>
-<script src="js/00nav.js"></script>
+<!-- <script src="js/00nav.js"></script> -->
 <script type="text/javascript" src="js/cart.js" async></script>
 <script type="text/javascript">
 function loginss(){

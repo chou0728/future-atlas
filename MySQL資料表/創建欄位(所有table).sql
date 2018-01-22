@@ -66,7 +66,7 @@ CREATE TABLE `facility_comment` (
   `comment_content` varchar(200) COLLATE utf8_unicode_ci DEFAULT '' COMMENT '預設空值',
   `comment_grade` int(11) NOT NULL DEFAULT '0' COMMENT '1-5分',
   `comment_timestamp` datetime,
-  `comment_status` tinyint(1) NOT NULL DEFAULT '0' COMMENT '1:已評價 0:未評價',
+  `comment_status` tinyint(1) NOT NULL ,
   KEY (facility_no), -- FK
   KEY (mem_id) -- FK
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
