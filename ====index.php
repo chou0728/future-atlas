@@ -1171,7 +1171,7 @@ if(isset($_SESSION["login_error"]) === true){
 						fullCover.style.display="block";
 						lightBox.style.visibility = 'visible'
 						lightBox.style.display = "block";
-						bannerMousewheelClose();
+						bannerMousewheelClose();//首頁才需要
 						allNavClose();
 					}
 				}

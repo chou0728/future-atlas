@@ -7,6 +7,9 @@ if(isset($_SESSION["login_error"]) === true){
 }else if(isset($_SESSION["log_register"])===true){
 	echo "<script>alert('註冊成功，歡迎你~~');</script>";
 	unset($_SESSION["log_register"]);
+}else if(isset($_SESSION["no_login"])==true){
+	echo "<script>alert('立即成為會員，買票後即可評價(評價可獲得積分喔!)');</script>";
+	unset($_SESSION["no_login"]);
 }
 ?>
 <!DOCTYPE html>
@@ -303,7 +306,7 @@ try {
 					<div class="points_cover">
 						<?php
 							$_facility_no = $prodRow->facility_no;
-							$sql = "select comment_grade from facility_order_item where facility_no = $_facility_no";
+							$sql = "select comment_grade from facility_comment where facility_no = $_facility_no";
 							$rating = $pdo->query($sql);
 							$b = 0;//數量
 							$r = 0;//分數
@@ -331,7 +334,7 @@ try {
 					</div>
 				</div>
 				<div class="mobile375_points">
-					分數:<span>0/5</span>
+					分數:<span><?php echo $av ?>/5</span>
 				</div>
 
 				<div class="category">
@@ -446,7 +449,7 @@ try {
 								</div>
 						</li>
 						<li class="kai"></li>
-						<li id="goComment">前往評價</li>
+						<li id="goComment" data-facilityNo="">前往評價</li>
 					</ul>
 				</div>
 				<div id="comment">
@@ -485,9 +488,9 @@ try {
 			</form>
 		</div>
 
-	<script src="https://code.jquery.com/jquery-3.2.1.js" defer></script>
-	<script src="js/facilityInfo_main.js" defer></script>
-	<script src="js/00nav.js" defer></script>
+	<script src="https://code.jquery.com/jquery-3.2.1.js"></script>
+	<script src="js/facilityInfo_main.js"></script>
+	<script src="js/00nav.js"></script>
 	<script src="js/page_load_unload.js" defer></script>
 	<script type="text/javascript">
 		//-登入-----------------------------------
@@ -597,7 +600,7 @@ function ajax_lightbox(e) {
                 var counts = document.getElementsByClassName('kai')[0];
                 var comment = document.getElementById("comment");
                 var star_points_bar = document.getElementById('star_points_bar');
-
+                var goComment = document.getElementById('goComment');
                 var facility = JSON.parse(xhr.responseText);//將透過ajax傳回來的json型態的資料轉換成js的物件
 
 
@@ -625,6 +628,7 @@ function ajax_lightbox(e) {
 				
 				comment.innerHTML = facility.comment;
 				star_points_bar.style.width = facility.width + "%";
+				goComment.dataset.facilityNo = facility.facility_no;
 				               
 
 
@@ -640,6 +644,7 @@ function ajax_lightbox(e) {
         xhr.send(null);
 
     };
+
 </script>
 	
 </body>
