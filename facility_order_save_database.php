@@ -115,7 +115,6 @@ body{
 try{
 	require_once("php/connectBooks.php");
 	//啟動交易管理
-	// $pdo->beginTransaction();
 
 	$mem_id = $_SESSION["mem_id"];
 	$subtotal = $_REQUEST["cart_sub_total_hidden"];
@@ -123,7 +122,7 @@ try{
 	$credit_card_num = $_REQUEST["credit_card1"].$_REQUEST["credit_card2"].$_REQUEST["credit_card3"].$_REQUEST["credit_card4"];
 	$order_date = date("Y"."/"."m"."/"."d");
 	// 訂單主檔
-	$sql_order = "insert into facility_order (member_id, order_date, original_total, discount, creditcard_num)
+	$sql_order = "insert into facility_order (mem_id, order_date, original_total, discount, creditcard_num)
 values (:mem_id,:order_date,:subtotal, :discount, :credit_card_num);";
 	
 	$order = $pdo->prepare($sql_order);
@@ -140,10 +139,13 @@ values (:mem_id,:order_date,:subtotal, :discount, :credit_card_num);";
 	// 訂單副檔
 	$newStr = explode('/',$_REQUEST["sql_order_item"]);
 	$sql_order_item = implode($order_no, $newStr);
-	$ul4 = -(strlen($sql_order_item));
+  // $ul4 = -(strlen($sql_order_item));
 	$orderItems = $pdo -> prepare($sql_order_item);
-	$orderItems -> bindParam(":order_no",$order_no);
+	$orderItems -> bindParam(":order_no", $order_no);
 	$orderItems -> execute();
+
+  // update mem_id
+
 
   // 產生要傳送給驗票介面的cookie
   setcookie('order_id',$pure_no);
@@ -180,7 +182,6 @@ $(document).ready(function(){
   storage.removeItem("facility_ticket_list");
   for(var i=11;i>=0;i--){
     storage.removeItem(i);
-    console.log("清除2");
   }
 });
 </script>

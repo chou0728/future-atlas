@@ -113,7 +113,7 @@ if(isset($_SESSION["login_error"]) === true){
                 <span class="login">
                 	<?php
                 		if(isset($_SESSION["mem_id"])===true){
-                			echo"登出";
+                			echo"<a href='logoutheadforindex.php'>登出</a>";
                 		}else{
                 			echo"登入";
                 		}
@@ -1063,8 +1063,8 @@ if(isset($_SESSION["login_error"]) === true){
 					<br>
 				</div>
 				        <div class="btn">
+				            <input type="reset" name="reset" value="重填">
 				            <input type="submit" name="" id="submit" value="登入">
-				            <input type="reset" name="reset" value="RESET">
         				</div>
 			</form>
 		</div>
@@ -1193,7 +1193,7 @@ if(isset($_SESSION["login_error"]) === true){
 						fullCover.style.display="block";
 						lightBox.style.visibility = 'visible'
 						lightBox.style.display = "block";
-						bannerMousewheelClose();
+						bannerMousewheelClose();//首頁才需要
 						allNavClose();
 					}
 				}

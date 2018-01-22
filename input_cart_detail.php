@@ -30,34 +30,6 @@ body::-webkit-scrollbar-thumb {
 }
 </style>
 <body>
-<div class="header">
-    <ul class="ul_top">
-        <div class="lever">
-            <img src="img/Usericon1.png">
-        </div>
-        <li class="li_top">
-            <a href="SignUp.html" id="registerUser">
-                <img src="img/member/member_0.png">
-                <span class="register">註冊</span>
-            </a>
-        </li>
-        <li class="li_top">
-            <a href="#" id="singUpBtn">
-                <img src="img/member/member_1.png">
-                <span class="login">登入</span>
-            </a>
-        </li>
-        <li class="li_top">
-             <a href="input_cart.html">
-                <img id="cartimgid" src="img/cart/wallet_0.png">
-                <span id="howmanytickets">0</span>
-            </a>
-                <div id="showCartContent">購物車內容
-                    <table id="showCartContenttb"></table>
-                </div>
-        </li>
-    </ul>
-</div>
 <div class="nav">
     <div class="ul_box">
         <ul class="ul_left">
@@ -121,12 +93,12 @@ body::-webkit-scrollbar-thumb {
 	<table id="ticket_rows" cellspacing="0">
 		<tr><th colspan="8" class="tbtitle" id="detail_row_title" style="font-size: 24px;">訂單明細</th></tr>
 		<tr id="ticket_row">
-			<th id="fn_th">設施編號</th>
+			<th id="fn_th">編號</th>
 			<th id="fname_th">設施名稱</th>
 			<th id="tt_th">票種</th>
 			<th id="fare_th">票價</th>
 			<th id="tn_th" style='text-align: right'>張數</th>
-			<th id="subtotal_th" style='text-align: right' colspan="2">小計</th
+			<th id="subtotal_th" style='text-align: right'>小計</th
 			>
 		</tr>
 		<tr id="input_discount"><th colspan="8" class="title">選擇是否使用積分</th></tr>
@@ -135,7 +107,6 @@ body::-webkit-scrollbar-thumb {
 				<input type="radio" name="points" class="points"> 之後再使用
 				<input type="radio" name="points" class="points"> 使用
 				<input type="number" id="points" class="points" min="0" value="0"> 點
-				<div id="points_confirm">確定</div>
 					<div id="points_remain">(剩餘點數：
 						<span id="points_remain_input"></span>)點
 					</div>
@@ -200,13 +171,12 @@ body::-webkit-scrollbar-thumb {
 				<input type="text" size="4" minlength="4" maxlength="4" id="credit_card4" name="credit_card4" onkeyup="this.value=this.value.replace(/[^0-9]/g,'')" required>
 			</td>
 		<tr>
-			<td>到期年月</td><td>驗證碼</td>
+			<td>到期年月 / 驗證碼</td>
 		</tr>
 		<tr>
 			<td>
 				<input type="text" maxlength="2" min="1" max="12" id="credit_card5" onkeyup="setBlur(this,'credit_card6');this.value=this.value.replace(/[^0-9]/g,'')">/
 				<input type="text" maxlength="2" id="credit_card6" onkeyup="setBlur(this,'credit_card7');this.value=this.value.replace(/[^0-9]/g,'')">
-			<td>
 				<input type="text" maxlength="3" id="credit_card7" onkeyup="this.value=this.value.replace(/[^0-9]/g,'')"></td>
 			</td>
 		</tr>
@@ -214,11 +184,11 @@ body::-webkit-scrollbar-thumb {
 	</table>
 
 <div id="button">
-	<a href="input_cart.php" class="highlight" id="backToShop">上一步</a>
-	<input type="submit" name="" id="nextStep" class="highlight" value="確認結帳">
+	<a href="input_cart.php" class="highlight" id="backToShop"><input type="button" name="" value="上一步"></a>
+	<a class="highlight"><input type="submit" name="" id="nextStep" class="highlight" value="確認結帳"></a>
 </div>
 </form>
-<script src="js/00nav.js"></script>
+<!-- <script src="js/00nav.js"></script> -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script type="text/javascript">
 window.addEventListener("load",showMemberInfo);
@@ -243,15 +213,8 @@ function showMemberInfo(){
 	var url = "show_member_info.php?mem_id=" + mem_id;
 	xhr.open("get",url, true);
 	xhr.send(null);
-
-	// 會員面板顯示改為登入狀態
-	var storage = localStorage;
-	if( storage.getItem("mem_id") > 0){
-		$(".register").text("我的資料");
-		$(".login").text("登出");
-		$(".login").prev().attr("src","img/member/member_2.png");
-	}
 }
+
 
 function bindToHiddenName(){
 	document.getElementById("cart_sub_total_hidden").value = document.getElementById("cart_sub_total").innerHTML;
