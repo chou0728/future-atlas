@@ -437,7 +437,14 @@ try {
 				<div class="scoreContainer">
 					<ul>
 						<li class="scoreAverage"></li>
-						<li class="star">★★★★★</li>
+						<li class="star">
+								<div class="points_cover">
+									<span class="points_bar_bo">
+									<span class="points_bar" id="star_points_bar"></span>
+
+									<img src="img/facilityInfo/ratingCover_g.png" alt="cover">
+								</div>
+						</li>
 						<li class="kai"></li>
 					</ul>
 				</div>
@@ -588,6 +595,7 @@ function ajax_lightbox(e) {
                 var scoreAverage = document.getElementsByClassName('scoreAverage')[0];
                 var counts = document.getElementsByClassName('kai')[0];
                 var comment = document.getElementById("comment");
+                var star_points_bar = document.getElementById('star_points_bar');
 
                 var facility = JSON.parse(xhr.responseText);//將透過ajax傳回來的json型態的資料轉換成js的物件
 
@@ -615,7 +623,7 @@ function ajax_lightbox(e) {
 				counts.innerHTML = "總評分次數<span>"+facility.counts+"</span>次";
 				
 				comment.innerHTML = facility.comment;
-				
+				star_points_bar.style.width = facility.width + "%";
 				               
 
 
