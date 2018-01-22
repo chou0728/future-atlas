@@ -52,11 +52,22 @@ CREATE TABLE `facility` (
   `half_fare` int(11),
   `info_already` tinyint(1) NOT NULL DEFAULT '0',
   `ticket_already` tinyint(1) NOT NULL DEFAULT '0',
-  `comment_content` varchar(200) COLLATE utf8_unicode_ci DEFAULT NULL COMMENT '預設:NULL',
-  `comment_grade` int(11) NOT NULL DEFAULT '0' COMMENT '1-5分',
-  `comment_timestamp` datetime NOT NULL,
-  `comment_status` tinyint(1) NOT NULL DEFAULT '0' COMMENT '1:已評價 0:未評價',
   PRIMARY KEY (facility_no) -- PK
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+
+
+
+-- 資料表`facility_comment`   
+
+CREATE TABLE `facility_comment` (
+  `facility_no` int(11) NOT NULL COMMENT 'PK,FK',
+  `comment_content` varchar(200) COLLATE utf8_unicode_ci DEFAULT '' COMMENT '預設空值',
+  `comment_grade` int(11) NOT NULL DEFAULT '0' COMMENT '1-5分',
+  `comment_timestamp` datetime,
+  `comment_status` tinyint(1) NOT NULL DEFAULT '0' COMMENT '1:已評價 0:未評價',
+  PRIMARY KEY (facility_no), -- PK
+  KEY (facility_no) -- FK
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 
@@ -107,9 +118,9 @@ CREATE TABLE `facility_order_item` (
 
 CREATE TABLE `member` (
   `mem_id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'PK',
-  `mem_nick` varchar(10) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
-  `password` varchar(20) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL COMMENT '最少6碼，最多20碼',
-  `mem_name` varchar(20) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL COMMENT '最少6碼，最多20碼',
+  `mem_name` varchar(20) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL COMMENT '帳號(62~0碼)',
+  `password` varchar(20) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL COMMENT '密碼(6~20碼)',
+  `mem_nick` varchar(10) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL COMMENT '暱稱',
   `mem_points` int(11) NOT NULL,
   `mem_permissions` tinyint(1) NOT NULL COMMENT '1:可對設施留言 0:不可對設施留言',
   `mem_mail` varchar(50) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,

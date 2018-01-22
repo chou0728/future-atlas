@@ -74,11 +74,7 @@
     clear: both;
 }
 
-.cont .leftBox .leftContent{
-   /* min-width: 100%;*/
-    
-    
-}
+
 .cont .leftBox h3{
     text-align: center;
     color: #fff;
@@ -181,9 +177,23 @@
     float: left;
     box-sizing: border-box;
     padding: 35px 0px 50px 0px;
+    position: relative;
 }
-.cont .midBox .midContent{
+.cont .midBox .midContent_1{
     min-width: 100%;  
+    position: absolute;
+    
+}
+.cont .midBox .midContent_2{
+    min-width: 100%;  
+    position: absolute;
+    opacity: 0;
+    
+}
+.cont .midBox .midContent_3{
+    min-width: 100%;  
+    position: absolute;
+    opacity: 0;
 }
 
 .cont .midBox:after{
@@ -310,7 +320,8 @@
     border-right: 3px solid rgb(76, 216, 221);
     height: 100%;
     width: 1%;
-    animation: scanTwo 2s infinite alternate linear;
+    animation: scanTwo 3s infinite alternate linear;
+    z-index: 99;
 }
 .cont .rightBox .visual2 {
     width: 100%;
