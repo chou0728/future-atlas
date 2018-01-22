@@ -2,8 +2,11 @@
 ob_start();
 session_start();
 //請複製:當無登入時會自動跳轉至登入頁面
+if(!isset($_SESSION["login_success"])){
     header("location:manager_login.php");
     exit;
+}
+   
 ?>
 
 
