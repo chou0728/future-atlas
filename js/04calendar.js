@@ -173,16 +173,24 @@ function getDate(){
 	show_activity(d.getDate());	
 }
 
+// 顯示今日活動
 function show_activity(activity_date){
 	var xhr = new XMLHttpRequest();
 	xhr.onload = function(){
 		if( xhr.readyState === 4 && xhr.status === 200){ //OK
     		// show活動內容
     		var activities = xhr.responseText.split("|");
-    		var innerPage = activities[0]+activities[2]+activities[4];
-    		var index 	  = activities[1]+activities[3]+activities[5];
-    		$("#showRowUnitWrapper").html(innerPage);
-    		$("#activity").html(index);
+    		var innerPage = "";
+    		var index 	  = "";
+    		for(var i=0;i<=activities.length; i++){
+    			if(i%2 == 0){ // 偶數：串活動
+    				innerPage += activities[i];
+    			}else{ // 奇數：串日期
+    				index += activities[i];
+    			}
+	    		$("#showRowUnitWrapper").html(innerPage);
+	    		$("#activity").html(index);
+    		}
 		}
 	}
 	var url = "show_activity.php?activity_date=" + activity_date;
@@ -227,12 +235,12 @@ function autoIconLoop1(){
 };
 function autoIconLoop2(){
 	$(".claContent").html("").css("font-size","16px");
-	$(".claContent:eq(5)").append("旋轉木馬");
-	$(".claContent:eq(10)").append("VR體驗");
-	$(".claContent:eq(15)").append("碰碰車");
-	$(".claContent:eq(20)").append("摩天輪");
-	$(".claContent:eq(25)").append("海盜船");
-	$(".claContent:eq(30)").append("未來鐵道");
+	$(".claContent:eq(6)").append("宇宙雲霄飛車");
+	$(".claContent:eq(17)").append("FA摩天輪");
+	$(".claContent:eq(20)").append("OCT-R5大戰");
+	$(".claContent:eq(8)").append("FA飛行船");
+	$(".claContent:eq(12)").append("時空探險");
+	$(".claContent:eq(26)").append("未來遊園車");
 	$("#icon2").css("background-color","orange").fadeIn();
 	$(".icons").not("#icon2").css("background-color","transparent");
 };
