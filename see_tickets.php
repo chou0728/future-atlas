@@ -112,7 +112,7 @@ if(isset($_SESSION["login_error"]) === true){
                 </li>
             </ul>
             <h1 style="display: none">FutureAtlas_未來主題樂園</h1>
-            <a href="#page1" class="logo_a">
+            <a href="====index.php" class="logo_a">
                 <img src="img/LOGO.png" class="logo">
             </a>
             <ul class="ul_right">
@@ -147,7 +147,7 @@ if(isset($_SESSION["login_error"]) === true){
     <div class="wrapper">
         <div class="content">
             <div class="tickets_area">
-                <h2>設施票券</h2>
+                <h2 id="see_f_tickets">設施票券</h2><!-- id為RWD用-->
 
                 <?php
                    
@@ -211,7 +211,7 @@ if(isset($_SESSION["login_error"]) === true){
                     <!-- <iframe src="vaild_facility_tickets.html" frameborder="0" id="vaild_facility_tickets" name="vaild_facility_tickets"></iframe> -->
             </div>
             <div class="tickets_area">
-                <h2>劇場票券</h2>
+                <h2 id="see_t_tickets">劇場票券</h2>
 
                 <?php
 
@@ -271,8 +271,8 @@ if(isset($_SESSION["login_error"]) === true){
 
             </div>
         </div>
-
- <!-- <script src="js/00nav.js"></script> -->
+<script src="https://code.jquery.com/jquery-3.2.1.js"></script>
+<script src="js/00nav.js"></script>
 <script>
 window.onload = function(){
 
@@ -303,6 +303,7 @@ function checkRateOrNot(){
 
         }else{//已評價
             rate_faci[i].innerHTML = "已評價";
+            rate_faci[i].style.backgroundColor = "rgba(80,80,80)";
             rate_faci[i].addEventListener('click',function(){
                alert("您已評價過");
             })

@@ -1,3 +1,16 @@
+<?php
+ob_start();
+session_start();
+if(isset($_SESSION["login_error"]) === true){
+    echo "<script>alert('帳密錯誤！請新登入');</script>";
+    unset($_SESSION["login_error"]);
+}else if(isset($_SESSION["log_register"])===true){
+    echo "<script>alert('註冊成功，歡迎你~~');</script>";
+    unset($_SESSION["log_register"]);
+}
+?>
+
+
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -10,11 +23,76 @@
 </head>
 
 <body>
+        <!-- header -->
+    
+<div class="header">
+    <ul class="ul_top">
+        <li class="li_top">
+            <a href=<?php
+                if(isset($_SESSION["mem_id"])===true){
+                            echo "'javascript:void(0)'";
+                        }else{
+                            echo "'register.html'";
+                        }
+            ?> id="registerUser">
+                <img src=<?php
+                        if(isset($_SESSION['mem_id'])===true){
+                            echo 'img/member/member_3.png';
+                        }else{
+                            echo 'img/member/member_0.png';
+                        }
+                    ?>
+                >
+                <span class="register">
+                    <?php
+                        if(isset($_SESSION["mem_id"])===true){
+                            echo "<a href='MembersOnly.html'>帳戶</a>";
+                        }else{
+                            echo "註冊";
+                        }
+                    ?>
+                </span>
+            </a>
+        </li>
+        <li class="li_top">
+            <a href=<?php
+                        if(isset($_SESSION["mem_id"])===true){
+                            echo"'logoutheadforindex.php'";
+                        }else{
+                            echo"'javascript:void(0)'";
+                        }
+                    ?> id="singUpBtn">
+                <img src=<?php
+                        if(isset($_SESSION['mem_id'])===true){
+                            echo 'img/member/member_2.png';
+                        }else{
+                            echo 'img/member/member_1.png';
+                        }
+                    ?>>
+                <span class="login">
+                    <?php
+                        if(isset($_SESSION["mem_id"])===true){
+                            echo"<a href='logoutheadforindex.php'>登出</a>";
+                        }else{
+                            echo"登入";
+                        }
+                    ?>
+                </span>
+            </a>
+        </li>
+        <li class="li_top">
+             <a href="input_cart.php">
+                <img id="cartimgid" src="img/cart/wallet_0.png">
+                <span id="howmanytickets">0</span>
+            </a>
+        </li>
+    </ul>
+</div>
 <div class="nav">
     <div class="ul_box">
         <ul class="ul_left">
             <li>
-                <a href="Theaterbuyticket.php">劇場購票</a>
+                <a href="Theaterbuyticket.html">劇場購票</a>
             </li>
             <li>
                 <a href="facilityBuyTicket.php">設施購票</a>
@@ -24,12 +102,12 @@
             </li>
         </ul>
         <h1 style="display: none">FutureAtlas_未來主題樂園</h1>
-        <a href="index.html#page1" class="logo_a">
+        <a href="index.php" class="logo_a">
             <img src="img/LOGO.png" class="logo">
         </a>
         <ul class="ul_right">
             <li>
-                <a href="index.html#page2">園區地圖</a>
+                <a href="index.html#page2" id="NavClose">園區地圖</a>
             </li>
             <li>
                 <a href="activity.php">活動月曆</a>
@@ -51,6 +129,8 @@
     <img src="img/Usericon.png" class="memIcon">
     
 </div>
+
+    <!-- header end-->
 
     <!-- header end-->
 
@@ -206,6 +286,7 @@
 
 </div>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="js/00nav.js"></script>
 <script type="text/javascript">
 window.addEventListener("load",show_member_info);
 function show_member_info(){
