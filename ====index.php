@@ -788,7 +788,7 @@ if(isset($_SESSION["login_error"]) === true){
 				</li>
 				<li class="buy notcurrent">
 					<!-- <div class="cover"></div> -->
-					<a href="Theaterbuyticket.html">
+					<a href="Theaterbuyticket.php">
 						<span>立即購票</span>
 					</a>
 				</li>

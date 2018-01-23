@@ -19,6 +19,18 @@
       background-size: cover;
     */
   }
+body::-webkit-scrollbar {
+    width: 10px;
+}
+body::-webkit-scrollbar-track {
+  -webkit-border-radius: 10px;
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+}
+body::-webkit-scrollbar-thumb {
+  background-color: rgba(100,255,243,1);
+ /* outline: 1px solid rgba(100,255,243,1);*/
+}
+
   .container {
     width: 100%;
     text-align: center; 
@@ -29,7 +41,7 @@
     height: 250px;
     position: relative;
     margin: auto;
-    margin-top:15%;
+    margin-top:12%;
   }
   @media screen and (max-width:1024px) and (min-width:415px){
     .menuTheaterbuyticket{
@@ -279,8 +291,12 @@
     display:inline-block;
     color: white;
     position: absolute;
-    top:14px;
-    font-size:24px; 
+    top:12px;
+    left:50%;
+    transform: translateX(-30%);
+    font-size:26px;
+    letter-spacing: 2px;
+    font-weight: bold;
   }
 
   @media screen and (max-width:414px) {
@@ -307,7 +323,7 @@
   .toprightcanvas {
     position:relative;
     top: 0px;
-    right:50px;
+    /*right:50px;*/
   }
 
   @media screen and (max-width: 414px) {

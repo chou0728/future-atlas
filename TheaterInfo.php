@@ -8,6 +8,8 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>FA未來主題樂園 | 劇場購票-劇場節目介紹</title>
+  <link rel="icon" href="img/favicon.ico" />
   <link rel="stylesheet" type="text/css" href="css/RESET.css">
   <link rel="stylesheet" type="text/css" href="css/header.css">
   <link rel="stylesheet" href="css/Theaterinfo.css" />
@@ -182,7 +184,7 @@
       
         <div class="Menu">
           <!-- 可以按箭頭轉換順續 -->
-          <img src="img/theater_page/Recycle_arrows_3.png" style="width:40px; height:30px;" class="Recycle_arrows">
+          <img src="img/theater_page/Recycle_arrows_3.png" style="width: 40px;" class="Recycle_arrows">
           <!-- 可以變換標題 -->
           <h2 class="Menutitle" >節目介紹</h2>
         </div> 

@@ -4,7 +4,8 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-<title>lulala</title>
+<title>FA未來主題樂園 | 購物車-確認訂單明細</title>
+<link rel="icon" href="img/favicon.ico" />
 <script src="js/cart_detail.js"></script>
 <link rel="stylesheet" type="text/css" href="css/header.css">
 <link rel="stylesheet" type="text/css" href="css/cart.css">

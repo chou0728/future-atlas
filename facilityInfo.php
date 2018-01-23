@@ -32,7 +32,7 @@ if(isset($_SESSION["login_error"]) === true){
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>FA未來主題樂園|設施介紹</title>
+	<title>FA未來主題樂園 | 設施介紹</title>
 	<link rel="icon" href="img/favicon.ico" />
 	<link rel="stylesheet" type="text/css" href="css/RESET.css">
 	<link rel="stylesheet" type="text/css" href="css/header.css">
