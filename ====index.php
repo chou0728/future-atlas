@@ -1007,8 +1007,8 @@ if(isset($_SESSION["login_error"]) === true){
 							</div>
 							
 							<div class="down_button">
-								<button class="change">購買設施票券</button>
-								<button class="change">購買劇場票券</button>
+								<button class="change" onclick=" location.href='http://localhost/php/future-atlas/facilityBuyTicket.php'">購買設施票券</button>
+								<button class="change" onclick=" location.href='http://localhost/php/future-atlas/Theaterbuyticket.php'">購買劇場票券</button>
 							</div>
 							
 						</div>

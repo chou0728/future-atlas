@@ -12,6 +12,18 @@ try{
   $rating_PDO->bindValue(":facility_no",$no); 
   $rating_PDO->execute();
 
+  $sql = "select facility_no from facility where ticket_already=1";
+  $is_ticket_PDO = $pdo->query($sql);
+
+  $ta_no="0";
+  while($is_ticket= $is_ticket_PDO->fetchObject()){
+    if($is_ticket->facility_no==$no){
+        $ta_no = $is_ticket->facility_no;
+    }
+  }
+  
+
+
   if( $facility_PDO->rowCount() == 0){ //找不到的話
   
     echo "查無資料";
@@ -90,7 +102,8 @@ try{
       "av" => $av,
       "width" => $width,
       "counts" => $b,//評分幾次
-      "comment" => $comment
+      "comment" => $comment,
+      "ta_no" =>$ta_no
 
 
 
