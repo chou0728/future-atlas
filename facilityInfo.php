@@ -33,7 +33,7 @@ if(isset($_SESSION["login_error"]) === true){
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>FA未來主題樂園--設施介紹--</title>
-	<link rel="shortcut icon" href="">
+	<link rel="icon" href="img/favicon.ico" />
 	<link rel="stylesheet" type="text/css" href="css/RESET.css">
 	<link rel="stylesheet" type="text/css" href="css/header.css">
 	<link rel="stylesheet" type="text/css" href="css/facilityInfo_main.css">
@@ -137,9 +137,6 @@ if(isset($_SESSION["login_error"]) === true){
                 <img id="cartimgid" src="img/cart/wallet_0.png">
                 <span id="howmanytickets">0</span>
             </a>
-                <div id="showCartContent">預覽購物車
-                    <table id="showCartContenttb"></table>
-                </div>
         </li>
     </ul>
 </div>

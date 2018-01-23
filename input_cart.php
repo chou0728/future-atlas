@@ -54,9 +54,6 @@ body::-webkit-scrollbar-thumb {
 <body>
 <div class="header">
     <ul class="ul_top">
-        <div class="lever">
-            <img src="img/Usericon1.png">
-        </div>
         <li class="li_top">
             <a href=<?php
                 if(isset($_SESSION["mem_id"])===true){
@@ -65,17 +62,23 @@ body::-webkit-scrollbar-thumb {
                             echo "'register.html'";
                         }
             ?> id="registerUser">
-                <img src="img/member/member_0.png">
+                <img src=<?php
+                        if(isset($_SESSION['mem_id'])===true){
+                            echo 'img/member/member_3.png';
+                        }else{
+                            echo 'img/member/member_0.png';
+                        }
+                    ?>
+                >
                 <span class="register">
                     <?php
                         if(isset($_SESSION["mem_id"])===true){
-                            echo "會員專區";
+                            echo "<a href='MembersOnly.html'>帳戶</a>";
                         }else{
                             echo "註冊";
                         }
                     ?>
                 </span>
-            </a>
         </li>
         <li class="li_top">
             <a href=<?php
@@ -85,7 +88,13 @@ body::-webkit-scrollbar-thumb {
                             echo"'javascript:void(0)'";
                         }
                     ?> id="singUpBtn">
-                <img src="img/member/member_1.png">
+                <img src=<?php
+                        if(isset($_SESSION['mem_id'])===true){
+                            echo 'img/member/member_2.png';
+                        }else{
+                            echo 'img/member/member_1.png';
+                        }
+                    ?>>
                 <span class="login">
                     <?php
                         if(isset($_SESSION["mem_id"])===true){
@@ -102,9 +111,6 @@ body::-webkit-scrollbar-thumb {
                 <img id="cartimgid" src="img/cart/wallet_0.png">
                 <span id="howmanytickets">0</span>
             </a>
-                <div id="showCartContent">預覽購物車
-                    <table id="showCartContenttb"></table>
-                </div>
         </li>
     </ul>
 </div>
@@ -112,25 +118,25 @@ body::-webkit-scrollbar-thumb {
     <div class="ul_box">
         <ul class="ul_left">
             <li>
-                <a href="Theaterbuyticket.html">劇場購票</a>
+                <a href="Theaterbuyticket.php">劇場購票</a>
             </li>
             <li>
-                <a href="facilityBuyTicket.html">設施購票</a>
+                <a href="facilityBuyTicket.php">設施購票</a>
             </li>
             <li>
-                <a href="facilityInfo.html">設施介紹</a>
+                <a href="facilityInfo.php">設施介紹</a>
             </li>
         </ul>
         <h1 style="display: none">FutureAtlas_未來主題樂園</h1>
-        <a href="====index.php" class="logo_a">
+        <a href="#page1" class="logo_a">
             <img src="img/LOGO.png" class="logo">
         </a>
         <ul class="ul_right">
             <li>
-                <a href="index.html#page2" id="NavClose">園區地圖</a>
+                <a href="#page2" id="NavClose">園區地圖</a>
             </li>
             <li>
-                <a href="activity.html">活動月曆</a>
+                <a href="activity.php">活動月曆</a>
             </li>
             <li>
                 <a href="robot.html">諮詢專區</a>
@@ -150,7 +156,6 @@ body::-webkit-scrollbar-thumb {
     
 </div>
 
-    <!-- header end-->
 	<!-- 登入燈箱 -->
 <div id="all-page"></div><!-- 叫出時背景-->
 <div id="lightBox">

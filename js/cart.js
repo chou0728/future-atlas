@@ -290,8 +290,6 @@ function loginOrNot(){
 	}else if( storage.getItem("mem_id") > 0){
 		// 已經登入 
 		$("#nextStep").attr("href","input_cart_detail.php");
-		$(".register").text("我的資料");
-		$(".login").text("登出");
 		$(".login").prev().attr("src","img/member/member_2.png");
 	}else{
 		// 尚未登入
