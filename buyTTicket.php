@@ -160,7 +160,7 @@ if(isset($_SESSION["login_error"]) === true){
                     <td>場次</td>
                     <td>
                         <select id="programTime" onchange="changeEvent()" style="width:140px; font-size:23px;">
-                            <option >場次</option>
+                            <option >請選擇場次</option>
                             <option value="11:00">11:00</option>
                             <option value="14:00">14:00</option>
                             <option value="15:00">15:00</option>

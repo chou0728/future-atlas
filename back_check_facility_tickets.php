@@ -1,7 +1,34 @@
+<script>
+
+getURL();
+
+    function getURL() { //到時候要帶值進url
+            var href = location.href;
+            href = href + '?2.1.2'; //第一個數字是order_no，第二個為facility_no，第三個為mem_id
+            var index = href.indexOf('?'); //先判斷?的位置在哪(indexOf)
+            var key_str = href.substr(index + 1); //從index往後一個位置開始取字串到最後
+            var key_array = key_str.split("."); //將取回的字串分割成陣列
+            order_no = key_array[0]; //讓order_no變成全域
+            facility_no = key_array[1]; //讓facility_no變成全域
+            mem_id = key_array[2];
+
+            document.cookie = "order_no=" + order_no;
+            document.cookie = "facility_no=" + facility_no;
+            document.cookie = "mem_id=" + mem_id;
+        };
+
+
+</script>
+
+<!-- 上面這段請勿複製 只有設施驗票 跟 劇場驗票要而已-->
+
 <?php
 ob_start();
 session_start();
 //請複製:當無登入時會自動跳轉至登入頁面
+
+
+
 if(!isset($_SESSION["login_success"])){
     header("location:manager_login.php");
     exit;

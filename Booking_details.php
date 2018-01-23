@@ -225,7 +225,7 @@
                         <input type="radio" name="Scorepoints" value="0" onchange="Userpoints()">不使用積分
                         <br>
                         <input type="radio" name="Scorepoints" value="1" checked onchange="Userpoints()">使用積分
-                        <input type="text" id="Scorenumber" value="100" size=10 style="font-size:16px;" onchange="changeScoreNumber()">
+                        <input type="text" id="Scorenumber" value="10" size=10 style="font-size:16px;" onchange="changeScoreNumber()">
                     </td>
                     <td style="padding-top: 40px;" id="integral"> 
                     </td>

@@ -1,6 +1,9 @@
 
 
 	window.addEventListener('load',mapControl);
+	// ================================================= 設施詳細介紹燈箱 =========================================
+		
+
 	window.addEventListener('load',ajax_init);
 
 
@@ -13,6 +16,7 @@
 
 	function ajax_lightbox(e) {
 
+		alert('test');
 		var body = document.getElementsByTagName("body")[0];
 		lightBoxF = document.getElementById('facility01');
 		var close = document.getElementById('close');
@@ -22,21 +26,22 @@
 		close.style.display = "block";
 		// close.onclick = closelightBoxF;
 		var f_no = e.currentTarget.dataset.no;
+		
 	
 			var xhr = new XMLHttpRequest();
 			xhr.onload = function () {
 	
 				if (xhr.status == 200) {
-					var show_facility_JSON = document.getElementById("show_facility_JSON");
+					
 					var main_photo = document.getElementById('main_photo');
-					var title = document.getElementsByClassName('title')[0];
+					var title = document.getElementsByClassName('title')[6];
 					var subTitle = document.getElementsByClassName('subTitle')[0];
 					var paraLeft = document.getElementsByClassName('paraLeft')[0];
 					var heartbeat = document.getElementsByClassName('heartbeat')[0];
 					var suit = document.getElementsByClassName('suit')[0];
 					var limit = document.getElementsByClassName('limit')[0];
 					var getTicket = document.getElementById("getTicket");
-					var info = document.getElementsByClassName('info')[0];
+					var info = document.getElementsByClassName('info')[1];
 					var scoreAverage = document.getElementsByClassName('scoreAverage')[0];
 					var counts = document.getElementsByClassName('kai')[0];
 					var comment = document.getElementById("comment");
@@ -90,13 +95,11 @@
 
 
 
-
-
-
 // ======================= mapControl ===============================
 
 	function mapControl(){
 
+		
 		var hoverChangeImg = function () {
 			var facility = $(this).attr("data-facility");
 			$(this).attr('src', 'img/secondSection/' + facility + '_hover.png');

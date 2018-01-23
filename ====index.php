@@ -430,7 +430,7 @@ if(isset($_SESSION["login_error"]) === true){
 										</p>
 									</div>
 							</div>
-							<a class="open_iframe" data-no="1">了解更多</a>
+							<a class="open_iframe" href="#" data-no="1">了解更多</a>
 						</div>
 
 					</div>
@@ -488,7 +488,7 @@ if(isset($_SESSION["login_error"]) === true){
 										</div>
 								
 								</div>
-								<a class="open_iframe">了解更多</a>
+								<a class="open_iframe" href="#">了解更多</a>
 							</div>
 					</div>
 					<div class="info_content info_carousel">
@@ -545,7 +545,7 @@ if(isset($_SESSION["login_error"]) === true){
 										</div>
 								
 								</div>
-								<a class="open_iframe">了解更多</a>
+								<a class="open_iframe" href="#">了解更多</a>
 							</div>
 					</div>
 					<div class="info_content info_coffee_cup">
@@ -602,7 +602,7 @@ if(isset($_SESSION["login_error"]) === true){
 										</div>
 								
 								</div>
-								<a class="open_iframe">了解更多</a>
+								<a class="open_iframe" href="#">了解更多</a>
 							</div>
 					</div>
 					<div class="info_content info_bumper_cars">
@@ -659,7 +659,7 @@ if(isset($_SESSION["login_error"]) === true){
 										</div>
 								
 								</div>
-								<a class="open_iframe">了解更多</a>
+								<a class="open_iframe" href="#">了解更多</a>
 							</div>
 					</div>
 					<div class="info_content info_theater">
@@ -670,7 +670,7 @@ if(isset($_SESSION["login_error"]) === true){
 							<!-- 右邊標題跟介紹 -->
 							<div class="main_content">
 								<div class="title">
-									<h2>宇宙雲霄飛車</h2>
+									<h2>test~~~~~~~</h2>
 									<small>COSMOS ROLLER COASTER</small>
 								</div>
 								<div class="information">
@@ -716,7 +716,7 @@ if(isset($_SESSION["login_error"]) === true){
 										</div>
 								
 								</div>
-								<a class="open_iframe">了解更多</a>
+								<a class="open_iframe" href="#">了解更多</a>
 							</div>
 					</div>
 				</div>
@@ -730,87 +730,7 @@ if(isset($_SESSION["login_error"]) === true){
 
 
 
-<!-- ======================================= 設施01 ======================================= -->
-<div class="facilityBox fadeout" id="facility01">
-		<section class="lightbox_wrapper">
-			<div class="main_photo">
-				<span id="main_photo"></span>
-				<h2 class="title"></h2>
-				<span class="subTitle"></span>
-			</div>
-			<div class="content">
-				
 
-				<div class="inlineB paraLeft">
-				</div>
-
-				<div class="inlineB paraRight">
-
-					<div class="parameter">
-						<div class="paraContent">
-							<span>心跳指數</span>
-							
-							<svg viewBox="0 0 54 64" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns"><defs></defs>
-							  <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" sketch:type="MSPage">
-							    <path class="beat-loader" d="M0.5,38.5 L16,38.5 L19,25.5 L24.5,57.5 L31.5,7.5 L37.5,46.5 L43,38.5 L53.5,38.5" id="Path-2" stroke-width="1" sketch:type="MSShapeGroup"></path>
-							  </g>
-							</svg>
-							<div class="heartbeat"></div>
-						</div>
-					</div>
-
-					<div class="parameter">
-						
-						<p class="paraContent middleLinehight suit">
-						</p>
-					</div>
-
-					<div class="parameter">	
-						<p class="paraContent middleLinehight limit">
-						</p>
-					</div>
-				</div>
-			</div>
-
-			<div class="hr">
-				<div class="trai"></div>	
-			</div>
-			<a href="" id="getTicket">立即前往購票</a>
-			<div class="content">
-			<div class="scoreTitle">設施介紹</div>		
-				<p class="info">
-				</p>
-			</div>
-
-
-			<div class="content">
-				<div class="scoreTitle">設施評價</div>
-				<div class="scoreContainer">
-					<ul>
-						<li class="scoreAverage"></li>
-						<li class="star">
-								<div class="points_cover">
-									<span class="points_bar_bo">
-									<span class="points_bar" id="star_points_bar"></span>
-
-									<img src="img/facilityInfo/ratingCover_g.png" alt="cover">
-								</div>
-						</li>
-						<li class="kai"></li>
-						<li id="goComment" data-facilityNo="">前往評價</li>
-					</ul>
-				</div>
-				<div id="comment">
-					<div class="memcommentBox">
-						<span class="memName">FutureAttak</span>
-						<span class="memScore">★★★★★</span>
-						<span class="memComment">noComment</span>
-					</div>
-				</div>
-			</div>
-		</section>
-	</div>
-<!-- ======================================= 設施 ======================================= -->
 
 
 
@@ -1171,8 +1091,88 @@ if(isset($_SESSION["login_error"]) === true){
 			</form>
 		</div>
 
-		<!-- iframe -->
-		<iframe id="facility01" name="iframe"></iframe>
+		<!-- ======================================= 設施01 ======================================= -->
+<div class="facilityBox fadeout" id="facility01">
+		<section class="lightbox_wrapper">
+			<div class="main_photo">
+				<span id="main_photo"></span>
+				<h2 class="title"></h2>
+				<span class="subTitle"></span>
+			</div>
+			<div class="content">
+				
+
+				<div class="inlineB paraLeft">
+				</div>
+
+				<div class="inlineB paraRight">
+
+					<div class="parameter">
+						<div class="paraContent">
+							<span>心跳指數</span>
+							
+							<svg viewBox="0 0 54 64" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns"><defs></defs>
+							  <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" sketch:type="MSPage">
+							    <path class="beat-loader" d="M0.5,38.5 L16,38.5 L19,25.5 L24.5,57.5 L31.5,7.5 L37.5,46.5 L43,38.5 L53.5,38.5" id="Path-2" stroke-width="1" sketch:type="MSShapeGroup"></path>
+							  </g>
+							</svg>
+							<div class="heartbeat"></div>
+						</div>
+					</div>
+
+					<div class="parameter">
+						
+						<p class="paraContent middleLinehight suit">
+						</p>
+					</div>
+
+					<div class="parameter">	
+						<p class="paraContent middleLinehight limit">
+						</p>
+					</div>
+				</div>
+			</div>
+
+			<div class="hr">
+				<div class="trai"></div>	
+			</div>
+			<a href="" id="getTicket">立即前往購票</a>
+			<div class="content">
+			<div class="scoreTitle">設施介紹</div>		
+				<p class="info">
+				</p>
+			</div>
+
+
+			<div class="content">
+				<div class="scoreTitle">設施評價</div>
+				<div class="scoreContainer">
+					<ul>
+						<li class="scoreAverage"></li>
+						<li class="star">
+								<div class="points_cover">
+									<span class="points_bar_bo">
+									<span class="points_bar" id="star_points_bar"></span>
+
+									<img src="img/facilityInfo/ratingCover_g.png" alt="cover">
+								</div>
+						</li>
+						<li class="kai"></li>
+						<li id="goComment" data-facilityNo="">前往評價</li>
+					</ul>
+				</div>
+				<div id="comment">
+					<div class="memcommentBox">
+						<span class="memName">FutureAttak</span>
+						<span class="memScore">★★★★★</span>
+						<span class="memComment">noComment</span>
+					</div>
+				</div>
+			</div>
+		</section>
+	</div>
+<!-- ======================================= 設施 ======================================= -->
+		
 		<div id="close">
 			<img src="img/facilityInfo/close.png">
 		</div>
@@ -1323,11 +1323,11 @@ if(isset($_SESSION["login_error"]) === true){
 					);
 			}
 
-</script>
 
 
-		<!-- 點擊變換中間內容 -->
-		<script>
+
+		// <!-- 點擊變換中間內容 -->
+	
 			window.addEventListener('load',function(){
 				// 選取button
 				let btns = document.querySelectorAll('.top_button button');
@@ -1360,6 +1360,33 @@ if(isset($_SESSION["login_error"]) === true){
 
 			});
 		
+
+// ================================================= 設施詳細介紹燈箱 =========================================
+		
+
+		
+
+
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 		</script>
 
 </body>
