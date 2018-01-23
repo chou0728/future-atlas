@@ -354,8 +354,10 @@ body::-webkit-scrollbar-thumb {
 
     
     <div class="actHr"></div>
-	<div class="recommendAct">
+    <!-- 整個活動剪影區塊 -->
+	<div class="recommendAct" id="rotatescrollWrapper">
 		<div class="blocktitle">活動剪影</div>
+		<!-- 輪播圓形 -->
 		<div id="rotatescroll">
 			<div class="viewport">
 				<ul class="overview">
@@ -371,9 +373,13 @@ body::-webkit-scrollbar-thumb {
 		<div class="thumb"></div>
 		</div>
 
+		<!-- 右方輪播方塊區 -->
 		<div id="rotatescrollBox">
+			<!-- 遮罩圖片 -->
 			<img src="img/activity/rotatescrollBox.png" class="tvbox">
+			<!-- 輪播500% -->
 			<div id="rotatescrollBoxWrapper">
+				<!-- 輪播單位 -->
 				<div class="rotatescrollBox">星際大戰變裝秀</div>
 				<div class="rotatescrollBox">機器人大賞</div>
 				<div class="rotatescrollBox">全新AR眼鏡發表會</div>
