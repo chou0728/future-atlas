@@ -38,9 +38,6 @@ if(isset($_SESSION["login_error"]) === true){
     <body class="fadeout">
     <div class="header">
         <ul class="ul_top">
-            <div class="lever">
-                <img src="img/Usericon1.png">
-            </div>
             <li class="li_top">
                 <a href=<?php
                     if(isset($_SESSION["mem_id"])===true){
@@ -98,9 +95,6 @@ if(isset($_SESSION["login_error"]) === true){
                     <img id="cartimgid" src="img/cart/wallet_0.png">
                     <span id="howmanytickets">0</span>
                 </a>
-                    <div id="showCartContent">預覽購物車
-                        <table id="showCartContenttb"></table>
-                    </div>
             </li>
         </ul>
     </div>
