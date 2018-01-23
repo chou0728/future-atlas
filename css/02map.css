@@ -433,7 +433,10 @@
       .map_wrapper .info .info_container .info_content_showup {
         display: block; }
 
-#facility01 {
+      
+        /* ========================================================= 設施燈箱 =========================================================== */
+
+/* #facility01 {
   position: fixed;
   top: 0;
   left: 0;
@@ -443,7 +446,7 @@
   overflow-y: auto;
   z-index: 999999;
   transition: 0.5s linear;
-  opacity: 0; }
+  opacity: 0; } */
 
 #close {
   width: 35px;
@@ -464,7 +467,7 @@
 
 
 
-/* =====================設施燈箱================= */
+
 
 
 /*lightBoxOuter*/
