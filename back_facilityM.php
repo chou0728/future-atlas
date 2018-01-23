@@ -10,7 +10,8 @@ if(isset($_SESSION["top_manager"])===false||isset($_SESSION["manager_name"])===f
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title>Document</title>
+	<title>FUTURE ATLAS後台管理系統</title>
+	<link rel="icon" href="img/favicon_back.ico" />
 	<link rel="stylesheet" href="css/RESET.css">
 	<link rel="stylesheet" href="css/11back_nav.css">
 	<link rel="stylesheet" href="css/back_facility_M.css">

@@ -23,13 +23,12 @@ try {
 			$_SESSION["top_manager"]  = $managerRow->top_manager;
 			$_SESSION["login_success"] = true;
 
-		
 			$order_no = $_COOKIE["order_no"];
 			$facility_no = $_COOKIE["facility_no"];
 			$mem_id = $_COOKIE["mem_id"];
 
 
-			if(!isset($order_no) || !isset($order_no) || !isset($order_no) ){ //其中有一個值不存在的話 (不是從QR code那邊掃來的)
+			if(!isset($order_no) || !isset($facility_no) || !isset($mem_id) ){ //其中有一個值不存在的話 (不是從QR code那邊掃來的)
 
 				header("location:back_facilityM.php");
 
