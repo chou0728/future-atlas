@@ -161,7 +161,7 @@ values (:mem_id,:order_date,:subtotal, :discount, :credit_card_num);";
 
 <?php
 
-	header("refresh:3; url=see_tickets.php");
+	header("refresh:2; url=see_tickets.php");
 
 	// 扣除會員積分
 	$sql_discount = "update member set mem_points = mem_points - :discount where mem_id = :mem_id";

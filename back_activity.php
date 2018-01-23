@@ -224,7 +224,7 @@ try {
 		// 抓到修改第幾列的index值
 		// 切換資料：改變外觀
 		$(".edit").click(function(){
-			var index = $(".edit").index(this) + 1;
+			var index = $(".edit").index(this);
 			$(".date").eq(index).toggleClass("editStyle");
 			$(".name").eq(index).toggleClass("editStyle");
 			$(".short").eq(index).toggleClass("editStyle");
@@ -235,7 +235,7 @@ try {
 		});
 		// 切換資料：唯獨 改成 可修改
 		$(".edit").click(function(){
-		var index = $(".edit").index(this) + 1;
+		var index = $(".edit").index(this);
 		var $date = $('.date').eq(index).children();
 		    if ($date.attr('readonly')) {
 		        $date.removeAttr('readonly');
