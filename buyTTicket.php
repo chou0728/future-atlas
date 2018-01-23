@@ -26,9 +26,6 @@ if(isset($_SESSION["login_error"]) === true){
 <body>
     <div class="header">
         <ul class="ul_top">
-            <div class="lever">
-                <img src="img/Usericon1.png">
-            </div>
             <li class="li_top">
                 <a href=<?php
                     if(isset($_SESSION["mem_id"])===true){
@@ -81,9 +78,6 @@ if(isset($_SESSION["login_error"]) === true){
                     <img id="cartimgid" src="img/cart/wallet_0.png">
                     <span id="howmanytickets">0</span>
                 </a>
-                    <div id="showCartContent">預覽購物車
-                        <table id="showCartContenttb"></table>
-                    </div>
             </li>
         </ul>
     </div>
@@ -149,10 +143,10 @@ if(isset($_SESSION["login_error"]) === true){
                     <td>
                       <!-- <input type="date" id="programDate" name="programdate" required onchange="changeDate()" style="font-size:23px;">-->
     				 <select id="theater1" onchange="changeDate()" style="font-size:23px;">
-    					<option>尋找星生命</option>
+    					<option>請選擇日期</option>
     				 </select>
     				 <select id="theater2" onchange="changeDate()" style="font-size:23px;">
-    					<option>末世決戰</option>
+    					<option>請選擇日期</option>
     				 </select>				  
                     </td>
                 </tr>
@@ -176,13 +170,13 @@ if(isset($_SESSION["login_error"]) === true){
                     <td>張數</td>
                     <td>
                         <!-- <input type="number" min="1" name="ticketNum" value="1"> -->
-                    <input style="width:60px;font-size:23px;" type="number" id="quantity" value="0" min="0" onchange="changeQuantity()" />
+                    <input style="width:60px;font-size:23px;" type="number" id="quantity" value="1" min="1" onchange="changeQuantity()" />
                     </td>
                 </tr>
                 <tr>
                     <td>總共金額</td>
                     <td id="total">
-                        0元
+                        500元
                     </td>
                 </tr>
             </table>
