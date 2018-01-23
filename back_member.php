@@ -2,11 +2,11 @@
 <?php
 ob_start();
 session_start();
-//請複製:當無登入時會自動跳轉至登入頁面
-// if(isset($_SESSION["login_success"])==false){
-//     header("location:manager_login.php");
-//     exit;
-// }
+// 請複製:當無登入時會自動跳轉至登入頁面
+if(isset($_SESSION["login_success"])==false){
+    header("location:manager_login.php");
+    exit;
+}
 ?>
 
 <!-- ===========1 end=========== -->
@@ -173,8 +173,8 @@ session_start();
                                 
                             <?php       
                                 }
-                            ?>
-                            <?php
+                            /*?>*/
+                            /*<?php*/
                             } catch (PDOException $e) {
                                 echo "錯誤原因 : " , $e->getMessage() , "<br>";
                                 echo "錯誤行號 : " , $e->getLine() , "<br>";

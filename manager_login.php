@@ -30,12 +30,13 @@ body{
 	text-align: center;
 	padding: 20px;
 	padding-bottom: 40px;
-	margin-top: 100px;
-	background-color: #555;
+	margin-top: 200px;
+	background-color: #dedede;
 }
 #loginTitle{
 	font-size: 36px;
 	margin: 20px auto;
+	color: #222;
 }
 .inputDiv{
 	margin: 20px auto;
@@ -46,26 +47,39 @@ body{
 	font-size: 16px;
 	display: inline-block;
 	position: relative;
+	color: #222;
 }
 .inputDiv input{
-	color: #222;
-	width: 50%;
-	height: 23px;
+	color: #dedede;
+	width: 160px;
+	height: 26px;
 	font-size: 16px;
-	background-color: #dedede;
+	background-color: #555;
 	border-radius: 10px;
 	text-indent: 20px;
 	box-shadow: none;
 	border: none;
 	outline: none;
+	font-weight: 200;
 }
 @media screen and (max-width: 767px){
 	#loginWrapper{
-		width: 70%;
-	}.inputTitle{
+		width: 90%;
+	}#loginTitle{
+		font-size: 28px;
+		margin-bottom: 40px;
+	}
+	.inputTitle{
+		display: block;
 		position: absolute;
-		top: 0;
-		left: 20px;
+		left: 10px;
+	}.inputDiv{
+		width: 300px;
+	}
+	.inputDiv input{
+		width: 60%;
+		display: block;
+		margin: 0 auto;
 	}
 }
 @media screen and (min-width: 768px) and (max-width: 1200px){
@@ -85,13 +99,14 @@ body{
 			text-align: center;/*文字置中*/
 			line-height: 35px;/*與height等高:文字置中*/
 			background-color: rgb(255, 193, 22);
-			color: white;
+			color: #444;
 			position: relative;
 			transition: background-color .2s linear;
 			border: none;
 			outline: none;
 			display: inline-block;
 			cursor: pointer;
+			margin: 15px 0 20px 0;
 		}.btn:nth-of-type(2){
 			margin-left: 10px;
 		}
@@ -117,7 +132,8 @@ body{
 		}
 @media screen and (max-width: 767px){
 	.btn{
-		display: block;
+		width: 100px;
+		/*display: block;*/
 		margin: 10px auto;
 	}
 }
@@ -176,11 +192,11 @@ body{
 				?>
 			</div>
 		</div>
-		<input type="text" name="manager_name" required>
+		<input type="text" name="manager_name" maxlength="20" required>
 	</div>
 	<div class="inputDiv">
 		<div class="inputTitle">密碼：</div>
-		<input type="password" name="password" required>
+		<input type="password" name="password" maxlength="20" required>
 	</div>
 	<div id="btn">
 		<input type="reset" class="btn" name="" value="重設">
