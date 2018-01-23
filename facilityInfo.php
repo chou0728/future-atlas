@@ -32,7 +32,7 @@ if(isset($_SESSION["login_error"]) === true){
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>FA未來主題樂園--設施介紹--</title>
+	<title>FA未來主題樂園|設施介紹</title>
 	<link rel="icon" href="img/favicon.ico" />
 	<link rel="stylesheet" type="text/css" href="css/RESET.css">
 	<link rel="stylesheet" type="text/css" href="css/header.css">
@@ -502,7 +502,7 @@ try {
 	<script src="https://code.jquery.com/jquery-3.2.1.js"></script>
 	<script src="js/facilityInfo_main.js"></script>
 	<script src="js/00nav.js"></script>
-	<script src="js/page_load_unload.js" defer></script>
+	<script src="js/page_load_unload.js"></script>
 	<script type="text/javascript">
 		//-登入-----------------------------------
 			function login() {

@@ -137,7 +137,7 @@ body{
 }
 .nameBox_value_place table td{
     color: #4BE9EC;
-    width: 10%;
+    width: 10%;查看會員資料
     font-size: 18px;
     height:80px;
     padding: 5px;
@@ -152,15 +152,22 @@ body{
 }
 /*右邊手機尺寸*/
 @media screen and (max-width:414px){
+    .MembersBox{
+        margin:50px auto;
+    }
    .MembersBox .content .buttonArea{
         width: 100%;
         margin: 0 auto;
-        padding: 10px 40px 0 40px;
+        padding: 10px 20px 0 20px;
         text-align: center;
         display: flex;
         flex-direction: row;
         justify-content: space-between;
    
+    }
+    .MembersBox .content .buttonArea a{
+        width: 120px;
+        letter-spacing: 2px;
     }
     .nameBox_value_place .nameBox p{
         font-size: 15px;
@@ -169,6 +176,7 @@ body{
     .nameBox_value_place{
         width: 90%;
         margin-top: 20px;
+        height: 70vh;
     }
     .nameBox_value_place .bar{
         left: 0px;
@@ -179,7 +187,9 @@ body{
     
     }
 
-    
+    .nameBox_value_place table th,.nameBox_value_place table td{
+        height: 55px;
+    }
    
 
     

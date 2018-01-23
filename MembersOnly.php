@@ -15,14 +15,47 @@ if(isset($_SESSION["login_error"]) === true){
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>FA未來主題樂園|會員專區</title>
     <link rel="stylesheet" type="text/css" href="css/RESET.css">
     <link rel="stylesheet" type="text/css" href="css/header.css">
     <link rel="stylesheet" href="css/MembersOnly.css">
-    
+    <style type="text/css">
+        
+        body::after,.facilityBox::after{
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color:#000;  /* 背景カラー */
+            z-index: 9999;  /* 一番手前に */
+            pointer-events: none;  /* 他の要素にアクセス可能にするためにポインターイベントは無効に */
+            opacity: 0;  /* 初期値 : 透過状態 */
+            -webkit-transition: opacity .4s ease;  /* アニメーション時間は 0.8秒 */
+            transition: opacity .4s ease;
+        }
+        body.fadeout::after {
+            opacity: 1;
+        }
+        .fadeout::after{
+            opacity: 1;
+        }
+        #all-page{
+            position: absolute;
+            top:0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: repeating-linear-gradient(transparent 0px, transparent 1px,transparent 1px, transparent 3px,rgba(0,0, 0,0.5) 3px, rgba(0, 0, 0,0.8) 4px);
+            background-color: #222;
+            display: none;
+            opacity: 0.7;
+        }
+    </style>
 </head>
 
-<body>
+<body class="fadeout">
         <!-- header -->
     
 <div class="header">
@@ -138,8 +171,8 @@ if(isset($_SESSION["login_error"]) === true){
         <div class="content"> 
             
             <div class="buttonArea">
-                <a href="" class="myinfo">我的資料</a>
-                <a href="" class="myticket">我的票券</a>
+                <a href="" class="myinfo">查看會員資料</a>
+                <a href="" class="myticket">查看票券</a>
             </div>
 
 
@@ -151,7 +184,7 @@ if(isset($_SESSION["login_error"]) === true){
                     <div class="nameBox">
                             <img class="imgrotate" src="img/memberOnly/memberOnly2.png" alt="我的資料">
                             <p class="place" id="mem_nick_title">
-                                AccountInfo
+                               會員資料
                             </p>
                     </div>
 
@@ -286,6 +319,7 @@ if(isset($_SESSION["login_error"]) === true){
 
 </div>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="js/page_load_unload.js"></script>
 <script src="js/00nav.js"></script>
 <script type="text/javascript">
 window.addEventListener("load",show_member_info);
