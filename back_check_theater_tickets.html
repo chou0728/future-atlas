@@ -150,6 +150,44 @@
 
 
         <script>
+
+        window.addEventListener('load', initial);   
+
+        function initial(){
+
+            var used_record = document.getElementById('used_record');
+            var submit = document.getElementById('submit');
+
+            var input_full = document.getElementById('full_num');
+            var input_hald = document.getElementById('half_num');
+
+            var unused_full = document.getElementById('unused_full');
+            var unused_half = document.getElementById('unused_half');
+            var unused_sum = document.getElementById('unused_sum');
+            var used_full = document.getElementById('used_full');
+            var used_half = document.getElementById('used_half');
+            var used_sum = document.getElementById('used_sum');
+            var order_no_span = document.getElementById('order_no');
+
+
+
+            getURL();
+            recordInitialAmount();
+            resetButton();
+            submitButton();
+            setLocalStorage();
+
+
+
+
+
+        }
+
+
+
+
+
+
         </script>
 
 
