@@ -259,19 +259,22 @@
               </div>
         </form>
     </div>
-  <!--   儲存會員資訊 -->
-  <script type="text/javascript">
-            window.onload=function (){
-                var storage = localStorage;
-                    storage.setItem("mem_id",<?php if(isset($_SESSION["mem_id"])===true){echo $_SESSION["mem_id"];}else{echo "0";} ?>);
-            };
-  </script>
 
-  <!--登入/註冊燈箱 -->
-  <script type="text/javascript">
+
+
+    <!--登入/註冊燈箱 -->
+    <script type="text/javascript">
       //-登入-----------------------------------
           window.onload = function () {
 
+            // ==============================存取會員ID開始=================
+            var storage = localStorage;
+            storage.setItem("mem_id",<?php if(isset($_SESSION["mem_id"])===true){echo $_SESSION["mem_id"];}else{echo "0";} ?>);
+          // ==============================存取會員ID結束=================
+
+
+
+          // =================登入/註冊開始==================================
             var storage = localStorage;
             /*註冊登入按鈕*/
             var singUpBtn = document.getElementById('singUpBtn');
@@ -332,8 +335,9 @@
             ?>
             );
     }
-   window.addEventListener("load",loginss);
-  </script>
+    //window.addEventListener("load",loginss);
+    // =================登入/註冊結束=================================
+    </script>
 
   <!-- 導覽列 -->
 	<script src="js/00nav.js"></script>
