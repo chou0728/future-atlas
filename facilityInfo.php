@@ -39,6 +39,7 @@ if(isset($_SESSION["login_error"]) === true){
 	<link rel="stylesheet" type="text/css" href="css/facilityInfo_main.css">
 	<link rel="stylesheet" type="text/css" href="css/login.css">
 	<style type="text/css">
+	
 		body::after,.facilityBox::after{
 			content: '';
 			position: fixed;
