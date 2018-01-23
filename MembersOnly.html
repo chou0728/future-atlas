@@ -67,23 +67,24 @@
                 <div class="nameBox_value_place">
 
                     <div class="bar"></div>
-                    
+
                     <div class="nameBox">
-                            <img src="img/memberOnly/memberOnly2.png" alt="我的資料">
+                            <img class="imgrotate" src="img/memberOnly/memberOnly2.png" alt="我的資料">
                             <p class="place" id="mem_nick_title">
                                 我的資料
                             </p>
                     </div>
 
-
+                    <div class="table">
                         <table>
-                            <tr><th>暱稱</th><td><p class="place_value mem_nick">null</p></td></tr>
-                            <tr><th>帳號</th><td><p class="place_value mem_name">null</p></td></tr>
-                            <tr><th>密碼</th><td><p class="place_value password">null</p></td></tr>
-                            <tr><th>積分</th><td><p class="place_value mem_points">null</p></td></tr>
-                            <tr><th>信箱</th><td><p class="place_value mem_mail">null</p></td></tr>
-                            <tr><th>電話</th><td><p class="place_value mem_phone">null</p></td></tr>
+                            <tr><th>暱稱 ：</th><td><p class="place_value mem_nick">null</p></td></tr>
+                            <tr><th>帳號 ：</th><td><p class="place_value mem_name">null</p></td></tr>
+                            <tr><th>積分 ：</th><td><p class="place_value mem_points">null</p></td></tr>
+                            <tr><th>信箱 ：</th><td><p class="place_value mem_mail">null</p></td></tr>
+                            <tr><th>電話 ：</th><td><p class="place_value mem_phone">null</p></td></tr>
                         </table>   
+                    </div>
+                        
 
                     </div>
                     
@@ -219,7 +220,6 @@ function show_member_info(){
         $(".mem_mail").html(xhr.responseText.split("/")[1]);
         $(".mem_points").html(xhr.responseText.split("/")[2]);
         $(".mem_name").html(xhr.responseText.split("/")[3]);
-        $(".password").html(xhr.responseText.split("/")[4]);
         $(".mem_phone").html(xhr.responseText.split("/")[5]);
         }
     }
@@ -228,5 +228,25 @@ function show_member_info(){
     xhr.send(null);
 };
 </script>
+    
+
+<script>
+    // 載入時執行函式
+    window.addEventListener("load", myFunction);
+
+    function myFunction(){
+        // 載入時執行函式將 nameBox加入一個 id 叫 rotate。
+        document.getElementsByClassName("nameBox")[0].setAttribute("id","rotate");
+
+        // 載入時bar的寬度長為100%
+        document.getElementsByClassName("bar")[0].style.width="100%";
+        // 載入時table的高度長為100%
+        document.getElementsByClassName("table")[0].style.height="100%";
+    }
+
+
+</script>
+
+
 </body>
 </html>
