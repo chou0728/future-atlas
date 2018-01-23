@@ -39,6 +39,7 @@ if(isset($_SESSION["login_error"]) === true){
 	<link rel="stylesheet" type="text/css" href="css/facilityInfo_main.css">
 	<link rel="stylesheet" type="text/css" href="css/login.css">
 	<style type="text/css">
+	
 		body::after,.facilityBox::after{
 			content: '';
 			position: fixed;
@@ -78,9 +79,6 @@ if(isset($_SESSION["login_error"]) === true){
 	
 <div class="header">
     <ul class="ul_top">
-        <div class="lever">
-            <img src="img/Usericon1.png">
-        </div>
         <li class="li_top">
             <a href=<?php
             	if(isset($_SESSION["mem_id"])===true){

@@ -31,7 +31,7 @@ try {
 
 			if(!isset($order_no) || !isset($order_no) || !isset($order_no) ){ //其中有一個值不存在的話 (不是從QR code那邊掃來的)
 
-				header("location:back_check_facility_tickets.php?");
+				header("location:back_facilityM.php");
 
 			}else{//從QR code那邊掃來的
 				header("location:http://140.115.236.72/demo-projects/BD103/BD103G3/back_check_facility_tickets.php?$order_no.$facility_no.$mem_id");
