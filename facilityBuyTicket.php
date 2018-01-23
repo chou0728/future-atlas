@@ -134,7 +134,7 @@ if(isset($_SESSION["login_error"]) === true){
         </a>
         <ul class="ul_right">
             <li>
-                <a href="index.php#page2">園區地圖</a>
+                <a href="index.php#page2" id="NavClose">園區地圖</a>
             </li>
             <li>
                 <a href="activity.php">活動月曆</a>
