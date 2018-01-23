@@ -19,7 +19,7 @@ try {
 	if($is_ticketRow->ticket_already==1){//判斷是否上架之設施(有賣票的)
 		if($_REQUEST["mem_id"]!=0){//判斷是否為會員
 			$all_comment_status="";
-			$sql = "select comment_status from facility_order_item where mem_id=:mem_id and facility_no=:facility_no order by comment_status desc";//抓是否評價過
+			$sql = "select comment_status from facility_order_item where mem_id=:mem_id and facility_no=:facility_no";//抓是否評價過
 			$check = $pdo->prepare( $sql );
 			$check->bindValue(":mem_id" , $mem_id);
 			$check->bindValue(":facility_no" , $facility_no);
