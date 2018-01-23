@@ -71,7 +71,7 @@ body{
 /*圓圈位置*/
 .nameBox_value_place .nameBox{
     position: absolute;
-    width: 150px;
+    width: 30%;
     top:-60px;
     left: -70px;
     
@@ -146,15 +146,35 @@ body{
 }
 /*右邊手機尺寸*/
 @media screen and (max-width:414px){
-    .MembersBox .content .wrapper{
-        padding-top: 0;
+   .MembersBox .content .buttonArea{
+        width: 100%;
+        margin: 0 auto;
+        padding: 10px 40px 0 40px;
+        text-align: center;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+   
     }
-    .MembersBox .content .wrapper .nameBox{
-        display: none;
+    .nameBox_value_place .nameBox p{
+        font-size: 15px;
+     
+    }
+    .nameBox_value_place{
+        width: 90%;
+        margin-top: 20px;
+    }
+    .nameBox_value_place .bar{
+        left: 0px;
     }
 
-    .MembersBox .content table{
-        display: block;
-        width: 100%;
+    .nameBox_value_place .nameBox{
+       display: none;
+    
     }
+
+    
+   
+
+    
 }
