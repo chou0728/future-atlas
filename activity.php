@@ -42,6 +42,26 @@ body::-webkit-scrollbar-thumb {
   background-color: rgba(100,255,243,1);
  /* outline: 1px solid rgba(100,255,243,1);*/
 }
+body::after,.facilityBox::after{
+	content: '';
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background-color:#000;  /* 背景カラー */
+	z-index: 9999;  /* 一番手前に */
+	pointer-events: none;  /* 他の要素にアクセス可能にするためにポインターイベントは無効に */
+	opacity: 0;  /* 初期値 : 透過状態 */
+	-webkit-transition: opacity .4s ease;  /* アニメーション時間は 0.8秒 */
+	transition: opacity .4s ease;
+}
+body.fadeout::after {
+		opacity: 1;
+}
+.fadeout::after{
+	opacity: 1;
+}
 #all-page{
 	position: fixed;
 	top:0;
@@ -55,7 +75,7 @@ body::-webkit-scrollbar-thumb {
 }
 </style>
 </head>
-<body>
+<body class="fadeout">
 <div class="header">
     <ul class="ul_top">
         <li class="li_top">
@@ -132,12 +152,12 @@ body::-webkit-scrollbar-thumb {
             </li>
         </ul>
         <h1 style="display: none">FutureAtlas_未來主題樂園</h1>
-        <a href="#page1" class="logo_a">
+        <a href="====index.php" class="logo_a">
             <img src="img/LOGO.png" class="logo">
         </a>
         <ul class="ul_right">
             <li>
-                <a href="#page2" id="NavClose">園區地圖</a>
+                <a href="====index.php#page2" id="NavClose">園區地圖</a>
             </li>
             <li>
                 <a href="activity.php">活動月曆</a>
@@ -465,6 +485,7 @@ body::-webkit-scrollbar-thumb {
 <script src="js/jquery.hoverdir.js"></script>
 <script src="js/modernizr.custom.97074.js"></script>
 <script src="js/jquery.tinycircleslider.min.js"></script>
+<script src="js/page_load_unload.js"></script>
 <script>
 	// 套件：活動剪影
 	$(document).ready(function()

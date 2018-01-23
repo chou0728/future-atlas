@@ -13,6 +13,7 @@
   <link rel="stylesheet" href="css/Theaterinfo.css" />
   <link rel="stylesheet" type="text/css" href="css/login.css">
   <script type="text/javascript" src="js/jquery-3.2.1.min.js"></script>
+  <script src="js/page_load_unload.js"></script>
   <script src="js/TheaterInfo.js"></script>
   <title>Theaterinfo</title>
   <style type="text/css">
@@ -27,9 +28,41 @@
           display: none;
           opacity: 0.7;
         }
+
+      body::after,.facilityBox::after{
+          content: '';
+          position: fixed;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          background-color:#000;  /* 背景カラー */
+          z-index: 9999;  /* 一番手前に */
+          pointer-events: none;  /* 他の要素にアクセス可能にするためにポインターイベントは無効に */
+          opacity: 0;  /* 初期値 : 透過状態 */
+          -webkit-transition: opacity .4s ease;  /* アニメーション時間は 0.8秒 */
+          transition: opacity .4s ease;
+      }
+      body.fadeout::after {
+          opacity: 1;
+      }
+      .fadeout::after{
+          opacity: 1;
+      }
+    #all-page{
+        position: absolute;
+        top:0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: repeating-linear-gradient(transparent 0px, transparent 1px,transparent 1px, transparent 3px,rgba(0,0, 0,0.5) 3px, rgba(0, 0, 0,0.8) 4px);
+        background-color: #222;
+        display: none;
+        opacity: 0.7;
+    }
     </style>
 </head>
-<body>
+<body class="fadeout">
     <div class="header">
       <ul class="ul_top">
           <li class="li_top">
@@ -51,7 +84,7 @@
                 <span class="register">
                   <?php
                     if(isset($_SESSION["mem_id"])===true){
-                      echo "<a href='MembersOnly.html'>帳戶</a>";
+                      echo "<a href='MembersOnly.php'>帳戶</a>";
                     }else{
                       echo "註冊";
                     }
@@ -101,12 +134,12 @@
                 </li>
             </ul>
             <h1 style="display: none">FutureAtlas_未來主題樂園</h1>
-            <a href="#page1" class="logo_a">
+            <a href="====index.php" class="logo_a">
                 <img src="img/LOGO.png" class="logo">
             </a>
             <ul class="ul_right">
                 <li>
-                    <a href="#page2" id="NavClose">園區地圖</a><!-- ===請追加ID=== -->
+                    <a href="====index.php#page2" id="NavClose">園區地圖</a><!-- ===請追加ID=== -->
                 </li>
                 <li>
                     <a href="activity.php">活動月曆</a>
