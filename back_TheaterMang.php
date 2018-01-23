@@ -466,6 +466,7 @@ if(isset($_SESSION["login_success"])==false){
                      //  "&program_photo="+program_photo+
                        "&program_fare="+program_fare+
                        "&program_status="+program_status;
+                       //console.log(vars)
                       // alert(vars);
             //利用POST方式傳遞
             // open() 的第一個參數是 HTTP request 的方法
