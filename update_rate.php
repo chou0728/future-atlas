@@ -100,7 +100,7 @@ if($_REQUEST["order_no"] == 0){//不用買票的設施(前端送0過來)
 
                 //會員積分增加
                 $sql = "UPDATE `member` 
-                SET `mem_points` = `mem_points +10
+                SET `mem_points` = mem_points +10
                 WHERE mem_id =? ;";
                 $points_PDO = $pdo->prepare($sql);
                 $points_PDO->bindValue(1,$_SESSION["mem_id"]);
