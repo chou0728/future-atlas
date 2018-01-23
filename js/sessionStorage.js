@@ -12,7 +12,7 @@ $(document).ready(function(){
 	var print = parseInt(today.toString().substr(8,2));
 	var day = ["(日)","(一)","(二)","(三)","(四)","(五)","(六)"];
 
-	for(var i = 1; i <= 14 ; i++){
+	for(var i = 0; i <= 14 ; i++){
 		if( todayMonth == 1 && (print+i) > 31){
 			print -= 31;
 			todayMonth++;
@@ -123,6 +123,51 @@ function changeDate() {
 	//要保留	 														  
     storage.setItem("programDate", programDate);
 
+    //判斷當天購票出現場次
+    // generate programTime  select options
+	var d = new Date();
+	var n = d.getDate();
+	//var dayTime = new Date();
+	t = document.getElementById("programTime");
+	len = t.options.length;
+	// 2018-01-22
+	// if programDate not today
+	// if length != 5
+	//   length = 0
+	//   append 11,14,15,19
+	// else
+	var month = d.getMonth()+1;
+	var today= d.getFullYear()+'-'+month+'-'+n;
+	//alert("programDate:"+programDate);
+	//alert("today:"+today);
+	if(programDate != today){
+		if( len != 5){
+			t.length = 0;
+			$("select#programTime").append("<option value=場次>場次</option>");
+			$("select#programTime").append("<option value=11:00>11:00</option>");
+			$("select#programTime").append("<option value=14:00>14:00</option>");
+			$("select#programTime").append("<option value=15:00>15:00</option>");
+			$("select#programTime").append("<option value=19:00>19:00</option>");
+		}
+	} else {
+	// length = 0
+		t.length = 0;
+	// get current time
+		var hour = d.getHours();
+		$("select#programTime").append("<option value=場次>場次</option>");
+		if(hour < 11){
+			$("select#programTime").append("<option value=11:00>11:00</option>");
+		}
+		if(hour < 14){
+			$("select#programTime").append("<option value=14:00>14:00</option>");
+		}
+		if(hour < 15){
+			$("select#programTime").append("<option value=15:00>15:00</option>");
+		}
+		if(hour < 19){
+			$("select#programTime").append("<option value=19:00>19:00</option>");
+		}	
+	}
 }
 
 //改變場次之後，直接存到sessionStorage

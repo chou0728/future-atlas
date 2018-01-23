@@ -2,29 +2,67 @@
     /*outline: 1px solid red;*/
     font-family: "微軟正黑體";
 }
-table {
-    width: 80%; 
-    border:1px solid black;
-    margin:30px auto ;
-    font-size: 16px;
-    font-family: "微軟正黑體";
-}
 .titleh2{
-    margin:30px 30px;
+    margin: 20px 0;
     font-size:24px;
     text-align: center;
     font-family: "微軟正黑體";
 }
-#history_activity{
-    padding: 20px;
+/*新增活動*/
+#insert_activity_table {
+    width: 90%; 
+    margin:30px auto ;
+    font-size: 16px;
+    font-family: "微軟正黑體";
     background-color: #dedede;
 }
-#history_activity_table{
-    width: 90%;
+#insert_activity_table th{
+    height: 30px;
+    vertical-align: middle;
+    font-size: 16px;
 }
-#activity_name, #activity_short_name, #activity_intro{
-    width: 80px;
-    height: 100px;
+#insert_activity_table td{
+    height: 40px;
+    padding: 3px;
+    padding-bottom: 5px;
+}
+#activity_name{
+    width: 180px;
+}
+#activity_short_name{
+    width: 90px;
+}
+#activity_location{
+    width: 60px;
+}
+#activity_date{
+    width: 50px;
+}
+#activity_start_time,
+#activity_end_time{
+    width: 50px;
+}
+#activity_intro{
+    width: 160px;
+}
+#setup{
+    width: 160px;
+}
+
+/*表頭*/
+#history_activity_table .show_as_col,
+#insert_activity_table th{
+    height: 40px;
+    font-family: 微軟正黑體;
+    color: white;
+    text-align: center;
+    background-color: #222;
+    vertical-align: middle;
+}
+
+.history_activity_list{
+    width: 90%;
+    margin: 0 auto;
 }
 .readOnlyStyle{
     border: none;
@@ -32,8 +70,6 @@ table {
 }.editStyle{
     border: 1px solid black;
     background-color: white;
-}#history_activity_table{
-    width: 400px;
 }input.no{
     width: 30px;
 }
@@ -66,25 +102,33 @@ td.wider{
     display: table;
     font-size: 16px;
     margin: 0 auto;
+    margin-left: 5%;
 }
 .show_as_row{
+    width: 90%;
+    margin-left: 5%;
     display: table-row;
     font-size: 16px;
     background-color: #dedede;
     border-bottom: 1px solid lightblue;
 }.show_as_row:nth-of-type(odd){
-    background-color: lightblue;
+    /*background-color: lightblue;*/
 }
 .show_as_col{
     display: table-cell;
     font-size: 16px;
-    background-color: #dedede;
     height: 100%;
+    padding: 3px;
+}
+.history_activity_list:nth-child(even) .show_as_row{
+    background-color: #fafafa;
 }
 
 .date, .date input{
-    width: 30px;
-}.name, .name input{
+    width: 60px;
+    padding-left: 5px;
+}
+.name, .name input{
     width: 210px;
 }
 .start, .start input, .end, .end input{
@@ -99,13 +143,12 @@ td.wider{
     width: 110px;
 }
 .intro, .intro input{
-    width: 350px;
+    width: 330px;
 }
 .editBtn{
     width: 200px;
     text-align: center;
 }
-
 
 .operating{
     display: inline-block;

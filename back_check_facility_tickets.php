@@ -11,8 +11,8 @@ if(!isset($_SESSION["login_success"])){
 
 
 
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+<!DOCTYPE html">
+<html>
 
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
@@ -164,7 +164,7 @@ if(!isset($_SESSION["login_success"])){
                         <h2>票券資訊</h2>
                         <div class="info_used_record" id="used_record">
                             <div class="records">
-                                <h3>訂單編號：1</h3>
+                                <h3>訂單編號：<span id="order_no"></span></h3>
                                 <h3>未使用票券</h3>
                                 <div class="records_info">
                                     <p>全票：<span id="unused_full"></span>張</p>
@@ -176,7 +176,7 @@ if(!isset($_SESSION["login_success"])){
                                     <p>全票：<span id="used_full"></span>張</p>
                                      <p>半票：<span id="used_half"></span>張</p>
                                     <p>共：<span id="used_sum"></span>張</p>
-                                </div>
+                            </div>
                                 
                                 
                             </div>
@@ -223,6 +223,7 @@ if(!isset($_SESSION["login_success"])){
             var used_full = document.getElementById('used_full');
             var used_half = document.getElementById('used_half');
             var used_sum = document.getElementById('used_sum');
+            var order_no_span = document.getElementById('order_no');
 
 
 
@@ -247,6 +248,7 @@ if(!isset($_SESSION["login_success"])){
                 order_no = key_array[0]; //讓order_no變成全域
                 facility_no = key_array[1]; //讓facility_no變成全域
                 mem_id = key_array[2];
+                order_no_span.innerHTML = order_no;
                 localStorage.setItem('order_no',order_no);
                 localStorage.setItem('facility_no',facility_no);
                 localStorage.setItem('mem_id',mem_id);
@@ -256,6 +258,9 @@ if(!isset($_SESSION["login_success"])){
                 getFacility();
                 // var url_order_no = href.substr(-1);
                 // alert(url_order_no);
+
+               
+
             };
 
             function getOrder() {
@@ -284,7 +289,8 @@ if(!isset($_SESSION["login_success"])){
                         remain_half = half_fare_num - half_fare_num_used;
 
                         //將資料放入節點中
-
+                        
+                       
                         input_full.value = remain_full;
                         input_hald.value = remain_half;
                         input_full.setAttribute('max', remain_full);

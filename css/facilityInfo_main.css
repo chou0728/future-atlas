@@ -600,7 +600,7 @@ body::-webkit-scrollbar-thumb {
 		font-size:14px;
 	}
 }
-/*============================*/
+/*==========================================lightbox====================================================*/
 /*lightBoxOuter*/
 .facilityBox{
 	background-color: black;
@@ -721,6 +721,18 @@ body::-webkit-scrollbar-thumb {
 	}
 }
 /*---==*/
+#noticket{
+	display: inline-block;
+	text-align: center;
+	position: relative;
+	width: 10%;
+	letter-spacing: 2px;
+	right: -8%;
+	color: #5AE6DB;
+	font-size: 20px;
+	font-weight: bold;
+	vertical-align: middle;
+}
 #getTicket{
 	display: inline-block;
 	text-align: center;

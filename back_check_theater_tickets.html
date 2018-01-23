@@ -6,140 +6,189 @@
     <title>FA 後台</title>
     <link rel="stylesheet" type="text/css" href="css/RESET.css">
     <link rel="stylesheet" type="text/css" href="css/11back_nav.css">
-    <link rel="stylesheet" href="css/check_tickets_facility.css">
-    <link rel="stylesheet" href="css/choose_facility.css">
+    <link rel="stylesheet" type="text/css" href="css/check_theater_tickets.css">
+
 </head>
 
 <body>
     <!-- ==== header ==== -->
 
+    <!-- ==== header ==== -->
     <header>
+        <img src="img/back_menu_default.png" id="ham">
         <h1 class="logo">
             <img src="img/LOGO.png" alt="FA">
             <span>後台管理系統</span>
         </h1>
         <ul class="nav">
             <li class="navList">
-                <a href="back_check_facility_tickets.html" >設施驗票</a>
-                <span class="listcover"></span>
-                <span class="spancover"></span>
+                <a href="back_check_facility_tickets.php" >設施驗票 </a>
+                <span class="listcover" ></span>
             </li>
             <li class="navList">
-                <a href="back_check_theater_tickets.html" style="color: black;">劇場驗票</a>
+                <a href="back_check_theater_tickets.php" style="color: black;">劇場驗票</a>
                 <span class="listcover" style="width: 100%;background-color: rgba(90, 230, 219,0.9);"></span>
-                <span class="spancover"></span>
             </li>
             <li class="navList">
-                <a href="back_facilityM.html">設施管理</a>
+                <a href="back_facilityM.php">設施管理</a>
                 <span class="listcover"></span>
-                <span class="spancover"></span>
+
             </li>
             <li class="navList">
-                <a href="back_TheaterMang.html">劇場管理</a>
+                <a href="back_TheaterMang.php">劇場管理</a>
                 <span class="listcover"></span>
-                <span class="spancover"></span>
             </li>
             <li class="navList">
-                <a href="back_activity.html">活動管理</a>
+                <a href="back_activity.php">活動管理</a>
                 <span class="listcover"></span>
-                <span class="spancover"></span>
             </li>
             <li class="navList">
-                <a href="">會員管理</a>
+                <a href="back_member.php">會員管理</a>
                 <span class="listcover"></span>
-                <span class="spancover"></span>
             </li>
             <li class="navList">
                 <a href="">諮詢管理</a>
                 <span class="listcover"></span>
-                <span class="spancover"></span>
             </li>
-            <li class="navList">
-                <a href="">權限管理</a>
+            <li class="navList" <?php if($_SESSION[ "top_manager"]==0) { echo "style='display:none;'"; } ?>>
+                <a href="back_management_authority.php">權限管理</a>
                 <span class="listcover"></span>
-                <span class="spancover"></span>
             </li>
         </ul>
     </header>
     <div class="loginBox mobileLoginBox">
-        您好!
-        <span id="managerId">最高管理員</span>
-        <span id="managerName">Manna</span>
-        <a href="javascript:void(0)">登出</a>
+        <span id="hello">您好!</span>
+        <span id="managerId">
+            <?php
+        			if($_SESSION["top_manager"] == 1){
+						echo "最高管理員";
+					}else{
+						echo "管理員";
+					}
+				?>
+        </span>
+        <span id="managerName">
+            <?php echo $_SESSION["manager_name"]; ?>
+        </span>
+        <a href="manager_logout.php">登出</a>
     </div>
 
 
     <!-- === content ==== -->
+    <div class="b_content">
+        <div id="check_tickets" class="tabcontent check_tickets_wrapper">
+            <div class="content">
+                <div class="info theater_info">
 
-    <div class="back_wrapper_right">
-        <div class="b_content">
-            <!-- nav -->
-            <div class="b_sub_nav">
-                <a href="javascript:void(0)" class="b_sn_btn" onclick="openCity(event,'choose_facility')" id="active">選擇目前場次</a>
-                <a href="javascript:void(0)" class="b_sn_btn" onclick="openCity(event,'check_tickets')"> 劇場驗票</a>
-            </div>
+                    <!-- 用完跳出的遮罩 -->
+                    <div id="used_up">
+                        <span>已全數用盡</span>
+                    </div>
 
+                    <h2>節目名稱：
+                        <span id="program_name"></span>
+                    </h2>
 
-            <!-- 選擇所在場次-->
-            <div id="choose_facility" class="tabcontent choose_facility_wrapper">
-                <h1>選擇目前場次</h1>
-                <div class="content">
-                   
+                    <div class="photo" id="program_photo">
+                    </div>
+
+                    <div class="select_amount">
+                        <div>
+                            <span>可用：</span>
+                            <input id="remain_num" type="number" min="0">
+                            <span>張</span>
+                        </div>
+                    </div>
+                    <div class="button_area">
+                        <button id="submit">確定註記</button>
+                        <button id="reset">重選數量</button>
+                    </div>
 
 
                 </div>
-            </div>
+                <div class="info tickets_info">
 
+                    <h2>票券資訊</h2>
+                    <div class="info_used_record" id="used_record">
 
+                        <div class="number">
+                            <h3>票券編號：
+                                <span id="order_no">1</span>
+                            </h3>
+                            <h3>場次編號：
+                                <span id="session_no">1</span>
+                            </h3>
+                        </div>
 
-            <!-- 設施驗票 -->
-            <div id="check_tickets" class="tabcontent check_tickets_wrapper">
-                <div class="content">
-                    
-                    <!-- <div id="light_box_back">
+                        <div class="time">
+                                <h3>日期：
+                                    <span id="program_time">2018-01-11</span>
+    
+                                </h3>
+                                <h3>時間：
+                                    <span id="program_time"> 15:00</span>
+                                </h3>
+                            </div>
+                        <div class="records_info">
+
+                            <h3>未用票券：
+                                <span id="unused_num">1</span>　張</h3>
+                            <h3>已用票券：
+                                <span id="unused_num">1</span>　張</h3>
+
+                        </div>
+                        
+
 
                     </div>
-                    <div id="light_box">
-                        <div class="check_info">
-                            註記張數：全票1張 半票1張　共2張
-                        </div>
-                        <div class="button_area">
-                            <button id="cancel">取消</button>
-                            <button id="forsure">確定</button>
-                        </div>
 
-                    </div> -->
 
                 </div>
             </div>
-
-
         </div>
-    </div>
 
-    <script src="js/back_check_facility_tickets.js"></script>
-    <script>
-        function openCity(evt, list) {
 
-            var i, tabcontent, b_sn_btn;
-            tabcontent = document.getElementsByClassName("tabcontent");
-            for (i = 0; i < tabcontent.length; i++) {
-                tabcontent[i].style.display = "none";
-            }
-            b_sn_btn = document.getElementsByClassName("b_sn_btn");
-            for (i = 0; i < b_sn_btn.length; i++) {
-                b_sn_btn[i].className = b_sn_btn[i].className.replace(" active", "");
-                b_sn_btn[i].setAttribute("id", "");
-            }
-            document.getElementById(list).style.display = "block";
-            evt.currentTarget.className += " active";
 
-            evt.currentTarget.setAttribute("id", "active");
+        <script>
+
+        window.addEventListener('load', initial);   
+
+        function initial(){
+
+            var used_record = document.getElementById('used_record');
+            var submit = document.getElementById('submit');
+
+            var input_full = document.getElementById('full_num');
+            var input_hald = document.getElementById('half_num');
+
+            var unused_full = document.getElementById('unused_full');
+            var unused_half = document.getElementById('unused_half');
+            var unused_sum = document.getElementById('unused_sum');
+            var used_full = document.getElementById('used_full');
+            var used_half = document.getElementById('used_half');
+            var used_sum = document.getElementById('used_sum');
+            var order_no_span = document.getElementById('order_no');
+
+
+
+            getURL();
+            recordInitialAmount();
+            resetButton();
+            submitButton();
+            setLocalStorage();
+
+
+
+
+
         }
 
-        // Get the element with id="defaultOpen" and click on it
-        document.getElementById("active").click();
-    </script>
+
+
+
+
+
+        </script>
 
 
 </body>
