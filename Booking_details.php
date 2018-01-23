@@ -26,31 +26,32 @@
             background: repeating-linear-gradient(transparent 0px, transparent 1px,transparent 1px, transparent 3px,rgba(0,0, 0,0.5) 3px, rgba(0, 0, 0,0.8) 4px);
             background-color: rgba(0,0,0,0.5);
             opacity: 0;
-            display: none;
+            visibility: hidden;
         }
-        #buyticketlightBox{
+        #lightBox{
           width: 450px;
           height: 250px;
           border: 2px solid rgba(55,255,243,0.8);
           box-shadow: 0 0 1px rgba(55,255,243,0.8),0 0 3px rgba(55,255,243,0.5),0 0 5px rgba(55,255,243,0.3);
           background-color: black;
           position: fixed;
-          top:50%;
-          left: 50%;
+          top:0;
+          left: 0;
           padding: 15px;
-          transform: translate(-50%,-50%);
+          /*transform: translate(-50%,-50%);*/
           text-align: center;
-          opacity: 0;
-          display: none;
+          z-index: 100;
+          /*opacity: 0;*/
+          /*visibility: hidden;*/
         }
 
-        #buyticketlightBox .msg{
+        #lightBox .msg{
             padding: 15% 10%;
             height: 85%;
             color: azure;
             line-height: 24px;
         }
-        #buyticketlightBox a{
+        #lightBox a{
           /*margin: 0 30px;*/
           letter-spacing: 2px;
           padding: 5px 20px;
@@ -302,13 +303,13 @@
         </div>
     </div>
 
+    <!-- 購買成功燈箱 -->
     <div id="fullBlack">
-        <div id="buyticketlightBox" >
+        <div id="lightBox">
             <p class="msg" id="msg"></p> 
             <a href="see_tickets.php" id="confirm">確認</a>
         </div>
     </div>
-
     <!-- 測試傳到php -->
     <!-- <button  onclick="ajax_post()">php</button> -->
     
@@ -458,14 +459,17 @@
                 if(hr.readyState == 4 && hr.status == 200) {
                     var return_data = hr.responseText;
                     // document.getElementById("status").innerHTML = return_data;
-                    alert(return_data);
-                    //var buyticketlightBox = document.getElementById('buyticketlightBox');
+                    //alert(return_data);
+                    // var fullBlack = document.getElementById('fullBlack');
+                    // var lightBox = document.getElementById('lightBox');
+                    $("#fullBlack").css("visibility","visible").css("opacity","1");
+                    // $("#lightBox").css("visibility","visible").css("opacity","1").html(return_data);
                     //buyticketlightBox.style.visibility = 'visible';
                     //buyticketlightBox.style.display = 'block';
                     //document.getElementById('msg').innerHTML =return_data ;
-                    setTimeout(function(){
-                         location.href="see_tickets.php";
-                    },2000)
+                    // setTimeout(function(){
+                    //      location.href="see_tickets.php";
+                    // },2000)
                 }
             }
             // Send the data to PHP now... and wait for response to update the status div
