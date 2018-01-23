@@ -67,7 +67,7 @@
                         <p class="place" id="mem_nick_title">暱稱</p>
                     </div>
                     <div class="nameBox_value_place">
-                        <p class="place_value" id="mem_nick">null</p>
+                        <p class="place_value mem_nick">null</p>
                     </div>
                     
                 </div>
@@ -79,7 +79,7 @@
                         <p class="place" id="mem_name_title">帳號</p>
                     </div>
                     <div class="nameBox_value_place">
-                        <p class="place_value" id="mem_name">null</p>
+                        <p class="place_value mem_name">null</p>
                     </div>
                 </div>
                 
@@ -90,7 +90,7 @@
                         <p class="place" id="mem_password_title">密碼</p>
                     </div>
                     <div class="nameBox_value_place">
-                        <p class="place_value" id="password">null</p>
+                        <p class="place_value password">null</p>
                     </div>
                 </div>
 
@@ -101,7 +101,7 @@
                         <p class="place" id="mem_points_title">積分</p>
                     </div>
                     <div class="nameBox_value_place">
-                        <p class="place_value" id="mem_points">null</p>
+                        <p class="place_value mem_points">null</p>
                     </div>
                 </div>
 
@@ -109,10 +109,10 @@
                 <div class="nameBox">
                     <div class="nameBox_value">
                         <img src="img/memberOnly/memberOnly2.png" alt="信箱">
-                        <p class="place" id="mem_mail_title">信箱</p>
+                        <p class="place" class="mem_mail_title">信箱</p>
                     </div>
                     <div class="nameBox_value_place">
-                        <p class="place_value" id="mem_mail">null</p>
+                        <p class="place_value mem_mail">null</p>
                     </div>
                 </div>
 
@@ -123,7 +123,7 @@
                         <p class="place" id="mem_phone_title">電話</p>
                     </div>
                     <div class="nameBox_value_place">
-                        <p class="place_value" id="mem_phone">null</p>
+                        <p class="place_value mem_phone">null</p>
                     </div>  
                 </div>   
 
@@ -132,12 +132,12 @@
                 
                 <!-- 表格 -->
                 <table width="100%" cellpadding="20" >
-                    <tr><th width="20%">暱稱</th><td width="80%"> <p class="place_value" id="mem_nick">null</p></td></tr>
-                    <tr><th>帳號</th><td><p class="place_value" id="mem_name">null</p></td></tr>
-                    <tr><th>密碼</th><td><p class="place_value" id="password">null</p></td></tr>
-                    <tr><th>積分</th><td><p class="place_value" id="mem_points">null</p></td></tr>
-                    <tr><th>信箱</th><td><p class="place_value" id="mem_mail">null</p></td></tr>
-                    <tr><th>電話</th><td><p class="place_value" id="mem_phone">null</p></td></tr>
+                    <tr><th width="20%">暱稱</th><td width="80%"> <p class="place_value mem_nick">null</p></td></tr>
+                    <tr><th>帳號</th><td><p class="place_value mem_name">null</p></td></tr>
+                    <tr><th>密碼</th><td><p class="place_value password">null</p></td></tr>
+                    <tr><th>積分</th><td><p class="place_value mem_points">null</p></td></tr>
+                    <tr><th>信箱</th><td><p class="place_value mem_mail">null</p></td></tr>
+                    <tr><th>電話</th><td><p class="place_value mem_phone">null</p></td></tr>
                 </table>   
 
             </div>
@@ -187,8 +187,10 @@
 
 
 </div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script type="text/javascript">
-window.onload=function(){
+window.addEventListener("load",show_member_info);
+function show_member_info(){
     // 連線資料庫取得會員資料
     var storage = localStorage;
     var mem_id = storage.getItem("mem_id");
@@ -196,12 +198,12 @@ window.onload=function(){
     xhr.onload = function (){
     if( xhr.status == 200){ //OK
         //show會員資料
-        document.getElementById("mem_nick").innerHTML = xhr.responseText.split("/")[0];
-        document.getElementById("mem_mail").innerHTML = xhr.responseText.split("/")[1];
-        document.getElementById("mem_points").innerHTML = xhr.responseText.split("/")[2];
-        document.getElementById("mem_name").innerHTML = xhr.responseText.split("/")[3];
-        document.getElementById("password").innerHTML = xhr.responseText.split("/")[4];
-        document.getElementById("mem_phone").innerHTML = xhr.responseText.split("/")[5];
+        $(".mem_nick").html(xhr.responseText.split("/")[0]);
+        $(".mem_mail").html(xhr.responseText.split("/")[1]);
+        $(".mem_points").html(xhr.responseText.split("/")[2]);
+        $(".mem_name").html(xhr.responseText.split("/")[3]);
+        $(".password").html(xhr.responseText.split("/")[4]);
+        $(".mem_phone").html(xhr.responseText.split("/")[5]);
         }
     }
     var url = "show_member_info.php?mem_id=" + mem_id;

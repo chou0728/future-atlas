@@ -146,7 +146,7 @@ session_start();
                 </fieldset>
                 </div>
 
-                <!-- 評價內容、評價時間帶過去php(用ajax) -->
+                <!-- 評價內容、評價時間帶過去php(直接用form) -->
                 <div class="rate_box text_box">
                     <?php 
                    date_default_timezone_set('Asia/Taipei');
