@@ -84,29 +84,29 @@ if(isset($_SESSION["login_success"])==false){
 	<div class="back_wrapper_right">
 		<div class="b_content">
 			<div class="b_sub_nav">
-				<!-- <a href="javascript:void(0)" class="b_sn_btn" onclick="openCity(event,'insert_activity')" id="active">新增活動</a> -->
-                <!-- <a href="javascript:void(0)" class="b_sn_btn" onclick="openCity(event,'history_activity')">歷史活動</a> -->
+				<a href="javascript:void(0)" class="b_sn_btn" onclick="openCity(event,'insert_activity')" id="active">活動管理</a>
 			</div>
 	<!-- ===========請加內容至此===========-->
 	<div id="insert_activity" class="tabcontent">
 	<h2 class="titleh2">新增活動</h2>
 	<form action="insert_activity.php" method="post">
-	<table>
+	<table id="insert_activity_table">
 		<tr>
-			<th>編號</th>
-			<th>名稱</th>
-			<th>簡稱</th>
-			<th>地點</th>
-			<th>日期</th>
+			<th>活動名稱</th>
+			<th>活動簡稱</th>
+			<th>活動地點</th>
+			<th>活動日期</th>
 			<th>開始時間</th>
 			<th>結束時間</th>
-			<th>簡介</th>
+			<th>活動簡介</th>
 			<th>設定</th>
 		</tr>
-		<tr>			
-			<td name="activity_no">1</td>
-			<td><input type="textarea" wrap="hard" name="activity_name" id="activity_name" placeholder="10字內" maxlength="10" size="10" rows="2" required></td>			
-			<td><input type="textarea" wrap="hard" name="activity_short_name" id="activity_short_name" placeholder="5字內" maxlength="5" size="5" rows="2" required></td>
+		<tr>
+			<td>
+				<input type="textarea" wrap="hard" name="activity_name" id="activity_name" placeholder="10字內" maxlength="10" size="10" rows="2" required>
+			</td>			
+			<td>
+				<input type="textarea" wrap="hard" name="activity_short_name" id="activity_short_name" placeholder="5字內" maxlength="5" size="5" rows="2" required></td>
 			<td>
 				<select name="activity_location" required>
 					<option value="未來大道">未來大道</option>
@@ -118,47 +118,57 @@ if(isset($_SESSION["login_success"])==false){
 					<option value="旋轉餐廳">旋轉餐廳</option>
 				</select>
 			</td>
-			<td><input type="date" name="activity_date" required></td>
-			<td><input type="time" name="activity_start_time" required></td>
-			<td><input type="time" name="activity_end_time" required></td>
-			<td><input type="textarea" wrap="virtual" name="activity_intro" placeholder="15字內" maxlength="15" size="10" rows="3" required></td>
-			<td><input type="reset" name="">
-				<input type="submit" name="" value="上架">
+			<td>
+				<input type="number" min="1" max="31" value="1" name="activity_date" required>
+			</td>
+			<td>
+				<input type="time" name="activity_start_time" required>
+			</td>
+			<td>
+				<input type="time" name="activity_end_time" required>
+			</td>
+			<td>
+				<input type="textarea" wrap="virtual" name="activity_intro" placeholder="15字內" maxlength="15" size="10" rows="3" required>
+			</td>
+			<td id="setup"><input type="reset" name="" class="edit operating">
+				<div class="operating">
+					<input type="submit" name="" value="上架">
+				</div>
 			</td>
 		</tr>
 	</table>
 	</form>
 	</div>
 	<!-- ===========請加內容至此===========-->
-	<div id="history_activity" class="tabcontent">
-	<h2 class="titleh2">歷史活動</h2>
-	<div id="history_activity_table" class="show_as_table">
-		<div class="show_as_row">
-			<div class="date show_as_col">日期</div>
-			<div class="name show_as_col">名稱</div>
-			<div class="short show_as_col">簡稱</div>
-			<div class="location show_as_col">地點</div>
-			<div class="start show_as_col">開始時間</div>
-			<div class="end show_as_col">結束時間</div>
-			<div class="intro show_as_col">簡介</div>
-			<div class="show_as_col">設定</div>
+	<div id="history_activity" class="tabcontent"></div>
+	<h2 class="titleh2">當月活動</h2>
+		<div id="history_activity_table" class="show_as_table">
+			<div class="show_as_row">
+				<div class="date show_as_col">日期</div>
+				<div class="name show_as_col">名稱</div>
+				<div class="short show_as_col">簡稱</div>
+				<div class="location show_as_col">地點</div>
+				<div class="start show_as_col">開始</div>
+				<div class="end show_as_col">結束</div>
+				<div class="intro show_as_col">簡介</div>
+				<div class="show_as_col">設定</div>
+			</div>
 		</div>
-	</div>
 <?php
 try {
 	require_once("connectBooks.php");
-	$sql = "select * from activity order by activity_date";
+	$sql = "select * from activity order by activity_date desc";
 	$activity = $pdo->query($sql);
 	while($activityRow = $activity->fetchObject()){
 ?>
-<div class="show_as_table">
+<div class="history_activity_list" class="show_as_table">
 	<form action="update_activity.php" method="post">
 		<div class="show_as_row">
 			<div class="no show_as_col" style="display: none">
 				<input type='hidden' name="no" value="<?php echo $activityRow->activity_no ?>">
 			</div>
 			<div class="date show_as_col">
-				<input type='text' name="date" value="<?php echo $activityRow->activity_date ?>" class='data readOnlyStyle' readonly>
+				<input type='text' name="date" value="<?php echo date("M")." ".$activityRow->activity_date ?>" class='data readOnlyStyle' readonly>
 			</div>
 			<div class="name show_as_col">
 				<input type='text' name="name" value="<?php echo $activityRow->activity_name ?>" class='data readOnlyStyle' readonly>
@@ -245,10 +255,10 @@ try {
 		        $short.attr('readonly', true);
 		    }
 		var $location = $('.location').eq(index).children();;
-		    if ($short.attr('readonly')) {
-		        $short.removeAttr('readonly');
+		    if ($location.attr('readonly')) {
+		        $location.removeAttr('readonly');
 		    } else {
-		        $short.attr('readonly', true);
+		        $location.attr('readonly', true);
 		    }
 		var $start = $('.start').eq(index).children();;
 			if ($start.attr('readonly')) {

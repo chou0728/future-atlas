@@ -11,8 +11,7 @@ body {
 
 .check_tickets_wrapper {
   width: 100%;
-  max-width: 1440px;
-  padding-top: 10%; }
+  max-width: 1440px; }
   @media screen and (min-width: 415px) and (max-width: 1024px) {
     .check_tickets_wrapper {
       padding-top: 20%; } }
@@ -159,11 +158,11 @@ body {
           @media screen and (min-width: 415px) and (max-width: 1024px) {
             .check_tickets_wrapper .content .info .button_area button {
               font-size: 36px;
-              height: 100%; } }
+            height:90px; } }
           @media screen and (max-width: 414px) {
             .check_tickets_wrapper .content .info .button_area button {
               font-size: 36px;
-              height: 100%; } }
+            height:90px; } }
         .check_tickets_wrapper .content .info .button_area button:hover {
           background-color: #292929;
           color: #fff;

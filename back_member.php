@@ -2,10 +2,10 @@
 <?php
 ob_start();
 session_start();
-//請複製:當無登入時會自動跳轉至登入頁面
- if(isset($_SESSION["login_success"])==false){
-     header("location:manager_login.php");
-     exit;
+// 請複製:當無登入時會自動跳轉至登入頁面
+if(isset($_SESSION["login_success"])==false){
+    header("location:manager_login.php");
+    exit;
 }
 ?>
 
@@ -93,6 +93,8 @@ session_start();
         <div class="b_content">
             <div class="b_sub_nav">
                 <a href="javascript:void(0)" class="b_sn_btn" onclick="openCity(event,'member')" id="active">會員管理</a>
+                <!-- <a href="javascript:void(0)" class="b_sn_btn" onclick="openCity(event,'theater_session_List')">劇場場次清單</a>
+                <a href="javascript:void(0)" class="b_sn_btn" onclick="openCity(event,'theater_order_List')">劇場票劵訂單</a> -->
             </div>
 
             <!-- 劇場節目 -->
@@ -101,6 +103,7 @@ session_start();
                 
                     <h2 class="titleh2" align="center">會員管理</h2>
                     <table>
+                        <!-- <button onclick="Newprogram()"  class="Newprogram" >新增</button> -->
                         <tr>
                             <th>會員ID</th>
                             <th>帳號</th>
@@ -114,11 +117,33 @@ session_start();
                         <?php 
                             try {
                                 require_once("connectBooks.php");
+                                // require_once("connectbd103g3.php");
+                                // $recPerPage=50;
+                                // $start = 0;
+                                
+                                // $sql = "select * from member ";
+                                // $theater_program = $pdo->query($sql);
+
+                                // $total_count = $theater_program -> rowCount();  
+
+                                // $total_pages = ceil($total_count / $recPerPage ) ;
+                                // if(isset($_GET["page"])){
+                                //      $page = $_GET["page"];
+                                // }else{
+                                //     $page=1;
+                                // }
+                                //一打開停留在第一頁
+                                // $start = ($page-1) * $recPerPage;
 
                                 $sql = "select * from member  ";
                                 $member= $pdo->query($sql);
+                                // echo $total_pages;       
+                                //跑迴圈，印出資料
                                 foreach( $member as $i=>$memberRow){
                                 ?>
+                                <!-- <form method="post"   align="center" enctype="multipart/form-data"> -->
+
+                                <!-- <input type="hidden" id="program_no" name="program_no" value="<?php echo  $prodRow["program_no"] ?>"> -->
                                 <tr>
                                     <td><?php echo  $memberRow["mem_id"] ?>
                                     </td>  
@@ -144,12 +169,17 @@ session_start();
 										<?php echo  $memberRow["mem_phone"] ?>
                                     </td>
                                 </tr>
+                                <!-- </form> -->
                                 
                             <?php       
                                 }
+                            /*?>*/
+                            /*<?php*/
                             } catch (PDOException $e) {
                                 echo "錯誤原因 : " , $e->getMessage() , "<br>";
                                 echo "錯誤行號 : " , $e->getLine() , "<br>";
+                                // echo "getCode : " , $e->getCode() , "<br>";
+                                // echo "異動失敗,請聯絡系統維護人員";
                             }
                         ?>        
                     </table>              
@@ -176,6 +206,7 @@ session_start();
 
             evt.currentTarget.setAttribute("id","active");
         }
+        // Get the element with id="defaultOpen" and click on it
         document.getElementById("active").click();
 
    
