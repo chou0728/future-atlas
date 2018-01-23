@@ -15,7 +15,8 @@ if(isset($_SESSION["login_error"]) === true){
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
-<title>activity</title>
+<title>FA未來樂園 | 活動查詢</title>
+<link rel="icon" href="img/favicon.ico" />
 <link rel="stylesheet" type="text/css" href="css/activity_calendar.css">
 <link rel="stylesheet" type="text/css" href="css/header.css">
 <link rel="stylesheet" type="text/css" href="css/login.css">
@@ -347,7 +348,7 @@ body::-webkit-scrollbar-thumb {
     <div class="actHr"></div>
     <!-- 整個活動剪影區塊 -->
 	<div class="recommendAct" id="rotatescrollWrapper">
-		<div class="blocktitle">活動剪影</div>
+		<div class="blocktitle" style="text-align: left;"><span style="font-size:32px">活動剪影</span></div>
 		<!-- 輪播圓形 -->
 		<div id="rotatescroll">
 			<div class="viewport">

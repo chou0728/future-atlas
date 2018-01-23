@@ -24,19 +24,32 @@ body{
 	color: white;
 	font-family: 微軟正黑體;
 }
+
+.bgi{
+	position: fixed;
+	top:0;
+	left:0;
+	width: 100%;
+	height: 100%;
+	z-index: -100;
+	filter: brightness(0.4) blur(1.5px) sepia(0.1);
+}
+
 #loginWrapper{
-	width: 35%;
+	width: 400px;
 	margin: 50px auto 0 auto;
 	text-align: center;
 	padding: 20px;
 	padding-bottom: 40px;
 	margin-top: 200px;
-	background-color: #dedede;
+	background-color: rgba(11,51,50,0.8);
+	box-shadow: 0 0 1px rgba(55,255,243,0.8),0 0 3px rgba(55,255,243,0.5),0 0 5px rgba(55,255,243,0.3);
 }
 #loginTitle{
-	font-size: 36px;
+	font-size: 28px;
 	margin: 20px auto;
-	color: #222;
+	color: azure;
+	font-weight: normal;
 }
 .inputDiv{
 	margin: 20px auto;
@@ -47,14 +60,14 @@ body{
 	font-size: 16px;
 	display: inline-block;
 	position: relative;
-	color: #222;
+	color: azure;
 }
 .inputDiv input{
-	color: #dedede;
+	color: #222;
 	width: 160px;
 	height: 26px;
 	font-size: 16px;
-	background-color: #555;
+	background-color: #cdcdcd;
 	border-radius: 10px;
 	text-indent: 20px;
 	box-shadow: none;
@@ -94,7 +107,7 @@ body{
 		.btn{
 			font-size: 16px;
 			display: block;
-			width: 150px;/*依照自己頁面的需求自行調整*/
+			width: 90px;/*依照自己頁面的需求自行調整*/
 			height: 35px;/*依照自己頁面的需求自行調整*/
 			text-align: center;/*文字置中*/
 			line-height: 35px;/*與height等高:文字置中*/
@@ -108,7 +121,7 @@ body{
 			cursor: pointer;
 			margin: 15px 0 20px 0;
 		}.btn:nth-of-type(2){
-			margin-left: 10px;
+			margin-left: 20px;
 		}
 		.btn:after{
 			content: "";
@@ -177,7 +190,7 @@ body{
     <img src="img/Usericon.png" class="memIcon">
     
 </div>
-
+<img src="img/manager_login_bg.jpg" class="bgi">
 <div id="loginWrapper">
 <div id="loginTitle">管理員登入</div>
 <form action="manager_login_php.php" method="post">
