@@ -29,6 +29,15 @@ if($_REQUEST["order_no"] == 0){//不用買票的設施(前端送0過來)
                     $order_item_PDO->bindValue(':comment_status',1); //直接寫 1 進去
                     $order_item_PDO->execute();
 
+                    //會員積分增加
+                        $sql = "UPDATE `member` 
+                        SET `mem_points` = `mem_points +10
+                        WHERE mem_id =? ;";
+                        $points_PDO = $pdo->prepare($sql);
+                        $points_PDO->bindValue(1,$_SESSION["mem_id"]);
+                        $points_PDO->execute();
+                        
+
                     header('location:facilityInfo.php'); //寫入db後返回到查看票券頁面
 
                 }catch(PDOException $e){
@@ -88,6 +97,15 @@ if($_REQUEST["order_no"] == 0){//不用買票的設施(前端送0過來)
                 $order_item_PDO->bindValue(':comment_timestamp',$_REQUEST["comment_timestamp"]); 
                 $order_item_PDO->bindValue(':comment_status',1); //直接寫 1 進去
                 $order_item_PDO->execute();
+
+                //會員積分增加
+                $sql = "UPDATE `member` 
+                SET `mem_points` = `mem_points +10
+                WHERE mem_id =? ;";
+                $points_PDO = $pdo->prepare($sql);
+                $points_PDO->bindValue(1,$_SESSION["mem_id"]);
+                $points_PDO->execute();
+
 
                 header('location:see_tickets.php'); //寫入db後返回到查看票券頁面
 
