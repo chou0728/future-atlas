@@ -1,4 +1,5 @@
 <?php
+
 function mb_str_split($str){
   return preg_split('/(?<!^)(?!$)/u', $str );
 }

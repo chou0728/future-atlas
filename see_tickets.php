@@ -57,7 +57,7 @@ if(isset($_SESSION["login_error"]) === true){
                     <span class="register">
                         <?php
                             if(isset($_SESSION["mem_id"])===true){
-                                echo "<a href='MembersOnly.html'>帳戶</a>";
+                                echo "<a href='MembersOnly.php'>帳戶</a>";
                             }else{
                                 echo "註冊";
                             }
@@ -117,7 +117,7 @@ if(isset($_SESSION["login_error"]) === true){
             </a>
             <ul class="ul_right">
                 <li>
-                    <a href="#page2" id="NavClose">園區地圖</a>
+                    <a href="====index.php#page2" id="NavClose">園區地圖</a>
                 </li>
                 <li>
                     <a href="activity.php">活動月曆</a>
@@ -131,7 +131,6 @@ if(isset($_SESSION["login_error"]) === true){
             <div class="ham"></div>
             <div class="ham"></div>
             <div class="ham"></div>
-
             <div class="ham"></div>
         </div>
     </div>

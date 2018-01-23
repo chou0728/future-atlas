@@ -65,7 +65,7 @@ if(isset($_SESSION["login_error"]) === true){
                     <span class="login">
                         <?php
                             if(isset($_SESSION["mem_id"])===true){
-                                echo"<a href='logoutheadforindex.php'>登出</a>";
+                                echo"<a href='logoutheadforindex.php?ismp=0'>登出</a>";
                             }else{
                                 echo"登入";
                             }
