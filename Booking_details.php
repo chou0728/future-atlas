@@ -28,30 +28,30 @@
             opacity: 0;
             visibility: hidden;
         }
-        #lightBox{
-          width: 450px;
-          height: 250px;
+        #buyticketlightBox{
+          width: 350px;
+          height:100px;
+          line-height: 100px;
           border: 2px solid rgba(55,255,243,0.8);
           box-shadow: 0 0 1px rgba(55,255,243,0.8),0 0 3px rgba(55,255,243,0.5),0 0 5px rgba(55,255,243,0.3);
           background-color: black;
           position: fixed;
-          top:0;
-          left: 0;
+          top:50%;
+          left: 50%;
           padding: 15px;
-          /*transform: translate(-50%,-50%);*/
+          transform: translate(-50%,-50%);
           text-align: center;
-          z-index: 100;
-          /*opacity: 0;*/
-          /*visibility: hidden;*/
+          opacity: 0;
+          visibility: hidden;
         }
 
-        #lightBox .msg{
+        #buyticketlightBox .msg{
             padding: 15% 10%;
             height: 85%;
             color: azure;
             line-height: 24px;
         }
-        #lightBox a{
+        #buyticketlightBox a{
           /*margin: 0 30px;*/
           letter-spacing: 2px;
           padding: 5px 20px;
@@ -303,11 +303,8 @@
         </div>
     </div>
 
-    <!-- 購買成功燈箱 -->
     <div id="fullBlack">
-        <div id="lightBox">
-            <p class="msg" id="msg"></p> 
-            <a href="see_tickets.php" id="confirm">確認</a>
+        <div id="buyticketlightBox">
         </div>
     </div>
     <!-- 測試傳到php -->
@@ -460,10 +457,9 @@
                     var return_data = hr.responseText;
                     // document.getElementById("status").innerHTML = return_data;
                     //alert(return_data);
-                    // var fullBlack = document.getElementById('fullBlack');
-                    // var lightBox = document.getElementById('lightBox');
                     $("#fullBlack").css("visibility","visible").css("opacity","1");
-                    // $("#lightBox").css("visibility","visible").css("opacity","1").html(return_data);
+                    $("#buyticketlightBox").css("visibility","visible").css("opacity","1").html(return_data);
+                    //var buyticketlightBox = document.getElementById('buyticketlightBox');
                     //buyticketlightBox.style.visibility = 'visible';
                     //buyticketlightBox.style.display = 'block';
                     //document.getElementById('msg').innerHTML =return_data ;
