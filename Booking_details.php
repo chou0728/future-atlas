@@ -463,9 +463,9 @@
                     //buyticketlightBox.style.visibility = 'visible';
                     //buyticketlightBox.style.display = 'block';
                     //document.getElementById('msg').innerHTML =return_data ;
-                    // setTimeout(function(){
-                    //      location.href="see_tickets.php";
-                    // },2000)
+                    setTimeout(function(){
+                          location.href="see_tickets.php";
+                    },2000)
                 }
             }
             // Send the data to PHP now... and wait for response to update the status div
