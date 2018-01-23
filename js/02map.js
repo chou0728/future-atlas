@@ -20,8 +20,8 @@
 		lightBoxF.style.height = "100vh";
 		lightBoxF.style.opacity = "1";
 		close.style.display = "block";
-		close.onclick = closelightBoxF;
-		var f_no = e.currentTarget.parentElement.dataset.no;
+		// close.onclick = closelightBoxF;
+		var f_no = e.currentTarget.dataset.no;
 	
 			var xhr = new XMLHttpRequest();
 			xhr.onload = function () {
