@@ -150,10 +150,10 @@ if(isset($_SESSION["login_success"])==false){
                                     </td>
                                     <td >
                                         <textarea id="program_intro" name="program_intro" rows="4" cols="30" maxlength="50"  ><?php echo  $prodRow["program_intro"]?></textarea>
-                                         <!-- <input type="text" size=50  name="program_intro"  style="word-break: break-word;" cols="5" row ="5" style="height:50px;" value="<?php echo  $prodRow["program_intro"]?>"> -->
                                     </td>
                                     <td>
                                         <?php echo  $prodRow["program_photo"]?>
+                                        <!-- <img src="img/theater_page/back/Galaxy_2_m.jpg"> -->
                                     </td>
                                     <td>
                                         <input type="number" id="program_fare" name="program_fare" style="width:50px;" value="<?php echo  $prodRow["program_fare"] ?>">
