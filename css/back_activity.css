@@ -178,12 +178,13 @@ td.wider{
 }
 /*切換修改input select屬性*/
 .readOnlyStyle{
+    /*border: 1px solid transparent;*/
     background-color: transparent;
     color: #222;
 }.editStyle{
     border: none;
     background-color: pink;
-    outline: none;
+    outline: 1px solid black;
 }
 
 /*修改按鈕 切換外觀*/
