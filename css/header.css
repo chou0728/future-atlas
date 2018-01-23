@@ -13,12 +13,11 @@
 	z-index: 1000;
 	transition: .5s;
 }
-.smallnav{
-	background-color:rgb(0,12,72);
-}
+
 .navOpenBtn{
 	display: none;
 }
+
 /*768*------====================================*/
 @media screen and (max-width:1024px) {
 
@@ -96,6 +95,17 @@
 	display: inline-block;
 	width:100%;
 	height: auto;
+}
+@media screen and (min-width:1025px) {
+	.smallnav{
+		background-color:rgba(0,0,0,0.8);
+		padding-top: 0;
+		height: 60px;
+	}
+	.smallnav .logo_a{
+		width: 12%;
+		min-width: 200px;
+	}
 }
 /*768*------====================================*/
 @media screen and (max-width:1024px){
@@ -218,45 +228,7 @@
 	transition: 1s;
 	list-style: none;
 }
-.lever{
-	cursor: pointer;
-}
-@media screen and (min-width: 1024px){
-.lever{
-	position: absolute;
-	right: 45%;
-	opacity: 0;
-	top: 0;
-	width: 50px;
-	height: 50px;
-	background-color: rgb(10,25,34);
-	transition: opacity .5s -.2s,right .7s -.3s;
-	z-index: -999;
-}
-.ul_top_onScroll{
-	transform: translate(96px,0);
-}
-.leverOnScroll{
-	opacity:1;
-	right: 99%;
-	transition: .5s;
-	transition-delay: .5s;
-	z-index: -999;
-}
-.lever img{
-	width: 30px;
-	position: absolute;
-	top:0;
-	left:0;
-	right:0;
-	bottom:0;
-	margin:auto;
-	filter: brightness(0.7);
-	z-index: -1;
-}
-.lever img:hover{
-	filter: brightness(1.1);
-}
+
 }
 @media screen and (max-width: 1024px){
 	.header{

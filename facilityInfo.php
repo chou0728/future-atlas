@@ -78,9 +78,6 @@ if(isset($_SESSION["login_error"]) === true){
 	
 <div class="header">
     <ul class="ul_top">
-        <div class="lever">
-            <img src="img/Usericon1.png">
-        </div>
         <li class="li_top">
             <a href=<?php
             	if(isset($_SESSION["mem_id"])===true){
@@ -443,6 +440,7 @@ try {
 				<div class="trai"></div>	
 			</div>
 			<a href="" id="getTicket">立即前往購票</a>
+			<div id="noticket">此設施不需購票</div>
 			<div class="content">
 			<div class="scoreTitle">設施介紹</div>		
 				<p class="info">
@@ -586,7 +584,6 @@ function ajax_init(){
 
 window.addEventListener('load',ajax_init);
 function ajax_lightbox(e) {
-
 	var body = document.getElementsByTagName("body")[0];
 	lightBoxF = document.getElementById('facility01');
 	var close = document.getElementById('close');
@@ -610,6 +607,7 @@ function ajax_lightbox(e) {
                 var suit = document.getElementsByClassName('suit')[0];
                 var limit = document.getElementsByClassName('limit')[0];
                 var getTicket = document.getElementById("getTicket");
+                var noTicket = document.getElementById("noticket");
                 var info = document.getElementsByClassName('info')[0];
                 var scoreAverage = document.getElementsByClassName('scoreAverage')[0];
                 var counts = document.getElementsByClassName('kai')[0];
@@ -617,7 +615,7 @@ function ajax_lightbox(e) {
                 var star_points_bar = document.getElementById('star_points_bar');
                 var goComment = document.getElementById('goComment');
                 var facility = JSON.parse(xhr.responseText);//將透過ajax傳回來的json型態的資料轉換成js的物件
-
+                console.log(facility.ta_no);
 
                 main_photo.innerHTML = "<img src='img/facilityInfo/"+facility.facility_mphoto+"'>";
                 title.innerText = facility.facility_name;
@@ -626,11 +624,19 @@ function ajax_lightbox(e) {
                 heartbeat.innerText = facility.facility_heart;
                 suit.innerHTML = "<span>適合對象</span>"+facility.facility_suit;
                 limit.innerHTML = "<span>限制</span>"+facility.facility_limit;
-                if((facility.facility_no)==7){
+                if(facility.ta_no==0&&(facility.facility_no)==7){
+                		getTicket.style.display="";
+                		noTicket.style.display="none";
 						getTicket.href = "Theaterbuyticket.php";
-					}else{
-						getTicket.href = "facilityBuyTicket.php";
-					}
+				}else if(facility.ta_no==0){
+						getTicket.style.display="none";
+						noTicket.style.display="inline-block";	
+				}else{
+						getTicket.style.display="";
+						noTicket.style.display="none";
+						getTicket.innerHTML = "立即前往購票";
+				}
+
 				info.innerText = facility.facility_description;
 				if(facility.av == 0){
 					scoreAverage.innerHTML = "總平均<span>"+facility.av.toFixed(0)+"</span>分";

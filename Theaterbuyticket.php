@@ -34,9 +34,6 @@
 <body>
    <div class="header">
       <ul class="ul_top">
-          <div class="lever">
-              <img src="img/Usericon1.png">
-          </div>
           <li class="li_top">
             <a href=<?php
               if(isset($_SESSION["mem_id"])===true){

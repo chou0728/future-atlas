@@ -26,11 +26,12 @@
             background: repeating-linear-gradient(transparent 0px, transparent 1px,transparent 1px, transparent 3px,rgba(0,0, 0,0.5) 3px, rgba(0, 0, 0,0.8) 4px);
             background-color: rgba(0,0,0,0.5);
             opacity: 0;
-            display: none;
+            visibility: hidden;
         }
         #buyticketlightBox{
-          width: 450px;
-          height: 250px;
+          width: 350px;
+          height:100px;
+          line-height: 100px;
           border: 2px solid rgba(55,255,243,0.8);
           box-shadow: 0 0 1px rgba(55,255,243,0.8),0 0 3px rgba(55,255,243,0.5),0 0 5px rgba(55,255,243,0.3);
           background-color: black;
@@ -41,7 +42,7 @@
           transform: translate(-50%,-50%);
           text-align: center;
           opacity: 0;
-          display: none;
+          visibility: hidden;
         }
 
         #buyticketlightBox .msg{
@@ -224,7 +225,7 @@
                         <input type="radio" name="Scorepoints" value="0" onchange="Userpoints()">不使用積分
                         <br>
                         <input type="radio" name="Scorepoints" value="1" checked onchange="Userpoints()">使用積分
-                        <input type="text" id="Scorenumber" value="100" size=10 style="font-size:16px;" onchange="changeScoreNumber()">
+                        <input type="text" id="Scorenumber" value="10" size=10 style="font-size:16px;" onchange="changeScoreNumber()">
                     </td>
                     <td style="padding-top: 40px;" id="integral"> 
                     </td>
@@ -303,12 +304,9 @@
     </div>
 
     <div id="fullBlack">
-        <div id="buyticketlightBox" >
-            <p class="msg" id="msg"></p> 
-            <a href="see_tickets.php" id="confirm">確認</a>
+        <div id="buyticketlightBox">
         </div>
     </div>
-
     <!-- 測試傳到php -->
     <!-- <button  onclick="ajax_post()">php</button> -->
     
@@ -458,13 +456,15 @@
                 if(hr.readyState == 4 && hr.status == 200) {
                     var return_data = hr.responseText;
                     // document.getElementById("status").innerHTML = return_data;
-                    alert(return_data);
+                    //alert(return_data);
+                    $("#fullBlack").css("visibility","visible").css("opacity","1");
+                    $("#buyticketlightBox").css("visibility","visible").css("opacity","1").html(return_data);
                     //var buyticketlightBox = document.getElementById('buyticketlightBox');
                     //buyticketlightBox.style.visibility = 'visible';
                     //buyticketlightBox.style.display = 'block';
                     //document.getElementById('msg').innerHTML =return_data ;
                     setTimeout(function(){
-                         location.href="see_tickets.php";
+                          location.href="see_tickets.php";
                     },2000)
                 }
             }

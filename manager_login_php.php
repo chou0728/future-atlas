@@ -1,6 +1,7 @@
 <?php
 ob_start();
 session_start();
+
 try {
 	require_once("php/connectBooks.php");
 	$manager_name = $_REQUEST["manager_name"];
@@ -21,7 +22,22 @@ try {
 			$_SESSION["password"] 	  = $managerRow->password;
 			$_SESSION["top_manager"]  = $managerRow->top_manager;
 			$_SESSION["login_success"] = true;
-			header("location:back_check_facility_tickets.php");
+
+		
+			$order_no = $_COOKIE["order_no"];
+			$facility_no = $_COOKIE["facility_no"];
+			$mem_id = $_COOKIE["mem_id"];
+
+
+			if(!isset($order_no) || !isset($order_no) || !isset($order_no) ){ //其中有一個值不存在的話 (不是從QR code那邊掃來的)
+
+				header("location:back_check_facility_tickets.php?");
+
+			}else{//從QR code那邊掃來的
+				header("location:http://140.115.236.72/demo-projects/BD103/BD103G3/back_check_facility_tickets.php?$order_no.$facility_no.$mem_id");
+			}
+
+			
 		}else{
 			// 停權帳號
 			$_SESSION["banned"] = true;

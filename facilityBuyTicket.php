@@ -54,9 +54,6 @@ if(isset($_SESSION["login_error"]) === true){
 <body class="fadeout">
 <div class="header">
     <ul class="ul_top">
-        <div class="lever">
-            <img src="img/Usericon1.png">
-        </div>
         <li class="li_top">
             <a href=<?php
             	if(isset($_SESSION["mem_id"])===true){
@@ -493,7 +490,7 @@ $a+=2;
 </body>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script src="js/page_load_unload.js"></script>
-<!-- <script src="js/00nav.js"></script> -->
+<script src="js/00nav.js"></script>
 <script type="text/javascript">
 function init(){
 	//-INPUT NUMBER
