@@ -174,7 +174,7 @@ if(isset($_SESSION["login_success"])==false){
                                     </td>
                                    <td>
                                     <input type="button" href="javascript: return false;" id="Checked" onclick="ajax_UpdateProgram()" value="儲存"></input>   
-								   <!-- <button href="javascript: return false;" id="Checked" onclick="ajax_UpdateProgram()">儲存</button>  -->  
+                                   <!-- <button href="javascript: return false;" id="Checked" onclick="ajax_UpdateProgram()">儲存</button>  -->  
                                  <!-- <input type="submit" style="font-family:微軟正黑體;" value="儲存"> -->
                                     </td>
                                 </tr>
@@ -445,7 +445,7 @@ if(isset($_SESSION["login_success"])==false){
             xhr.open("Get", url, true);
             xhr.send( null );
         }
-		        //資料傳送到php
+                //資料傳送到php
         function ajax_UpdateProgram(){
             // Create our XMLHttpRequest object
             //產生XMLHttpRequest物件
@@ -455,7 +455,7 @@ if(isset($_SESSION["login_success"])==false){
            // var program_photo = document.getElementById("program_photo").value;
             var program_fare = document.getElementById("program_fare").value;
             var program_status = document.getElementById("program_status").value;
-			
+            
             var hr = new XMLHttpRequest();
             // Create some variables we need to send to our PHP file
             //把 vars裡面資輛傳到my_parse_file.php檔案(設定參數)
@@ -466,7 +466,7 @@ if(isset($_SESSION["login_success"])==false){
                      //  "&program_photo="+program_photo+
                        "&program_fare="+program_fare+
                        "&program_status="+program_status;
-					  // alert(vars);
+                      // alert(vars);
             //利用POST方式傳遞
             // open() 的第一個參數是 HTTP request 的方法
             //第二個參數是請求頁面的 URL
