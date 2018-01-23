@@ -107,7 +107,9 @@
       line-height:1.5;
       letter-spacing: 2px;
       /*border:1px solid black; */ }
-
+    .buyticketarea input:focus{
+        background-color: yellow;
+    }
     @media screen and (max-width: 414px) {
       .buyticketarea td {
         /*width: 60px;*/
