@@ -11,6 +11,7 @@ body{
 }
 .MembersBox{
     width:100%;
+    height: 50vh;
     max-width: 1200px;
     text-align: center;
     margin:  100px auto;
@@ -21,16 +22,25 @@ body{
 }
 /*按鈕*/
 .MembersBox .content .buttonArea{
-    width: 100%;
-    padding: 50px;
+    width: 40%;
+    margin: 0 auto;
+    padding-top: 50px;
+    text-align: center;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+   
 }
 .MembersBox .content .buttonArea a{
-    color: #fff;
+    width: 40%;
+    height: 50px;
+    color: #fff; 
+    border: 2px solid rgba(50,224,220,0.5);
+    border-radius: 10px;
+    text-decoration:none;
+    letter-spacing: 10px;
+    line-height: 50px;
     text-align: center;
-    padding: 15px 20px 15px 20px;
-    border: 2px solid blue;
-    margin: 40px;
-    border-radius: 10%;
 }
 /*按鈕結束*/
 
@@ -39,20 +49,22 @@ body{
 
 /*整體內容位置*/
 .nameBox_value_place{
-    width: 35%;
+    width: 40%;
+    height: 480px;
     margin: 0 auto;
     position: relative;
     margin-top: 90px;
-    background-color: rgba(50,224,220,0.5);
-    padding-top: 45px;
+    
 }
 .nameBox_value_place .bar{
     position: absolute;
-    width: 100%;
-    height: 10px;
-    top: 0;
+    width: 0;
+    height: 20px;
+    top: -2px;
     left: 15px;
-    background-color: #fff;
+    background-color: #000;
+    border: 1px solid rgba(50,224,220,0.5);
+    transition: width 0.5s;
 }
 
 
@@ -60,24 +72,48 @@ body{
 .nameBox_value_place .nameBox{
     position: absolute;
     width: 150px;
-    top:-90px;
-    left: -85px;
+    top:-60px;
+    left: -70px;
+    
 }
-.nameBox_value_place .nameBox  img{
+/*圓圈旋轉開始*/
+.nameBox_value_place .nameBox  .imgrotate{
     width: 100%;
+    transition: 0.5s ease;
+    transform: rotate(-360deg);
 }
+/*圓圈旋轉結束時角度*/
+.nameBox_value_place #rotate .imgrotate{
+   transform: rotate(0deg);
+}
+/*文字效果*/
 .nameBox_value_place .nameBox p{
     top: 50%;
     left: 26%;
+    opacity: 0;
     position: absolute;
     color: #fff;    
     font-size: 20px;
+    transition:0.5s ; 
+}
+.nameBox_value_place #rotate p{
+    opacity: 1;
 }
 /*圓圈結束*/
 
 
 
 /*表格內容位置*/
+/*表格動畫*/
+.nameBox_value_place .table{
+    width: 100%;
+    background-color: rgba(50,188,185,0.1);
+    box-shadow: 0px 0px 2px rgba(50,224,220,0.8),-1px -1px 4px rgba(50,224,220,0.5),1px 1px 6px rgba(50,224,220,0.5);
+    padding-top: 45px;
+    height: 0;
+    overflow: hidden;
+    transition: height 1s 0.4s;
+}
 .nameBox_value_place table{
     width: 100%;
 }
@@ -85,8 +121,8 @@ body{
 .nameBox_value_place table th{
     color: #FFFFFF;
     font-size: 20px;
-    width: 5%;
-    height:100px;
+    width: 8%;
+    height:80px;
     padding: 5px;
     vertical-align: middle;
     text-align: right;
@@ -97,7 +133,7 @@ body{
     color: #4BE9EC;
     width: 10%;
     font-size: 18px;
-    height:100px;
+    height:80px;
     padding: 5px;
     vertical-align: middle;
     text-align: center;
