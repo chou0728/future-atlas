@@ -110,6 +110,8 @@
     border: 1px solid rgb(253, 229, 17);
     background-color: rgb(54, 54, 54);
     box-shadow: 0 0 10px rgb(253, 229, 17), rgb(253, 229, 17);
+
+
 }.cont .leftBox .change:hover{
     animation: flicker2 0.1s infinite alternate;
     color: #000;

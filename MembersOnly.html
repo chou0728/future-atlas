@@ -3,6 +3,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" type="text/css" href="css/RESET.css">
     <link rel="stylesheet" type="text/css" href="css/header.css">
     <link rel="stylesheet" href="css/MembersOnly.css">
     
@@ -55,25 +56,41 @@
 
     <div class="MembersBox">
         <div class="content"> 
-            <h1>會員專區</h1>
-            <h2>我的資料</h2>
+            
+            <div class="buttonArea">
+                <a href="" class="myinfo">我的資料</a>
+                <a href="" class="myticket">我的票券</a>
+            </div>
 
-            <div class="wrapper">
 
                 <!-- 暱稱 -->
-                <div class="nameBox">
-                    <div class="nameBox_value">
-                        <img src="img/memberOnly/memberOnly2.png" alt="暱稱">
-                        <p class="place" id="mem_nick_title">暱稱</p>
+                <div class="nameBox_value_place">
+
+                    <div class="bar"></div>
+                    
+                    <div class="nameBox">
+                            <img src="img/memberOnly/memberOnly2.png" alt="我的資料">
+                            <p class="place" id="mem_nick_title">
+                                我的資料
+                            </p>
                     </div>
-                    <div class="nameBox_value_place">
-                        <p class="place_value mem_nick">null</p>
+
+
+                        <table>
+                            <tr><th>暱稱</th><td><p class="place_value mem_nick">null</p></td></tr>
+                            <tr><th>帳號</th><td><p class="place_value mem_name">null</p></td></tr>
+                            <tr><th>密碼</th><td><p class="place_value password">null</p></td></tr>
+                            <tr><th>積分</th><td><p class="place_value mem_points">null</p></td></tr>
+                            <tr><th>信箱</th><td><p class="place_value mem_mail">null</p></td></tr>
+                            <tr><th>電話</th><td><p class="place_value mem_phone">null</p></td></tr>
+                        </table>   
+
                     </div>
                     
-                </div>
+               
 
                 <!-- 帳號 -->
-                <div class="nameBox">
+               <!--  <div class="nameBox">
                     <div class="nameBox_value">
                         <img src="img/memberOnly/memberOnly2.png" alt="帳號">
                         <p class="place" id="mem_name_title">帳號</p>
@@ -81,10 +98,10 @@
                     <div class="nameBox_value_place">
                         <p class="place_value mem_name">null</p>
                     </div>
-                </div>
+                </div> -->
                 
                 <!-- 密碼 -->
-                <div class="nameBox">
+                <!-- <div class="nameBox">
                     <div class="nameBox_value">
                         <img src="img/memberOnly/memberOnly2.png" alt="密碼">
                         <p class="place" id="mem_password_title">密碼</p>
@@ -92,10 +109,10 @@
                     <div class="nameBox_value_place">
                         <p class="place_value password">null</p>
                     </div>
-                </div>
+                </div> -->
 
                 <!--積分-->
-                <div class="nameBox">
+                <!-- <div class="nameBox">
                     <div class="nameBox_value">
                         <img src="img/memberOnly/memberOnly2.png" alt="積分">
                         <p class="place" id="mem_points_title">積分</p>
@@ -103,10 +120,10 @@
                     <div class="nameBox_value_place">
                         <p class="place_value mem_points">null</p>
                     </div>
-                </div>
+                </div> -->
 
                 <!-- 信箱 -->
-                <div class="nameBox">
+                <!-- <div class="nameBox">
                     <div class="nameBox_value">
                         <img src="img/memberOnly/memberOnly2.png" alt="信箱">
                         <p class="place" class="mem_mail_title">信箱</p>
@@ -114,10 +131,10 @@
                     <div class="nameBox_value_place">
                         <p class="place_value mem_mail">null</p>
                     </div>
-                </div>
+                </div> -->
 
                 <!-- 電話 -->
-                <div class="nameBox">
+                <!-- <div class="nameBox">
                     <div class="nameBox_value">
                         <img src="img/memberOnly/memberOnly2.png" alt="電話">
                         <p class="place" id="mem_phone_title">電話</p>
@@ -125,24 +142,24 @@
                     <div class="nameBox_value_place">
                         <p class="place_value mem_phone">null</p>
                     </div>  
-                </div>   
+                </div>    -->
 
 
 
                 
                 <!-- 表格 -->
-                <table width="100%" cellpadding="20" >
+                <!-- <table width="100%" cellpadding="20" >
                     <tr><th width="20%">暱稱</th><td width="80%"> <p class="place_value mem_nick">null</p></td></tr>
                     <tr><th>帳號</th><td><p class="place_value mem_name">null</p></td></tr>
                     <tr><th>密碼</th><td><p class="place_value password">null</p></td></tr>
                     <tr><th>積分</th><td><p class="place_value mem_points">null</p></td></tr>
                     <tr><th>信箱</th><td><p class="place_value mem_mail">null</p></td></tr>
                     <tr><th>電話</th><td><p class="place_value mem_phone">null</p></td></tr>
-                </table>   
+                </table> -->   
 
             </div>
                 
-        </div>
+
 
 
 

@@ -1,6 +1,10 @@
 *{
-    /*outline: 1px solid red;*/
+    
     font-family: 微軟正黑體;
+    /*outline: 1px solid #f00;*/
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
 } 
 body{
     background-color: #000;
@@ -9,104 +13,97 @@ body{
     width:100%;
     max-width: 1200px;
     text-align: center;
-    margin: 100px auto 0 auto;
+    margin:  100px auto;
 }
 .MembersBox .content{ 
     width: 100%;
+
 }
-.MembersBox .content h1{
-    color: aqua;
-}
-.MembersBox .content h2{
-    color:  rgb(224, 224, 224);
-}
-.MembersBox .content h3{
-    color: rgb(224, 224, 224);
-}
-
-
-
-
-
-/*img*/
-.MembersBox .content .wrapper{
+/*按鈕*/
+.MembersBox .content .buttonArea{
     width: 100%;
-    padding-top: 100px;
+    padding: 50px;
 }
-.MembersBox .content .wrapper .nameBox{ 
-    margin: 0 30%;
-    position: relative; 
-    margin-bottom: 100px;
-    width: 200px;
-    height: 200px;
-}
-/* 黃色框線 */
-.MembersBox .content .wrapper .nameBox .place{ 
-    width: 70%;
-    border-radius: 50%;
-    line-height: 140px;
-    border: 1px solid yellow;
-}
-/*右邊內容*/
-.MembersBox .content .wrapper .nameBox .nameBox_value{
-    width: 100%;
-}
-.MembersBox .content .wrapper .nameBox .nameBox_value_place{ 
-    position: absolute;
-    z-index: -3;
-    line-height: 100px;
+.MembersBox .content .buttonArea a{
+    color: #fff;
     text-align: center;
-    height: 100px;
-    width: 310px;
-    border: 1px solid rgb(91, 200, 228);
-    background-color: rgba(58, 58, 58 , 0.8);
-    top: 20px;
-    right: -250px;
+    padding: 15px 20px 15px 20px;
+    border: 2px solid blue;
+    margin: 40px;
+    border-radius: 10%;
 }
-.MembersBox .content .wrapper .nameBox img{ 
-    z-index: -2;
-    position: absolute;
-    top: -55px;
-    left: -40px;
-    /* float: left; */
-    width: 100%;
-}
-.MembersBox .content .wrapper p{
-    
-    margin: 0;
-    font-size: 20px;
-    color: rgb(255, 254, 254);
-}
+/*按鈕結束*/
 
 
 
-/* 左邊圖片 */
-/* .MembersBox .content .wrapper img{
-    box-sizing: border-box;
-    padding: 5px;
-    width: 20%;
-} */
 
-
-
-/*RWD才出現*/
-.MembersBox .content table{
-    border: 1px solid rgb(91, 200, 228);
-    display: none;
-    text-align: center;
+/*整體內容位置*/
+.nameBox_value_place{
+    width: 35%;
     margin: 0 auto;
+    position: relative;
+    margin-top: 90px;
+    background-color: rgba(50,224,220,0.5);
+    padding-top: 45px;
 }
-.MembersBox .content{
-    color:rgb(224, 224, 224);
+.nameBox_value_place .bar{
+    position: absolute;
+    width: 100%;
+    height: 10px;
+    top: 0;
+    left: 15px;
+    background-color: #fff;
 }
-.MembersBox .content table th{
-    color:rgb(224, 224, 224);
-    border: 1px solid rgb(91, 200, 228);
+
+
+/*圓圈位置*/
+.nameBox_value_place .nameBox{
+    position: absolute;
+    width: 150px;
+    top:-90px;
+    left: -85px;
 }
-.MembersBox .content table td{
-    color:rgb(224, 224, 224);
-    border: 1px solid rgb(91, 200, 228);
+.nameBox_value_place .nameBox  img{
+    width: 100%;
 }
+.nameBox_value_place .nameBox p{
+    top: 50%;
+    left: 26%;
+    position: absolute;
+    color: #fff;    
+    font-size: 20px;
+}
+/*圓圈結束*/
+
+
+
+/*表格內容位置*/
+.nameBox_value_place table{
+    width: 100%;
+}
+
+.nameBox_value_place table th{
+    color: #FFFFFF;
+    font-size: 20px;
+    width: 5%;
+    height:100px;
+    padding: 5px;
+    vertical-align: middle;
+    text-align: right;
+    
+
+}
+.nameBox_value_place table td{
+    color: #4BE9EC;
+    width: 10%;
+    font-size: 18px;
+    height:100px;
+    padding: 5px;
+    vertical-align: middle;
+    text-align: center;
+}
+/*表格內容位置結束*/
+
 
 @media screen and (min-width:415px) and (max-width:1024px){
     
