@@ -219,7 +219,7 @@ body{
             </li>
         </ul>
         <h1 style="display: none">FutureAtlas_未來主題樂園</h1>
-        <a href="#page1" class="logo_a">
+        <a href="====index.php" class="logo_a">
             <img src="img/LOGO.png" class="logo">
         </a>
         <ul class="ul_right">
@@ -230,7 +230,7 @@ body{
                 <a href="activity.php">活動月曆</a>
             </li>
             <li>
-                <a href="robot.php">諮詢專區</a>
+                <a href="robot.html">諮詢專區</a>
             </li>
         </ul>
     </div>
@@ -266,8 +266,7 @@ body{
 <div class="inputdiv">
 	<div class="inputTitle">暱稱：</div>
 	<div class="inputbox">
-		<input type="text" name="mem_nick" id="mem_nick" placeholder="英數最多20字" required>
-		<div class="hint">顯示於設施評價的名稱</div>
+		<input type="text" name="mem_nick" id="mem_nick" placeholder="英數最多20字" placeholder="顯示於設施評價的名稱" required>
 	</div>
 </div>
 <div class="inputdiv">
@@ -286,7 +285,6 @@ body{
 	<div class="inputbox">
 		<input type="password" class="ps_show" id="mem_password_verify" maxlength="20" placeholder="再次輸入密碼" required>
 		<input type="text" class="ps_verify" id="mem_password_verify_text" maxlength="20" placeholder="再次輸入密碼">
-	<div class="hint">再次輸入密碼</div>
 	</div>
 </div>
 <div class="inputdiv">
@@ -298,8 +296,7 @@ body{
 <div class="inputdiv">
 	<div class="inputTitle">手機：</div>
 	<div class="inputbox">
-		<input type="text" name="mem_phone" id="mem_phone" maxlength="10" required>
-		<div class="hint">格式：0912345678</div>
+		<input type="text" name="mem_phone" id="mem_phone" maxlength="10" placeholder="格式：0912345678" required>
 	</div>
 </div>
 <div id="btn">
@@ -353,6 +350,7 @@ function check_mem_Name(){
 				document.getElementById("check_mem_id_hint_check").innerHTML = xhr.responseText;
 			}else if(xhr.responseText="帳號已使用"){
 				document.getElementById("check_mem_id_hint_cross").innerHTML = xhr.responseText;
+				document.getElementById("mem_name").value = "";
 			}
 		}
 	}
@@ -366,6 +364,7 @@ document.getElementById("mem_name").onchange = function(){
 	var str = document.getElementById("mem_name").value;
 	if(str.match(pattern)){
 	    alert("格式錯誤，不能含有特殊字元及空白");
+	    document.getElementById("mem_name").value = "";
 	}
 }
 document.getElementById("mem_password").onchange = function(){
@@ -380,6 +379,7 @@ document.getElementById("mem_nick").onchange = function(){
 	var str = document.getElementById("mem_nick").value;
 	if(str.match(pattern)){
 	    alert("格式錯誤，不能含有特殊字元及空白");
+	    document.getElementById("mem_mem_nickname").value = "";
 	}
 }
 // 手機正規表達式

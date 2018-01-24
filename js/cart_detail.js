@@ -68,7 +68,7 @@ $(document).ready(function(){
 			document.getElementById("total").innerHTML = total;
 		}else if( discount > total){
 			alert("不能超過結帳金額。請重新輸入");
-		document.getElementById("discount").innerHTML = 0;
+			document.getElementById("discount").innerHTML = 0;
 			document.getElementById("points").value = 0;
 			document.getElementById("total").innerHTML = total;
 		}else if( discount > member_points){
@@ -91,12 +91,13 @@ $(document).ready(function(){
 });
 
 
-function setBlur(obj,target2)
- 	{
-    	var target =document.getElementById(target2);
-    		if( obj.value.length ==obj.getAttribute('maxlength'))
-    		{
-				target.focus();
-			}
-				return;
-	}
+// 自動跳下一個格子的程式
+// function setBlur(obj,target2)
+//  	{
+//     	var target =document.getElementById(target2);
+//     		if( obj.value.length ==obj.getAttribute('maxlength'))
+//     		{
+// 				target.focus();
+// 			}
+// 				return;
+// 	}
