@@ -24,7 +24,9 @@ body {
 .wrapper {
   width: 100%;
   height: 100vh;
-  background: #000;
+  background-image: url('../img/secondSection/universe.jpg');
+  background-size: cover;
+  background-position: 50% 50%;
   position: relative; }
   .wrapper .frame {
     width: 100%;
@@ -32,9 +34,10 @@ body {
     position: absolute;
     top: 10%; }
   .wrapper .robot {
-    width: 30%;
+    width: 28%;
     position: absolute;
-    top: 20%; }
+    top: 20%;
+  left:10px; }
     @media screen and (min-width: 415px) and (max-width: 1024px) {
       .wrapper .robot {
         width: 60%;
@@ -52,11 +55,11 @@ body {
     height: 65vh;
     position: relative;
     top: 20%;
-    left: 35%;
+    left: 32%;
     text-align: center;
-    border: 4px solid #37fff3;
+    border: 2px solid #37fff3;
     box-shadow: 0 0 15px 0px #37fff3;
-    background: #000;
+    background: rgba(0, 0, 0, 0.678);
     padding: 20px; }
     @media screen and (min-width: 415px) and (max-width: 1024px) {
       .wrapper .conversation {
@@ -92,11 +95,13 @@ body {
       width: 100%;
       margin-bottom: 40px;
       text-align: right;
-      color: white;
-      font-size: 20px; }
+      color:#2ED4FF;
+      font-size: 20px;
+      letter-spacing: 4px; }
       @media screen and (min-width: 415px) and (max-width: 1024px) {
         .wrapper .conversation #user_message {
-          font-size: 16px; } }
+          font-size: 16px;
+         } }
       @media screen and (max-width: 414px) {
         .wrapper .conversation #user_message {
           font-size: 16px; } }
@@ -106,7 +111,9 @@ body {
       text-align: left;
       color: white;
       font-size: 20px;
-      letter-spacing: 4px; }
+      letter-spacing: 4px;
+      line-height: 30px;
+    }
       @media screen and (min-width: 415px) and (max-width: 1024px) {
         .wrapper .conversation #robot_answer {
           font-size: 16px; } }

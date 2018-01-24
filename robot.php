@@ -220,6 +220,7 @@ if(isset($_SESSION["login_error"]) === true){
                         if (xhr.status == 200) {
 
                             var answer = xhr.responseText;
+                            answer = answer.trim();
                             initIdentityResults_user(0);
 
                             function initIdentityResults_user(i) {
