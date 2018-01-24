@@ -231,7 +231,7 @@
       
       <!-- 立即購買按鈕 -->
       <div class="buyticketBtn">
-        <a href="javascript: return false;" onclick="checkLogin()" >立即購買</a>
+        <a href="javascript:void(0)" onclick="checkLogin()" >立即購買</a>
       </div>
   </div>
   <!-- 登入燈箱 -->
