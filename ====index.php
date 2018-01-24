@@ -15,6 +15,7 @@ if(isset($_SESSION["login_error"]) === true){
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
 	<meta charset="UTF-8">
 	<title>FA未來主題樂園</title>
+	<link rel="icon" href="img/favicon.ico" />
 	<link rel="stylesheet" type="text/css" href="css/RESET.css">
 	<style type="text/css">
 		*{
@@ -131,9 +132,6 @@ if(isset($_SESSION["login_error"]) === true){
                 <img id="cartimgid" src="img/cart/wallet_0.png">
                 <span id="howmanytickets">0</span>
             </a>
-                <div id="showCartContent">預覽購物車
-                    <table id="showCartContenttb"></table>
-                </div>
         </li>
     </ul>
 </div>
@@ -798,7 +796,7 @@ if(isset($_SESSION["login_error"]) === true){
 				</li>
 				<li class="buy notcurrent">
 					<!-- <div class="cover"></div> -->
-					<a href="Theaterbuyticket.html">
+					<a href="Theaterbuyticket.php">
 						<span>立即購票</span>
 					</a>
 				</li>
