@@ -22,7 +22,7 @@ if(isset($_SESSION["login_error"]) === true){
 <link rel="stylesheet" type="text/css" href="css/login.css">
 <link rel="stylesheet" type="text/css" href="css/footer.css">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
-<script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+<script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <style type="text/css">
 body{
 	position: relative;
@@ -97,7 +97,7 @@ body.fadeout::after {
                 <span class="register">
                 	<?php
                 		if(isset($_SESSION["mem_id"])===true){
-                			echo "<a href='MembersOnly.html'>帳戶</a>";
+                			echo "<a href='MembersOnly.php'>帳戶</a>";
                 		}else{
                 			echo "註冊";
                 		}
@@ -180,8 +180,54 @@ body.fadeout::after {
     
 </div>
 
-<div id="wrapper">
+<div id="smallCal">
+<!-- main codes start -->
+    <div class="signboard outer">
+        <div class="signboard front inner anim04c">
+            <li class="year anim04c">
+                <span></span>
+            </li>
+            <ul class="calendarMain anim04c">
+                <li class="month anim04c">
+                    <span></span>
+                </li>
+                <li class="date anim04c">
+                    <span></span>
+                </li>
+                <li class="day anim04c">
+                    <span></span>
+                </li>
+            </ul>
+            <li class="clock minute anim04c">
+                <span></span>
+            </li>
+            <li class="calendarNormal date2 anim04c">
+                <span></span>
+            </li>
+        </div>
+        <div class="signboard left inner anim04c">
+            <li class="clock hour anim04c">
+                <span></span>
+            </li>
+            <li class="calendarNormal day2 anim04c">
+                <span></span>
+            </li>
+        </div>
+        <div class="signboard right inner anim04c">
+            <li class="clock second anim04c">
+                <span></span>
+            </li>
+            <li class="calendarNormal month2 anim04c">
+                <span></span>
+            </li>
+        </div>
+    </div>
+    <!-- main codes end -->
 
+</div>
+
+<div id="wrapper">
+	<div class="back"></div>
 	<div id="calWrapper">
 		<div id="calRight">
 			<div id="showToday">
@@ -340,17 +386,6 @@ body.fadeout::after {
 		</div>
 	</div>
 
-<div id="scrollIcon">
-	<div id="toCal">
-		<i class="fa fa-calendar-o"></i>
-		<span>看月曆</span>
-	</div>
-	<div id="toActivity">
-		<i class="fa fa-calendar-check-o"></i>
-		<span>看活動</span>		
-	</div>
-</div>
-
     <div id="showDate">
     	<span id="activityDate" style="font-size: 32px">今日</span>
     	<span id="activityDay"></span>
@@ -456,6 +491,7 @@ body.fadeout::after {
 	</li>
 	</ul>
 	</div>
+</div>
 
 <!-- 登入燈箱 -->
 <div id="all-page"></div><!-- 叫出時背景-->
@@ -487,6 +523,36 @@ body.fadeout::after {
 <script src="js/jquery.tinycircleslider.min.js"></script>
 <script src="js/page_load_unload.js"></script>
 <script>
+	// 套件：小月曆
+	$(document).ready(function () {
+		var monthNames = [ "January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December" ]; 
+		var dayNames= [ "Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday" ];
+		var newDate = new Date();
+		newDate.setDate(newDate.getDate());
+	
+		setInterval( function() {
+			var hours = new Date().getHours();
+			$(".hour").html(( hours < 10 ? "0" : "" ) + hours);
+		    var seconds = new Date().getSeconds();
+			$(".second").html(( seconds < 10 ? "0" : "" ) + seconds);
+		    var minutes = new Date().getMinutes();
+			$(".minute").html(( minutes < 10 ? "0" : "" ) + minutes);
+		    
+		    $(".month span,.month2 span").text(monthNames[newDate.getMonth()]);
+		    $(".date span,.date2 span").text(newDate.getDate());
+		    $(".day span,.day2 span").text(dayNames[newDate.getDay()]);
+		    $(".year span").html(newDate.getFullYear());
+		}, 1000);	
+			$(".outer").on({
+			    mousedown:function(){
+			        $(".dribbble").css("opacity","1");
+			    },
+			    mouseup:function(){
+			        $(".dribbble").css("opacity","0");
+			    }
+		});
+	});
+
 	// 套件：活動剪影
 	$(document).ready(function()
 	{
