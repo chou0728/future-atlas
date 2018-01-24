@@ -154,7 +154,7 @@ if(isset($_SESSION["login_error"]) === true){
                 <a href="activity.php">活動月曆</a>
             </li>
             <li>
-                <a href="robot.php">諮詢專區</a>
+                <a href="robot.html">諮詢專區</a>
             </li>
         </ul>
     </div>
@@ -364,8 +364,8 @@ if(isset($_SESSION["login_error"]) === true){
 				<div class="shadow roller_coaster_shadow"></div>
 				<img class="facility_icons roller_coaster unchecked" data-facility="roller_coaster" src="img/secondSection/roller_coaster.png"
 				    alt="">
-				<div class="shadow _shadow"></div>
-				<img class="facility_icons  unchecked" data-facility="" src="img/secondSection/.png" alt="">
+				<div class="shadow carousel_shadow"></div>
+				<img class="facility_icons carousel unchecked" data-facility="carousel" src="img/secondSection/carousel.png" alt="">
 				<div class="shadow coffee_cup_shadow"></div>
 				<img class="facility_icons coffee_cup unchecked" data-facility="coffee_cup" src="img/secondSection/coffee_cup.png" alt="">
 				<div class="shadow bumper_cars_shadow"></div>
@@ -386,11 +386,10 @@ if(isset($_SESSION["login_error"]) === true){
 								<img src="img/secondSection/ferris_wheel_img.jpg" alt="">
 						</div>
 						<!-- 右邊標題跟介紹 -->
-
 						<div class="main_content">
 								<div class="title">
-										<h2>FA摩天輪</h2>
-										<small>FA FERRIS WHEEL</small>
+										<h2>宇宙雲霄飛車</h2>
+										<small>COSMOS ROLLER COASTER</small>
 									</div>
 							<div class="information">
 								<div class="parameter">
@@ -431,7 +430,7 @@ if(isset($_SESSION["login_error"]) === true){
 										</p>
 									</div>
 							</div>
-							<a class="open_iframe" href="#" data-no="3">了解更多</a>
+							<a class="open_iframe" href="#" data-no="1">了解更多</a>
 						</div>
 
 					</div>
@@ -440,7 +439,6 @@ if(isset($_SESSION["login_error"]) === true){
 						<div class="main_photo">
 								<img src="img/secondSection/roller_coaster_img.jpg" alt="">
 							</div>
-
 							<!-- 右邊標題跟介紹 -->
 							<div class="main_content">
 								<div class="title">
@@ -615,7 +613,7 @@ if(isset($_SESSION["login_error"]) === true){
 							<!-- 右邊標題跟介紹 -->
 							<div class="main_content">
 								<div class="title">
-									<h2></h2>
+									<h2>宇宙雲霄飛車</h2>
 									<small>COSMOS ROLLER COASTER</small>
 								</div>
 								<div class="information">
@@ -792,7 +790,7 @@ if(isset($_SESSION["login_error"]) === true){
 				</li>
 				<li class="buy notcurrent">
 					<!-- <div class="cover"></div> -->
-					<a href="Theaterbuyticket.php">
+					<a href="Theaterbuyticket.html">
 						<span>立即購票</span>
 					</a>
 				</li>
@@ -1006,8 +1004,8 @@ if(isset($_SESSION["login_error"]) === true){
 							</div>
 							
 							<div class="down_button">
-								<button class="change" onclick=" location.href='facilityBuyTicket.php'">購買設施票券</button>
-								<button class="change" onclick=" location.href='Theaterbuyticket.php'">購買劇場票券</button>
+								<button class="change" onclick=" location.href='http://localhost/php/future-atlas/facilityBuyTicket.php'">購買設施票券</button>
+								<button class="change" onclick=" location.href='http://localhost/php/future-atlas/Theaterbuyticket.php'">購買劇場票券</button>
 							</div>
 							
 						</div>
@@ -1020,7 +1018,9 @@ if(isset($_SESSION["login_error"]) === true){
 						<!-- 第一塊如何購票 -->
 						<div class="midContent_1" id="midContent_1">
 							<h3>*** INFO ***</h3>
-							<div class="pic"><iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3616.9010562788353!2d121.1903276150953!3d24.969480784002634!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x346823c1ec904dcb%3A0xcdc129d4455ce456!2z5ZyL56uL5Lit5aSu5aSn5a24!5e0!3m2!1szh-TW!2stw!4v1516799135037" width="370" height="200" frameborder="0" style="border:0" allowfullscreen></iframe></div>
+							<div class="pic">
+									<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3616.9010562788353!2d121.1903276150953!3d24.969480784002634!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x346823c1ec904dcb%3A0xcdc129d4455ce456!2z5ZyL56uL5Lit5aSu5aSn5a24!5e0!3m2!1szh-TW!2stw!4v1516799135037" width="370" height="200" frameborder="0" style="border:0" allowfullscreen></iframe>
+							</div>
 							<hr>
 							<div class="text">
 								<p>樂園位置
