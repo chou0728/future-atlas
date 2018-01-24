@@ -112,34 +112,43 @@
 		$('.unchecked').on("mouseover", hoverChangeImg);
 	
 		$('.unchecked').on('mouseout', hoverUnchangeImg);
-	
+		
+		//頁面一載入就要預設開啟某個設施的資訊和亮該設施
+
+		$('.info_content').css('display', 'none');
+		$('.info_ferris_wheel').css('display', 'block');
+		$('.ferris_wheel').attr("src", "img/secondSection/ferris_wheel_hover.png");
+
+
+
+
+
 	
 		$('.facility_icons').on("click", function checkedFacility() {
 			var facility = $(this).attr("data-facility");
 			var checked_facility = $(this);
 			var screen_width = document.documentElement.clientWidth;
 			
-			infoShowup();
+			
 	
 			if (screen.width <= 414) {
 				// alert("手機");
-				mapSmall_phone();
-				$('.close').on("click", function () {
-					mapBig_phone();
-					checked_facility.attr("src", "img/secondSection/" + facility + ".png");
-					checked_facility.on('mouseout', hoverUnchangeImg);
-		
-				});
+				$('.ferris_wheel').attr("src", "img/secondSection/ferris_wheel.png");
+				infoShowup();
+				offMouseout();
+				
 			} else if (screen_width <= 1024 && 415 <= screen_width) {
 				// alert("平板");
+				infoShowup();
 				$('.close').on("click", function () {
 					mapBig_pad();
 					checked_facility.attr("src", "img/secondSection/" + facility + ".png");
 					checked_facility.on('mouseout', hoverUnchangeImg);
 		
 				});
-			} else {
+			} else if(screen_width >1024) {
 				// alert("PC");
+				infoShowup();
 				mapSmall_pc();
 				offMouseout();
 				$('.close').on("click", function () {
@@ -164,49 +173,49 @@
 				$('.info_' + facility).css('display', 'block');
 			};
 	
-			function mapSmall_phone() {
-				$('.info').stop().animate({
-					top: "35%"
-				}, 350);
-				$('.map').css('transform', 'scale(' + 2.5+ ')');
-				if(facility=="ferris_wheel"){
-					$('.map').stop().animate({
-						top: '30%',
-						left: '-30%'
-					}, 400);
-				}else if(facility=="roller_coaster"){
-					$('.map').stop().animate({
-						top: '20%',
-						left: '76%'
-					}, 350);
-				}
-				else if(facility=="carousel"){
-					$('.map').stop().animate({
-						top: '15%',
-						left: '16%'
-					}, 350);
-				}
-				else if(facility=="coffee_cup"){
-					$('.map').stop().animate({
-						top: '8%',
-						left: '58%'
-					}, 350);
-				}
-				else if(facility=="bumper_cars"){
-					$('.map').stop().animate({
-						top: '15%',
-						left: '-25%'
-					}, 350);
-				}
-				else if(facility=="theater"){
-					$('.map').stop().animate({
-						top: '15%',
-						left: '-80%'
-					}, 350);
-				}
+			// function mapSmall_phone() {
+			// 	$('.info').stop().animate({
+			// 		top: "35%"
+			// 	}, 350);
+			// 	$('.map').css('transform', 'scale(' + 2.5+ ')');
+			// 	if(facility=="ferris_wheel"){
+			// 		$('.map').stop().animate({
+			// 			top: '30%',
+			// 			left: '-30%'
+			// 		}, 400);
+			// 	}else if(facility=="roller_coaster"){
+			// 		$('.map').stop().animate({
+			// 			top: '20%',
+			// 			left: '76%'
+			// 		}, 350);
+			// 	}
+			// 	else if(facility=="carousel"){
+			// 		$('.map').stop().animate({
+			// 			top: '15%',
+			// 			left: '16%'
+			// 		}, 350);
+			// 	}
+			// 	else if(facility=="coffee_cup"){
+			// 		$('.map').stop().animate({
+			// 			top: '8%',
+			// 			left: '58%'
+			// 		}, 350);
+			// 	}
+			// 	else if(facility=="bumper_cars"){
+			// 		$('.map').stop().animate({
+			// 			top: '15%',
+			// 			left: '-25%'
+			// 		}, 350);
+			// 	}
+			// 	else if(facility=="theater"){
+			// 		$('.map').stop().animate({
+			// 			top: '15%',
+			// 			left: '-80%'
+			// 		}, 350);
+			// 	}
 				
 				
-			};
+			// };
 	
 			function mapSmall_pad() {
 				$('.map').css('transform', 'scale(' + 2.5+ ')');
@@ -235,16 +244,16 @@
 			
 	
 	
-			function mapBig_phone() {
-				$('.map').css('transform', 'scale(' + 0.9 + ') translateY(-'+ 50+ '%)');
-				$('.map').stop().animate({
-					top: '50%',
-					left: '0%'
-				}, 350);
-				$('.info').stop().animate({
-					top: "150%"
-				}, 350);
-			};
+			// function mapBig_phone() {
+			// 	$('.map').css('transform', 'scale(' + 0.9 + ') translateY(-'+ 50+ '%)');
+			// 	$('.map').stop().animate({
+			// 		top: '50%',
+			// 		left: '0%'
+			// 	}, 350);
+			// 	$('.info').stop().animate({
+			// 		top: "150%"
+			// 	}, 350);
+			// };
 			function mapBig_pad() {
 				$('.map').css('transform', 'scale(' + 0.9 + ')');
 				$('.map').stop().animate({
