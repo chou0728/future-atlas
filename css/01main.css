@@ -24,17 +24,17 @@
 	left:30%;
 	bottom: -10%;
 	transition:8s ease;
-	transition-delay:.4s;
+	transition-delay:.3s;
 }
 #ballonfly.balloon:first-child{
-	bottom: 110%;
+	bottom: 125%;
 }
 .balloon:nth-child(2){
 	 left:45%;
 	 bottom: -10%;
 	 background:rgb(255,80,55);
 	 transition: 9s ease;
-	 transition-delay:.2s;
+	 transition-delay:.3s;
 }
 #ballonfly.balloon:nth-child(2){
 	background:rgb(255,80,55);
@@ -47,7 +47,7 @@
 	transition-delay:0.3s;
 }
 #ballonfly.balloon:nth-child(3){
-	bottom: 115%;
+	bottom: 125%;
 }
 .balloon:nth-child(4){
 	right:30%;
@@ -56,7 +56,7 @@
 	transition-delay:0.5s;
 }
 #ballonfly.balloon:nth-child(4){
-	bottom: 115%;
+	bottom: 135%;
 }
 .balloon:nth-child(5){
 	right:35%;

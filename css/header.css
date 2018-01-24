@@ -100,7 +100,7 @@
 }
 @media screen and (min-width:1025px) {
 	.smallnav{
-		background-color:rgba(0,0,0,0.8);
+		background-color:rgba(0,0,0,0.9);
 		padding-top: 5px;
 		height: 65px;
 	}
@@ -123,6 +123,61 @@
 	vertical-align: middle;	
 
 }
+.ul_left li,.ul_right li{
+	position: relative;
+}
+
+.ul_left li .nav_hover,.ul_right li .nav_hover{
+	position: absolute;
+	width: 20%;
+	left:50%;
+	top:-19px;
+	transform: translateX(-50%);
+	display: none;
+	animation: updown 1.1s linear infinite;
+}
+.smallnav .ul_left li .nav_hover, .smallnav .ul_right li .nav_hover{
+	position: absolute;
+	width: 18%;
+	left:50%;
+	top:-16px;
+	transform: translateX(-50%);
+	display: none;
+	animation: updowntwo 1.1s linear infinite;
+}
+@media screen and (min-width:1025px) {
+	.smallnav .ul_left li .nav_here,.smallnav .ul_right li .nav_here{
+		position: absolute;
+		width: 18%;
+		left:50%;
+		top:-16px;
+		transform: translateX(-50%);
+	}
+	.ul_left li .nav_here,.ul_right li .nav_here{
+		position: absolute;
+		width: 20%;
+		left:50%;
+		top:-19px;
+		transform: translateX(-50%);
+	}
+	@keyframes updown{
+		0%{top:-19px;}
+		50%{top:-23px;}
+		100%{top:-19px;}
+	}
+	@keyframes updowntwo{
+		0%{top:-16px;}
+		50%{top:-20px;}
+		100%{top:-16px;}
+	}
+	.ul_left li:hover a,.ul_right li:hover a{
+		color: #FFC116;
+	}
+	.ul_left li:hover .nav_hover,.ul_right li:hover .nav_hover{
+		display: block;
+	}
+}
+
 .ul_left{
 	text-align: right;
 	margin-right: 20px;
@@ -151,6 +206,9 @@
 }
 /*768*------====================================*/
 @media screen and (max-width:1024px){
+	.ul_left li .nav_here,.ul_right li .nav_here{
+		display: none;
+	}
 	.ul_left,.ul_right,.ul_left li,.ul_right li{
 		display: block;
 		text-align: center;
@@ -228,17 +286,13 @@
 	list-style: none;
 }
 
-}
 @media screen and (max-width: 1024px){
-	.header{
-		z-index: 999;
-	}
-	.header .ul_top{
-		top: 30px;
-	}
-	.lever img{
-		display: none;
-	}
+.header{
+	z-index: 999;
+}
+.header .ul_top{
+	top: 30px;
+}
 }
 .header .ul_top li:before{
 	content: "";
@@ -267,18 +321,23 @@
 	text-decoration: none;
 	color: #fff;
 	font-size: 14px;
+	vertical-align: middle;
+	text-align: center;
 }
 .header .ul_top li a img{
 	display: inline-block;
 	vertical-align: middle;
+
 }
 .header .ul_top li a .register,
 .header .ul_top li a .login,
-.header .ul_top li a #howmanytickets{
+.header .ul_top li a #howmanytickets,
+.header .ul_top li a .tkt{
 	font-size: 14px;
 	color: azure;
 	display: inline-block;
 	vertical-align: middle;
+	text-align: left;
 }
 .headerOpenBtn{
 	display: none;

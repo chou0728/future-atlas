@@ -14,14 +14,17 @@ body {
   text-align: center; }
 
 .title {
-  margin-top: 300px;
+  margin-top: 12%;
   margin-bottom: 0;
   color: #C8F4FF;
   text-align: center;
   font-size: 100px;
   font-family: Calculator;
   opacity: 0.8;
-  letter-spacing: 12px; }
+  letter-spacing: 12px;
+  text-shadow: 2px 3px 2px rgba(0,0,0,0.5),1px 4px 4px rgba(0,0,0,0.3);
+
+}
 
 .sub {
   font-size: 45px;
@@ -77,8 +80,12 @@ body {
   width: 100%;
   position: absolute;
   top: 0;
-  left: 0; }
-
+  left: 0;
+  
+}
+.inline-block:hover img{
+   filter:brightness(150%);
+}
 .inline-block .box{
   position: absolute;
   top:50%;

@@ -82,6 +82,14 @@ if(isset($_SESSION["login_error"]) === true){
                 </span>
             </a>
         </li>
+        <li class="li_top" <?php if(!isset($_SESSION["mem_id"])){
+                                echo "style='display: none';";
+                                }?>>
+            <a href="see_tickets.php" class="tkt">
+                <img src="img/member/qr-code-scan.png">
+                <span>票券</span>
+            </a>
+         </li>
         <li class="li_top">
             <a href=<?php
                 		if(isset($_SESSION["mem_id"])===true){
@@ -120,12 +128,15 @@ if(isset($_SESSION["login_error"]) === true){
     <div class="ul_box">
         <ul class="ul_left">
             <li>
+            	<img src="img/hover-tri.png" class="nav_hover">
                 <a href="Theaterbuyticket.php">劇場購票</a>
             </li>
             <li>
-                <a href="facilityBuyTicket.php">設施購票</a>
+            	<img src="img/hover-tri-now.png" class="nav_here">
+                <a href="facilityBuyTicket.php" style="color: rgb(55,222,255);font-weight: bold;">設施購票</a>
             </li>
             <li>
+            	<img src="img/hover-tri.png" class="nav_hover">
                 <a href="facilityInfo.php">設施介紹</a>
             </li>
         </ul>
@@ -135,12 +146,15 @@ if(isset($_SESSION["login_error"]) === true){
         </a>
         <ul class="ul_right">
             <li>
+            	<img src="img/hover-tri.png" class="nav_hover">
                 <a href="====index.php#page2" id="NavClose">園區地圖</a>
             </li>
             <li>
+            	<img src="img/hover-tri.png" class="nav_hover">
                 <a href="activity.php">活動月曆</a>
             </li>
             <li>
+            	<img src="img/hover-tri.png" class="nav_hover">
                 <a href="robot.php">諮詢專區</a>
             </li>
         </ul>

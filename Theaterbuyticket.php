@@ -91,31 +91,37 @@
           </li>
       </ul>
     </div>
-    <div class="nav">
+   <div class="nav">
         <div class="ul_box">
             <ul class="ul_left">
                 <li>
-                    <a href="Theaterbuyticket.php">劇場購票</a>
+                    <img src="img/hover-tri-now.png" class="nav_here">
+                    <a href="Theaterbuyticket.php" style="color: rgb(55,222,255);font-weight: bold;">劇場購票</a>
                 </li>
                 <li>
+                    <img src="img/hover-tri.png" class="nav_hover">
                     <a href="facilityBuyTicket.php">設施購票</a>
                 </li>
                 <li>
+                    <img src="img/hover-tri.png" class="nav_hover">
                     <a href="facilityInfo.php">設施介紹</a>
                 </li>
             </ul>
             <h1 style="display: none">FutureAtlas_未來主題樂園</h1>
-            <a href="#page1" class="logo_a">
+            <a href="====index.php" class="logo_a">
                 <img src="img/LOGO.png" class="logo">
             </a>
             <ul class="ul_right">
                 <li>
-                    <a href="#page2" id="NavClose">園區地圖</a><!-- ===請追加ID=== -->
+                    <img src="img/hover-tri.png" class="nav_hover">
+                    <a href="====index.php#page2" id="NavClose">園區地圖</a><!-- ===請追加ID=== -->
                 </li>
                 <li>
+                    <img src="img/hover-tri.png" class="nav_hover">
                     <a href="activity.php">活動月曆</a>
                 </li>
                 <li>
+                    <img src="img/hover-tri.png" class="nav_hover">
                     <a href="robot.php">諮詢專區</a>
                 </li>
             </ul>

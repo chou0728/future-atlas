@@ -15,6 +15,7 @@ if(isset($_SESSION["login_error"]) === true){
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
 	<meta charset="UTF-8">
 	<title>FA未來主題樂園</title>
+	<link rel="icon" href="img/favicon.ico" />
 	<link rel="stylesheet" type="text/css" href="css/RESET.css">
 	<style type="text/css">
 		*{
@@ -92,6 +93,14 @@ if(isset($_SESSION["login_error"]) === true){
                 	?>
                 </span>
         </li>
+        <li class="li_top" <?php if(!isset($_SESSION["mem_id"])){
+        						echo "style='display: none';";
+        						}?>>
+        	<a href="see_tickets.php" class="tkt">
+        		<img src="img/member/qr-code-scan.png">
+        		<span>票券</span>
+        	</a>
+        </li>
         <li class="li_top">
             <a href=<?php
                 		if(isset($_SESSION["mem_id"])===true){
@@ -123,9 +132,6 @@ if(isset($_SESSION["login_error"]) === true){
                 <img id="cartimgid" src="img/cart/wallet_0.png">
                 <span id="howmanytickets">0</span>
             </a>
-                <div id="showCartContent">預覽購物車
-                    <table id="showCartContenttb"></table>
-                </div>
         </li>
     </ul>
 </div>
@@ -133,12 +139,15 @@ if(isset($_SESSION["login_error"]) === true){
     <div class="ul_box">
         <ul class="ul_left">
             <li>
+            	<img src="img/hover-tri.png" class="nav_hover">
                 <a href="Theaterbuyticket.php">劇場購票</a>
             </li>
             <li>
+            	<img src="img/hover-tri.png" class="nav_hover">
                 <a href="facilityBuyTicket.php">設施購票</a>
             </li>
             <li>
+            	<img src="img/hover-tri.png" class="nav_hover">
                 <a href="facilityInfo.php">設施介紹</a>
             </li>
         </ul>
@@ -147,13 +156,16 @@ if(isset($_SESSION["login_error"]) === true){
             <img src="img/LOGO.png" class="logo">
         </a>
         <ul class="ul_right">
-            <li>
+            <li id="nav_here">
+            	<img src="img/hover-tri.png" class="nav_hover">
                 <a href="#page2" id="NavClose">園區地圖</a>
             </li>
             <li>
+            	<img src="img/hover-tri.png" class="nav_hover">
                 <a href="activity.php">活動月曆</a>
             </li>
             <li>
+            	<img src="img/hover-tri.png" class="nav_hover">
                 <a href="robot.html">諮詢專區</a>
             </li>
         </ul>
@@ -1442,7 +1454,7 @@ if(isset($_SESSION["login_error"]) === true){
 				</li>
 				<li class="buy notcurrent">
 					<!-- <div class="cover"></div> -->
-					<a href="Theaterbuyticket.html">
+					<a href="Theaterbuyticket.php">
 						<span>立即購票</span>
 					</a>
 				</li>
@@ -1692,10 +1704,14 @@ if(isset($_SESSION["login_error"]) === true){
 						<!-- 第三塊票卷期限 -->
 						<div class="midContent_3" id="midContent_3">
 							<h3>*** INFO ***</h3>
-							<div class="pic"></div>
+							<div class="pic">
+								<div class="right">
+									<img src="img/fifthSection/pointing-right.png">
+								</div>
+							</div>
 							<hr>
 							<div class="text">
-								<p>我們的線上電子票券期限為
+								<p>我們的票券皆為電子票券，只要掃描 QRcord即可快樂遊玩。
 								</p>
 							</div>
 						</div>
@@ -1838,16 +1854,16 @@ if(isset($_SESSION["login_error"]) === true){
 		</div> -->
 
 
-		<script src="https://cdnjs.cloudflare.com/ajax/libs/parallax/3.1.0/parallax.min.js"></script>
-		<script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
-		<!-- <script src="https://code.jquery.com/jquery-3.2.1.js"></script> -->
-		<script src="js/javascript.fullPage.js"></script>
-		<script src="js/00nav.js"></script>
-		<script src="js/01main.js"></script>
-		<script src="js/02map.js"></script>
-		<script src="js/04calendar.js"></script>
-		<script src="js/page_load_unload.js"></script>
-		<script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/parallax/3.1.0/parallax.min.js"></script>
+<script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+<!-- <script src="https://code.jquery.com/jquery-3.2.1.js"></script> -->
+<script src="js/javascript.fullPage.js"></script>
+<script src="js/00nav.js"></script>
+<script src="js/01main.js"></script>
+<script src="js/02map.js"></script>
+<script src="js/04calendar.js"></script>
+<script src="js/page_load_unload.js"></script>
+<script>
 			// FULLPAGE------------------------------------------
 			fullpage.initialize('#fullpage', {
 				anchors: ['page1', 'page2', 'page3', 'page4', 'page5'],
@@ -2013,15 +2029,41 @@ if(isset($_SESSION["login_error"]) === true){
 				}
 
 			});
-		
-
-// ================================================= 設施詳細介紹燈箱 =========================================
-		
-
-		
 
 
+function MapNavinit(){//園區地圖nav指示
+	nav_here = document.getElementById("nav_here");
+	nav_here.onclick = MapNavColor;
+	if(location.hash == "#page2"){
+		nav_here.children[1].style.color = "rgb(55,222,255)";
+		nav_here.children[1].style.fontWeight = "900";
+		nav_here.children[0].src="img/hover-tri-now.png";
+		nav_here.children[0].className="nav_here";
+	}
+	document.addEventListener('mousewheel',MapNavColorOff);
+}
+function MapNavColor(){
+	nav_here.children[1].style.color = "rgb(55,222,255)";
+	nav_here.children[1].style.fontWeight = "900";
+	nav_here.children[0].src="img/hover-tri-now.png";
+	nav_here.children[0].className="nav_here";
+
+}
+function MapNavColorOff(){
+	if(location.hash == "#page2"){
+		nav_here.children[1].style.color = "rgb(55,222,255)";
+		nav_here.children[1].style.fontWeight = "900";
+		nav_here.children[0].src="img/hover-tri-now.png";
+		nav_here.children[0].className="nav_here";
+	}else{
+		nav_here.children[1].style.color = "";
+		nav_here.children[1].style.fontWeight = "";
+		nav_here.children[0].src="img/hover-tri.png";
+		nav_here.children[0].className="nav_hover";
+	}
 	
+}
+window.addEventListener('load',MapNavinit);
 
 
 
@@ -2031,17 +2073,7 @@ if(isset($_SESSION["login_error"]) === true){
 
 
 
-
-
-
-
-
-
-
-
-
-
-		</script>
+</script>
 
 </body>
 

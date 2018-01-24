@@ -227,20 +227,23 @@
 }
 
 .cont .midBox .midContent_2 .pic{
-     background-image: url("../img/fifthSection/ticket.png");
      width: 100%;
-     height: 200px;
-     margin: 0 auto;
-     background-repeat: no-repeat;
-     /*background-size*/: cover;
-     /*background-color: rgb(91, 200, 228);*/
+         
+}
+.cont .midBox .midContent_2 .pic img{
+     width: 90%;
+         
 }
 .cont .midBox .midContent_3 .pic{
-     background-image: url("../img/fifthSection/1474244703_665.png");
      width: 100%;
-     height: 200px;
-     background-size: cover;
-     background-color: rgb(91, 200, 228);
+}
+.cont .midBox .midContent_3 .pic .right{
+    padding-left: 30%;
+    width: 100%;
+}
+.cont .midBox .midContent_3 .pic .right img{
+    width: 80%;
+    
 }
 
 
