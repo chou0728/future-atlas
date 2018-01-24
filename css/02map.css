@@ -3,10 +3,14 @@
   box-sizing: border-box;
   width: 100%;
   height: 100vh;
-  background-color: black;
+  /* background-color: black; */
   position: relative;
   overflow: hidden;
-  font-family: "微軟正黑體"; }
+	font-family: "微軟正黑體"; 
+	background-image: url('../img/secondSection/bk.png');
+	background-position: 50% 30%;
+	background-size: 150% ;
+}
   .map_wrapper .map {
     width: 100%;
     padding: 25%;
@@ -70,19 +74,19 @@
       height: 15px;
       left: 15%;
       top: 46%; }
-    .map_wrapper .map .carousel {
-      left: 59%;
+    .map_wrapper .map .blimp {
+      left: 40%;
       top: 33%;
-      animation: carousel_move 2s linear infinite; }
+      animation: blimp_move 2s linear infinite; }
 
-@keyframes carousel_move {
+@keyframes blimp_move {
   0% {
     top: 33%; }
   50% {
     top: 32%; }
   100% {
     top: 33%; } }
-    .map_wrapper .map .carousel_shadow {
+    .map_wrapper .map .blimp_shadow {
       width: 100px;
       height: 15px;
       left: 40%;
