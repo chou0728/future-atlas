@@ -4,6 +4,12 @@ session_start();
 if(isset($_SESSION["login_success"])==false){
 	header("location:manager_login.php");
 	exit;
+}if(isset($_SESSION["update_successfully"])){
+	echo "<script>alert('修改成功!')</script>";
+	unset($_SESSION["update_successfully"]);
+}if(isset($_SESSION["insert_successfully"])){
+	echo "<script>alert('新增成功!')</script>";
+	unset($_SESSION["insert_successfully"]);
 }
 ?>
 <!DOCTYPE html>
@@ -130,7 +136,8 @@ if(isset($_SESSION["login_success"])==false){
 			<td>
 				<input type="textarea" wrap="virtual" name="activity_intro" placeholder="15字內" maxlength="15" size="10" rows="3" required>
 			</td>
-			<td id="setup"><input type="reset" name="" class="edit operating">
+			<td id="setup">
+				<input type="reset" name="" class="edit operating">
 				<div class="operating">
 					<input type="submit" name="" value="上架">
 				</div>
@@ -225,13 +232,16 @@ try {
 		// 切換資料：改變外觀
 		$(".edit").click(function(){
 			var index = $(".edit").index(this);
-			$(".date").eq(index).toggleClass("editStyle");
-			$(".name").eq(index).toggleClass("editStyle");
-			$(".short").eq(index).toggleClass("editStyle");
-			$(".location").eq(index).toggleClass("editStyle");
-			$(".start").eq(index).toggleClass("editStyle");
-			$(".end").eq(index).toggleClass("editStyle");
-			$(".intro").eq(index).toggleClass("editStyle");
+			if(index>0){ // 排除第一欄重設鈕
+				$(".date").eq(index).toggleClass("editStyle");
+				$(".name").eq(index).toggleClass("editStyle");
+				$(".short").eq(index).toggleClass("editStyle");
+				$(".location").eq(index).toggleClass("editStyle");
+				$(".start").eq(index).toggleClass("editStyle");
+				$(".end").eq(index).toggleClass("editStyle");
+				$(".intro").eq(index).toggleClass("editStyle");
+			}
+
 		});
 		// 切換資料：唯獨 改成 可修改
 		$(".edit").click(function(){

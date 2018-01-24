@@ -15,7 +15,8 @@ if(isset($_SESSION["login_error"]) === true){
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
-<title>activity</title>
+<title>FA未來樂園 | 活動查詢</title>
+<link rel="icon" href="img/favicon.ico" />
 <link rel="stylesheet" type="text/css" href="css/activity_calendar.css">
 <link rel="stylesheet" type="text/css" href="css/header.css">
 <link rel="stylesheet" type="text/css" href="css/login.css">
@@ -41,6 +42,26 @@ body::-webkit-scrollbar-thumb {
   background-color: rgba(100,255,243,1);
  /* outline: 1px solid rgba(100,255,243,1);*/
 }
+body::after,.facilityBox::after{
+	content: '';
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background-color:#000;  /* 背景カラー */
+	z-index: 9999;  /* 一番手前に */
+	pointer-events: none;  /* 他の要素にアクセス可能にするためにポインターイベントは無効に */
+	opacity: 0;  /* 初期値 : 透過状態 */
+	-webkit-transition: opacity .4s ease;  /* アニメーション時間は 0.8秒 */
+	transition: opacity .4s ease;
+}
+body.fadeout::after {
+		opacity: 1;
+}
+.fadeout::after{
+	opacity: 1;
+}
 #all-page{
 	position: fixed;
 	top:0;
@@ -54,12 +75,9 @@ body::-webkit-scrollbar-thumb {
 }
 </style>
 </head>
-<body>
+<body class="fadeout">
 <div class="header">
     <ul class="ul_top">
-        <div class="lever">
-            <img src="img/Usericon1.png">
-        </div>
         <li class="li_top">
             <a href=<?php
             	if(isset($_SESSION["mem_id"])===true){
@@ -85,7 +103,6 @@ body::-webkit-scrollbar-thumb {
                 		}
                 	?>
                 </span>
-            </a>
         </li>
         <li class="li_top">
             <a href=<?php
@@ -118,9 +135,6 @@ body::-webkit-scrollbar-thumb {
                 <img id="cartimgid" src="img/cart/wallet_0.png">
                 <span id="howmanytickets">0</span>
             </a>
-                <div id="showCartContent">預覽購物車
-                    <table id="showCartContenttb"></table>
-                </div>
         </li>
     </ul>
 </div>
@@ -128,7 +142,7 @@ body::-webkit-scrollbar-thumb {
     <div class="ul_box">
         <ul class="ul_left">
             <li>
-                <a href="Theaterbuyticket.html">劇場購票</a>
+                <a href="Theaterbuyticket.php">劇場購票</a>
             </li>
             <li>
                 <a href="facilityBuyTicket.php">設施購票</a>
@@ -143,10 +157,10 @@ body::-webkit-scrollbar-thumb {
         </a>
         <ul class="ul_right">
             <li>
-                <a href="#page2" id="NavClose">園區地圖</a>
+                <a href="====index.php#page2" id="NavClose">園區地圖</a>
             </li>
             <li>
-                <a href="activity.html">活動月曆</a>
+                <a href="activity.php">活動月曆</a>
             </li>
             <li>
                 <a href="robot.html">諮詢專區</a>
@@ -165,8 +179,6 @@ body::-webkit-scrollbar-thumb {
     <img src="img/Usericon.png" class="memIcon">
     
 </div>
-
-<!-- header end-->
 
 <div id="wrapper">
 
@@ -356,7 +368,7 @@ body::-webkit-scrollbar-thumb {
     <div class="actHr"></div>
     <!-- 整個活動剪影區塊 -->
 	<div class="recommendAct" id="rotatescrollWrapper">
-		<div class="blocktitle">活動剪影</div>
+		<div class="blocktitle" style="text-align: left;"><span style="font-size:32px">活動剪影</span></div>
 		<!-- 輪播圓形 -->
 		<div id="rotatescroll">
 			<div class="viewport">
@@ -473,15 +485,8 @@ body::-webkit-scrollbar-thumb {
 <script src="js/jquery.hoverdir.js"></script>
 <script src="js/modernizr.custom.97074.js"></script>
 <script src="js/jquery.tinycircleslider.min.js"></script>
+<script src="js/page_load_unload.js"></script>
 <script>
-	// 塊狀 or 條列模式
-	$(document).ready(function(){
-		$("#switchBlock").click(function(){
-			$(".block-mode").toggleClass("li-block-mode");
-			$("#da-thumbs li a img").toggleClass("hahaha");
-			$(this).toggleClass("block_src");
-		});
-	});
 	// 套件：活動剪影
 	$(document).ready(function()
 	{

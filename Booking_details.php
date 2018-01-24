@@ -9,7 +9,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Booking details</title>
+    <title>FA未來主題樂園 | 劇場購票-選購劇場票劵明細</title>
+    <link rel="icon" href="img/favicon.ico" />
     <link rel="stylesheet" type="text/css" href="css/RESET.css">
     <link rel="stylesheet" type="text/css" href="css/header.css">
     <link rel="stylesheet" type="text/css" href="css/Booking_details.css">
@@ -106,7 +107,7 @@
                     <span class="login">
                         <?php
                             if(isset($_SESSION["mem_id"])===true){
-                                echo"<a href='logoutheadforindex.php'>登出</a>";
+                                echo"<a href='logoutheadforindex.php?ismp=0'>登出</a>";
                             }else{
                                 echo"登入";
                             }
@@ -136,12 +137,12 @@
                 </li>
             </ul>
             <h1 style="display: none">FutureAtlas_未來主題樂園</h1>
-            <a href="index.html#page1" class="logo_a">
+            <a href="====index.html" class="logo_a">
                 <img src="img/LOGO.png" class="logo">
             </a>
             <ul class="ul_right">
                 <li>
-                    <a href="index.html#page2">園區地圖</a>
+                    <a href="====index.php#page2" id="NavClose">園區地圖</a>
                 </li>
                 <li>
                     <a href="activity.php">活動月曆</a>

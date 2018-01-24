@@ -1,4 +1,10 @@
 <?php
+
+function mb_str_split($str){
+  return preg_split('/(?<!^)(?!$)/u', $str );
+}
+
+
 try{
   require_once("connectBooks.php");
   $no = $_REQUEST["facility_no"];
@@ -62,7 +68,18 @@ try{
       // }
       $stwidth = $rating->comment_grade*20;
 //------
+      $cctString ="";
+      $newString="";
       if(isset($name->mem_name)){
+        $cctString = $rating->comment_content;
+        $cctArr=mb_str_split($cctString);
+            for($i=0;$i<count($cctArr);$i++){//文字換行
+                if($i!=0 && $i%37 ==0){
+                    $newString = $newString.$cctArr[$i]."\n"; 
+                }else{
+                  $newString = $newString.$cctArr[$i];
+                }
+              }
         $comment = $comment.'<div class="memcommentBox">
             <span class="memName">'.$name->mem_name.'</span>
             <span class="memScore">
@@ -71,7 +88,7 @@ try{
                   <span class="points_bar" style="width:'.$stwidth.'%;"></span>
                   <img src="img/facilityInfo/ratingCover.png" alt="cover">
                 </div></span>
-            <span class="memComment">'.$rating->comment_content.'</span>
+            <span class="memComment">'.nl2br($newString).'</span>
             <span class="commentTime">'.substr("2018-01-22-00-00-00",0,10).'</span>
           </div>';
       }
