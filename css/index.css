@@ -1,12 +1,14 @@
 @font-face {
   font-family: Calculator;
-  src: url(../font-family/POCKC.ttf); 
+  src: url(POCKC.ttf); 
 }
 *{
   text-decoration: none;
+/*  outline: 1px solid red;*/
 }
 body {
   margin: 0;
+  padding:0;
   background: url(../img/sa.jpg);
   background-attachment: fixed;
   text-align: center; }
@@ -33,7 +35,7 @@ body {
   margin: 0 auto;
   text-align: center; }
 
-.box {
+/*.box {
   width: 150px;
   height: 35px;
   color: white;
@@ -43,7 +45,7 @@ body {
   margin: 5px;
   border-radius: 2px;
   display: inline-block; 
-}
+}*/
 
 .plus {
   opacity: 0.5; }
@@ -63,18 +65,35 @@ body {
 .rocket {
   position: absolute; }
 
-#enter {
+.inline-block {
   width: 200px;
   height: 200px;
   position: relative;
-  margin: 10px auto; }
+  margin: 25px 50px;
+  display: inline-block;
+}
 
-#enter img {
+.inline-block img {
   width: 100%;
   position: absolute;
   top: 0;
   left: 0; }
 
+.inline-block .box{
+  position: absolute;
+  top:50%;
+  left: 50%;
+  line-height: 200px;
+  transform: translate(-57%,-45%);
+  display: block;
+  width: 100%;
+  height: 100%;
+  color: white;
+  font-size: 25px;
+  font-family: "微軟正黑體",Heiti TC;
+  font-weight: bold;
+  text-shadow: 1px 1px 2px rgba(0,0,0,0.8);
+}
 .blank {
   height: 300px; }
 
@@ -119,10 +138,11 @@ body {
   display: inline-block;
   margin: 100px; }
 
-.box1 {
+/*.box1 {
   position: absolute;
   top: 0; }
 
 .box2 {
   position: absolute;
   left: 600px; }
+*/
