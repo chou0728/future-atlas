@@ -15,6 +15,7 @@ if(isset($_SESSION["login_error"]) === true){
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
 	<meta charset="UTF-8">
 	<title>FA未來主題樂園</title>
+	<link rel="icon" href="img/favicon.ico" />
 	<link rel="stylesheet" type="text/css" href="css/RESET.css">
 	<style type="text/css">
 		*{
