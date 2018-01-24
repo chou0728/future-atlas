@@ -156,7 +156,7 @@ if(isset($_SESSION["login_error"]) === true){
             <img src="img/LOGO.png" class="logo">
         </a>
         <ul class="ul_right">
-            <li>
+            <li id="nav_here">
             	<img src="img/hover-tri.png" class="nav_hover">
                 <a href="#page2" id="NavClose">園區地圖</a>
             </li>
@@ -1202,16 +1202,16 @@ if(isset($_SESSION["login_error"]) === true){
 		</div> -->
 
 
-		<script src="https://cdnjs.cloudflare.com/ajax/libs/parallax/3.1.0/parallax.min.js"></script>
-		<script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
-		<!-- <script src="https://code.jquery.com/jquery-3.2.1.js"></script> -->
-		<script src="js/javascript.fullPage.js"></script>
-		<script src="js/00nav.js"></script>
-		<script src="js/01main.js"></script>
-		<script src="js/02map.js"></script>
-		<script src="js/04calendar.js"></script>
-		<script src="js/page_load_unload.js"></script>
-		<script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/parallax/3.1.0/parallax.min.js"></script>
+<script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+<!-- <script src="https://code.jquery.com/jquery-3.2.1.js"></script> -->
+<script src="js/javascript.fullPage.js"></script>
+<script src="js/00nav.js"></script>
+<script src="js/01main.js"></script>
+<script src="js/02map.js"></script>
+<script src="js/04calendar.js"></script>
+<script src="js/page_load_unload.js"></script>
+<script>
 			// FULLPAGE------------------------------------------
 			fullpage.initialize('#fullpage', {
 				anchors: ['page1', 'page2', 'page3', 'page4', 'page5'],
@@ -1377,15 +1377,6 @@ if(isset($_SESSION["login_error"]) === true){
 				}
 
 			});
-		
-
-// ================================================= 設施詳細介紹燈箱 =========================================
-		
-
-		
-
-
-	
 
 
 
@@ -1397,15 +1388,7 @@ if(isset($_SESSION["login_error"]) === true){
 
 
 
-
-
-
-
-
-
-
-
-		</script>
+</script>
 
 </body>
 

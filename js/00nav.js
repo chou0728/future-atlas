@@ -1,4 +1,38 @@
 
+function MapNavinit(){//園區地圖nav指示
+	nav_here = document.getElementById("nav_here");
+	nav_here.onclick = MapNavColor;
+	if(location.hash == "#page2"){
+		nav_here.children[1].style.color = "rgb(55,222,255)";
+		nav_here.children[1].style.fontWeight = "900";
+		nav_here.children[0].src="img/hover-tri-now.png";
+		nav_here.children[0].className="nav_here";
+	}
+	document.addEventListener('mousewheel',MapNavColorOff);
+}
+function MapNavColor(){
+	nav_here.children[1].style.color = "rgb(55,222,255)";
+	nav_here.children[1].style.fontWeight = "900";
+	nav_here.children[0].src="img/hover-tri-now.png";
+	nav_here.children[0].className="nav_here";
+
+}
+function MapNavColorOff(){
+	if(location.hash == "#page2"){
+		nav_here.children[1].style.color = "rgb(55,222,255)";
+		nav_here.children[1].style.fontWeight = "900";
+		nav_here.children[0].src="img/hover-tri-now.png";
+		nav_here.children[0].className="nav_here";
+	}else{
+		nav_here.children[1].style.color = "";
+		nav_here.children[1].style.fontWeight = "";
+		nav_here.children[0].src="img/hover-tri.png";
+		nav_here.children[0].className="nav_hover";
+	}
+	
+}
+window.addEventListener('load',MapNavinit);
+
 //-導覽列RWD-----------------------------------
 //-導覽列RWD-----------------------------------
 			function navOpen(){
@@ -13,11 +47,13 @@
 				var logoBtn = document.getElementsByClassName("logo")[0];
 				logoBtn.addEventListener("click",allNavClose);
 
-				var NavClose = document.getElementById("NavClose");
+				NavClose = document.getElementById("NavClose");
 				NavClose.addEventListener("click",allNavClose);
+				// NavClose.addEventListener("click",MapNavColor);
 				
 				
 			}
+			
 			function headerAppearClose(){
 					var header = document.getElementsByClassName("header")[0];
 					var li_top = document.getElementsByClassName("li_top");
