@@ -16,7 +16,7 @@
 
 	function ajax_lightbox(e) {
 
-		alert('test');
+		
 		var body = document.getElementsByTagName("body")[0];
 		lightBoxF = document.getElementById('facility01');
 		var close = document.getElementById('close');
