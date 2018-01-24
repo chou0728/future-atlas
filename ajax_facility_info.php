@@ -13,7 +13,7 @@ try{
   $facility_PDO->bindValue(":facility_no",$no); 
   $facility_PDO->execute();
 
-  $sql = "select mem_id,comment_grade,comment_content from facility_comment where facility_no =:facility_no;";
+  $sql = "select mem_id,comment_grade,comment_content,comment_timestamp from facility_comment where facility_no =:facility_no;";
   $rating_PDO = $pdo->prepare($sql);
   $rating_PDO->bindValue(":facility_no",$no); 
   $rating_PDO->execute();
@@ -89,7 +89,7 @@ try{
                   <img src="img/facilityInfo/ratingCover.png" alt="cover">
                 </div></span>
             <span class="memComment">'.nl2br($newString).'</span>
-            <span class="commentTime">'.substr("2018-01-22-00-00-00",0,10).'</span>
+            <span class="commentTime">'.substr($rating->comment_timestamp,0,10).'</span>
           </div>';
       }
       
