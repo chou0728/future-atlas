@@ -75,7 +75,7 @@ body::-webkit-scrollbar-thumb {
                 <span class="register">
                     <?php
                         if(isset($_SESSION["mem_id"])===true){
-                            echo "<a href='MembersOnly.html'>帳戶</a>";
+                            echo "<a href='MembersOnly.php'>帳戶</a>";
                         }else{
                             echo "註冊";
                         }
@@ -141,7 +141,7 @@ body::-webkit-scrollbar-thumb {
                 <a href="activity.php">活動月曆</a>
             </li>
             <li>
-                <a href="robot.html">諮詢專區</a>
+                <a href="robot.php">諮詢專區</a>
             </li>
         </ul>
     </div>
