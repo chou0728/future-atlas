@@ -1040,10 +1040,14 @@ if(isset($_SESSION["login_error"]) === true){
 						<!-- 第三塊票卷期限 -->
 						<div class="midContent_3" id="midContent_3">
 							<h3>*** INFO ***</h3>
-							<div class="pic"></div>
+							<div class="pic">
+								<div class="right">
+									<img src="img/fifthSection/pointing-right.png">
+								</div>
+							</div>
 							<hr>
 							<div class="text">
-								<p>我們的線上電子票券期限為
+								<p>我們的票券皆為電子票券，只要掃描 QRcord即可快樂遊玩。
 								</p>
 							</div>
 						</div>
