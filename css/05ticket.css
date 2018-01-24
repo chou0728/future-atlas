@@ -220,13 +220,37 @@
     text-shadow: 0px 0px 1px rgb(76, 216, 221);
 }
 
- .cont .midBox .pic{
+.cont .midBox .midContent_1 .pic{
+     width: 100%;
+     /*padding-bottom: 250px;*/
+     /*background-size: cover;*/
+}
+.cont .midBox .midContent_1 .pic .map{
+     width: 80%;
+     /*padding-bottom: 250px;*/
+     /*background-size: cover;*/
+}
+
+.cont .midBox .midContent_2 .pic{
+     width: 100%;
+     
+     margin: 0 auto;
+     /*background-size*/: cover;
+     /*background-color: rgb(91, 200, 228);*/
+}
+.cont .midBox .midContent_2 .pic img{
+     width: 90%;
+     /*padding-bottom: 250px;*/
+     /*background-size: cover;*/
+}
+.cont .midBox .midContent_3 .pic{
      background-image: url("../img/fifthSection/1474244703_665.png");
      width: 100%;
      height: 200px;
      background-size: cover;
      background-color: rgb(91, 200, 228);
- }
+}
+
 
  .cont .midBox p{
      line-height: 30px;
