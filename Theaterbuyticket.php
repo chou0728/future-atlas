@@ -105,12 +105,12 @@
                 </li>
             </ul>
             <h1 style="display: none">FutureAtlas_未來主題樂園</h1>
-            <a href="#page1" class="logo_a">
+            <a href="====index.php#page1" class="logo_a">
                 <img src="img/LOGO.png" class="logo">
             </a>
             <ul class="ul_right">
                 <li>
-                    <a href="#page2" id="NavClose">園區地圖</a><!-- ===請追加ID=== -->
+                    <a href="====index.php#page2" id="NavClose">園區地圖</a><!-- ===請追加ID=== -->
                 </li>
                 <li>
                     <a href="activity.php">活動月曆</a>
