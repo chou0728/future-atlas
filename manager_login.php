@@ -14,12 +14,8 @@ if(isset($_SESSION["login_error"])==true){
 <head>
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-<<<<<<< HEAD
 <title>FA後台管理系統 | 登入</title>
-=======
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
-<title>manager_login</title>
->>>>>>> 3c27a7e97c928f51ba71397b8ab6b806bb9ccaa5
 <link rel="stylesheet" type="text/css" href="css/header.css">
 <style type="text/css">
 *{
