@@ -30,38 +30,6 @@
           display: none;
           opacity: 0.7;
         }
-
-      body::after,.facilityBox::after{
-          content: '';
-          position: fixed;
-          top: 0;
-          left: 0;
-          width: 100%;
-          height: 100%;
-          background-color:#000;  /* 背景カラー */
-          z-index: 9999;  /* 一番手前に */
-          pointer-events: none;  /* 他の要素にアクセス可能にするためにポインターイベントは無効に */
-          opacity: 0;  /* 初期値 : 透過状態 */
-          -webkit-transition: opacity .4s ease;  /* アニメーション時間は 0.8秒 */
-          transition: opacity .4s ease;
-      }
-      body.fadeout::after {
-          opacity: 1;
-      }
-      .fadeout::after{
-          opacity: 1;
-      }
-    #all-page{
-        position: absolute;
-        top:0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background: repeating-linear-gradient(transparent 0px, transparent 1px,transparent 1px, transparent 3px,rgba(0,0, 0,0.5) 3px, rgba(0, 0, 0,0.8) 4px);
-        background-color: #222;
-        display: none;
-        opacity: 0.7;
-    }
     </style>
 </head>
 <body class="fadeout">
