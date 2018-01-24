@@ -14,8 +14,7 @@ if(isset($_SESSION["login_error"]) === true){
 <head>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
 	<meta charset="UTF-8">
-	<title>FUTURE ATLAS未來主題樂園</title>
-	<link rel="icon" href="img/favicon.ico" />
+	<title>FA未來主題樂園</title>
 	<link rel="stylesheet" type="text/css" href="css/RESET.css">
 	<style type="text/css">
 		*{
@@ -86,7 +85,7 @@ if(isset($_SESSION["login_error"]) === true){
                 <span class="register">
                 	<?php
                 		if(isset($_SESSION["mem_id"])===true){
-                			echo "<a href='MembersOnly.html'>帳戶</a>";
+                			echo "<a href='MembersOnly.php'>帳戶</a>";
                 		}else{
                 			echo "註冊";
                 		}
@@ -124,6 +123,9 @@ if(isset($_SESSION["login_error"]) === true){
                 <img id="cartimgid" src="img/cart/wallet_0.png">
                 <span id="howmanytickets">0</span>
             </a>
+                <div id="showCartContent">預覽購物車
+                    <table id="showCartContenttb"></table>
+                </div>
         </li>
     </ul>
 </div>
@@ -152,7 +154,7 @@ if(isset($_SESSION["login_error"]) === true){
                 <a href="activity.php">活動月曆</a>
             </li>
             <li>
-                <a href="robot.php">諮詢專區</a>
+                <a href="robot.html">諮詢專區</a>
             </li>
         </ul>
     </div>
@@ -384,11 +386,10 @@ if(isset($_SESSION["login_error"]) === true){
 								<img src="img/secondSection/ferris_wheel_img.jpg" alt="">
 						</div>
 						<!-- 右邊標題跟介紹 -->
-
 						<div class="main_content">
 								<div class="title">
-										<h2>FA摩天輪</h2>
-										<small>FA FERRIS WHEEL</small>
+										<h2>宇宙雲霄飛車</h2>
+										<small>COSMOS ROLLER COASTER</small>
 									</div>
 							<div class="information">
 								<div class="parameter">
@@ -429,7 +430,7 @@ if(isset($_SESSION["login_error"]) === true){
 										</p>
 									</div>
 							</div>
-							<a class="open_iframe" href="#" data-no="3">了解更多</a>
+							<a class="open_iframe" href="#" data-no="1">了解更多</a>
 						</div>
 
 					</div>
@@ -438,7 +439,6 @@ if(isset($_SESSION["login_error"]) === true){
 						<div class="main_photo">
 								<img src="img/secondSection/roller_coaster_img.jpg" alt="">
 							</div>
-
 							<!-- 右邊標題跟介紹 -->
 							<div class="main_content">
 								<div class="title">
@@ -613,7 +613,7 @@ if(isset($_SESSION["login_error"]) === true){
 							<!-- 右邊標題跟介紹 -->
 							<div class="main_content">
 								<div class="title">
-									<h2></h2>
+									<h2>宇宙雲霄飛車</h2>
 									<small>COSMOS ROLLER COASTER</small>
 								</div>
 								<div class="information">
@@ -790,7 +790,7 @@ if(isset($_SESSION["login_error"]) === true){
 				</li>
 				<li class="buy notcurrent">
 					<!-- <div class="cover"></div> -->
-					<a href="Theaterbuyticket.php">
+					<a href="Theaterbuyticket.html">
 						<span>立即購票</span>
 					</a>
 				</li>
@@ -998,14 +998,14 @@ if(isset($_SESSION["login_error"]) === true){
 						<div class="leftContent">
 							<h3>*** GET TICKET ***</h3>
 							<div class="top_button">
+								<button>前往樂園</button>
 								<button>如何購票</button>
 								<button>票券模式</button>
-								<button>票券期限</button>
 							</div>
 							
 							<div class="down_button">
-								<button class="change" onclick=" location.href='facilityBuyTicket.php'">購買設施票券</button>
-								<button class="change" onclick=" location.href='Theaterbuyticket.php'">購買劇場票券</button>
+								<button class="change" onclick=" location.href='http://localhost/php/future-atlas/facilityBuyTicket.php'">購買設施票券</button>
+								<button class="change" onclick=" location.href='http://localhost/php/future-atlas/Theaterbuyticket.php'">購買劇場票券</button>
 							</div>
 							
 						</div>
@@ -1018,20 +1018,22 @@ if(isset($_SESSION["login_error"]) === true){
 						<!-- 第一塊如何購票 -->
 						<div class="midContent_1" id="midContent_1">
 							<h3>*** INFO ***</h3>
-							<div class="pic"></div>
+							<div class="pic">
+									<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3616.9010562788353!2d121.1903276150953!3d24.969480784002634!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x346823c1ec904dcb%3A0xcdc129d4455ce456!2z5ZyL56uL5Lit5aSu5aSn5a24!5e0!3m2!1szh-TW!2stw!4v1516799135037" width="370" height="200" frameborder="0" style="border:0" allowfullscreen></iframe>
+							</div>
 							<hr>
 							<div class="text">
-								<p>進入購買票券頁面即可購買。
+								<p>樂園位置
 								</p>
 							</div>
 						</div>
 						<!-- 第二塊票券模式 -->
 						<div class="midContent_2" id="midContent_2">
 							<h3>*** INFO ***</h3>
-							<div class="pic"></div>
+							<div class="pic" ><img src="img/fifthSection/ticket.png"></div>
 							<hr>
 							<div class="text">
-								<p>我們的線上購票皆為電子票券，遊玩前只需出示QRcode， 就能快樂遊玩。
+								<p>現場購票或是進入購買頁面進行購票。
 								</p>
 							</div>
 						</div>
@@ -1332,21 +1334,21 @@ if(isset($_SESSION["login_error"]) === true){
 				// 選取button
 				let btns = document.querySelectorAll('.top_button button');
 				// 把每個button註冊click事件，事件發生時呼叫changeBox。
-				for(const i of btns){
+				for(let i of btns){
 					i.addEventListener('click',changeBox);
 				}
 				// 中間內容
 				let content1 = document.getElementById("midContent_1");
 				let content2 = document.getElementById("midContent_2");
 				let content3 = document.getElementById("midContent_3");
-				
+				let pic1 = querySelector('.pic');
 				function changeBox(){
 
-					if(this.textContent == "如何購票"){
+					if(this.textContent == "前往樂園"){
 						content1.style.opacity="1";
 						content2.style.opacity="0";
 						content3.style.opacity="0";
-					}else if(this.textContent == "票券模式"){
+					}else if(this.textContent == "如何購票"){
 						content1.style.opacity="0";
 						content2.style.opacity="1";
 						content3.style.opacity="0";

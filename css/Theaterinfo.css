@@ -294,7 +294,7 @@ body::-webkit-scrollbar-thumb {
     top:12px;
     left:50%;
     transform: translateX(-30%);
-    font-size:26px;
+    font-size:24px;
     letter-spacing: 2px;
     font-weight: bold;
   }
