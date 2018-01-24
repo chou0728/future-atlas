@@ -22,6 +22,7 @@ if(isset($_SESSION["login_error"]) === true){
     <link rel="stylesheet" type="text/css" href="css/buyTTicket.css" />
     <script src="js/sessionStorage.js"></script>
     <title>FA未來主題樂園 | 劇場購票-選購劇場票劵</title>
+    <link rel="icon" href="img/favicon.ico" />
 </head>
 <body>
     <div class="header">
