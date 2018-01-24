@@ -128,15 +128,17 @@ if(isset($_SESSION["login_error"]) === true){
     <!-- 購買票劵 -->
     <div class="buyticketarea">
        <!--  <h2>購買票劵</h2> -->
-        <h2 class="verticalh2">購買票劵</h2>
+        <!-- <h2 class="verticalh2">購買票劵</h2> -->
         <form name="form" action="" method="get">  
             <table>
                 <tr>
                     <td>節目名稱</td>
                     <td>
-                        <input type="radio"  name="programName" value="尋找星生命"  onchange="changeTheaterName()">尋找星生命
+                        <input type="radio" id="programName1" name="programName" value="尋找星生命" checked onchange="changeTheaterName()">
+                        <label for="programName1">尋找星生命</label>
                         <br>
-                        <input type="radio"  name="programName" value="末世決戰" onchange="changeTheaterName()">末世決戰
+                        <input type="radio" id="programName2" name="programName" value="末世決戰" onchange="changeTheaterName()">
+                        <label for="programName2">末世決戰</label>
                     </td>
                 </tr>
                 <tr>
