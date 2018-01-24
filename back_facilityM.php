@@ -10,7 +10,7 @@ if(isset($_SESSION["top_manager"])===false||isset($_SESSION["manager_name"])===f
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title>FUTURE ATLAS後台管理系統</title>
+	<title>FA後台管理系統 | 設施管理</title>
 	<link rel="icon" href="img/favicon_back.ico" />
 	<link rel="stylesheet" href="css/RESET.css">
 	<link rel="stylesheet" href="css/11back_nav.css">
@@ -21,7 +21,7 @@ if(isset($_SESSION["top_manager"])===false||isset($_SESSION["manager_name"])===f
         <img src="img/back_menu_default.png" id="ham">
         <h1 class="logo">
             <img src="img/LOGO.png" alt="FA">
-            <span>後台管理系統</span>
+            <span>FA後台管理系統</span>
         </h1>
         <ul class="nav">
             <li class="navList">
@@ -89,7 +89,7 @@ if(isset($_SESSION["top_manager"])===false||isset($_SESSION["manager_name"])===f
 			<div class="b_inner_content" id="not-check-ticket">
 	<!-- ===================1====================== -->
 				<div id="facilityInfo" class="tabcontent">
-						<div class="table">
+					<div class="table">
 						<div class="row">
 							<div class="col col-title col-number">設施編號</div>
 							<div class="col col-title">設施名稱</div>
@@ -163,7 +163,7 @@ try {
 							<div class="col" style="display: none"><?php echo $prodRow->facility_subname ?></div>
 							<!-- 隱藏欄位1 limit-->
 							<div class="col col-number">
-								<div class="edit">EDIT</div>
+								<div class="edit">修改</div>
 							</div>
 							<div class="col  col-sp">
 								<form name="already" action="update_facility_info.php" method="post" enctype="multipart/form-data">
@@ -249,7 +249,7 @@ try {
 								<?php echo $prodRow->half_fare ?>
 							</div>
 							<div class="col col-number">
-								<div class="edit_ticket">EDIT</div>
+								<div class="edit_ticket">修改</div>
 							</div>
 							<div class="col col-sp">
 								<form name="already" action="update_facility_ticket.php" method="post" enctype="multipart/form-data">
