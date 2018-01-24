@@ -131,18 +131,6 @@ body::-webkit-scrollbar-thumb {
 	vertical-align: top;
 	font-size: 28px;
 	border: none;
-}
-#points_confirm{
-	display: inline-block;
-	width: 40px;
-	text-align-last: center;
-	background-color: rgba(255, 193, 22,0.8);
-	color: black;
-	border: none;
-	padding: 5px;
-	cursor: pointer;
-	vertical-align: top;
-	margin-top: -1px;
 }#points_remain{
 	border: none;
 	color: lightgray;
@@ -154,6 +142,8 @@ body::-webkit-scrollbar-thumb {
 	vertical-align: baseline;
 	border: 1px solid rgba(100,255,243,1);
 }#declareWrapper{
+	display: inline-block;
+	width: 70%;
 	height: 120px;
 	overflow-y: scroll;
 }#declareTitle{
@@ -167,6 +157,9 @@ body::-webkit-scrollbar-thumb {
 }#pay_info input{
 	padding: 5px;
 	/*border-radius: 1%;*/
+}
+#credit_input_area{
+	width: 500px;
 }
 .credit_card input{
 	width: 40px;

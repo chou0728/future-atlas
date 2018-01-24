@@ -228,17 +228,13 @@
 	list-style: none;
 }
 
-}
 @media screen and (max-width: 1024px){
-	.header{
-		z-index: 999;
-	}
-	.header .ul_top{
-		top: 30px;
-	}
-	.lever img{
-		display: none;
-	}
+.header{
+	z-index: 999;
+}
+.header .ul_top{
+	top: 30px;
+}
 }
 .header .ul_top li:before{
 	content: "";
@@ -267,18 +263,23 @@
 	text-decoration: none;
 	color: #fff;
 	font-size: 14px;
+	vertical-align: middle;
+	text-align: center;
 }
 .header .ul_top li a img{
 	display: inline-block;
 	vertical-align: middle;
+
 }
 .header .ul_top li a .register,
 .header .ul_top li a .login,
-.header .ul_top li a #howmanytickets{
+.header .ul_top li a #howmanytickets,
+.header .ul_top li a .tkt{
 	font-size: 14px;
 	color: azure;
 	display: inline-block;
 	vertical-align: middle;
+	text-align: left;
 }
 .headerOpenBtn{
 	display: none;

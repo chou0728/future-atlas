@@ -106,9 +106,7 @@ body::-webkit-scrollbar-thumb {
 		<tr id="input_discount"><th colspan="8" class="title">選擇是否使用積分</th></tr>
 		<tr>
 			<td style="width: 350px; text-align: right" colspan="7" id="discount_input">
-				<input type="radio" name="points" class="points"> 之後再使用
-				<input type="radio" name="points" class="points"> 使用
-				<input type="number" id="points" class="points" min="0" value="0"> 點
+				使用積分<input type="number" id="points" min="0" value="0"> 點
 					<div id="points_remain">(剩餘點數：
 						<span id="points_remain_input"></span>)點
 					</div>
@@ -121,14 +119,10 @@ body::-webkit-scrollbar-thumb {
 		</tr>
 	</table>
 	<!--輸入信用卡 -->
-	<table id="pay_info">
-		<tr>
-			<th class="tbtitle" colspan="2">輸入信用卡</th>
-			<td rowspan="5" colspan="3">
-				<div id="declareWrapper">
-					<div id="declareTitle">
-						線上信用卡交易隱私權聲明
-					</div>	
+	<div id="pay_info">
+		<div class="tbtitle">輸入信用卡</div>
+			<div id="declareWrapper">
+				<div id="declareTitle">線上信用卡交易隱私權聲明</div>
 					<div id="declareContent">
 						為讓您安心使用本行手機信用卡服務，本行在此聲明尊重並依法保護您個人的隱私權，特
 						此向您說明本服務的隱私權保護政策如下：<br>
@@ -152,38 +146,38 @@ body::-webkit-scrollbar-thumb {
 						網站”聯絡我們” 項目與本行聯絡，本行將提供最完整的說明。
 					</div>
 				</div>
-			</td>
-		</tr>
-		<form action="facility_order_save_database.php" method="post">
-			<!-- 隱藏欄位區 -->
-			<input type="hidden" name="mem_id_hidden" id="mem_id_hidden">
-			<input type="hidden" name="total_hidden" id="total_hidden">
-			<input type="hidden" name="cart_sub_total_hidden" id="cart_sub_total_hidden">
-			<input type="hidden" name="creditcard_num_hidden" id="creditcard_num_hidden">
-			<input type="hidden" name="discount_hidden" id="discount_hidden">
-			<input type="hidden" name="order_date" id="order_date">
-			<input type="hidden" name="sql_order_item" id="sql_order_item">
-			<!-- 隱藏欄位區 end -->
-		<tr><td colspan="2">信用卡卡號</td></tr>
-		<tr>
-			<td colspan="2" class="credit_card" name="credit_card" id="credit_card">
-				<input type="text" size="4" minlength="4" maxlength="4" id="credit_card1" name="credit_card1" onkeyup="setBlur(this,'credit_card2');this.value=this.value.replace(/[^0-9]/g,'')" required>-
-				<input type="text" size="4" minlength="4" maxlength="4" id="credit_card2" name="credit_card2" onkeyup="setBlur(this,'credit_card3');this.value=this.value.replace(/[^0-9]/g,'')" required>-
-				<input type="text" size="4" minlength="4" maxlength="4" id="credit_card3" name="credit_card3" onkeyup="setBlur(this,'credit_card4');this.value=this.value.replace(/[^0-9]/g,'')" required>-
+			<form action="facility_order_save_database.php" method="post">
+				<!-- 隱藏欄位區 -->
+				<input type="hidden" name="mem_id_hidden" id="mem_id_hidden">
+				<input type="hidden" name="total_hidden" id="total_hidden">
+				<input type="hidden" name="cart_sub_total_hidden" id="cart_sub_total_hidden">
+				<input type="hidden" name="creditcard_num_hidden" id="creditcard_num_hidden">
+				<input type="hidden" name="discount_hidden" id="discount_hidden">
+				<input type="hidden" name="order_date" id="order_date">
+				<input type="hidden" name="sql_order_item" id="sql_order_item">
+				<!-- 隱藏欄位區 end -->
+		<div id="credit_input_area" colspan="2">信用卡卡號</div>
+		<div>
+			<div class="credit_card" name="credit_card" id="credit_card">
+				<input type="text" size="4" minlength="4" maxlength="4" id="credit_card1" name="credit_card1" onkeyup="this.value=this.value.replace(/[^0-9]/g,'')" required>-
+				<input type="text" size="4" minlength="4" maxlength="4" id="credit_card2" name="credit_card2" onkeyup="this.value=this.value.replace(/[^0-9]/g,'')" required>-
+				<input type="text" size="4" minlength="4" maxlength="4" id="credit_card3" name="credit_card3" onkeyup="this.value=this.value.replace(/[^0-9]/g,'')" required>-
 				<input type="text" size="4" minlength="4" maxlength="4" id="credit_card4" name="credit_card4" onkeyup="this.value=this.value.replace(/[^0-9]/g,'')" required>
-			</td>
-		<tr>
-			<td>到期年月 / 驗證碼</td>
-		</tr>
-		<tr>
-			<td>
-				<input type="text" maxlength="2" min="1" max="12" id="credit_card5" onkeyup="setBlur(this,'credit_card6');this.value=this.value.replace(/[^0-9]/g,'')">/
-				<input type="text" maxlength="2" id="credit_card6" onkeyup="setBlur(this,'credit_card7');this.value=this.value.replace(/[^0-9]/g,'')">
-				<input type="text" maxlength="3" id="credit_card7" onkeyup="this.value=this.value.replace(/[^0-9]/g,'')"></td>
-			</td>
-		</tr>
-		</tr>
-	</table>
+			</div>
+		<div>
+			<div>到期年月 / 驗證碼</div>
+		</div>
+		<div>
+			<div>
+				<input type="text" maxlength="2" id="credit_card5" onkeyup="this.value=this.value.replace(/[^0-9]/g,'')">/
+				<input type="text" maxlength="2" id="credit_card6" onkeyup="this.value=this.value.replace(/[^0-9]/g,'')">
+				<input type="text" maxlength="3" id="credit_card7" onkeyup="this.value=this.value.replace(/[^0-9]/g,'')"></div>
+			</div>
+		</div>
+		</div>
+	</div>
+	</div>						
+						
 
 <div id="button">
 	<a href="input_cart.php" class="highlight" id="backToShop"><input type="button" name="" value="上一步"></a>
@@ -217,6 +211,38 @@ function showMemberInfo(){
 	xhr.send(null);
 }
 
+document.getElementById("credit_card1").addEventListener("change",checkLength);
+document.getElementById("credit_card2").addEventListener("change",checkLength);
+document.getElementById("credit_card3").addEventListener("change",checkLength);
+document.getElementById("credit_card4").addEventListener("change",checkLength);
+document.getElementById("credit_card5").addEventListener("change",checkMonth);
+function checkLength(){
+	var num = $(this).val();
+	var id  = $(this).attr("id").substr(-1);
+	if(num < 1000){
+		alert("數字長度不對！請重新輸入");
+		$(this).val("");
+		$("#nextStep").attr("disabled", true);
+		$("#nextStep").click(function(){
+			alert("請確認信用卡格式。");
+		})
+	}else{
+		id++;
+		setBlur(this,"credit_card"+id);
+	}
+}
+function checkMonth(){
+	var month = $(this).val();
+	if( month > 12 || month < 1){
+		alert("到期年月錯誤！請重新輸入");
+		$(this).val("");
+		$("#nextStep").click(function(){
+			alert("請確認信用卡格式。");
+		})
+	}else{
+
+	}
+}
 
 function bindToHiddenName(){
 	document.getElementById("cart_sub_total_hidden").value = document.getElementById("cart_sub_total").innerHTML;

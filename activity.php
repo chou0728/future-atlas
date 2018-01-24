@@ -104,6 +104,14 @@ body.fadeout::after {
                 	?>
                 </span>
         </li>
+        <li class="li_top" <?php if(!isset($_SESSION["mem_id"])){
+        						echo "style='display: none';";
+        						}?>>
+        	<a href="see_tickets.php" class="tkt">
+        		<img src="img/member/qr-code-scan.png">
+        		<span>票券</span>
+        	</a>
+        </li>
         <li class="li_top">
             <a href=<?php
                 		if(isset($_SESSION["mem_id"])===true){
