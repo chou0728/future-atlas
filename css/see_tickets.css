@@ -19,27 +19,76 @@ body::-webkit-scrollbar-thumb {
   background-color: rgba(100,255,243,1);
  /* outline: 1px solid rgba(100,255,243,1);*/
 }
+
+
+
+
 .wrapper {
   width: 100%;
   max-width: 1440px;
+  margin: 0 auto;
   background: #000;
   padding-bottom: 20px; }
   .wrapper .content {
     width: 100%;
+    margin: 0 auto;
     display: flex;
     flex-direction: row;
     justify-content: space-around;
-    padding-top: 50px; }
+    padding-top: 100px; }
+
+    @media screen and (min-width: 415px) and (max-width: 1024px) {
+       .wrapper .content{
+         padding-top: 150px;
+       }
+    }
+    @media screen and (max-width: 414px) {
+         .wrapper .content{
+           flex-direction: column;
+           padding-top: 150px;
+         }
+     }
 
     .wrapper  .buttonArea{
     width: 600px;
     margin: 0 auto;
     padding-top: 150px;
     text-align: center;
-    display: flex;
+    display: none;
+    
+    
+    }
+    @media screen and (min-width: 415px) and (max-width: 1024px) {
+      .wrapper  .buttonArea{
+        display: flex;
     flex-direction: row;
     justify-content: space-between;
+        width: 100%;
+        padding: 10% 20px 20px 20px;
+        position:fixed;
+        top: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        background: #000;
+        padding-bottom: 20px;
+        z-index: 9;
+      }
     }
+    @media screen and (max-width: 414px) {
+      .wrapper  .buttonArea{
+       display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+        width: 100%;
+        padding: 20% 20px 20px 20px;
+        position:fixed;
+        top: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        background: #000;
+        z-index: 9;
+      }
+     }
 
     .wrapper  .buttonArea a{
       width:200px;
@@ -51,19 +100,35 @@ body::-webkit-scrollbar-thumb {
       letter-spacing: 4px;
       line-height: 50px;
       text-align: center;
-  }
-  .wrapper .buttonArea a.myticket{
-      color: black;
-      font-weight: bold;
-      background-color: rgba(50,224,220,0.6);
+      
   }
 
+  @media screen and (min-width: 415px) and (max-width: 1024px) {
+    .wrapper  .buttonArea a{
+      width:45%;
+      background: #000;
+
+    }
+  }
+  @media screen and (max-width: 414px) {
+    .wrapper  .buttonArea a{
+      width:45%;
+      background: #000;
+
+    }
+   }
 
 
 
     .wrapper .content .tickets_area {
       width: 45%;
        }
+      @media screen and (max-width: 414px) {
+          .wrapper .content .tickets_area{
+            width: 100%;
+          }
+       }
+      
       .wrapper .content .tickets_area h2 {
         color: #fff;
         text-align: center;
@@ -76,10 +141,43 @@ body::-webkit-scrollbar-thumb {
         flex-direction: row;
         justify-content: space-around;
         position: relative; }
+
+        @media screen and (min-width: 415px) and (max-width: 1024px) {
+          .wrapper .content .tickets_area .tickets{
+            width: 95%;
+          }
+      }
+      @media screen and (max-width: 414px) {
+          .wrapper .content .tickets_area .tickets{
+            width: 95%;
+          }
+       }
+
+
         .wrapper .content .tickets_area .tickets .QR_code {
           width: 40%;
           height: 100%;
-          padding: 10px; }
+          padding: 10px; 
+         
+
+
+        }
+          @media screen and (min-width: 415px) and (max-width: 1024px) {
+            .wrapper .content .tickets_area .tickets .QR_code{
+              width: 30%;
+              position: relative;
+              transform:translateY(40%);
+            }
+        }
+        @media screen and (max-width: 414px) {
+            .wrapper .content .tickets_area .tickets .QR_code{
+              width: 30%;
+              position: relative;
+              transform:translateY(40%);
+            }
+         }
+
+
         .wrapper .content .tickets_area .tickets .button_area {
           display: flex;
           flex-direction: row;
@@ -107,6 +205,25 @@ body::-webkit-scrollbar-thumb {
           justify-content: space-around;
           padding: 10px;
           color: #37fff3; }
+
+          @media screen and (min-width: 415px) and (max-width: 1024px) {
+                .wrapper .content .tickets_area .tickets .ticket_info{
+                    width: 80%;
+
+                }
+          }
+          @media screen and (max-width: 414px) {
+              .wrapper .content .tickets_area .tickets .ticket_info{
+                width: 80%;
+
+              }
+           }
+
+
+
+
+
+
           .wrapper .content .tickets_area .tickets .ticket_info p {
             padding-top: 10px; }
         .wrapper .content .tickets_area .tickets .more_info_theater {

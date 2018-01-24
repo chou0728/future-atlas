@@ -145,17 +145,19 @@ if(isset($_SESSION["login_error"]) === true){
 
 
     <!-- content -->
+    <div  id="top_faci"></div>
+    
     <div class="wrapper">
     <div class="buttonArea">
-                <a href="MembersOnly.php" class="myinfo">查看會員資料</a>
-                <a href="see_tickets.php" class="myticket">查看票券</a>
+                <a href="#top_faci" class="faci_tickets" >設施票券</a>
+                <a href="#down_theater" class="thea_tickets" >劇場票券</a>
             </div>
         <div class="content">
             
             
 
             <div class="tickets_area">
-                <h2 id="see_f_tickets">設施票券</h2><!-- id為RWD用-->
+                <h2 id="see_f_tickets" >設施票券</h2><!-- id為RWD用-->
 
                 <?php
                    
@@ -218,6 +220,7 @@ if(isset($_SESSION["login_error"]) === true){
 
                     <!-- <iframe src="vaild_facility_tickets.html" frameborder="0" id="vaild_facility_tickets" name="vaild_facility_tickets"></iframe> -->
             </div>
+            <div  id="down_theater"></div>
             <div class="tickets_area">
                 <h2 id="see_t_tickets">劇場票券</h2>
 
