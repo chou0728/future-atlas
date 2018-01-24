@@ -4,6 +4,9 @@ session_start();
 if(isset($_SESSION["login_error"])==true){
 	unset($_SESSION["login_error"]);
 	echo "<script>alert('管理員帳密錯誤。');</script>";
+}if(isset($_SESSION["banned"])==true){
+	unset($_SESSION["banned"]);
+	echo "<script>alert('此帳號已被停權。');</script>";
 }
 ?>
 <!DOCTYPE html>
@@ -11,18 +14,21 @@ if(isset($_SESSION["login_error"])==true){
 <head>
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<<<<<<< HEAD
 <title>FA後台管理系統 | 登入</title>
+=======
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+<title>manager_login</title>
+>>>>>>> 3c27a7e97c928f51ba71397b8ab6b806bb9ccaa5
 <link rel="stylesheet" type="text/css" href="css/header.css">
 <style type="text/css">
-body{
-	background-color: #222;
-}
 *{
 	margin:0;
 	padding:0;
 	font-size: 0;
 	color: white;
 	font-family: 微軟正黑體;
+	/*outline: 1px solid red;*/
 }
 
 .bgi{
@@ -36,7 +42,7 @@ body{
 }
 
 #loginWrapper{
-	width: 400px;
+	width: 370px;
 	margin: 50px auto 0 auto;
 	text-align: center;
 	padding: 20px;
@@ -54,7 +60,8 @@ body{
 .inputDiv{
 	margin: 20px auto;
 	position: relative;
-	width: 70%;
+	width: 80%;
+	text-align: center;
 }
 .inputTitle{
 	font-size: 16px;
@@ -64,7 +71,7 @@ body{
 }
 .inputDiv input{
 	color: #222;
-	width: 160px;
+	width: 65%;
 	height: 26px;
 	font-size: 16px;
 	background-color: #cdcdcd;
@@ -77,7 +84,7 @@ body{
 }
 @media screen and (max-width: 767px){
 	#loginWrapper{
-		width: 90%;
+		width: 80%;
 	}#loginTitle{
 		font-size: 28px;
 		margin-bottom: 40px;
@@ -87,10 +94,10 @@ body{
 		position: absolute;
 		left: 10px;
 	}.inputDiv{
-		width: 300px;
+		width: 100%;
 	}
 	.inputDiv input{
-		width: 60%;
+		width: 75%;
 		display: block;
 		margin: 0 auto;
 	}
@@ -195,21 +202,13 @@ body{
 <div id="loginTitle">管理員登入</div>
 <form action="manager_login_php.php" method="post">
 	<div class="inputDiv">
-		<div class="inputTitle">帳號：
-			<div id="hint">
-				<?php
-					if(isset($_SESSION["banned"]) == true){
-						echo "此帳號已被停權";
-						unset($_SESSION["banned"]);
-					}
-				?>
-			</div>
+		<div class="inputTitle">
 		</div>
-		<input type="text" name="manager_name" maxlength="20" required>
+		<input type="text" name="manager_name" maxlength="20" placeholder="管理員帳號" required>
 	</div>
 	<div class="inputDiv">
-		<div class="inputTitle">密碼：</div>
-		<input type="password" name="password" maxlength="20" required>
+		<div class="inputTitle"></div>
+		<input type="password" name="password" maxlength="20" placeholder="管理員密碼" required>
 	</div>
 	<div id="btn">
 		<input type="reset" class="btn" name="" value="重設">
