@@ -362,8 +362,8 @@ if(isset($_SESSION["login_error"]) === true){
 				<div class="shadow roller_coaster_shadow"></div>
 				<img class="facility_icons roller_coaster unchecked" data-facility="roller_coaster" src="img/secondSection/roller_coaster.png"
 				    alt="">
-				<div class="shadow _shadow"></div>
-				<img class="facility_icons  unchecked" data-facility="" src="img/secondSection/.png" alt="">
+				<div class="shadow blimp_shadow"></div>
+				<img class="facility_icons  blimp unchecked" data-facility="blimp" src="img/secondSection/blimp.png" alt="">
 				<div class="shadow coffee_cup_shadow"></div>
 				<img class="facility_icons coffee_cup unchecked" data-facility="coffee_cup" src="img/secondSection/coffee_cup.png" alt="">
 				<div class="shadow bumper_cars_shadow"></div>
