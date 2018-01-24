@@ -70,19 +70,19 @@
       height: 15px;
       left: 15%;
       top: 46%; }
-    .map_wrapper .map .blimp {
+    .map_wrapper .map .carousel {
       left: 59%;
       top: 33%;
-      animation: blimp_move 2s linear infinite; }
+      animation: carousel_move 2s linear infinite; }
 
-@keyframes blimp_move {
+@keyframes carousel_move {
   0% {
     top: 33%; }
   50% {
     top: 32%; }
   100% {
     top: 33%; } }
-    .map_wrapper .map .blimp_shadow {
+    .map_wrapper .map .carousel_shadow {
       width: 100px;
       height: 15px;
       left: 40%;

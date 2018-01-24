@@ -146,7 +146,14 @@ if(isset($_SESSION["login_error"]) === true){
 
     <!-- content -->
     <div class="wrapper">
+    <div class="buttonArea">
+                <a href="MembersOnly.php" class="myinfo">查看會員資料</a>
+                <a href="see_tickets.php" class="myticket">查看票券</a>
+            </div>
         <div class="content">
+            
+            
+
             <div class="tickets_area">
                 <h2 id="see_f_tickets">設施票券</h2><!-- id為RWD用-->
 

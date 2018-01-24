@@ -33,7 +33,7 @@ body::-webkit-scrollbar-thumb {
 }
 /*按鈕*/
 .MembersBox .content .buttonArea{
-    width: 40%;
+    width: 600px;
     margin: 0 auto;
     padding-top: 50px;
     text-align: center;
@@ -43,7 +43,7 @@ body::-webkit-scrollbar-thumb {
    
 }
 .MembersBox .content .buttonArea a{
-    width: 40%;
+    width: 200px;
     height: 50px;
     color: #fff; 
     border: 2px solid rgba(50,224,220,0.5);

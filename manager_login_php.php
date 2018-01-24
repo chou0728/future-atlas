@@ -35,6 +35,8 @@ try {
 			}else{//從QR code那邊掃來的
 				header("location:http://140.115.236.72/demo-projects/BD103/BD103G3/back_check_facility_tickets.php?$order_no.$facility_no.$mem_id");
 			}
+
+			
 		}else{
 			// 停權帳號
 			$_SESSION["banned"] = true;

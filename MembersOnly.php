@@ -147,7 +147,7 @@ if(isset($_SESSION["login_error"]) === true){
                 <a href="activity.php">活動月曆</a>
             </li>
             <li>
-                <a href="robot.html">諮詢專區</a>
+                <a href="robot.php">諮詢專區</a>
             </li>
         </ul>
     </div>
@@ -173,7 +173,7 @@ if(isset($_SESSION["login_error"]) === true){
             
             <div class="buttonArea">
                 <a href="" class="myinfo">查看會員資料</a>
-                <a href="" class="myticket">查看票券</a>
+                <a href="see_tickets.php" class="myticket">查看票券</a>
             </div>
 
 

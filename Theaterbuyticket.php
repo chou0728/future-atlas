@@ -116,7 +116,7 @@
                     <a href="activity.php">活動月曆</a>
                 </li>
                 <li>
-                    <a href="robot.html">諮詢專區</a>
+                    <a href="robot.php">諮詢專區</a>
                 </li>
             </ul>
         </div>
