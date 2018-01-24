@@ -9,6 +9,17 @@
 body{
     background-color: #000;
 }
+body::-webkit-scrollbar {
+    width: 10px;
+}
+body::-webkit-scrollbar-track {
+    -webkit-border-radius: 10px;
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+}
+body::-webkit-scrollbar-thumb {
+  background-color: rgba(100,255,243,1);
+ /* outline: 1px solid rgba(100,255,243,1);*/
+}
 .MembersBox{
     width:100%;
     height: 50vh;
@@ -38,9 +49,14 @@ body{
     border: 2px solid rgba(50,224,220,0.5);
     border-radius: 10px;
     text-decoration:none;
-    letter-spacing: 10px;
+    letter-spacing: 4px;
     line-height: 50px;
     text-align: center;
+}
+.MembersBox .content .buttonArea a.myinfo{
+    color: black;
+    font-weight: bold;
+    background-color: rgba(50,224,220,0.6);
 }
 /*按鈕結束*/
 
@@ -54,6 +70,7 @@ body{
     margin: 0 auto;
     position: relative;
     margin-top: 90px;
+    padding-bottom: 20px;
     
 }
 .nameBox_value_place .bar{
@@ -131,7 +148,7 @@ body{
 }
 .nameBox_value_place table td{
     color: #4BE9EC;
-    width: 10%;
+    width: 10%;查看會員資料
     font-size: 18px;
     height:80px;
     padding: 5px;
@@ -146,15 +163,22 @@ body{
 }
 /*右邊手機尺寸*/
 @media screen and (max-width:414px){
+    .MembersBox{
+        margin:50px auto;
+    }
    .MembersBox .content .buttonArea{
         width: 100%;
         margin: 0 auto;
-        padding: 10px 40px 0 40px;
+        padding: 10px 20px 0 20px;
         text-align: center;
         display: flex;
         flex-direction: row;
         justify-content: space-between;
    
+    }
+    .MembersBox .content .buttonArea a{
+        width: 120px;
+        letter-spacing: 2px;
     }
     .nameBox_value_place .nameBox p{
         font-size: 15px;
@@ -163,6 +187,7 @@ body{
     .nameBox_value_place{
         width: 90%;
         margin-top: 20px;
+        height: 70vh;
     }
     .nameBox_value_place .bar{
         left: 0px;
@@ -173,7 +198,9 @@ body{
     
     }
 
-    
+    .nameBox_value_place table th,.nameBox_value_place table td{
+        height: 55px;
+    }
    
 
     

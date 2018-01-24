@@ -122,8 +122,8 @@ CREATE TABLE `member` (
   `mem_name` varchar(20) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL COMMENT '帳號(62~0碼)',
   `password` varchar(20) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL COMMENT '密碼(6~20碼)',
   `mem_nick` varchar(10) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL COMMENT '暱稱',
-  `mem_points` int(11) NOT NULL,
-  `mem_permissions` tinyint(1) NOT NULL COMMENT '1:可對設施留言 0:不可對設施留言',
+  `mem_points` int(11) NOT NULL default '50',
+  `mem_permissions` tinyint(1) NOT NULL default '1' COMMENT '1:可對設施留言 0:不可對設施留言',
   `mem_mail` varchar(50) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
   `mem_phone` varchar(20) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
   PRIMARY KEY (`mem_id`) -- PK

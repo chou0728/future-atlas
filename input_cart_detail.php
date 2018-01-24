@@ -4,7 +4,8 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-<title>lulala</title>
+<title>FA未來主題樂園 | 購物車-確認訂單明細</title>
+<link rel="icon" href="img/favicon.ico" />
 <script src="js/cart_detail.js"></script>
 <link rel="stylesheet" type="text/css" href="css/header.css">
 <link rel="stylesheet" type="text/css" href="css/cart.css">
@@ -34,25 +35,25 @@ body::-webkit-scrollbar-thumb {
     <div class="ul_box">
         <ul class="ul_left">
             <li>
-                <a href="Theaterbuyticket.html">劇場購票</a>
+                <a href="Theaterbuyticket.php">劇場購票</a>
             </li>
             <li>
-                <a href="facilityBuyTicket.html">設施購票</a>
+                <a href="facilityBuyTicket.php">設施購票</a>
             </li>
             <li>
-                <a href="facilityInfo.html">設施介紹</a>
+                <a href="facilityInfo.php">設施介紹</a>
             </li>
         </ul>
         <h1 style="display: none">FutureAtlas_未來主題樂園</h1>
-        <a href="index.php" class="logo_a">
+        <a href="#page1" class="logo_a">
             <img src="img/LOGO.png" class="logo">
         </a>
         <ul class="ul_right">
             <li>
-                <a href="index.html#page2">園區地圖</a>
+                <a href="#page2" id="NavClose">園區地圖</a>
             </li>
             <li>
-                <a href="activity.html">活動月曆</a>
+                <a href="activity.php">活動月曆</a>
             </li>
             <li>
                 <a href="robot.html">諮詢專區</a>
@@ -71,7 +72,8 @@ body::-webkit-scrollbar-thumb {
     <img src="img/Usericon.png" class="memIcon">
     
 </div>
-<!-- header end-->
+
+    <!-- header end-->
 <!-- 輸出會員資訊 -->
 <div id="detailWrapper">
 	<h1 id="title">確認訂單明細</h1>
