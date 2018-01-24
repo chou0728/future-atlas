@@ -137,16 +137,23 @@
 				infoShowup();
 				offMouseout();
 				
-			} else if (screen_width <= 1024 && 415 <= screen_width) {
-				// alert("平板");
+			} else if (screen_width <= 767 && 415 <= screen_width) {
+				// alert("平板1");
+				$('.ferris_wheel').attr("src", "img/secondSection/ferris_wheel.png");
 				infoShowup();
+				offMouseout();
+			} else if (screen_width <= 1023 && 768 <= screen_width) {
+				// alert("平板2");
+				infoShowup();
+				mapSmall_pad();
+				offMouseout();
 				$('.close').on("click", function () {
 					mapBig_pad();
 					checked_facility.attr("src", "img/secondSection/" + facility + ".png");
 					checked_facility.on('mouseout', hoverUnchangeImg);
 		
 				});
-			} else if(screen_width >1024) {
+			}else if(screen_width >1024) {
 				// alert("PC");
 				infoShowup();
 				mapSmall_pc();
@@ -155,6 +162,7 @@
 					mapBig_pc();
 					checked_facility.attr("src", "img/secondSection/" + facility + ".png");
 					checked_facility.on('mouseout', hoverUnchangeImg);
+
 		
 				});
 				
@@ -218,12 +226,12 @@
 			// };
 	
 			function mapSmall_pad() {
-				$('.map').css('transform', 'scale(' + 2.5+ ')');
-				if(facility=="ferris_wheel"){
+				$('.map').css('transform', 'scale(' + 1+ ')');
+				
 					$('.map').stop().animate({
-						left: '-30%'
+						top: '10%'
 					}, 350);
-				}
+				
 				
 				$('.info').stop().animate({
 					top: "50%"
@@ -257,7 +265,7 @@
 			function mapBig_pad() {
 				$('.map').css('transform', 'scale(' + 0.9 + ')');
 				$('.map').stop().animate({
-					top: '0%'
+					top: '30%'
 				}, 350);
 				$('.info').stop().animate({
 					top: "150%"

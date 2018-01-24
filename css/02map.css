@@ -16,12 +16,31 @@
     padding: 25%;
     position: relative;
     transform: scale(0.9);
-    -webkit-transition: transform 0.6s; }
-    @media screen and (min-width: 415px) and (max-width: 1024px) {
-      .map_wrapper .map {
-        top: 10%;
-        transform: translateY(-50%);
-        background: #fff; } }
+		-webkit-transition: transform 0.6s; }
+		
+		@media screen and (min-width: 768px) and (max-width: 1024px) {
+			.map_wrapper .map {
+					width: 100%;	
+					top: 30%;
+					
+					
+
+				}
+			 }
+		
+
+			 /* 手機橫畫面 */
+		 @media screen and (min-width: 415px) and (max-width: 767px) {
+				.map_wrapper .map {
+						width: 100%;	
+						top: 15%;
+						left:-22%;
+						transform: scale(0.5);
+						
+	
+					}
+				 }
+
     @media screen and (max-width: 414px) {
       .map_wrapper .map {
         top: 26%;
@@ -244,10 +263,13 @@
     border: 4px solid #37fff3;
     box-shadow: 0 0 15px 0px #37fff3;
     z-index: 999; }
-    @media screen and (min-width: 415px) and (max-width: 1024px) {
+    @media screen and (min-width: 415px) and (max-width: 767px) {
       .map_wrapper .info {
-        width: 95%;
-        height: 63vh; } }
+				width: 42%;
+				left:75%;
+				height: 80vh;
+				top: 15%; } }
+		
     @media screen and (max-width: 414px) {
       .map_wrapper .info {
         width: 95%;
@@ -301,7 +323,7 @@
           height: 50vh;
           float: left;
           position: relative; }
-          @media screen and (min-width: 415px) and (max-width: 1024px) {
+          @media screen and (min-width: 415px) and (max-width: 767px) {
             .map_wrapper .info .info_container .info_content .main_photo {
               float: none;
               width: 100%;
@@ -318,7 +340,7 @@
             top: 50%;
             transform: translate(-50%, -50%);
             border: 2px solid rgba(50, 255, 218, 0.9); }
-            @media screen and (min-width: 415px) and (max-width: 1024px) {
+            @media screen and (min-width: 415px) and (max-width: 767px) {
               .map_wrapper .info .info_container .info_content .main_photo img {
                 width: 98%;
                 top: 0%;
@@ -339,7 +361,7 @@
             content: '';
             display: block;
             clear: both; }
-          @media screen and (min-width: 415px) and (max-width: 1024px) {
+          @media screen and (min-width: 415px) and (max-width: 767px) {
             .map_wrapper .info .info_container .info_content .main_content {
               float: none;
               width: 100%;
@@ -356,11 +378,11 @@
             width: 60%;
             text-align: center;
             background-color: rgba(50, 255, 218, 0.9); }
-            @media screen and (min-width: 415px) and (max-width: 1024px) {
+            @media screen and (min-width: 415px) and (max-width: 767px) {
               .map_wrapper .info .info_container .info_content .main_content .title {
                 width: 98%;
                 position: absolute;
-                top: -80%;
+                top: -10%;
                 left: 50%;
                 transform: translateX(-50%); } }
             @media screen and (max-width: 414px) {
@@ -377,7 +399,7 @@
               color: #000;
               margin-bottom: 4px;
               letter-spacing: 8px; }
-              @media screen and (min-width: 415px) and (max-width: 1024px) {
+              @media screen and (min-width: 415px) and (max-width: 767px) {
                 .map_wrapper .info .info_container .info_content .main_content .title h2 {
                   font-size: 24px; } }
               @media screen and (max-width: 414px) {
@@ -387,7 +409,7 @@
               font-size: 16px;
               font-weight: bold;
               color: #000; }
-              @media screen and (min-width: 415px) and (max-width: 1024px) {
+              @media screen and (min-width: 415px) and (max-width: 767px) {
                 .map_wrapper .info .info_container .info_content .main_content .title small {
                   font-size: 12px; } }
               @media screen and (max-width: 414px) {
@@ -406,10 +428,10 @@
                 content: '';
                 display: block;
                 clear: both; }
-              @media screen and (min-width: 415px) and (max-width: 1024px) {
+              @media screen and (min-width: 415px) and (max-width: 767px) {
                 .map_wrapper .info .info_container .info_content .main_content .information .parameter {
                   width: 80px;
-                  top: 40px; } }
+                  top: 75px; } }
               @media screen and (max-width: 414px) {
                 .map_wrapper .info .info_container .info_content .main_content .information .parameter {
 									width: 80px;
@@ -426,10 +448,19 @@
                 top: -30px;
                 left: 0;
                 line-height: 1.5; }
-                @media screen and (min-width: 415px) and (max-width: 1024px) {
-                  .map_wrapper .info .info_container .info_content .main_content .information .parameter h5 {
-                    font-size: 16px;
-                    top: -25px; } }
+                @media screen and (min-width: 415px) and (max-width: 767px) {
+										.map_wrapper .info .info_container .info_content .main_content .information .parameter h5 {
+											font-size: 16px;
+											top: -25px; 
+										
+										} 
+										.map_wrapper .info .info_container .info_content .main_content .information .parameter{
+											width:95px;
+										}
+										.map_wrapper .info .info_container .info_content .faci_suit{
+											display:none;
+										}
+									}
                 @media screen and (max-width: 414px) {
                   .map_wrapper .info .info_container .info_content .main_content .information .parameter h5 {
                     font-size: 16px;
@@ -457,7 +488,17 @@
 								
               .map_wrapper .info .info_container .info_content .main_content .information .parameter .middleLinehight {
 								line-height: 80px; }
-								
+								@media screen and (min-width: 415px) and (max-width: 767px){
+									.map_wrapper .info .info_container .info_content .main_content .information .parameter .paraContent{
+										height: 50px;
+	
+									}
+									.map_wrapper .info .info_container .info_content .main_content .information .parameter .middleLinehight {
+										line-height: 50px; }
+
+								}
+
+								}
 								@media screen and (max-width: 414px){
 									.map_wrapper .info .info_container .info_content .main_content .information .parameter .paraContent{
 										height: 50px;
@@ -482,10 +523,10 @@
           vertical-align: middle;
           position: relative;
           top: 100px; }
-          @media screen and (min-width: 415px) and (max-width: 1024px) {
+          @media screen and (min-width: 415px) and (max-width: 767px) {
             .map_wrapper .info .info_container .info_content .open_iframe {
               width: 80%;
-              top: 60px; } }
+              top: 87px; } }
           @media screen and (max-width: 414px) {
             .map_wrapper .info .info_container .info_content .open_iframe {
               width: 80%;
@@ -632,7 +673,7 @@
 	background-color: rgba(0,0,0,0.5);
 	
 }
-@media screen and (max-width:1024px){
+@media screen and (max-width:767px){
 	#close{
 		right: 35px;
 		top:20px;
