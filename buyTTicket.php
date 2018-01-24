@@ -21,7 +21,7 @@ if(isset($_SESSION["login_error"]) === true){
     <link rel="stylesheet" type="text/css" href="css/login.css">	
     <link rel="stylesheet" type="text/css" href="css/buyTTicket.css" />
     <script src="js/sessionStorage.js"></script>
-    <title>buyTTicket</title>
+    <title>FA未來主題樂園 | 劇場購票-選購劇場票劵</title>
 </head>
 <body>
     <div class="header">
