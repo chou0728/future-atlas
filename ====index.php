@@ -139,12 +139,15 @@ if(isset($_SESSION["login_error"]) === true){
     <div class="ul_box">
         <ul class="ul_left">
             <li>
+            	<img src="img/hover-tri.png" class="nav_hover">
                 <a href="Theaterbuyticket.php">劇場購票</a>
             </li>
             <li>
+            	<img src="img/hover-tri.png" class="nav_hover">
                 <a href="facilityBuyTicket.php">設施購票</a>
             </li>
             <li>
+            	<img src="img/hover-tri.png" class="nav_hover">
                 <a href="facilityInfo.php">設施介紹</a>
             </li>
         </ul>
@@ -154,12 +157,15 @@ if(isset($_SESSION["login_error"]) === true){
         </a>
         <ul class="ul_right">
             <li>
+            	<img src="img/hover-tri.png" class="nav_hover">
                 <a href="#page2" id="NavClose">園區地圖</a>
             </li>
             <li>
+            	<img src="img/hover-tri.png" class="nav_hover">
                 <a href="activity.php">活動月曆</a>
             </li>
             <li>
+            	<img src="img/hover-tri.png" class="nav_hover">
                 <a href="robot.html">諮詢專區</a>
             </li>
         </ul>

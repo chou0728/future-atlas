@@ -94,7 +94,9 @@
 			window.addEventListener('resize',allNavClose);
 // 小nav
 $(document).ready(function(){
-	
+		if($(document).scrollTop() > 50){
+			$(".nav").addClass("smallnav");
+		}
 	$(window).scroll(function(){
 		if($(document).scrollTop() > 50){
 			$(".nav").addClass("smallnav");

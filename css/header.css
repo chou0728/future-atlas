@@ -123,6 +123,61 @@
 	vertical-align: middle;	
 
 }
+.ul_left li,.ul_right li{
+	position: relative;
+}
+
+.ul_left li .nav_hover,.ul_right li .nav_hover{
+	position: absolute;
+	width: 20%;
+	left:50%;
+	top:-19px;
+	transform: translateX(-50%);
+	display: none;
+	animation: updown 1.1s linear infinite;
+}
+.smallnav .ul_left li .nav_hover, .smallnav .ul_right li .nav_hover{
+	position: absolute;
+	width: 18%;
+	left:50%;
+	top:-16px;
+	transform: translateX(-50%);
+	display: none;
+	animation: updowntwo 1.1s linear infinite;
+}
+@media screen and (min-width:1025px) {
+	.smallnav .ul_left li .nav_here,.smallnav .ul_right li .nav_here{
+		position: absolute;
+		width: 18%;
+		left:50%;
+		top:-16px;
+		transform: translateX(-50%);
+	}
+	.ul_left li .nav_here,.ul_right li .nav_here{
+		position: absolute;
+		width: 20%;
+		left:50%;
+		top:-19px;
+		transform: translateX(-50%);
+	}
+	@keyframes updown{
+		0%{top:-19px;}
+		50%{top:-23px;}
+		100%{top:-19px;}
+	}
+	@keyframes updowntwo{
+		0%{top:-16px;}
+		50%{top:-20px;}
+		100%{top:-16px;}
+	}
+	.ul_left li:hover a,.ul_right li:hover a{
+		color: #FFC116;
+	}
+	.ul_left li:hover .nav_hover,.ul_right li:hover .nav_hover{
+		display: block;
+	}
+}
+
 .ul_left{
 	text-align: right;
 	margin-right: 20px;
@@ -151,6 +206,9 @@
 }
 /*768*------====================================*/
 @media screen and (max-width:1024px){
+	.ul_left li .nav_here,.ul_right li .nav_here{
+		display: none;
+	}
 	.ul_left,.ul_right,.ul_left li,.ul_right li{
 		display: block;
 		text-align: center;
