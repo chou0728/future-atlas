@@ -124,31 +124,32 @@ td.wider{
     background-color: #fafafa;
 }
 
-.date, .date input{
-    width: 60px;
+.date{
+    width: 6%;
     padding-left: 5px;
 }
-.name, .name input{
-    width: 210px;
+.name{
+    width: 18%;
 }
-.start, .start input, .end, .end input{
-    width: 70px;
+.start, .end{
+    width: 7%;
 }.short{
-    width: 110px;
+    width: 9%;
 }
-.short input{
-    width: 90px;
+.location{
+    width: 10%;
 }
-.location, .location input{
-    width: 110px;
-}
-.intro, .intro input{
-    width: 330px;
+.intro{
+    width: 30%;
 }
 .editBtn{
-    width: 200px;
+    width: 25%;
     text-align: center;
 }
+.date input, .name input, .start input, .end input, .short input, .location input, .intro input{
+    width: 90%;
+}
+
 
 .operating{
     display: inline-block;
