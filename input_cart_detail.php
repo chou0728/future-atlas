@@ -27,7 +27,6 @@ body::-webkit-scrollbar-track {
 }
 body::-webkit-scrollbar-thumb {
   background-color: rgba(100,255,243,1);
- /* outline: 1px solid rgba(100,255,243,1);*/
 }
 </style>
 <body>
@@ -81,18 +80,18 @@ body::-webkit-scrollbar-thumb {
 		<tr><th colspan="2" class="tbtitle">會員資訊</th>
 		</tr>
 		<tr>
-			<td>暱稱</td><td id="mem_nick" style="color: white"></td>
+			<td><div class="mem_info">暱稱</div><div id="mem_nick" class="mem_info_content"></div></td>
 		</tr>
 		<tr>
-			<td>Email</td><td id="mem_mail"></td>
+			<td><div class="mem_info">Email</div><div id="mem_mail" class="mem_info_content"></div></td>
 		</tr>
 		<tr>
-			<td>積分</td><td id="mem_points"></td>
+			<td><div class="mem_info">積分</div><div id="mem_points" class="mem_info_content"></div></td>
 		</tr>
 	</table>
 
 	<!-- 購票明細 -->
-	<table id="ticket_rows" cellspacing="0">
+	<table id="ticket_rows">
 		<tr><th colspan="8" class="tbtitle" id="detail_row_title" style="font-size: 24px;">訂單明細</th></tr>
 		<tr id="ticket_row">
 			<th id="fn_th">編號</th>
@@ -100,27 +99,47 @@ body::-webkit-scrollbar-thumb {
 			<th id="tt_th">票種</th>
 			<th id="fare_th">票價</th>
 			<th id="tn_th" style='text-align: right'>張數</th>
+			<th></th>
 			<th id="subtotal_th" style='text-align: right'>小計</th
 			>
 		</tr>
 		<tr id="input_discount"><th colspan="8" class="title">選擇是否使用積分</th></tr>
 		<tr>
-			<td style="width: 350px; text-align: right" colspan="7" id="discount_input">
-				使用積分<input type="number" id="points" min="0" value="0"> 點
+			<td style="width: 350px; text-align: right" colspan="6" id="discount_input">
+				使用積分<input type="number" id="points" min="0" value="0">
 					<div id="points_remain">(剩餘點數：
 						<span id="points_remain_input"></span>)點
 					</div>
 			</td>
-			<td id="discount">0</td>
+			<td id="discount" colspan="6">0</td>
 		</tr>
 		<tr id="cart_total_row">
-			<td colspan="7">結帳金額：</td>
-			<td name="total" id="total"></td>
+			<td colspan="6">結帳金額：</td>
+			<td name="total" id="total" colspan="6"></td>
 		</tr>
 	</table>
 	<!--輸入信用卡 -->
 	<div id="pay_info">
 		<div class="tbtitle">輸入信用卡</div>
+			<div id="credit_input_area" colspan="2">信用卡卡號
+		<div>
+			<div class="credit_card" name="credit_card" id="credit_card">
+				<input type="text" size="4" minlength="4" maxlength="4" id="credit_card1" name="credit_card1" onkeyup="this.value=this.value.replace(/[^0-9]/g,'')" required>-
+				<input type="text" size="4" minlength="4" maxlength="4" id="credit_card2" name="credit_card2" onkeyup="this.value=this.value.replace(/[^0-9]/g,'')" required>-
+				<input type="text" size="4" minlength="4" maxlength="4" id="credit_card3" name="credit_card3" onkeyup="this.value=this.value.replace(/[^0-9]/g,'')" required>-
+				<input type="text" size="4" minlength="4" maxlength="4" id="credit_card4" name="credit_card4" onkeyup="this.value=this.value.replace(/[^0-9]/g,'')" required>
+			</div>
+		<div>
+			<div>到期年月 / 驗證碼</div>
+		</div>
+		<div>
+			<div>
+				<input type="text" maxlength="2" id="credit_card5" onkeyup="this.value=this.value.replace(/[^0-9]/g,'')">/
+				<input type="text" maxlength="2" id="credit_card6" onkeyup="this.value=this.value.replace(/[^0-9]/g,'')">
+				<input type="text" maxlength="3" id="credit_card7" onkeyup="this.value=this.value.replace(/[^0-9]/g,'')"></div>
+			</div>
+		</div>
+		</div>
 			<div id="declareWrapper">
 				<div id="declareTitle">線上信用卡交易隱私權聲明</div>
 					<div id="declareContent">
@@ -156,26 +175,6 @@ body::-webkit-scrollbar-thumb {
 				<input type="hidden" name="order_date" id="order_date">
 				<input type="hidden" name="sql_order_item" id="sql_order_item">
 				<!-- 隱藏欄位區 end -->
-		<div id="credit_input_area" colspan="2">信用卡卡號</div>
-		<div>
-			<div class="credit_card" name="credit_card" id="credit_card">
-				<input type="text" size="4" minlength="4" maxlength="4" id="credit_card1" name="credit_card1" onkeyup="this.value=this.value.replace(/[^0-9]/g,'')" required>-
-				<input type="text" size="4" minlength="4" maxlength="4" id="credit_card2" name="credit_card2" onkeyup="this.value=this.value.replace(/[^0-9]/g,'')" required>-
-				<input type="text" size="4" minlength="4" maxlength="4" id="credit_card3" name="credit_card3" onkeyup="this.value=this.value.replace(/[^0-9]/g,'')" required>-
-				<input type="text" size="4" minlength="4" maxlength="4" id="credit_card4" name="credit_card4" onkeyup="this.value=this.value.replace(/[^0-9]/g,'')" required>
-			</div>
-		<div>
-			<div>到期年月 / 驗證碼</div>
-		</div>
-		<div>
-			<div>
-				<input type="text" maxlength="2" id="credit_card5" onkeyup="this.value=this.value.replace(/[^0-9]/g,'')">/
-				<input type="text" maxlength="2" id="credit_card6" onkeyup="this.value=this.value.replace(/[^0-9]/g,'')">
-				<input type="text" maxlength="3" id="credit_card7" onkeyup="this.value=this.value.replace(/[^0-9]/g,'')"></div>
-			</div>
-		</div>
-		</div>
-	</div>
 	</div>						
 						
 
@@ -216,31 +215,39 @@ document.getElementById("credit_card2").addEventListener("change",checkLength);
 document.getElementById("credit_card3").addEventListener("change",checkLength);
 document.getElementById("credit_card4").addEventListener("change",checkLength);
 document.getElementById("credit_card5").addEventListener("change",checkMonth);
+document.getElementById("credit_card6").addEventListener("change",checkYear);
 function checkLength(){
 	var num = $(this).val();
 	var id  = $(this).attr("id").substr(-1);
 	if(num < 1000){
 		alert("數字長度不對！請重新輸入");
 		$(this).val("");
-		$("#nextStep").attr("disabled", true);
+		// $("#nextStep").attr("disabled", true);
 		$("#nextStep").click(function(){
 			alert("請確認信用卡格式。");
 		})
-	}else{
-		id++;
-		setBlur(this,"credit_card"+id);
 	}
 }
 function checkMonth(){
 	var month = $(this).val();
-	if( month > 12 || month < 1){
-		alert("到期年月錯誤！請重新輸入");
+	var month_array = ["01","02","03","04","05","06","07","08","09","10","11","12"];
+	if( month_array.indexOf(month) < 0 ){
+		alert("到期月錯誤！請重新輸入");
 		$(this).val("");
-		$("#nextStep").click(function(){
-			alert("請確認信用卡格式。");
-		})
-	}else{
+	}
+}
 
+function checkYear(){
+	var year = $(this).val();
+	var year_array = [];
+	var d = new Date();
+	var y = d.getFullYear()
+	for(var i=0 ; i<10 ; i++){
+		year_array[i] = y+i;
+	}
+	if( year_array.indexOf(year) < 0 ){
+		alert("到期年錯誤！請重新輸入");
+		$(this).val("");
 	}
 }
 
