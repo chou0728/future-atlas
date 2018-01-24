@@ -437,7 +437,7 @@ try {
 			<div class="hr">
 				<div class="trai"></div>	
 			</div>
-			<a href="" id="getTicket">立即前往購票</a>
+			<a href="facilityBuyTicket.php" id="getTicket">立即前往購票</a>
 			<div id="noticket">此設施不需購票</div>
 			<div class="content">
 			<div class="scoreTitle">設施介紹</div>		

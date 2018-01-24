@@ -47,7 +47,6 @@ try {
 		$_SESSION["login_error"] = true;
 		Header("location:manager_login.php");
 	}
-
 } catch (Exception $ex) {
 	echo "資料庫操作失敗,原因：",$ex->getMessage(),"<br>";
 	echo "行號：",$ex->getLine(),"<br>";

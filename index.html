@@ -1,40 +1,37 @@
-<?php
-ob_start();
-session_start();
-?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>選擇前後端</title>
-    <style>
-    .wrapper{
-        margin: 0;
-        padding: 0;
-        display: flex;
-        flex-direction: row;
-        justify-content: space-around;
-    }
-    .wrapper a{
-        display: block;
-        width: 40%;
-        height: 50vh;
-        border: 2px solid #000;
-        text-align: center;
-        font-size: 50px;
-        line-height: 50vh;
-        text-decoration: none;
-    }
-    </style>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script src="https://code.jquery.com/jquery-3.2.1.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.20.3/TweenMax.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="css/RESET.css">
+	<link rel="stylesheet" type="text/css" href="css/index.css">
 </head>
 <body>
-    <div class="wrapper">
-            <a href="====index.php">前端</a>
-            <a href="manager_login.php">後端</a>
+	<div id="canvas"></div>
+	<div class="title">FUTURE ATLAS</div>
+	<div class="sub">-Future Theme Park-</div>
+	<img src="img/ro.png" class="rocket">
 
-    </div>
-    
+	<div id="enter" class="inline-block">
+		<img src="img/C.png" class="img3">
+		<img src="img/B.png" class="img2">
+		<img src="img/A.png" class="img1">
+		<a href="====index.php" class="box">前端</a>
+	</div>
+	<div class="inline-block">
+		<img src="img/C.png" class="img3">
+		<img src="img/B2.png" class="img2">
+		<img src="img/A2.png" class="img1">
+		<a href="manager_login.php" class="box">後端</a>
+	</div>
+
+	<!-- <div class="sectionb">
+	<a href="====index.php" class="box">前端</a>
+	<a href="manager_login.php" class="box">後端</a>
+	</div> -->
+
+	<script src="js/tweenmax.js"></script>
 </body>
 </html>

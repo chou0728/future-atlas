@@ -137,7 +137,10 @@
       padding: 10px 10px; 
       border-bottom:1px solid #555; 
     }
-
+    /*.orderlistsection input:focus{
+        background-color:rgba(255, 193, 22,0.6);
+        color:#ffffff;
+    }*/
     .integral {
       display: inline-block; }
 
@@ -197,6 +200,7 @@
     @media screen and (max-width:414px){
       .yesmodifyBtn{
         font-size: 21px;
+        margin: 40px 6px;
       }
     }
     /*.yesmodifyBtn a {
