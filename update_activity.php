@@ -2,7 +2,7 @@
 ob_start();
 session_start();
 try{
-	$date     = $_REQUEST["date"];
+	$date     = substr($_REQUEST["date"],4,2);
 	$name 	  = $_REQUEST["name"];
 	$short 	  = $_REQUEST["short"];
 	$location = $_REQUEST["location"];
@@ -30,8 +30,9 @@ try{
 	$activity -> bindParam(":activity_intro",$intro);
 	$activity -> bindParam(":no",$no);
 	$activity -> execute();
-	echo "修改成功!<br>返回<a href='back_activity.php'>管理介面</a>";
-	header("Refresh:3;url=back_activity.php");
+	
+	$_SESSION["update_successfully"] = true;
+	header("location:back_activity.php");
 }catch(PDOException $ex){ //php error
 	echo "資料庫操作失敗,原因：",$ex->getMessage(),"<br>";
 	echo "行號：",$ex->getLine(),"<br>";
