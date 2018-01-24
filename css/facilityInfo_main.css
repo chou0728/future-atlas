@@ -1350,6 +1350,7 @@ body::-webkit-scrollbar-thumb {
 #comment{
 	width: 66%;
 	height: 264px;
+	overflow-x: hidden;
 	overflow-y: auto;
 	display: inline-block;
 	vertical-align: middle;
@@ -1373,6 +1374,7 @@ body::-webkit-scrollbar-thumb {
 		width: 100%;
 		height: 195px;
 		overflow-y: auto;
+		overflow-x: hidden;
 		display: inline-block;
 		vertical-align: middle;
 		padding: 1%;
@@ -1395,6 +1397,7 @@ body::-webkit-scrollbar-thumb {
 	color: white;
 	padding: 5px;
 	margin-bottom: 1%;
+
 	margin: auto;
 	background-color: rgba(120,255,225,0.1);
 	box-shadow: 0 0 2px rgba(180,255,225,0.9);
@@ -1416,7 +1419,7 @@ body::-webkit-scrollbar-thumb {
 #comment .memcommentBox .commentTime{
 	width: 95px;
 	position: absolute;
-	top:16%;
+	top:10px;
 	right: 5px;
 
 }
@@ -1428,16 +1431,17 @@ body::-webkit-scrollbar-thumb {
 	#comment .memcommentBox .commentTime{
 	width: 95px;
 	position: absolute;
-	top:8px;
+	top:7px;
 	right: 5px;
 
 	}
 }
 #comment .memcommentBox .memComment{
-	display: inline-block;
+	display: block;
 	width: 95%;
 	padding: 1%;
 	vertical-align: middle;
+	line-height: 1.5;
 }
 .memScore .points_cover{
 	width: 120px;

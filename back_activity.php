@@ -4,6 +4,12 @@ session_start();
 if(isset($_SESSION["login_success"])==false){
 	header("location:manager_login.php");
 	exit;
+}if(isset($_SESSION["update_successfully"])){
+	echo "<script>alert('修改成功!')</script>";
+	unset($_SESSION["update_successfully"]);
+}if(isset($_SESSION["insert_successfully"])){
+	echo "<script>alert('新增成功!')</script>";
+	unset($_SESSION["insert_successfully"]);
 }
 ?>
 <!DOCTYPE html>
@@ -226,7 +232,7 @@ try {
 		// 切換資料：改變外觀
 		$(".edit").click(function(){
 			var index = $(".edit").index(this);
-			if(index>0){
+			if(index>0){ // 排除第一欄重設鈕
 				$(".date").eq(index).toggleClass("editStyle");
 				$(".name").eq(index).toggleClass("editStyle");
 				$(".short").eq(index).toggleClass("editStyle");

@@ -300,14 +300,14 @@ if(isset($_SESSION["login_success"])==false){
                 <form method="get" action="" align="center" enctype="multipart/form-data">
                     <h2 class="titleh2">劇場票劵訂單</h2>
                     <table class="TheaterOrderListTable" id='TheaterOrderListTable'>
-                        會員ID:<input type="text" value="1" id='mem_id'>
+                        會員姓名:<input type="text" value="" id='mem_name'>
                             <!-- button類型要改成type="button"，預設type="submit" -->
                             <button type="button" onclick="searchOrderList()"  class="searchOrderList">查詢</button>
                             <div id="showPanel"></div>
                         <tr>
                             <th>訂單編號</th>
                             <th>場次編號</th>
-                            <th>會員ID</th>
+                            <th>會員姓名</th>
                             <th>購買張數</th>
                             <th>已使用張數</th>
                             <th>訂購日期</th>
@@ -337,7 +337,11 @@ if(isset($_SESSION["login_success"])==false){
                                 //一打開停留在第一頁
                                 $start = ($page-1) * $recPerPage;
 
-                                $sql = "select * from theater_order_list limit $start,$recPerPage ";
+                                //$sql = "select * from theater_order_list limit $start,$recPerPage ";
+                                //搜尋會員姓名
+                                $sql = "select t.theater_ticket_no,t.session_no,t.mem_id,t.number_purchase,t.used_ticket,
+                                    t.order_date,t.original_amount,t.points_discount,t.credit_card,t.program_no,m.mem_name from theater_order_list t join member m  on t.mem_id=m.mem_id
+                                 limit $start,$recPerPage ";                                
                                 $theater_order_list = $pdo->query($sql);
                                 // echo $total_pages;       
                                 //跑迴圈，印出資料
@@ -350,7 +354,7 @@ if(isset($_SESSION["login_success"])==false){
                                         <?php echo  $prodRow["session_no"] ?>
                                     </td>
                                     <td >
-                                        <?php echo  $prodRow["mem_id"] ?>
+                                        <?php echo  $prodRow["mem_name"] ?>
                                     </td>
                                     <td><?php echo  $prodRow["number_purchase"] ?>
                                     </td>
@@ -441,7 +445,7 @@ if(isset($_SESSION["login_success"])==false){
                 }
             }//xhr.onreadystatechange
           
-            var url = "php/search_member_id.php?mem_id=" + document.getElementById("mem_id").value;
+            var url = "php/search_member_id.php?mem_name=" + document.getElementById("mem_name").value;
             xhr.open("Get", url, true);
             xhr.send( null );
         }

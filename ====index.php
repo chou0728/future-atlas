@@ -154,7 +154,7 @@ if(isset($_SESSION["login_error"]) === true){
                 <a href="activity.php">活動月曆</a>
             </li>
             <li>
-                <a href="robot.html">諮詢專區</a>
+                <a href="robot.php">諮詢專區</a>
             </li>
         </ul>
     </div>
@@ -364,8 +364,8 @@ if(isset($_SESSION["login_error"]) === true){
 				<div class="shadow roller_coaster_shadow"></div>
 				<img class="facility_icons roller_coaster unchecked" data-facility="roller_coaster" src="img/secondSection/roller_coaster.png"
 				    alt="">
-				<div class="shadow carousel_shadow"></div>
-				<img class="facility_icons carousel unchecked" data-facility="carousel" src="img/secondSection/carousel.png" alt="">
+				<div class="shadow _shadow"></div>
+				<img class="facility_icons  unchecked" data-facility="" src="img/secondSection/.png" alt="">
 				<div class="shadow coffee_cup_shadow"></div>
 				<img class="facility_icons coffee_cup unchecked" data-facility="coffee_cup" src="img/secondSection/coffee_cup.png" alt="">
 				<div class="shadow bumper_cars_shadow"></div>
@@ -386,10 +386,11 @@ if(isset($_SESSION["login_error"]) === true){
 								<img src="img/secondSection/ferris_wheel_img.jpg" alt="">
 						</div>
 						<!-- 右邊標題跟介紹 -->
+
 						<div class="main_content">
 								<div class="title">
-										<h2>宇宙雲霄飛車</h2>
-										<small>COSMOS ROLLER COASTER</small>
+										<h2>FA摩天輪</h2>
+										<small>FA FERRIS WHEEL</small>
 									</div>
 							<div class="information">
 								<div class="parameter">
@@ -430,7 +431,7 @@ if(isset($_SESSION["login_error"]) === true){
 										</p>
 									</div>
 							</div>
-							<a class="open_iframe" href="#" data-no="1">了解更多</a>
+							<a class="open_iframe" href="#" data-no="3">了解更多</a>
 						</div>
 
 					</div>
@@ -439,6 +440,7 @@ if(isset($_SESSION["login_error"]) === true){
 						<div class="main_photo">
 								<img src="img/secondSection/roller_coaster_img.jpg" alt="">
 							</div>
+
 							<!-- 右邊標題跟介紹 -->
 							<div class="main_content">
 								<div class="title">
@@ -613,7 +615,7 @@ if(isset($_SESSION["login_error"]) === true){
 							<!-- 右邊標題跟介紹 -->
 							<div class="main_content">
 								<div class="title">
-									<h2>宇宙雲霄飛車</h2>
+									<h2></h2>
 									<small>COSMOS ROLLER COASTER</small>
 								</div>
 								<div class="information">
@@ -790,7 +792,7 @@ if(isset($_SESSION["login_error"]) === true){
 				</li>
 				<li class="buy notcurrent">
 					<!-- <div class="cover"></div> -->
-					<a href="Theaterbuyticket.html">
+					<a href="Theaterbuyticket.php">
 						<span>立即購票</span>
 					</a>
 				</li>
@@ -1004,8 +1006,8 @@ if(isset($_SESSION["login_error"]) === true){
 							</div>
 							
 							<div class="down_button">
-								<button class="change" onclick=" location.href='http://localhost/php/future-atlas/facilityBuyTicket.php'">購買設施票券</button>
-								<button class="change" onclick=" location.href='http://localhost/php/future-atlas/Theaterbuyticket.php'">購買劇場票券</button>
+								<button class="change" onclick=" location.href='facilityBuyTicket.php'">購買設施票券</button>
+								<button class="change" onclick=" location.href='Theaterbuyticket.php'">購買劇場票券</button>
 							</div>
 							
 						</div>

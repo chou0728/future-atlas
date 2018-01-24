@@ -21,8 +21,9 @@ try {
 	$manager -> bindParam(":top_manager",$top_manager);
 	$manager -> bindParam(":manager_status",$manager_status);
 	$manager -> execute();
-	echo "修改成功!<br>返回<a href='back_management_authority.php'>管理介面</a>";
-	header("Refresh:3;url=back_management_authority.php");
+	
+	$_SESSION["update_successfully"] = true;
+	header("location:back_management_authority.php");
 } catch (Exception $ex) {
 	echo "資料庫操作失敗,原因：",$ex->getMessage(),"<br>";
 	echo "行號：",$ex->getLine(),"<br>";

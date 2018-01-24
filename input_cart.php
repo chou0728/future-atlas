@@ -14,6 +14,8 @@ if(isset($_SESSION["login_error"]) === true){
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+<title>FA未來主題樂園 | 購物車</title>
+<link rel="icon" href="img/favicon.ico" />
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <link rel="stylesheet" type="text/css" href="css/header.css">
 <link rel="stylesheet" type="text/css" href="css/login.css">
@@ -128,12 +130,12 @@ body::-webkit-scrollbar-thumb {
             </li>
         </ul>
         <h1 style="display: none">FutureAtlas_未來主題樂園</h1>
-        <a href="#page1" class="logo_a">
+        <a href="====index.php" class="logo_a">
             <img src="img/LOGO.png" class="logo">
         </a>
         <ul class="ul_right">
             <li>
-                <a href="#page2" id="NavClose">園區地圖</a>
+                <a href="====index.php#page2" id="NavClose">園區地圖</a>
             </li>
             <li>
                 <a href="activity.php">活動月曆</a>

@@ -32,7 +32,7 @@ if(isset($_SESSION["login_error"]) === true){
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>FA未來主題樂園--設施介紹--</title>
+	<title>FA未來主題樂園 | 設施介紹</title>
 	<link rel="icon" href="img/favicon.ico" />
 	<link rel="stylesheet" type="text/css" href="css/RESET.css">
 	<link rel="stylesheet" type="text/css" href="css/header.css">
@@ -98,7 +98,7 @@ if(isset($_SESSION["login_error"]) === true){
                 <span class="register">
                 	<?php
                 		if(isset($_SESSION["mem_id"])===true){
-                			echo "<a href='MembersOnly.html'>帳戶</a>";
+                			echo "<a href='MembersOnly.php'>帳戶</a>";
                 		}else{
                 			echo "註冊";
                 		}
@@ -144,7 +144,7 @@ if(isset($_SESSION["login_error"]) === true){
     <div class="ul_box">
         <ul class="ul_left">
             <li>
-                <a href="Theaterbuyticket.html">劇場購票</a>
+                <a href="Theaterbuyticket.php">劇場購票</a>
             </li>
             <li>
                 <a href="facilityBuyTicket.php">設施購票</a>
@@ -154,18 +154,18 @@ if(isset($_SESSION["login_error"]) === true){
             </li>
         </ul>
         <h1 style="display: none">FutureAtlas_未來主題樂園</h1>
-        <a href="index.php" class="logo_a">
+        <a href="====index.php" class="logo_a">
             <img src="img/LOGO.png" class="logo">
         </a>
         <ul class="ul_right">
             <li>
-                <a href="index.html#page2" id="NavClose">園區地圖</a>
+                <a href="====index.php#page2" id="NavClose">園區地圖</a>
             </li>
             <li>
                 <a href="activity.php">活動月曆</a>
             </li>
             <li>
-                <a href="robot.html">諮詢專區</a>
+                <a href="robot.php">諮詢專區</a>
             </li>
         </ul>
     </div>
@@ -437,7 +437,7 @@ try {
 			<div class="hr">
 				<div class="trai"></div>	
 			</div>
-			<a href="" id="getTicket">立即前往購票</a>
+			<a href="facilityBuyTicket.php" id="getTicket">立即前往購票</a>
 			<div id="noticket">此設施不需購票</div>
 			<div class="content">
 			<div class="scoreTitle">設施介紹</div>		
@@ -502,7 +502,7 @@ try {
 	<script src="https://code.jquery.com/jquery-3.2.1.js"></script>
 	<script src="js/facilityInfo_main.js"></script>
 	<script src="js/00nav.js"></script>
-	<script src="js/page_load_unload.js" defer></script>
+	<script src="js/page_load_unload.js"></script>
 	<script type="text/javascript">
 		//-登入-----------------------------------
 			function login() {

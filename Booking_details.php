@@ -9,7 +9,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Booking details</title>
+    <title>FA未來主題樂園 | 劇場購票-選購劇場票劵明細</title>
+    <link rel="icon" href="img/favicon.ico" />
     <link rel="stylesheet" type="text/css" href="css/RESET.css">
     <link rel="stylesheet" type="text/css" href="css/header.css">
     <link rel="stylesheet" type="text/css" href="css/Booking_details.css">
@@ -106,7 +107,7 @@
                     <span class="login">
                         <?php
                             if(isset($_SESSION["mem_id"])===true){
-                                echo"<a href='logoutheadforindex.php'>登出</a>";
+                                echo"<a href='logoutheadforindex.php?ismp=0'>登出</a>";
                             }else{
                                 echo"登入";
                             }
@@ -136,12 +137,12 @@
                 </li>
             </ul>
             <h1 style="display: none">FutureAtlas_未來主題樂園</h1>
-            <a href="index.html#page1" class="logo_a">
+            <a href="====index.html" class="logo_a">
                 <img src="img/LOGO.png" class="logo">
             </a>
             <ul class="ul_right">
                 <li>
-                    <a href="index.html#page2">園區地圖</a>
+                    <a href="====index.php#page2" id="NavClose">園區地圖</a>
                 </li>
                 <li>
                     <a href="activity.php">活動月曆</a>
@@ -216,16 +217,17 @@
                 </tr>
                 <tr>
                     <td>
-                        <input type="radio" name="Scorepoints" value="0" onchange="Userpoints()">不使用積分
+                        <!-- <input type="radio" name="Scorepoints" value="0" onchange="Userpoints()">不使用積分
                         <br>
-                        <input type="radio" name="Scorepoints" value="1" checked onchange="Userpoints()">使用積分
-                        <input type="text" id="Scorenumber" value="10" size=10 style="font-size:16px;" onchange="changeScoreNumber()">
+                        <input type="radio" name="Scorepoints" value="1" checked onchange="Userpoints()"> -->
+                        使用積分
+                        <input type="number" id="Scorenumber" value="10" size=10 style="font-size:16px; width:50px;" onchange="changeScoreNumber()">
                     </td>
                     <td style="padding-top: 40px;" id="integral"> 
                     </td>
                 </tr>
                 <tr>
-                    <td>總計:</td>
+                    <td>總計</td>
                     <td id="total"></td>
                 </tr>
             </table>
@@ -274,20 +276,20 @@
         <div class="creditCardinfo">
             <p>信用卡號碼</p>
             <p style="font-size:10px;">
-                <input type="text" style="width:50px;" id="Card1" class="inputs" maxlength="4" onchange="creditCard()"  onkeyup="this.value=this.value.replace(/[^0-9]/g,'')">-
-                <input type="text" style="width:50px;" id="Card2" class="inputs" maxlength="4"  onchange="creditCard()"  onkeyup="this.value=this.value.replace(/[^0-9]/g,'')">-
-                <input type="text" style="width:50px;" id="Card3" class="inputs" maxlength="4"  onchange="creditCard()"  onkeyup="this.value=this.value.replace(/[^0-9]/g,'')">-
-                <input type="text" style="width:50px;" id="Card4" class="inputs" maxlength="4"  onchange="creditCard()"  onkeyup="this.value=this.value.replace(/[^0-9]/g,'')">
+                <input type="text" style="width:50px;" id="Card1" class="inputs" maxlength="4" onchange="creditCard(this)"  onkeyup="this.value=this.value.replace(/[^0-9]/g,'')">-
+                <input type="text" style="width:50px;" id="Card2" class="inputs" maxlength="4"  onchange="creditCard(this)"  onkeyup="this.value=this.value.replace(/[^0-9]/g,'')">-
+                <input type="text" style="width:50px;" id="Card3" class="inputs" maxlength="4"  onchange="creditCard(this)"  onkeyup="this.value=this.value.replace(/[^0-9]/g,'')">-
+                <input type="text" style="width:50px;" id="Card4" class="inputs" maxlength="4"  onchange="creditCard(this)"  onkeyup="this.value=this.value.replace(/[^0-9]/g,'')">
             </p>
             <p>到期日</p>
             <p style="font-size:5px;">
-                <input type="text" style="width:40px;"  maxlength="2" class="inputs" onchange="creditCard()" onkeyup="this.value=this.value.replace(/[^0-9]/g,'')"> /
-                <input type="text" style="width:40px;"  maxlength="2" class="inputs" onchange="creditCard()" onkeyup="this.value=this.value.replace(/[^0-9]/g,'')">
+                <input type="text" style="width:40px;"  maxlength="2" class="inputs" onchange="creditCardate(this)" onkeyup="this.value=this.value.replace(/[^0-9]/g,'')"> /
+                <input type="text" style="width:40px;"  maxlength="2" class="inputs" onchange="creditCardate(this)" onkeyup="this.value=this.value.replace(/[^0-9]/g,'')">
             </p>
             <!-- size是設定input大小 -->
             <p>驗證碼</p>
             <p>
-                <input type="text" style="width:40px;"  maxlength="3"  onchange="creditCard()" onkeyup="this.value=this.value.replace(/[^0-9]/g,'')">
+                <input type="text" style="width:40px;"  maxlength="3"  onchange="creditCardNumber(this)" onkeyup="this.value=this.value.replace(/[^0-9]/g,'')">
             </p>
         </div>
 
@@ -401,9 +403,16 @@
               $(this).next('.inputs').focus();
             }
         });
+
         //儲存信用卡號碼
-        function  creditCard(){
-            
+        function  creditCard(obj){
+            console.log( "value :" , obj.value);
+            if(obj.value.length<4){
+                alert("必須輸入4碼 ");
+                //event.returnValue=false;
+                obj.focus();
+                return;
+            }
             CardInfo = document.getElementById('Card1').value+"-";
             CardInfo += document.getElementById('Card2').value+"-";
             CardInfo += document.getElementById('Card3').value+"-";
@@ -413,6 +422,29 @@
             // CardInfo += document.getElementById('Card7').value+"-";
             storage.setItem("CardInfo", CardInfo);    
         }
+
+        //檢查到期日
+        function creditCardate(obj){
+            console.log( "value :" , obj.value);
+            if(obj.value.length<2){
+                alert("必須輸入2碼 ");
+                //event.returnValue=false;
+                obj.focus();
+                return;
+            }
+        }
+
+        //檢查驗證碼
+        function creditCardNumber(obj){
+            console.log( "value :" , obj.value);
+            if(obj.value.length<3){
+                alert("必須輸入3碼");
+                //event.returnValue=false;
+                obj.focus();
+                return;
+            }
+        }
+
         var localstorage = localStorage;
         var mem_id = localstorage.getItem("mem_id");
         //資料傳送到php

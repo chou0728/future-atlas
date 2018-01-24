@@ -2,13 +2,16 @@
 	try{
 		require_once("connectBooks.php");
 		$sql = "select * from theater_order_list where mem_id=:mem_id";
+		$sql = "select t.theater_ticket_no,t.session_no,t.mem_id,t.number_purchase,t.used_ticket,
+    t.order_date,t.original_amount,t.points_discount,t.credit_card,t.program_no,m.mem_name from theater_order_list t join member m  on t.mem_id=m.mem_id
+ where m.mem_name like '%{$_REQUEST["mem_name"]}%' "; 
 		$theater_order_list = $pdo->prepare($sql);
-		$theater_order_list->bindValue(":mem_id",$_REQUEST["mem_id"]);
+		//$theater_order_list->bindValue(":mem_id",);
 		$theater_order_list->execute();
 
 	  if( $theater_order_list->rowCount() == 0 ){ //找不到
 	    //傳回空的字串
-	    echo "查無此會員ID";
+	    echo "查無此會員姓名";
 	  }else{ //找得到
 	    //取回一筆資料
       $str = "";
@@ -16,7 +19,7 @@
 	  $str .="<tr>
                     <th>訂單編號</th>
                     <th>場次編號</th>
-                    <th>會員ID</th>
+                    <th>會員姓名</th>
                     <th>購買張數</th>
                     <th>已使用張數</th>
                     <th>訂購日期</th>
@@ -31,7 +34,7 @@
 	      // $str .= '<input type="hidden" name="session_no" value="'.$sessionlistRow->session_no.'">';
 		  $str .= "<tr><td>" . $orderlistRow->theater_ticket_no . "</td>";
 		  $str .= "<td>" . $orderlistRow->session_no . "</td>";
-		  $str .= "<td>" . $orderlistRow->mem_id . "</td>";
+		  $str .= "<td>" . $orderlistRow->mem_name . "</td>";
 		  $str .= "<td>" . $orderlistRow->number_purchase . "</td>";
 		  $str .= "<td>" . $orderlistRow->used_ticket . "</td>";
 		  $str .= "<td>" . $orderlistRow->order_date . "</td>";

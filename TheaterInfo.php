@@ -8,11 +8,14 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>FA未來主題樂園 | 劇場購票-劇場節目介紹</title>
+  <link rel="icon" href="img/favicon.ico" />
   <link rel="stylesheet" type="text/css" href="css/RESET.css">
   <link rel="stylesheet" type="text/css" href="css/header.css">
   <link rel="stylesheet" href="css/Theaterinfo.css" />
   <link rel="stylesheet" type="text/css" href="css/login.css">
   <script type="text/javascript" src="js/jquery-3.2.1.min.js"></script>
+  <script src="js/page_load_unload.js"></script>
   <script src="js/TheaterInfo.js"></script>
   <title>Theaterinfo</title>
   <style type="text/css">
@@ -29,7 +32,7 @@
         }
     </style>
 </head>
-<body>
+<body class="fadeout">
     <div class="header">
       <ul class="ul_top">
           <li class="li_top">
@@ -51,7 +54,7 @@
                 <span class="register">
                   <?php
                     if(isset($_SESSION["mem_id"])===true){
-                      echo "<a href='MembersOnly.html'>帳戶</a>";
+                      echo "<a href='MembersOnly.php'>帳戶</a>";
                     }else{
                       echo "註冊";
                     }
@@ -101,18 +104,18 @@
                 </li>
             </ul>
             <h1 style="display: none">FutureAtlas_未來主題樂園</h1>
-            <a href="#page1" class="logo_a">
+            <a href="====index.php" class="logo_a">
                 <img src="img/LOGO.png" class="logo">
             </a>
             <ul class="ul_right">
                 <li>
-                    <a href="#page2" id="NavClose">園區地圖</a><!-- ===請追加ID=== -->
+                    <a href="====index.php#page2" id="NavClose">園區地圖</a><!-- ===請追加ID=== -->
                 </li>
                 <li>
                     <a href="activity.php">活動月曆</a>
                 </li>
                 <li>
-                    <a href="robot.html">諮詢專區</a>
+                    <a href="robot.php">諮詢專區</a>
                 </li>
             </ul>
         </div>
@@ -149,7 +152,7 @@
       
         <div class="Menu">
           <!-- 可以按箭頭轉換順續 -->
-          <img src="img/theater_page/Recycle_arrows_3.png" style="width:40px; height:30px;" class="Recycle_arrows">
+          <img src="img/theater_page/Recycle_arrows_3.png" style="width: 40px;" class="Recycle_arrows">
           <!-- 可以變換標題 -->
           <h2 class="Menutitle" >節目介紹</h2>
         </div> 
@@ -228,7 +231,7 @@
       
       <!-- 立即購買按鈕 -->
       <div class="buyticketBtn">
-        <a href="javascript: return false;" onclick="checkLogin()" >立即購買</a>
+        <a href="javascript:void(0)" onclick="checkLogin()" >立即購買</a>
       </div>
   </div>
   <!-- 登入燈箱 -->

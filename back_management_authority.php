@@ -5,6 +5,9 @@ session_start();
 if(isset($_SESSION["login_success"])==false){
     header("location:manager_login.php");
     exit;
+}if(isset($_SESSION["update_successfully"])){
+	echo "<script>alert('修改成功!')</script>";
+	unset($_SESSION["update_successfully"]);
 }
 ?>
 <!DOCTYPE html>
@@ -175,19 +178,29 @@ try {
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script type="text/javascript">
 $(document).ready(function(){
-	// 即或未修改，也將欄位值存入隱藏欄位
-	$(".i_name_hidden").val($(".managerRow .i_name").val());
-	$(".i_psw_hidden").val($(".managerRow .i_psw").val());
-	if($(".managerRow .i_top").val() == "最高"){
-		$(".i_top_hidden").val(1);
-	}else{
-		$(".i_top_hidden").val(0);
-	}
-	if($(".managerRow .i_status").val() == "啟用"){
-		$(".i_status_hidden").val(1);
-	}else{
-		$(".i_status_hidden").val(0);
-	}
+
+	$(".edit").click(function(){
+		var index = $(".edit").index(this);
+		$(".i_name_hidden").eq(index).val($(".managerRow .i_name").eq(index).val());
+		$(".i_psw_hidden").eq(index).val($(".managerRow .i_psw").eq(index).val());
+			if($(".managerRow .i_top").eq(index).val() == "最高"){
+					$temp = 1;
+				}else{
+					$temp = 0;
+				}
+		$(".i_top_hidden").eq(index).val($temp);
+			if($(".managerRow .i_status").eq(index).val() == "啟用"){
+					$temp = 1;
+				}else{
+					$temp = 0;
+				}
+		$(".i_status_hidden").eq(index).val($temp);
+		console.log($(".i_name_hidden").eq(index).val());
+		console.log($(".i_psw_hidden").eq(index).val());
+		console.log($(".i_top_hidden").eq(index).val());
+		console.log($(".i_status_hidden").eq(index).val());
+	});
+
 	// 按下儲存按鈕 將新的value值送進隱藏欄位
 		// 修改帳號
 		$(".managerRow .i_name").change(function(){

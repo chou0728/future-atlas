@@ -95,15 +95,6 @@
 // 小nav
 $(document).ready(function(){
 	
-	$(".header").click(function(){
-		$(".lever").removeClass("leverOnScroll");
-		$(".ul_top").removeClass("ul_top_onScroll");
-	})
-	$(".ul_top").click(function(){
-		$(".lever").addClass("leverOnScroll");
-		$(".ul_top").addClass("ul_top_onScroll");
-	})
-
 	$(window).scroll(function(){
 		if($(document).scrollTop() > 50){
 			$(".nav").addClass("smallnav");

@@ -19,7 +19,8 @@ if(isset($_SESSION["login_error"]) === true){
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>設施票券</title>
+    <title>FA未來主題樂園 | 會員專區-查看票券</title>
+    <link rel="icon" href="img/favicon.ico" />
     <link rel="stylesheet" href="css/see_tickets.css">
     <link rel="stylesheet" href="css/header.css">
     <link rel="stylesheet" href="css/login.css">	
@@ -27,127 +28,136 @@ if(isset($_SESSION["login_error"]) === true){
     
     <style>
     body{
-            
-            background:#000;       
+        background:#000;       
     }
     </style>
 </head>
 
 <body>
     <!-- header -->
-    <body class="fadeout">
-    <div class="header">
-        <ul class="ul_top">
-            <li class="li_top">
-                <a href=<?php
-                    if(isset($_SESSION["mem_id"])===true){
-                                echo "'javascript:void(0)'";
-                            }else{
-                                echo "'register.html'";
-                            }
-                ?> id="registerUser">
-                    <img src=<?php
-                            if(isset($_SESSION['mem_id'])===true){
-                                echo 'img/member/member_3.png';
-                            }else{
-                                echo 'img/member/member_0.png';
-                            }
-                        ?>
-                    >
-                    <span class="register">
-                        <?php
-                            if(isset($_SESSION["mem_id"])===true){
-                                echo "<a href='MembersOnly.html'>帳戶</a>";
-                            }else{
-                                echo "註冊";
-                            }
-                        ?>
-                    </span>
+ <div class="header">
+    <ul class="ul_top">
+        <li class="li_top">
+            <a href=<?php
+                if(isset($_SESSION["mem_id"])===true){
+                            echo "'javascript:void(0)'";
+                        }else{
+                            echo "'register.html'";
+                        }
+            ?> id="registerUser">
+                <img src=<?php
+                        if(isset($_SESSION['mem_id'])===true){
+                            echo 'img/member/member_3.png';
+                        }else{
+                            echo 'img/member/member_0.png';
+                        }
+                    ?>
+                >
+                <span class="register">
+                    <?php
+                        if(isset($_SESSION["mem_id"])===true){
+                            echo "<a href='MembersOnly.html'>帳戶</a>";
+                        }else{
+                            echo "註冊";
+                        }
+                    ?>
+                </span>
+            </a>
+        </li>
+        <li class="li_top">
+            <a href=<?php
+                        if(isset($_SESSION["mem_id"])===true){
+                            echo"'logoutheadforindex.php'";
+                        }else{
+                            echo"'javascript:void(0)'";
+                        }
+                    ?> id="singUpBtn">
+                <img src=<?php
+                        if(isset($_SESSION['mem_id'])===true){
+                            echo 'img/member/member_2.png';
+                        }else{
+                            echo 'img/member/member_1.png';
+                        }
+                    ?>>
+                <span class="login">
+                    <?php
+                        if(isset($_SESSION["mem_id"])===true){
+                            echo"<a href='logoutheadforindex.php?ismp=0'>登出</a>";
+                        }else{
+                            echo"登入";
+                        }
+                    ?>
+                </span>
+            </a>
+        </li>
+        <li class="li_top">
+             <a href="input_cart.php">
+                <img id="cartimgid" src="img/cart/wallet_0.png">
+                <span id="howmanytickets">0</span>
+            </a>
+        </li>
+    </ul>
+</div>
+<div class="nav">
+    <div class="ul_box">
+        <ul class="ul_left">
+            <li>
+                <a href="Theaterbuyticket.php">劇場購票</a>
             </li>
-            <li class="li_top">
-                <a href=<?php
-                            if(isset($_SESSION["mem_id"])===true){
-                                echo"'logoutheadforindex.php'";
-                            }else{
-                                echo"'javascript:void(0)'";
-                            }
-                        ?> id="singUpBtn">
-                    <img src=<?php
-                            if(isset($_SESSION['mem_id'])===true){
-                                echo 'img/member/member_2.png';
-                            }else{
-                                echo 'img/member/member_1.png';
-                            }
-                        ?>>
-                    <span class="login">
-                        <?php
-                            if(isset($_SESSION["mem_id"])===true){
-                                echo"登出";
-                            }else{
-                                echo"登入";
-                            }
-                        ?>
-                    </span>
-                </a>
+            <li>
+                <a href="facilityBuyTicket.php">設施購票</a>
             </li>
-            <li class="li_top">
-                 <a href="input_cart.php">
-                    <img id="cartimgid" src="img/cart/wallet_0.png">
-                    <span id="howmanytickets">0</span>
-                </a>
+            <li>
+                <a href="facilityInfo.php">設施介紹</a>
+            </li>
+        </ul>
+        <h1 style="display: none">FutureAtlas_未來主題樂園</h1>
+        <a href="====index.php" class="logo_a">
+            <img src="img/LOGO.png" class="logo">
+        </a>
+        <ul class="ul_right">
+            <li>
+                <a href="====index.php#page2" id="NavClose">園區地圖</a>
+            </li>
+            <li>
+                <a href="activity.php">活動月曆</a>
+            </li>
+            <li>
+                <a href="robot.html">諮詢專區</a>
             </li>
         </ul>
     </div>
-    <div class="nav">
-        <div class="ul_box">
-            <ul class="ul_left">
-                <li>
-                    <a href="Theaterbuyticket.php">劇場購票</a>
-                </li>
-                <li>
-                    <a href="facilityBuyTicket.php">設施購票</a>
-                </li>
-                <li>
-                    <a href="facilityInfo.php">設施介紹</a>
-                </li>
-            </ul>
-            <h1 style="display: none">FutureAtlas_未來主題樂園</h1>
-            <a href="#page1" class="logo_a">
-                <img src="img/LOGO.png" class="logo">
-            </a>
-            <ul class="ul_right">
-                <li>
-                    <a href="#page2" id="NavClose">園區地圖</a>
-                </li>
-                <li>
-                    <a href="activity.php">活動月曆</a>
-                </li>
-                <li>
-                    <a href="robot.html">諮詢專區</a>
-                </li>
-            </ul>
-        </div>
-        <div class="navOpenBtn"><!-- RWD left btn-->
-            <div class="ham"></div>
-            <div class="ham"></div>
-            <div class="ham"></div>
+    <div class="navOpenBtn"><!-- RWD left btn-->
+        <div class="ham"></div>
+        <div class="ham"></div>
+        <div class="ham"></div>
+        <div class="ham"></div>
+    </div>
+</div>
+<div class="headerOpenBtn"><!-- RWD right btn-->
+    <img src="img/Usericon1.png" class="memIcon">
+    <img src="img/Usericon.png" class="memIcon">
+    
+</div>
 
-            <div class="ham"></div>
-        </div>
-    </div>
-    <div class="headerOpenBtn"><!-- RWD right btn-->
-        <img src="img/Usericon1.png" class="memIcon">
-        <img src="img/Usericon.png" class="memIcon">
-        
-    </div>
+    <!-- header end-->
 
 
 
     <!-- content -->
+    <div  id="top_faci"></div>
+    
     <div class="wrapper">
+    <div class="buttonArea">
+                <a href="#top_faci" class="faci_tickets" >設施票券</a>
+                <a href="#down_theater" class="thea_tickets" >劇場票券</a>
+            </div>
         <div class="content">
+            
+            
+
             <div class="tickets_area">
-                <h2>設施票券</h2>
+                <h2 id="see_f_tickets" >設施票券</h2><!-- id為RWD用-->
 
                 <?php
                    
@@ -210,8 +220,9 @@ if(isset($_SESSION["login_error"]) === true){
 
                     <!-- <iframe src="vaild_facility_tickets.html" frameborder="0" id="vaild_facility_tickets" name="vaild_facility_tickets"></iframe> -->
             </div>
+            <div  id="down_theater"></div>
             <div class="tickets_area">
-                <h2>劇場票券</h2>
+                <h2 id="see_t_tickets">劇場票券</h2>
 
                 <?php
 
@@ -271,8 +282,8 @@ if(isset($_SESSION["login_error"]) === true){
 
             </div>
         </div>
-
- <!-- <script src="js/00nav.js"></script> -->
+<script src="https://code.jquery.com/jquery-3.2.1.js"></script>
+<script src="js/00nav.js"></script>
 <script>
 window.onload = function(){
 
@@ -303,6 +314,7 @@ function checkRateOrNot(){
 
         }else{//已評價
             rate_faci[i].innerHTML = "已評價";
+            rate_faci[i].style.backgroundColor = "rgba(80,80,80)";
             rate_faci[i].addEventListener('click',function(){
                alert("您已評價過");
             })
