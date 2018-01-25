@@ -1,0 +1,7 @@
+SELECT a.number_purchase, a.used_ticket, b.program_name, c.time_date, c.session_time
+FROM theater_order_list a
+JOIN theater_program b ON a.program_no = b.program_no
+JOIN theater_session_list c ON a.session_no = c.session_no
+WHERE a.theater_ticket_no =2
+AND a.session_no =9
+AND a.program_no =1
