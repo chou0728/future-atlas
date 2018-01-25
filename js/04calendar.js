@@ -144,7 +144,6 @@ $(document).ready(function(){
 			}
 		var activity_date = parseInt($(this).text());
 		show_activity(activity_date);
-		console.log(activity_date);
 
 		if( !showDate){
 			showDate = "今日";
@@ -154,7 +153,7 @@ $(document).ready(function(){
 		$("#activityDate").text(showDate);
 		// 依照日期查看園區活動一覽: 星期
 		var day = ["(日)","(一)","(二)","(三)","(四)","(五)","(六)"];
-	$("#activityDay").text(day[$(this).index()]);
+		$("#activityDay").text(day[$(this).index()]);
 	});
 	$("#backToToday").click(function(){
 		$("#activityDate").text("今日");
@@ -222,7 +221,7 @@ $(document).ready(function(){
 	}
 
 function autoIconLoop1(){
-	$(".claContent").html("").css("font-size","16px");
+	$(".claContent").html("");
 	$(".sun").html("尋找星生命");
 	$(".mon").html("末世決戰");
 	$(".tue").html("");
@@ -234,7 +233,7 @@ function autoIconLoop1(){
 	$(".icons").not("#icon1").css("background-color","transparent");
 };
 function autoIconLoop2(){
-	$(".claContent").html("").css("font-size","16px");
+	$(".claContent").html("");
 	$(".claContent:eq(6)").append("宇宙雲霄飛車");
 	$(".claContent:eq(17)").append("FA摩天輪");
 	$(".claContent:eq(20)").append("OCT-R5大戰");
@@ -245,7 +244,7 @@ function autoIconLoop2(){
 	$(".icons").not("#icon2").css("background-color","transparent");
 };
 function autoIconLoop3(){
-	$(".claContent").html("").css("font-size","16px");
+	$(".claContent").html("");
 	$(".sun").html("9-22");
 	$(".mon").html("10-22");
 	$(".tue").html("休園");
@@ -257,7 +256,7 @@ function autoIconLoop3(){
 	$(".icons").not("#icon3").css("background-color","transparent");
 };
 function autoIconLoop4(){
-	$(".claContent").html("-").css("font-size","12px");
+	$(".claContent").html("-");
 	for(var activity_date=1; activity_date<=31; activity_date++){
 		var xhr = new XMLHttpRequest();
 		xhr.onload = function(){

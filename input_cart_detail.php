@@ -44,7 +44,7 @@ body::-webkit-scrollbar-thumb {
             </li>
         </ul>
         <h1 style="display: none">FutureAtlas_未來主題樂園</h1>
-        <a href="#page1" class="logo_a">
+        <a href="====index.php" class="logo_a">
             <img src="img/LOGO.png" class="logo">
         </a>
         <ul class="ul_right">
@@ -183,7 +183,7 @@ body::-webkit-scrollbar-thumb {
 	<a class="highlight"><input type="submit" name="" id="nextStep" class="highlight" value="確認結帳"></a>
 </div>
 </form>
-<!-- <script src="js/00nav.js"></script> -->
+<script src="js/00nav.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script type="text/javascript">
 window.addEventListener("load",showMemberInfo);

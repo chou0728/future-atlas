@@ -191,7 +191,6 @@ body.fadeout::after {
 <div class="headerOpenBtn"><!-- RWD right btn-->
     <img src="img/Usericon1.png" class="memIcon">
     <img src="img/Usericon.png" class="memIcon">
-    
 </div>
 
 <div id="smallCal">
