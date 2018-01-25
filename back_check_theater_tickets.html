@@ -122,7 +122,7 @@
 
                         <div class="time">
                                 <h3>日期：
-                                    <span id="program_time">2018-01-11</span>
+                                    <span id="program_date">2018-01-11</span>
     
                                 </h3>
                                 <h3>時間：
@@ -134,7 +134,7 @@
                             <h3>未用票券：
                                 <span id="unused_num">1</span>　張</h3>
                             <h3>已用票券：
-                                <span id="unused_num">1</span>　張</h3>
+                                <span id="used_num">1</span>　張</h3>
 
                         </div>
                         
@@ -158,30 +158,64 @@
             var used_record = document.getElementById('used_record');
             var submit = document.getElementById('submit');
 
-            var input_full = document.getElementById('full_num');
-            var input_hald = document.getElementById('half_num');
-
-            var unused_full = document.getElementById('unused_full');
-            var unused_half = document.getElementById('unused_half');
-            var unused_sum = document.getElementById('unused_sum');
-            var used_full = document.getElementById('used_full');
-            var used_half = document.getElementById('used_half');
-            var used_sum = document.getElementById('used_sum');
+            var input_remain = document.getElementById('remain_num');
+            
+            
             var order_no_span = document.getElementById('order_no');
-
-
+            var session_no_span = document.getElementById('session_no');
+            var program_date_span = document.getElementById('program_date');
+            var program_time_span = document.getElementById('program_time');
+            var unused_num = document.getElementById('unused_num');//剩下的
+            var used_num = document.getElementById('used_num');
 
             getURL();
             recordInitialAmount();
             resetButton();
             submitButton();
-            setLocalStorage();
+            setLocalStorage();  
+
+
+            function getURL() { //到時候要帶值進url
+                var href = location.href;
+                href = href + '?2.1.2'; //第一個數字是order_no，第二個為facility_no，第三個為mem_id
+                var index = href.indexOf('?'); //先判斷?的位置在哪(indexOf)
+                var key_str = href.substr(index + 1); //從index往後一個位置開始取字串到最後
+                var key_array = key_str.split("."); //將取回的字串分割成陣列
+                order_no = key_array[0]; //讓order_no變成全域
+                facility_no = key_array[1]; //讓facility_no變成全域
+                mem_id = key_array[2];
+                order_no_span.innerHTML = order_no;
+                localStorage.setItem('order_no',order_no);
+                localStorage.setItem('facility_no',facility_no);
+                localStorage.setItem('mem_id',mem_id);
+                
+                
+                getOrder();
+                getFacility();
+                // var url_order_no = href.substr(-1);
+                // alert(url_order_no);
+
+               
+
+            };
 
 
 
 
 
-        }
+
+
+
+
+
+
+
+
+
+
+
+
+        }//initial()
 
 
 
