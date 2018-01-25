@@ -15,7 +15,9 @@ if(isset($_SESSION["login_success"])==false){
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>FA後台</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FA後台管理系統 | 劇場管理</title>
+    <link rel="icon" href="img/favicon_back.ico" />
     <!-- ======請複製==== -->
     <link rel="stylesheet" type="text/css" href="css/RESET.css">
     <link rel="stylesheet" type="text/css" href="css/11back_nav.css">
@@ -90,7 +92,7 @@ if(isset($_SESSION["login_success"])==false){
 <!-- ===========================NAV結束==================================== -->
     <!-- ===右邊區塊固定格式=============================================================== -->
     <div class="back_wrapper_right">
-        <div class="b_content">
+        <div class="b_content"  id="not-check-ticket">
             <div class="b_sub_nav">
                 <a href="javascript:void(0)" class="b_sn_btn" onclick="openCity(event,'TheaterMang')" id="active">劇場節目</a>
                 <a href="javascript:void(0)" class="b_sn_btn" onclick="openCity(event,'theater_session_List')">劇場場次清單</a>

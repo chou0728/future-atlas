@@ -219,12 +219,18 @@
     position: absolute;
     
 }
-.cont .midBox .midContent_1 .pic{
+.cont .midBox  .pic{
+    width: 100%;
+    height: 200px;
+    overflow: hidden;
+         
+}
+/*.cont .midBox .midContent_1 .pic{
      width: 100%;  
 }
 .cont .midBox .midContent_1 .pic .map{
      width: 100%;  
-}
+}*/
 .cont .midBox .midContent_1 .pic .map iframe{
     width: 100%;
 }
@@ -233,18 +239,15 @@
 
 /*========如何購票*/
 .cont .midBox .midContent_2{
-    width: 100%;  
+    width: 100%;
     position: absolute;
     display: none;
     
 }
-.cont .midBox .midContent_2 .pic{
-     width: 100%;
-         
-}
-.cont .midBox .midContent_2 .pic img{
-     width: 100%;
-     height: 200px;
+
+.cont .midBox  .pic img{
+     width: 80%;
+     
          
 }
 
@@ -263,8 +266,6 @@
 }
 .cont .midBox .midContent_3 .pic .right img{
     width: 100%;
-    height: 200px;
-    
 }
 
 

@@ -117,6 +117,7 @@ if(isset($_SESSION["login_error"]) === true){
             </a>
         </li>
         <li class="li_top">
+        	<div><img src="img/facilityBuyTicket/00159.png"></div>
              <a href="input_cart.php">
                 <img id="cartimgid" src="img/cart/wallet_0.png">
                 <span id="howmanytickets">0</span>
