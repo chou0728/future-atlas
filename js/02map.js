@@ -99,6 +99,7 @@
 
 	function mapControl(){
 
+		var screen_width = document.documentElement.clientWidth;
 		
 		var hoverChangeImg = function () {
 			var facility = $(this).attr("data-facility");
@@ -114,11 +115,14 @@
 		$('.unchecked').on('mouseout', hoverUnchangeImg);
 		
 		//頁面一載入就要預設開啟某個設施的資訊和亮該設施
+		if (screen.width <= 414){
+			$('.info_content').css('display', 'none');
+			$('.info_ferris_wheel').css('display', 'block');
+			$('.ferris_wheel').attr("src", "img/secondSection/ferris_wheel_hover.png");
 
-		$('.info_content').css('display', 'none');
-		$('.info_ferris_wheel').css('display', 'block');
-		$('.ferris_wheel').attr("src", "img/secondSection/ferris_wheel_hover.png");
+		};
 
+		
 
 
 

@@ -1,18 +1,20 @@
+
+
 <?php
 ob_start();
 session_start();
-//請複製:當無登入時會自動跳轉至登入頁面
 
 
 
 if(!isset($_SESSION["login_success"])){
+    $_SESSION["c_qr_no"]= $_SERVER['REQUEST_URI'];
     header("location:manager_login.php?filename=back_check_theater");
     exit;
+}else if(!isset($_REQUEST["qr"])){
+    $_SESSION["c_qr_no"]= $_SERVER['REQUEST_URI'];
 }
-
-
+   
 ?>
-
 
 
 
@@ -97,6 +99,10 @@ if(!isset($_SESSION["login_success"])){
     <!-- === content ==== -->
     <div class="b_content">
         <div id="check_tickets" class="tabcontent check_tickets_wrapper">
+        <div id="pc_only">
+                <h1>請使用行動裝置驗票</h1>
+
+            </div>
             <div class="content">
                 <div class="info theater_info">
 
@@ -116,7 +122,7 @@ if(!isset($_SESSION["login_success"])){
                         <div>
                             <span>可用：</span>
                             <input id="remain_num" type="number" min="0">
-                            <span>張</span>
+                            <span>　張</span>
                         </div>
                     </div>
                     <div class="button_area">
@@ -135,17 +141,14 @@ if(!isset($_SESSION["login_success"])){
                             <h3>票券編號：
                                 <span id="theater_ticket_no"></span>
                             </h3>
-                            <h3>場次編號：
-                                <span id="session_no"></span>
-                            </h3>
                         </div>
 
                         <div class="time">
-                            <h3>日期：
+                            <h3>演出日期：
                                 <span id="program_date"></span>
 
                             </h3>
-                            <h3>時間：
+                            <h3>演出時間：
                                 <span id="program_time"> </span>
                             </h3>
                         </div>
@@ -169,6 +172,7 @@ if(!isset($_SESSION["login_success"])){
     </div>
 
 </div>
+<input type="hidden" id="get_qr" value="<?php echo $_SESSION["c_qr_no"] ?>">
         <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
 
         <script>
@@ -184,7 +188,6 @@ if(!isset($_SESSION["login_success"])){
                 var program_name_span = document.getElementById('program_name');
                 var program_photo_div = document.getElementById('program_photo');
                 var theater_ticket_no_span = document.getElementById('theater_ticket_no');
-                var session_no_span = document.getElementById('session_no');
                 var program_date_span = document.getElementById('program_date');
                 var program_time_span = document.getElementById('program_time');
                 var unused_num_span = document.getElementById('unused_num'); //剩下的
@@ -197,7 +200,7 @@ if(!isset($_SESSION["login_success"])){
 
 
                 function getURL() { //到時候要帶值進url
-                    var href = location.href;
+                    var href =  document.getElementById("get_qr").value;
 
                     
                     // href = href + '?1.9.1'; //第一個數字是theater_ticket_no，第二個為session_no，第三個為program_no
@@ -210,7 +213,6 @@ if(!isset($_SESSION["login_success"])){
                     program_no = key_array[2];
 
                     theater_ticket_no_span.innerHTML = theater_ticket_no;
-                    session_no_span.innerHTML = session_no;
 
                     localStorage.setItem('theater_ticket_no', theater_ticket_no);
                     localStorage.setItem('session_no', session_no);

@@ -257,11 +257,12 @@ if(isset($_SESSION["login_error"]) === true){
                         $order_item_PDO->bindValue(1,$_SESSION["mem_id"]); //先寫死
                         $order_item_PDO->execute();
                         $order_item = $order_item_PDO->fetchAll(PDO::FETCH_ASSOC);
+                        
 
                         // $path = $_SERVER["HTTP_REFERER"];
 
                         foreach( $order_item as $i=>$order_item_row){
-
+                            $remain = $order_item_row["number_purchase"]-$order_item_row["used_ticket"];
                 ?>
 
 
@@ -284,7 +285,7 @@ if(isset($_SESSION["login_error"]) === true){
                             </p>
 
                             <p>未使用：
-                                <span class="unused"><?php echo $order_item_row["number_purchase"] ?>張</span>　已使用：
+                                <span class="unused"><?php echo $remain ?>張</span>　已使用：
                                 <span class="used"><?php echo $order_item_row["used_ticket"] ?>張</span>
                             </p>
                             <a class="more_info_theater" href="theater_tickets_detail.php?theater_ticket_no=<?php echo $order_item_row["theater_ticket_no"] ?>&session_no=<?php echo $order_item_row["session_no"] ?>&program_no=<?php echo $order_item_row["program_no"] ?>" >詳細資訊</a>
