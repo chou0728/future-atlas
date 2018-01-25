@@ -26,7 +26,11 @@ getURL();
 ob_start();
 session_start();
 //請複製:當無登入時會自動跳轉至登入頁面
+if(isset($_SESSION["c_qr_no"])){
+   unset($_SESSION["c_qr_no"]); 
+}
 
+$_SESSION["c_qr_no"]= $_REQUEST['location.href'];
 
 
 if(!isset($_SESSION["login_success"])){
@@ -160,7 +164,7 @@ if(!isset($_SESSION["login_success"])){
 
             <div id="check_tickets" class="tabcontent check_tickets_wrapper">
                 <div class="content">
-
+                        
                     <div class="info used_facility_info">
                         <div id="used_up">
                             <span>已全數用盡</span>
@@ -184,7 +188,7 @@ if(!isset($_SESSION["login_success"])){
                             </div>
                         </div>
                         <div class="button_area">
-                            <button id="submit">確定註記</button>
+                            <button id="submit">確定註記<?php echo $_SESSION["c_qr_no"] ?></button>
                             <button id="reset">重選數量</button>
                         </div>
                     </div>
@@ -269,7 +273,7 @@ if(!isset($_SESSION["login_success"])){
 
             function getURL() { //到時候要帶值進url
                 var href = location.href;
-                href = href + '?2.1.2'; //第一個數字是order_no，第二個為facility_no，第三個為mem_id
+                // href = href + '?2.1.2'; //第一個數字是order_no，第二個為facility_no，第三個為mem_id
                 var index = href.indexOf('?'); //先判斷?的位置在哪(indexOf)
                 var key_str = href.substr(index + 1); //從index往後一個位置開始取字串到最後
                 var key_array = key_str.split("."); //將取回的字串分割成陣列
