@@ -168,7 +168,7 @@ body {
     font-size: 24px;
 }
 .check_tickets_wrapper .content .theater_info .select_amount #remain_num{
-    width: 80px;
+    width: 90px;
     height: 30px;
     font-size: 24px;
     text-align: center;
@@ -179,9 +179,39 @@ body {
     padding-top: 30px;
     text-align: center;
 }
-.check_tickets_wrapper .content .theater_info .button_area div{
+.check_tickets_wrapper .content .theater_info .button_area button{
     display: inline-block;
-    width: 200px;
+    width: 120px;
     height: 50px;
-    background: #000;
+    margin: 0 10px;
+    border: 2px solid rgba(41, 41, 41, 1);
+    line-height: 50px;
+    font-size: 18px;
+    letter-spacing: 4px;
+    font-family: "微軟正黑體";
+}
+.check_tickets_wrapper .content .tickets_info{
+    height: 38vh;
+}
+.check_tickets_wrapper .content .info_used_record{
+    width: 72%;
+    margin: 0 auto;
+    margin-top: 10px;
+    padding: 0 2px;
+}
+.check_tickets_wrapper .content .info_used_record .number h3{
+    width: 100%;
+    font-size: 20px;
+    padding-top: 10px;
+}
+.check_tickets_wrapper .content .info_used_record .records_info h3{
+    width: 100%;
+    font-size: 20px;
+    padding-top: 10px;
+
+}
+.check_tickets_wrapper .content .info_used_record .time h3{
+    width: 100%;
+    font-size: 20px;
+    padding-top: 10px;
 }
