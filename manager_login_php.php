@@ -31,20 +31,25 @@ try {
 				
 				// $path_arr = pathinfo($path);
 				// $filename = $path_arr["basename"];
+					if(isset($_REQUEST["filename"])){
+						if($_REQUEST["filename"] == "back_check_faci"){//直接點back_check_facility_tickets.php
+
+							header("location:back_check_facility_tickets.php");
+
+
+						}else if($_REQUEST["filename"] == "back_check_theater"){//直接點back_check_theater_tickets.php
+							header("location:back_check_theater_tickets.php");
+
+
+						}else{//都不是的話預設去設施管理頁面
+							header("location:back_facilityM.php");
+						}
+
+					}else{
+						header("location:back_facilityM.php");
+					}
+
 				
-				if($_REQUEST["filename"] == "back_check_faci"){//直接點back_check_facility_tickets.php
-
-					header("location:back_check_facility_tickets.php");
-
-
-				}else if($_REQUEST["filename"] == "back_check_theater"){//直接點back_check_theater_tickets.php
-					header("location:back_check_theater_tickets.php");
-
-
-				}else{//都不是的話預設去設施管理頁面
-					header("location:back_facilityM.php");
-				}
-
 			
 
 
@@ -53,6 +58,7 @@ try {
 			$_SESSION["banned"] = true;
 			header("location:manager_login.php");
 		}
+			
 	}else{
 		// 帳密錯誤
 		$_SESSION["login_error"] = true;
