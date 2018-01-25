@@ -181,7 +181,7 @@ if(isset($_SESSION["login_error"]) === true){
                 </tr>
                 <tr>
                     <td>票價</td>
-                    <td>500元</td>
+                    <td>100元</td>
                 </tr>
                 <tr>
                     <td>張數</td>
@@ -193,7 +193,7 @@ if(isset($_SESSION["login_error"]) === true){
                 <tr>
                     <td>總共金額</td>
                     <td id="total">
-                        500元
+                        100元
                     </td>
                 </tr>
             </table>
@@ -201,7 +201,7 @@ if(isset($_SESSION["login_error"]) === true){
     </div>
     <div class="buyTTicketBtn">
             <a href="Theaterbuyticket.php" class="Previouspage">上一步</a>
-            <a  class="buyticket" >確認購買</a>
+            <a href="javascript:void(0);" onClick="setStorage()" class="buyticket" >確認購買</a>      
     </div>
     <!-- 會員登入燈箱 -->
     <div id="all-page"></div><!-- 叫出時背景-->
@@ -232,8 +232,8 @@ if(isset($_SESSION["login_error"]) === true){
         //-登入-----------------------------------
         window.onload = function (){
              loginss();
-             var buyticket = document.getElementsByClassName('buyticket');
-             buyticket[0].onclick=ajax_CheckTicket;
+             //var buyticket = document.getElementsByClassName('buyticket');
+             //buyticket[0].onclick=ajax_CheckTicket;
 
              // ==============================存取會員ID開始=================
             var storage = localStorage;
@@ -295,48 +295,48 @@ if(isset($_SESSION["login_error"]) === true){
                 // window.addEventListener("load",loginss);
             // =================登入/註冊結束=================================
          // ===============檢查剩餘票數開始==================================
-            function ajax_CheckTicket(){
-                // Create our XMLHttpRequest object
-                //產生XMLHttpRequest物件
-                var storage = sessionStorage;
-                var programName = storage.getItem('programName');
-                var programDate = storage.getItem('programDate');
-                var programTime = storage.getItem('programTime');
-                var hr = new XMLHttpRequest();
-                // Create some variables we need to send to our PHP file
-                //把 vars裡面資輛傳到my_parse_file.php檔案(設定參數)
-                var url = "php/checkTicket.php";
-                var vars = "programName="+programName+
-                           "&programDate="+programDate+
-                           "&programTime="+programTime;
-                           //alert(vars);
-                //利用POST方式傳遞
-                // open() 的第一個參數是 HTTP request 的方法
-                //第二個參數是請求頁面的 URL
-                //第三個參數決定此 request是否不同步進行，
-                //如果設定為 TRUE則即使伺服器尚未傳回資料也會繼續執行其餘的程式
-                hr.open("POST", url, true);
-                //setRequestHeader()設定內容類型
-                //若發送表單類型資料，必須設置請求標頭'Content-Type'為'application/x-www-form-urlencoded'
-                hr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-                var quantity = Number(storage.getItem('theater_quantity'));
+            // function ajax_CheckTicket(){
+            //     // Create our XMLHttpRequest object
+            //     //產生XMLHttpRequest物件
+            //     var storage = sessionStorage;
+            //     var programName = storage.getItem('programName');
+            //     var programDate = storage.getItem('programDate');
+            //     var programTime = storage.getItem('programTime');
+            //     var hr = new XMLHttpRequest();
+            //     // Create some variables we need to send to our PHP file
+            //     //把 vars裡面資輛傳到my_parse_file.php檔案(設定參數)
+            //     var url = "php/checkTicket.php";
+            //     var vars = "programName="+programName+
+            //                "&programDate="+programDate+
+            //                "&programTime="+programTime;
+            //                //alert(vars);
+            //     //利用POST方式傳遞
+            //     // open() 的第一個參數是 HTTP request 的方法
+            //     //第二個參數是請求頁面的 URL
+            //     //第三個參數決定此 request是否不同步進行，
+            //     //如果設定為 TRUE則即使伺服器尚未傳回資料也會繼續執行其餘的程式
+            //     hr.open("POST", url, true);
+            //     //setRequestHeader()設定內容類型
+            //     //若發送表單類型資料，必須設置請求標頭'Content-Type'為'application/x-www-form-urlencoded'
+            //     hr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+            //     var quantity = Number(storage.getItem('theater_quantity'));
 
-                hr.onreadystatechange =function (){
-                     if(hr.readyState == 4 && hr.status == 200){
-                        //return_data = hr.responseText;
-                        //console.log(hr.responseText);
-                        // document.getElementById("status").innerHTML = return_data;
-                        var ticket = parseInt(JSON.parse(hr.responseText));
-                        if(quantity <= ticket ){
-                            window.location.href='Booking_details.php';
-                            //alert(111);
-                        }else{
-                            alert("本場次票券剩餘 "+ticket+"張");
-                        }
-                     }
-                }
-                 hr.send(vars); // Actually execute the request
-            } 
+            //     hr.onreadystatechange =function (){
+            //          if(hr.readyState == 4 && hr.status == 200){
+            //             //return_data = hr.responseText;
+            //             //console.log(hr.responseText);
+            //             // document.getElementById("status").innerHTML = return_data;
+            //             var ticket = parseInt(JSON.parse(hr.responseText));
+            //             if(quantity <= ticket ){
+            //                 window.location.href='Booking_details.php';
+            //                 //alert(111);
+            //             }else{
+            //                 alert("本場次票券剩餘 "+ticket+"張");
+            //             }
+            //          }
+            //     }
+            //      hr.send(vars); // Actually execute the request
+            // } 
 
         }  
 
