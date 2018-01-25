@@ -15,7 +15,8 @@ if(isset($_SESSION["login_success"])==false){
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>FA後台</title>
+	<title>FA後台管理系統 | 權限管理</title>
+	<link rel="icon" href="img/favicon_back.ico"/>
 	<!-- ======請複製==== -->
 	<link rel="stylesheet" type="text/css" href="css/RESET.css">
 	<link rel="stylesheet" type="text/css" href="css/11back_nav.css">
@@ -92,7 +93,7 @@ if(isset($_SESSION["login_success"])==false){
 </div>
 <!-- ===訊息方塊 end===== -->
 	<div class="back_wrapper_right">
-		<div class="b_content">
+		<div class="b_content"  id="not-check-ticket">
 			<div class="b_sub_nav">
 				<a href="javascript:void(0)" class="b_sn_btn"  id="active">權限管理</a>
 			</div>
@@ -176,6 +177,8 @@ try {
 			<!-- ===========請加內容至此===========-->
 		</div>
 	</div>
+
+ <div id="RWD-page"><span>驗票系統</span></div><!-- ===========請在最後加入=!!==============-->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script type="text/javascript">
 $(document).ready(function(){
