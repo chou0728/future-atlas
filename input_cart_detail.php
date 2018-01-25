@@ -34,13 +34,16 @@ body::-webkit-scrollbar-thumb {
     <div class="ul_box">
         <ul class="ul_left">
             <li>
+                <img src="img/hover-tri.png" class="nav_hover">
                 <a href="Theaterbuyticket.php">劇場購票</a>
             </li>
             <li>
+                <img src="img/hover-tri.png" class="nav_hover">
                 <a href="facilityBuyTicket.php">設施購票</a>
             </li>
             <li>
-                <a href="facilityInfo.php">設施介紹</a>
+                <img src="img/hover-tri-now.png" class="nav_here">
+                <a href="facilityInfo.php" style="color: rgb(55,222,255);font-weight: bold;">設施介紹</a>
             </li>
         </ul>
         <h1 style="display: none">FutureAtlas_未來主題樂園</h1>
@@ -49,13 +52,16 @@ body::-webkit-scrollbar-thumb {
         </a>
         <ul class="ul_right">
             <li>
-                <a href="#page2" id="NavClose">園區地圖</a>
+                <img src="img/hover-tri.png" class="nav_hover">
+                <a href="====index.php#page2" id="NavClose">園區地圖</a>
             </li>
             <li>
+                <img src="img/hover-tri.png" class="nav_hover">
                 <a href="activity.php">活動月曆</a>
             </li>
             <li>
-                <a href="robot.html">諮詢專區</a>
+                <img src="img/hover-tri.png" class="nav_hover">
+                <a href="robot.php">諮詢專區</a>
             </li>
         </ul>
     </div>
@@ -73,6 +79,7 @@ body::-webkit-scrollbar-thumb {
 </div>
 
     <!-- header end-->
+
 <!-- 輸出會員資訊 -->
 <div id="detailWrapper">
 	<h1 id="title">確認訂單明細</h1>
@@ -99,9 +106,7 @@ body::-webkit-scrollbar-thumb {
 			<th id="tt_th">票種</th>
 			<th id="fare_th">票價</th>
 			<th id="tn_th" style='text-align: right'>張數</th>
-			<th></th>
-			<th id="subtotal_th" style='text-align: right'>小計</th
-			>
+			<th id="subtotal_th" colspan="3" style='text-align: right'>小計</th>
 		</tr>
 		<tr id="input_discount"><th colspan="8" class="title">選擇是否使用積分</th></tr>
 		<tr>

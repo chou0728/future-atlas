@@ -249,6 +249,9 @@
 	.ul_box .ul_right li:nth-child(3){
 		transition: opacity .3s linear .6s;
 	}
+	.ul_box .ul_right li:nth-child(4){
+		transition: opacity .3s linear .7s;
+	}
 	#navAppear.ul_box .ul_left li,#navAppear.ul_box .ul_right li{
 		opacity: 1;
 		transition: opacity 0s linear;
@@ -351,6 +354,7 @@
 		top:10px;
 		right: 3%;
 		width:32px;
+		height: 32px;
 		z-index: 1001;
 		cursor: pointer;
 	}

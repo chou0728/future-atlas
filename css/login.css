@@ -4,8 +4,8 @@
 #lightBox{
     opacity: 0;
     display: none;
-    border: 2px solid rgba(55, 255, 243,1);
-    box-shadow: 0px 0px 5px 0px rgba(55, 255, 243,1);
+    border: 1.5px solid rgba(55, 255, 243,1);
+    box-shadow: 0px 0px 4px 0px rgba(55, 255, 243,1);
     width:30%;
     background-color: rgba(10, 10, 10,0.9);
     margin: 0 auto;
@@ -50,13 +50,13 @@
     transform: translate(-50%,-50%);
     
 }
-  #cancel{
+#cancel{
     position: absolute;
-    width: 33px;
-    height: 33px;
+    width: 40px;
+    height: 40px;
     top: 10px;
     right: 10px;
-    transform: rotate(45deg);
+    transform: rotate(45deg) scale(0.6);
 } 
 #lightBox #cancel:hover{
     filter: drop-shadow(0px 0px 2px rgba(255,255,255,0.5));
@@ -87,6 +87,8 @@
     color: rgb(10, 0, 0);
     font-family: 微軟正黑體;
     text-indent: 10px;
+    width: 160px;
+    font-size: 16px;
 }
 .btn{
 	text-align: center;
@@ -96,7 +98,7 @@
 }
 .btn input{
     width: 100px;
-    font-size: 20px;
+    font-size: 16px;
 	font-family: 'Share Tech Mono', monospace;
     color: rgb(10, 242, 250);
     background: transparent;

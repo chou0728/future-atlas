@@ -63,14 +63,15 @@ if(isset($_SESSION["login_error"]) === true){
                         }
                     ?>
                 </span>
+            </a>
         </li>
         <li class="li_top" <?php if(!isset($_SESSION["mem_id"])){
                                 echo "style='display: none';";
                                 }?>>
-            <a href="see_tickets.php" class="tkt">
-                <img src="img/member/qr-code-scan.png">
-                <span>票券</span>
-            </a>
+                <a href="see_tickets.php" class="tkt">
+                    <img src="img/member/qr-code-scan.png">
+                    <span>票券</span>
+                </a>
         </li>
         <li class="li_top">
             <a href=<?php
@@ -132,12 +133,12 @@ if(isset($_SESSION["login_error"]) === true){
                 <a href="====index.php#page2" id="NavClose">園區地圖</a>
             </li>
             <li>
-                <img src="img/hover-tri-now.png" class="nav_here">
-                <a href="activity.php" style="color: rgb(55,222,255);font-weight: bold;">活動月曆</a>
+                <img src="img/hover-tri.png" class="nav_hover">
+                <a href="activity.php">活動月曆</a>
             </li>
             <li>
-                <img src="img/hover-tri.png" class="nav_hover">
-                <a href="robot.php">諮詢專區</a>
+                <img src="img/hover-tri-now.png" class="nav_here">
+                <a href="robot.php" style="color: rgb(55,222,255);font-weight: bold;">諮詢專區</a>
             </li>
         </ul>
     </div>
@@ -153,21 +154,8 @@ if(isset($_SESSION["login_error"]) === true){
     <img src="img/Usericon.png" class="memIcon">
     
 </div>
+
     <!-- header end-->
-
-
-        <div class="navOpenBtn">
-            <!-- RWD left btn-->
-            <div class="ham"></div>
-            <div class="ham"></div>
-            <div class="ham"></div>
-            <div class="ham"></div>
-        </div>
-    <!-- </div> -->
-    <div class="headerOpenBtn"><!-- RWD right btn-->
-        <img src="img/Usericon1.png" class="memIcon">
-        <img src="img/Usericon.png" class="memIcon">
-    </div>
     <div class="wrapper">
         <!-- <img class="frame" src="img/robot_page/frame.png" alt=""> -->
         <img class="robot" src="img/robot_page/robot2.png" alt="">
@@ -190,29 +178,30 @@ if(isset($_SESSION["login_error"]) === true){
 
     </div>
 
-<!-- 登入燈箱 -->
 <div id="all-page"></div><!-- 叫出時背景-->
-<div id="lightBox">
-    <div id="cancel">
-        <div class="leftLine"></div>
-        <div class="rightLine"></div>
-    </div>
-        <form class="singUp" action="loginheadforindex.php" method="post">
-            <h2>會員登入</h2>
-            <div class="text">
-                會員帳號：<input type="text" name="memName" id="memId" value="" required placeholder="輸入帳號" style="font-size: 16px">
-                <br>
-                會員密碼：<input type="password" name="memPsw"  id="memPsw" value="" required placeholder="輸入密碼" style="font-size: 16px">
-                <br>
+        <!-- 登入燈箱 ==============-->
+        <div id="lightBox">
+            <div id="cancel">
+                <div class="leftLine"></div>
+                <div class="rightLine"></div>
             </div>
-            <div class="btn">
-                <input type="submit" name="" id="submit" value="登入">
-                <input type="reset" name="reset" value="RESET">
-            </div>
-        </form>
-</div>
+            <!-- <img class="bar" src="img/bar.png" alt="bar"> -->
+            <form class="singUp" action="loginheadforindex.php" method="post">
+                <h2>會員登入</h2>
+                <div class="text">
+                    帳號：<input type="text" name="memName" id="memId" value="" required placeholder="輸入帳號">
+                    <br>
+                    密碼：<input type="password" name="memPsw"  id="memPsw" value="" required placeholder="輸入密碼">
+                    <br>
+                </div>
+                        <div class="btn">
+                            <input type="reset" name="reset" value="重填">
+                            <input type="submit" name="" id="submit" value="登入">
+                        </div>
+            </form>
+        </div>
+        <!-- 登入燈箱 ==end============-->
 
-<!-- 登入燈箱 -->
 
     <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
     <script src="js/00nav.js"></script>
