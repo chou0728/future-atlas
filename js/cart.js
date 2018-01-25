@@ -11,7 +11,7 @@ window.onload = function(){
 			if( full_fare_num > 0 ){
 				var full_fare = info[0];
 				var full_fare_subtotal = full_fare * full_fare_num;			
-				$("table#cartContent").append("<tr id='full_"+fn+"'><td class='fn_id'>"+fn+"</td><td class='icon_td'><img src='img/facilityIcon/"+fn+"icon.png'></td><td class='facility_name'>"+info[4]+"</td><td class='full_td'>全票</td><td id='full_fare_id_"+fn+"'>"+full_fare+"</td><td><div class='ctrl'><div class='ctrl-button ctrl-button-decrement' id='full_decrement_"+fn+"'>-</div><div class='ctrl-counter'><input class='ctrl-counter-input' maxlength='3' type='text' onkeyup='this.value=this.value.replace(/[^0-9]/g,'')' value="+full_fare_num+" id='full_fare_num_id_"+fn+"'></div><div class='ctrl-button ctrl-button-increment' id='full_increment_"+fn+"'>+</div></td><td class='sub_total' id='full_fare_subtotal_id_"+fn+"'>"+full_fare_subtotal+"</td><td class='delete_btn_td'><button class='delete_btn' id='full_fare_delete_btn_id_"+fn+"'>Ｘ</button></td></tr>");
+				$("table#cartContent").append("<tr id='full_"+fn+"'><td class='fn_id'>"+fn+"</td><td class='icon_td'><img src='img/facilityIcon/"+fn+"icon.png'></td><td class='facility_name'>"+info[4]+"</td><td class='full_td'>全票</td><td class='fare_td' id='full_fare_id_"+fn+"'>"+full_fare+"</td><td class='ctrl_td'><div class='ctrl'><div class='ctrl-button ctrl-button-decrement' id='full_decrement_"+fn+"'>-</div><div class='ctrl-counter'><input class='ctrl-counter-input' maxlength='3' type='text' onkeyup='this.value=this.value.replace(/[^0-9]/g,'')' value="+full_fare_num+" id='full_fare_num_id_"+fn+"'></div><div class='ctrl-button ctrl-button-increment' id='full_increment_"+fn+"'>+</div><span class='hidden_num'>"+full_fare_num+"</span></td><td class='sub_total' id='full_fare_subtotal_id_"+fn+"'>"+full_fare_subtotal+"</td><td class='delete_btn_td'><button class='delete_btn' id='full_fare_delete_btn_id_"+fn+"'>Ｘ</button></td></tr>");
 
 				document.getElementById("full_fare_num_id_"+fn).onchange = changeNum;
 				document.getElementById("full_decrement_"+fn).onclick = minusNumPanel;
@@ -23,7 +23,7 @@ window.onload = function(){
 			if( half_fare_num > 0){
 				var half_fare = info[2];
 				var half_fare_subtotal = half_fare * half_fare_num;
-				$("table#cartContent").append("<tr id='half_"+fn+"'><td class='fn_id'>"+fn+"</td><td class='icon_td'><img src='img/facilityIcon/"+fn+"icon.png'></td><td class='facility_name'>"+info[4]+"</td><td class='half_td'>半票</td><td id='half_fare_id_"+fn+"'>"+half_fare+"</td><td><div class='ctrl'><div class='ctrl-button ctrl-button-decrement' id='half_decrement_"+fn+"'>-</div><div class='ctrl-counter'><input class='ctrl-counter-input' maxlength='3' type='text' onkeyup='this.value=this.value.replace(/[^0-9]/g,'')' value="+half_fare_num+" id='half_fare_num_id_"+fn+"'></div><div class='ctrl-button ctrl-button-increment' id='half_increment_"+fn+"'>+</div></td><td class='sub_total' id='half_fare_subtotal_id_"+fn+"'>"+half_fare_subtotal+"</td><td class='delete_btn_td'><button class='delete_btn' id='half_fare_delete_btn_id_"+fn+"'>Ｘ</button></td></tr>");
+				$("table#cartContent").append("<tr id='half_"+fn+"'><td class='fn_id'>"+fn+"</td><td class='icon_td'><img src='img/facilityIcon/"+fn+"icon.png'></td><td class='facility_name'>"+info[4]+"</td><td class='half_td'>半票</td><td class='fare_td' id='half_fare_id_"+fn+"'>"+half_fare+"</td><td class='ctrl_td'><div class='ctrl'><div class='ctrl-button ctrl-button-decrement' id='half_decrement_"+fn+"'>-</div><div class='ctrl-counter'><input class='ctrl-counter-input' maxlength='3' type='text' onkeyup='this.value=this.value.replace(/[^0-9]/g,'')' value="+half_fare_num+" id='half_fare_num_id_"+fn+"'></div><div class='ctrl-button ctrl-button-increment' id='half_increment_"+fn+"'>+</div><span class='hidden_num'>"+half_fare_num+"</span></td><td class='sub_total' id='half_fare_subtotal_id_"+fn+"'>"+half_fare_subtotal+"</td><td class='delete_btn_td'><button class='delete_btn' id='half_fare_delete_btn_id_"+fn+"'>Ｘ</button></td></tr>");
 
 				document.getElementById("half_fare_num_id_"+fn).onchange = changeNum;
 				document.getElementById("half_decrement_"+fn).onclick = minusNumPanel;
@@ -40,7 +40,7 @@ window.onload = function(){
 		var sub_total = parseInt(document.getElementsByClassName("sub_total")[i].innerHTML);
 		total += sub_total;
 	}
-		$("table#cartContent").append("<tr id='cart_total_row'><td colspan='6' id='cart_total_prev'>"+"總計："+"</td><td name='cart_total' id='cart_total' colspan='2'>"+total+"</td><td></td></tr>");	
+		$("table#cartContent").append("<tr id='cart_total_row'><td colspan='6' id='cart_total_prev'>"+"總計："+"</td><td name='cart_total' id='cart_total' colspan='1'>"+total+"</td></tr>");
 		document.getElementById("cart_total").innerHTML = total;
 
 // 原始購物車外觀

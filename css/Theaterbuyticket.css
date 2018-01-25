@@ -308,7 +308,7 @@
     }
     @media screen and (max-width:1024px) and (min-width:415px){
       .Menu .Menutitle {
-        width:145px;
+        width:158px;
         position: static;
         text-align: center;
         top:20px;
@@ -435,11 +435,11 @@
       
       /*立即購買按鈕*/
       .info .buyticket {
-        float: right;
+        /*float: right;*/
         font-size:16px;
         /*border: 1px #35ffba solid;
         padding: 5px 10px;*/
-        margin: 10px 10px; 
+        margin: 10px auto; 
         font-family: "微軟正黑體", Arial ,sans-serif;
       }
       @media screen and (max-width: 414px){

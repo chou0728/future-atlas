@@ -9,7 +9,7 @@ body{
 	margin: 0;
 	padding: 0;
 	font-family: Inconsolata, 微軟正黑體;
-	/*outline: 1px solid red;*/
+	outline: 1px solid red;
 }
 
 #cartWrapper{
@@ -20,7 +20,7 @@ body{
 
 #cartTitle{
 	font-size: 36px;
-	font-weight: 900;	
+	font-weight: normal;	
 	width: auto;
 	margin: 20px auto 10px auto;
 	text-align: center;
@@ -54,11 +54,24 @@ body{
 }
 #cartWrapper table{
 	width: 70%;
-	margin-left: 15%;
+	margin: 0 auto;
 	text-align: left;
 	border: none;
 	/*border: 1px solid red;*/
 }
+@media screen and (max-width: 800px){
+	#cartWrapper table{
+		width: 95%;
+		margin: 0 auto;
+	}
+}
+@media screen and (min-width: 800px) and (max-width: 1200px){
+	#cartWrapper table{
+		width: 80%;
+		margin: 0 auto;
+	}
+}
+
 
 /*標頭設定*/
 #cart_header{
@@ -93,33 +106,41 @@ body{
 /*以上*/
 
 
-
-#cart_total_prev{
-	font-size: 32px;
-	text-align: right;
-}
-#cart_total{
-	font-size: 36px;
-	width: 100px;
-	padding-right: 20px;
-}
-
-#cart_total_row{
-	text-align: right;
-	height: 50px;
-}td:nth-child(6),td:nth-child(7),td:nth-child(8){
-	text-align: right;
-}.fn_td{
+/*各欄寬度*/
+.fn_id{
 	width: 5%;
 }.icon_td{
 	width: 15%;
-}.full_td{
+}.facility_name{
+	width: 40%;
+}.fare_td, .full_td{
+	text-align: right;
 	width: 10%;
 	color: lightblue;
 }.half_td{
 	width: 10%;
 	color: orange;
+}.ctrl_td{
+	width: 10%;
+	/*opacity: 0;*/
+	/*visibility: hidden;*/
+}.hidden_num{
+	font-size: 24px;
+	color: white;
+	background-color: pink;
+	z-index: 999;
+	/*display: none;*/
 }.sub_total{
+	width: 10%;
+}
+@media screen and (max-width: 800px){
+	.ctrl_td{
+		display: none;
+	}.hidden_num{
+		display: block;
+	}
+}
+@media screen and (min-width: 800px) and (max-width: 1200px){
 
 }
 
@@ -143,8 +164,11 @@ body{
 
 
 /*繼續*/
+#btn{
+
+}
 #button{
-	width: 50%;
+	width: 300px;
 	text-align: center;
 	margin: 20px auto;
 }
@@ -158,7 +182,7 @@ body{
 	text-align: center;
 	padding:1%;
 	position: relative;
-	width: 25%;
+	width: 45%;
 	color: white;
 	font-size: 20px;
 	font-weight: bold;
@@ -214,11 +238,31 @@ body{
 	 animation: none !important;
 }
 
+
+/*總計欄*/
+#cart_total_prev{
+	font-size: 32px;
+	text-align: right;
+}
+#cart_total{
+	font-size: 36px;
+	width: 100px;
+}
+
+#cart_total_row{
+	text-align: right;
+	height: 50px;
+}td:nth-child(6),td:nth-child(7),td:nth-child(8){
+	text-align: right;
+}
+
+
 /* input-number*/
   .ctrl {
       display: inline-block;
       vertical-align: middle;
       width: 65%;
+      min-width: 100px;
       max-width: 150px;
       height: 30px;
       background-color: #222;
@@ -305,3 +349,10 @@ body{
     }
 
  /* input-number-end*/
+
+@media screen and (max-width: 550px){
+
+}
+@media screen and (min-width: 550px) and (max-width: 800px){
+	
+}
