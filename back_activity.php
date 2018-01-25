@@ -16,7 +16,9 @@ if(isset($_SESSION["login_success"])==false){
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title>FA後台</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>FA後台管理系統 | 活動管理</title>
+	<link rel="icon" href="img/favicon_back.ico" />
 	<!-- ======請複製==== -->
 	<link rel="stylesheet" type="text/css" href="css/RESET.css">
 	<link rel="stylesheet" type="text/css" href="css/11back_nav.css">
@@ -88,7 +90,7 @@ if(isset($_SESSION["login_success"])==false){
 <!-- ===NAV結束=== -->
 <!-- ===右邊區塊固定格式=== -->
 	<div class="back_wrapper_right">
-		<div class="b_content">
+		<div class="b_content" id="not-check-ticket">
 			<div class="b_sub_nav">
 				<a href="javascript:void(0)" class="b_sn_btn" onclick="openCity(event,'insert_activity')" id="active">活動管理</a>
 			</div>

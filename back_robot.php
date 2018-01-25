@@ -10,6 +10,7 @@ if(isset($_SESSION["top_manager"])===false||isset($_SESSION["manager_name"])===f
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>FA後台管理系統 | 諮詢管理</title>
 	<link rel="icon" href="img/favicon_back.ico" />
 	<link rel="stylesheet" href="css/RESET.css">

@@ -130,10 +130,13 @@ header .nav .navList a:hover{
 		display: none;
 	}
 	header .nav .navList .listcover{
+		display: none;
 		transition : none;
 	}
 	header .nav .navList a{
+		font-size: 22px;
 		padding: 15px 10px;
+		background-color: rgba(0,0,0,0.2);
 	}
 }
 .loginBox{
@@ -169,6 +172,13 @@ header .nav .navList a:hover{
 	}
 	#managerId{
 		display: none;
+	}
+
+	.mobileLoginBox a{
+		top:45px;
+		right: 10px;
+		position: absolute;
+		font-size: 18px;
 	}
 }
 /*NAVCSS結束*/
