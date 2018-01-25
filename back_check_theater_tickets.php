@@ -67,7 +67,7 @@ if(!isset($_SESSION["login_success"])){
                 <span class="listcover"></span>
             </li>
             <li class="navList">
-                <a href="">諮詢管理</a>
+                <a href="back_robot.php">諮詢管理</a>
                 <span class="listcover"></span>
             </li>
             <li class="navList" <?php if($_SESSION[ "top_manager"]==0) { echo "style='display:none;'"; } ?>>
