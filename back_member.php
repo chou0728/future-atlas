@@ -15,7 +15,7 @@ if(isset($_SESSION["login_success"])==false){
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>Theater progress</title>
+    <title>FA後台</title>
     <!-- ======請複製==== -->
     <link rel="stylesheet" type="text/css" href="css/RESET.css">
     <link rel="stylesheet" type="text/css" href="css/11back_nav.css">
@@ -62,7 +62,7 @@ if(isset($_SESSION["login_success"])==false){
                 
             </li>
             <li class="navList">
-                <a href="">諮詢管理</a>
+                <a href="back_robot.php">諮詢管理</a>
                 <span class="listcover"></span>
             </li>
             <li class="navList"<?php
@@ -140,7 +140,18 @@ if(isset($_SESSION["login_success"])==false){
                                 // echo $total_pages;       
                                 //跑迴圈，印出資料
                                 foreach( $member as $i=>$memberRow){
+
+                                    $mem_permissions = $memberRow["mem_permissions"];
+
+                                     if ($mem_permissions ==1){
+                                        $mem_permissions="可評價";
+                                     }else{
+                                        $mem_permissions="不可評價";
+                                     }
+
                                 ?>
+
+
                                 <!-- <form method="post"   align="center" enctype="multipart/form-data"> -->
 
                                 <!-- <input type="hidden" id="program_no" name="program_no" value="<?php echo  $prodRow["program_no"] ?>"> -->
@@ -160,7 +171,7 @@ if(isset($_SESSION["login_success"])==false){
                                        <?php echo  $memberRow["mem_points"] ?>
                                     </td>
                                     <td>
-                                       <?php echo  $memberRow["mem_permissions"] ?>    
+                                       <?php echo  $mem_permissions ?>    
                                     </td>
                                    	<td>
                                   		<?php echo  $memberRow["mem_mail"] ?>

@@ -539,7 +539,7 @@ body::-webkit-scrollbar-thumb {
   @media screen and (max-width: 414px) {
     .programone .spaceship {
       position: absolute;
-      top:224px;
+      top:256px;
       left:10%;
       width: 250px;
       height: 250px; 

@@ -22,8 +22,8 @@
         </h1>
         <ul class="nav">
             <li class="navList">
-                <a href="back_check_facility_tickets.php" >設施驗票 </a>
-                <span class="listcover" ></span>
+                <a href="back_check_facility_tickets.php">設施驗票 </a>
+                <span class="listcover"></span>
             </li>
             <li class="navList">
                 <a href="back_check_theater_tickets.php" style="color: black;">劇場驗票</a>
@@ -113,7 +113,7 @@
 
                         <div class="number">
                             <h3>票券編號：
-                                <span id="order_no">1</span>
+                                <span id="theater_ticket_no">1</span>
                             </h3>
                             <h3>場次編號：
                                 <span id="session_no">1</span>
@@ -121,14 +121,14 @@
                         </div>
 
                         <div class="time">
-                                <h3>日期：
-                                    <span id="program_date">2018-01-11</span>
-    
-                                </h3>
-                                <h3>時間：
-                                    <span id="program_time"> 15:00</span>
-                                </h3>
-                            </div>
+                            <h3>日期：
+                                <span id="program_date">2018-01-11</span>
+
+                            </h3>
+                            <h3>時間：
+                                <span id="program_time"> 15:00</span>
+                            </h3>
+                        </div>
                         <div class="records_info">
 
                             <h3>未用票券：
@@ -137,7 +137,7 @@
                                 <span id="used_num">1</span>　張</h3>
 
                         </div>
-                        
+
 
 
                     </div>
@@ -150,57 +150,122 @@
 
 
         <script>
+            window.addEventListener('load', initial);
 
-        window.addEventListener('load', initial);   
+            function initial() {
 
-        function initial(){
+                var used_record = document.getElementById('used_record');
+                var submit = document.getElementById('submit');
 
-            var used_record = document.getElementById('used_record');
-            var submit = document.getElementById('submit');
-
-            var input_remain = document.getElementById('remain_num');
-            
-            
-            var order_no_span = document.getElementById('order_no');
-            var session_no_span = document.getElementById('session_no');
-            var program_date_span = document.getElementById('program_date');
-            var program_time_span = document.getElementById('program_time');
-            var unused_num = document.getElementById('unused_num');//剩下的
-            var used_num = document.getElementById('used_num');
-
-            getURL();
-            recordInitialAmount();
-            resetButton();
-            submitButton();
-            setLocalStorage();  
+                var input_remain = document.getElementById('remain_num');
 
 
-            function getURL() { //到時候要帶值進url
-                var href = location.href;
-                href = href + '?2.1.2'; //第一個數字是order_no，第二個為facility_no，第三個為mem_id
-                var index = href.indexOf('?'); //先判斷?的位置在哪(indexOf)
-                var key_str = href.substr(index + 1); //從index往後一個位置開始取字串到最後
-                var key_array = key_str.split("."); //將取回的字串分割成陣列
-                order_no = key_array[0]; //讓order_no變成全域
-                facility_no = key_array[1]; //讓facility_no變成全域
-                mem_id = key_array[2];
-                order_no_span.innerHTML = order_no;
-                localStorage.setItem('order_no',order_no);
-                localStorage.setItem('facility_no',facility_no);
-                localStorage.setItem('mem_id',mem_id);
-                
-                
-                getOrder();
-                getFacility();
-                // var url_order_no = href.substr(-1);
-                // alert(url_order_no);
+                var theater_ticket_no_span = document.getElementById('theater_ticket_no');
+                var session_no_span = document.getElementById('session_no');
+                var program_date_span = document.getElementById('program_date');
+                var program_time_span = document.getElementById('program_time');
+                var unused_num = document.getElementById('unused_num'); //剩下的
+                var used_num = document.getElementById('used_num');
 
-               
+                getURL();
+                recordInitialAmount();
+                resetButton();
+                submitButton();
+                setLocalStorage();
 
-            };
+
+                function getURL() { //到時候要帶值進url
+                    var href = location.href;
+                    // href = href + '?2.1.2'; //第一個數字是theater_ticket_no，第二個為session_no，第三個為program_no
+                    var index = href.indexOf('?'); //先判斷?的位置在哪(indexOf)
+                    var key_str = href.substr(index + 1); //從index往後一個位置開始取字串到最後
+                    var key_array = key_str.split("."); //將取回的字串分割成陣列
+                    theater_ticket_no = key_array[0]; //讓order_no變成全域
+                    session_no = key_array[1]; //讓facility_no變成全域
+                    program_no = key_array[2];
+
+                    theater_ticket_no_span.innerHTML = theater_ticket_no;
+                    session_no_span.innerHTML = session_no;
+
+                    localStorage.setItem('theater_ticket_no', theater_ticket_no);
+                    localStorage.setItem('session_no', session_no);
+                    localStorage.setItem('program_no', program_no);
+
+
+                    getOrder();
+                    getFacility();
+                    // var url_order_no = href.substr(-1);
+                    // alert(url_order_no);
 
 
 
+                };
+
+                function getOrder() {
+
+                    var xhr = new XMLHttpRequest();
+
+
+                    xhr.onload = function () {
+
+
+                        if (xhr.status == 200) {
+
+                            //將json轉成物件並取得資料
+                            var order_item = JSON.parse(xhr.responseText);
+
+                            console.log(order_item);
+
+                            var program_name = order_item.program_name.trim();//節目名稱
+                            var number_purchase = parseInt(order_item.number_purchase);//原始購買張數
+                            var used_ticket = parseInt(order_item.used_ticket);//已使用的張數
+                            var time_date = order_item.time_date.trim();//演出日期
+                            var session_time = order_item.session_time.trim();//演出時間
+
+                            //算出剩餘票數
+                            remain_num = number_purchase - used_ticket;
+
+                            //將資料放入節點中
+                            input_remain.
+
+
+
+
+
+
+                            input_full.value = remain_full;
+                            input_half.value = remain_half;
+                            input_full.setAttribute('max', remain_full);
+                            input_half.setAttribute('max', remain_half);
+                            unused_full.innerHTML = remain_full;
+                            unused_half.innerHTML = remain_half;
+                            unused_sum.innerHTML = remain_full + remain_half;
+                            used_full.innerHTML = full_fare_num_used;
+                            used_half.innerHTML = half_fare_num_used;
+                            used_sum.innerHTML = full_fare_num_used + half_fare_num_used;
+
+                            var faci_name = document.getElementById('faci_name');
+                            faci_name.innerHTML = facility_name;
+
+                            initial_full_num = remain_full; //初始票價
+                            initial_half_num = remain_half;
+
+                            usedUp();
+
+                        } else {
+                            alert(xhr.status);
+                        }
+
+                    }
+                    var order_no = localStorage.getItem('order_no');
+                    var facility_no = localStorage.getItem('facility_no');
+                    var mem_id = localStorage.getItem('mem_id');
+                    var determine = 'getOrder';
+                    var url = "fetch_from(facility_order_item).php?order_no=" + order_no + "&facility_no=" +
+                        facility_no + "&mem_id=" + mem_id + "&determine=" + determine;
+                    xhr.open("Get", url, true);
+                    xhr.send();
+                };
 
 
 
@@ -215,13 +280,10 @@
 
 
 
-        }//initial()
 
 
 
-
-
-
+            } //initial()
         </script>
 
 

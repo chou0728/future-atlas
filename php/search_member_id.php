@@ -19,7 +19,7 @@
 	  $str .="<tr class='Field_title'>
                     <th>訂單編號</th>
                     <th>場次編號</th>
-                    <th>會員姓名</th>
+                    <th>會員帳號</th>
                     <th>購買張數</th>
                     <th>已使用張數</th>
                     <th>訂購日期</th>
@@ -32,7 +32,7 @@
 	      //傳回html結構
 	      // $str .= '<form method="get" action="php/update_theater_session_List.php">';
 	      // $str .= '<input type="hidden" name="session_no" value="'.$sessionlistRow->session_no.'">';
-		  $str .= "<tr><td>" . $orderlistRow->theater_ticket_no . "</td>";
+		  $str .= "<tr class='Field_value'><td>" . $orderlistRow->theater_ticket_no . "</td>";
 		  $str .= "<td>" . $orderlistRow->session_no . "</td>";
 		  $str .= "<td>" . $orderlistRow->mem_name . "</td>";
 		  $str .= "<td>" . $orderlistRow->number_purchase . "</td>";
@@ -41,7 +41,7 @@
 		  $str .= "<td>" . $orderlistRow->original_amount . "</td>";
 		  $str .= "<td>" . $orderlistRow->points_discount . "</td>";
 		  $str .= "<td>" . $orderlistRow->credit_card . "</td>";
-		   $str .= "<td>" . $orderlistRow->program_no . "</td>";
+		   $str .= "<td>" . $orderlistRow->program_no . "</td></tr>";
 		  // $str .= "<td>" . '<input type="number" style="width:50px;" value="'. $orderlistRow->total_ticket . '" name="total_ticket">' . "</td>";
 		  // $str .= "<td>" . '<input type="number" style="width:50px;" value="' . $orderlistRow->last_ticket .  '" name="last_ticket"> ' . "</td>";
 		  // $str .= "<td>" . '<input type="submit" style="font-family:微軟正黑體;" value="修改" onclick="alert(1);">'. "</td></tr>";
