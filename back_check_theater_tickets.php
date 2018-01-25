@@ -9,7 +9,8 @@ if(!isset($_SESSION["login_success"])){
     header("location:manager_login.php?filename=back_check_theater");
     exit;
 }
-   
+
+
 ?>
 
 
