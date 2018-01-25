@@ -34,24 +34,14 @@ try {
 				
 				if($_REQUEST["filename"] == "back_check_faci"){//直接點back_check_facility_tickets.php
 
-					header("location:back_facilityM.php");
+					header("location:back_check_facility_tickets.php");
 
 
 				}else if($_REQUEST["filename"] == "back_check_theater"){//直接點back_check_theater_tickets.php
 					header("location:back_check_theater_tickets.php");
 
 
-				}else if($_REQUEST["filename"] == "see_tickets"){//從查看票券來的(掃QR codr)
-
-					if($_REQUEST["ticket"] =="faci"){//掃設施QR
-						header("location:back_check_facility_tickets.php");
-					}else{//掃劇場QR
-						header("location:back_check_theater_tickets.php");
-					}
-					
-
-				}
-				else{//都不是的話預設去設施管理頁面
+				}else{//都不是的話預設去設施管理頁面
 					header("location:back_facilityM.php");
 				}
 

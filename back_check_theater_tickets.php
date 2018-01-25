@@ -6,7 +6,7 @@ session_start();
 
 
 if(!isset($_SESSION["login_success"])){
-    header("location:manager_login.php");
+    header("location:manager_login.php?filename=back_check_theater");
     exit;
 }
    
@@ -20,6 +20,7 @@ if(!isset($_SESSION["login_success"])){
 
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
     <title>FA 後台</title>
     <link rel="stylesheet" type="text/css" href="css/RESET.css">
     <link rel="stylesheet" type="text/css" href="css/11back_nav.css">
