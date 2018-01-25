@@ -172,6 +172,10 @@ if(isset($_SESSION["login_error"]) === true){
                         $order_item_PDO->execute();
                         $order_item = $order_item_PDO->fetchAll(PDO::FETCH_ASSOC);
 
+                        // $path = $_SERVER["HTTP_REFERER"];
+
+
+
                         foreach( $order_item as $i=>$order_item_row){
                         
                         
@@ -179,8 +183,10 @@ if(isset($_SESSION["login_error"]) === true){
 
 
                 <div class="tickets">
+
                     <!-- 設施QR code要帶1.訂單編號 2.設施編號 3.會員ID-->
-                    <img class="QR_code" src="https://chart.googleapis.com/chart?chs=200x200&cht=qr&chl=http://140.115.236.72/demo-projects/BD103/BD103G3/back_check_facility_tickets.php?<?php echo $order_item_row["order_no"] ?>.<?php echo $order_item_row["facility_no"] ?>.<?php echo $_SESSION["mem_id"] ?>"></img>
+
+                    <img class="QR_code" src="https://chart.googleapis.com/chart?chs=200x200&cht=qr&chl=http://localhost/bd103g3/future-atlas/back_check_facility_tickets.php?<?php echo $order_item_row["order_no"] ?>.<?php echo $order_item_row["facility_no"] ?>.<?php echo $_SESSION["mem_id"] ?>.ticket=faci"></img>
                     <div class="ticket_info">
                         
                         <p>設施名稱：
@@ -237,6 +243,8 @@ if(isset($_SESSION["login_error"]) === true){
                         $order_item_PDO->execute();
                         $order_item = $order_item_PDO->fetchAll(PDO::FETCH_ASSOC);
 
+                        // $path = $_SERVER["HTTP_REFERER"];
+
                         foreach( $order_item as $i=>$order_item_row){
 
                 ?>
@@ -245,7 +253,7 @@ if(isset($_SESSION["login_error"]) === true){
 
                     <div class="tickets">
                         <!-- 劇場QR code要帶1.票券編號 2.場次編號 3.節目編號 -->
-                        <img class="QR_code" src="https://chart.googleapis.com/chart?chs=200x200&cht=qr&chl=http://140.115.236.72/demo-projects/BD103/BD103G3/back_check_theater_tickets.php?<?php echo $order_item_row["theater_ticket_no"] ?>.<?php echo $order_item_row["session_no"] ?>.<?php echo $order_item_row["program_no"] ?>"></img>
+                        <img class="QR_code" src="https://chart.googleapis.com/chart?chs=200x200&cht=qr&chl=http://localhost/bd103g3/future-atlas/back_check_theater_tickets.php?<?php echo $order_item_row["theater_ticket_no"] ?>.<?php echo $order_item_row["session_no"] ?>.<?php echo $order_item_row["program_no"] ?>.ticket=theater"></img>
                         
                         <div class="ticket_info">
                             

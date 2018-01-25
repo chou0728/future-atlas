@@ -23,20 +23,31 @@ try {
 			$_SESSION["top_manager"]  = $managerRow->top_manager;
 			$_SESSION["login_success"] = true;
 
-			// $order_no = $_COOKIE["order_no"];
-			// $facility_no = $_COOKIE["facility_no"];
-			// $mem_id = $_COOKIE["mem_id"];
+			// header("location:back_check_facility_tickets.php");
+
+				//========= 判斷從哪裡進來的 =========
+
+				// $path = $_SERVER["HTTP_REFERER"];
+				
+				// $path_arr = pathinfo($path);
+				// $filename = $path_arr["basename"];
+				
+				if($_REQUEST["filename"] == "back_check_faci"){//直接點back_check_facility_tickets.php
+
+					header("location:back_check_facility_tickets.php");
 
 
-			// if(!isset($order_no) || !isset($facility_no) || !isset($mem_id) ){ //其中有一個值不存在的話 (不是從QR code那邊掃來的)
+				}else if($_REQUEST["filename"] == "back_check_theater"){//直接點back_check_theater_tickets.php
+					header("location:back_check_theater_tickets.php");
 
-				header("location:back_facilityM.php");
 
-			// }else{//從QR code那邊掃來的
-			// 	header("location:http://140.115.236.72/demo-projects/BD103/BD103G3/back_check_facility_tickets.php?$order_no.$facility_no.$mem_id");
-			// }
+				}else{//都不是的話預設去設施管理頁面
+					header("location:back_facilityM.php");
+				}
 
 			
+
+
 		}else{
 			// 停權帳號
 			$_SESSION["banned"] = true;

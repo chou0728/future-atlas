@@ -211,6 +211,17 @@
 				line-height:1.5;	
 			}
 		}
+		@media screen and (max-width:1024px) and (min-width:415px){
+			.TheaterArea .theaterInfo .theatercontent span{
+				display: none;
+			}
+		}
+		@media screen and (max-width:414px){
+			.TheaterArea .theaterInfo .theatercontent span{
+				display: none;
+			}
+		}
+		
 		.current #info{/*顯示各區塊介紹*/
 			display: block;
 			font-size:16px;

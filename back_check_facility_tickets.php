@@ -1,4 +1,4 @@
-<script>
+<!-- <script>
 
 getURL();
 
@@ -18,7 +18,7 @@ getURL();
         };
 
 
-</script>
+</script> -->
 
 <!-- 上面這段請勿複製 只有設施驗票 跟 劇場驗票要而已-->
 
@@ -30,7 +30,7 @@ session_start();
 
 
 if(!isset($_SESSION["login_success"])){
-    header("location:manager_login.php");
+    header("location:manager_login.php?filename=back_check_faci");
     exit;
 }
    
@@ -44,7 +44,8 @@ if(!isset($_SESSION["login_success"])){
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>FA 後台</title>
+    <title>FA後台管理系統 | 設施驗票</title>
+    <link rel="icon" href="img/favicon_back.ico" />
     <link rel="stylesheet" type="text/css" href="css/RESET.css">
     <link rel="stylesheet" type="text/css" href="css/11back_nav.css">
     <link rel="stylesheet" href="css/check_tickets_facility.css">
@@ -488,23 +489,23 @@ if(!isset($_SESSION["login_success"])){
 
 
 
-            function setLocalStorage() {
-                var facility_icon = document.getElementsByClassName('facility_icon');
+            // function setLocalStorage() {
+            //     var facility_icon = document.getElementsByClassName('facility_icon');
 
-                for (var i = 0; i < facility_icon.length; i++) {
-                    facility_icon[i].addEventListener('click', storeNowFacility);
+            //     for (var i = 0; i < facility_icon.length; i++) {
+            //         facility_icon[i].addEventListener('click', storeNowFacility);
 
-                    function storeNowFacility() {
-                        now_facility_chinese = this.getAttribute('data-title');
-                        now_facility_english = this.getAttribute('data-facility');
-                        localStorage.setItem('now_facility_chinese', now_facility_chinese);
-                        localStorage.setItem('now_facility_english', now_facility_english);
-                    }
+            //         function storeNowFacility() {
+            //             now_facility_chinese = this.getAttribute('data-title');
+            //             now_facility_english = this.getAttribute('data-facility');
+            //             localStorage.setItem('now_facility_chinese', now_facility_chinese);
+            //             localStorage.setItem('now_facility_english', now_facility_english);
+            //         }
 
 
-                }
+            //     }
 
-            };
+            // };
 
 
 
