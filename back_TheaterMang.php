@@ -21,6 +21,7 @@ if(isset($_SESSION["login_success"])==false){
     <link rel="stylesheet" type="text/css" href="css/11back_nav.css">
     <link rel="stylesheet" type="text/css" href="css/login.css">
     <link rel="stylesheet" type="text/css" href="css/back_TheaterMang.css">
+    <script src="js/jquery.min.js"></script>
     <!-- ========== -->
 
 </head>
@@ -30,7 +31,7 @@ if(isset($_SESSION["login_success"])==false){
         <img src="img/back_menu_default.png" id="ham">
         <h1 class="logo">
             <img src="img/LOGO.png" alt="FA">
-            <span>後台管理系統</span>
+            <span>後台管理系統 | 劇場管理</span>
         </h1>
         <ul class="nav">
             <li class="navList">
@@ -61,7 +62,7 @@ if(isset($_SESSION["login_success"])==false){
                 <span class="listcover"></span>
             </li>
             <li class="navList">
-                <a href="">諮詢管理</a>
+                <a href="back_robot.php">諮詢管理</a>
                 <span class="listcover"></span>
             </li>
             <li class="navList"<?php
@@ -299,14 +300,14 @@ if(isset($_SESSION["login_success"])==false){
                 <form method="get" action="" align="center" enctype="multipart/form-data">
                     <h2 class="titleh2">劇場票劵訂單</h2>
                     <table class="TheaterOrderListTable" id='TheaterOrderListTable'>
-                        會員姓名:<input type="text" value="" id='mem_name'>
+                        會員帳號:<input type="text" value="" id='mem_name'>
                             <!-- button類型要改成type="button"，預設type="submit" -->
                             <button type="button" onclick="searchOrderList()"  class="searchOrderList">查詢</button>
                             <div id="showPanel"></div>
                         <tr class="Field_title">
                             <th>訂單編號</th>
                             <th>場次編號</th>
-                            <th>會員姓名</th>
+                            <th>會員帳號</th>
                             <th>購買張數</th>
                             <th>已使用張數</th>
                             <th>訂購日期</th>

@@ -242,7 +242,7 @@ if(!isset($_SESSION["login_success"])){
             var submit = document.getElementById('submit');
 
             var input_full = document.getElementById('full_num');
-            var input_hald = document.getElementById('half_num');
+            var input_half = document.getElementById('half_num');
 
             var unused_full = document.getElementById('unused_full');
             var unused_half = document.getElementById('unused_half');
@@ -319,9 +319,9 @@ if(!isset($_SESSION["login_success"])){
                         
                        
                         input_full.value = remain_full;
-                        input_hald.value = remain_half;
+                        input_half.value = remain_half;
                         input_full.setAttribute('max', remain_full);
-                        input_hald.setAttribute('max', remain_half);
+                        input_half.setAttribute('max', remain_half);
                         unused_full.innerHTML = remain_full;
                         unused_half.innerHTML = remain_half;
                         unused_sum.innerHTML = remain_full + remain_half;
@@ -353,7 +353,7 @@ if(!isset($_SESSION["login_success"])){
 
             function usedUp() {
                 var used_up = document.getElementById('used_up');
-                if (input_full.value == 0 && input_hald.value == 0) {
+                if (input_full.value == 0 && input_half.value == 0) {
                     used_up.style.display = "block";
                     // alert('use up');
                 } else {
