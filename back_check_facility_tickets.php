@@ -26,16 +26,18 @@ getURL();
 ob_start();
 session_start();
 //請複製:當無登入時會自動跳轉至登入頁面
-if(isset($_SESSION["c_qr_no"])){
-   unset($_SESSION["c_qr_no"]); 
-}
 
-$_SESSION["c_qr_no"]= $_REQUEST['location.href'];
+
+
+
 
 
 if(!isset($_SESSION["login_success"])){
+    $_SESSION["c_qr_no"]= $_SERVER['REQUEST_URI'];
     header("location:manager_login.php?filename=back_check_faci");
     exit;
+}else if(!isset($_REQUEST["qr"])){
+    $_SESSION["c_qr_no"]= $_SERVER['REQUEST_URI'];
 }
    
 ?>
@@ -188,7 +190,7 @@ if(!isset($_SESSION["login_success"])){
                             </div>
                         </div>
                         <div class="button_area">
-                            <button id="submit">確定註記<?php echo $_SESSION["c_qr_no"] ?></button>
+                            <button id="submit">確定註記</button>
                             <button id="reset">重選數量</button>
                         </div>
                     </div>
@@ -236,6 +238,7 @@ if(!isset($_SESSION["login_success"])){
             </div>
         </div>
     </div>
+    <input type="hidden" id="get_qr" value="<?php echo $_SESSION["c_qr_no"] ?>">
     <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
     <!-- <script src="js/back_check_facility_tickets.js"></script> -->
     <script type="text/javascript">
@@ -272,7 +275,8 @@ if(!isset($_SESSION["login_success"])){
 
 
             function getURL() { //到時候要帶值進url
-                var href = location.href;
+                var href = document.getElementById("get_qr").value;
+                alert(href);
                 // href = href + '?2.1.2'; //第一個數字是order_no，第二個為facility_no，第三個為mem_id
                 var index = href.indexOf('?'); //先判斷?的位置在哪(indexOf)
                 var key_str = href.substr(index + 1); //從index往後一個位置開始取字串到最後
