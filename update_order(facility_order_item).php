@@ -13,7 +13,7 @@ try{
 
 
 
-  echo "異動成功";	
+  echo "註記成功";	
 
 }catch(PDOException $e){
   

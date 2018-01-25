@@ -15,7 +15,8 @@
     width: 100%;
     padding: 25%;
     position: relative;
-    transform: scale(0.9);
+		transform: scale(0.9);
+		transition: transform 0.6s;
 		-webkit-transition: transform 0.6s; }
 		
 		@media screen and (min-width: 768px) and (max-width: 1024px) {
@@ -498,7 +499,7 @@
 
 								}
 
-								}
+								
 								@media screen and (max-width: 414px){
 									.map_wrapper .info .info_container .info_content .main_content .information .parameter .paraContent{
 										height: 50px;
@@ -633,8 +634,10 @@
     width: 10px;
 }
 .facilityBox::-webkit-scrollbar-track {
+	border-radius: 10px;
 	-webkit-border-radius: 10px;
-    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+		-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+		box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
 }
 .facilityBox::-webkit-scrollbar-thumb {
   background-color: rgba(100,255,243,1);
@@ -655,7 +658,6 @@
 		overflow-x: scroll;
 		overflow-y: scroll;
 		-webkit-overflow-scrolling: touch;
-		overflow-scrolling: touch;
 	}
 	.facilityBox{
 		overflow-y:visible;
@@ -699,7 +701,7 @@
 	width: 66%;
 	height: 10px;
 	background-color: rgba(100,255,243,0.8);
-	background-image: ;
+	
 	text-align: center;
 	margin:10px auto;
 	margin-left: -10px;
@@ -1221,9 +1223,6 @@
 	border: 2px solid rgba(255, 193, 22,0.8);
 	cursor: pointer;
 }
-#goComment:hover{
-
-}
 .star{
 	width: 100%;
 }
@@ -1384,7 +1383,9 @@
 }
 #comment::-webkit-scrollbar-track {
 	-webkit-border-radius: 10px;
-    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+	border-radius: 10px;
+		-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+		box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
 }
 #comment::-webkit-scrollbar-thumb {
   	background-color: rgba(100,255,243,1);
