@@ -506,7 +506,7 @@ if(isset($_SESSION["login_error"]) === true){
 								</div>
 
 								<div class="parameter">
-									<h5>身高限制</h5>
+									<h5>限制</h5>
 									<p class="paraContent middleLinehight">
 
 									<?php echo $facility_info->facility_limit  ?>
@@ -631,7 +631,7 @@ if(isset($_SESSION["login_error"]) === true){
 								</div>
 
 								<div class="parameter">
-									<h5>身高限制</h5>
+									<h5>限制</h5>
 									<p class="paraContent middleLinehight">
 
 									<?php echo $facility_info->facility_limit  ?>
@@ -754,7 +754,7 @@ if(isset($_SESSION["login_error"]) === true){
 								</div>
 
 								<div class="parameter">
-									<h5>身高限制</h5>
+									<h5>限制</h5>
 									<p class="paraContent middleLinehight">
 
 									<?php echo $facility_info->facility_limit  ?>
@@ -874,7 +874,7 @@ if(isset($_SESSION["login_error"]) === true){
 								</div>
 
 								<div class="parameter">
-									<h5>身高限制</h5>
+									<h5>限制</h5>
 									<p class="paraContent middleLinehight">
 
 									<?php echo $facility_info->facility_limit  ?>
@@ -996,7 +996,7 @@ if(isset($_SESSION["login_error"]) === true){
 								</div>
 
 								<div class="parameter">
-									<h5>身高限制</h5>
+									<h5>限制</h5>
 									<p class="paraContent middleLinehight">
 
 									<?php echo $facility_info->facility_limit  ?>
@@ -1118,7 +1118,7 @@ if(isset($_SESSION["login_error"]) === true){
 								</div>
 
 								<div class="parameter">
-									<h5>身高限制</h5>
+									<h5>限制</h5>
 									<p class="paraContent middleLinehight">
 
 									<?php echo $facility_info->facility_limit  ?>
@@ -1235,7 +1235,7 @@ if(isset($_SESSION["login_error"]) === true){
 								</div>
 
 								<div class="parameter">
-									<h5>身高限制</h5>
+									<h5>限制</h5>
 									<p class="paraContent middleLinehight">
 
 									<?php echo $facility_info->facility_limit  ?>
@@ -1352,7 +1352,7 @@ if(isset($_SESSION["login_error"]) === true){
 								</div>
 
 								<div class="parameter">
-									<h5>身高限制</h5>
+									<h5>限制</h5>
 									<p class="paraContent middleLinehight">
 
 									<?php echo $facility_info->facility_limit  ?>
