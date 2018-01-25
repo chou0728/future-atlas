@@ -30,7 +30,7 @@
 		  $str .= "<td>" . $sessionlistRow->session_time . "</td>";
 		  $str .= "<td>" . $sessionlistRow->time_date . "</td>";
 		  $str .= "<td>" . $sessionlistRow->total_ticket. "</td>";
-		  $str .= "<td>" .  $sessionlistRow->last_ticket ."</td>";
+		  $str .= "<td>" .  $sessionlistRow->last_ticket ."</td></tr>";
 		  // $str .= "<td>" . '<input type="submit" style="font-family:微軟正黑體;" value="修改" onclick="alert(1);">'. "</td></tr>";
 		  $str .= "</form>";
 	    }
