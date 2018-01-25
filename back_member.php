@@ -150,11 +150,6 @@ if(isset($_SESSION["login_success"])==false){
                                      }
 
                                 ?>
-
-
-                                <!-- <form method="post"   align="center" enctype="multipart/form-data"> -->
-
-                                <!-- <input type="hidden" id="program_no" name="program_no" value="<?php echo  $prodRow["program_no"] ?>"> -->
                                 <tr class="Field_value">
                                     <td><?php echo  $memberRow["mem_id"] ?>
                                     </td>  
@@ -180,7 +175,6 @@ if(isset($_SESSION["login_success"])==false){
 										<?php echo  $memberRow["mem_phone"] ?>
                                     </td>
                                 </tr>
-                                <!-- </form> -->
                                 
                             <?php       
                                 }
