@@ -1,7 +1,6 @@
 <?php
 ob_start();
 session_start();
-
 try {
 	require_once("php/connectBooks.php");
 	$manager_name = $_REQUEST["manager_name"];
@@ -34,7 +33,7 @@ try {
 					if(isset($_REQUEST["filename"])){
 						if($_REQUEST["filename"] == "back_check_faci"){//直接點back_check_facility_tickets.php
 
-							header("location:back_check_facility_tickets.php");
+							header("location:back_check_facility_tickets.php?qr=0");
 
 
 						}else if($_REQUEST["filename"] == "back_check_theater"){//直接點back_check_theater_tickets.php
