@@ -10,7 +10,7 @@ if(isset($_SESSION["top_manager"])===false||isset($_SESSION["manager_name"])===f
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title>FA後台管理系統 | 設施管理</title>
+	<title>FA後台管理系統 | 諮詢管理</title>
 	<link rel="icon" href="img/favicon_back.ico" />
 	<link rel="stylesheet" href="css/RESET.css">
 	<link rel="stylesheet" href="css/back_robot.css">
@@ -88,12 +88,14 @@ if(isset($_SESSION["top_manager"])===false||isset($_SESSION["manager_name"])===f
 			<div class="b_inner_content" id="not-check-ticket">
 	<!-- ===================1====================== -->
 				<div id="robot_qa" class="tabcontent">
+					<div id="align-right"><input type="button" value="新增問答" id="new_qa"></div>
 					<div class="table">
 						<div class="row">
 							<div class="col col-title col-no">編號</div>
 							<div class="col col-title col-middle">關鍵字</div>
 							<div class="col col-title col-big">答案</div>
 							<div class="col col-title col-small">儲存</div>
+							<div class="col col-title col-small">刪除</div>
 						</div>
 <?php 
 try {
@@ -109,6 +111,7 @@ try {
 								<div class="col col-middle"><input type="text" name="key_word" value="<?php echo $qaRow->key_word; ?>"></div>
 								<div class="col col-big"><input type="text" name="answer" value="<?php echo $qaRow->answer; ?>"></div>
 								<div class="col col-small"><input type="button" value="儲存" class="save_qa"></div>
+								<div class="col col-small"><input type="button" value="刪除" class="del_qa"></div>
 						</div>
 					
 <?php		
@@ -134,6 +137,7 @@ try {
 							<div class="col col-title col-middle">設定關鍵字</div>
 							<div class="col col-title col-big">設定答案</div>
 							<div class="col col-title col-small">儲存</div>
+							<div class="col col-title col-no">刪除</div>
 						</div>
 <?php 
 try {
@@ -150,6 +154,7 @@ try {
 							<div class="col col-middle"><input type="text" name="key_word" value="<?php echo $qaRow->key_word; ?>"></div>
 							<div class="col col-big"><input type="text" name="answer" value="<?php echo $qaRow->answer; ?>"></div>
 							<div class="col col-small"><input type="button" value="儲存" class="save_unqa"></div>
+							<div class="col col-small"><input type="button" value="刪除" class="del_unqa"></div>
 						</div>
 
 <?php		
@@ -192,13 +197,21 @@ try {
 
 
 	function init(){
+		var new_qa = document.getElementById('new_qa');
+		new_qa.addEventListener('click',function(){
+			location.href="update_robot.php?new=1";//update_robot.php判斷是否為delet;
+		});
 		var save_qa = document.getElementsByClassName('save_qa');
+		var del_qa = document.getElementsByClassName('del_qa');
 		var save_unqa = document.getElementsByClassName('save_unqa');
+		var del_unqa =  document.getElementsByClassName('del_unqa');
 		for(var i=0;i<save_qa.length;i++){
 			save_qa[i].addEventListener('click',update_qa);
+			del_qa[i].addEventListener('click',update_qa);
 		}
 		for(var i=0;i<save_unqa.length;i++){
 			save_unqa[i].addEventListener('click',update_unqa);
+			del_unqa[i].addEventListener('click',update_unqa);
 		}
 	}
 
@@ -206,14 +219,23 @@ try {
 		var key_word_no = this.parentElement.parentElement.children[0].innerText;
 		var key_word = this.parentElement.parentElement.children[1].children[0].value;
 		var answer = this.parentElement.parentElement.children[2].children[0].value;
-		location.href="update_robot.php?key_word_no="+key_word_no+"&key_word="+key_word+"&answer="+answer;
+		if(this.className=="save_qa"){//如果是要更動內容
+			location.href="update_robot.php?key_word_no="+key_word_no+"&key_word="+key_word+"&answer="+answer;
+		}else{//如果是要刪除整列
+			location.href="update_robot.php?key_word_no="+key_word_no+"&del=1";//update_robot.php判斷是否為delet;
+		}
+		
 	}
 	function update_unqa(){//unsolved_qa
 		var key_word_no = this.parentElement.parentElement.children[0].innerText;
 		var unsolved_question = "notnull";//update_robot.php判斷是否為unsolved_qa
 		var key_word = this.parentElement.parentElement.children[2].children[0].value;
 		var answer = this.parentElement.parentElement.children[3].children[0].value;
-		location.href="update_robot.php?unsolved_question="+unsolved_question+"&key_word_no="+key_word_no+"&key_word="+key_word+"&answer="+answer;
+		if(this.className=="save_qa"){//如果是要更動內容
+			location.href="update_robot.php?unsolved_question="+unsolved_question+"&key_word_no="+key_word_no+"&key_word="+key_word+"&answer="+answer;
+		}else{
+			location.href="update_robot.php?key_word_no="+key_word_no+"&del=1";
+		}
 	}
 
 window.addEventListener('load',init);

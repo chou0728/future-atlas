@@ -20,7 +20,15 @@ session_start();
 				$qa -> bindValue(":key_word",$_REQUEST['key_word']);
 				$qa -> bindValue(":answer",$_REQUEST['answer']);
 				$qa -> execute();
-			}else{
+			}else if(isset($_REQUEST['del'])){//刪除關鍵字+回答
+				$sql = "delete from question_and_answer where key_word_no=:key_word_no";
+				$qa = $pdo->prepare($sql);
+				$qa -> bindValue(":key_word_no",$_REQUEST['key_word_no']);
+				$qa -> execute();
+			}else if(isset($_REQUEST['new'])){
+				$sql = "insert into question_and_answer (key_word) VALUES ('尚未定義')";
+				$qa = $pdo->query($sql);
+			}else{//單純update關鍵字+回答
 				$sql = "update question_and_answer set key_word=:key_word,answer=:answer where key_word_no=:key_word_no";
 				$qa = $pdo->prepare($sql);
 				$qa -> bindValue(":key_word_no",$_REQUEST['key_word_no']);
@@ -28,6 +36,12 @@ session_start();
 				$qa -> bindValue(":answer",$_REQUEST['answer']);
 				$qa -> execute();
 			}
+
+
+			
+
+
+			
 			header("location:back_robot.php");
 
 
