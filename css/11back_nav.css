@@ -264,6 +264,9 @@ header .nav .navList a:hover{
 	font-family:"微軟正黑體";
 	z-index:15;
 }
+#RWD-page{
+	display: none;
+}
 @media screen and (max-width:1024px) {
 	.b_sub_nav #active.b_sn_btn{
 	/*	background-color:rgb(102, 102, 102);
@@ -273,6 +276,7 @@ header .nav .navList a:hover{
 		color: #fff;*/
 	}
 	#RWD-page{
+		display:block;
 		position: absolute;
 		width: 100%;
 		height: 100%;

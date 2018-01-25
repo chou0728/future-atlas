@@ -15,6 +15,7 @@ if(isset($_SESSION["login_error"]) === true){
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
 	<meta charset="UTF-8">
 	<title>FA未來主題樂園</title>
+	<link rel="icon" href="img/favicon.ico" />
 	<link rel="stylesheet" type="text/css" href="css/RESET.css">
 	<style type="text/css">
 		*{
@@ -92,6 +93,14 @@ if(isset($_SESSION["login_error"]) === true){
                 	?>
                 </span>
         </li>
+        <li class="li_top" <?php if(!isset($_SESSION["mem_id"])){
+        						echo "style='display: none';";
+        						}?>>
+        	<a href="see_tickets.php" class="tkt">
+        		<img src="img/member/qr-code-scan.png">
+        		<span>票券</span>
+        	</a>
+        </li>
         <li class="li_top">
             <a href=<?php
                 		if(isset($_SESSION["mem_id"])===true){
@@ -123,9 +132,6 @@ if(isset($_SESSION["login_error"]) === true){
                 <img id="cartimgid" src="img/cart/wallet_0.png">
                 <span id="howmanytickets">0</span>
             </a>
-                <div id="showCartContent">預覽購物車
-                    <table id="showCartContenttb"></table>
-                </div>
         </li>
     </ul>
 </div>
@@ -133,12 +139,15 @@ if(isset($_SESSION["login_error"]) === true){
     <div class="ul_box">
         <ul class="ul_left">
             <li>
+            	<img src="img/hover-tri.png" class="nav_hover">
                 <a href="Theaterbuyticket.php">劇場購票</a>
             </li>
             <li>
+            	<img src="img/hover-tri.png" class="nav_hover">
                 <a href="facilityBuyTicket.php">設施購票</a>
             </li>
             <li>
+            	<img src="img/hover-tri.png" class="nav_hover">
                 <a href="facilityInfo.php">設施介紹</a>
             </li>
         </ul>
@@ -147,14 +156,17 @@ if(isset($_SESSION["login_error"]) === true){
             <img src="img/LOGO.png" class="logo">
         </a>
         <ul class="ul_right">
-            <li>
+            <li id="nav_here">
+            	<img src="img/hover-tri.png" class="nav_hover">
                 <a href="#page2" id="NavClose">園區地圖</a>
             </li>
             <li>
+            	<img src="img/hover-tri.png" class="nav_hover">
                 <a href="activity.php">活動月曆</a>
             </li>
             <li>
-                <a href="robot.html">諮詢專區</a>
+            	<img src="img/hover-tri.png" class="nav_hover">
+                <a href="robot.php">諮詢專區</a>
             </li>
         </ul>
     </div>
@@ -357,21 +369,41 @@ if(isset($_SESSION["login_error"]) === true){
 
 			<div class="map">
 
-				<img class="map_border" src="img/secondSection/map_whole.png" alt="map">
+				<img class="map_border" src="img/secondSection/map_border.png" alt="map">
+
+				<!-- ferris_wheel -->
 				<div class="shadow ferris_wheel_shadow"></div>
 				<img class="facility_icons ferris_wheel unchecked" data-facility="ferris_wheel" src="img/secondSection/ferris_wheel.png"
-				    alt="">
+				    alt="ferris_wheel">
+
+				<!-- roller_coaster -->
 				<div class="shadow roller_coaster_shadow"></div>
 				<img class="facility_icons roller_coaster unchecked" data-facility="roller_coaster" src="img/secondSection/roller_coaster.png"
-				    alt="">
+				    alt="roller_coaster">
+
+				<!-- blimp -->
 				<div class="shadow blimp_shadow"></div>
-				<img class="facility_icons  blimp unchecked" data-facility="blimp" src="img/secondSection/blimp.png" alt="">
-				<div class="shadow coffee_cup_shadow"></div>
-				<img class="facility_icons coffee_cup unchecked" data-facility="coffee_cup" src="img/secondSection/coffee_cup.png" alt="">
-				<div class="shadow bumper_cars_shadow"></div>
-				<img class="facility_icons bumper_cars unchecked" data-facility="bumper_cars" src="img/secondSection/bumper_cars.png" alt="">
+				<img class="facility_icons  blimp unchecked" data-facility="blimp" src="img/secondSection/blimp.png" alt="blimp">
+
+				<!-- disco -->
+				<div class="shadow disco_shadow"></div>
+				<img class="facility_icons disco unchecked" data-facility="disco" src="img/secondSection/disco.png" alt="disco">
+
+				<!-- information -->
+				<div class="shadow information_shadow"></div>
+				<img class="facility_icons information unchecked" data-facility="information" src="img/secondSection/information.png" alt="information">
+
+				<!-- theater -->
 				<div class="shadow theater_shadow"></div>
-				<img class="facility_icons theater unchecked" data-facility="theater" src="img/secondSection/theater.png" alt="">
+				<img class="facility_icons theater unchecked" data-facility="theater" src="img/secondSection/theater.png" alt="theater">
+
+				<!-- robot -->
+				<div class="shadow robot_shadow"></div>
+				<img class="facility_icons robot unchecked" data-facility="robot" src="img/secondSection/robot.png" alt="robot">
+
+				<!-- time_travel -->
+				<div class="shadow time_travel_shadow"></div>
+				<img class="facility_icons time_travel unchecked" data-facility="time_travel" src="img/secondSection/time_travel.png" alt="time_travel">
 
 				<!--設施資訊 -->
 			</div>
@@ -379,345 +411,977 @@ if(isset($_SESSION["login_error"]) === true){
 
 				<button class="close"></button>
 				<div class="info_container">
+
+
+				
+
+
+
+
+
+
+					<!-- =============== info_ferris_wheel =================== -->
+
+						<!-- ===== php抓資料 ==== -->
+
+				<?php
+                   
+                    
+				   try {
+					   require_once("connectBooks.php");
+					   $sql = "SELECT * FROM `facility` WHERE facility_no = ?";
+					   $facility_PDO = $pdo->prepare($sql);
+					   $facility_PDO->bindValue(1,3); 
+					   $facility_PDO->execute();
+					   $facility_info = $facility_PDO->fetchObject();
+					   
+					   $sql = "SELECT ROUND(AVG(comment_grade),1) average_grade FROM `facility_comment` WHERE facility_no = ?";
+					   $faci_grage_PDO = $pdo->prepare($sql);
+					   $faci_grage_PDO->bindValue(1,3); 
+					   $faci_grage_PDO->execute();
+					   $facility_grade = $faci_grage_PDO->fetchObject();
+
+
+			   ?>
+
+
+
+
+
+
+
 					<div class="info_content info_ferris_wheel">
 
 						<!-- 左邊圖 -->
 						<div class="main_photo">
-								<img src="img/secondSection/ferris_wheel_img.jpg" alt="">
+							<img src="img/secondSection/ferris_wheel_img.png" alt="">
 						</div>
 						<!-- 右邊標題跟介紹 -->
 						<div class="main_content">
-								<div class="title">
-										<h2>宇宙雲霄飛車</h2>
-										<small>COSMOS ROLLER COASTER</small>
-									</div>
+							<div class="title">
+								<h2><?php echo $facility_info->facility_name ?></h2>
+								<small><?php echo $facility_info->facility_subname ?></small>
+							</div>
 							<div class="information">
 								<div class="parameter">
-									<div class="paraContent">
-										<h5>心跳指數</h5>
-										<!-- <small>90下/分鐘</small> -->
-										<svg width="100%" height="50px" viewBox="0 0 50 60" viewport="0 0 50 30" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
-										    xmlns:sketch="http://www.bohemiancoding.com/sketch/ns">
-											<defs></defs>
-											<g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" sketch:type="MSPage">
-												<path class="beat-loader" d="M0.5,38.5 L16,38.5 L19,25.5 L24.5,57.5 L31.5,7.5 L37.5,46.5 L43,38.5 L53.5,38.5" id="Path-2"
-												    stroke-width="1" sketch:type="MSShapeGroup"></path>
-											</g>
-										</svg>
-										
-									</div>
-								</div>
-								<div class="parameter">
-
-										<h5>適合對象</h5>
-									<p class="paraContent middleLinehight">
-										
-										想感受刺激者
-									</p>
-								</div>
-
-								<div class="parameter">
-										<h5>身高限制</h5>
-									<p class="paraContent middleLinehight">
-										
-										130~200cm
-									</p>
-								</div>
-								<div class="parameter">
-										<h5>設施評價</h5>
+								
+										<h5>設施人潮</h5>
 										<p class="paraContent middleLinehight">
-											4.5分
-										</p>
-									</div>
+
+										<?php 
+
+										$facility_status = $facility_info->facility_crowd;
+										switch ($facility_status){
+											case 1:
+											$facility_status = "擁擠";
+											echo $facility_status;
+											break;
+											
+											case 2:
+											$facility_status = "普通";
+											echo $facility_status;
+											break;
+
+											case 3:
+											$facility_status = "空曠";
+											echo $facility_status;
+											break;
+
+											default:
+											$facility_status = "更新中";
+											echo $facility_status;
+										};
+										
+										?>
+											</p>
+	
+								</div>
+								<div class="parameter faci_suit">
+
+									<h5>適合對象</h5>
+									<p class="paraContent middleLinehight">
+
+									<?php echo $facility_info->facility_suit ?>
+									</p>
+								</div>
+
+								<div class="parameter">
+									<h5>身高限制</h5>
+									<p class="paraContent middleLinehight">
+
+									<?php echo $facility_info->facility_limit  ?>
+									</p>
+								</div>
+								<div class="parameter">
+									<h5>設施評價</h5>
+									<p class="paraContent middleLinehight">
+									<?php echo $facility_grade->average_grade ?>  分
+									</p>
+								</div>
 							</div>
-							<a class="open_iframe" href="#" data-no="1">了解更多</a>
+							<a class="open_iframe" href="#" data-no="3">了解更多</a>
 						</div>
 
 					</div>
+
+
+					<?php
+                
+
+						} catch (PDOException $e) {
+							echo "錯誤原因 : " , $e->getMessage() , "<br>";
+							echo "錯誤行號 : " , $e->getLine() , "<br>";
+							
+						}
+                	?>
+
+
+
+
+
+
+					<!-- =============== info_roller_coaster =================== -->
+
+
+
+					<!-- ===== php抓資料 ==== -->
+
+				<?php
+                   
+                    
+				   try {
+					   require_once("connectBooks.php");
+					   $sql = "SELECT * FROM `facility` WHERE facility_no = ?";
+					   $facility_PDO = $pdo->prepare($sql);
+					   $facility_PDO->bindValue(1,1); 
+					   $facility_PDO->execute();
+					   $facility_info = $facility_PDO->fetchObject();
+					   
+					   $sql = "SELECT ROUND(AVG(comment_grade),1) average_grade FROM `facility_comment` WHERE facility_no = ?";
+					   $faci_grage_PDO = $pdo->prepare($sql);
+					   $faci_grage_PDO->bindValue(1,1); 
+					   $faci_grage_PDO->execute();
+					   $facility_grade = $faci_grage_PDO->fetchObject();
+
+
+				 ?>
+
+
+
+
+
+
 					<div class="info_content info_roller_coaster">
 						<!-- 左邊圖 -->
 						<div class="main_photo">
-								<img src="img/secondSection/roller_coaster_img.jpg" alt="">
+							<img src="img/secondSection/roller_coaster_img.png" alt="">
+						</div>
+						<!-- 右邊標題跟介紹 -->
+						<div class="main_content">
+							<div class="title">
+								<h2><?php echo $facility_info->facility_name ?></h2>
+								<small><?php echo $facility_info->facility_subname ?></small>
 							</div>
-							<!-- 右邊標題跟介紹 -->
-							<div class="main_content">
-								<div class="title">
-									<h2>宇宙雲霄飛車</h2>
-									<small>COSMOS ROLLER COASTER</small>
-								</div>
-								<div class="information">
-									
-	
-										<div class="parameter">
-											<div class="paraContent">
-												<h5>心跳指數</h5>
-												<!-- <small>90下/分鐘</small> -->
-												<svg width="100%" height="50px" viewBox="0 0 50 60" viewport="0 0 50 30" version="1.1" xmlns="http://www.w3.org/2000/svg"
-													xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns">
-													<defs></defs>
-													<g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" sketch:type="MSPage">
-														<path class="beat-loader" d="M0.5,38.5 L16,38.5 L19,25.5 L24.5,57.5 L31.5,7.5 L37.5,46.5 L43,38.5 L53.5,38.5" id="Path-2"
-															stroke-width="1" sketch:type="MSShapeGroup"></path>
-													</g>
-												</svg>
-	
-											</div>
-										</div>
-										<div class="parameter">
-	
-											<h5>適合對象</h5>
+							<div class="information">
+
+
+									<div class="parameter">
+								
+											<h5>設施人潮</h5>
 											<p class="paraContent middleLinehight">
 	
-												想感受刺激者
-											</p>
-										</div>
-	
-										<div class="parameter">
-												<h5>身高限制</h5>
-											<p class="paraContent middleLinehight">
+											<?php 
+
+												$facility_status = $facility_info->facility_crowd;
+												switch ($facility_status){
+													case 1:
+													$facility_status = "擁擠";
+													echo $facility_status;
+													break;
+													
+													case 2:
+													$facility_status = "普通";
+													echo $facility_status;
+													break;
+
+													case 3:
+													$facility_status = "空曠";
+													echo $facility_status;
+													break;
+
+													default:
+													$facility_status = "更新中";
+													echo $facility_status;
+												};
+
+												?>
 											
-												130~200cm
+
+
 											</p>
-										</div>
-										<div class="parameter">
-												<h5>設施評價</h5>
-											<p class="paraContent middleLinehight">
-												
-												4.5分
-											</p>
-										</div>
-								
+		
+									</div>
+								<div class="parameter faci_suit">
+
+									<h5>適合對象</h5>
+									<p class="paraContent middleLinehight">
+
+									<?php echo $facility_info->facility_suit ?>
+									</p>
 								</div>
-								<a class="open_iframe" href="#">了解更多</a>
+
+								<div class="parameter">
+									<h5>身高限制</h5>
+									<p class="paraContent middleLinehight">
+
+									<?php echo $facility_info->facility_limit  ?>
+									</p>
+								</div>
+								<div class="parameter">
+									<h5>設施評價</h5>
+									<p class="paraContent middleLinehight">
+
+									<?php echo $facility_grade->average_grade ?>  分
+									</p>
+								</div>
+
 							</div>
+							<a class="open_iframe" href="#" data-no="1">了解更多</a>
+						</div>
 					</div>
-					<div class="info_content info_carousel">
+
+					<?php
+                
+
+						} catch (PDOException $e) {
+							echo "錯誤原因 : " , $e->getMessage() , "<br>";
+							echo "錯誤行號 : " , $e->getLine() , "<br>";
+							
+						}
+                	?>
+
+
+
+
+
+
+
+
+
+
+
+					<!-- =============== info_blimp =================== -->
+
+						<!-- ===== php抓資料 ==== -->
+
+				<?php
+                   
+                    
+				   try {
+					   require_once("connectBooks.php");
+					   $sql = "SELECT * FROM `facility` WHERE facility_no = ?";
+					   $facility_PDO = $pdo->prepare($sql);
+					   $facility_PDO->bindValue(1,5); 
+					   $facility_PDO->execute();
+					   $facility_info = $facility_PDO->fetchObject();
+					   
+					   $sql = "SELECT ROUND(AVG(comment_grade),1) average_grade FROM `facility_comment` WHERE facility_no = ?";
+					   $faci_grage_PDO = $pdo->prepare($sql);
+					   $faci_grage_PDO->bindValue(1,5); 
+					   $faci_grage_PDO->execute();
+					   $facility_grade = $faci_grage_PDO->fetchObject();
+
+
+				 ?>
+
+
+
+
+
+					<div class="info_content info_blimp">
 						<!-- 左邊圖 -->
 						<div class="main_photo">
-								<img src="img/secondSection/ferris_wheel_img.jpg" alt="">
+							<img src="img/secondSection/blimp_img.png" alt="">
+						</div>
+						<!-- 右邊標題跟介紹 -->
+						<div class="main_content">
+							<div class="title">
+								<h2><?php echo $facility_info->facility_name ?></h2>
+								<small><?php echo $facility_info->facility_subname ?></small>
 							</div>
-							<!-- 右邊標題跟介紹 -->
-							<div class="main_content">
-								<div class="title">
-									<h2>宇宙雲霄飛車</h2>
-									<small>COSMOS ROLLER COASTER</small>
-								</div>
-								<div class="information">
-									
-	
-										<div class="parameter">
-											<div class="paraContent">
-												<h5>心跳指數</h5>
-												<!-- <small>90下/分鐘</small> -->
-												<svg width="100%" height="50px" viewBox="0 0 50 60" viewport="0 0 50 30" version="1.1" xmlns="http://www.w3.org/2000/svg"
-													xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns">
-													<defs></defs>
-													<g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" sketch:type="MSPage">
-														<path class="beat-loader" d="M0.5,38.5 L16,38.5 L19,25.5 L24.5,57.5 L31.5,7.5 L37.5,46.5 L43,38.5 L53.5,38.5" id="Path-2"
-															stroke-width="1" sketch:type="MSShapeGroup"></path>
-													</g>
-												</svg>
-	
-											</div>
-										</div>
-										<div class="parameter">
-	
-											<h5>適合對象</h5>
-											<p class="paraContent middleLinehight">
-	
-												想感受刺激者
-											</p>
-										</div>
-	
-										<div class="parameter">
-												<h5>身高限制</h5>
-											<p class="paraContent middleLinehight">
-												
-												130~200cm
-											</p>
-										</div>
-										<div class="parameter">
-												<h5>設施評價</h5>
-											<p class="paraContent middleLinehight">
-												
-												4.5分
-											</p>
-										</div>
+							<div class="information">
+
+									<div class="parameter">
 								
+											<h5>設施人潮</h5>
+											<p class="paraContent middleLinehight">
+	
+											<?php 
+
+													$facility_status = $facility_info->facility_crowd;
+													switch ($facility_status){
+														case 1:
+														$facility_status = "擁擠";
+														echo $facility_status;
+														break;
+														
+														case 2:
+														$facility_status = "普通";
+														echo $facility_status;
+														break;
+
+														case 3:
+														$facility_status = "空曠";
+														echo $facility_status;
+														break;
+
+														default:
+														$facility_status = "更新中";
+														echo $facility_status;
+													};
+
+													?>	
+											</p>
+		
+									</div>
+								<div class="parameter faci_suit">
+
+									<h5>適合對象</h5>
+									<p class="paraContent middleLinehight">
+
+									<?php echo $facility_info->facility_suit ?>
+									</p>
 								</div>
-								<a class="open_iframe" href="#">了解更多</a>
+
+								<div class="parameter">
+									<h5>身高限制</h5>
+									<p class="paraContent middleLinehight">
+
+									<?php echo $facility_info->facility_limit  ?>
+									</p>
+								</div>
+								<div class="parameter">
+									<h5>設施評價</h5>
+									<p class="paraContent middleLinehight">
+
+									<?php echo $facility_grade->average_grade ?>  分
+									</p>
+								</div>
+
 							</div>
+							<a class="open_iframe" href="#" data-no="5">了解更多</a>
+						</div>
 					</div>
-					<div class="info_content info_coffee_cup">
+
+					<?php
+                
+
+						} catch (PDOException $e) {
+							echo "錯誤原因 : " , $e->getMessage() , "<br>";
+							echo "錯誤行號 : " , $e->getLine() , "<br>";
+							
+						}
+					?>
+
+
+
+
+
+
+
+
+
+
+					<!-- =============== info_disco =================== -->
+
+
+								<!-- ===== php抓資料 ==== -->
+
+				<?php
+                   
+                    
+				   try {
+					   require_once("connectBooks.php");
+					   $sql = "SELECT * FROM `facility` WHERE facility_no = ?";
+					   $facility_PDO = $pdo->prepare($sql);
+					   $facility_PDO->bindValue(1,8); 
+					   $facility_PDO->execute();
+					   $facility_info = $facility_PDO->fetchObject();
+					   
+					   $sql = "SELECT ROUND(AVG(comment_grade),1) average_grade FROM `facility_comment` WHERE facility_no = ?";
+					   $faci_grage_PDO = $pdo->prepare($sql);
+					   $faci_grage_PDO->bindValue(1,8); 
+					   $faci_grage_PDO->execute();
+					   $facility_grade = $faci_grage_PDO->fetchObject();
+
+
+				 ?>
+
+
+
+					<div class="info_content info_disco">
 						<!-- 左邊圖 -->
 						<div class="main_photo">
-								<img src="img/secondSection/coffee_cup_img.jpg" alt="">
+							<img src="img/secondSection/disco_img.jpg" alt="">
+						</div>
+						<!-- 右邊標題跟介紹 -->
+						<div class="main_content">
+							<div class="title">
+								<h2><?php echo $facility_info->facility_name ?></h2>
+								<small><?php echo $facility_info->facility_subname ?></small>
 							</div>
-							<!-- 右邊標題跟介紹 -->
-							<div class="main_content">
-								<div class="title">
-									<h2>宇宙雲霄飛車</h2>
-									<small>COSMOS ROLLER COASTER</small>
-								</div>
-								<div class="information">
-									
-	
-										<div class="parameter">
-											<div class="paraContent">
-												<h5>心跳指數</h5>
-												<!-- <small>90下/分鐘</small> -->
-												<svg width="100%" height="50px" viewBox="0 0 50 60" viewport="0 0 50 30" version="1.1" xmlns="http://www.w3.org/2000/svg"
-													xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns">
-													<defs></defs>
-													<g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" sketch:type="MSPage">
-														<path class="beat-loader" d="M0.5,38.5 L16,38.5 L19,25.5 L24.5,57.5 L31.5,7.5 L37.5,46.5 L43,38.5 L53.5,38.5" id="Path-2"
-															stroke-width="1" sketch:type="MSShapeGroup"></path>
-													</g>
-												</svg>
-	
-											</div>
-										</div>
-										<div class="parameter">
-	
-											<h5>適合對象</h5>
-											<p class="paraContent middleLinehight">
-	
-												想感受刺激者
-											</p>
-										</div>
-	
-										<div class="parameter">
-												<h5>身高限制</h5>
-											<p class="paraContent middleLinehight">
-												
-												130~200cm
-											</p>
-										</div>
-										<div class="parameter">
-												<h5>設施評價</h5>
-											<p class="paraContent middleLinehight">
-												
-												4.5分
-											</p>
-										</div>
+							<div class="information">
+									<div class="parameter">
 								
+											<h5>設施人潮</h5>
+											<p class="paraContent middleLinehight">
+	
+											<?php 
+
+													$facility_status = $facility_info->facility_crowd;
+													switch ($facility_status){
+														case 1:
+														$facility_status = "擁擠";
+														echo $facility_status;
+														break;
+														
+														case 2:
+														$facility_status = "普通";
+														echo $facility_status;
+														break;
+
+														case 3:
+														$facility_status = "空曠";
+														echo $facility_status;
+														break;
+
+														default:
+														$facility_status = "更新中";
+														echo $facility_status;
+													};
+
+													?>	
+											</p>
+		
+									</div>
+								<div class="parameter faci_suit">
+
+									<h5>適合對象</h5>
+									<p class="paraContent middleLinehight">
+
+									<?php echo $facility_info->facility_suit ?>
+									</p>
 								</div>
-								<a class="open_iframe" href="#">了解更多</a>
+
+								<div class="parameter">
+									<h5>身高限制</h5>
+									<p class="paraContent middleLinehight">
+
+									<?php echo $facility_info->facility_limit  ?>
+									</p>
+								</div>
+								<div class="parameter">
+									<h5>設施評價</h5>
+									<p class="paraContent middleLinehight">
+
+									<?php echo $facility_grade->average_grade ?>  分
+									</p>
+								</div>
+
 							</div>
+							<a class="open_iframe" href="#" data-no="8"> 了解更多</a>
+						</div>
 					</div>
-					<div class="info_content info_bumper_cars">
+
+
+
+					<?php
+                
+
+						} catch (PDOException $e) {
+							echo "錯誤原因 : " , $e->getMessage() , "<br>";
+							echo "錯誤行號 : " , $e->getLine() , "<br>";
+							
+						}
+					?>
+
+
+
+
+
+
+
+
+					<!-- =============== info_information =================== -->
+
+
+						<!-- ===== php抓資料 ==== -->
+
+				<?php
+                   
+                    
+				   try {
+					   require_once("connectBooks.php");
+					   $sql = "SELECT * FROM `facility` WHERE facility_no = ?";
+					   $facility_PDO = $pdo->prepare($sql);
+					   $facility_PDO->bindValue(1,2); 
+					   $facility_PDO->execute();
+					   $facility_info = $facility_PDO->fetchObject();
+					   
+					   $sql = "SELECT ROUND(AVG(comment_grade),1) average_grade FROM `facility_comment` WHERE facility_no = ?";
+					   $faci_grage_PDO = $pdo->prepare($sql);
+					   $faci_grage_PDO->bindValue(1,2); 
+					   $faci_grage_PDO->execute();
+					   $facility_grade = $faci_grage_PDO->fetchObject();
+
+
+				 ?>
+
+
+
+
+
+
+					<div class="info_content info_information">
 						<!-- 左邊圖 -->
 						<div class="main_photo">
-								<img src="img/secondSection/bumper_cars_img.jpg" alt="">
+							<img src="img/secondSection/information_img.png" alt="">
+						</div>
+						<!-- 右邊標題跟介紹 -->
+						<div class="main_content">
+							<div class="title">
+								<h2><?php echo $facility_info->facility_name ?></h2>
+								<small><?php echo $facility_info->facility_subname ?></small>
 							</div>
-							<!-- 右邊標題跟介紹 -->
-							<div class="main_content">
-								<div class="title">
-									<h2>宇宙雲霄飛車</h2>
-									<small>COSMOS ROLLER COASTER</small>
-								</div>
-								<div class="information">
-									
-	
-										<div class="parameter">
-											<div class="paraContent">
-												<h5>心跳指數</h5>
-												<!-- <small>90下/分鐘</small> -->
-												<svg width="100%" height="50px" viewBox="0 0 50 60" viewport="0 0 50 30" version="1.1" xmlns="http://www.w3.org/2000/svg"
-													xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns">
-													<defs></defs>
-													<g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" sketch:type="MSPage">
-														<path class="beat-loader" d="M0.5,38.5 L16,38.5 L19,25.5 L24.5,57.5 L31.5,7.5 L37.5,46.5 L43,38.5 L53.5,38.5" id="Path-2"
-															stroke-width="1" sketch:type="MSShapeGroup"></path>
-													</g>
-												</svg>
-	
-											</div>
-										</div>
-										<div class="parameter">
-	
-											<h5>適合對象</h5>
-											<p class="paraContent middleLinehight">
-	
-												想感受刺激者
-											</p>
-										</div>
-	
-										<div class="parameter">
-												<h5>身高限制</h5>
-											<p class="paraContent middleLinehight">
-												
-												130~200cm
-											</p>
-										</div>
-										<div class="parameter">
-												<h5>設施評價</h5>
-											<p class="paraContent middleLinehight">
-												
-												4.5分
-											</p>
-										</div>
+							<div class="information">
+									<div class="parameter">
 								
+											<h5>設施人潮</h5>
+											<p class="paraContent middleLinehight">
+											<?php 
+
+												$facility_status = $facility_info->facility_crowd;
+												switch ($facility_status){
+													case 1:
+													$facility_status = "擁擠";
+													echo $facility_status;
+													break;
+													
+													case 2:
+													$facility_status = "普通";
+													echo $facility_status;
+													break;
+
+													case 3:
+													$facility_status = "空曠";
+													echo $facility_status;
+													break;
+
+													default:
+													$facility_status = "更新中";
+													echo $facility_status;
+												};
+
+											?>	
+											</p>
+		
+									</div>
+								<div class="parameter faci_suit">
+
+									<h5>適合對象</h5>
+									<p class="paraContent middleLinehight">
+
+									<?php echo $facility_info->facility_suit ?>
+									</p>
 								</div>
-								<a class="open_iframe" href="#">了解更多</a>
+
+								<div class="parameter">
+									<h5>身高限制</h5>
+									<p class="paraContent middleLinehight">
+
+									<?php echo $facility_info->facility_limit  ?>
+									</p>
+								</div>
+								<div class="parameter">
+									<h5>設施評價</h5>
+									<p class="paraContent middleLinehight">
+
+									<?php echo $facility_grade->average_grade ?>  分
+									</p>
+								</div>
+
 							</div>
+							<a class="open_iframe" href="#" data-no="2">了解更多</a>
+						</div>
 					</div>
+
+
+					<?php
+                
+
+						} catch (PDOException $e) {
+							echo "錯誤原因 : " , $e->getMessage() , "<br>";
+							echo "錯誤行號 : " , $e->getLine() , "<br>";
+							
+						}
+					?>
+
+
+
+
+
+
+
+
+					<!-- =============== info_theater =================== -->
+
+
+							<!-- ===== php抓資料 ==== -->
+
+				<?php
+                   
+                    
+				   try {
+					   require_once("connectBooks.php");
+					   $sql = "SELECT * FROM `facility` WHERE facility_no = ?";
+					   $facility_PDO = $pdo->prepare($sql);
+					   $facility_PDO->bindValue(1,7); 
+					   $facility_PDO->execute();
+					   $facility_info = $facility_PDO->fetchObject();
+					   
+					   $sql = "SELECT ROUND(AVG(comment_grade),1) average_grade FROM `facility_comment` WHERE facility_no = ?";
+					   $faci_grage_PDO = $pdo->prepare($sql);
+					   $faci_grage_PDO->bindValue(1,7); 
+					   $faci_grage_PDO->execute();
+					   $facility_grade = $faci_grage_PDO->fetchObject();
+
+
+				 ?>
+
+
+
+
+
+
 					<div class="info_content info_theater">
 						<!-- 左邊圖 -->
 						<div class="main_photo">
-								<img src="img/secondSection/theater_img.png" alt="">
+							<img src="img/secondSection/theater_img.png" alt="">
+						</div>
+						<!-- 右邊標題跟介紹 -->
+						<div class="main_content">
+							<div class="title">
+								<h2><?php echo $facility_info->facility_name ?></h2>
+								<small><?php echo $facility_info->facility_subname ?></small>
 							</div>
-							<!-- 右邊標題跟介紹 -->
-							<div class="main_content">
-								<div class="title">
-									<h2>test~~~~~~~</h2>
-									<small>COSMOS ROLLER COASTER</small>
-								</div>
-								<div class="information">
-									
-	
-										<div class="parameter">
-											<div class="paraContent">
-												<h5>心跳指數</h5>
-												<!-- <small>90下/分鐘</small> -->
-												<svg width="100%" height="50px" viewBox="0 0 50 60" viewport="0 0 50 30" version="1.1" xmlns="http://www.w3.org/2000/svg"
-													xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns">
-													<defs></defs>
-													<g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" sketch:type="MSPage">
-														<path class="beat-loader" d="M0.5,38.5 L16,38.5 L19,25.5 L24.5,57.5 L31.5,7.5 L37.5,46.5 L43,38.5 L53.5,38.5" id="Path-2"
-															stroke-width="1" sketch:type="MSShapeGroup"></path>
-													</g>
-												</svg>
-	
-											</div>
-										</div>
-										<div class="parameter">
-	
-											<h5>適合對象</h5>
-											<p class="paraContent middleLinehight">
-	
-												想感受刺激者
-											</p>
-										</div>
-	
-										<div class="parameter">
-												<h5>身高限制</h5>
-											<p class="paraContent middleLinehight">
-												
-												130~200cm
-											</p>
-										</div>
-										<div class="parameter">
-												<h5>設施評價</h5>
-											<p class="paraContent middleLinehight">
-												
-												4.5分
-											</p>
-										</div>
+							<div class="information">
+									<div class="parameter">
 								
+											<h5>設施人潮</h5>
+											<p class="paraContent middleLinehight">
+											<?php 
+
+												$facility_status = $facility_info->facility_crowd;
+												switch ($facility_status){
+													case 1:
+													$facility_status = "擁擠";
+													echo $facility_status;
+													break;
+													
+													case 2:
+													$facility_status = "普通";
+													echo $facility_status;
+													break;
+
+													case 3:
+													$facility_status = "空曠";
+													echo $facility_status;
+													break;
+
+													default:
+													$facility_status = "更新中";
+													echo $facility_status;
+												};
+
+												?>	
+												
+											</p>
+		
+									</div>
+								<div class="parameter faci_suit">
+
+									<h5>適合對象</h5>
+									<p class="paraContent middleLinehight">
+
+									<?php echo $facility_info->facility_suit ?>
+									</p>
 								</div>
-								<a class="open_iframe" href="#">了解更多</a>
+
+								<div class="parameter">
+									<h5>身高限制</h5>
+									<p class="paraContent middleLinehight">
+
+									<?php echo $facility_info->facility_limit  ?>
+									</p>
+								</div>
+								<div class="parameter">
+									<h5>設施評價</h5>
+									<p class="paraContent middleLinehight">
+
+									<?php echo $facility_grade->average_grade ?>  分
+									</p>
+								</div>
+
 							</div>
+							<a class="open_iframe" href="#" data-no="7">了解更多</a>
+						</div>
+					</div>
+
+
+					<?php
+                
+
+						} catch (PDOException $e) {
+							echo "錯誤原因 : " , $e->getMessage() , "<br>";
+							echo "錯誤行號 : " , $e->getLine() , "<br>";
+							
+						}
+					?>
+
+
+
+
+
+
+
+					<!-- =============== info_robot =================== -->
+
+	
+								<!-- ===== php抓資料 ==== -->
+
+				<?php
+                   
+                    
+				   try {
+					   require_once("connectBooks.php");
+					   $sql = "SELECT * FROM `facility` WHERE facility_no = ?";
+					   $facility_PDO = $pdo->prepare($sql);
+					   $facility_PDO->bindValue(1,4); 
+					   $facility_PDO->execute();
+					   $facility_info = $facility_PDO->fetchObject();
+					   
+					   $sql = "SELECT ROUND(AVG(comment_grade),1) average_grade FROM `facility_comment` WHERE facility_no = ?";
+					   $faci_grage_PDO = $pdo->prepare($sql);
+					   $faci_grage_PDO->bindValue(1,4); 
+					   $faci_grage_PDO->execute();
+					   $facility_grade = $faci_grage_PDO->fetchObject();
+
+
+				 ?>
+
+
+
+					<div class="info_content info_robot">
+						<!-- 左邊圖 -->
+						<div class="main_photo">
+							<img src="img/secondSection/robot_img.png" alt="">
+						</div>
+						<!-- 右邊標題跟介紹 -->
+						<div class="main_content">
+							<div class="title">
+								<h2><?php echo $facility_info->facility_name ?></h2>
+								<small><?php echo $facility_info->facility_subname ?></small>
+							</div>
+							<div class="information">
+									<div class="parameter">
+								
+											<h5>設施人潮</h5>
+											<p class="paraContent middleLinehight">
+											<?php 
+
+												$facility_status = $facility_info->facility_crowd;
+												switch ($facility_status){
+													case 1:
+													$facility_status = "擁擠";
+													echo $facility_status;
+													break;
+													
+													case 2:
+													$facility_status = "普通";
+													echo $facility_status;
+													break;
+
+													case 3:
+													$facility_status = "空曠";
+													echo $facility_status;
+													break;
+
+													default:
+													$facility_status = "更新中";
+													echo $facility_status;
+												};
+
+												?>	
+											</p>
+		
+									</div>
+								<div class="parameter faci_suit">
+
+									<h5>適合對象</h5>
+									<p class="paraContent middleLinehight">
+
+									<?php echo $facility_info->facility_suit ?>
+									</p>
+								</div>
+
+								<div class="parameter">
+									<h5>身高限制</h5>
+									<p class="paraContent middleLinehight">
+
+									<?php echo $facility_info->facility_limit  ?>
+									</p>
+								</div>
+								<div class="parameter">
+									<h5>設施評價</h5>
+									<p class="paraContent middleLinehight">
+
+									<?php echo $facility_grade->average_grade ?>  分
+									</p>
+								</div>
+
+							</div>
+							<a class="open_iframe" href="#" data-no="4">了解更多</a>
+						</div>
+					</div>
+
+
+
+					<?php
+                
+
+						} catch (PDOException $e) {
+							echo "錯誤原因 : " , $e->getMessage() , "<br>";
+							echo "錯誤行號 : " , $e->getLine() , "<br>";
+							
+						}
+					?>
+
+
+
+
+
+					<!-- =============== info_time_travel =================== -->
+
+
+										<!-- ===== php抓資料 ==== -->
+
+				<?php
+                   
+                    
+				   try {
+					   require_once("connectBooks.php");
+					   $sql = "SELECT * FROM `facility` WHERE facility_no = ?";
+					   $facility_PDO = $pdo->prepare($sql);
+					   $facility_PDO->bindValue(1,6); 
+					   $facility_PDO->execute();
+					   $facility_info = $facility_PDO->fetchObject();
+					   
+					   $sql = "SELECT ROUND(AVG(comment_grade),1) average_grade FROM `facility_comment` WHERE facility_no = ?";
+					   $faci_grage_PDO = $pdo->prepare($sql);
+					   $faci_grage_PDO->bindValue(1,6); 
+					   $faci_grage_PDO->execute();
+					   $facility_grade = $faci_grage_PDO->fetchObject();
+
+
+				 ?>
+
+
+
+
+					<div class="info_content info_time_travel">
+						<!-- 左邊圖 -->
+						<div class="main_photo">
+							<img src="img/secondSection/time_travel_img.jpg" alt="">
+						</div>
+						<!-- 右邊標題跟介紹 -->
+						<div class="main_content">
+							<div class="title">
+								<h2><?php echo $facility_info->facility_name ?></h2>
+								<small><?php echo $facility_info->facility_subname ?></small>
+							</div>
+							<div class="information">
+									<div class="parameter">
+								
+											<h5>設施人潮</h5>
+											<p class="paraContent middleLinehight">
+											<?php 
+
+												$facility_status = $facility_info->facility_crowd;
+												switch ($facility_status){
+													case 1:
+													$facility_status = "擁擠";
+													echo $facility_status;
+													break;
+													
+													case 2:
+													$facility_status = "普通";
+													echo $facility_status;
+													break;
+
+													case 3:
+													$facility_status = "空曠";
+													echo $facility_status;
+													break;
+
+													default:
+													$facility_status = "更新中";
+													echo $facility_status;
+												};
+
+												?>	
+											</p>
+		
+									</div>
+								<div class="parameter faci_suit">
+
+									<h5>適合對象</h5>
+									<p class="paraContent middleLinehight">
+
+									<?php echo $facility_info->facility_suit ?>
+									</p>
+								</div>
+
+								<div class="parameter">
+									<h5>身高限制</h5>
+									<p class="paraContent middleLinehight">
+
+									<?php echo $facility_info->facility_limit  ?>
+									</p>
+								</div>
+								<div class="parameter">
+									<h5>設施評價</h5>
+									<p class="paraContent middleLinehight">
+
+									<?php echo $facility_grade->average_grade ?>  分
+									</p>
+								</div>
+
+							</div>
+							<a class="open_iframe" href="#" data-no="6">了解更多</a>
+						</div>	
+
+						<?php
+                
+
+							} catch (PDOException $e) {
+								echo "錯誤原因 : " , $e->getMessage() , "<br>";
+								echo "錯誤行號 : " , $e->getLine() , "<br>";
+								
+							}
+						?>
+
+
+
 					</div>
 				</div>
 			</div>
@@ -790,7 +1454,7 @@ if(isset($_SESSION["login_error"]) === true){
 				</li>
 				<li class="buy notcurrent">
 					<!-- <div class="cover"></div> -->
-					<a href="Theaterbuyticket.html">
+					<a href="Theaterbuyticket.php">
 						<span>立即購票</span>
 					</a>
 				</li>
@@ -1192,16 +1856,16 @@ if(isset($_SESSION["login_error"]) === true){
 		</div> -->
 
 
-		<script src="https://cdnjs.cloudflare.com/ajax/libs/parallax/3.1.0/parallax.min.js"></script>
-		<script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
-		<!-- <script src="https://code.jquery.com/jquery-3.2.1.js"></script> -->
-		<script src="js/javascript.fullPage.js"></script>
-		<script src="js/00nav.js"></script>
-		<script src="js/01main.js"></script>
-		<script src="js/02map.js"></script>
-		<script src="js/04calendar.js"></script>
-		<script src="js/page_load_unload.js"></script>
-		<script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/parallax/3.1.0/parallax.min.js"></script>
+<script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+<!-- <script src="https://code.jquery.com/jquery-3.2.1.js"></script> -->
+<script src="js/javascript.fullPage.js"></script>
+<script src="js/00nav.js"></script>
+<script src="js/01main.js"></script>
+<script src="js/02map.js"></script>
+<script src="js/04calendar.js"></script>
+<script src="js/page_load_unload.js"></script>
+<script>
 			// FULLPAGE------------------------------------------
 			fullpage.initialize('#fullpage', {
 				anchors: ['page1', 'page2', 'page3', 'page4', 'page5'],
@@ -1366,15 +2030,41 @@ if(isset($_SESSION["login_error"]) === true){
 				}
 
 			});
-		
-
-// ================================================= 設施詳細介紹燈箱 =========================================
-		
-
-		
 
 
+function MapNavinit(){//園區地圖nav指示
+	nav_here = document.getElementById("nav_here");
+	nav_here.onclick = MapNavColor;
+	if(location.hash == "#page2"){
+		nav_here.children[1].style.color = "rgb(55,222,255)";
+		nav_here.children[1].style.fontWeight = "900";
+		nav_here.children[0].src="img/hover-tri-now.png";
+		nav_here.children[0].className="nav_here";
+	}
+	document.addEventListener('mousewheel',MapNavColorOff);
+}
+function MapNavColor(){
+	nav_here.children[1].style.color = "rgb(55,222,255)";
+	nav_here.children[1].style.fontWeight = "900";
+	nav_here.children[0].src="img/hover-tri-now.png";
+	nav_here.children[0].className="nav_here";
+
+}
+function MapNavColorOff(){
+	if(location.hash == "#page2"){
+		nav_here.children[1].style.color = "rgb(55,222,255)";
+		nav_here.children[1].style.fontWeight = "900";
+		nav_here.children[0].src="img/hover-tri-now.png";
+		nav_here.children[0].className="nav_here";
+	}else{
+		nav_here.children[1].style.color = "";
+		nav_here.children[1].style.fontWeight = "";
+		nav_here.children[0].src="img/hover-tri.png";
+		nav_here.children[0].className="nav_hover";
+	}
 	
+}
+window.addEventListener('load',MapNavinit);
 
 
 
@@ -1384,17 +2074,7 @@ if(isset($_SESSION["login_error"]) === true){
 
 
 
-
-
-
-
-
-
-
-
-
-
-		</script>
+</script>
 
 </body>
 

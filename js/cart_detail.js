@@ -49,39 +49,35 @@ function init(){
 
 // 使用者輸入積點
 $(document).ready(function(){
-	$("#points").focus(function(){
-		$(this).css("background-color","rgba(100,255,243,0.6)");
-	});
 	$("#points").keyup(function(){
 		$(this).val();
 		total = initial_total;
 		var member_points = document.getElementById("mem_points").innerHTML;
 		var discount = parseInt(document.getElementById("points").value);
-		if( discount <= member_points && discount > 0 && discount != null){
-			document.getElementsByClassName("points")[1].blur();
-			document.getElementsByClassName("points")[1].style.backgroundColor = "transparent";
+		if( discount <= member_points && discount > 0 && discount != null && discount <= total){
 			document.getElementById("discount").innerHTML = "-"+discount;
 			total = total - discount;
 			document.getElementById("total").innerText = total;
 			$("#points_remain_input").html(member_points-discount);
 			$("#points_remain").css("display","block");
 		}else if( discount < 0){
-			alert("不能為負數唷!");
+			alert("不能為負數唷！請重新輸入");
 			total = initial_total;
 			document.getElementById("discount").innerHTML = 0;
+			document.getElementById("points").value = 0;
+			document.getElementById("total").innerHTML = total;
+		}else if( discount > total){
+			alert("不能超過結帳金額。請重新輸入");
+			document.getElementById("discount").innerHTML = 0;
+			document.getElementById("points").value = 0;
 			document.getElementById("total").innerHTML = total;
 		}else if( discount > member_points){
-			alert("您沒有這麼多積分唷! 請重新輸入");
+			alert("您沒有這麼多積分唷。請重新輸入");
 			total = initial_total;
 			document.getElementById("discount").innerHTML = 0;
-			document.getElementsByClassName("points")[1].value = 0;
+			document.getElementById("points").value = 0;
 			document.getElementById("total").innerHTML = total;
-		}else{
-			alert("您還沒有輸入積分唷!");
-			document.getElementsByClassName("points")[1].focus();
-			document.getElementsByClassName("points")[1].style.backgroundColor = "navy";
 		}
-
 	});
 	$(".points").eq(0).change(function(){
 		discount = 0;
@@ -95,12 +91,13 @@ $(document).ready(function(){
 });
 
 
-function setBlur(obj,target2)
- 	{
-    	var target =document.getElementById(target2);
-    		if( obj.value.length ==obj.getAttribute('maxlength'))
-    		{
-				target.focus();
-			}
-				return;
-	}
+// 自動跳下一個格子的程式
+// function setBlur(obj,target2)
+//  	{
+//     	var target =document.getElementById(target2);
+//     		if( obj.value.length ==obj.getAttribute('maxlength'))
+//     		{
+// 				target.focus();
+// 			}
+// 				return;
+// 	}

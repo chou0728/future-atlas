@@ -102,28 +102,34 @@ if(isset($_SESSION["login_error"]) === true){
     <div class="ul_box">
         <ul class="ul_left">
             <li>
+                <img src="img/hover-tri.png" class="nav_hover">
                 <a href="Theaterbuyticket.php">劇場購票</a>
             </li>
             <li>
+                <img src="img/hover-tri.png" class="nav_hover">
                 <a href="facilityBuyTicket.php">設施購票</a>
             </li>
             <li>
+                <img src="img/hover-tri.png" class="nav_hover">
                 <a href="facilityInfo.php">設施介紹</a>
             </li>
         </ul>
         <h1 style="display: none">FutureAtlas_未來主題樂園</h1>
-        <a href="#page1" class="logo_a">
+        <a href="====index.php" class="logo_a">
             <img src="img/LOGO.png" class="logo">
         </a>
         <ul class="ul_right">
             <li>
-                <a href="#page2" id="NavClose">園區地圖</a>
+                <img src="img/hover-tri.png" class="nav_hover">
+                <a href="====index.php#page2" id="NavClose">園區地圖</a>
             </li>
             <li>
+                <img src="img/hover-tri.png" class="nav_hover">
                 <a href="activity.php">活動月曆</a>
             </li>
             <li>
-                <a href="robot.php">諮詢專區</a>
+                <img src="img/hover-tri-now.png" class="nav_here">
+                <a href="robot.php" style="color: rgb(55,222,255);font-weight: bold;">諮詢專區</a>
             </li>
         </ul>
     </div>
@@ -214,6 +220,7 @@ if(isset($_SESSION["login_error"]) === true){
                         if (xhr.status == 200) {
 
                             var answer = xhr.responseText;
+                            answer = answer.trim();
                             initIdentityResults_user(0);
 
                             function initIdentityResults_user(i) {

@@ -117,11 +117,8 @@ if(isset($_SESSION["login_success"])==false){
 				<select name="activity_location" required>
 					<option value="未來大道">未來大道</option>
 					<option value="明日之廳">明日之廳</option>
-					<option value="國際會議中心">國際會議中心</option>
-					<option value="演講廳">演講廳</option>
-					<option value="貿易中心">貿易中心</option>
-					<option value="空中花園">空中花園</option>
-					<option value="旋轉餐廳">旋轉餐廳</option>
+					<option value="貿易中心">未來中心</option>
+					<option value="貿易中心">電子舞廳</option>
 				</select>
 			</td>
 			<td>

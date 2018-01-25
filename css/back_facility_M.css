@@ -4,9 +4,6 @@
 	box-sizing: border-box;
 }
 .table{
-	border-style: solid;
-	border-color: #333;
-	border-width: 2px 2px 0px 0px;
 	width:1200px;
 	margin: 0 auto;
 	font-family: "微軟正黑體";

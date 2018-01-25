@@ -16,7 +16,7 @@
 	    //取回一筆資料
       $str = "";
 	  $str .="<table>";
-	  $str .="<tr>
+	  $str .="<tr class='Field_title'>
                     <th>訂單編號</th>
                     <th>場次編號</th>
                     <th>會員姓名</th>

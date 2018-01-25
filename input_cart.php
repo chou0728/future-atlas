@@ -75,12 +75,20 @@ body::-webkit-scrollbar-thumb {
                 <span class="register">
                     <?php
                         if(isset($_SESSION["mem_id"])===true){
-                            echo "<a href='MembersOnly.html'>帳戶</a>";
+                            echo "<a href='MembersOnly.php'>帳戶</a>";
                         }else{
                             echo "註冊";
                         }
                     ?>
                 </span>
+        </li>
+        <li class="li_top" <?php if(!isset($_SESSION["mem_id"])){
+                                echo "style='display: none';";
+                                }?>>
+                <a href="see_tickets.php" class="tkt">
+                    <img src="img/member/qr-code-scan.png">
+                    <span>票券</span>
+                </a>
         </li>
         <li class="li_top">
             <a href=<?php
@@ -141,7 +149,7 @@ body::-webkit-scrollbar-thumb {
                 <a href="activity.php">活動月曆</a>
             </li>
             <li>
-                <a href="robot.html">諮詢專區</a>
+                <a href="robot.php">諮詢專區</a>
             </li>
         </ul>
     </div>

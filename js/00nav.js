@@ -13,11 +13,13 @@
 				var logoBtn = document.getElementsByClassName("logo")[0];
 				logoBtn.addEventListener("click",allNavClose);
 
-				var NavClose = document.getElementById("NavClose");
+				NavClose = document.getElementById("NavClose");
 				NavClose.addEventListener("click",allNavClose);
+				// NavClose.addEventListener("click",MapNavColor);
 				
 				
 			}
+			
 			function headerAppearClose(){
 					var header = document.getElementsByClassName("header")[0];
 					var li_top = document.getElementsByClassName("li_top");
@@ -94,7 +96,9 @@
 			window.addEventListener('resize',allNavClose);
 // 小nav
 $(document).ready(function(){
-	
+		if($(document).scrollTop() > 50){
+			$(".nav").addClass("smallnav");
+		}
 	$(window).scroll(function(){
 		if($(document).scrollTop() > 50){
 			$(".nav").addClass("smallnav");
