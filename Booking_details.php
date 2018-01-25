@@ -127,12 +127,15 @@
         <div class="ul_box">
             <ul class="ul_left">
                 <li>
-                    <a href="Theaterbuyticket.php">劇場購票</a>
+                    <img src="img/hover-tri-now.png" class="nav_here">
+                    <a href="Theaterbuyticket.php" style="color: rgb(55,222,255);font-weight: bold;">劇場購票</a>
                 </li>
                 <li>
+                    <img src="img/hover-tri.png" class="nav_hover">
                     <a href="facilityBuyTicket.php">設施購票</a>
                 </li>
                 <li>
+                    <img src="img/hover-tri.png" class="nav_hover">
                     <a href="facilityInfo.php">設施介紹</a>
                 </li>
             </ul>
@@ -142,12 +145,15 @@
             </a>
             <ul class="ul_right">
                 <li>
+                    <img src="img/hover-tri.png" class="nav_hover">
                     <a href="====index.php#page2" id="NavClose">園區地圖</a>
                 </li>
                 <li>
+                    <img src="img/hover-tri.png" class="nav_hover">
                     <a href="activity.php">活動月曆</a>
                 </li>
                 <li>
+                    <img src="img/hover-tri.png" class="nav_hover">
                     <a href="robot.html">諮詢專區</a>
                 </li>
             </ul>
