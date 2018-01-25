@@ -1,0 +1,55 @@
+*{
+	/*outline: 1px solid red;*/
+	box-sizing: border-box;
+}
+
+.table{
+	display: table;
+	width:85%;
+	margin:0 auto 2% auto;
+	font-family: "微軟正黑體";
+	background-color: #FFF;
+}
+.row{
+	width: 100%;
+	font-size: 0;
+	display: table-row;
+
+}
+
+/*.table form{
+	display: table-row;
+}*/
+.row:nth-child(even){
+	background-color: rgb(222,222,222);
+}
+.col{
+	height: 40px;
+	display: table-cell;
+	text-align: center;
+	font-size: 16px;
+	line-height: 1.5;
+	padding: 8px;
+
+}
+.col-no{
+	width: 10%;
+}
+.col-small{
+	width: 13%;
+}
+.col-middle{
+	width: 20%;
+}
+.col-big{
+	width: 45%;
+}
+.col-title{
+	font-weight: bold;
+	text-align: center;
+	color:rgb(255,241,199);
+	background-color: rgb(34,34,34);
+}
+.col input{
+	width: 85%;
+}
