@@ -120,6 +120,7 @@ body::-webkit-scrollbar-thumb {
 	</table>
 	<!--輸入信用卡 -->
 	<div id="pay_info">
+		<form action="facility_order_save_database.php" method="post">
 		<div class="tbtitle">輸入信用卡</div>
 			<div id="credit_input_area" colspan="2">信用卡卡號
 		<div>
@@ -134,9 +135,9 @@ body::-webkit-scrollbar-thumb {
 		</div>
 		<div>
 			<div>
-				<input type="text" maxlength="2" id="credit_card5" onkeyup="this.value=this.value.replace(/[^0-9]/g,'')">/
-				<input type="text" maxlength="2" id="credit_card6" onkeyup="this.value=this.value.replace(/[^0-9]/g,'')">
-				<input type="text" maxlength="3" id="credit_card7" onkeyup="this.value=this.value.replace(/[^0-9]/g,'')"></div>
+				<input type="text" maxlength="2" id="credit_card5" onkeyup="this.value=this.value.replace(/[^0-9]/g,'')" required>/
+				<input type="text" maxlength="2" id="credit_card6" onkeyup="this.value=this.value.replace(/[^0-9]/g,'')" required>
+				<input type="text" maxlength="3" id="credit_card7" onkeyup="this.value=this.value.replace(/[^0-9]/g,'')" required></div>
 			</div>
 		</div>
 		</div>
@@ -165,7 +166,6 @@ body::-webkit-scrollbar-thumb {
 						網站”聯絡我們” 項目與本行聯絡，本行將提供最完整的說明。
 					</div>
 				</div>
-			<form action="facility_order_save_database.php" method="post">
 				<!-- 隱藏欄位區 -->
 				<input type="hidden" name="mem_id_hidden" id="mem_id_hidden">
 				<input type="hidden" name="total_hidden" id="total_hidden">
@@ -216,15 +216,15 @@ document.getElementById("credit_card3").addEventListener("change",checkLength);
 document.getElementById("credit_card4").addEventListener("change",checkLength);
 document.getElementById("credit_card5").addEventListener("change",checkMonth);
 document.getElementById("credit_card6").addEventListener("change",checkYear);
+document.getElementById("credit_card7").addEventListener("change",checkVerify);
 function checkLength(){
 	var num = $(this).val();
 	var id  = $(this).attr("id").substr(-1);
 	if(num < 1000){
 		alert("數字長度不對！請重新輸入");
 		$(this).val("");
-		// $("#nextStep").attr("disabled", true);
 		$("#nextStep").click(function(){
-			alert("請確認信用卡格式。");
+			alert("請確認信用卡為十六碼。");
 		})
 	}
 }
@@ -243,11 +243,24 @@ function checkYear(){
 	var d = new Date();
 	var y = d.getFullYear()
 	for(var i=0 ; i<10 ; i++){
-		year_array[i] = y+i;
+		year_array[i] = (y+i).toString().substr(2,2);
+		console.log(year_array[i]);
 	}
 	if( year_array.indexOf(year) < 0 ){
 		alert("到期年錯誤！請重新輸入");
 		$(this).val("");
+	}
+}
+
+function checkVerify(){
+	var num = $(this).val();
+	var id  = $(this).attr("id").substr(-1);
+	if(num < 100){
+		alert("驗證碼長度不對！請重新輸入");
+		$(this).val("");
+		$("#nextStep").click(function(){
+			alert("請確認驗證碼格式。");
+		})
 	}
 }
 

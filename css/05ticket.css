@@ -92,7 +92,7 @@
     text-transform: uppercase;
     display: block;
     width: 100%;
-    margin: 0 20px 20px 0;
+    margin: 20px 0 20px 0;
     outline:none;
     border: 1px solid rgb(76, 216, 221);
     background-color: rgb(54, 54, 54);
@@ -106,16 +106,17 @@
     /* box-shadow: 0 0 40px rgb(219, 217, 68), inset 0 0 40px rgb(219, 217, 68); */
 }
 /*設施 劇場票券*/
+
 .cont .leftBox .down_button .change{
     font-family: 'Share Tech Mono', monospace;
     color: rgb(76, 216, 221);
     background: transparent;
-    padding: 15px;
+    padding: 14px;
     letter-spacing: 0.1em;
     text-transform: uppercase;
     display: block;
     width: 100%;
-    margin: 0 20px 20px 0;
+    margin: 0 0 20px 0;
     outline:none;
     border: 1px solid rgb(253, 229, 17);
     background-color: rgb(54, 54, 54);
@@ -153,20 +154,20 @@
     .cont .leftBox button{
         margin: 0;
     }
-    .down_button{
-        padding-left: 2%;
+    
+    .cont .leftBox .leftContent .top_button{
         width: 100%;
         display: flex;
         flex-direction: row;
         justify-content: space-around;
     }
-    .top_button{
+    .cont .leftBox .leftContent .down_button{
         width: 100%;
         display: flex;
         flex-direction: row;
         justify-content: space-around;
     }
-    .cont .leftBox .top_button button{
+    .cont .leftBox .leftContent .top_button button{
         border-radius: 5px;
         padding: 10px;
         margin:5px 5px;
@@ -175,18 +176,18 @@
         /* background: #fff; */
     }   
     .cont .leftBox .leftContent{
-        
         float: none;
         display: block;
         max-width: 100%;
-        }
+    }
+
     .cont .leftBox{
-        
         padding: 0;
     }
-    .cont .leftBox  .change{
+
+    .cont .leftBox  .down_button .change{
         border-radius: 5px;
-        padding: 10px;
+        /*padding: 5px;*/
         text-align: center;
         width: 45%;
     }

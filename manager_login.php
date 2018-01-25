@@ -196,17 +196,6 @@ if(isset($_REQUEST["filename"])){
             <img src="img/LOGO.png" class="logo">
         </a>
     </div>
-    <div class="navOpenBtn"><!-- RWD left btn-->
-        <div class="ham"></div>
-        <div class="ham"></div>
-        <div class="ham"></div>
-        <div class="ham"></div>
-    </div>
-</div>
-<div class="headerOpenBtn"><!-- RWD right btn-->
-    <img src="img/Usericon1.png" class="memIcon">
-    <img src="img/Usericon.png" class="memIcon">
-    
 </div>
 <img src="img/manager_login_bg.jpg" class="bgi">
 <div id="loginWrapper">

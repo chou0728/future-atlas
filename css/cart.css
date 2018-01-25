@@ -9,7 +9,7 @@ body{
 	margin: 0;
 	padding: 0;
 	font-family: Inconsolata, 微軟正黑體;
-	outline: 1px solid red;
+	/*outline: 1px solid red;*/
 }
 
 #cartWrapper{
@@ -28,13 +28,13 @@ body{
 
 #cartWrapper tr{
 	font-size: 18px;
+	border-bottom: 1px solid #555;
 }
 #cartWrapper td{
 	padding: 5px;
 	padding-top: 30px;
 	padding-bottom: 5px;
 	border: none;
-	border-bottom: 1px solid #555;
 }
 
 #cartWrapper title{
@@ -57,7 +57,6 @@ body{
 	margin: 0 auto;
 	text-align: left;
 	border: none;
-	/*border: 1px solid red;*/
 }
 @media screen and (max-width: 800px){
 	#cartWrapper table{
@@ -87,62 +86,28 @@ body{
 	color: #5AE6DB;
 }
 #fn_th{
-	width: 10%;
-}#icon_th{
-	width: 11%;
-}#fname_th{
-	width: 18%;
-}#tt_th{
-	width: 9%;
+	width: 56%;
 }#fare_th{
 	text-align: right;
-	width: 8%;
+	/*width: 8%;*/
 }#tn_th{
 	width: 14%;
 	min-width: 50px;
 }#subtotal_th{
 	width: 95%;
 }
-/*以上*/
-
-
-/*各欄寬度*/
-.fn_id{
-	width: 5%;
-}.icon_td{
-	width: 15%;
-}.facility_name{
-	width: 40%;
-}.fare_td, .full_td{
-	text-align: right;
-	width: 10%;
-	color: lightblue;
-}.half_td{
-	width: 10%;
-	color: orange;
-}.ctrl_td{
-	width: 10%;
-	/*opacity: 0;*/
-	/*visibility: hidden;*/
-}.hidden_num{
-	font-size: 24px;
-	color: white;
-	background-color: pink;
-	z-index: 999;
-	/*display: none;*/
-}.sub_total{
-	width: 10%;
-}
-@media screen and (max-width: 800px){
-	.ctrl_td{
-		display: none;
-	}.hidden_num{
-		display: block;
+@media screen and (max-width: 550px){
+	#cartWrapper th{
+		font-size: 16px;
+		font-weight: normal;
+		padding: 3px;
 	}
 }
-@media screen and (min-width: 800px) and (max-width: 1200px){
+@media screen and (min-width: 550px) and (max-width: 1200px){
 
 }
+/*以上*/
+
 
 /*刪除票券*/
 .delete_btn_td{
@@ -164,13 +129,10 @@ body{
 
 
 /*繼續*/
-#btn{
-
-}
 #button{
 	width: 300px;
 	text-align: center;
-	margin: 20px auto;
+	margin: 20px auto 100px auto;
 }
 
 .highlight:first-child{
@@ -355,4 +317,73 @@ body{
 }
 @media screen and (min-width: 550px) and (max-width: 800px){
 	
+}
+
+/*各欄寬度*/
+.fn_id{
+	width: 5%;
+}.icon_td{
+	width: 15%;
+}.facility_name{
+	width: 40%;
+}.fare_td{
+	text-align: right;
+}.full_td{
+	width: 10%;
+	color: lightblue;
+}.half_td{
+	width: 10%;
+	color: orange;
+}.ctrl_div{
+	width: 90%;
+	margin-left: 10%;
+	height: 30px;
+	position: relative;
+}.hidden_num{
+	width: 10px;
+	color: white;
+	z-index: 999;
+	display: none;
+	background-color: transparent;
+	vertical-align: bottom;
+	padding-top: 5px;
+	text-align: right;
+}.facility_name_hidden{
+	display: none;
+}
+.sub_total{
+	width: 10%;
+}
+@media screen and (max-width: 800px){
+	#fn_th{
+		width: 70%;
+	}#tn_th{
+		min-width: 40px;
+	}
+	.ctrl_div{
+		display: none;
+	}.hidden_num{
+		display: block;
+		width: 50%;
+		margin-left: 40%;
+	}.fn_id{
+		width: 5%;
+	}.icon_td{
+		width: 20%;
+	}.facility_name{
+		display: none;
+	}.fare_td{
+		text-align: right;
+		width: 5%;
+	}.full_td{
+		width: 38%;
+		color: lightblue;
+	}.half_td{
+		width: 38%;
+		color: orange;
+	}.sub_total{
+		width: 20px;
+	}.facility_name_hidden{
+		display: block;
+	}
 }
