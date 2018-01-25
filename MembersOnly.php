@@ -171,10 +171,7 @@ if(isset($_SESSION["login_error"]) === true){
     <div class="MembersBox">
         <div class="content"> 
             
-            <div class="buttonArea">
-                <a href="" class="myinfo">查看會員資料</a>
-                <a href="see_tickets.php" class="myticket">查看票券</a>
-            </div>
+           
 
 
                 <!-- 暱稱 -->
@@ -196,11 +193,20 @@ if(isset($_SESSION["login_error"]) === true){
                             <tr><th>積分 ：</th><td><p class="place_value mem_points">null</p></td></tr>
                             <tr><th>信箱 ：</th><td><p class="place_value mem_mail">null</p></td></tr>
                             <tr><th>電話 ：</th><td><p class="place_value mem_phone">null</p></td></tr>
-                        </table>   
+                        </table> 
+
+                           
+                        <div class="buttonArea">
+                            <!-- <a href="" class="myinfo">查看會員資料</a> -->
+                            <a href="see_tickets.php" class="myticket">查看票券</a>
+                        </div>
+                    
                     </div>
-                        
+                    
 
                 </div>
+
+                
                     
                
 
