@@ -14,91 +14,117 @@ body {
 .check_tickets_wrapper {
     width: 100%;
     height: 100vh;
+    position: relative;
     
 }  
+.check_tickets_wrapper #pc_only{
+    width: 90%;
+    height: 80vh;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    
+    
+}
+.check_tickets_wrapper #pc_only h1{
+    width: 50%;
+    height: 120px;
+    line-height: 120px;
+    color: #f00;
+    position: absolute;
+    top: 50%;
+    left:50%;
+    transform: translate(-50%,-50%);
+    text-align: center;
+    font-size: 36px;
+    border: 4px solid #f00;
+}
+@media screen and (min-width: 415px) and (max-width:1024px) {
+    .check_tickets_wrapper #pc_only{
+        display: none;
+    }
+    
+}
+@media screen and (max-width:414px) {
+    .check_tickets_wrapper #pc_only{
+        display: none;
+         
+    }
+    
+}
 
-.check_tickets_wrapper .content {
+.check_tickets_wrapper .content{
     width: 100%;
-    height: 100vh;
-    max-width: 1920px;
     margin: 0 auto;
     display: flex;
     flex-direction: row;
     justify-content: space-around;
+    opacity: 0; 
+    /* 電腦版要隱藏 */
+    
 }
 
+
+.check_tickets_wrapper .content .info{
+    width: 40%;
+    height: 75vh;
+    border: 4px solid rgb(63, 63, 63);
+}
 @media screen and (min-width: 415px) and (max-width:1024px) {
     .check_tickets_wrapper .content {
         flex-direction: column;
-        padding-top: 150px;
+        padding-top: 120px;
+         opacity: 1;
     }
+    .check_tickets_wrapper .content .info{
+        width: 90%;
+        height: 35vh;
+        margin: 0 auto;
+        margin-bottom: 20px;
+         
+    }
+
 }
 
 @media screen and (max-width:414px) {
     .check_tickets_wrapper .content {
         flex-direction: column;
-        padding-top:150px;
+        padding-top: 120px;
+        opacity: 1;
     }
+    .check_tickets_wrapper .content .info{
+        width: 90%;
+        height: 35vh;
+        margin: 0 auto;
+        margin-bottom: 20px;
+    }
+
 }
 
-.content .info {
-    width: 40%;
-    height: 75vh;
-    margin: 10px auto;
-    border: 4px solid rgb(63, 63, 63);
-}
 
-
-.info h2 {
-    color: #000;
+.check_tickets_wrapper .content .info h2{
     width: 100%;
     text-align: center;
+    color: #000;
     padding-top: 10px;
     font-size: 24px;
     font-weight: bold;
 }
 
-@media screen and (min-width: 415px) and (max-width:1024px) {
-    .content .info {
-        width: 90%;
-        height: 40vh;
-        padding-top: 50px;
-    }
-    .info h2 {
-        font-size: 36px;
-        padding-bottom: 20px;
-        padding-top: 20px;
-        margin-bottom: 50px;
-    }
-}
-
-@media screen and (max-width:414px) {
-    .content .info {
-        width: 90%;
-        height: 40vh;
-        padding-top: 50px;
-    }
-    .info h2 {
-        font-size: 36px;
-        padding-bottom: 20px;
-        padding-top: 20px;
-        margin-bottom: 50px;
-    }
-}
-.theater_info{
+.check_tickets_wrapper .content .theater_info{
     position: relative;
-}
 
-.theater_info #used_up {
+}
+.check_tickets_wrapper .content .theater_info #used_up{
     width: 100%;
     height: 100%;
     background: rgba(0, 0, 0, 0.5);
     position: absolute;
-    z-index: 999;
     display: none; 
-
+    z-index: 9;
 }
-  .theater_info #used_up span {
+
+.check_tickets_wrapper .content .theater_info #used_up span{
     display: block;
     width: 50%;
     height: 100px;
@@ -114,241 +140,48 @@ body {
     font-weight: bold;
     color: #f00;
     letter-spacing: 4px; 
-
 }
 
-
-
-
-.theater_info .photo {
+.check_tickets_wrapper .content .theater_info .photo{
     width: 80%;
     height: 35vh;
     margin: 20px auto;
 }
-
 @media screen and (min-width: 415px) and (max-width:1024px) {
-    .theater_info .photo {
+    .check_tickets_wrapper .content .theater_info .photo{
+        display: none;
+    }
+    
+}
+@media screen and (max-width:414px) {
+    
+    .check_tickets_wrapper .content .theater_info .photo{
         display: none;
     }
 }
-
-@media screen and (max-width:414px) {
-    .theater_info .photo {
-        display: none;
-    }
-}
-
-.theater_info .select_amount {
-    width: 80%;
-    margin: 0 auto;
-    text-align: center;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-    padding: 20px;
-    color: #000;
-}
-
-@media screen and (min-width: 415px) and (max-width:1024px) {
-    .theater_info .select_amount {
-        width: 80%;
-        display: flex;
-        flex-direction: column;
-        justify-content: space-around;
-    }
-}
-
-@media screen and (max-width:414px) {
-    .theater_info .select_amount {
-        width: 80%;
-        display: flex;
-        flex-direction: column;
-        justify-content: space-around;
-    }
-}
-
-.theater_info div {
-    width: 60%;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-}
-
-.theater_info div #remain_num {
-    width: 40%;
-    height: 30px;
-    margin: 0 auto;
-    display: block;
-    text-align: center;
-}
-
-.theater_info div span {
-    display: block;
-    line-height: 30px;
-}
-
-@media screen and (min-width: 415px) and (max-width:1024px) {
-    .theater_info div {
-        width: 100%;
-    }
-    .theater_info div #remain_num {
-        height: 80px;
-        font-size: 36px;
-    }
-    .theater_info div span {
-        font-size: 36px;
-        line-height: 80px;
-    }
-}
-
-@media screen and (max-width:414px) {
-    .theater_info div {
-        width: 100%;
-    }
-    .theater_info div #remain_num {
-        height: 80px;
-        font-size: 36px;
-    }
-    .theater_info div span {
-        font-size: 36px;
-        line-height: 80px;
-    }
-}
-
-.theater_info .button_area {
-    width: 80%;
-    height: 20%;
-    margin: 20px auto;
-}
-
-.theater_info .button_area button {
-    display: block;
-    width: 45%;
-    height: 40%;
-    z-index: 99;
-    font-size: 16px;
-    font-weight: bold;
-    color: #000;
-    letter-spacing: 10px;
-    text-align: center;
-    padding: 1%;
-    transition: 0.2s linear;
-    vertical-align: middle;
-    position: relative;
-    top: 10px;
-    text-decoration: none;
-    border: 2px solid rgba(41, 41, 41, 1);
-    outline: none;
-    background: transparent;
-    font-family: "微軟正黑體";
-}
-
-.theater_info .button_area button:hover {
-    background-color: rgba(41, 41, 41, 1);
-    color: #fff;
-    cursor: pointer;
-}
-
-@media screen and (min-width: 415px) and (max-width:1024px) {
-    .theater_info .button_area button {
-        font-size: 36px;
-        height: 90px;
-    }
-    .theater_info .button_area button:hover {
-        cursor: none;
-        color: #000;
-        background: transparent;
-    }
-}
-
-@media screen and (max-width:414px) {
-    .theater_info .button_area button {
-        font-size: 36px;
-        height: 90px;
-    }
-    .theater_info .button_area button:hover {
-        cursor: none;
-        color: #000;
-        background: transparent;
-    }
-}
-
-
-.theater_info #used_up {
+.check_tickets_wrapper .content .theater_info .select_amount{
     width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.5);
-    position: absolute;
-    z-index: 999;
-    display: none;
-}
-
-.theater_info #used_up span {
-    display: block;
-    width: 50%;
-    height: 100px;
-    position: absolute;
-    top: 40%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    border: 4px solid #f00;
-    background: transparent;
-    line-height: 100px;
     text-align: center;
+    padding-top: 30px;
+}
+.check_tickets_wrapper .content .theater_info .select_amount span{
     font-size: 24px;
-    font-weight: bold;
-    color: #f00;
-    letter-spacing: 4px;
 }
-
-@media screen and (min-width: 415px) and (max-width:1024px) {
-    .theater_info {
-        height: 40vh;
-    }
+.check_tickets_wrapper .content .theater_info .select_amount #remain_num{
+    width: 80px;
+    height: 30px;
+    font-size: 24px;
+    text-align: center;
 }
-
-@media screen and (max-width:414px) {
-    .theater_info {
-        height: 40vh;
-    }
-}
-.info_used_record{
-    width: 70%;
-    margin: 40px auto;
-}
-.info_used_record .number{
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between
-}
-.info_used_record .records_info{
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between
-}
-.info_used_record .time{
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between
-}
-.info_used_record div{
+.check_tickets_wrapper .content .theater_info .button_area{
     display: block;
     width: 100%;
+    padding-top: 30px;
+    text-align: center;
+}
+.check_tickets_wrapper .content .theater_info .button_area div{
+    display: inline-block;
+    width: 200px;
     height: 50px;
-    font-weight:bold;
-    font-size:18px;
-    margin: 50px 0;
-}
-@media screen and (min-width: 415px) and (max-width:1024px) {
-   .info_used_record div {
-        font-size:36px;
-        margin: 50px 0;
-    }
-}
-
-@media screen and (max-width:414px) {
-   .info_used_record div {
-        font-size:36px;
-        margin: 50px 0;
-    }
+    background: #000;
 }
