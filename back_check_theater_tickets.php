@@ -20,7 +20,9 @@ if(!isset($_SESSION["login_success"])){
 
 <head>
     <meta charset="UTF-8">
-    <title>FA 後台</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>FA後台管理系統 | 劇場驗票</title>
     <link rel="stylesheet" type="text/css" href="css/RESET.css">
     <link rel="stylesheet" type="text/css" href="css/11back_nav.css">
     <link rel="stylesheet" type="text/css" href="css/check_theater_tickets.css">

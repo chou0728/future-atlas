@@ -195,7 +195,7 @@ if(isset($_SESSION["login_error"]) === true){
                             <tr><th>電話 ：</th><td><p class="place_value mem_phone">null</p></td></tr>
                         </table> 
 
-                           
+
                         <div class="buttonArea">
                             <!-- <a href="" class="myinfo">查看會員資料</a> -->
                             <a href="see_tickets.php" class="myticket">查看票券</a>

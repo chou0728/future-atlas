@@ -16,7 +16,8 @@ if(isset($_SESSION["login_success"])==false){
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title>FA後台</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>FA後台管理系統 | 活動管理</title>
 	<!-- ======請複製==== -->
 	<link rel="stylesheet" type="text/css" href="css/RESET.css">
 	<link rel="stylesheet" type="text/css" href="css/11back_nav.css">
