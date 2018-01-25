@@ -2,14 +2,14 @@ body{
 	font-family: 微軟正黑體, arial;
 	background-color: #111;
 	color: azure;
-	overflow: hidden;
+	/*overflow: hidden;*/
 }
 
 *{
 	margin: 0;
 	padding: 0;
 	font-family: Inconsolata, 微軟正黑體;
-	outline: 1px solid red;
+	/*outline: 1px solid red;*/
 }
 
 #cartWrapper{
@@ -335,7 +335,10 @@ body{
 	width: 10%;
 	color: orange;
 }.ctrl_div{
-	width: 10%;
+	width: 90%;
+	margin-left: 10%;
+	height: 30px;
+	position: relative;
 }.hidden_num{
 	width: 10px;
 	color: white;
@@ -361,7 +364,8 @@ body{
 		display: none;
 	}.hidden_num{
 		display: block;
-		width: 8%;
+		width: 50%;
+		margin-left: 40%;
 	}.fn_id{
 		width: 5%;
 	}.icon_td{
