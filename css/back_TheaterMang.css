@@ -1,5 +1,5 @@
         table {
-            border:1px solid black;
+           /* border:1px solid black;*/
             margin:30px auto ;
             font-size: 16px;
             border-collapse: collapse ;
@@ -18,16 +18,28 @@
             width: 100%;
             margin:0 auto;
         }
-        th{
+        table .Field_title{
             text-align:center;
-            border:1px solid black; 
+            /*border:1px solid black;*/ 
             padding: 10px 10px;
+            color:white;
+            background-color:rgba(34,34,34,34);
+            vertical-align: middle;
+            height: 40px;
+            line-height: 40px;
+        }
+        table .Field_value:nth-child(odd){
+            background-color:#fafafa;
+        }
+        table .Field_value:nth-child(even){
+            background-color:#dedede;
         }
         td{      
             text-align:center;
             vertical-align: middle;
-            border:1px solid black; 
+            /*border:1px solid black;*/ 
             padding: 10px 10px;
+            width:120px;
         }
         .tabcontent a{
             /*padding: 5px 10px;*/

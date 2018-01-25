@@ -89,14 +89,19 @@ $(document).ready(function(){
 		}
 	}
 });							 																														  																													 
-//var programName = "尋找星生命";
+var programName = "尋找星生命";
+var programDate;
+var programTime;
+var quantity = 1;
+var total = 100;
+
 //改變節目名稱之後，直接存到sessionStorage 
 function changeTheaterName() {
     // document.querySelector('input[name="programName"]:checked').value;
 
     //儲存到sessionStorage
-    var programName = document.querySelector('input[name="programName"]:checked').value;
-    storage.setItem("programName", programName);
+     programName = document.querySelector('input[name="programName"]:checked').value;
+    //storage.setItem("programName", programName);
 	if(programName == "尋找星生命"){
 		$('#theater1').show();
 		$('#theater2').hide();
@@ -113,15 +118,15 @@ function changeDate() {
     //儲存到sessionStorage
     //一開始抓日期
     //var programDate = document.getElementById("programDate").value;
-    var programName = document.querySelector('input[name="programName"]:checked').value;
+    programName = document.querySelector('input[name="programName"]:checked').value;
     //用節目名稱來分日期
 	if(programName == "尋找星生命"){
-		var programDate = document.getElementById("theater1").value;
+		programDate = document.getElementById("theater1").value;
 	} else {
-		var programDate = document.getElementById("theater2").value;	
+		programDate = document.getElementById("theater2").value;	
 	}
 	//要保留	 														  
-    storage.setItem("programDate", programDate);
+    //storage.setItem("programDate", programDate);
 
     //判斷當天購票出現場次
     // generate programTime  select options
@@ -174,84 +179,118 @@ function changeDate() {
 function changeEvent(e) {
     //抓取使用者選的值
     var e = document.getElementById("programTime");
-    var programTime = e.options[e.selectedIndex].value;
+    programTime = e.options[e.selectedIndex].value;
     //儲存到sessionStorage
     // var storage = sessionStorage;
-    storage.setItem("programTime", programTime);
+    //storage.setItem("programTime", programTime);
 
 }
 
 //改變數量之後，直接存到sessionStorage 
-var quantity_value = 1;
+//var quantity_value = 1;
 function changeQuantity() {
     //數量改變，改變總額
-    quantity_value = Number(document.getElementById('quantity').value);
-    if(quantity_value<0){
-    	quantity_value= 0;
+    quantity= Number(document.getElementById('quantity').value);
+    if(quantity<0){
+    	quantity= 0;
     	document.getElementById('quantity').value="0";
     }
-    total = quantity_value * 500;
-    document.getElementById('total').innerHTML = total+"元";
+
+    //呼叫ajax_CheckTicket
+    ajax_CheckTicket();
+
+
+    //total = quantity_value * 500;
+    //document.getElementById('total').innerHTML = total+"元";
 
     //改變數量之後，直接存到sessionStorage 
-    storage.setItem("theater_quantity", quantity_value);
-
-    storage.setItem("theater_total", total);
+    //storage.setItem("theater_quantity", quantity_value);
+    //storage.setItem("theater_total", total);
 
     // var theater_quantity =document.getElementById("quantity").value;
     // storage.setItem("theater_quantity",theater_quantity);
 }
-	
- //    //檢查剩餘票數是否足夠
-	// function ajax_CheckTicket(){
- //            // Create our XMLHttpRequest object
- //            //產生XMLHttpRequest物件
- //        var programName = storage.getItem('programName');
- //        var programDate = storage.getItem('programDate');
- //        var programTime = storage.getItem('programTime');
-			
- //            var hr = new XMLHttpRequest();
- //            // Create some variables we need to send to our PHP file
- //            //把 vars裡面資輛傳到my_parse_file.php檔案(設定參數)
- //            var url = "php/checkTicket.php";
- //            var vars = "programName="+programName+
- //                       "&programDate="+programDate+
- //                       "&programTime="+programTime;
-	// 				   //alert(vars);
- //            //利用POST方式傳遞
- //            // open() 的第一個參數是 HTTP request 的方法
- //            //第二個參數是請求頁面的 URL
- //            //第三個參數決定此 request是否不同步進行，
- //            //如果設定為 TRUE則即使伺服器尚未傳回資料也會繼續執行其餘的程式
- //            hr.open("POST", url, true);
- //            //setRequestHeader()設定內容類型
- //            //若發送表單類型資料，必須設置請求標頭'Content-Type'為'application/x-www-form-urlencoded'
- //            hr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
- //            // Access the onreadystatechange event for the XMLHttpRequest object
- //            //註冊callback function
- //            //200 OK
-	// 		var quantity = Number(storage.getItem('theater_quantity'));	
- //            hr.onreadystatechange = function() {
- //                if(hr.readyState == 4 && hr.status == 200) {
- //                    //return_data = hr.responseText;
- //                    // document.getElementById("status").innerHTML = return_data;
-	// 				var ticket = Number(JSON.parse(hr.responseText));
+	 
+ //檢查剩餘票數是否足夠
+function ajax_CheckTicket(){
+            // Create our XMLHttpRequest object
+            //產生XMLHttpRequest物件
 
-	// 				if(quantity <= ticket ){
-	// 					//window.location.href='Booking_details.php';
-	// 					echo (111);
-	// 				} else {
-	// 					alert("本場次票券剩餘 "+ticket+"張");
-	// 				}
- //                    // setTimeout(function(){
- //                    //     location.href="back_TheaterMang.php";
- //                    // },2000)
- //                }
- //            }
- //            // Send the data to PHP now... and wait for response to update the status div
- //            //送出資料
- //            //send() 的參數在以 POST 發出 request 時，可以是任何想傳給伺服器的東西
- //            hr.send(vars); // Actually execute the request
- //            //顯示目前狀態(還在連線中)
- //            //document.getElementById("status").innerHTML = "processing...";
-	// } 
+        	// var programName = storage.getItem('programName');
+        	// var programDate = storage.getItem('programDate');
+        	// var programTime = storage.getItem('programTime');
+        	programName = document.querySelector('input[name="programName"]:checked').value;
+        	//用節目名稱來分日期
+			if(programName == "尋找星生命"){
+				 programDate = document.getElementById("theater1").value;
+			} else {
+				 programDate = document.getElementById("theater2").value;	
+			}
+			//抓取場次
+        	var e = document.getElementById("programTime");
+    		programTime = e.options[e.selectedIndex].value;
+			//alert("programName:"+programName+" programDate:"+programDate+"  programTime:"+programTime);
+
+            var hr = new XMLHttpRequest();
+            // Create some variables we need to send to our PHP file
+            //把 vars裡面資輛傳到my_parse_file.php檔案(設定參數)
+            var url = "php/checkTicket.php";
+            var vars = "programName="+programName+
+                       "&programDate="+programDate+
+                       "&programTime="+programTime;
+					   //alert(vars);
+            //利用POST方式傳遞
+            // open() 的第一個參數是 HTTP request 的方法
+            //第二個參數是請求頁面的 URL
+            //第三個參數決定此 request是否不同步進行，
+            //如果設定為 TRUE則即使伺服器尚未傳回資料也會繼續執行其餘的程式
+            hr.open("POST", url, true);
+            //setRequestHeader()設定內容類型
+            //若發送表單類型資料，必須設置請求標頭'Content-Type'為'application/x-www-form-urlencoded'
+            hr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+            // Access the onreadystatechange event for the XMLHttpRequest object
+            //註冊callback function
+            //200 OK
+			quantity = Number(document.getElementById('quantity').value);	
+            hr.onreadystatechange = function() {
+                if(hr.readyState == 4 && hr.status == 200) {
+                    //return_data = hr.responseText;
+                    // document.getElementById("status").innerHTML = return_data;
+					var ticket = Number(JSON.parse(hr.responseText));
+					if(ticket < quantity){
+						alert("票券剩餘 "+ticket+"張");	
+						quantity = ticket;
+					} 
+					total = quantity * 100;
+					document.getElementById('quantity').value = quantity;
+					document.getElementById('total').innerHTML = total+"元";
+
+					//改變數量之後，直接存到sessionStorage 
+					//storage.setItem("theater_quantity", quantity);
+
+					//storage.setItem("theater_total", total);
+							//return return_data;
+                    // setTimeout(function(){
+                    //     location.href="back_TheaterMang.php";
+                    // },2000)
+                }
+            }
+            // Send the data to PHP now... and wait for response to update the status div
+            //送出資料
+            //send() 的參數在以 POST 發出 request 時，可以是任何想傳給伺服器的東西
+            hr.send(vars); // Actually execute the request
+            //顯示目前狀態(還在連線中)
+            //document.getElementById("status").innerHTML = "processing...";
+}
+
+//寫進sessionstorage
+function setStorage(){
+    storage.setItem("programName", programName);
+	storage.setItem("programDate", programDate);
+	storage.setItem("programTime", programTime);
+	storage.setItem("theater_quantity", quantity);
+	storage.setItem("theater_total", total);
+	//aler(111);
+	window.location.href='Booking_details.php';
+
+}

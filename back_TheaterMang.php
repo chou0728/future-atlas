@@ -103,7 +103,7 @@ if(isset($_SESSION["login_success"])==false){
                     <h2 class="titleh2" align="center">劇場節目</h2>
                     <table>
                         <!-- <button onclick="Newprogram()"  class="Newprogram" >新增</button> -->
-                        <tr>
+                        <tr class="Field_title">
                             <th>節目編號</th>
                             <th>節目名稱</th>
                             <th>節目介紹</th>
@@ -142,14 +142,14 @@ if(isset($_SESSION["login_success"])==false){
                                 <form method="post"   align="center" enctype="multipart/form-data">
 
                                 <input type="hidden" id="program_no" name="program_no" value="<?php echo  $prodRow["program_no"] ?>">
-                                <tr>
+                                <tr class="Field_value">
                                     <td><?php echo  $prodRow["program_no"] ?>
                                     </td>  
                                     <td>
                                         <input type="text" id="program_name" name="program_name" size=6 value="<?php echo  $prodRow["program_name"] ?>">
                                     </td>
                                     <td >
-                                        <textarea id="program_intro" name="program_intro" rows="4" cols="30" maxlength="50"  ><?php echo  $prodRow["program_intro"]?></textarea>
+                                        <textarea id="program_intro" name="program_intro" rows="4" cols="30" maxlength="60"  ><?php echo  $prodRow["program_intro"]?></textarea>
                                          <!-- <input type="text" size=50  name="program_intro"  style="word-break: break-word;" cols="5" row ="5" style="height:50px;" value="<?php echo  $prodRow["program_intro"]?>"> -->
                                     </td>
                                     <td>
@@ -217,7 +217,7 @@ if(isset($_SESSION["login_success"])==false){
                             <!-- <div id="showPanel"></div> -->
                         </div>
                     <table class="TheaterSessionListTable" id="TheaterSessionListTable">   
-                        <tr>
+                        <tr class="Field_title">
                             <th>場次編號</th>
                             <th>節目編號</th>
                             <th>場次時間</th>
@@ -259,8 +259,7 @@ if(isset($_SESSION["login_success"])==false){
                         ?>       
                                 <!-- <form method="get" action="php/update_theater_session_List.php" align="center" > -->
 
-                                <input type="hidden" name="session_no" value="<?php echo  $prodRow["session_no"] ?>">  
-                                <tr>
+                                <tr class="Field_value">
                                     <td><?php echo  $prodRow["session_no"] ?>
                                     </td>  
                                     <td>
@@ -304,7 +303,7 @@ if(isset($_SESSION["login_success"])==false){
                             <!-- button類型要改成type="button"，預設type="submit" -->
                             <button type="button" onclick="searchOrderList()"  class="searchOrderList">查詢</button>
                             <div id="showPanel"></div>
-                        <tr>
+                        <tr class="Field_title">
                             <th>訂單編號</th>
                             <th>場次編號</th>
                             <th>會員姓名</th>
@@ -340,14 +339,14 @@ if(isset($_SESSION["login_success"])==false){
                                 //$sql = "select * from theater_order_list limit $start,$recPerPage ";
                                 //搜尋會員姓名
                                 $sql = "select t.theater_ticket_no,t.session_no,t.mem_id,t.number_purchase,t.used_ticket,
-                                    t.order_date,t.original_amount,t.points_discount,t.credit_card,t.program_no,m.mem_name from theater_order_list t join member m  on t.mem_id=m.mem_id
+                                    t.order_date,t.original_amount,t.points_discount,t.credit_card,t.program_no,m.mem_name from theater_order_list t join member m  on t.mem_id=m.mem_id ORDER BY theater_ticket_no
                                  limit $start,$recPerPage ";                                
                                 $theater_order_list = $pdo->query($sql);
                                 // echo $total_pages;       
                                 //跑迴圈，印出資料
                                 foreach( $theater_order_list as $i=>$prodRow){
                                 ?>
-                                <tr>
+                                <tr class="Field_value">
                                     <td><?php echo  $prodRow["theater_ticket_no"] ?>
                                     </td>  
                                     <td>
