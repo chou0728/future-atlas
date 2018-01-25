@@ -44,7 +44,7 @@ if(!isset($_SESSION["login_success"])){
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>FA 後台</title>
+    <title>FA後台管理系統 | 設施驗票</title>
     <link rel="stylesheet" type="text/css" href="css/RESET.css">
     <link rel="stylesheet" type="text/css" href="css/11back_nav.css">
     <link rel="stylesheet" href="css/check_tickets_facility.css">
