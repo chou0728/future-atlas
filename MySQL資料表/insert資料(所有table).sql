@@ -178,8 +178,8 @@ INSERT INTO `question_and_answer` (`key_word_no`, `key_word`, `answer`, `unsolve
 -- 資料表`theater_program` 
 
 INSERT INTO `theater_program` (`program_no`, `program_name`, `program_intro`, `program_photo`, `program_fare`, `program_status`) VALUES
-(1, '尋找星生命', '廣大的宇宙中，到底有沒有外星人？跟著最先進的太空工作室，一窺宇宙前線，尋找外星新生命。', '', 100, 1),
-(2, '末世決戰', '傑克與瑪莉無意之間打開了宇宙通道，數以兆計的外星生物瞬間湧入地球，人類究竟該不該跟牠們成為朋友？', '', 100, 1);
+(1, '尋找星生命', '廣大的宇宙中，到底有沒有外星人？跟著最先進的太空工作室，一窺宇宙前線，尋找外星新生命。', 'Galaxy_2_m.jpg', 100, 1),
+(2, '末世決戰', '傑克與瑪莉無意之間打開了宇宙通道，數以兆計的外星生物瞬間湧入地球，人類究竟該不該跟牠們成為朋友？', 'game_1.jpg', 100, 1);
 
 
 
