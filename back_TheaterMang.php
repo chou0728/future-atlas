@@ -15,7 +15,7 @@ if(isset($_SESSION["login_success"])==false){
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>Theater progress</title>
+    <title>FA後台</title>
     <!-- ======請複製==== -->
     <link rel="stylesheet" type="text/css" href="css/RESET.css">
     <link rel="stylesheet" type="text/css" href="css/11back_nav.css">
@@ -31,7 +31,7 @@ if(isset($_SESSION["login_success"])==false){
         <img src="img/back_menu_default.png" id="ham">
         <h1 class="logo">
             <img src="img/LOGO.png" alt="FA">
-            <span>後台管理系統 | 劇場管理</span>
+            <span>後台管理系統</span>
         </h1>
         <ul class="nav">
             <li class="navList">
