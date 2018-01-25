@@ -26,7 +26,7 @@
 .col{
 	height: 40px;
 	display: table-cell;
-	text-align: center;
+	text-align: left;
 	font-size: 16px;
 	line-height: 1.5;
 	padding: 8px;
@@ -34,9 +34,11 @@
 }
 .col-no{
 	width: 10%;
+	text-align: center;
 }
 .col-small{
 	width: 13%;
+	text-align: center;
 }
 .col-middle{
 	width: 20%;
@@ -46,7 +48,6 @@
 }
 .col-title{
 	font-weight: bold;
-	text-align: center;
 	color:rgb(255,241,199);
 	background-color: rgb(34,34,34);
 }

@@ -108,7 +108,7 @@ try {
 								<div class="col col-no"><?php echo $qaRow->key_word_no; ?></div>
 								<div class="col col-middle"><input type="text" name="key_word" value="<?php echo $qaRow->key_word; ?>"></div>
 								<div class="col col-big"><input type="text" name="answer" value="<?php echo $qaRow->answer; ?>"></div>
-								<div class="col col-small"><input type="submit" value="儲存"></div>
+								<div class="col col-small"><input type="button" value="儲存" class="save_qa"></div>
 						</div>
 					
 <?php		
@@ -149,7 +149,7 @@ try {
 							<div class="col col-middle"><?php echo $qaRow->unsolved_question; ?></div>
 							<div class="col col-middle"><input type="text" name="key_word" value="<?php echo $qaRow->key_word; ?>"></div>
 							<div class="col col-big"><input type="text" name="answer" value="<?php echo $qaRow->answer; ?>"></div>
-							<div class="col col-small"><input type="submit" value="儲存"></div>
+							<div class="col col-small"><input type="button" value="儲存" class="save_unqa"></div>
 						</div>
 
 <?php		
@@ -189,6 +189,35 @@ try {
         document.getElementById("active").click();
 
 // function checkthe
+
+
+	function init(){
+		var save_qa = document.getElementsByClassName('save_qa');
+		var save_unqa = document.getElementsByClassName('save_unqa');
+		for(var i=0;i<save_qa.length;i++){
+			save_qa[i].addEventListener('click',update_qa);
+		}
+		for(var i=0;i<save_unqa.length;i++){
+			save_unqa[i].addEventListener('click',update_unqa);
+		}
+	}
+
+	function update_qa(){//
+		var key_word_no = this.parentElement.parentElement.children[0].innerText;
+		var key_word = this.parentElement.parentElement.children[1].children[0].value;
+		var answer = this.parentElement.parentElement.children[2].children[0].value;
+		location.href="update_robot.php?key_word_no="+key_word_no+"&key_word="+key_word+"&answer="+answer;
+	}
+	function update_unqa(){//unsolved_qa
+		var key_word_no = this.parentElement.parentElement.children[0].innerText;
+		var unsolved_question = "notnull";//update_robot.php判斷是否為unsolved_qa
+		var key_word = this.parentElement.parentElement.children[2].children[0].value;
+		var answer = this.parentElement.parentElement.children[3].children[0].value;
+		location.href="update_robot.php?unsolved_question="+unsolved_question+"&key_word_no="+key_word_no+"&key_word="+key_word+"&answer="+answer;
+	}
+
+window.addEventListener('load',init);
+
 </script>
 </body>
 </html>
