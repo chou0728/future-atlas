@@ -9,7 +9,8 @@ if(!isset($_SESSION["login_success"])){
     header("location:manager_login.php?filename=back_check_theater");
     exit;
 }
-   
+
+
 ?>
 
 
@@ -167,6 +168,7 @@ if(!isset($_SESSION["login_success"])){
         </div>
     </div>
 
+</div>
         <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
 
         <script>

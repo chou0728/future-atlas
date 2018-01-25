@@ -181,8 +181,10 @@ if(isset($_SESSION["login_error"])==true){
 <?php
 
 //抓到是從哪邊進來的並帶到url給manager_login_php.php
+if(isset($_REQUEST["filename"])){
 
 	$filename =  $_REQUEST["filename"];
+}
 
 ?>
 
@@ -203,8 +205,18 @@ if(isset($_SESSION["login_error"])==true){
 
 
 
+<?php
+if(isset($_REQUEST["filename"])){
+?>
+	<form action="manager_login_php.php?filename=<?php echo $filename ?>" method="post">
+<?php
+}else{
+?>
+	<form action="manager_login_php.php" method="post">
+<?php
+}
+?>
 
-<form action="manager_login_php.php?filename=<?php echo $filename ?>" method="post">
 	<div class="inputDiv">
 		<div class="inputTitle">
 		</div>
