@@ -19,8 +19,8 @@ if(isset($_SESSION["login_error"]) === true){
 <link rel="icon" href="img/favicon.ico" />
 <link rel="stylesheet" type="text/css" href="css/activity_calendar.css">
 <link rel="stylesheet" type="text/css" href="css/header.css">
-<link rel="stylesheet" type="text/css" href="css/login.css">
 <link rel="stylesheet" type="text/css" href="css/footer.css">
+<link rel="stylesheet" type="text/css" href="css/login.css">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
 <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <style type="text/css">
@@ -508,27 +508,27 @@ body.fadeout::after {
 
 <!-- 登入燈箱 -->
 <div id="all-page"></div><!-- 叫出時背景-->
-<div id="lightBox">
-	<div id="cancel">
-		<div class="leftLine"></div>
-		<div class="rightLine"></div>
-	</div>
-		<form class="singUp" action="loginheadforindex.php" method="post">
-			<h2>會員登入</h2>
-			<div class="text">
-				會員帳號：<input type="text" name="memName" id="memId" value="" required placeholder="輸入帳號" style="font-size: 16px">
-				<br>
-				會員密碼：<input type="password" name="memPsw"  id="memPsw" value="" required placeholder="輸入密碼" style="font-size: 16px">
-				<br>
+		<div id="lightBox">
+			<div id="cancel">
+				<div class="leftLine"></div>
+				<div class="rightLine"></div>
 			</div>
-			<div class="btn">
-				<input type="submit" name="" id="submit" value="登入">
-				<input type="reset" name="reset" value="RESET">
-        	</div>
-		</form>
-</div>
-
-<!-- 登入燈箱 -->
+			<!-- <img class="bar" src="img/bar.png" alt="bar"> -->
+			<form class="singUp" action="loginheadforindex.php" method="post">
+				<h2>會員登入</h2>
+				<div class="text">
+					帳號：<input type="text" name="memName" id="memId" value="" required placeholder="輸入帳號">
+					<br>
+					密碼：<input type="password" name="memPsw"  id="memPsw" value="" required placeholder="輸入密碼">
+					<br>
+				</div>
+				        <div class="btn">
+				            <input type="reset" name="reset" value="重填">
+				            <input type="submit" name="" id="submit" value="登入">
+        				</div>
+			</form>
+		</div>
+		<!-- 登入燈箱 ==end============-->
 <script src="js/00nav.js"></script>
 <script type="text/javascript" src="js/04calendar.js"></script>
 <script src="js/jquery.hoverdir.js"></script>

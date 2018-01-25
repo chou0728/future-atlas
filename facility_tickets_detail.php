@@ -20,6 +20,7 @@ if(isset($_SESSION["login_error"]) === true){
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>FA未來主題樂園 | 查看票券-設施票券明細</title>
     <link rel="icon" href="img/favicon.ico" />
+    <link rel="stylesheet" type="text/css" href="css/RESET.css">
     <link rel="stylesheet" href="css/vaild_facility_tickets.css">
     <link rel="stylesheet" href="css/header.css">
     <link rel="stylesheet" href="css/login.css">
@@ -50,13 +51,21 @@ if(isset($_SESSION["login_error"]) === true){
                 <span class="register">
                     <?php
                         if(isset($_SESSION["mem_id"])===true){
-                            echo "<a href='MembersOnly.html'>帳戶</a>";
+                            echo "<a href='MembersOnly.php'>帳戶</a>";
                         }else{
                             echo "註冊";
                         }
                     ?>
                 </span>
             </a>
+        </li>
+        <li class="li_top" <?php if(!isset($_SESSION["mem_id"])){
+                                echo "style='display: none';";
+                                }?>>
+                <a href="see_tickets.php" class="tkt">
+                    <img src="img/member/qr-code-scan.png">
+                    <span>票券</span>
+                </a>
         </li>
         <li class="li_top">
             <a href=<?php
@@ -76,7 +85,7 @@ if(isset($_SESSION["login_error"]) === true){
                 <span class="login">
                     <?php
                         if(isset($_SESSION["mem_id"])===true){
-                            echo"<a href='logoutheadforindex.php?ismp=0'>登出</a>";
+                            echo"<a href='logoutheadforindex.php'>登出</a>";
                         }else{
                             echo"登入";
                         }
@@ -96,13 +105,16 @@ if(isset($_SESSION["login_error"]) === true){
     <div class="ul_box">
         <ul class="ul_left">
             <li>
+                <img src="img/hover-tri.png" class="nav_hover">
                 <a href="Theaterbuyticket.php">劇場購票</a>
             </li>
             <li>
+                <img src="img/hover-tri.png" class="nav_hover">
                 <a href="facilityBuyTicket.php">設施購票</a>
             </li>
             <li>
-                <a href="facilityInfo.php">設施介紹</a>
+                <img src="img/hover-tri.png" class="nav_hover">
+                <a href="facilityInfo.php"">設施介紹</a>
             </li>
         </ul>
         <h1 style="display: none">FutureAtlas_未來主題樂園</h1>
@@ -111,13 +123,16 @@ if(isset($_SESSION["login_error"]) === true){
         </a>
         <ul class="ul_right">
             <li>
+                <img src="img/hover-tri.png" class="nav_hover">
                 <a href="====index.php#page2" id="NavClose">園區地圖</a>
             </li>
             <li>
+                <img src="img/hover-tri.png" class="nav_hover">
                 <a href="activity.php">活動月曆</a>
             </li>
             <li>
-                <a href="robot.html">諮詢專區</a>
+                <img src="img/hover-tri.png" class="nav_hover">
+                <a href="robot.php">諮詢專區</a>
             </li>
         </ul>
     </div>
@@ -168,7 +183,7 @@ if(isset($_SESSION["login_error"]) === true){
                 <h2>設施名稱：<?php echo $order_item_row["facility_name"] ?></h2>
                 <div class="info_ticket_QR">
                     
-                    <img class="QR" src="https://chart.googleapis.com/chart?chs=200x200&cht=qr&chl=https://www.youtube.com/?<?php echo $order_item_row["order_no"] ?>.<?php echo $order_item_row["facility_no"] ?>"></img>
+                    <img id="QR" class="QR" src="https://chart.googleapis.com/chart?chs=200x200&cht=qr&chl=https://www.youtube.com/?<?php echo $order_item_row["order_no"] ?>.<?php echo $order_item_row["facility_no"] ?>"></img>
                     
                     <div class="ticket_info">
                         
@@ -188,14 +203,14 @@ if(isset($_SESSION["login_error"]) === true){
                         <div class="records">
                             <h3>未使用票券</h3>
                             <div class="records_info">
-                                <p>全票：<?php echo $order_item_row["full_remain"] ?>張</p>
-                                <p>半票：<?php echo $order_item_row["half_remain"] ?>張</p>
+                                <p>全票：<?php echo $order_item_row["full_remain"] ?>張<span>/</span></p>
+                                <p>半票：<?php echo $order_item_row["half_remain"] ?>張<span>/</span></p>
                                 <p>共：<?php echo $order_item_row["full_remain"] + $order_item_row["half_remain"] ?>張</p>
                             </div>
                             <h3>已使用張數</h3>
                             <div class="records_info">
-                                <p>全票：<?php echo $order_item_row["full_fare_num_used"] ?>張</p>
-                                <p>半票：<?php echo $order_item_row["half_fare_num_used"] ?>張</p>
+                                <p>全票：<?php echo $order_item_row["full_fare_num_used"] ?>張<span>/</span></p>
+                                <p>半票：<?php echo $order_item_row["half_fare_num_used"] ?>張<span>/</span></p>
                                 <p>共：<?php echo $order_item_row["full_fare_num_used"] + $order_item_row["half_fare_num_used"] ?>張</p>
                             </div>
                         </div>
@@ -218,24 +233,24 @@ if(isset($_SESSION["login_error"]) === true){
         </div>
     </div>
 
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
     <script src="js/00nav.js"></script>
-    <!-- <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script> -->
     <script>
 
         // 為什麼只能執行一次呢??
-
-        var QR_code = document.getElementById('QR_code');
-        QR_code.addEventListener('click',function(){
-            this.style.width = "200%";
-            this.style.left = "120%";
-            this.style.top = "80%";
-            this.addEventListener('click',function(){
-                this.style.width = "80%";
-                this.style.left = "50%";
-            this.style.top = "50%";
+        function init(){
+            var QR_code = document.getElementById("QR");
+                 QR_code.addEventListener('click',function(){
+                if(this.style.width !="200%"){
+                    this.style.width = "200%";
+                }else{
+                    this.style.width = "";
+                }
             });
-        });
 
+        }
+        window.addEventListener('load',init);
+       
         
     </script>
 </body>

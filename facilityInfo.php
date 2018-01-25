@@ -490,8 +490,8 @@ try {
 <!-- ======================================= 設施 ======================================= -->
 	<div id="close"><img src="img/facilityInfo/close.png"></div>
 
-	<div id="all-page"></div><!-- login登箱叫出時背景-->
-	<!-- 登入燈箱 ==============-->
+<div id="all-page"></div><!-- 叫出時背景-->
+		<!-- 登入燈箱 ==============-->
 		<div id="lightBox">
 			<div id="cancel">
 				<div class="leftLine"></div>
@@ -501,17 +501,19 @@ try {
 			<form class="singUp" action="loginheadforindex.php" method="post">
 				<h2>會員登入</h2>
 				<div class="text">
-					會員帳號：<input type="text" name="memName" id="memId" value="" required placeholder="輸入帳號">
+					帳號：<input type="text" name="memName" id="memId" value="" required placeholder="輸入帳號">
 					<br>
-					會員密碼：<input type="password" name="memPsw"  id="memPsw" value="" required placeholder="輸入密碼">
+					密碼：<input type="password" name="memPsw"  id="memPsw" value="" required placeholder="輸入密碼">
 					<br>
 				</div>
 				        <div class="btn">
+				            <input type="reset" name="reset" value="重填">
 				            <input type="submit" name="" id="submit" value="登入">
-				            <input type="reset" name="reset" value="RESET">
         				</div>
 			</form>
 		</div>
+		<!-- 登入燈箱 ==end============-->
+
 
 	<script src="https://code.jquery.com/jquery-3.2.1.js"></script>
 	<script src="js/facilityInfo_main.js"></script>

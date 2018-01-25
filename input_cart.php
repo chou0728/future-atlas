@@ -81,6 +81,7 @@ body::-webkit-scrollbar-thumb {
                         }
                     ?>
                 </span>
+            </a>
         </li>
         <li class="li_top" <?php if(!isset($_SESSION["mem_id"])){
                                 echo "style='display: none';";
@@ -128,13 +129,16 @@ body::-webkit-scrollbar-thumb {
     <div class="ul_box">
         <ul class="ul_left">
             <li>
+                <img src="img/hover-tri.png" class="nav_hover">
                 <a href="Theaterbuyticket.php">劇場購票</a>
             </li>
             <li>
+                <img src="img/hover-tri.png" class="nav_hover">
                 <a href="facilityBuyTicket.php">設施購票</a>
             </li>
             <li>
-                <a href="facilityInfo.php">設施介紹</a>
+                <img src="img/hover-tri-now.png" class="nav_here">
+                <a href="facilityInfo.php" style="color: rgb(55,222,255);font-weight: bold;">設施介紹</a>
             </li>
         </ul>
         <h1 style="display: none">FutureAtlas_未來主題樂園</h1>
@@ -143,12 +147,15 @@ body::-webkit-scrollbar-thumb {
         </a>
         <ul class="ul_right">
             <li>
+                <img src="img/hover-tri.png" class="nav_hover">
                 <a href="====index.php#page2" id="NavClose">園區地圖</a>
             </li>
             <li>
+                <img src="img/hover-tri.png" class="nav_hover">
                 <a href="activity.php">活動月曆</a>
             </li>
             <li>
+                <img src="img/hover-tri.png" class="nav_hover">
                 <a href="robot.php">諮詢專區</a>
             </li>
         </ul>
@@ -166,29 +173,32 @@ body::-webkit-scrollbar-thumb {
     
 </div>
 
-	<!-- 登入燈箱 -->
+    <!-- header end-->
+
 <div id="all-page"></div><!-- 叫出時背景-->
-<div id="lightBox">
-	<div id="cancel">
-		<div class="leftLine"></div>
-		<div class="rightLine"></div>
-	</div>
-		
-		<form class="singUp" action="loginheadforindex.php" method="post">
-			<h2>會員登入</h2>
-			<div class="text">
-				會員帳號：<input type="text" name="memName" id="memId" value="" required placeholder="輸入帳號">
-				<br>
-				會員密碼：<input type="password" name="memPsw"  id="memPsw" value="" required placeholder="輸入密碼">
-				<br>
-			</div>
-			<div class="btn">
-				<input type="submit" name="" id="submit" value="登入">
-				<input type="reset" name="reset" value="RESET">
-        	</div>
-		</form>
-</div>
-	<!-- login box end-->
+        <!-- 登入燈箱 ==============-->
+        <div id="lightBox">
+            <div id="cancel">
+                <div class="leftLine"></div>
+                <div class="rightLine"></div>
+            </div>
+            <!-- <img class="bar" src="img/bar.png" alt="bar"> -->
+            <form class="singUp" action="loginheadforindex.php" method="post">
+                <h2>會員登入</h2>
+                <div class="text">
+                    帳號：<input type="text" name="memName" id="memId" value="" required placeholder="輸入帳號">
+                    <br>
+                    密碼：<input type="password" name="memPsw"  id="memPsw" value="" required placeholder="輸入密碼">
+                    <br>
+                </div>
+                        <div class="btn">
+                            <input type="reset" name="reset" value="重填">
+                            <input type="submit" name="" id="submit" value="登入">
+                        </div>
+            </form>
+        </div>
+        <!-- 登入燈箱 ==end============-->
+
 
 <div id="cartWrapper">
 	<div id="cartTitle">您的購物車</div>
