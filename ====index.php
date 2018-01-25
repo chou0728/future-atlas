@@ -1668,8 +1668,8 @@ if(isset($_SESSION["login_error"]) === true){
 							</div>
 							
 							<div class="down_button">
-								<button class="change" onclick=" location.href='http://localhost/php/future-atlas/facilityBuyTicket.php'">購買設施票券</button>
-								<button class="change" onclick=" location.href='http://localhost/php/future-atlas/Theaterbuyticket.php'">購買劇場票券</button>
+								<a class="change" href="facilityBuyTicket.php" >購買設施票券</a>
+								<a class="change" href="Theaterbuyticket.php" >購買劇場票券</a>
 							</div>
 							
 						</div>
@@ -1679,11 +1679,13 @@ if(isset($_SESSION["login_error"]) === true){
 
 					<!-- 中間區塊 -->
 					<div class="midBox">
-						<!-- 第一塊如何購票 -->
+						<!-- 第一塊前往樂園 -->
 						<div class="midContent_1" id="midContent_1">
 							<h3>*** INFO ***</h3>
 							<div class="pic">
-									<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3616.9010562788353!2d121.1903276150953!3d24.969480784002634!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x346823c1ec904dcb%3A0xcdc129d4455ce456!2z5ZyL56uL5Lit5aSu5aSn5a24!5e0!3m2!1szh-TW!2stw!4v1516799135037" width="370" height="200" frameborder="0" style="border:0" allowfullscreen></iframe>
+									<div class="map">
+										<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3616.9010562788353!2d121.1903276150953!3d24.969480784002634!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x346823c1ec904dcb%3A0xcdc129d4455ce456!2z5ZyL56uL5Lit5aSu5aSn5a24!5e0!3m2!1szh-TW!2stw!4v1516799135037" width="370" height="200" frameborder="0" style="border:0" allowfullscreen></iframe>
+									</div>
 							</div>
 							<hr>
 							<div class="text">
@@ -1691,7 +1693,7 @@ if(isset($_SESSION["login_error"]) === true){
 								</p>
 							</div>
 						</div>
-						<!-- 第二塊票券模式 -->
+						<!-- 第二塊如何購票 -->
 						<div class="midContent_2" id="midContent_2">
 							<h3>*** INFO ***</h3>
 							<div class="pic" ><img src="img/fifthSection/ticket.png"></div>
@@ -1701,12 +1703,12 @@ if(isset($_SESSION["login_error"]) === true){
 								</p>
 							</div>
 						</div>
-						<!-- 第三塊票卷期限 -->
+						<!-- 第三塊票券模式 -->
 						<div class="midContent_3" id="midContent_3">
 							<h3>*** INFO ***</h3>
 							<div class="pic">
 								<div class="right">
-									<img src="img/fifthSection/pointing-right.png">
+									<img src="img/fifthSection/qr.png">
 								</div>
 							</div>
 							<hr>
@@ -2009,21 +2011,20 @@ if(isset($_SESSION["login_error"]) === true){
 				let content1 = document.getElementById("midContent_1");
 				let content2 = document.getElementById("midContent_2");
 				let content3 = document.getElementById("midContent_3");
-				let pic1 = querySelector('.pic');
-				function changeBox(){
 
+				function changeBox(){
 					if(this.textContent == "前往樂園"){
-						content1.style.opacity="1";
-						content2.style.opacity="0";
-						content3.style.opacity="0";
+						content1.style.display="block";
+						content2.style.display="none";
+						content3.style.display="none";
 					}else if(this.textContent == "如何購票"){
-						content1.style.opacity="0";
-						content2.style.opacity="1";
-						content3.style.opacity="0";
+						content1.style.display="none";
+						content2.style.display="block";
+						content3.style.display="none";
 					}else{
-						content1.style.opacity="0";
-						content2.style.opacity="0";
-						content3.style.opacity="1";
+						content1.style.display="none";
+						content2.style.display="none";
+						content3.style.display="block";
 					}
 					
 				}

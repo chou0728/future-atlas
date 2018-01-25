@@ -83,7 +83,7 @@
     color: #fff;
     text-shadow: 0px 0px 1px rgb(76, 216, 221);
 }
-.cont .leftBox button{
+.cont .leftBox .top_button button{
     font-family: 'Share Tech Mono', monospace;
     color: rgb(76, 216, 221);
     background: transparent;
@@ -99,20 +99,38 @@
     box-shadow: 0 0 10px rgba(0,0,255,0.5), rgba(0,0,255,0.5);
     cursor: pointer;
 }
-.cont .leftBox button:hover{
+.cont .leftBox .top_button button:hover{
     color: #000;
     border: 1px solid transparent;
     background-color:rgb(76, 216, 221);
     /* box-shadow: 0 0 40px rgb(219, 217, 68), inset 0 0 40px rgb(219, 217, 68); */
 }
 /*設施 劇場票券*/
-.cont .leftBox .change{
+.cont .leftBox .down_button .change{
+    font-family: 'Share Tech Mono', monospace;
+    color: rgb(76, 216, 221);
+    background: transparent;
+    padding: 15px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    display: block;
+    width: 100%;
+    margin: 0 20px 20px 0;
+    outline:none;
     border: 1px solid rgb(253, 229, 17);
     background-color: rgb(54, 54, 54);
     box-shadow: 0 0 10px rgb(253, 229, 17), rgb(253, 229, 17);
+    cursor: pointer;
+    text-align: center;
+    font-size: 13px;
+}
+.cont .leftBox .down_button .change a{
+    font-family: 'Share Tech Mono', monospace;
+    color: rgb(76, 216, 221);
 
-
-}.cont .leftBox .change:hover{
+    
+}
+.cont .leftBox .down_button .change:hover{
     animation: flicker2 0.1s infinite alternate;
     color: #000;
     border: 1px solid transparent;
@@ -136,6 +154,7 @@
         margin: 0;
     }
     .down_button{
+        padding-left: 15px;
         width: 100%;
         display: flex;
         flex-direction: row;
@@ -191,22 +210,63 @@
     -moz-box-sizing: border-box;
     box-sizing: border-box;
 }
+
+
+
+/*========前往樂園*/
 .cont .midBox .midContent_1{
-    min-width: 100%;  
+    width: 100%;  
     position: absolute;
     
 }
+.cont .midBox .midContent_1 .pic{
+     width: 100%;  
+}
+.cont .midBox .midContent_1 .pic .map{
+     width: 100%;  
+}
+.cont .midBox .midContent_1 .pic .map iframe{
+    width: 100%;
+}
+
+
+
+/*========如何購票*/
 .cont .midBox .midContent_2{
-    min-width: 100%;  
+    width: 100%;  
     position: absolute;
-    opacity: 0;
+    display: none;
     
 }
+.cont .midBox .midContent_2 .pic{
+     width: 100%;
+         
+}
+.cont .midBox .midContent_2 .pic img{
+     width: 100%;
+     height: 200px;
+         
+}
+
+/*========票券模式*/
 .cont .midBox .midContent_3{
     min-width: 100%;  
     position: absolute;
-    opacity: 0;
+    display: none;
 }
+.cont .midBox .midContent_3 .pic{
+     width: 100%;
+}
+.cont .midBox .midContent_3 .pic .right{
+    margin: 0 auto;
+    width: 50%;
+}
+.cont .midBox .midContent_3 .pic .right img{
+    width: 100%;
+    height: 200px;
+    
+}
+
 
 .cont .midBox:after{
     content:"";
@@ -218,32 +278,6 @@
     text-align: center;
     color: #fff;
     text-shadow: 0px 0px 1px rgb(76, 216, 221);
-}
-
-.cont .midBox .midContent_1 .pic{
-     width: 100%;
-     /*padding-bottom: 250px;*/
-     /*background-size: cover;*/
-}
-
-.cont .midBox .midContent_2 .pic{
-     width: 100%;
-         
-}
-.cont .midBox .midContent_2 .pic img{
-     width: 90%;
-         
-}
-.cont .midBox .midContent_3 .pic{
-     width: 100%;
-}
-.cont .midBox .midContent_3 .pic .right{
-    padding-left: 30%;
-    width: 100%;
-}
-.cont .midBox .midContent_3 .pic .right img{
-    width: 80%;
-    
 }
 
 
