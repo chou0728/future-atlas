@@ -1,12 +1,11 @@
 *{
-    
-    font-family: 微軟正黑體;
     /*outline: 1px solid #f00;*/
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
     box-sizing: border-box;
 } 
 body{
+    font-family: 微軟正黑體;
     background-color: #000;
 }
 body::-webkit-scrollbar {
@@ -22,36 +21,58 @@ body::-webkit-scrollbar-thumb {
 }
 .MembersBox{
     width:100%;
-    height: 50vh;
+    /*height: 50vh;*/
     max-width: 1200px;
     text-align: center;
-    margin:  100px auto;
+    margin:  0 auto;
 }
 .MembersBox .content{ 
     width: 100%;
+    padding-top: 60px;
 
 }
 /*按鈕*/
 .MembersBox .content .buttonArea{
-    width: 600px;
+    width: 100%;
     margin: 0 auto;
     padding-top: 50px;
     text-align: center;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-   
 }
-.MembersBox .content .buttonArea a{
+
+.MembersBox .content .buttonArea .myticket:after{
+            content: "";
+            position: absolute;
+            top:50%;
+            left: 50%;
+            transform: translate(-50%,-50%);
+            width: 100%;
+            height: 100%;
+            border: 2px solid rgba(255, 193, 22,0.6);
+            transition: all .2s linear;
+}
+.MembersBox .content .buttonArea .myticket:hover{
+            background-color: rgba(255, 193, 22,0.9);
+            color: black;
+}
+.MembersBox .content .buttonArea .myticket:hover:after{
+            width: 108%;
+            height: 125%;
+            border: 2px solid rgba(255, 193, 22,0.8);
+}
+
+.MembersBox .content .buttonArea .myticket{
+    position: relative;
+    display: block;
     width: 200px;
-    height: 50px;
+    height: 45px;
     color: #fff; 
-    border: 2px solid rgba(50,224,220,0.5);
-    border-radius: 10px;
+    border: 2px solid rgba(255, 193, 22,0.8);
+    background-color: rgba(255, 193, 22,0.2);
     text-decoration:none;
     letter-spacing: 4px;
-    line-height: 50px;
+    line-height: 43px;
     text-align: center;
+    margin: 0 auto;
 }
 .MembersBox .content .buttonArea a.myinfo{
     color: black;
@@ -139,16 +160,16 @@ body::-webkit-scrollbar-thumb {
     color: #FFFFFF;
     font-size: 20px;
     width: 8%;
-    height:80px;
+    height:50px;
     padding: 5px;
     vertical-align: middle;
     text-align: right;
 }
 .nameBox_value_place table td{
     color: #4BE9EC;
-    width: 10%;查看會員資料
+    width: 10%;
     font-size: 18px;
-    height:80px;
+    height:50px;
     padding: 5px;
     vertical-align: middle;
     text-align: center;
