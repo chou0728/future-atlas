@@ -104,7 +104,7 @@ if(isset($_SESSION["login_success"])==false){
                     <h2 class="titleh2" align="center">會員管理</h2>
                     <table>
                         <!-- <button onclick="Newprogram()"  class="Newprogram" >新增</button> -->
-                        <tr>
+                        <tr class="Field_title">
                             <th>會員ID</th>
                             <th>帳號</th>
                             <th>密碼</th>
@@ -144,7 +144,7 @@ if(isset($_SESSION["login_success"])==false){
                                 <!-- <form method="post"   align="center" enctype="multipart/form-data"> -->
 
                                 <!-- <input type="hidden" id="program_no" name="program_no" value="<?php echo  $prodRow["program_no"] ?>"> -->
-                                <tr>
+                                <tr class="Field_value">
                                     <td><?php echo  $memberRow["mem_id"] ?>
                                     </td>  
                                     <td>
