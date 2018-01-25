@@ -79,7 +79,7 @@ $(document).ready(function(){
 			document.getElementById("total").innerHTML = total;
 		}
 	});
-	$(".points").eq(0).change(function(){
+	$(".points").eq(0).blur(function(){
 		discount = 0;
 		$("#discount").html(discount);
 		$(".points").eq(2).val("");

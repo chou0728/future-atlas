@@ -25,16 +25,26 @@ body{
 	margin: 20px auto 10px auto;
 	text-align: center;
 }
-
-#cartWrapper tr{
-	font-size: 18px;
-	border-bottom: 1px solid #555;
+@media screen and (max-width: 550px){
+	#cartTitle{
+		font-size: 28px;
+		margin: 60px auto 10px auto;
+	}
 }
+
+#cartContent tr{
+	font-size: 18px;
+	border-bottom: 5px solid white;
+	/*outline: 1px solid red;*/
+}
+
 #cartWrapper td{
 	padding: 5px;
 	padding-top: 30px;
 	padding-bottom: 5px;
 	border: none;
+	/*background-color: white;*/
+	border-bottom: 1px solid #555;
 }
 
 #cartWrapper title{
@@ -85,17 +95,17 @@ body{
 	border: none;
 	color: #5AE6DB;
 }
-#fn_th{
+/*#fn_th{
 	width: 56%;
 }#fare_th{
 	text-align: right;
-	/*width: 8%;*/
+	width: 8%;
 }#tn_th{
 	width: 14%;
 	min-width: 50px;
 }#subtotal_th{
 	width: 95%;
-}
+}*/
 @media screen and (max-width: 550px){
 	#cartWrapper th{
 		font-size: 16px;
@@ -121,7 +131,7 @@ body{
 	background-color: #555;
 	box-shadow: 0 0 0 black inset;
 	text-align: center;
-	width: 80%;
+	width: 100%;
 	vertical-align: top;
 	margin-top: -20px;
 	cursor: pointer;
@@ -214,6 +224,7 @@ body{
 #cart_total_row{
 	text-align: right;
 	height: 50px;
+	border-bottom: 1px solid red;
 }td:nth-child(6),td:nth-child(7),td:nth-child(8){
 	text-align: right;
 }

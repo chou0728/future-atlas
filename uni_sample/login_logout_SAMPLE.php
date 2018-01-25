@@ -49,9 +49,9 @@ if(isset($_SESSION["login_error"]) === true){
 			<form class="singUp" action="loginheadforindex.php" method="post">
 				<h2>會員登入</h2>
 				<div class="text">
-					會員帳號：<input type="text" name="memName" id="memId" value="" required placeholder="輸入帳號">
+					帳號：<input type="text" name="memName" id="memId" value="" required placeholder="輸入帳號">
 					<br>
-					會員密碼：<input type="password" name="memPsw"  id="memPsw" value="" required placeholder="輸入密碼">
+					密碼：<input type="password" name="memPsw"  id="memPsw" value="" required placeholder="輸入密碼">
 					<br>
 				</div>
 				        <div class="btn">
@@ -60,6 +60,7 @@ if(isset($_SESSION["login_error"]) === true){
         				</div>
 			</form>
 		</div>
+		<!-- 登入燈箱 ==end============-->
 
 
 

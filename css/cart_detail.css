@@ -73,10 +73,21 @@ body::-webkit-scrollbar-thumb {
 	margin-top: 8%;
 	color: #fefefe;
 }
+.facility_name{
+	display: block;
+	width: 100%;
+	text-align: center;
+	vertical-align: bottom;
+	line-height: 29px;
+}.sub_total{
+	width: 50px;
+}
 @media screen and (max-width:415px){
 	#detailWrapper{
 		width: 95%;
 		/*border: 1px solid blue;*/
+	}#btn{
+		width: 280px;
 	}
 }
 @media screen and (min-width:415px) and (max-width:1200px){
@@ -93,9 +104,6 @@ body::-webkit-scrollbar-thumb {
 }
 @media screen and (min-width:1200px){
 
-}
-#subtotal_th{
-	width: 100%;
 }
 #ticket_rows{
 	width: 100%;
@@ -123,12 +131,13 @@ body::-webkit-scrollbar-thumb {
 }
 	
 #fn_th{
-	text-align: left;
+	text-align: center;
 	width: 14%;
 }#fname_th{
 	width: 33%;
 }#tt_th{
 	width: 14%;
+	text-align: center;
 }#fare_th{
 	text-align: right;
 	width: 12%;
@@ -136,8 +145,7 @@ body::-webkit-scrollbar-thumb {
 	width: 14%;
 	min-width: 50px;
 }#subtotal_th{
-	width: 15%;
-	/*text-align: right;*/
+	width: 13%;
 }
 #input_discount th{
 	text-align: left;
@@ -206,14 +214,14 @@ body::-webkit-scrollbar-thumb {
 	text-align: center;
 }
 #pay_info td{
-	width: 200px;
+	width: 180px;
 }#pay_info input{
 	padding: 5px;
 	/*border-radius: 1%;*/
 }
 #credit_input_area{
 	width: 30%;
-	min-width: 300px;
+	min-width: 285px;
 	display: inline-block;
 	text-align: left;
 }
@@ -221,7 +229,7 @@ body::-webkit-scrollbar-thumb {
 	width: 40px;
 	height: 25px;
 	margin-bottom: 10px;
-	margin-right: 10px;
+	margin-right: 6px;
 	border: none;
 	box-shadow: none;
 	color: #dedede;

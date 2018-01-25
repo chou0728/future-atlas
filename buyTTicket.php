@@ -203,28 +203,30 @@ if(isset($_SESSION["login_error"]) === true){
             <a href="Theaterbuyticket.php" class="Previouspage">上一步</a>
             <a href="javascript:void(0);" onClick="setStorage()" class="buyticket" >確認購買</a>      
     </div>
-    <!-- 會員登入燈箱 -->
-    <div id="all-page"></div><!-- 叫出時背景-->
-    <div id="lightBox">
-    <div id="cancel">
-        <div class="leftLine"></div>
-        <div class="rightLine"></div>
-    </div>
-        
-        <form class="singUp" action="loginheadforindex.php" method="post">
-            <h2>會員登入</h2>
-            <div class="text">
-                會員帳號：<input type="text" name="memName" id="memId" value="" required placeholder="輸入帳號">
-                <br>
-                會員密碼：<input type="password" name="memPsw"  id="memPsw" value="" required placeholder="輸入密碼">
-                <br>
+<div id="all-page"></div><!-- 叫出時背景-->
+        <!-- 登入燈箱 ==============-->
+        <div id="lightBox">
+            <div id="cancel">
+                <div class="leftLine"></div>
+                <div class="rightLine"></div>
             </div>
-            <div class="btn">
-                <input type="submit" name="" id="submit" value="登入">
-                <input type="reset" name="reset" value="RESET">
-            </div>
-        </form>
-</div>
+            <!-- <img class="bar" src="img/bar.png" alt="bar"> -->
+            <form class="singUp" action="loginheadforindex.php" method="post">
+                <h2>會員登入</h2>
+                <div class="text">
+                    帳號：<input type="text" name="memName" id="memId" value="" required placeholder="輸入帳號">
+                    <br>
+                    密碼：<input type="password" name="memPsw"  id="memPsw" value="" required placeholder="輸入密碼">
+                    <br>
+                </div>
+                        <div class="btn">
+                            <input type="reset" name="reset" value="重填">
+                            <input type="submit" name="" id="submit" value="登入">
+                        </div>
+            </form>
+        </div>
+        <!-- 登入燈箱 ==end============-->
+
     <script src="js/00nav.js"></script>
     <!--↓js部分請補上這段 -->
     <script type="text/javascript">
