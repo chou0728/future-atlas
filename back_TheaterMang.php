@@ -340,7 +340,7 @@ if(isset($_SESSION["login_success"])==false){
                                 //$sql = "select * from theater_order_list limit $start,$recPerPage ";
                                 //搜尋會員姓名
                                 $sql = "select t.theater_ticket_no,t.session_no,t.mem_id,t.number_purchase,t.used_ticket,
-                                    t.order_date,t.original_amount,t.points_discount,t.credit_card,t.program_no,m.mem_name from theater_order_list t join member m  on t.mem_id=m.mem_id
+                                    t.order_date,t.original_amount,t.points_discount,t.credit_card,t.program_no,m.mem_name from theater_order_list t join member m  on t.mem_id=m.mem_id ORDER BY theater_ticket_no
                                  limit $start,$recPerPage ";                                
                                 $theater_order_list = $pdo->query($sql);
                                 // echo $total_pages;       
