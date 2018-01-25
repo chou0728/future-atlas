@@ -181,8 +181,10 @@ if(isset($_SESSION["login_error"])==true){
 <?php
 
 //抓到是從哪邊進來的並帶到url給manager_login_php.php
+if(isset($_REQUEST["filename"])){
 
 	$filename =  $_REQUEST["filename"];
+}
 
 ?>
 
@@ -194,17 +196,6 @@ if(isset($_SESSION["login_error"])==true){
             <img src="img/LOGO.png" class="logo">
         </a>
     </div>
-    <div class="navOpenBtn"><!-- RWD left btn-->
-        <div class="ham"></div>
-        <div class="ham"></div>
-        <div class="ham"></div>
-        <div class="ham"></div>
-    </div>
-</div>
-<div class="headerOpenBtn"><!-- RWD right btn-->
-    <img src="img/Usericon1.png" class="memIcon">
-    <img src="img/Usericon.png" class="memIcon">
-    
 </div>
 <img src="img/manager_login_bg.jpg" class="bgi">
 <div id="loginWrapper">
@@ -214,8 +205,18 @@ if(isset($_SESSION["login_error"])==true){
 
 
 
+<?php
+if(isset($_REQUEST["filename"])){
+?>
+	<form action="manager_login_php.php?filename=<?php echo $filename ?>" method="post">
+<?php
+}else{
+?>
+	<form action="manager_login_php.php" method="post">
+<?php
+}
+?>
 
-<form action="manager_login_php.php?filename=<?php echo $filename ?>" method="post">
 	<div class="inputDiv">
 		<div class="inputTitle">
 		</div>

@@ -1,21 +1,3 @@
-<?php
-ob_start();
-session_start();
-//請複製:當無登入時會自動跳轉至登入頁面
-
-
-
-if(!isset($_SESSION["login_success"])){
-    header("location:manager_login.php?filename=back_check_theater");
-    exit;
-}
-
-
-?>
-
-
-
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -23,7 +5,6 @@ if(!isset($_SESSION["login_success"])){
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>FA後台管理系統 | 劇場驗票</title>
-    <link rel="icon" href="img/favicon_back.ico" />
     <link rel="stylesheet" type="text/css" href="css/RESET.css">
     <link rel="stylesheet" type="text/css" href="css/11back_nav.css">
     <link rel="stylesheet" type="text/css" href="css/check_theater_tickets.css">
@@ -133,20 +114,20 @@ if(!isset($_SESSION["login_success"])){
 
                         <div class="number">
                             <h3>票券編號：
-                                <span id="theater_ticket_no"></span>
+                                <span id="theater_ticket_no">1</span>
                             </h3>
                             <h3>場次編號：
-                                <span id="session_no"></span>
+                                <span id="session_no">1</span>
                             </h3>
                         </div>
 
                         <div class="time">
                             <h3>日期：
-                                <span id="program_date"></span>
+                                <span id="program_date">2018-01-11</span>
 
                             </h3>
                             <h3>時間：
-                                <span id="program_time"> </span>
+                                <span id="program_time"> 15:00</span>
                             </h3>
                         </div>
                         <div class="records_info">
@@ -166,10 +147,8 @@ if(!isset($_SESSION["login_success"])){
                 </div>
             </div>
         </div>
-    </div>
 
-</div>
-        <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+
 
         <script>
             window.addEventListener('load', initial);
@@ -181,27 +160,24 @@ if(!isset($_SESSION["login_success"])){
 
                 var input_remain = document.getElementById('remain_num');
 
-                var program_name_span = document.getElementById('program_name');
-                var program_photo_div = document.getElementById('program_photo');
+
                 var theater_ticket_no_span = document.getElementById('theater_ticket_no');
                 var session_no_span = document.getElementById('session_no');
                 var program_date_span = document.getElementById('program_date');
                 var program_time_span = document.getElementById('program_time');
-                var unused_num_span = document.getElementById('unused_num'); //剩下的
-                var used_num_span = document.getElementById('used_num');
-
+                var unused_num = document.getElementById('unused_num'); //剩下的
+                var used_num = document.getElementById('used_num');
 
                 getURL();
+                recordInitialAmount();
                 resetButton();
                 submitButton();
+                setLocalStorage();
 
 
                 function getURL() { //到時候要帶值進url
                     var href = location.href;
-
-                    
-                    // href = href + '?1.9.1'; //第一個數字是theater_ticket_no，第二個為session_no，第三個為program_no
-
+                    // href = href + '?2.1.2'; //第一個數字是theater_ticket_no，第二個為session_no，第三個為program_no
                     var index = href.indexOf('?'); //先判斷?的位置在哪(indexOf)
                     var key_str = href.substr(index + 1); //從index往後一個位置開始取字串到最後
                     var key_array = key_str.split("."); //將取回的字串分割成陣列
@@ -218,7 +194,9 @@ if(!isset($_SESSION["login_success"])){
 
 
                     getOrder();
-
+                    getFacility();
+                    // var url_order_no = href.substr(-1);
+                    // alert(url_order_no);
 
 
 
@@ -239,156 +217,65 @@ if(!isset($_SESSION["login_success"])){
 
                             console.log(order_item);
 
-                            var program_name = order_item.program_name.trim(); //節目名稱
-                            var photo = order_item.program_photo.trim(); //節目照片
-                            var photo_url = 'img/theater_page/' + photo.trim(); //節目照片url
-                            var number_purchase = parseInt(order_item.number_purchase); //原始購買張數
-                            var used_ticket = parseInt(order_item.used_ticket); //已使用的張數
-                            var time_date = order_item.time_date.trim(); //演出日期
-                            var session_time = order_item.session_time.trim(); //演出時間
-
+                            var program_name = order_item.program_name.trim();//節目名稱
+                            var number_purchase = parseInt(order_item.number_purchase);//原始購買張數
+                            var used_ticket = parseInt(order_item.used_ticket);//已使用的張數
+                            var time_date = order_item.time_date.trim();//演出日期
+                            var session_time = order_item.session_time.trim();//演出時間
 
                             //算出剩餘票數
                             remain_num = number_purchase - used_ticket;
 
                             //將資料放入節點中
-                            program_name_span.innerHTML = program_name; //節目名稱
-                            program_photo_div.style.backgroundImage = "url(" + photo_url + ")"; //節目照片
-                            input_remain.value = remain_num; //可註記張數
-                            input_remain.setAttribute('max', remain_num);
-                            program_date_span.innerHTML = time_date; ///演出日期
-                            program_time_span.innerHTML = session_time; //演出時間
-                            unused_num_span.innerHTML = remain_num; //未使用(剩餘)
-                            used_num_span.innerHTML = used_ticket; //已使用
+                            input_remain.
+
+
+
+
+
+
+                            input_full.value = remain_full;
+                            input_half.value = remain_half;
+                            input_full.setAttribute('max', remain_full);
+                            input_half.setAttribute('max', remain_half);
+                            unused_full.innerHTML = remain_full;
+                            unused_half.innerHTML = remain_half;
+                            unused_sum.innerHTML = remain_full + remain_half;
+                            used_full.innerHTML = full_fare_num_used;
+                            used_half.innerHTML = half_fare_num_used;
+                            used_sum.innerHTML = full_fare_num_used + half_fare_num_used;
+
+                            var faci_name = document.getElementById('faci_name');
+                            faci_name.innerHTML = facility_name;
+
+                            initial_full_num = remain_full; //初始票價
+                            initial_half_num = remain_half;
+
                             usedUp();
-                            recordInitialAmount();
 
                         } else {
                             alert(xhr.status);
                         }
 
                     }
-                    var theater_ticket_no = localStorage.getItem('theater_ticket_no');
-                    var session_no = localStorage.getItem('session_no');
-                    var program_no = localStorage.getItem('program_no');
-
-                    var url = "fetch_from(theater_order_list).php?theater_ticket_no=" + theater_ticket_no +
-                        "&session_no=" +
-                        session_no + "&program_no=" + program_no;
+                    var order_no = localStorage.getItem('order_no');
+                    var facility_no = localStorage.getItem('facility_no');
+                    var mem_id = localStorage.getItem('mem_id');
+                    var determine = 'getOrder';
+                    var url = "fetch_from(facility_order_item).php?order_no=" + order_no + "&facility_no=" +
+                        facility_no + "&mem_id=" + mem_id + "&determine=" + determine;
                     xhr.open("Get", url, true);
-                    xhr.send(null);
-
-                    function recordInitialAmount() {
-                        remain_num = document.getElementById('remain_num');
-                        initial_remain_num = remain_num.value;
-                        
-
-                    }; //recordInitialAmount() 
-
-
-
-                }; //getOrder()
-
-
-                function usedUp() {
-                    var used_up = document.getElementById('used_up');
-                    if (input_remain.value == 0) {
-                        used_up.style.display = "block";
-
-                    } else {
-                        used_up.style.display = "none";
-                    }
-                } //usedUp()
-
-
-
-                function updateOrder() {
-
-                    var xhr2 = new XMLHttpRequest();
-                    xhr2.onload = function () {
-
-
-                        if (xhr2.status == 200) {
-
-
-                            var message = xhr2.responseText;
-                            alert(message);
-
-
-                        } else {
-                            alert(xhr2.status);
-                        }
-
-                    }
-
-                    var origin_used_amount = used_num.innerHTML; //原本已經使用的張數
-                    var now_want_used = document.getElementById('remain_num').value; //現在要註記的張數
-                    var new_used = parseInt(origin_used_amount) + parseInt(now_want_used); //新的已使用張數
-
-
-
-                    var theater_ticket_no = localStorage.getItem('theater_ticket_no');
-                    var session_no = localStorage.getItem('session_no');
-                    var program_no = localStorage.getItem('program_no');
-
-                    var url = "update_order(theater_order_list).php?theater_ticket_no=" + theater_ticket_no +
-                        "&session_no=" +
-                        session_no +
-                        "&program_no=" + program_no + "&now_used=" + new_used;
-                    xhr2.open("Get", url, false); //false是指這個function要先做完才去做其他的function
-                    xhr2.send(null);
+                    xhr.send();
+                };
 
 
 
 
 
-                }; //updateOrder()
-
-                function submitButton() {
-
-
-                    submit.addEventListener('click', updateOrder);
-                    submit.addEventListener('click', getOrder);
-
-                    // function recored() {
-
-                    //     var full = parseInt(full_num.value, 10);
-                    //     var half = parseInt(half_num.value, 10);
-                    //     var total = full + half;
-
-                    //     //創造2個p節點
-                    //     var p1 = document.createElement("p");
-                    //     var p2 = document.createElement("p");
-                    //     p1.innerHTML = "時間：2018/1/1 10:00　am";
-                    //     p2.innerHTML = "註記張數：全票" + full + "張　半票" + half + "張　共" + total + "張";
-
-                    //     //創造一個div節點，並給予class名稱
-                    //     var records = document.createElement("div");
-                    //     records.setAttribute('class', 'records');
-
-                    //     //div節點加進去父層used_record_wrapper
-                    //     used_record.appendChild(records);
-
-                    //     //把2個p節點加進去父層div節點
-                    //     records.appendChild(p1);
-                    //     records.appendChild(p2);
-
-                    // }
-
-                }; //submitButton()
 
 
 
 
-                function resetButton() {
-
-                    //reset按下後重新抓回原始值
-                    var reset = document.getElementById('reset');
-                    reset.addEventListener('click', function () {
-                        remain_num.value = initial_remain_num;
-                    });
-
-                }; //resetButton()
 
 
 
