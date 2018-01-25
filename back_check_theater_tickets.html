@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FA後台管理系統 | 劇場驗票</title>
+    <link rel="stylesheet" type="text/css" href="css/RESET.css">
+    <link rel="stylesheet" type="text/css" href="css/11back_nav.css">
+    <link rel="stylesheet" type="text/css" href="css/check_theater_tickets.css">
+
+</head>
+
+<body>
+    <!-- ==== header ==== -->
+
+    <!-- ==== header ==== -->
+    <header>
+        <img src="img/back_menu_default.png" id="ham">
+        <h1 class="logo">
+            <img src="img/LOGO.png" alt="FA">
+            <span>後台管理系統</span>
+        </h1>
+        <ul class="nav">
+            <li class="navList">
+                <a href="back_check_facility_tickets.php">設施驗票 </a>
+                <span class="listcover"></span>
+            </li>
+            <li class="navList">
+                <a href="back_check_theater_tickets.php" style="color: black;">劇場驗票</a>
+                <span class="listcover" style="width: 100%;background-color: rgba(90, 230, 219,0.9);"></span>
+            </li>
+            <li class="navList">
+                <a href="back_facilityM.php">設施管理</a>
+                <span class="listcover"></span>
+
+            </li>
+            <li class="navList">
+                <a href="back_TheaterMang.php">劇場管理</a>
+                <span class="listcover"></span>
+            </li>
+            <li class="navList">
+                <a href="back_activity.php">活動管理</a>
+                <span class="listcover"></span>
+            </li>
+            <li class="navList">
+                <a href="back_member.php">會員管理</a>
+                <span class="listcover"></span>
+            </li>
+            <li class="navList">
+                <a href="">諮詢管理</a>
+                <span class="listcover"></span>
+            </li>
+            <li class="navList" <?php if($_SESSION[ "top_manager"]==0) { echo "style='display:none;'"; } ?>>
+                <a href="back_management_authority.php">權限管理</a>
+                <span class="listcover"></span>
+            </li>
+        </ul>
+    </header>
+    <div class="loginBox mobileLoginBox">
+        <span id="hello">您好!</span>
+        <span id="managerId">
+            <?php
+        			if($_SESSION["top_manager"] == 1){
+						echo "最高管理員";
+					}else{
+						echo "管理員";
+					}
+				?>
+        </span>
+        <span id="managerName">
+            <?php echo $_SESSION["manager_name"]; ?>
+        </span>
+        <a href="manager_logout.php">登出</a>
+    </div>
+
+
+    <!-- === content ==== -->
+    <div class="b_content">
+        <div id="check_tickets" class="tabcontent check_tickets_wrapper">
+            <div class="content">
+                <div class="info theater_info">
+
+                    <!-- 用完跳出的遮罩 -->
+                    <div id="used_up">
+                        <span>已全數用盡</span>
+                    </div>
+
+                    <h2>節目名稱：
+                        <span id="program_name"></span>
+                    </h2>
+
+                    <div class="photo" id="program_photo">
+                    </div>
+
+                    <div class="select_amount">
+                        <div>
+                            <span>可用：</span>
+                            <input id="remain_num" type="number" min="0">
+                            <span>張</span>
+                        </div>
+                    </div>
+                    <div class="button_area">
+                        <button id="submit">確定註記</button>
+                        <button id="reset">重選數量</button>
+                    </div>
+
+
+                </div>
+                <div class="info tickets_info">
+
+                    <h2>票券資訊</h2>
+                    <div class="info_used_record" id="used_record">
+
+                        <div class="number">
+                            <h3>票券編號：
+                                <span id="theater_ticket_no">1</span>
+                            </h3>
+                            <h3>場次編號：
+                                <span id="session_no">1</span>
+                            </h3>
+                        </div>
+
+                        <div class="time">
+                            <h3>日期：
+                                <span id="program_date">2018-01-11</span>
+
+                            </h3>
+                            <h3>時間：
+                                <span id="program_time"> 15:00</span>
+                            </h3>
+                        </div>
+                        <div class="records_info">
+
+                            <h3>未用票券：
+                                <span id="unused_num">1</span>　張</h3>
+                            <h3>已用票券：
+                                <span id="used_num">1</span>　張</h3>
+
+                        </div>
+
+
+
+                    </div>
+
+
+                </div>
+            </div>
+        </div>
+
+
+
+        <script>
+            window.addEventListener('load', initial);
+
+            function initial() {
+
+                var used_record = document.getElementById('used_record');
+                var submit = document.getElementById('submit');
+
+                var input_remain = document.getElementById('remain_num');
+
+
+                var theater_ticket_no_span = document.getElementById('theater_ticket_no');
+                var session_no_span = document.getElementById('session_no');
+                var program_date_span = document.getElementById('program_date');
+                var program_time_span = document.getElementById('program_time');
+                var unused_num = document.getElementById('unused_num'); //剩下的
+                var used_num = document.getElementById('used_num');
+
+                getURL();
+                recordInitialAmount();
+                resetButton();
+                submitButton();
+                setLocalStorage();
+
+
+                function getURL() { //到時候要帶值進url
+                    var href = location.href;
+                    // href = href + '?2.1.2'; //第一個數字是theater_ticket_no，第二個為session_no，第三個為program_no
+                    var index = href.indexOf('?'); //先判斷?的位置在哪(indexOf)
+                    var key_str = href.substr(index + 1); //從index往後一個位置開始取字串到最後
+                    var key_array = key_str.split("."); //將取回的字串分割成陣列
+                    theater_ticket_no = key_array[0]; //讓order_no變成全域
+                    session_no = key_array[1]; //讓facility_no變成全域
+                    program_no = key_array[2];
+
+                    theater_ticket_no_span.innerHTML = theater_ticket_no;
+                    session_no_span.innerHTML = session_no;
+
+                    localStorage.setItem('theater_ticket_no', theater_ticket_no);
+                    localStorage.setItem('session_no', session_no);
+                    localStorage.setItem('program_no', program_no);
+
+
+                    getOrder();
+                    getFacility();
+                    // var url_order_no = href.substr(-1);
+                    // alert(url_order_no);
+
+
+
+                };
+
+                function getOrder() {
+
+                    var xhr = new XMLHttpRequest();
+
+
+                    xhr.onload = function () {
+
+
+                        if (xhr.status == 200) {
+
+                            //將json轉成物件並取得資料
+                            var order_item = JSON.parse(xhr.responseText);
+
+                            console.log(order_item);
+
+                            var program_name = order_item.program_name.trim();//節目名稱
+                            var number_purchase = parseInt(order_item.number_purchase);//原始購買張數
+                            var used_ticket = parseInt(order_item.used_ticket);//已使用的張數
+                            var time_date = order_item.time_date.trim();//演出日期
+                            var session_time = order_item.session_time.trim();//演出時間
+
+                            //算出剩餘票數
+                            remain_num = number_purchase - used_ticket;
+
+                            //將資料放入節點中
+                            input_remain.
+
+
+
+
+
+
+                            input_full.value = remain_full;
+                            input_half.value = remain_half;
+                            input_full.setAttribute('max', remain_full);
+                            input_half.setAttribute('max', remain_half);
+                            unused_full.innerHTML = remain_full;
+                            unused_half.innerHTML = remain_half;
+                            unused_sum.innerHTML = remain_full + remain_half;
+                            used_full.innerHTML = full_fare_num_used;
+                            used_half.innerHTML = half_fare_num_used;
+                            used_sum.innerHTML = full_fare_num_used + half_fare_num_used;
+
+                            var faci_name = document.getElementById('faci_name');
+                            faci_name.innerHTML = facility_name;
+
+                            initial_full_num = remain_full; //初始票價
+                            initial_half_num = remain_half;
+
+                            usedUp();
+
+                        } else {
+                            alert(xhr.status);
+                        }
+
+                    }
+                    var order_no = localStorage.getItem('order_no');
+                    var facility_no = localStorage.getItem('facility_no');
+                    var mem_id = localStorage.getItem('mem_id');
+                    var determine = 'getOrder';
+                    var url = "fetch_from(facility_order_item).php?order_no=" + order_no + "&facility_no=" +
+                        facility_no + "&mem_id=" + mem_id + "&determine=" + determine;
+                    xhr.open("Get", url, true);
+                    xhr.send();
+                };
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            } //initial()
+        </script>
+
+
+</body>
+
+</html>

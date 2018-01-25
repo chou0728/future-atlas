@@ -80,14 +80,14 @@ if(isset($_SESSION["top_manager"])===false||isset($_SESSION["manager_name"])===f
 
 <!-- ===請由此複製============================================================= -->
 	<div class="back_wrapper_right">
-		<div class="b_content">
+		<div class="b_content" id="not-check-ticket">
 			<div class="b_sub_nav">
 				<a href="javascript:void(0)" class="b_sn_btn" id="active" onclick="openCity(event,'facilityInfo')" >設施介紹管理</a>
 				<a href="javascript:void(0)" class="b_sn_btn" onclick="openCity(event,'facilityTickets')" >設施上架管理</a>
 				<a href="javascript:void(0)" class="b_sn_btn" onclick="openCity(event,'facility_new')" >設施新增</a>
 			</div>
 <!-- =====================請加內容至此====================-->
-			<div class="b_inner_content" id="not-check-ticket">
+			<div class="b_inner_content">
 	<!-- ===================1====================== -->
 				<div id="facilityInfo" class="tabcontent">
 					<div class="table">
