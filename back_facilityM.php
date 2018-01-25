@@ -29,7 +29,7 @@ if(isset($_SESSION["top_manager"])===false||isset($_SESSION["manager_name"])===f
                 <span class="listcover"></span>
             </li>
             <li class="navList">
-                <a href="back_check_theater_tickets.php">劇場驗票</a>
+                <a href="back_check_theater_tickets.html">劇場驗票</a>
                 <span class="listcover"></span>
             </li>
             <li class="navList">
@@ -50,7 +50,7 @@ if(isset($_SESSION["top_manager"])===false||isset($_SESSION["manager_name"])===f
                 <span class="listcover"></span>
             </li>
             <li class="navList">
-                <a href="">諮詢管理</a>
+                <a href="back_robot.php">諮詢管理</a>
                 <span class="listcover"></span>
             </li>
             <li class="navList"<?php
