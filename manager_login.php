@@ -8,6 +8,8 @@ if(isset($_SESSION["login_error"])==true){
 	unset($_SESSION["banned"]);
 	echo "<script>alert('此帳號已被停權。');</script>";
 }
+
+
 ?>
 <!DOCTYPE html>
 <html>
@@ -174,6 +176,17 @@ if(isset($_SESSION["login_error"])==true){
 </head>
 <body>
 
+
+
+<?php
+
+//抓到是從哪邊進來的並帶到url給manager_login_php.php
+
+	$filename =  $_REQUEST["filename"];
+
+?>
+
+
 <div class="nav">
     <div class="ul_box">
         <h1 style="display: none">FutureAtlas_未來主題樂園</h1>
@@ -196,7 +209,13 @@ if(isset($_SESSION["login_error"])==true){
 <img src="img/manager_login_bg.jpg" class="bgi">
 <div id="loginWrapper">
 <div id="loginTitle">管理員登入</div>
-<form action="manager_login_php.php" method="post">
+
+
+
+
+
+
+<form action="manager_login_php.php?filename=<?php echo $filename ?>" method="post">
 	<div class="inputDiv">
 		<div class="inputTitle">
 		</div>
