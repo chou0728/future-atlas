@@ -1398,7 +1398,7 @@ if(isset($_SESSION["login_error"]) === true){
 						<h2 class="theatertitle">劇場介紹</h2>
 						<div class="theatercontent">
 							FA未來劇場配備最先進的4DX體感技術
-							、720度全景環繞螢幕，搭配精心策畫的節目內容，720度環繞，座位會搭配影片有相應的動作 ，必定讓您留下難忘的體驗。
+							、720度全景環繞螢幕，<span>搭配精心策畫的節目內容，720度環繞，</span>座位會搭配影片有相應的動作 ，必定讓您留下難忘的體驗。
 						</div>
 					</div>
 				</li>
