@@ -30,7 +30,7 @@ if(isset($_SESSION["login_success"])==false){
         <img src="img/back_menu_default.png" id="ham">
         <h1 class="logo">
             <img src="img/LOGO.png" alt="FA">
-            <span>後台管理系統</span>
+            <span>後台管理系統 | 會員管理 </span>
         </h1>
         <ul class="nav">
             <li class="navList">
@@ -62,7 +62,7 @@ if(isset($_SESSION["login_success"])==false){
                 
             </li>
             <li class="navList">
-                <a href="">諮詢管理</a>
+                <a href="back_robot.php">諮詢管理</a>
                 <span class="listcover"></span>
             </li>
             <li class="navList"<?php
@@ -140,7 +140,16 @@ if(isset($_SESSION["login_success"])==false){
                                 // echo $total_pages;       
                                 //跑迴圈，印出資料
                                 foreach( $member as $i=>$memberRow){
+
+                                    $mem_permissions = $memberRow["mem_permissions"];
+
+                                     if ($mem_permissions ==1){
+                                        $mem_permissions="可評價";
+                                     }
+
                                 ?>
+
+
                                 <!-- <form method="post"   align="center" enctype="multipart/form-data"> -->
 
                                 <!-- <input type="hidden" id="program_no" name="program_no" value="<?php echo  $prodRow["program_no"] ?>"> -->
@@ -160,7 +169,7 @@ if(isset($_SESSION["login_success"])==false){
                                        <?php echo  $memberRow["mem_points"] ?>
                                     </td>
                                     <td>
-                                       <?php echo  $memberRow["mem_permissions"] ?>    
+                                       <?php echo  $mem_permissions ?>    
                                     </td>
                                    	<td>
                                   		<?php echo  $memberRow["mem_mail"] ?>

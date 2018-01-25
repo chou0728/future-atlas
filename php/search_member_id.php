@@ -19,7 +19,7 @@
 	  $str .="<tr class='Field_title'>
                     <th>訂單編號</th>
                     <th>場次編號</th>
-                    <th>會員姓名</th>
+                    <th>會員帳號</th>
                     <th>購買張數</th>
                     <th>已使用張數</th>
                     <th>訂購日期</th>
