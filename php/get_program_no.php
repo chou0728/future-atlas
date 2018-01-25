@@ -13,7 +13,7 @@
 	    //取回一筆資料
       $str = "";
 	  $str .="<table>";
-	  $str .="<tr>
+	  $str .="<tr class='Field_title'>
                     <th>場次編號</th>
                     <th>節目編號</th>
                     <th>場次時間</th>
