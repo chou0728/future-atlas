@@ -182,9 +182,9 @@ if(isset($_SESSION["login_error"]) === true){
 
                 <h2>設施名稱：<?php echo $order_item_row["facility_name"] ?></h2>
                 <div class="info_ticket_QR">
-                    
-                    <img id="QR" class="QR" src="https://chart.googleapis.com/chart?chs=200x200&cht=qr&chl=https://www.youtube.com/?<?php echo $order_item_row["order_no"] ?>.<?php echo $order_item_row["facility_no"] ?>"></img>
-                    
+                    <div class="QR">
+                        <img src="https://chart.googleapis.com/chart?chs=200x200&cht=qr&chl=https://www.youtube.com/?<?php echo $order_item_row["order_no"] ?>.<?php echo $order_item_row["facility_no"] ?>"></img>
+                    </div>
                     <div class="ticket_info">
                         
                         <p>購買日期：<?php echo $order_item_row["order_date"] ?></p>
@@ -197,7 +197,7 @@ if(isset($_SESSION["login_error"]) === true){
                 </div>
 
             </div>
-            <div class="info">
+            <div class="info" id="info_last">
                 <h2>使用狀況</h2>
                 <div class="info_used_record">
                         <div class="records">
@@ -214,8 +214,8 @@ if(isset($_SESSION["login_error"]) === true){
                                 <p>共：<?php echo $order_item_row["full_fare_num_used"] + $order_item_row["half_fare_num_used"] ?>張</p>
                             </div>
                         </div>
+                        <a href="see_tickets.php" class="backbtn">回到查看票券</a>
                 </div>
-            
 
                 <?php
                     }
@@ -232,24 +232,24 @@ if(isset($_SESSION["login_error"]) === true){
             </div>
         </div>
     </div>
-
+    
     <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
     <script src="js/00nav.js"></script>
     <script>
 
         // 為什麼只能執行一次呢??
-        function init(){
-            var QR_code = document.getElementById("QR");
+        function init_ftd(){
+            var QR_code = document.getElementsByClassName("QR")[0];
                  QR_code.addEventListener('click',function(){
-                if(this.style.width !="200%"){
-                    this.style.width = "200%";
+                if(this.id !="QR"){
+                    this.setAttribute("id","QR");
                 }else{
-                    this.style.width = "";
+                    this.setAttribute("id","");
                 }
             });
 
         }
-        window.addEventListener('load',init);
+        window.addEventListener('load',init_ftd);
        
         
     </script>
