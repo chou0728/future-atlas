@@ -149,7 +149,7 @@ if(isset($_SESSION["login_success"])==false){
                                         <input type="text" id="program_name" name="program_name" size=6 value="<?php echo  $prodRow["program_name"] ?>">
                                     </td>
                                     <td >
-                                        <textarea id="program_intro" name="program_intro" rows="4" cols="30" maxlength="50"  ><?php echo  $prodRow["program_intro"]?></textarea>
+                                        <textarea id="program_intro" name="program_intro" rows="4" cols="30" maxlength="60"  ><?php echo  $prodRow["program_intro"]?></textarea>
                                          <!-- <input type="text" size=50  name="program_intro"  style="word-break: break-word;" cols="5" row ="5" style="height:50px;" value="<?php echo  $prodRow["program_intro"]?>"> -->
                                     </td>
                                     <td>
