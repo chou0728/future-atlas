@@ -171,7 +171,7 @@ if(isset($_SESSION["login_error"]) === true){
                 <h2>節目名稱：<?php echo $order_item_row["program_name"] ?></h2>
                 <div class="info_ticket_QR">
                     
-                <img class="QR" src="https://chart.googleapis.com/chart?chs=200x200&cht=qr&chl=https://www.youtube.com/?<?php echo $order_item_row["theater_ticket_no"] ?>.<?php echo $order_item_row["session_no"] ?>.<?php echo $order_item_row["program_no"] ?>"></img>
+                <img class="QR" src="https://chart.googleapis.com/chart?chs=200x200&cht=qr&chl=http://140.115.236.72/demo-projects/BD103/BD103G3/back_check_theater_tickets.php?<?php echo $order_item_row["theater_ticket_no"] ?>.<?php echo $order_item_row["session_no"] ?>.<?php echo $order_item_row["program_no"] ?>.ticket=theater"></img>
                     
                     <div class="ticket_info">
                         
