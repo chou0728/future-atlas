@@ -1664,7 +1664,7 @@ if(isset($_SESSION["login_error"]) === true){
 							</div>
 							<hr>
 							<div class="text">
-								<p>樂園位置
+								<p>樂園地址:桃園市中壢區中大路300號
 								</p>
 							</div>
 						</div>

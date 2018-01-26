@@ -5,10 +5,11 @@
 .cont{
     width: 80%;
     max-width: 1440px;
-    background-color: rgba(30,30,30 ,0.8);
+    background-color: rgba(20,20,20 ,0.9);
     margin: 0 auto;
     height: 70vh;
     position: relative;
+    background-image:  repeating-linear-gradient(transparent 0px, transparent 1px,transparent 1px, transparent 3px,rgba(0, 102, 204,0.2) 3px, rgba(0, 102, 204,0.2) 4px);
 }
 .cont h3{
     margin-top:5%;
@@ -330,7 +331,7 @@
 
  .cont .midBox p{
      line-height: 30px;
-     font-size: 20px;
+     font-size: 18px;
      color: rgb(219, 219, 219);
  }
 
