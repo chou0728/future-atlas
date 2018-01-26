@@ -153,7 +153,7 @@ CREATE TABLE `theater_order_list` (
   `number_purchase` int NOT NULL,
   `used_ticket` int  DEFAULT '0' COMMENT '預設為0',
   `order_date` date NOT NULL COMMENT 'yyyy-mm-dd',
-  `original_amount` int COMMENT '未扣積分',
+  `original_amount` int COMMENT '訂單原始總金額',
   `points_discount` int DEFAULT '0',
   `credit_card` char(19) COLLATE utf8_unicode_ci NOT NULL,
   `program_no` int NOT NULL COMMENT 'FK',

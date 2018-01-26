@@ -194,6 +194,7 @@ if(isset($_SESSION["login_error"]) === true){
                             <p>已使用：<?php echo $order_item_row["used_ticket"] ?>張</p>
                             
                         </div>
+                        <a href="see_tickets.php" class="backbtn">回到查看票券</a>
                 </div>
             
 
