@@ -79,6 +79,7 @@ body::-webkit-scrollbar-thumb {
       left: 33.5%;*/
     }
     .Menu:nth-child(2){
+      padding-left:7%;
       height: 100px;
       line-height: 100px;
     }
