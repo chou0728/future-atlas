@@ -185,7 +185,7 @@ if(isset($_SESSION["login_error"]) === true){
                 <h2>設施名稱：<?php echo $order_item_row["facility_name"] ?></h2>
                 <div class="info_ticket_QR">
                 <div class="QR">                   
-                    <img src="https://chart.googleapis.com/chart?chs=200x200&cht=qr&chl=https://www.youtube.com/?<?php echo $order_item_row["order_no"] ?>.<?php echo $order_item_row["facility_no"] ?>"></img>
+                    <img src="https://chart.googleapis.com/chart?chs=200x200&cht=qr&chl=http://140.115.236.72/demo-projects/BD103/BD103G3/back_check_facility_tickets.php?<?php echo $order_item_row["order_no"] ?>.<?php echo $order_item_row["facility_no"] ?>.<?php echo $_SESSION["mem_id"] ?>.ticket=faci"></img>
                  </div>    
                     <div class="ticket_info">
                         

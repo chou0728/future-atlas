@@ -84,7 +84,7 @@ body::-webkit-scrollbar-thumb {
 .fi_wrapper .icon_subnav .i_info .i_box{
 	position: absolute;
 	width: 90px;
-	height: 40px;
+	/*height:50px;*/
 	right: -130px;
 	top: -20px;
 	opacity: 0.9;
@@ -95,6 +95,7 @@ body::-webkit-scrollbar-thumb {
 .fi_wrapper .icon_subnav .i_info .i_box p{
 	color: rgb(222,255,243);
 	padding: 5px;
+	line-height: 1.5;
 }
 .fi_wrapper .icon_subnav .i_info .i_box .i_line{
 	width: 45px;
@@ -442,8 +443,8 @@ body::-webkit-scrollbar-thumb {
 	
 }
 .fi_wrapper .fi_panel .f_box .bcover_border .points .points_cover{
-	width: 130px;
-	height: 25px;
+	width: 131px;/*550*/
+	height: 23.8px;/*100*/
 	position: relative;
 	margin-left: 10px;
 	vertical-align: middle;
@@ -735,7 +736,8 @@ body::-webkit-scrollbar-thumb {
 }
 @media screen and (max-width:480px){
 	#noticket{
-		
+		font-size: 16px;
+		width: 38%;
 	}
 }
 #getTicket{
@@ -1132,7 +1134,7 @@ body::-webkit-scrollbar-thumb {
 		line-height: 70px;
 	}
 	.lightbox_wrapper .content .inlineB .parameter .paraContent span{
-		width:100.3%;
+		width:100.5%;
 		border: 1px solid rgba(50,255,218,0.9);
 	}
 }
@@ -1449,15 +1451,15 @@ body::-webkit-scrollbar-thumb {
 	line-height: 1.5;
 }
 .memScore .points_cover{
-	width: 120px;
-	height: 23px;
+	width: 131px;/*550*/
+	height: 24px;/*100*/
 	position: relative;
 
 	cursor: pointer;
 }
 .memScore .points_bar{
-	width: 100%;
-	height: 100%;
+	width: 99.99%;
+	height: 99.99%;
 	display: block;
 	background-color: rgb(50,255,235);
 	position: absolute;

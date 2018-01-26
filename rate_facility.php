@@ -11,7 +11,8 @@ session_start();
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>評價設施</title>
+    <title>FA未來主題樂園 | 評價設施</title>
+    <link rel="icon" href="img/favicon.ico" />
     <link rel="stylesheet" type="text/css" href="css/RESET.css">
     <link rel="stylesheet" href="css/rate_facility.css">
     <link rel="stylesheet" href="css/header.css">
@@ -41,7 +42,7 @@ session_start();
                 <span class="register">
                     <?php
                         if(isset($_SESSION["mem_id"])===true){
-                            echo "<a href='MembersOnly.html'>帳戶</a>";
+                            echo "<a href='MembersOnly.php'>帳戶</a>";
                         }else{
                             echo "註冊";
                         }
@@ -75,7 +76,7 @@ session_start();
                 <span class="login">
                     <?php
                         if(isset($_SESSION["mem_id"])===true){
-                            echo"<a href='logoutheadforindex.php'>登出</a>";
+                            echo"<a href='logoutheadforindex.php?ismp=0'>登出</a>";
                         }else{
                             echo"登入";
                         }

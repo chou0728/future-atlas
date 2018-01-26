@@ -29,11 +29,11 @@ if(isset($_SESSION["login_error"]) === true){
 			  width: 100%;
 			  height: 100%;
 			  overflow: hidden;
-			  background-color:#000;  /* 背景カラー */
-			  z-index: 9999;  /* 一番手前に */
-			  pointer-events: none;  /* 他の要素にアクセス可能にするためにポインターイベントは無効に */
-			  opacity: 0;  /* 初期値 : 透過状態 */
-			  -webkit-transition: opacity .4s ease;  /* アニメーション時間は 0.8秒 */
+			  background-color:#000;  
+			  z-index: 9999;  
+			  pointer-events: none; 
+			  opacity: 0;  
+			  -webkit-transition: opacity .4s ease; 
 			  transition: opacity .4s ease;
 		}
 		body.fadeout::after {
@@ -74,7 +74,7 @@ if(isset($_SESSION["login_error"]) === true){
                 <span class="register">
                 	<?php
                 		if(isset($_SESSION["mem_id"])===true){
-                			echo "<a href='MembersOnly.html'>帳戶</a>";
+                			echo "<a href='MembersOnly.php'>帳戶</a>";
                 		}else{
                 			echo "註冊";
                 		}
@@ -180,7 +180,8 @@ if(isset($_SESSION["login_error"]) === true){
     <!-- header end-->
 <div class="fbtWrapper">
 
-<?php 
+<?php
+$icon= array("","roller_coaster_hover.png","ferris_wheel_hover.png","ferris_wheel_hover.png","robot_hover.png","blimp_hover_for_facility.png","time_travel_hover.png","","disco_hover.png");
 try {
 	require_once("php/connectBooks.php");
 	$sql = "select * from facility where ticket_already=1";
@@ -194,7 +195,7 @@ try {
 		<div class="ticketTitlebox">
 			<div class="ticket">
 				<figure class="front">
-					<img src="img/facilityBuyTicket/launched-rocket.png" class="icon">
+					<img src="img/secondSection/<?php echo $icon[$prodRow->facility_no];?>" class="icon">
 				</figure>
 				<figure class="back"><?php echo $prodRow->facility_no ?></figure>
 			</div>
@@ -353,7 +354,7 @@ function init(){
 		}
 
 	function saveToStorage(){
-		var dami = 0;//判斷用
+		
 		fn = this.dataset.fn;/*設施編號*/
 		_this = this;
 		var ad = this.previousElementSibling.previousElementSibling.children[2].children[1].children[0].value;/*全票張數*/
@@ -363,15 +364,20 @@ function init(){
 		var fname = this.previousElementSibling.previousElementSibling.previousElementSibling.previousElementSibling.previousElementSibling.children[1].innerText;
 		var addToCart = adp+"/"+ad+"/"+cdp+"/"+cd+"/"+fname;
 		if(ad!=0||cd!=0){//判斷全票半票皆不為0張
-			dami = 1;
 			storage.setItem(fn,addToCart);
-			openNotice();
+			
 				if(facility_ticket_list.indexOf(fn)==-1){
-					dami = 0;
+					
 					facility_ticket_list += fn+"/" ;
 					storage.setItem("facility_ticket_list", facility_ticket_list);
 					setTimeout(changeCartImg,50);
+					alert("【"+fname+"】加入購物車成功!目前全票共"+ad+"張/半票共"+cd+"張");
 					openNotice();
+				}else{
+
+					
+					alert("購物車內的【"+fname+"】修改成功!目前全票共"+ad+"張/半票共"+cd+"張");
+					openNotice_1();
 				}
 				
 		}else if(ad==0&&cd==0){
@@ -422,34 +428,44 @@ function init(){
         aa = newlevel;
         document.getElementById("cartimgid").src = "img/cart/wallet_"+aa+".png";
         document.getElementById("howmanytickets").innerHTML = facility_ticket_list.split("/").length-1;
-        console.log(facility_ticket_list.split("/").length-1);
+        // console.log(facility_ticket_list.split("/").length-1);
         clearTimeout(changeCartImg);
 
 	}
 	function openNotice(){
-		
 		var input =document.getElementsByClassName("ctrl-counter-input");
-		for(var i =0;i<input.length;i++){
-			input[i].value = 0;
+			for(var i =0;i<input.length;i++){
+				input[i].value = 0;
 		}	
+		
 		notice = document.getElementsByClassName('notice_here')[0];
 		notice.setAttribute('id','open_notice');
-		if(dami==0){
+
 			var fadeinout = document.getElementsByClassName("fadeinout")[0];
 			fadeinout.style.opacity="1";
 			setTimeout(function(){
 				fadeinout.style.opacity="0";
 			},1500);
-		}else{
+			setTimeout(closeNotice,2000);
+
+			
+			
+		
+		
+	}
+	function openNotice_1(){
+		var input =document.getElementsByClassName("ctrl-counter-input");
+			for(var i =0;i<input.length;i++){
+				input[i].value = 0;
+		}
+			notice = document.getElementsByClassName('notice_here')[0];
+			notice.setAttribute('id','open_notice');
 			var fadeinout_1 = document.getElementsByClassName("fadeinout")[1];
 			fadeinout_1.style.opacity="1";
 			setTimeout(function(){
 				fadeinout_1.style.opacity="0";
 			},1500);
-		}
-		
-		setTimeout(closeNotice,2000);
-		
+			setTimeout(closeNotice,2000);
 	}
 	function closeNotice(){
 				

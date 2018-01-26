@@ -236,7 +236,7 @@ if(isset($_SESSION["login_error"]) === true){
 				<div class="i_box">
 					<div class="i_line"></div>
 					<div class="i_line2"></div>
-					<p>適合情侶共同遊樂的設施</p>
+					<p>適合情侶同樂的設施</p>
 				</div>
 		</div>
 

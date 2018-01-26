@@ -104,8 +104,8 @@ INSERT INTO `activity` (`activity_no`, `activity_date`, `activity_name`, `activi
 INSERT INTO `backend_manager` (`manager_id`, `manager_name`, `password`, `top_manager`, `manager_status`) VALUES
 (1, 'superfa', '123456', 1, 1),
 (2, 'eric', '123456', 0, 1),
-(3, 'isnarita', '123456', 0, 0),
-(4, 'manna', '123456', 0, 0),
+(3, 'isnarita', '123456', 0, 1),
+(4, 'manna', '123456', 0, 1),
 (5, 'david', '123456', 0, 1),
 (6, 'yuyu', '123456', 0, 1);
 
@@ -135,13 +135,14 @@ VALUES
 -- 資料表`member` 
 
 INSERT INTO `member` (`mem_id`, `mem_name`, `password`, `mem_nick`, `mem_points`, `mem_permissions`, `mem_mail`, `mem_phone`) VALUES
-(1, 'david', '123456', 'David', 50, 1, 'cclm@gmail.com', '0942205923'),
-(2, 'handsome', '456789', 'Handsome', 50, 1, 'handsome@gmail.com', '0946505923'),
-(3, 'sara', '111', 'Sara', 50, 1, 'sbxew@ggg', '0926704627'),
-(4, 'rose', '123456', 'Rose', 50, 1, 'a123w99@gmail.com', '0926704627'),
+(1, 'david', '123456', '大衛David', 50, 1, 'david520@gmail.com', '0942205923'),
+(2, 'handsome', '123456', 'Handsome', 50, 1, 'handsome@gmail.com', '0946505923'),
+(3, 'sara', '123456', 'Sara', 50, 1, 'sbxew@ggg', '0926704627'),
+(4, 'rose', '123456', '', 50, 1, 'a123w99@gmail.com', '0926704627'),
 (5, 'alex', '123456', 'Alex', 50, 1, 'b12345699@gmail.com', '0926704627'),
 (6, 'eric', '123456', 'Eric', 50, 1, 'eric0728@gmail.com', '0926704627'),
-(7, 'manna', '123456', 'manna', 50, 1, 'manna99@gmail.com', '0926704627');
+(7, 'manna', '123456', 'manna', 50, 1, 'manna99@gmail.com', '0926704627'),
+(8, 'tina', '123456', 'tina', 50, 1, 'tina666@gmail.com', '0910236785');
 
 
 

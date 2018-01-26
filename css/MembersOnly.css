@@ -59,7 +59,7 @@ body::-webkit-scrollbar-thumb {
     height: 125%;
     border: 2px solid rgba(255, 193, 22,0.8);
 }
-
+/*按鈕效果結束*/
 .MembersBox .content .buttonArea .myticket{
     position: relative;
     display: block;
@@ -111,8 +111,7 @@ body::-webkit-scrollbar-thumb {
     position: absolute;
     width: 30%;
     top:-60px;
-    left: -70px;
-    
+    left: -70px; 
 }
 /*圓圈旋轉開始*/
 .nameBox_value_place .nameBox  .imgrotate{
@@ -139,8 +138,16 @@ body::-webkit-scrollbar-thumb {
 }
 /*圓圈結束*/
 
-
-
+.content .RWDplace{
+    display: none;
+    position: absolute;
+    width: 100%;
+    margin: 0 auto;
+}
+.content .RWDplace p{
+    color: white;
+    font-size: 24px;
+}
 /*表格內容位置*/
 /*表格動畫*/
 .nameBox_value_place .table{
@@ -185,10 +192,14 @@ body::-webkit-scrollbar-thumb {
     .MembersBox{
         margin:50px auto;
     }
+    .content .RWDplace{
+        display: block;
+    }
+   
    .MembersBox .content .buttonArea{
         width: 100%;
         margin: 0 auto;
-        padding: 10px 20px 0 20px;
+        padding: 25px 20px 0 20px;
         text-align: center;
         display: flex;
         flex-direction: row;
@@ -205,7 +216,7 @@ body::-webkit-scrollbar-thumb {
     }
     .nameBox_value_place{
         width: 90%;
-        margin-top: 20px;
+        margin-top: 40px;
         height: 70vh;
     }
     .nameBox_value_place .bar{
@@ -214,7 +225,6 @@ body::-webkit-scrollbar-thumb {
 
     .nameBox_value_place .nameBox{
        display: none;
-    
     }
 
     .nameBox_value_place table th,.nameBox_value_place table td{

@@ -45,7 +45,13 @@
           opacity: 0;
           visibility: hidden;
         }
-
+        @media screen and (max-width: 414px){
+             #buyticketlightBox{
+                width:70%;
+                line-height:50px;
+             }
+        }
+       
         #buyticketlightBox .msg{
             padding: 15% 10%;
             height: 85%;
@@ -227,7 +233,7 @@
                         <br>
                         <input type="radio" name="Scorepoints" value="1" checked onchange="Userpoints()"> -->
                         使用積分
-                        <input type="number" id="Scorenumber" value="10" size=10 style="font-size:16px; width:50px;" onchange="changeScoreNumber()">
+                        <input type="number" id="Scorenumber"  size=10 style="font-size:16px; width:50px;" onchange="changeScoreNumber()">
                     </td>
                     <td style="padding-top: 40px;" id="integral"> 
                     </td>
@@ -287,7 +293,7 @@
                 <input type="text" style="width:50px;" id="Card3" class="inputs" maxlength="4"  onchange="creditCard(this)"  onkeyup="this.value=this.value.replace(/[^0-9]/g,'')">-
                 <input type="text" style="width:50px;" id="Card4" class="inputs" maxlength="4"  onchange="creditCard(this)"  onkeyup="this.value=this.value.replace(/[^0-9]/g,'')">
             </p>
-            <p>到期日</p>
+            <p>到期年/月</p>
             <p style="font-size:5px;">
                 <input type="text" style="width:40px;"  maxlength="2" class="inputs" onchange="creditCardate(this)" onkeyup="this.value=this.value.replace(/[^0-9]/g,'')"> /
                 <input type="text" style="width:40px;"  maxlength="2" class="inputs" onchange="creditCardate(this)" onkeyup="this.value=this.value.replace(/[^0-9]/g,'')">
@@ -495,9 +501,9 @@
                     //buyticketlightBox.style.visibility = 'visible';
                     //buyticketlightBox.style.display = 'block';
                     //document.getElementById('msg').innerHTML =return_data ;
-                    setTimeout(function(){
-                          location.href="see_tickets.php";
-                    },2000)
+                     setTimeout(function(){
+                           location.href="see_tickets.php";
+                     },2000)
                 }
             }
             // Send the data to PHP now... and wait for response to update the status div
