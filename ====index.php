@@ -1714,7 +1714,7 @@ if(isset($_SESSION["login_error"]) === true){
 							<h3>*** INFO ***</h3>
 							<div class="pic">
 									<div class="map">
-										<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3616.9010562788353!2d121.1903276150953!3d24.969480784002634!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x346823c1ec904dcb%3A0xcdc129d4455ce456!2z5ZyL56uL5Lit5aSu5aSn5a24!5e0!3m2!1szh-TW!2stw!4v1516799135037" width="400" height="200" frameborder="0" style="border:0" allowfullscreen></iframe>
+										<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3616.9010562788353!2d121.1903276150953!3d24.969480784002634!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x346823c1ec904dcb%3A0xcdc129d4455ce456!2z5ZyL56uL5Lit5aSu5aSn5a24!5e0!3m2!1szh-TW!2stw!4v1516799135037" width="400" height="240" frameborder="0" style="border:0" allowfullscreen></iframe>
 									</div>
 							</div>
 							<hr>
