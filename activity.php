@@ -556,14 +556,14 @@ body.fadeout::after {
 		    $(".day span,.day2 span").text(dayNames[newDate.getDay()]);
 		    $(".year span").html(newDate.getFullYear());
 		}, 1000);	
-			$(".outer").on({
-			    mousedown:function(){
-			        $(".dribbble").css("opacity","1");
-			    },
-			    mouseup:function(){
-			        $(".dribbble").css("opacity","0");
-			    }
-		});
+		// 	$(".outer").on({
+		// 	    mousedown:function(){
+		// 	        $(".dribbble").css("opacity","1");
+		// 	    },
+		// 	    mouseup:function(){
+		// 	        $(".dribbble").css("opacity","0");
+		// 	    }
+		// });
 	});
 
 	// 套件：活動剪影
@@ -583,19 +583,19 @@ body.fadeout::after {
 		// (1)100,-40(2)233,57(3),182,214(4)18,214(5)-33,57
 		if( thumb_x > 230){
 			// 二
-			wrpper.style.left = (left * 1 + 10)+"%";
+			wrpper.style.left = (left * 1)+"%";
 		}else if( thumb_x > 180 && thumb_x < 185 && thumb_y > 210){
 			// 三
-			wrpper.style.left = (left * 2 + 10)+"%";
+			wrpper.style.left = (left * 2)+"%";
 		}else if( thumb_x > 95 && thumb_x < 105 && thumb_y < -35){
 			// 一
-			wrpper.style.left = (left * 0 + 10) +"%";
+			wrpper.style.left = (left * 0) +"%";
 		}else if( thumb_x > 15 && thumb_x < 22 && thumb_y > 210){
 			// 四
-			wrpper.style.left = (left * 3 + 10) +"%";
+			wrpper.style.left = (left * 3) +"%";
 		}else if( thumb_x > -40 && thumb_x < -30){
 			// 五
-			wrpper.style.left = (left * 4 + 10) +"%";
+			wrpper.style.left = (left * 4) +"%";
 		}
 
 	}
