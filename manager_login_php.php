@@ -37,7 +37,7 @@ try {
 
 
 						}else if($_REQUEST["filename"] == "back_check_theater"){//直接點back_check_theater_tickets.php
-							header("location:back_check_theater_tickets.php");
+							header("location:back_check_theater_tickets.php?qr=0");
 
 
 						}else{//都不是的話預設去設施管理頁面

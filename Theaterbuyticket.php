@@ -35,62 +35,75 @@
 
 <body>
    <div class="header">
-      <ul class="ul_top">
-          <li class="li_top">
+    <ul class="ul_top">
+        <li class="li_top">
             <a href=<?php
               if(isset($_SESSION["mem_id"])===true){
                       echo "'javascript:void(0)'";
                     }else{
                       echo "'register.html'";
                     }
-                ?> id="registerUser">
+            ?> id="registerUser">
                 <img src=<?php
                     if(isset($_SESSION['mem_id'])===true){
                       echo 'img/member/member_3.png';
                     }else{
                       echo 'img/member/member_0.png';
                     }
-                ?>
+          ?>
                 >
                 <span class="register">
                   <?php
                     if(isset($_SESSION["mem_id"])===true){
-                      echo "<a href='MembersOnly.html'>帳戶</a>";
+                      echo "<a href='MembersOnly.php'>帳戶</a>";
                     }else{
                       echo "註冊";
                     }
                   ?>
                 </span>
+        </li>
+        <li class="li_top" <?php if(!isset($_SESSION["mem_id"])){
+                    echo "style='display: none';";
+                    }?>>
+          <a href="see_tickets.php" class="tkt">
+            <img src="img/member/qr-code-scan.png">
+            <span>票券</span>
+          </a>
+        </li>
+        <li class="li_top">
+            <a href=<?php
+                    if(isset($_SESSION["mem_id"])===true){
+                      echo"'logoutheadforindex.php'";
+                    }else{
+                      echo"'javascript:void(0)'";
+                    }
+                  ?> id="singUpBtn">
+                <img src=<?php
+                    if(isset($_SESSION['mem_id'])===true){
+                      echo 'img/member/member_2.png';
+                    }else{
+                      echo 'img/member/member_1.png';
+                    }
+          ?>>
+                <span class="login">
+                  <?php
+                    if(isset($_SESSION["mem_id"])===true){
+                      echo"<a href='logoutheadforindex.php'>登出</a>";
+                    }else{
+                      echo"登入";
+                    }
+                  ?>
+                </span>
             </a>
-          </li>
-          <li class="li_top">
-              <a href=<?php
-                          if(isset($_SESSION["mem_id"])===true){
-                              echo"'logoutheadforindex.php'";
-                          }else{
-                              echo"'javascript:void(0)'";
-                          }
-                      ?> id="singUpBtn">
-                  <img src="img/member/member_1.png">
-                  <span class="login">
-                      <?php
-                          if(isset($_SESSION["mem_id"])===true){
-                              echo"<a href='logoutheadforindex.php'>登出</a>";
-                          }else{
-                              echo"登入";
-                          }
-                      ?>
-                  </span>
-              </a>
-          </li>
-          <li class="li_top">
-               <a href="input_cart.php">
-                  <img id="cartimgid" src="img/cart/wallet_0.png">
-                  <span id="howmanytickets">0</span>
-              </a>
-          </li>
-      </ul>
-    </div>
+        </li>
+        <li class="li_top">
+             <a href="input_cart.php">
+                <img id="cartimgid" src="img/cart/wallet_0.png">
+                <span id="howmanytickets">0</span>
+            </a>
+        </li>
+    </ul>
+</div>
    <div class="nav">
         <div class="ul_box">
             <ul class="ul_left">
@@ -238,29 +251,30 @@
             </div>
         </div>
     </div>
-    <!-- 登入燈箱 -->
-    <div id="all-page"></div><!-- 叫出時背景-->
-    <div id="lightBox">
-      <div id="cancel">
-        <div class="leftLine"></div>
-        <div class="rightLine"></div>
-      </div>
-        
-        <form class="singUp" action="loginheadforindex.php" method="post">
-          <h2>會員登入</h2>
-          <div class="text">
-            會員帳號：<input type="text" name="memName" id="memId" value="" required placeholder="輸入帳號">
-            <br>
-            會員密碼：<input type="password" name="memPsw"  id="memPsw" value="" required placeholder="輸入密碼">
-            <br>
-          </div>
-          <div class="btn">
-            <input type="submit" name="" id="submit" value="登入">
-            <input type="reset" name="reset" value="RESET">
-              </div>
-        </form>
-    </div>
-    <!--登入/註冊燈箱 -->
+    
+<div id="all-page"></div><!-- 叫出時背景-->
+        <!-- 登入燈箱 ==============-->
+        <div id="lightBox">
+            <div id="cancel">
+                <div class="leftLine"></div>
+                <div class="rightLine"></div>
+            </div>
+            <!-- <img class="bar" src="img/bar.png" alt="bar"> -->
+            <form class="singUp" action="loginheadforindex.php" method="post">
+                <h2>會員登入</h2>
+                <div class="text">
+                    帳號：<input type="text" name="memName" id="memId" value="" required placeholder="輸入帳號">
+                    <br>
+                    密碼：<input type="password" name="memPsw"  id="memPsw" value="" required placeholder="輸入密碼">
+                    <br>
+                </div>
+                        <div class="btn">
+                            <input type="reset" name="reset" value="重填">
+                            <input type="submit" name="" id="submit" value="登入">
+                        </div>
+            </form>
+        </div>
+        <!-- 登入燈箱 ==end============-->
     <script type="text/javascript">
       //-登入-----------------------------------
           window.onload = function () {

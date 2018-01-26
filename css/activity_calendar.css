@@ -670,13 +670,13 @@ body{
 }
 @media screen and (min-width:1300px){
 	.acTime{
-	width: 15%;
+		width: 15%;
 	}.acTitle{
-		width: 25%;
+		width: 23%;
 	}.acLoc{
-		width: 20%;
+		width: 15%;
 	}.acIntro{
-		width: 40%;
+		width: 37%;
 	}
 }
 

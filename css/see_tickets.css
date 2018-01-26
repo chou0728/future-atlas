@@ -45,6 +45,7 @@ body::-webkit-scrollbar-thumb {
 
 @media screen and (min-width: 415px) and (max-width: 1024px) {
   .wrapper .content {
+    flex-direction: column;
     padding-top: 150px;
   }
 }
@@ -127,6 +128,13 @@ body::-webkit-scrollbar-thumb {
   width: 45%;
 }
 
+
+
+@media screen and (min-width: 415px) and (max-width: 1024px) {
+  .wrapper .content .tickets_area {
+    width: 100%;
+  }
+}
 @media screen and (max-width: 414px) {
   .wrapper .content .tickets_area {
     width: 100%;
@@ -139,9 +147,22 @@ body::-webkit-scrollbar-thumb {
   padding-top: 10px;
 }
 
+.wrapper .content .tickets_area .no_ticket{
+  border: 2px solid #37fff3;
+  width:90%;
+  height: 220px;
+  margin: 15px auto;
+  color: #37fff3;
+  line-height:220px;
+  text-align: center;
+  font-size: 24px;
+  letter-spacing: 4px;
+}
+
 .wrapper .content .tickets_area .tickets {
   border: 2px solid #37fff3;
   width:90%;
+  height: 220px;
   margin: 15px auto;
   display: flex;
   flex-direction: row;
@@ -149,15 +170,20 @@ body::-webkit-scrollbar-thumb {
   position: relative;
 }
 
+
 @media screen and (min-width: 415px) and (max-width: 1024px) {
   .wrapper .content .tickets_area .tickets {
     width: 95%;
+    height: auto;
+    flex-direction: column;
   }
 }
 
 @media screen and (max-width: 414px) {
   .wrapper .content .tickets_area .tickets {
     width: 95%;
+    height: auto;
+    flex-direction: column;
   }
 }
 
@@ -165,22 +191,60 @@ body::-webkit-scrollbar-thumb {
   width: 40%;
   height: 100%;
   padding: 10px;
+  transition: 0.4s ease-in-out; 
+  position: relative;
+  top:5%;
 }
+.wrapper .content .tickets_area .tickets .QR_code .QR_img{
+
+  width: 100%;
+
+}
+.wrapper .content .tickets_area .tickets .QR_code .ticket_used_up{
+  width: 80%;
+  height: 50px;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left:0;
+  margin: auto;
+  border: #f00 4px solid;
+  text-align: center;
+  line-height: 50px;
+  font-size: 20px;
+  font-weight: bold;
+  color: #f00;
+  background: rgba(46, 46, 46, 0.9);
+  display: none;
+}
+
+
 
 @media screen and (min-width: 415px) and (max-width: 1024px) {
   .wrapper .content .tickets_area .tickets .QR_code {
-    width: 30%;
-    position: relative;
-    transform: translateY(40%);
+    width: 40%;
+    margin: 0 auto;
+    top:0%;
+  }
+  .wrapper .content .tickets_area .tickets .QR_code .ticket_used_up{
+
+    font-size: 16px;
   }
 }
 
 @media screen and (max-width: 414px) {
   .wrapper .content .tickets_area .tickets .QR_code {
-    width: 30%;
-    position: relative;
-    transform: translateY(40%);
+    width: 40%;
+    margin: 0 auto;
+    top:0%;
   }
+  .wrapper .content .tickets_area .tickets .QR_code .ticket_used_up{
+
+    font-size: 16px;
+  }
+
+
 }
 
 .wrapper .content .tickets_area .tickets .button_area {
@@ -220,13 +284,17 @@ body::-webkit-scrollbar-thumb {
 
 @media screen and (min-width: 415px) and (max-width: 1024px) {
   .wrapper .content .tickets_area .tickets .ticket_info {
-    width: 80%;
+    width: 70%;
+    margin: 0 auto;
+    padding: 0  0 10px 0;
   }
 }
 
 @media screen and (max-width: 414px) {
   .wrapper .content .tickets_area .tickets .ticket_info {
-    width: 80%;
+    width: 70%;
+    margin: 0 auto;
+    padding: 0  0 10px 0;
   }
 }
 
@@ -252,4 +320,34 @@ body::-webkit-scrollbar-thumb {
 .wrapper .content .tickets_area .tickets .more_info_theater:hover {
   background-color: rgba(255, 193, 22, 0.8);
   color: black;
+}
+
+
+.qr_back_cover{
+  width: 100vw;
+  height: 100vh;
+  background: #000;
+  z-index: 1005;
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: none;
+  opacity: 0.9;
+  transition: 1s ease-in-out; 
+
+}
+.is-large{
+  transform: scale(2);
+  position: relative;
+  left:50%;
+  z-index: 1006;
+  transition: 0.4s ease-in-out; 
+}
+.is-cover{
+  display: block;
+  transition: 1s ease-in-out; 
+}
+.stop-scrolling{
+  height: 100vh;
+  overflow: hidden;
 }

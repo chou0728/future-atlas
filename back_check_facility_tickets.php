@@ -1,26 +1,4 @@
-<!-- <script>
 
-getURL();
-
-    function getURL() { //到時候要帶值進url
-            var href = location.href;
-            href = href + '?2.1.2'; //第一個數字是order_no，第二個為facility_no，第三個為mem_id
-            var index = href.indexOf('?'); //先判斷?的位置在哪(indexOf)
-            var key_str = href.substr(index + 1); //從index往後一個位置開始取字串到最後
-            var key_array = key_str.split("."); //將取回的字串分割成陣列
-            order_no = key_array[0]; //讓order_no變成全域
-            facility_no = key_array[1]; //讓facility_no變成全域
-            mem_id = key_array[2];
-
-            document.cookie = "order_no=" + order_no;
-            document.cookie = "facility_no=" + facility_no;
-            document.cookie = "mem_id=" + mem_id;
-        };
-
-
-</script> -->
-
-<!-- 上面這段請勿複製 只有設施驗票 跟 劇場驗票要而已-->
 
 <?php
 ob_start();
@@ -122,49 +100,16 @@ if(!isset($_SESSION["login_success"])){
     <!-- === content ==== -->
     <div class="back_wrapper_right">
         <div class="b_content">
-            <!-- nav -->
-            <!-- <div class="b_sub_nav">
-                <a href="javascript:void(0)" class="b_sn_btn" id="active">選擇所在設施</a>
-                <a href="javascript:void(0)" class="b_sn_btn"> 設施驗票</a>
-            </div> -->
-            <!-- ============== 選擇所在設施 ============== -->
-            <!-- <div id="choose_facility" class="tabcontent choose_facility_wrapper">
-                <h1>選擇所在設施</h1>
-                <div class="content">
-                    <div class="icon_wrapper">
-                        <a class="facility_icon facility_01" data-title="宇宙雲霄飛車" data-facility="roller_coaster">
-                            <p class="facility_name">宇宙雲霄飛車</p>
-                        </a>
-                        <a class="facility_icon facility_02" data-title="AAA設施" data-facility="">
-                            <p class="facility_name">宇宙雲霄飛車</p>
-                        </a>
-                        <a class="facility_icon facility_03" data-title="BBB設施" data-facility="">
-                            <p class="facility_name">宇宙雲霄飛車</p>
-                        </a>
-                    </div>
-                    <div class="icon_wrapper">
-                        <a class="facility_icon facility_04" data-title="CCC設施" data-facility="">
-                            <p class="facility_name">宇宙雲霄飛車</p>
-                        </a>
-                        <a class="facility_icon facility_05" data-title="DDD設施" data-facility="">
-                            <p class="facility_name">宇宙雲霄飛車</p>
-                        </a>
-                        <a class="facility_icon facility_06" data-title="EEE設施" data-facility="">
-                            <p class="facility_name">宇宙雲霄飛車</p>
-                        </a>
-                    </div> -->
-            <!-- ========== 點選後顯示所在設施 ========== -->
-            <!-- <div class="show_where_now">
-                        <img src="" id="show_where_photo">
-                        <button id="rechoose">重選設施</button>
-                    </div>
-                </div>
-            </div> -->
+           
 
 
             <!-- 設施驗票 -->
 
             <div id="check_tickets" class="tabcontent check_tickets_wrapper">
+            <div id="pc_only">
+                <h1>請使用行動裝置驗票</h1>
+
+            </div>
                 <div class="content">
                         
                     <div class="info used_facility_info">
@@ -276,7 +221,7 @@ if(!isset($_SESSION["login_success"])){
 
             function getURL() { //到時候要帶值進url
                 var href = document.getElementById("get_qr").value;
-                alert(href);
+                // alert(href);
                 // href = href + '?2.1.2'; //第一個數字是order_no，第二個為facility_no，第三個為mem_id
                 var index = href.indexOf('?'); //先判斷?的位置在哪(indexOf)
                 var key_str = href.substr(index + 1); //從index往後一個位置開始取字串到最後

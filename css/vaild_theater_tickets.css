@@ -1,0 +1,225 @@
+@charset "UTF-8";
+* {
+  /*outline: 1px solid red;*/
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0; }
+
+body {
+  padding: 0;
+  margin: 0;
+  font-family: "微軟正黑體"; 
+  background: #000;}
+  @media screen and (min-width: 415px) and (max-width: 1024px) {
+   
+
+  }
+  
+  @media screen and (max-width: 414px) {
+    
+  }
+.wrapper {
+  width: 100%;
+  height: 100vh;
+  background: #000; }
+  .wrapper .content {
+    width: 100%;
+    max-width: 1920px;
+    padding-top: 100px; }
+    
+    .wrapper .content .QR_info {
+
+      height: 45vh; }
+      
+    .wrapper .content .info {
+      padding: 5px;
+      margin: 10px auto;
+      width: 40%;
+      border: 4px solid #37fff3; }
+
+      @media screen and (min-width: 415px) and (max-width: 1024px) {
+   
+         .wrapper .content .info{
+          width: 80%;
+        }
+        .wrapper .content .QR_info{
+          height: 50vh; 
+        }
+      }
+      
+      @media screen and (max-width: 414px) {
+          .wrapper .content{
+            padding-top: 50px;
+          }
+           .wrapper .content .info{
+             width: 90%;
+          }
+          .wrapper .content .QR_info{
+            height: 65vh; 
+          }
+      }
+
+
+
+      .wrapper .content .info h2 {
+        padding: 8px;
+        margin-bottom: 5px;
+        font-size: 24px;
+        background-color: #37fff3;
+        opacity: 0.9;
+        color: #000;
+        font-weight: bold;
+        width: 100%;
+        text-align: center;
+       }
+      
+       
+     
+    .wrapper .content .info_ticket_QR {
+      width: 100%;
+      height: 80%;
+      display: flex;
+      flex-direction: row;
+      justify-content: space-around; }
+
+      .wrapper .content .info_ticket_QR .QR {
+        width: 40%;
+        height: auto;
+        padding: 10px;
+      
+      }
+
+       .wrapper .content .info_ticket_QR .ticket_info {
+          width: 60%;
+          display: flex;
+          flex-direction: column;
+          justify-content: space-around;
+          padding: 20px;
+          color: #37fff3; }
+          .wrapper .content .info_ticket_QR .ticket_info p{
+            
+            letter-spacing: 2px;
+           }
+        
+
+      @media screen and (min-width: 415px) and (max-width: 1024px) {
+   
+        .wrapper .content .info_ticket_QR .QR{
+          width: 50%;
+          padding: 20px;
+        }
+       .wrapper .content .info_ticket_QR .ticket_info{
+        width: 50%;
+      }
+
+
+
+
+     }
+     
+     @media screen and (max-width: 414px) {
+          .wrapper .content .info_ticket_QR{
+            flex-direction: column;
+         }
+         .wrapper .content .info_ticket_QR .ticket_info{
+          width: 98%;
+          margin: 0 auto;
+          padding: 0px;
+          padding-left: 10px;
+          padding-top: 10px;
+         }
+         .wrapper .content .info_ticket_QR .ticket_info p{
+          margin: 3px 0;
+          letter-spacing: 2px;
+         }
+         .wrapper .content .info_ticket_QR .QR{
+           margin: 0 auto;
+           width: 43%;
+           height: auto;
+           padding-top: 6px;
+           transition: 0.4s ease-in-out; 
+         }
+
+     }
+
+    
+
+      
+    .wrapper .content .info_used_record {
+      
+      color: #37fff3; }
+      .wrapper .content .info_used_record .records {
+        width: 90%;
+        margin: 0 auto; 
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+        text-align: center;
+      }
+      /* .wrapper .content .info_used_record .records h3{
+        font-weight: bold;
+        text-align: center;
+        margin: 4px 0;
+        letter-spacing: 2px;
+        font-size: 20px;
+      } */
+        .wrapper .content .info_used_record .records p {
+          display: inline-block;
+          text-align: left;
+          margin:40px 20px; 
+          letter-spacing: 4px;
+          
+        
+        }
+
+       @media screen and (max-width: 414px){
+        .wrapper .content .info_used_record .records{
+             width: 100%;
+             padding: 6px 0;
+        }
+          .wrapper .content .info_used_record .records p {
+            margin: 0;
+            
+
+          }
+
+
+
+
+         }
+
+
+
+
+.records p span{
+  padding: 0 5px;
+}
+
+.qr_back_cover{
+  width: 100vw;
+  height: 100vh;
+  background: #000;
+  z-index: 1005;
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: none;
+  opacity: 0.9;
+  transition: 1s ease-in-out; 
+
+}
+.is-large{
+  transform: scale(1.8);
+  position: relative;
+  left: 0;
+  z-index: 1006;
+  transition: 0.4s ease-in-out; 
+}
+.is-cover{
+  display: block;
+  transition: 1s ease-in-out; 
+}
+.stop-scrolling{
+  height: 100vh;
+  overflow: hidden;
+}

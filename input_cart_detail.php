@@ -90,7 +90,7 @@ body::-webkit-scrollbar-thumb {
 			<td><div class="mem_info">暱稱</div><div id="mem_nick" class="mem_info_content"></div></td>
 		</tr>
 		<tr>
-			<td><div class="mem_info">Email</div><div id="mem_mail" class="mem_info_content"></div></td>
+			<td><div class="mem_info">信箱</div><div id="mem_mail" class="mem_info_content"></div></td>
 		</tr>
 		<tr>
 			<td><div class="mem_info">積分</div><div id="mem_points" class="mem_info_content"></div></td>

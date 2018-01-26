@@ -37,6 +37,19 @@ window.onload = function(){
 
     }
 
+
+
+
+   
+
+
+
+
+    function scaleQR(){
+        $('.QR_code').on('click',function(){
+            $(this).toggleClass('is-large');
+        });
+    }
 };
 
 
