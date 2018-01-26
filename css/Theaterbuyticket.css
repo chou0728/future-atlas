@@ -371,7 +371,7 @@
       @media screen and (max-width: 414px) {
         .wrapper .content {
           display: block;
-          padding-top:0px; 
+          padding:0px; 
           } 
       }
       .wrapper .content .info {
@@ -407,6 +407,11 @@
         padding-right:5%;
       	line-height:1.5;
         letter-spacing: 2px; 
+      }
+      @media screen and (max-width: 414px){
+        .info .infoTextintro{
+          padding: 1px 10px;
+        }
       }
       .info .infoimg img{
         width: 100%;

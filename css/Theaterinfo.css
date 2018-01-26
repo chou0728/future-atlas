@@ -573,12 +573,12 @@ body::-webkit-scrollbar-thumb {
 
   @media screen and (max-width: 414px) {
     .programtwoimg2 {
-      /*display: none;*/ 
-      position: absolute;
+      display: none;
+      /*position: absolute;
       top:100%;
       left:64%;
       width:100px; 
-      height:100px;
+      height:100px;*/
     } 
   }
   @media screen and (max-width:1024px) and (min-width:415px){
@@ -856,8 +856,10 @@ body::-webkit-scrollbar-thumb {
         /*top: 130%;
         left: 36%;*/ 
         font-size: 21px;
-        margin-top:315px;
+        margin-top:222px;
         margin-bottom:30px;
+        left: 50%;
+        transform:translateX(-50%);
       } 
     }
   /*.buyticketBtn a {
