@@ -471,7 +471,6 @@ window.onload = function(){
     function scaleQR(){
         $('.QR_code').on('click',function(){
             $(this).toggleClass('is-large');
-            $('.qr_back_cover').toggleClass('is-cover');
             $('body').toggleClass('stop-scrolling');
         });
     }

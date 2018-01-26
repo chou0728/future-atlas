@@ -12,6 +12,7 @@ session_start();
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>評價設施</title>
+    <link rel="stylesheet" type="text/css" href="css/RESET.css">
     <link rel="stylesheet" href="css/rate_facility.css">
     <link rel="stylesheet" href="css/header.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -19,63 +20,124 @@ session_start();
 
 <body>
     <!-- header -->
-
-    <div class="header">
-        <ul class="ul_top">
-            <li class="li_top">
-                <a href="SignUp.html">註冊</a>
+<div class="header">
+    <ul class="ul_top">
+        <li class="li_top">
+            <a href=<?php
+                if(isset($_SESSION["mem_id"])===true){
+                            echo "'javascript:void(0)'";
+                        }else{
+                            echo "'register.html'";
+                        }
+            ?> id="registerUser">
+                <img src=<?php
+                        if(isset($_SESSION['mem_id'])===true){
+                            echo 'img/member/member_3.png';
+                        }else{
+                            echo 'img/member/member_0.png';
+                        }
+                    ?>
+                >
+                <span class="register">
+                    <?php
+                        if(isset($_SESSION["mem_id"])===true){
+                            echo "<a href='MembersOnly.html'>帳戶</a>";
+                        }else{
+                            echo "註冊";
+                        }
+                    ?>
+                </span>
+            </a>
+        </li>
+        <li class="li_top" <?php if(!isset($_SESSION["mem_id"])){
+                                echo "style='display: none';";
+                                }?>>
+            <a href="see_tickets.php" class="tkt">
+                <img src="img/member/qr-code-scan.png">
+                <span>票券</span>
+            </a>
+         </li>
+        <li class="li_top">
+            <a href=<?php
+                        if(isset($_SESSION["mem_id"])===true){
+                            echo"'logoutheadforindex.php'";
+                        }else{
+                            echo"'javascript:void(0)'";
+                        }
+                    ?> id="singUpBtn">
+                <img src=<?php
+                        if(isset($_SESSION['mem_id'])===true){
+                            echo 'img/member/member_2.png';
+                        }else{
+                            echo 'img/member/member_1.png';
+                        }
+                    ?>>
+                <span class="login">
+                    <?php
+                        if(isset($_SESSION["mem_id"])===true){
+                            echo"<a href='logoutheadforindex.php'>登出</a>";
+                        }else{
+                            echo"登入";
+                        }
+                    ?>
+                </span>
+            </a>
+        </li>
+        <li class="li_top">
+             <a href="input_cart.php">
+                <img id="cartimgid" src="img/cart/wallet_0.png">
+                <span id="howmanytickets">0</span>
+            </a>
+        </li>
+    </ul>
+</div>
+<div class="nav">
+    <div class="ul_box">
+        <ul class="ul_left">
+            <li>
+                <img src="img/hover-tri.png" class="nav_hover">
+                <a href="Theaterbuyticket.php">劇場購票</a>
             </li>
-            <li class="li_top">
-                <a href="#" id="singUpBtn">登入</a>
+            <li>
+                <img src="img/hover-tri.png" class="nav_hover">
+                <a href="facilityBuyTicket.php">設施購票</a>
             </li>
-            <li class="li_top">
-                <a href="input_cart.html">購物車</a>
+            <li>
+                <img src="img/hover-tri.png" class="nav_hover">
+                <a href="facilityInfo.php">設施介紹</a>
+            </li>
+        </ul>
+        <h1 style="display: none">FutureAtlas_未來主題樂園</h1>
+        <a href="====index.php" class="logo_a">
+            <img src="img/LOGO.png" class="logo">
+        </a>
+        <ul class="ul_right">
+            <li>
+                <img src="img/hover-tri.png" class="nav_hover">
+                <a href="====index.php#page2" id="NavClose">園區地圖</a>
+            </li>
+            <li>
+                <img src="img/hover-tri.png" class="nav_hover">
+                <a href="activity.php">活動月曆</a>
+            </li>
+            <li>
+                <img src="img/hover-tri.png" class="nav_hover">
+                <a href="robot.php">諮詢專區</a>
             </li>
         </ul>
     </div>
-    <div class="nav">
-        <div class="ul_box">
-            <ul class="ul_left">
-                <li>
-                    <a href="Theaterbuyticket.html">劇場購票</a>
-                </li>
-                <li>
-                    <a href="facilityBuyTicket.html">設施購票</a>
-                </li>
-                <li>
-                    <a href="facilityInfo.html">設施介紹</a>
-                </li>
-            </ul>
-            <h1 style="display: none">FutureAtlas_未來主題樂園</h1>
-            <a href="index.html#page1" class="logo_a">
-                <img src="img/LOGO.png" class="logo">
-            </a>
-            <ul class="ul_right">
-                <li>
-                    <a href="index.html#page2">園區地圖</a>
-                </li>
-                <li>
-                    <a href="activity.html">活動月曆</a>
-                </li>
-                <li>
-                    <a href="robot.html">諮詢專區</a>
-                </li>
-            </ul>
-        </div>
-        <div class="navOpenBtn">
-            <!-- RWD left btn-->
-            <div class="ham"></div>
-            <div class="ham"></div>
-            <div class="ham"></div>
-            <div class="ham"></div>
-        </div>
+    <div class="navOpenBtn"><!-- RWD left btn-->
+        <div class="ham"></div>
+        <div class="ham"></div>
+        <div class="ham"></div>
+        <div class="ham"></div>
     </div>
-    <div class="headerOpenBtn">
-        <!-- RWD right btn-->
-        <img src="img/memberBtnM.png" class="memIcon">
-        <img src="img/ticketicon.png" class="ticketIcon">
-        <div class="blueScreen"></div>
-    </div>
+</div>
+<div class="headerOpenBtn"><!-- RWD right btn-->
+    <img src="img/Usericon1.png" class="memIcon">
+    <img src="img/Usericon.png" class="memIcon">
+    
+</div>
 
 
     <!-- content -->
