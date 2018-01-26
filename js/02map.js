@@ -278,7 +278,7 @@
 			function mapBig_pc() {
 				$('.map').css('transform', 'scale(' + 0.9 + ')');
 				$('.map').stop().animate({
-					top: '0%'
+					top: '11%'
 				}, 350);
 				$('.info').stop().animate({
 					top: "150%"
