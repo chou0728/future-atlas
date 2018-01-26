@@ -197,7 +197,7 @@ $(document).ready(function(){
          }
          if (scroll_value>500) {
          $('.programtwoimg').animate({
-            left: '18%'
+            left: '25%'
            }, 1000)
          }
     });

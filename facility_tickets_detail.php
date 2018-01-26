@@ -183,20 +183,21 @@ if(isset($_SESSION["login_error"]) === true){
 
                 <h2>設施名稱：<?php echo $order_item_row["facility_name"] ?></h2>
                 <div class="info_ticket_QR">
-                    
-                    <img  class="QR" src="https://chart.googleapis.com/chart?chs=200x200&cht=qr&chl=https://www.youtube.com/?<?php echo $order_item_row["order_no"] ?>.<?php echo $order_item_row["facility_no"] ?>"></img>
-                    
+                <div class="QR">                   
+                    <img src="https://chart.googleapis.com/chart?chs=200x200&cht=qr&chl=https://www.youtube.com/?<?php echo $order_item_row["order_no"] ?>.<?php echo $order_item_row["facility_no"] ?>"></img>
+                 </div>    
                     <div class="ticket_info">
                         
                         <p>購買日期：<?php echo $order_item_row["order_date"] ?></p>
                         <p>訂單編號：<?php echo $order_item_row["order_no"] ?></p>
                         <p>訂單總額：<?php echo $order_item_row["original_total"] ?></p>
-                        <p>全票：<?php echo $order_item_row["full_fare_num"] ?>張　半票：<?php echo $order_item_row["half_fare_num"] ?>張　共<?php echo $order_item_row["full_fare_num"] + $order_item_row["half_fare_num"] ?>張</p>
+                        <p>全票：<?php echo $order_item_row["full_fare_num"] ?>張　半票：<?php echo $order_item_row["half_fare_num"] ?>張</p>
+                        <p>共<?php echo $order_item_row["full_fare_num"] + $order_item_row["half_fare_num"] ?>張</p>
                     </div>
                 </div>
 
             </div>
-            <div class="info">
+            <div class="info" id="info_last">
                 <h2>使用狀況</h2>
                 <div class="info_used_record">
                         <div class="records">
@@ -213,6 +214,7 @@ if(isset($_SESSION["login_error"]) === true){
                                 <p>共：<?php echo $order_item_row["full_fare_num_used"] + $order_item_row["half_fare_num_used"] ?>張</p>
                             </div>
                         </div>
+                         <a href="see_tickets.php" class="backbtn">回到查看票券</a>
                 </div>
             
 
@@ -236,29 +238,41 @@ if(isset($_SESSION["login_error"]) === true){
     <script src="js/00nav.js"></script>
     <script>
 
-window.onload = function(){
+// window.onload = function(){
 
 
 
-    var screen_width = document.documentElement.clientWidth;
+ //    var screen_width = document.documentElement.clientWidth;
 
-            if (screen.width <= 414){
-                scaleQR();
-            };
+ //            if (screen.width <= 414){
+ //                scaleQR();
+ //            };
 
             
-            function scaleQR(){
-                $('.QR').on('click',function(){
-                    $(this).toggleClass('is-large');
-                    $('.qr_back_cover').toggleClass('is-cover');
-                    $('body').toggleClass('stop-scrolling');
-                });
-            }
+ //            function scaleQR(){
+ //                $('.QR').on('click',function(){
+ //                    $(this).toggleClass('is-large');
+ //                    $('.qr_back_cover').toggleClass('is-cover');
+ //                    $('body').toggleClass('stop-scrolling');
+ //                });
+ //            }
 
 
 
- };
-    
+ // };
+
+        function init_ftd(){
+            var QR_code = document.getElementsByClassName("QR")[0];
+                 QR_code.addEventListener('click',function(){
+                    if(this.id !="QR"){
+                        this.setAttribute("id","QR");
+                    }else{
+                        this.setAttribute("id","");
+                    }
+            });
+
+        }
+        window.addEventListener('load',init_ftd);
 
 
 

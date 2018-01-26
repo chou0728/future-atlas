@@ -1631,7 +1631,7 @@ if(isset($_SESSION["login_error"]) === true){
 
 				<div class="cont">
 					<!--中間灰色-->
-					<img class="bar" src="img/fifthSection/bar.png" alt="bar">
+					<img class="bar" src="img/fifthSection/bar2.png" alt="bar">
 
 					<!-- 左邊購買票卷 -->
 					<div class="leftBox">
