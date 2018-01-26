@@ -11,7 +11,8 @@ session_start();
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>評價設施</title>
+    <title>FA未來主題樂園 | 評價設施</title>
+    <link rel="icon" href="img/favicon.ico" />
     <link rel="stylesheet" type="text/css" href="css/RESET.css">
     <link rel="stylesheet" href="css/rate_facility.css">
     <link rel="stylesheet" href="css/header.css">
