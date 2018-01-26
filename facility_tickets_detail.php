@@ -114,7 +114,7 @@ if(isset($_SESSION["login_error"]) === true){
             </li>
             <li>
                 <img src="img/hover-tri.png" class="nav_hover">
-                <a href="facilityInfo.php"">設施介紹</a>
+                <a href="facilityInfo.php">設施介紹</a>
             </li>
         </ul>
         <h1 style="display: none">FutureAtlas_未來主題樂園</h1>
@@ -156,6 +156,7 @@ if(isset($_SESSION["login_error"]) === true){
     
     
     <div class="wrapper">
+    <div class="qr_back_cover"></div>
         <div class="content">
             <div class="info QR_info">
 
@@ -183,16 +184,14 @@ if(isset($_SESSION["login_error"]) === true){
                 <h2>設施名稱：<?php echo $order_item_row["facility_name"] ?></h2>
                 <div class="info_ticket_QR">
                     
-                    <img id="QR" class="QR" src="https://chart.googleapis.com/chart?chs=200x200&cht=qr&chl=https://www.youtube.com/?<?php echo $order_item_row["order_no"] ?>.<?php echo $order_item_row["facility_no"] ?>"></img>
+                    <img  class="QR" src="https://chart.googleapis.com/chart?chs=200x200&cht=qr&chl=https://www.youtube.com/?<?php echo $order_item_row["order_no"] ?>.<?php echo $order_item_row["facility_no"] ?>"></img>
                     
                     <div class="ticket_info">
                         
                         <p>購買日期：<?php echo $order_item_row["order_date"] ?></p>
                         <p>訂單編號：<?php echo $order_item_row["order_no"] ?></p>
-                        <p>訂單總金額：<?php echo $order_item_row["original_total"] ?></p>
-                        <p>折扣金額：<?php echo $order_item_row["discount"] ?></p>
-                        <p>折扣後總金額：<?php echo $order_item_row["subtotal"] ?></p>
-                        <p>全票：<?php echo $order_item_row["full_fare_num"] ?>張　半票：<?php echo $order_item_row["half_fare_num"] ?>張　總計<?php echo $order_item_row["full_fare_num"] + $order_item_row["half_fare_num"] ?>張</p>
+                        <p>訂單總額：<?php echo $order_item_row["original_total"] ?></p>
+                        <p>全票：<?php echo $order_item_row["full_fare_num"] ?>張　半票：<?php echo $order_item_row["half_fare_num"] ?>張　共<?php echo $order_item_row["full_fare_num"] + $order_item_row["half_fare_num"] ?>張</p>
                     </div>
                 </div>
 
@@ -237,20 +236,35 @@ if(isset($_SESSION["login_error"]) === true){
     <script src="js/00nav.js"></script>
     <script>
 
-        // 為什麼只能執行一次呢??
-        function init(){
-            var QR_code = document.getElementById("QR");
-                 QR_code.addEventListener('click',function(){
-                if(this.style.width !="200%"){
-                    this.style.width = "200%";
-                }else{
-                    this.style.width = "";
-                }
-            });
+window.onload = function(){
 
-        }
-        window.addEventListener('load',init);
-       
+
+
+    var screen_width = document.documentElement.clientWidth;
+
+            if (screen.width <= 414){
+                scaleQR();
+            };
+
+            
+            function scaleQR(){
+                $('.QR').on('click',function(){
+                    $(this).toggleClass('is-large');
+                    $('.qr_back_cover').toggleClass('is-cover');
+                    $('body').toggleClass('stop-scrolling');
+                });
+            }
+
+
+
+ };
+    
+
+
+
+
+
+        
         
     </script>
 </body>

@@ -163,6 +163,7 @@ if(isset($_SESSION["login_error"]) === true){
     <div  id="top_faci"></div>
     
     <div class="wrapper">
+        <div class="qr_back_cover"></div>
     <div class="buttonArea">
                 <a href="#top_faci" class="faci_tickets" >設施票券</a>
                 <a href="#down_theater" class="thea_tickets" >劇場票券</a>
@@ -174,7 +175,34 @@ if(isset($_SESSION["login_error"]) === true){
             <div class="tickets_area">
                 <h2 id="see_f_tickets" >設施票券</h2><!-- id為RWD用-->
 
+                <?php 
+                    try{
+                        require_once("connectBooks.php");
+                        $sql = "SELECT COUNT(order_no) order_amount  FROM `facility_order_item` WHERE mem_id = ?";
+                        $order_aumout_PDO = $pdo->prepare($sql);
+                        $order_aumout_PDO->bindValue(1,$_SESSION["mem_id"]); 
+                        $order_aumout_PDO->execute();
+                        $order_aumout = $order_aumout_PDO->fetchAll(PDO::FETCH_ASSOC);
+                       
+                        foreach( $order_aumout as $i=>$order_aumout_arr){
+                   
+                 ?>
+
+
+                <div class="no_ticket" id="no_faci_ticket" data-no="<?php echo $order_aumout_arr["order_amount"] ?>">尚未購買任何票券</div>
+                    
+
                 <?php
+
+                        }
+                    }catch (PDOException $e) {
+                        echo "錯誤原因 : " , $e->getMessage() , "<br>";
+                        echo "錯誤行號 : " , $e->getLine() , "<br>";
+                    }
+                
+                ?>
+               
+               <?php
                    
                     
                     try {
@@ -187,8 +215,6 @@ if(isset($_SESSION["login_error"]) === true){
                         $order_item_PDO->execute();
                         $order_item = $order_item_PDO->fetchAll(PDO::FETCH_ASSOC);
 
-                        // $path = $_SERVER["HTTP_REFERER"];
-
 
 
                         foreach( $order_item as $i=>$order_item_row){
@@ -200,8 +226,10 @@ if(isset($_SESSION["login_error"]) === true){
                 <div class="tickets">
 
                     <!-- 設施QR code要帶1.訂單編號 2.設施編號 3.會員ID-->
-
-                    <img class="QR_code" src="https://chart.googleapis.com/chart?chs=200x200&cht=qr&chl=http://140.115.236.72/demo-projects/BD103/BD103G3/back_check_facility_tickets.php?<?php echo $order_item_row["order_no"] ?>.<?php echo $order_item_row["facility_no"] ?>.<?php echo $_SESSION["mem_id"] ?>.ticket=faci"></img>
+                    <div class="QR_code">
+                        <img class="QR_img" src="https://chart.googleapis.com/chart?chs=200x200&cht=qr&chl=http://140.115.236.72/demo-projects/BD103/BD103G3/back_check_facility_tickets.php?<?php echo $order_item_row["order_no"] ?>.<?php echo $order_item_row["facility_no"] ?>.<?php echo $_SESSION["mem_id"] ?>.ticket=faci"></img>
+                        <div class="ticket_used_up">已全數用盡</div>
+                    </div>
                     <div class="ticket_info">
                         
                         <p>設施名稱：
@@ -234,8 +262,6 @@ if(isset($_SESSION["login_error"]) === true){
                     } catch (PDOException $e) {
                         echo "錯誤原因 : " , $e->getMessage() , "<br>";
                         echo "錯誤行號 : " , $e->getLine() , "<br>";
-                        // echo "getCode : " , $e->getCode() , "<br>";
-                        // echo "異動失敗,請聯絡系統維護人員";
                     }
                 ?>
 
@@ -245,6 +271,36 @@ if(isset($_SESSION["login_error"]) === true){
             <div class="tickets_area">
                 <h2 id="see_t_tickets">劇場票券</h2>
 
+                <?php 
+                    try{
+                        require_once("connectBooks.php");
+                        $sql = "SELECT COUNT(theater_ticket_no) order_amount  FROM `theater_order_list` WHERE mem_id = ?";
+                        $order_aumout_PDO = $pdo->prepare($sql);
+                        $order_aumout_PDO->bindValue(1,$_SESSION["mem_id"]); 
+                        $order_aumout_PDO->execute();
+                        $order_aumout = $order_aumout_PDO->fetchAll(PDO::FETCH_ASSOC);
+                       
+                        foreach( $order_aumout as $i=>$order_aumout_arr){
+                   
+                 ?>
+
+
+                <div class="no_ticket" id="no_theater_ticket"  data-no="<?php echo $order_aumout_arr["order_amount"] ?>">尚未購買任何票券</div>
+                
+
+                <?php
+
+                        }
+                    }catch (PDOException $e) {
+                        echo "錯誤原因 : " , $e->getMessage() , "<br>";
+                        echo "錯誤行號 : " , $e->getLine() , "<br>";
+                    }
+                
+                ?>
+                
+                
+                
+                
                 <?php
 
                     
@@ -266,19 +322,26 @@ if(isset($_SESSION["login_error"]) === true){
                 ?>
 
 
-
+                    
                     <div class="tickets">
+
+                        
                         <!-- 劇場QR code要帶1.票券編號 2.場次編號 3.節目編號 -->
-                        <img class="QR_code" src="https://chart.googleapis.com/chart?chs=200x200&cht=qr&chl=http://140.115.236.72/demo-projects/BD103/BD103G3/back_check_theater_tickets.php?<?php echo $order_item_row["theater_ticket_no"] ?>.<?php echo $order_item_row["session_no"] ?>.<?php echo $order_item_row["program_no"] ?>.ticket=theater"></img>
+                        <div class="QR_code">
+                            <img class="QR_img" src="https://chart.googleapis.com/chart?chs=200x200&cht=qr&chl=http://140.115.236.72/demo-projects/BD103/BD103G3/back_check_theater_tickets.php?<?php echo $order_item_row["theater_ticket_no"] ?>.<?php echo $order_item_row["session_no"] ?>.<?php echo $order_item_row["program_no"] ?>.ticket=theater"></img>
+                            <div class="ticket_used_up">已全數用盡</div>
+                        </div>
                         
                         <div class="ticket_info">
                             
                             <p>劇名：
                                 <span class="program_name"><?php echo $order_item_row["program_name"] ?></span>
                             </p>
-                            <p>演出時間：
+                            <p>演出日期：
                                 <span class="perform_date"><?php echo $order_item_row["time_date"] ?></span>
-                                <span class="perform_time">　<?php echo $order_item_row["session_time"] ?></span>
+                            </p>
+                            <p>演出時間：
+                                <span class="perform_time"><?php echo $order_item_row["session_time"] ?></span>
                             </p>
                             <p>票券編號：
                                 <span class="theaterticket_no"><?php echo $order_item_row["theater_ticket_no"] ?></span>
@@ -310,44 +373,110 @@ if(isset($_SESSION["login_error"]) === true){
 <script src="js/00nav.js"></script>
 <script>
 window.onload = function(){
+    var no_faci_ticket =  document.getElementById('no_faci_ticket');
+    var no_theater_ticket =  document.getElementById('no_theater_ticket');      
 
+       var order_amount_faci = no_faci_ticket.getAttribute('data-no');
+       var order_amount_theater = no_theater_ticket.getAttribute('data-no');
 
-checkRateOrNot();
-
-
-function checkRateOrNot(){
-
-    var rate_faci = document.getElementsByClassName('rate_faci');
-
-    for (let i = 0; i < rate_faci.length; i++){
-
-        var comment_status = rate_faci[i].getAttribute('data-comment-status');
+        if(order_amount_faci == 0){
+            no_faci_ticket.style.display = 'block';
+        }else{
+            no_faci_ticket.style.display = 'none';
+        }
+                
+        if(order_amount_theater == 0){
+            no_theater_ticket.style.display = 'block';
+        }else{
+            no_theater_ticket.style.display = 'none';
+        }
         
 
-        if(comment_status==0){//尚未評價
 
+
+
+    var screen_width = document.documentElement.clientWidth;
+
+    checkRateOrNot();
+    checkUsedUp();
+
+    function checkRateOrNot(){
+
+        var rate_faci = document.getElementsByClassName('rate_faci');
+
+        for (let i = 0; i < rate_faci.length; i++){
+
+            var comment_status = rate_faci[i].getAttribute('data-comment-status');
             
-            rate_faci[i].addEventListener('click',function(){ //click後連結至評價頁
 
-                let order_no = this.getAttribute('data-order-no');
-                let facility_no = this.getAttribute('data-facility-no');
-                window.location  = "rate_facility.php?order_no="+ order_no + "&facility_no="+ facility_no;
+            if(comment_status==0){//尚未評價
+
                 
-            });
+
+                
+                rate_faci[i].addEventListener('click',function(){ //click後連結至評價頁
+
+                    let order_no = this.getAttribute('data-order-no');
+                    let facility_no = this.getAttribute('data-facility-no');
+                    window.location  = "rate_facility.php?order_no="+ order_no + "&facility_no="+ facility_no;
+                    
+                });
 
 
-        }else{//已評價
-            rate_faci[i].innerHTML = "已評價";
-            rate_faci[i].style.backgroundColor = "rgba(80,80,80)";
-            rate_faci[i].addEventListener('click',function(){
-               alert("您已評價過");
-            })
+            }else{//已評價
+                rate_faci[i].innerHTML = "已評價";
+                rate_faci[i].style.backgroundColor = "rgba(255, 193, 22, 0.8)";
+                rate_faci[i].addEventListener('mouseover',function(){
+                    this.style.color = "#fff";
+                    this.style.cursor = "default";
+                });
+
+                rate_faci[i].addEventListener('click',function(){
+                alert("您已評價過");
+                });
+            }
+
+
+        }
+
+    }
+    function checkUsedUp(){
+
+        var unused_amount = document.getElementsByClassName('unused');
+        var ticket_used_up = document.getElementsByClassName('ticket_used_up');
+
+        for (let i = 0; i < unused_amount.length; i++){
+
+            if(unused_amount[i].innerHTML == "0張"){
+                ticket_used_up[i].style.display = "block";
+            }
+            
+
         }
 
 
     }
 
-}
+
+
+
+    
+
+
+    if (screen.width <= 414){
+        scaleQR();
+    };
+
+    
+    function scaleQR(){
+        $('.QR_code').on('click',function(){
+            $(this).toggleClass('is-large');
+            $('.qr_back_cover').toggleClass('is-cover');
+            $('body').toggleClass('stop-scrolling');
+        });
+    }
+
+
 
 };
 

@@ -20,7 +20,7 @@ if(isset($_SESSION["login_error"]) === true){
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>FA未來主題樂園 | 查看票券-劇場票券明細</title>
     <link rel="icon" href="img/favicon.ico" />
-    <link rel="stylesheet" href="css/vaild_facility_tickets.css">
+    <link rel="stylesheet" href="css/vaild_theater_tickets.css">
     <link rel="stylesheet" href="css/header.css">
     <link rel="stylesheet" href="css/login.css">
     
@@ -142,6 +142,7 @@ if(isset($_SESSION["login_error"]) === true){
     
     
     <div class="wrapper">
+    <div class="qr_back_cover"></div>
         <div class="content">
             <div class="info QR_info">
 
@@ -170,17 +171,16 @@ if(isset($_SESSION["login_error"]) === true){
                 <h2>節目名稱：<?php echo $order_item_row["program_name"] ?></h2>
                 <div class="info_ticket_QR">
                     
-                <img class="QR_code" src="https://chart.googleapis.com/chart?chs=200x200&cht=qr&chl=https://www.youtube.com/?<?php echo $order_item_row["theater_ticket_no"] ?>.<?php echo $order_item_row["session_no"] ?>.<?php echo $order_item_row["program_no"] ?>"></img>
+                <img class="QR" src="https://chart.googleapis.com/chart?chs=200x200&cht=qr&chl=https://www.youtube.com/?<?php echo $order_item_row["theater_ticket_no"] ?>.<?php echo $order_item_row["session_no"] ?>.<?php echo $order_item_row["program_no"] ?>"></img>
                     
                     <div class="ticket_info">
                         
-                        <p>節目時間：<?php echo $order_item_row["time_date"] ?>　<?php echo $order_item_row["session_time"] ?></p>
-                        <p>購買日期：<?php echo $order_item_row["order_date"] ?></p>
+                        
+                        <p>購買日期：<?php echo $order_item_row["order_date"] ?> </p>
                         <p>票券編號：<?php echo $order_item_row["theater_ticket_no"] ?></p>
-                        <p>訂單總金額：<?php echo $order_item_row["original_amount"] ?></p>
-                        <p>折扣金額：<?php echo $order_item_row["points_discount"] ?></p>
-                        <p>折扣後總金額：<?php echo $order_item_row["subtotal"] ?></p>
+                        <p>訂單總額：<?php echo $order_item_row["original_amount"] ?></p>
                         <p>票券數量：<?php echo $order_item_row["number_purchase"] ?>張</p>
+                        <p>節目時間：<?php echo $order_item_row["time_date"] ?>　<?php echo $order_item_row["session_time"] ?></p>
                     </div>
                 </div>
 
@@ -189,15 +189,10 @@ if(isset($_SESSION["login_error"]) === true){
                 <h2>使用狀況</h2>
                 <div class="info_used_record">
                         <div class="records">
-                            <h3>未使用票券</h3>
-                            <div class="records_info">
-                                <p>共：<?php echo $order_item_row["remain_ticket"] ?>張</p>
-                            </div>
-                            <h3>已使用張數</h3>
-                            <div class="records_info">
-                                
-                                <p>共：<?php echo $order_item_row["used_ticket"] ?>張</p>
-                            </div>
+                            <p>未使用：<?php echo $order_item_row["remain_ticket"] ?>張</p>
+                            
+                            <p>已使用：<?php echo $order_item_row["used_ticket"] ?>張</p>
+                            
                         </div>
                 </div>
             
@@ -217,10 +212,37 @@ if(isset($_SESSION["login_error"]) === true){
             </div>
         </div>
     </div>
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <script src="js/00nav.js"></script>
+    
+    <script>
+    window.onload = function(){
 
-    <!-- <script src="js/00nav.js"></script> -->
-    <!-- <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script> -->
-  
+
+
+        var screen_width = document.documentElement.clientWidth;
+
+                if (screen.width <= 414){
+                    scaleQR();
+                };
+
+                
+                function scaleQR(){
+                    $('.QR').on('click',function(){
+                        $(this).toggleClass('is-large');
+                        $('.qr_back_cover').toggleClass('is-cover');
+                        $('body').toggleClass('stop-scrolling');
+                    });
+                }
+
+
+
+        };
+    
+    
+    
+    
+    </script>
 </body>
 
 </html>

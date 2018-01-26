@@ -55,7 +55,7 @@ body {
              width: 90%;
           }
           .wrapper .content .QR_info{
-            height: 56vh; 
+            height: 65vh; 
           }
       }
 
@@ -122,7 +122,7 @@ body {
             flex-direction: column;
          }
          .wrapper .content .info_ticket_QR .ticket_info{
-          width: 95%;
+          width: 98%;
           margin: 0 auto;
           padding: 0px;
           padding-left: 10px;
@@ -130,7 +130,7 @@ body {
          }
          .wrapper .content .info_ticket_QR .ticket_info p{
           margin: 3px 0;
-          letter-spacing: 4px;
+          letter-spacing: 2px;
          }
          .wrapper .content .info_ticket_QR .QR{
            margin: 0 auto;
@@ -146,37 +146,42 @@ body {
 
       
     .wrapper .content .info_used_record {
-      display: flex;
-      flex-direction: column;
-      justify-content: space-around;
+      
       color: #37fff3; }
       .wrapper .content .info_used_record .records {
-        width: 60%;
-        margin: 10px auto; 
+        width: 90%;
+        margin: 0 auto; 
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+        text-align: center;
       }
-      .wrapper .content .info_used_record .records h3{
+      /* .wrapper .content .info_used_record .records h3{
         font-weight: bold;
         text-align: center;
         margin: 4px 0;
         letter-spacing: 2px;
         font-size: 20px;
-      }
+      } */
         .wrapper .content .info_used_record .records p {
           display: inline-block;
           text-align: left;
-          margin: 5px auto; 
-          letter-spacing: 2px;
+          margin:40px 20px; 
+          letter-spacing: 4px;
+          
         
         }
 
        @media screen and (max-width: 414px){
         .wrapper .content .info_used_record .records{
-          width: 90%;
+             width: 100%;
+             padding: 6px 0;
         }
-        .wrapper .content .info_used_record .records p{
-          letter-spacing: 2px;
-          margin: 4px 0;
-        }
+          .wrapper .content .info_used_record .records p {
+            margin: 0;
+            
+
+          }
 
 
 
