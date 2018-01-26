@@ -185,7 +185,7 @@ if(isset($_SESSION["login_error"]) === true){
                 </div>
 
             </div>
-            <div class="info">
+            <div class="info" id="info_last">
                 <h2>使用狀況</h2>
                 <div class="info_used_record">
                         <div class="records">
