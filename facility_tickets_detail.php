@@ -196,7 +196,7 @@ if(isset($_SESSION["login_error"]) === true){
                 </div>
 
             </div>
-            <div class="info">
+            <div class="info" id="info_last">
                 <h2>使用狀況</h2>
                 <div class="info_used_record">
                         <div class="records">
@@ -213,8 +213,8 @@ if(isset($_SESSION["login_error"]) === true){
                                 <p>共：<?php echo $order_item_row["full_fare_num_used"] + $order_item_row["half_fare_num_used"] ?>張</p>
                             </div>
                         </div>
+                        <a href="see_tickets.php" class="backbtn">回到查看票券</a>
                 </div>
-            
 
                 <?php
                     }
@@ -231,7 +231,7 @@ if(isset($_SESSION["login_error"]) === true){
             </div>
         </div>
     </div>
-
+    
     <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
     <script src="js/00nav.js"></script>
     <script>
