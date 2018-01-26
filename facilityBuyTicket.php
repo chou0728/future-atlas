@@ -74,7 +74,7 @@ if(isset($_SESSION["login_error"]) === true){
                 <span class="register">
                 	<?php
                 		if(isset($_SESSION["mem_id"])===true){
-                			echo "<a href='MembersOnly.html'>帳戶</a>";
+                			echo "<a href='MembersOnly.php'>帳戶</a>";
                 		}else{
                 			echo "註冊";
                 		}

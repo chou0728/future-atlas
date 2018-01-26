@@ -443,8 +443,8 @@ body::-webkit-scrollbar-thumb {
 	
 }
 .fi_wrapper .fi_panel .f_box .bcover_border .points .points_cover{
-	width: 130px;
-	height: 25px;
+	width: 131px;/*550*/
+	height: 23.8px;/*100*/
 	position: relative;
 	margin-left: 10px;
 	vertical-align: middle;
@@ -1450,8 +1450,8 @@ body::-webkit-scrollbar-thumb {
 	line-height: 1.5;
 }
 .memScore .points_cover{
-	width: 120px;
-	height: 23px;
+	width: 131px;/*550*/
+	height: 23.8px;/*100*/
 	position: relative;
 
 	cursor: pointer;

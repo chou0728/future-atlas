@@ -58,7 +58,6 @@ if(isset($_SESSION["login_error"]) === true){
 
 <body class="fadeout">
         <!-- header -->
-    
 <div class="header">
     <ul class="ul_top">
         <li class="li_top">
@@ -80,13 +79,21 @@ if(isset($_SESSION["login_error"]) === true){
                 <span class="register">
                     <?php
                         if(isset($_SESSION["mem_id"])===true){
-                            echo "<a href='MembersOnly.html'>帳戶</a>";
+                            echo "<a href='MembersOnly.php'>帳戶</a>";
                         }else{
                             echo "註冊";
                         }
                     ?>
                 </span>
             </a>
+        </li>
+        <li class="li_top" <?php if(!isset($_SESSION["mem_id"])){
+                                echo "style='display: none';";
+                                }?>>
+                <a href="see_tickets.php" class="tkt">
+                    <img src="img/member/qr-code-scan.png">
+                    <span>票券</span>
+                </a>
         </li>
         <li class="li_top">
             <a href=<?php
@@ -126,12 +133,15 @@ if(isset($_SESSION["login_error"]) === true){
     <div class="ul_box">
         <ul class="ul_left">
             <li>
+                <img src="img/hover-tri.png" class="nav_hover">
                 <a href="Theaterbuyticket.php">劇場購票</a>
             </li>
             <li>
+                <img src="img/hover-tri.png" class="nav_hover">
                 <a href="facilityBuyTicket.php">設施購票</a>
             </li>
             <li>
+                <img src="img/hover-tri.png" class="nav_hover">
                 <a href="facilityInfo.php">設施介紹</a>
             </li>
         </ul>
@@ -141,12 +151,15 @@ if(isset($_SESSION["login_error"]) === true){
         </a>
         <ul class="ul_right">
             <li>
+                <img src="img/hover-tri.png" class="nav_hover">
                 <a href="====index.php#page2" id="NavClose">園區地圖</a>
             </li>
             <li>
+                <img src="img/hover-tri.png" class="nav_hover">
                 <a href="activity.php">活動月曆</a>
             </li>
             <li>
+                <img src="img/hover-tri.png" class="nav_hover">
                 <a href="robot.php">諮詢專區</a>
             </li>
         </ul>
@@ -163,8 +176,6 @@ if(isset($_SESSION["login_error"]) === true){
     <img src="img/Usericon.png" class="memIcon">
     
 </div>
-
-    <!-- header end-->
 
     <!-- header end-->
 
