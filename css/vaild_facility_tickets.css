@@ -19,7 +19,8 @@ body {
   .wrapper .content {
     width: 100%;
     max-width: 1920px;
-    padding-top: 120px; }
+    padding-top: 120px;
+    padding-bottom: 120px; }
     
 /*    .wrapper .content .QR_info {
 
