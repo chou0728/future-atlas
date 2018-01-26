@@ -45,7 +45,6 @@ body{
   padding: 15px;
   transform: translate(-50%,-50%);
   text-align: center;
-
 }
 
 #lightBox .msg{
@@ -53,6 +52,7 @@ body{
 	height: 85%;
 	color: azure;
 	line-height: 24px;
+  font-family: 微軟正黑體;
 }
 #lightBox a{
   /*margin: 0 30px;*/
