@@ -736,7 +736,8 @@ body::-webkit-scrollbar-thumb {
 }
 @media screen and (max-width:480px){
 	#noticket{
-		
+		font-size: 16px;
+		width: 38%;
 	}
 }
 #getTicket{
@@ -1133,7 +1134,7 @@ body::-webkit-scrollbar-thumb {
 		line-height: 70px;
 	}
 	.lightbox_wrapper .content .inlineB .parameter .paraContent span{
-		width:100.3%;
+		width:100.5%;
 		border: 1px solid rgba(50,255,218,0.9);
 	}
 }
