@@ -555,15 +555,7 @@ body.fadeout::after {
 		    $(".date span,.date2 span").text(newDate.getDate());
 		    $(".day span,.day2 span").text(dayNames[newDate.getDay()]);
 		    $(".year span").html(newDate.getFullYear());
-		}, 1000);	
-		// 	$(".outer").on({
-		// 	    mousedown:function(){
-		// 	        $(".dribbble").css("opacity","1");
-		// 	    },
-		// 	    mouseup:function(){
-		// 	        $(".dribbble").css("opacity","0");
-		// 	    }
-		// });
+		}, 1000);
 	});
 
 	// 套件：活動剪影
@@ -610,14 +602,8 @@ body.fadeout::after {
 
 $(document).ready(function(){
 	// 於月曆&活動之間滾動
-	$("#toCal").click(function(){
-		$("html,body").animate({scrollTop:$("#wrapper").offset().top}, 400);
-	});
 	$(".daysHere").click(function(){
-		$("html,body").animate({scrollTop:$("#activityDay").offset().top}, 400);
-	});
-	$("#toActivity").click(function(){
-		$("html,body").animate({scrollTop:$("#mycal tr:last-child").offset().top}, 400);
+		$("html,body").animate({scrollTop:$("#activityDay").offset().top}, 300);
 	});
 });
 

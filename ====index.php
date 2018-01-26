@@ -1440,6 +1440,60 @@ if(isset($_SESSION["login_error"]) === true){
 		</section>
 	<!-- 第四屏開始-->
 	<section class="section" id="section3">
+		<div id="smallCal">
+		<!-- main codes start -->
+		    <div class="signboard outer">
+		        <div class="signboard front inner anim04c">
+		            <li class="year anim04c">
+		                <span></span>
+		            </li>
+		            <ul class="calendarMain anim04c">
+		                <li class="month anim04c">
+		                    <span></span>
+		                </li>
+		                <li class="date anim04c">
+		                    <span></span>
+		                </li>
+		                <li class="day anim04c">
+		                    <span></span>
+		                </li>
+		            </ul>
+		            <li class="clock minute anim04c">
+		                <span></span>
+		            </li>
+		            <li class="calendarNormal date2 anim04c">
+		                <span></span>
+		            </li>
+		        </div>
+		        <div class="signboard left inner anim04c">
+		            <li class="clock hour anim04c">
+		                <span></span>
+		            </li>
+		            <li class="calendarNormal day2 anim04c">
+		                <span></span>
+		            </li>
+		        </div>
+		        <div class="signboard smallright inner anim04c">
+		            <li class="clock second anim04c">
+		                <span></span>
+		            </li>
+		            <li class="calendarNormal month2 anim04c">
+		                <span></span>
+		            </li>
+		        </div>
+		    </div>
+		    <!-- main codes end -->
+			<div id="smallActivityRow">
+				<div class="title">今日活動</div>
+				<div class="content">
+					<span class="name">名稱名稱名</span>
+					<span class="time">00:00-00:00</span>
+					<span class="location">未來大道</span>
+					<span class="intro">活動介紹大約有十五字十五字的。</span>
+				</div>
+			</div>
+		</div>
+
 		<div id="wrapper">
 
 		<div id="calWrapper">
