@@ -353,7 +353,7 @@ function init(){
 		}
 
 	function saveToStorage(){
-		var dami = 0;//判斷用
+		
 		fn = this.dataset.fn;/*設施編號*/
 		_this = this;
 		var ad = this.previousElementSibling.previousElementSibling.children[2].children[1].children[0].value;/*全票張數*/
@@ -363,15 +363,20 @@ function init(){
 		var fname = this.previousElementSibling.previousElementSibling.previousElementSibling.previousElementSibling.previousElementSibling.children[1].innerText;
 		var addToCart = adp+"/"+ad+"/"+cdp+"/"+cd+"/"+fname;
 		if(ad!=0||cd!=0){//判斷全票半票皆不為0張
-			dami = 1;
 			storage.setItem(fn,addToCart);
-			openNotice();
+			
 				if(facility_ticket_list.indexOf(fn)==-1){
-					dami = 0;
+					
 					facility_ticket_list += fn+"/" ;
 					storage.setItem("facility_ticket_list", facility_ticket_list);
 					setTimeout(changeCartImg,50);
+					alert("【"+fname+"】加入購物車成功!目前全票共"+ad+"張/半票共"+cd+"張");
 					openNotice();
+				}else{
+
+					
+					alert("購物車內的【"+fname+"】修改成功!目前全票共"+ad+"張/半票共"+cd+"張");
+					openNotice_1();
 				}
 				
 		}else if(ad==0&&cd==0){
@@ -422,34 +427,44 @@ function init(){
         aa = newlevel;
         document.getElementById("cartimgid").src = "img/cart/wallet_"+aa+".png";
         document.getElementById("howmanytickets").innerHTML = facility_ticket_list.split("/").length-1;
-        console.log(facility_ticket_list.split("/").length-1);
+        // console.log(facility_ticket_list.split("/").length-1);
         clearTimeout(changeCartImg);
 
 	}
 	function openNotice(){
-		
 		var input =document.getElementsByClassName("ctrl-counter-input");
-		for(var i =0;i<input.length;i++){
-			input[i].value = 0;
+			for(var i =0;i<input.length;i++){
+				input[i].value = 0;
 		}	
+		
 		notice = document.getElementsByClassName('notice_here')[0];
 		notice.setAttribute('id','open_notice');
-		if(dami==0){
+
 			var fadeinout = document.getElementsByClassName("fadeinout")[0];
 			fadeinout.style.opacity="1";
 			setTimeout(function(){
 				fadeinout.style.opacity="0";
 			},1500);
-		}else{
+			setTimeout(closeNotice,2000);
+
+			
+			
+		
+		
+	}
+	function openNotice_1(){
+		var input =document.getElementsByClassName("ctrl-counter-input");
+			for(var i =0;i<input.length;i++){
+				input[i].value = 0;
+		}
+			notice = document.getElementsByClassName('notice_here')[0];
+			notice.setAttribute('id','open_notice');
 			var fadeinout_1 = document.getElementsByClassName("fadeinout")[1];
 			fadeinout_1.style.opacity="1";
 			setTimeout(function(){
 				fadeinout_1.style.opacity="0";
 			},1500);
-		}
-		
-		setTimeout(closeNotice,2000);
-		
+			setTimeout(closeNotice,2000);
 	}
 	function closeNotice(){
 				
