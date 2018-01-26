@@ -339,7 +339,7 @@ body::-webkit-scrollbar-thumb {
 .is-large{
   transform: scale(2);
   position: relative;
-  left:50%;
+  left: 0;
   z-index: 1006;
   transition: 0.4s ease-in-out; 
 }
