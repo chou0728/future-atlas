@@ -43,7 +43,7 @@ CREATE TABLE `facility` (
   `facility_intro` varchar(20) COLLATE utf8_unicode_ci,
   `facility_phrase` varchar(120) COLLATE utf8_unicode_ci,
   `facility_heart` varchar(10) COLLATE utf8_unicode_ci ,
-  `facility_suit` varchar(15) COLLATE utf8_unicode_ci ,
+  `facility_suit` varchar(8) COLLATE utf8_unicode_ci ,
   `facility_limit` varchar(15) COLLATE utf8_unicode_ci,
   `facility_description` varchar(200) COLLATE utf8_unicode_ci,
   `facility_status` tinyint(1) NOT NULL DEFAULT '1',
@@ -153,9 +153,9 @@ CREATE TABLE `theater_order_list` (
   `number_purchase` int NOT NULL,
   `used_ticket` int  DEFAULT '0' COMMENT '預設為0',
   `order_date` date NOT NULL COMMENT 'yyyy-mm-dd',
-  `original_amount` int COMMENT '未扣積分',
-  `points_discount` int,
-  `credit_card` char(16) COLLATE utf8_unicode_ci NOT NULL,
+  `original_amount` int COMMENT '訂單原始總金額',
+  `points_discount` int DEFAULT '0',
+  `credit_card` char(19) COLLATE utf8_unicode_ci NOT NULL,
   `program_no` int NOT NULL COMMENT 'FK',
   PRIMARY KEY (`theater_ticket_no`), -- PK
   KEY `program_no` (`program_no`),-- FK

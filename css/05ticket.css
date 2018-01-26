@@ -153,6 +153,7 @@
     font-size: 13px;
     color: white;
 }
+/*按鈕效果*/
 .cont .leftBox .down_button .change:after{
     content: "";
     position: absolute;
@@ -173,17 +174,11 @@
     height: 125%;
     border: 2px solid rgba(255, 193, 22,0.8);
 }
+/*按鈕效果結束*/
 .cont .leftBox .down_button .change a{
     font-family: 'Share Tech Mono', monospace;
     color: rgb(76, 216, 221);
 }
-/*.cont .leftBox .down_button .change:hover{
-    animation: flicker2 0.1s infinite alternate;
-    color: #000;
-    border: 1px solid transparent;
-    background-color: rgb(253, 229, 17);
-    box-shadow: 0 0 10px rgb(253, 229, 17), rgb(253, 229, 17);
-}*/
 /*左邊平板尺寸*/
 @media screen and (min-width:415px) and (max-width:1024px){
     .cont .leftBox button{
@@ -257,8 +252,6 @@
     -moz-box-sizing: border-box;
     box-sizing: border-box;
 }
-
-
 
 /*========前往樂園*/
 .cont .midBox .midContent_1{
