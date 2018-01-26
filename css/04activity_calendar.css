@@ -12,6 +12,21 @@
 	/*outline: 1px solid red;*/
 }
 
+#section3 {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-weight: inherit;
+    font-style: inherit;
+    font-size: 100%;
+    font-family: inherit;
+    vertical-align: baseline;
+    text-decoration: none;
+    list-style: none;
+    user-select: none;
+}
+
+
 #wrapper{
 	padding-top: 8%;
 	width: 100%;
@@ -31,24 +46,20 @@
 	margin-bottom: 50px;
 	position: relative;
 }
-@media screen and (max-width:600px){
+@media screen and (max-width:650px){
 	*{
 	/*outline: 1px solid blue;*/
 	}
 	#calWrapper{
-		width: 100%;
-		height: 100%;
-		margin-top: 0%;
-		margin-left: 0;
-		position: relative;
+		display: none;
 	}
 }
-@media screen and (min-width:600px) and (max-width:1024px){
+@media screen and (min-width:650px) and (max-width:1300px){
 	#calWrapper{
-		width: 100%;
-		height: 100vh;
+		width: 95%;
+		height: 90%;
 		margin-top: 5%;
-		margin-left: 0;
+		margin-left: 2.5%;
 	}
 }
 @media screen and (min-width:1024px){
@@ -580,4 +591,268 @@ a.convert{
 	width: 100%;
 	margin-top: 10px;
 	background: #555;
+}
+
+/*小月曆 僅在650px以下出現*/
+@media screen and (min-width: 650px){
+#smallCal, #wrapper .back{
+	display: none;
+	}
+}
+@media screen and (max-width: 650px){
+#smallCal {
+	position: absolute;
+	top: 220px;
+	left: 0;
+	right: 0;
+	margin: auto;
+	transform: scale(1.3);
+}
+#smallCal img {
+    width: 100%
+}
+
+#wrapper .back{
+	display: block;
+	width: 100%;
+	height: 320px;
+	background-color: transparent;
+}
+
+#smallCal .anim04c {
+    -webkit-transition: all .4s cubic-bezier(.5, .35, .15, 1.4);
+    transition: all .4s cubic-bezier(.5, .35, .15, 1.4);
+}
+
+html,
+body {
+    width: 100%;
+    height: 100%;
+    font-family: 'Source Sans Pro', sans-serif;
+}
+body {
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+/*-----*/
+
+.outer {
+    position: relative;
+    top: 50%;
+    z-index: 1;
+    -webkit-transform: translateY(-50%);
+    -moz-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    -o-transform: translateY(-50%);
+    transform: translateY(-50%);
+    /*cursor: pointer;*/
+}
+/*-----*/
+
+.signboard {
+    width: 100px;
+    height: 100px;
+    margin: auto;
+    color: #fff;
+    border-radius: 10px;
+}
+/*-----*/
+
+.front {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 3;
+    background: #ffc116;
+    text-align: center;
+}
+.smallright {
+    position: absolute;
+    right: : 0;
+    z-index: 2;
+    -webkit-transform: rotate(-10deg) translate(7px, 8px);
+    -moz-transform: rotate(-10deg) translate(7px, 8px);
+    -ms-transform: rotate(-10deg) translate(7px, 8px);
+    -o-transform: rotate(-10deg) translate(7px, 8px);
+    transform: rotate(-10deg) translate(7px, 8px);
+    background: #00ffae;
+}
+.left {
+    position: absolute;
+    left: 0;
+    z-index: 1;
+    -webkit-transform: rotate(5deg) translate(-4px, 4px);
+    -moz-transform: rotate(5deg) translate(-4px, 4px);
+    -ms-transform: rotate(5deg) translate(-4px, 4px);
+    -o-transform: rotate(5deg) translate(-4px, 4px);
+    transform: rotate(5deg) translate(-4px, 4px);
+    background: #3498DB;
+}
+
+.outer .inner {
+    -webkit-transform: rotate(0) translate(0) scale(0.9);
+    -moz-transform: rotate(0) translate(0) scale(0.9);
+    -ms-transform: rotate(0) translate(0) scale(0.9);
+    -o-transform: rotate(0) translate(0) scale(0.9);
+    transform: rotate(0) translate(0) scale(0.9);
+}
+.outer .front .date {
+    -webkit-transform: scale(2);
+}
+.outer .front .day,
+.outer .front .month {
+    visibility: hidden;
+    opacity: 0;
+    -webkit-transform: scale(0);
+    -moz-transform: scale(0);
+    -ms-transform: scale(0);
+    -o-transform: scale(0);
+    transform: scale(0);
+}
+.outer .smallright {
+    -webkit-transform: rotate(-5deg) translateX(80px) scale(0.9);
+    -moz-transform: rotate(-5deg) translateX(80px) scale(0.9);
+    -ms-transform: rotate(-5deg) translateX(80px) scale(0.9);
+    -o-transform: rotate(-5deg) translateX(80px) scale(0.9);
+    transform: rotate(-5deg) translateX(80px) scale(0.9);
+}
+.outer .left {
+    -webkit-transform: rotate(5deg) translateX(-80px) scale(0.9);
+    -moz-transform: rotate(5deg) translateX(-80px) scale(0.9);
+    -ms-transform: rotate(5deg) translateX(-80px) scale(0.9);
+    -o-transform: rotate(5deg) translateX(-80px) scale(0.9);
+    transform: rotate(5deg) translateX(-80px) scale(0.9);
+}
+/*-----*/
+
+.outer .calendarMain {
+    -webkit-transform: scale(1.8);
+    opacity: 0;
+    visibility: hidden;
+}
+.outer .clock {
+    -webkit-transform: scale(1.4);
+    opacity: 1;
+    visibility: visible;
+}
+.outer .calendarNormal {
+    bottom: -30px;
+    opacity: 1;
+    visibility: visible;
+}
+.outer .year {
+    top: -30px;
+    opacity: 1;
+    visibility: visible;
+    letter-spacing: 3px;
+}
+/*-----*/
+
+.calendarMain {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    opacity: 1;
+}
+.month,
+.day {
+    font-size: 10px;
+    line-height: 30px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+}
+.date {
+    font-size: 40px;
+    line-height: 40px;
+    font-weight: 300;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+}
+/*-----*/
+
+.clock {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    font-size: 40px;
+    line-height: 100px;
+    font-weight: 300;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    text-align: center;
+    /*opacity: 0;*/
+    visibility: hidden;
+}
+/*-----*/
+
+.year {
+    width: 100%;
+    position: absolute;
+    top: 0;
+    font-size: 14px;
+    line-height: 30px;
+    font-weight: 300;
+    text-transform: uppercase;
+    letter-spacing: 0;
+    text-align: center;
+    /*opacity: 0;*/
+    /*visibility: hidden;*/
+    color: #ff6600;
+}
+.calendarNormal {
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+    font-size: 14px;
+    line-height: 30px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    text-align: center;
+    /*opacity: 0;*/
+    /*visibility: hidden;*/
+}
+.date2 {
+    color: #ff726b;
+}
+.day2 {
+    color: #3498DB;
+}
+.month2 {
+    color: #EFC94C;
+}
+
+}
+#smallActivityRow *{
+	outline: 1px solid red;
+}
+#smallActivityRow{
+	width: 70%;
+	height:30%;
+	position: absolute;
+	top:60%;
+	left:20%;
+	background-color: pink;
+}
+#smallActivityRow .title{
+	position: absolute;
+	top:55%;
+	left:0;
+	font-size: 20px;
+	font-family: 微軟正黑體;
+	color: azure;
+}
+#smallActivityRow .content{
+	background-color: red;
+	position: absolute;
+	width: 100%;
+	height: 40%;
+	top:100%;
+	left:0;
+	font-size: 16px;
+	color: white;
+}
+#smallActivityRow .content span{
+	display: block;
 }
