@@ -329,13 +329,16 @@ if(isset($_SESSION["login_error"]) === true){
             },100);
             setTimeout(function(){
                  robot.src="img/robot_page/robot2_2.png";
-            },300);
-             setTimeout(function(){
-                 robot.src="img/robot_page/robot2_1.png";
-            },500);
+            },400);
               setTimeout(function(){
+                 robot.src="img/robot_page/robot2_3.png";
+            },600);
+               setTimeout(function(){
+                 robot.src="img/robot_page/robot2_2.png";
+            },900);
+               setTimeout(function(){
                  robot.src="img/robot_page/robot2.png";
-            },800);
+            },1100);
                                                
     }
 
