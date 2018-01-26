@@ -227,7 +227,7 @@
                         <br>
                         <input type="radio" name="Scorepoints" value="1" checked onchange="Userpoints()"> -->
                         使用積分
-                        <input type="number" id="Scorenumber" value="10" size=10 style="font-size:16px; width:50px;" onchange="changeScoreNumber()">
+                        <input type="number" id="Scorenumber"  size=10 style="font-size:16px; width:50px;" onchange="changeScoreNumber()">
                     </td>
                     <td style="padding-top: 40px;" id="integral"> 
                     </td>
