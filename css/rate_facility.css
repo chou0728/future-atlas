@@ -35,10 +35,22 @@ body {
       .wrapper .content {
         display: block;
         padding-top: 20%; } }
+
+
+
+
+
+
     .wrapper .content .box {
       width: 45%;
       height: 70vh;
-      border: 4px solid #37fff3; }
+       }
+
+    .wrapper .content div.box {
+          border: 2px solid #37fff3;
+    }
+
+
       @media screen and (min-width: 415px) and (max-width: 1024px) {
         .wrapper .content .box {
           width: 90%;
@@ -148,13 +160,13 @@ body {
         .wrapper .content .rate_area .stars .rating > input:checked ~ label,
         .wrapper .content .rate_area .stars .rating:not(:checked) > label:hover,
         .wrapper .content .rate_area .stars .rating:not(:checked) > label:hover ~ label {
-          color: #FFD700;
+          color: rgb(237, 173, 0);
           cursor: pointer; }
         .wrapper .content .rate_area .stars .rating > input:checked + label:hover,
         .wrapper .content .rate_area .stars .rating > input:checked ~ label:hover,
         .wrapper .content .rate_area .stars .rating > label:hover ~ input:checked ~ label,
         .wrapper .content .rate_area .stars .rating > input:checked ~ label:hover ~ label {
-          color: #FFD700; }
+          color: #ffbf14; }
       .wrapper .content .rate_area .rate_box {
         width: 90%;
         margin: 0 auto; }
@@ -170,9 +182,15 @@ body {
         font-family: "微軟正黑體";
         padding: 5px; }
         @media screen and (min-width: 415px) and (max-width: 1024px) {
+          .wrapper .content .rate_area .rate_box {
+            width: 100%;
+          }
           .wrapper .content .rate_area .text_box #rate_text {
             height: 20vh; } }
         @media screen and (max-width: 414px) {
+          .wrapper .content .rate_area .rate_box {
+            width: 100%;
+          }
           .wrapper .content .rate_area .text_box #rate_text {
             height: 20vh; } }
       .wrapper .content .rate_area .buttons_box {
