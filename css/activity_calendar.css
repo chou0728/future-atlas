@@ -578,7 +578,7 @@ body{
     font-family: ;
     display: inline-block;
     margin: 3px 0 5px 10px;
-    cursor: pointer;
+    /*cursor: pointer;*/
     transition: 0.5s;
     background-color: orange;
     padding: 5px;
@@ -750,8 +750,8 @@ img { border: 0; }
 }
 
 #rotatescroll {
-	height: 300px; 
-	width: 300px;
+	height: 299px; 
+	width: 299px;
 	position: relative;
 	display: inline-block;
 }
