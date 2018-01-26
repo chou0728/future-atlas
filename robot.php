@@ -31,11 +31,31 @@ if(isset($_SESSION["login_error"]) === true){
         * {
             box-sizing: border-box;
         }
+        body::after {
+              content: '';
+              position: fixed;
+              top: 0;
+              left: 0;
+              width: 100%;
+              height: 100%;
+              overflow: hidden;
+              background-color:#000;  
+              z-index: 9999;  
+              pointer-events: none; 
+              opacity: 0;  
+              -webkit-transition: opacity .4s ease; 
+              transition: opacity .4s ease;
+        }
+        body.fadeout::after {
+            opacity: 1;
+        }
+
+
     </style>
 
 </head>
 
-<body>
+<body class="fadeout">
 <div class="header">
     <ul class="ul_top">
         <li class="li_top">
@@ -205,6 +225,7 @@ if(isset($_SESSION["login_error"]) === true){
 
     <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
     <script src="js/00nav.js"></script>
+    <script src="js/page_load_unload.js"></script>
     <script>
         var message = "您好，我是Future Atlas的守護者，有什麼我能協助您的?";
         var input_box = document.getElementById("input_box");

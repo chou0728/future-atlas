@@ -29,11 +29,11 @@ if(isset($_SESSION["login_error"]) === true){
 			  width: 100%;
 			  height: 100%;
 			  overflow: hidden;
-			  background-color:#000;  /* 背景カラー */
-			  z-index: 9999;  /* 一番手前に */
-			  pointer-events: none;  /* 他の要素にアクセス可能にするためにポインターイベントは無効に */
-			  opacity: 0;  /* 初期値 : 透過状態 */
-			  -webkit-transition: opacity .4s ease;  /* アニメーション時間は 0.8秒 */
+			  background-color:#000;  
+			  z-index: 9999;  
+			  pointer-events: none; 
+			  opacity: 0;  
+			  -webkit-transition: opacity .4s ease; 
 			  transition: opacity .4s ease;
 		}
 		body.fadeout::after {
