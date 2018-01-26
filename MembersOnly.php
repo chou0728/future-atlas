@@ -173,11 +173,15 @@ if(isset($_SESSION["login_error"]) === true){
             
            
 
-
+                <div class="RWDplace">
+                    <p class="place" id="mem_nick_title">會員專區</p>
+                </div>
                 <!-- 暱稱 -->
                 <div class="nameBox_value_place">
 
                     <div class="bar"></div>
+
+                    
 
                     <div class="nameBox">
                             <img class="imgrotate" src="img/memberOnly/memberOnly2.png" alt="我的資料">
@@ -185,6 +189,8 @@ if(isset($_SESSION["login_error"]) === true){
                                會員資料
                             </p>
                     </div>
+
+                    
 
                     <div class="table">
                         <table>
