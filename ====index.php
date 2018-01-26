@@ -1474,8 +1474,6 @@ if(isset($_SESSION["login_error"]) === true){
 	                </li>
 	            </ul>
 		    </div>
-		        <div id="backToToday" style="display: none">回到今日</div>
-		        <div id="clearCal" style="display: none">清空月曆</div>
 		    </div>
 
 		    <div id="cal">
@@ -1610,6 +1608,9 @@ if(isset($_SESSION["login_error"]) === true){
 		    <div id="border_bottom"></div>
 		    <div id="content">
 		        <table id="activity">
+		        	<div class="highlight highlight1"></div>
+		        	<div class="highlight highlight2"></div>
+		        	<div class="highlight highlight3"></div>
 		            <tr><th>10:00-14:00</th><td><a class="convert">詳情</a></td></tr>
 		            <tr><td colspan="2">夢境遊行夢</td></tr>
 		        </table>

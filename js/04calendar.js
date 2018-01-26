@@ -31,32 +31,6 @@ function iniCal(){
 	document.getElementsByClassName("daysHere")[today.getDate()+firstDayofMonth-1].style.backgroundColor = "#44A0D9";
 }
 
-// 回到今日：用getMonth()和getFullYear()方法，將年月資料初始化
-document.getElementById("backToToday").addEventListener("click", backToToday);
-function backToToday(){
-	iMonth = 0;
-	document.getElementsByTagName("i")[0].style.opacity = "0.3";
-	document.getElementsByTagName("i")[0].style.cursor = "default";
-	document.getElementsByTagName("i")[0].addEventListener("click",prevMonth);
-	document.getElementsByTagName("i")[1].style.opacity = "1";
-	todayMonthIndex = today.getMonth();
-	todayYear = today.getFullYear();
-	document.getElementById("showMonth").innerText = todayMonth+" "+todayYear;
-	for(i = 0 ; i < 40 ; i++){
-		document.getElementsByClassName("claContent")[i].innerText = " ";
-		document.getElementsByClassName("claContent")[i].style.opacity = "0";
-		document.getElementsByClassName("daysHere")[i].style.color = "orange";
-		document.getElementsByClassName("daysHere")[i].style.textShadow = "none";
-	}
-	for(i = 0; i < daysofMonth ; i++){
-		document.getElementsByClassName("daysHere")[firstDayofMonth+i].innerText = i+1;
-		document.getElementsByClassName("claContent")[firstDayofMonth+i].innerText = " ";
-		document.getElementsByClassName("claContent")[firstDayofMonth+i].style.opacity = "1";
-	}
-	document.getElementsByClassName("daysHere")[today.getDate()+firstDayofMonth-1].style.backgroundColor = "#ccffff";
-	document.getElementsByClassName("daysHere")[today.getDate()+firstDayofMonth-1].style.color = "orange";
-}
-
 // 前一個月
 document.getElementsByTagName("i")[0].addEventListener("click",prevMonth);
 function prevMonth(){
@@ -133,10 +107,28 @@ function nextMonth(){
 // 依照日期園區活動一覽
 $(document).ready(function(){
 	$(".daysHere").click(function(){
-		$("#showActivityWrapper").css("right","0");
-		$("#cal").addClass("calFadeOut");
-		var showDate = $(this).text();
+		$(".highlight").css("width","0px").css("height","0px").css("top","100px").css("opacity","1");
+		$(".highlight1").animate({
+			"width" :"180px",
+			"height":"180px",
+			"top":"25px",
+			"opacity":"0"
+		},800);
+		$(".highlight2").animate({
+			"width" :"180px",
+			"height":"180px",
+			"top":"25px",
+			"opacity":"0"
+		},1600);
+		$(".highlight3").animate({
+			"width" :"180px",
+			"height":"180px",
+			"top":"25px",
+			"opacity":"0"
+		},2400);
+		// $(".highlight").animate({"opacity":"0"},800);
 
+		var showDate = $(this).text();
 		// 預備透過ajax抓取當日活動的param
 		var d = new Date();
 			if( d.getMonth() < 9){

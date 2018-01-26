@@ -425,6 +425,8 @@ body{
 #cal .claContent{
 	font-size: 16px;
 	height: 55px;
+	/*max-height: 60px;*/
+	overflow: hidden;
 	min-width: 20px;
 	color: #2270a6;
 	font-family: 微軟正黑體;
@@ -624,6 +626,7 @@ body{
 }
 .acTitle{
 	color: #ff6600;
+	font-size: 18px;
 
 }
 
@@ -756,10 +759,9 @@ img { border: 0; }
 
 #rotatescrollBox{
 	display: inline-block;
-	width: 65%;
-	max-width: 680px;
+	width: 589.2px;
 	height: 320px;
-	float: right;
+	/*float: right;*/
 	position: relative;
 	overflow-x: hidden;
 	-webkit-background-size: auto;
@@ -787,39 +789,67 @@ img { border: 0; }
 	z-index: -10;
 }
 
-@media screen and (max-width:970px){
-	#rotatescrollWrapper{
-		width: 90%;
-		margin: 0 auto;
-	}
+@media screen and (max-width:400px){
 	#rotatescroll{
 		display: none;
 	}
-	#rotatescrollBox{
-		width: 80%;
-		float: left;
-		margin-left: 10%;
-	}
-
-}
-@media screen and (max-width:600px){
 	#rotatescrollBoxWrapper{
-		height: 160px;
+		height: 130.35px;
 	}
 	#rotatescrollBox{
-		width: 100%;
-		height: 160px;
-		margin-left: 0;
-		float: left;
+		width: 240px;
+		height: 130.35px;
 	}
 	#rotatescrollWrapper{
-		height: 260px;
+		height: 280px;
 	}
 }
-@media screen and (min-width:970px) and (max-width:1300px){
+@media screen and (min-width:400px) and (max-width:600px){
+	#rotatescroll{
+		display: none;
+	}
+	#rotatescrollBoxWrapper{
+		height: 195.525px;
+	}
+	#rotatescrollBox{
+		width: 360px;
+		height: 195.525px;
+	}
+	#rotatescrollWrapper{
+		height: 300px;
+	}
+}
+@media screen and (min-width:600px) and (max-width:1000px){
+	#rotatescroll{
+		display: none;
+	}
+	#rotatescrollBoxWrapper{
+		height: 325.875px;
+	}
+	#rotatescrollBox{
+		width: 600px;
+		height: 325.875px;
+	}
+	#rotatescrollWrapper{
+		height: 420px;
+	}
+}
+@media screen and (min-width:1000px) and (max-width:1300px){
+	#rotatescroll{
+		display: none;
+	}
 	#rotatescrollWrapper{
 		width: 90%;
+		height: 500px;
+		text-align: center;
 		margin: 0 auto;
+	}
+	#rotatescrollBox{
+		width: 750px;
+		height: 407.34375px;
+	}
+	#rotatescrollBoxWrapper{
+		height: 407.34375px;
 	}
 }
 
@@ -1085,7 +1115,7 @@ body {
     -ms-transform: translateY(-50%);
     -o-transform: translateY(-50%);
     transform: translateY(-50%);
-    cursor: pointer;
+    /*cursor: pointer;*/
 }
 /*-----*/
 
@@ -1130,13 +1160,13 @@ body {
 }
 /*-----*/
 
-.outer:hover .inner {
+/*.outer:hover .inner {
     -webkit-transform: rotate(0) translate(0);
     -moz-transform: rotate(0) translate(0);
     -ms-transform: rotate(0) translate(0);
     -o-transform: rotate(0) translate(0);
     transform: rotate(0) translate(0);
-}
+}*/
 /*-----*/
 
 .outer .inner {
