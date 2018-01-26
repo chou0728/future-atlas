@@ -180,7 +180,8 @@ if(isset($_SESSION["login_error"]) === true){
     <!-- header end-->
 <div class="fbtWrapper">
 
-<?php 
+<?php
+$icon= array("","roller_coaster_hover.png","ferris_wheel_hover.png","ferris_wheel_hover.png","robot_hover.png","blimp_hover_for_facility.png","time_travel_hover.png","","disco_hover.png");
 try {
 	require_once("php/connectBooks.php");
 	$sql = "select * from facility where ticket_already=1";
@@ -194,7 +195,7 @@ try {
 		<div class="ticketTitlebox">
 			<div class="ticket">
 				<figure class="front">
-					<img src="img/facilityBuyTicket/launched-rocket.png" class="icon">
+					<img src="img/secondSection/<?php echo $icon[$prodRow->facility_no];?>" class="icon">
 				</figure>
 				<figure class="back"><?php echo $prodRow->facility_no ?></figure>
 			</div>
