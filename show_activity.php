@@ -15,13 +15,12 @@ try{
 		foreach( $activityRow as $i => $data ){
 		 	$str .= "<div class='showRowDiv'>
 		 	<span class='showRowText acTime'>" . $data["activity_start_time"] . "-" . $data["activity_end_time"] . "</span>
-		 	<span class='showRowText acTitle'>" . $data["activity_name"] . "</span>
 		 	<span class='showRowText acLoc'>" . $data["activity_location"] . "</span>
+		 	<span class='showRowText acTitle'>" . $data["activity_name"] . "</span>
 			<span class='showRowText acIntro'>" . $data["activity_intro"] . "</span></div>
 			|
 			<tr>
-				<th>" . $data["activity_start_time"] . "-" . $data["activity_end_time"] . "</th><td><a class='convert'>詳情</a></td>
-			</tr>
+				<th>" . $data["activity_start_time"] . "-" . $data["activity_end_time"] . "</th></tr>
 			<tr>
 				<td colspan='2'>" . $data["activity_short_name"] . "</td>
 			</tr>

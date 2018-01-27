@@ -600,12 +600,12 @@ body.fadeout::after {
 
 	});
 
-$(document).ready(function(){
-	// 於月曆&活動之間滾動
-	$(".daysHere").click(function(){
-		$("html,body").animate({scrollTop:$("#activityDay").offset().top}, 300);
-	});
-});
+// $(document).ready(function(){
+// 	// 於月曆&活動之間滾動
+// 	$(".daysHere").click(function(){
+// 		$("html,body").animate({scrollTop:$("#activityDay").offset().top}, 200);
+// 	});
+// });
 
 	//-登入-----------------------------------
 			window.addEventListener("load",openLoginBox);
