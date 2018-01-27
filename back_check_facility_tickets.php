@@ -33,7 +33,6 @@ if(!isset($_SESSION["login_success"])){
     <link rel="stylesheet" type="text/css" href="css/RESET.css">
     <link rel="stylesheet" type="text/css" href="css/11back_nav.css">
     <link rel="stylesheet" href="css/check_tickets_facility.css">
-    <link rel="stylesheet" href="css/choose_facility.css">
     <link rel="stylesheet" href="css/choose_facility_rwd.css">
 </head>
 
@@ -94,7 +93,7 @@ if(!isset($_SESSION["login_success"])){
 						echo "管理員";
 					}
 				?></span>
-        <span id="managerName"><?php echo $_SESSION["manager_name"]; ?></span>
+        <span id="managerName"></span>
         <a href="manager_logout.php">登出</a>
     </div>
     <!-- === content ==== -->
@@ -140,10 +139,9 @@ if(!isset($_SESSION["login_success"])){
                         </div>
                     </div>
                     <div class="info">
-                        <h2>票券資訊</h2>
+                        <h2>訂單編號：<span id="order_no"></span></h2>
                         <div class="info_used_record" id="used_record">
                             <div class="records">
-                                <h3>訂單編號：<span id="order_no"></span></h3>
                                 <h3>未使用票券</h3>
                                 <div class="records_info">
                                     <p>全票：<span id="unused_full"></span>張</p>

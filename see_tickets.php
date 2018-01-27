@@ -329,7 +329,7 @@ if(isset($_SESSION["login_error"]) === true){
                         <!-- 劇場QR code要帶1.票券編號 2.場次編號 3.節目編號 -->
                         <div class="QR_code">
                             <img class="QR_img" src="https://chart.googleapis.com/chart?chs=200x200&cht=qr&chl=http://140.115.236.72/demo-projects/BD103/BD103G3/back_check_theater_tickets.php?<?php echo $order_item_row["theater_ticket_no"] ?>.<?php echo $order_item_row["session_no"] ?>.<?php echo $order_item_row["program_no"] ?>.ticket=theater"></img>
-                            <div class="ticket_used_up">已全數用盡</div>
+                            <div class="ticket_used_up"><span>已全數用盡</span></div>
                         </div>
                         
                         <div class="ticket_info">
@@ -425,7 +425,7 @@ window.onload = function(){
 
             }else{//已評價
                 rate_faci[i].innerHTML = "已評價";
-                rate_faci[i].style.backgroundColor = "rgba(255, 193, 22, 0.8)";
+                rate_faci[i].style.backgroundColor = "#332704";
                 rate_faci[i].addEventListener('mouseover',function(){
                     this.style.color = "#fff";
                     this.style.cursor = "default";

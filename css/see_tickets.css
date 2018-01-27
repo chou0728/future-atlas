@@ -170,7 +170,6 @@ body::-webkit-scrollbar-thumb {
   position: relative;
 }
 
-
 @media screen and (min-width: 415px) and (max-width: 1024px) {
   .wrapper .content .tickets_area .tickets {
     width: 95%;
@@ -200,8 +199,8 @@ body::-webkit-scrollbar-thumb {
   width: 100%;
 
 }
-.wrapper .content .tickets_area .tickets .QR_code .ticket_used_up{
-  width: 80%;
+.wrapper .content .tickets_area .tickets .QR_code  .ticket_used_up{
+  width: 70%;
   height: 50px;
   position: absolute;
   top: 0;
@@ -215,8 +214,9 @@ body::-webkit-scrollbar-thumb {
   font-size: 20px;
   font-weight: bold;
   color: #f00;
-  background: rgba(46, 46, 46, 0.9);
+  background: rgba(105, 105, 105, 0.9);
   display: none;
+  transform: rotate(-5deg);
 }
 
 
@@ -350,4 +350,5 @@ body::-webkit-scrollbar-thumb {
 .stop-scrolling{
   height: 100vh;
   overflow: hidden;
+  background: rgba(126, 119, 119, 0.3)
 }

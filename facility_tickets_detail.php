@@ -186,14 +186,15 @@ if(isset($_SESSION["login_error"]) === true){
                 <div class="info_ticket_QR">
                 <div class="QR">                   
                     <img src="https://chart.googleapis.com/chart?chs=200x200&cht=qr&chl=http://140.115.236.72/demo-projects/BD103/BD103G3/back_check_facility_tickets.php?<?php echo $order_item_row["order_no"] ?>.<?php echo $order_item_row["facility_no"] ?>.<?php echo $_SESSION["mem_id"] ?>.ticket=faci"></img>
-                 </div>    
+                    <div class="ticket_used_up">已全數用盡</div>
+                </div>    
                     <div class="ticket_info">
                         
                         <p>購買日期：<?php echo $order_item_row["order_date"] ?></p>
                         <p>訂單編號：<?php echo $order_item_row["order_no"] ?></p>
                         <p>訂單總額：<?php echo $order_item_row["original_total"] ?></p>
-                        <p>全票：<?php echo $order_item_row["full_fare_num"] ?>張　半票：<?php echo $order_item_row["half_fare_num"] ?>張</p>
-                        <p>共<?php echo $order_item_row["full_fare_num"] + $order_item_row["half_fare_num"] ?>張</p>
+                        <p>全票：<?php echo $order_item_row["full_fare_num"] ?>張　半票：<?php echo $order_item_row["half_fare_num"] ?>張　共<?php echo $order_item_row["full_fare_num"] + $order_item_row["half_fare_num"] ?>張</p>
+                        
                     </div>
                 </div>
 
@@ -206,7 +207,7 @@ if(isset($_SESSION["login_error"]) === true){
                             <div class="records_info">
                                 <p>全票：<?php echo $order_item_row["full_remain"] ?>張<span>/</span></p>
                                 <p>半票：<?php echo $order_item_row["half_remain"] ?>張<span>/</span></p>
-                                <p>共：<?php echo $order_item_row["full_remain"] + $order_item_row["half_remain"] ?>張</p>
+                                <p class="unused">共：<?php echo $order_item_row["full_remain"] + $order_item_row["half_remain"] ?>張</p>
                             </div>
                             <h3>已使用張數</h3>
                             <div class="records_info">
@@ -262,6 +263,26 @@ if(isset($_SESSION["login_error"]) === true){
 
  // };
 
+ window.addEventListener('load',checkUsedUp);
+
+        
+        
+        function checkUsedUp(){
+            var unused_amount = document.getElementsByClassName('unused');
+              var ticket_used_up = document.getElementsByClassName('ticket_used_up');
+              for (let i = 0; i < unused_amount.length; i++){
+
+                    if(unused_amount[i].innerHTML == "共：0張"){//用盡後不給放大
+                        ticket_used_up[i].style.display = "block";
+                        
+                    }else{
+                        init_ftd();
+                    }
+
+
+            }
+        }
+
         function init_ftd(){
             var QR_code = document.getElementsByClassName("QR")[0];
                  QR_code.addEventListener('click',function(){
@@ -272,11 +293,9 @@ if(isset($_SESSION["login_error"]) === true){
                     }
             });
 
+
         }
-        window.addEventListener('load',init_ftd);
-
-
-
+        
 
 
         
