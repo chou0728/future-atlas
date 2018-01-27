@@ -19,7 +19,6 @@
 
 	.check_tickets_wrapper .content .info h2 {
             font-size: 24px;
-            padding-bottom: 20px;
             padding-top: 20px; 
     }
 	.check_tickets_wrapper .content .info .photo {
@@ -66,7 +65,6 @@
             transition: none;
             cursor: pointer;
             position: static;
-            background-color: #999;
     }
     .check_tickets_wrapper .content .info .button_area:after{
         content:"";
@@ -86,7 +84,7 @@
         padding: 5%  3%;
     }
     .check_tickets_wrapper .content .info .button_area {
-        padding: 5% 5%;
+        padding: 0 5%;
     }
         .check_tickets_wrapper .content .info .button_area button {
 
