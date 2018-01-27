@@ -1668,10 +1668,10 @@ if(isset($_SESSION["login_error"]) === true){
 		            <!-- <tr><th>10:00-14:00</th><td><a class="convert">詳情</a></td></tr>
 		            <tr><td colspan="2">夢境遊行夢</td></tr> -->
 		        </table>
-		        <!-- <div id="weatherWrapper">
+		        <div id="weatherWrapper">
 		        	<div id="result">園區天氣<br>
 		        	</div>
-    			</div> -->
+    			</div>
 		    </div>
 		</div>
 		</div>
