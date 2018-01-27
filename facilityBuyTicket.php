@@ -181,7 +181,7 @@ if(isset($_SESSION["login_error"]) === true){
 <div class="fbtWrapper">
 
 <?php
-$icon= array("","roller_coaster_hover.png","ferris_wheel_hover.png","ferris_wheel_hover.png","robot_hover.png","blimp_hover_for_facility.png","time_travel_hover.png","","disco_hover.png");
+$icon= array("","roller_coaster_hover.png","ferris_wheel_hover.png","ferris_wheel_hover.png","robot_hover.png","blimp_hover_for_facility.png","time_travel_hover.png","","disco_hover.png","coffee.png","coffee.png");
 try {
 	require_once("php/connectBooks.php");
 	$sql = "select * from facility where ticket_already=1";

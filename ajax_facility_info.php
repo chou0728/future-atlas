@@ -66,7 +66,7 @@ try{
 
 
       // }
-      $stwidth = $rating->comment_grade*19.89;
+      $stwidth = $rating->comment_grade*19.52;
 //------
       $cctString ="";
       $newString="";

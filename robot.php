@@ -178,6 +178,7 @@ if(isset($_SESSION["login_error"]) === true){
     <!-- header end-->
     <div class="wrapper">
         <!-- <img class="frame" src="img/robot_page/frame.png" alt=""> -->
+
         <img class="robot" src="img/robot_page/robot2.png" alt="">
 
         <div class="conversation">
@@ -276,13 +277,14 @@ if(isset($_SESSION["login_error"]) === true){
                                     function initIdentityResults_robot_answer(i) {
                                         $("#robot_answer").addClass("cursor").text(robot_answer.substring(0,
                                             i));
+                                        robot_eye_spark();
                                         if (i < robot_answer.length) {
                                             setTimeout(function () {
                                                 initIdentityResults_robot_answer(i + 1);
                                             }, 100);
-                                        }
+                                        }//if end
 
-                                    }
+                                    }//function end
                                 }
 
                             }
@@ -320,7 +322,25 @@ if(isset($_SESSION["login_error"]) === true){
             } //if (e.which == 13 || e.keyCode == 13){}
 
         }); //$("#input_box").on('keydown', function (e) {})
-
+    function robot_eye_spark(){
+        var robot = document.getElementsByClassName("robot")[0];
+            setTimeout(function(){
+                 robot.src="img/robot_page/robot2_1.png";
+            },100);
+            setTimeout(function(){
+                 robot.src="img/robot_page/robot2_2.png";
+            },400);
+              setTimeout(function(){
+                 robot.src="img/robot_page/robot2_3.png";
+            },600);
+               setTimeout(function(){
+                 robot.src="img/robot_page/robot2_2.png";
+            },900);
+               setTimeout(function(){
+                 robot.src="img/robot_page/robot2.png";
+            },1100);
+                                               
+    }
 
 
 

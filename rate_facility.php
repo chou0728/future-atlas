@@ -222,7 +222,7 @@ session_start();
                    ?>
 
 
-                   <textarea name="comment_content" id="rate_text" cols="30" rows="10"><?php echo $comment_content?></textarea>
+                   <textarea name="comment_content" id="rate_text" cols="30" rows="10" placeholder="請留下您寶貴的意見或感想!"><?php echo $comment_content?></textarea>
                    
                    <input type="hidden" name="comment_timestamp" value="<?php echo $now_time?>">
                    <input type="hidden" name="order_no" value="<?php echo $_REQUEST["order_no"]?>">

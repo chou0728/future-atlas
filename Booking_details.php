@@ -32,7 +32,7 @@
         #buyticketlightBox{
           width: 350px;
           height:100px;
-          line-height: 100px;
+          line-height: 50px;
           border: 2px solid rgba(55,255,243,0.8);
           box-shadow: 0 0 1px rgba(55,255,243,0.8),0 0 3px rgba(55,255,243,0.5),0 0 5px rgba(55,255,243,0.3);
           background-color: black;
@@ -501,9 +501,9 @@
                     //buyticketlightBox.style.visibility = 'visible';
                     //buyticketlightBox.style.display = 'block';
                     //document.getElementById('msg').innerHTML =return_data ;
-                     setTimeout(function(){
+                    setTimeout(function(){
                            location.href="see_tickets.php";
-                     },2000)
+                     },2000);
                 }
             }
             // Send the data to PHP now... and wait for response to update the status div
