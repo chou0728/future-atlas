@@ -329,9 +329,18 @@ $(document).ready(function(){
 		$("#mem_password_verify_text").val(psw_verify);
 	});
 	// 看密碼
-	$("#see_psw").click(function(){
-		$(".ps_show").toggleClass("ps_hidden");
-		$(".ps_verify").toggleClass("ps_verify_show");
+	$("#see_psw").mousedown(function(){
+		$(".ps_show").addClass("ps_hidden");
+		$(".ps_verify").addClass("ps_verify_show");
+		if($(this).hasClass("fa-eye-slash")){
+			$(this).removeClass("fa-eye-slash").addClass("fa-eye");
+		}else{
+			$(this).removeClass("fa-eye").addClass("fa-eye-slash");
+		}
+	});
+	$("#see_psw").mouseup(function(){
+		$(".ps_show").removeClass("ps_hidden");
+		$(".ps_verify").removeClass("ps_verify_show");
 		if($(this).hasClass("fa-eye-slash")){
 			$(this).removeClass("fa-eye-slash").addClass("fa-eye");
 		}else{
