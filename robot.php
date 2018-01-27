@@ -31,11 +31,31 @@ if(isset($_SESSION["login_error"]) === true){
         * {
             box-sizing: border-box;
         }
+        body::after {
+              content: '';
+              position: fixed;
+              top: 0;
+              left: 0;
+              width: 100%;
+              height: 100%;
+              overflow: hidden;
+              background-color:#000;  
+              z-index: 9999;  
+              pointer-events: none; 
+              opacity: 0;  
+              -webkit-transition: opacity .4s ease; 
+              transition: opacity .4s ease;
+        }
+        body.fadeout::after {
+            opacity: 1;
+        }
+
+
     </style>
 
 </head>
 
-<body>
+<body class="fadeout">
 <div class="header">
     <ul class="ul_top">
         <li class="li_top">
@@ -158,6 +178,7 @@ if(isset($_SESSION["login_error"]) === true){
     <!-- header end-->
     <div class="wrapper">
         <!-- <img class="frame" src="img/robot_page/frame.png" alt=""> -->
+
         <img class="robot" src="img/robot_page/robot2.png" alt="">
 
         <div class="conversation">
@@ -205,6 +226,7 @@ if(isset($_SESSION["login_error"]) === true){
 
     <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
     <script src="js/00nav.js"></script>
+    <script src="js/page_load_unload.js"></script>
     <script>
         var message = "您好，我是Future Atlas的守護者，有什麼我能協助您的?";
         var input_box = document.getElementById("input_box");
@@ -255,13 +277,14 @@ if(isset($_SESSION["login_error"]) === true){
                                     function initIdentityResults_robot_answer(i) {
                                         $("#robot_answer").addClass("cursor").text(robot_answer.substring(0,
                                             i));
+                                        robot_eye_spark();
                                         if (i < robot_answer.length) {
                                             setTimeout(function () {
                                                 initIdentityResults_robot_answer(i + 1);
                                             }, 100);
-                                        }
+                                        }//if end
 
-                                    }
+                                    }//function end
                                 }
 
                             }
@@ -299,7 +322,25 @@ if(isset($_SESSION["login_error"]) === true){
             } //if (e.which == 13 || e.keyCode == 13){}
 
         }); //$("#input_box").on('keydown', function (e) {})
-
+    function robot_eye_spark(){
+        var robot = document.getElementsByClassName("robot")[0];
+            setTimeout(function(){
+                 robot.src="img/robot_page/robot2_1.png";
+            },100);
+            setTimeout(function(){
+                 robot.src="img/robot_page/robot2_2.png";
+            },400);
+              setTimeout(function(){
+                 robot.src="img/robot_page/robot2_3.png";
+            },600);
+               setTimeout(function(){
+                 robot.src="img/robot_page/robot2_2.png";
+            },900);
+               setTimeout(function(){
+                 robot.src="img/robot_page/robot2.png";
+            },1100);
+                                               
+    }
 
 
 

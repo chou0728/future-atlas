@@ -1486,10 +1486,10 @@ if(isset($_SESSION["login_error"]) === true){
 			<div id="smallActivityRow">
 				<div class="title">今日活動</div>
 				<div class="content">
-					<span class="name">名稱名稱名</span>
-					<span class="time">00:00-00:00</span>
-					<span class="location">未來大道</span>
-					<span class="intro">活動介紹大約有十五字十五字的。</span>
+					<span class="name"></span>
+					<span class="time"></span>
+					<span class="location"></span>
+					<span class="intro"></span>
 				</div>
 			</div>
 		</div>
@@ -1665,8 +1665,8 @@ if(isset($_SESSION["login_error"]) === true){
 		        	<div class="highlight highlight1"></div>
 		        	<div class="highlight highlight2"></div>
 		        	<div class="highlight highlight3"></div>
-		            <tr><th>10:00-14:00</th><td><a class="convert">詳情</a></td></tr>
-		            <tr><td colspan="2">夢境遊行夢</td></tr>
+		            <!-- <tr><th>10:00-14:00</th><td><a class="convert">詳情</a></td></tr>
+		            <tr><td colspan="2">夢境遊行夢</td></tr> -->
 		        </table>
 		        <div id="weatherWrapper">
 		        	<div id="result">園區天氣<br>

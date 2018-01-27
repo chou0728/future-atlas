@@ -310,10 +310,12 @@
 	font-family: "微軟正黑體";
 	position: relative;
 	text-align: left;
-	transition: .3s;
-}.header .ul_top li:hover{
-	filter: brightness(2);
 }
+
+.header .ul_top li:hover a img{
+	filter: brightness(220%);
+}
+
 .header .ul_top li:last-child{
 	margin-bottom: 20px;
 }
@@ -330,6 +332,8 @@
 .header .ul_top li a img{
 	display: inline-block;
 	vertical-align: middle;
+	transition: .3s;
+	filter: brightness(100%);
 
 }
 .header .ul_top li a .register,

@@ -2,9 +2,14 @@
 		.theater_wrapper{
 			width: 100%;
 			background-color: black;
+			padding-top:8%;
+		}
+@media screen and (max-width:414px){
+		.theater_wrapper{
+
 			padding-top:25%;
 		}
-
+}
 		.TheaterArea{
 			margin: auto;
 			width: 80%;

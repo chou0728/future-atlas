@@ -29,11 +29,11 @@ if(isset($_SESSION["login_error"]) === true){
 			  width: 100%;
 			  height: 100%;
 			  overflow: hidden;
-			  background-color:#000;  /* 背景カラー */
-			  z-index: 9999;  /* 一番手前に */
-			  pointer-events: none;  /* 他の要素にアクセス可能にするためにポインターイベントは無効に */
-			  opacity: 0;  /* 初期値 : 透過状態 */
-			  -webkit-transition: opacity .4s ease;  /* アニメーション時間は 0.8秒 */
+			  background-color:#000;  
+			  z-index: 9999;  
+			  pointer-events: none; 
+			  opacity: 0;  
+			  -webkit-transition: opacity .4s ease; 
 			  transition: opacity .4s ease;
 		}
 		body.fadeout::after {
@@ -74,7 +74,7 @@ if(isset($_SESSION["login_error"]) === true){
                 <span class="register">
                 	<?php
                 		if(isset($_SESSION["mem_id"])===true){
-                			echo "<a href='MembersOnly.html'>帳戶</a>";
+                			echo "<a href='MembersOnly.php'>帳戶</a>";
                 		}else{
                 			echo "註冊";
                 		}
@@ -181,7 +181,7 @@ if(isset($_SESSION["login_error"]) === true){
 <div class="fbtWrapper">
 
 <?php
-$icon= array("","roller_coaster_hover.png","ferris_wheel_hover.png","ferris_wheel_hover.png","robot_hover.png","blimp_hover_for_facility.png","time_travel_hover.png","","disco_hover.png");
+$icon= array("","roller_coaster_hover.png","ferris_wheel_hover.png","ferris_wheel_hover.png","robot_hover.png","blimp_hover_for_facility.png","time_travel_hover.png","","disco_hover.png","coffee.png","coffee.png");
 try {
 	require_once("php/connectBooks.php");
 	$sql = "select * from facility where ticket_already=1";

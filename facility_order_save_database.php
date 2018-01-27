@@ -8,6 +8,7 @@ setcookie("mem_id","",time()-3600);
 <html lang="en">
 <head>
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
 <title>FA後台</title>
 <!-- ======請複製==== -->
 <link rel="stylesheet" type="text/css" href="css/RESET.css">
@@ -34,8 +35,8 @@ body{
     /*display: none;*/
 }
 #lightBox{
-  width: 450px;
-  height: 250px;
+  width: 350px;
+  height: 300px;
   border: 2px solid rgba(55,255,243,0.8);
   box-shadow: 0 0 1px rgba(55,255,243,0.8),0 0 3px rgba(55,255,243,0.5),0 0 5px rgba(55,255,243,0.3);
   background-color: black;
@@ -45,7 +46,6 @@ body{
   padding: 15px;
   transform: translate(-50%,-50%);
   text-align: center;
-
 }
 
 #lightBox .msg{
@@ -53,6 +53,7 @@ body{
 	height: 85%;
 	color: azure;
 	line-height: 24px;
+  font-family: 微軟正黑體;
 }
 #lightBox a{
   /*margin: 0 30px;*/

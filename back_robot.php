@@ -232,7 +232,7 @@ try {
 		var unsolved_question = "notnull";//update_robot.php判斷是否為unsolved_qa
 		var key_word = this.parentElement.parentElement.children[2].children[0].value;
 		var answer = this.parentElement.parentElement.children[3].children[0].value;
-		if(this.className=="save_qa"){//如果是要更動內容
+		if(this.className=="save_unqa"){//如果是要更動內容
 			location.href="update_robot.php?unsolved_question="+unsolved_question+"&key_word_no="+key_word_no+"&key_word="+key_word+"&answer="+answer;
 		}else{
 			location.href="update_robot.php?key_word_no="+key_word_no+"&del=1";

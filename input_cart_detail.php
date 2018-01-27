@@ -130,19 +130,19 @@ body::-webkit-scrollbar-thumb {
 			<div id="credit_input_area" colspan="2">信用卡卡號
 		<div>
 			<div class="credit_card" name="credit_card" id="credit_card">
-				<input type="text" size="4" minlength="4" maxlength="4" id="credit_card1" name="credit_card1" onkeyup="this.value=this.value.replace(/[^0-9]/g,'')" required>-
-				<input type="text" size="4" minlength="4" maxlength="4" id="credit_card2" name="credit_card2" onkeyup="this.value=this.value.replace(/[^0-9]/g,'')" required>-
-				<input type="text" size="4" minlength="4" maxlength="4" id="credit_card3" name="credit_card3" onkeyup="this.value=this.value.replace(/[^0-9]/g,'')" required>-
-				<input type="text" size="4" minlength="4" maxlength="4" id="credit_card4" name="credit_card4" onkeyup="this.value=this.value.replace(/[^0-9]/g,'')" required>
+				<input type="text" class="credits" minlength="4" maxlength="4" id="credit_card1" name="credit_card1" onkeyup="this.value=this.value.replace(/[^0-9]/g,'')" required>-
+				<input type="text" class="credits" minlength="4" maxlength="4" id="credit_card2" name="credit_card2" onkeyup="this.value=this.value.replace(/[^0-9]/g,'')" required>-
+				<input type="text" class="credits" minlength="4" maxlength="4" id="credit_card3" name="credit_card3" onkeyup="this.value=this.value.replace(/[^0-9]/g,'')" required>-
+				<input type="text" class="credits" minlength="4" maxlength="4" id="credit_card4" name="credit_card4" onkeyup="this.value=this.value.replace(/[^0-9]/g,'')" required>
 			</div>
 		<div>
 			<div>到期年月 / 驗證碼</div>
 		</div>
 		<div>
 			<div>
-				<input type="text" maxlength="2" id="credit_card5" onkeyup="this.value=this.value.replace(/[^0-9]/g,'')" required>/
-				<input type="text" maxlength="2" id="credit_card6" onkeyup="this.value=this.value.replace(/[^0-9]/g,'')" required>
-				<input type="text" maxlength="3" id="credit_card7" onkeyup="this.value=this.value.replace(/[^0-9]/g,'')" required></div>
+				<input type="text" maxlength="2" class="credits" id="credit_card5" onkeyup="this.value=this.value.replace(/[^0-9]/g,'')" required>/
+				<input type="text" maxlength="2" class="credits" id="credit_card6" onkeyup="this.value=this.value.replace(/[^0-9]/g,'')" required>
+				<input type="text" maxlength="3" class="credits" id="credit_card7" onkeyup="this.value=this.value.replace(/[^0-9]/g,'')" required></div>
 			</div>
 		</div>
 		</div>
@@ -222,15 +222,14 @@ document.getElementById("credit_card4").addEventListener("change",checkLength);
 document.getElementById("credit_card5").addEventListener("change",checkMonth);
 document.getElementById("credit_card6").addEventListener("change",checkYear);
 document.getElementById("credit_card7").addEventListener("change",checkVerify);
+
 function checkLength(){
-	var num = $(this).val();
+	var num = $(this).val().toString();
 	var id  = $(this).attr("id").substr(-1);
-	if(num < 1000){
+	if(num.length < 4){
 		alert("數字長度不對！請重新輸入");
+		alert(num.length);
 		$(this).val("");
-		$("#nextStep").click(function(){
-			alert("請確認信用卡為十六碼。");
-		})
 	}
 }
 function checkMonth(){
@@ -260,14 +259,18 @@ function checkYear(){
 function checkVerify(){
 	var num = $(this).val();
 	var id  = $(this).attr("id").substr(-1);
-	if(num < 100){
+	if(num.length < 3){
 		alert("驗證碼長度不對！請重新輸入");
 		$(this).val("");
-		$("#nextStep").click(function(){
-			alert("請確認驗證碼格式。");
-		})
 	}
 }
+
+$(".credits").keyup(function () {
+            if (this.value.length == this.maxLength) {
+              $(this).next('.credits').focus();
+            }
+        });
+
 
 function bindToHiddenName(){
 	document.getElementById("cart_sub_total_hidden").value = document.getElementById("cart_sub_total").innerHTML;

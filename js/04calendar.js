@@ -126,7 +126,6 @@ $(document).ready(function(){
 			"top":"25px",
 			"opacity":"0"
 		},2400);
-		// $(".highlight").animate({"opacity":"0"},800);
 
 		var showDate = $(this).text();
 		// 預備透過ajax抓取當日活動的param
@@ -147,21 +146,13 @@ $(document).ready(function(){
 		var day = ["(日)","(一)","(二)","(三)","(四)","(五)","(六)"];
 		$("#activityDay").text(day[$(this).index()]);
 	});
-	$("#backToToday").click(function(){
-		$("#activityDate").text("今日");
-		$("#activityDay").text("");	
-	});
-	$("#activityClose").click(function(){
-		$("#showActivityWrapper").css("right","-200%");
-		$("#cal").removeClass("calFadeOut");
-	});
 });
 
 
 window.addEventListener("load",getDate);
 function getDate(){
 	var d = new Date();
-	show_activity(d.getDate());	
+	show_activity(d.getDate());
 }
 
 // 顯示今日活動
@@ -170,18 +161,29 @@ function show_activity(activity_date){
 	xhr.onload = function(){
 		if( xhr.readyState === 4 && xhr.status === 200){ //OK
     		// show活動內容
-    		var activities = xhr.responseText.split("|");
-    		var innerPage = "";
-    		var index 	  = "";
-    		for(var i=0;i<=activities.length; i++){
-    			if(i%2 == 0){ // 偶數：串活動
-    				innerPage += activities[i];
-    			}else{ // 奇數：串日期
-    				index += activities[i];
-    			}
-	    		$("#showRowUnitWrapper").html(innerPage);
-	    		$("#activity").html(index);
-    		}
+    		if(xhr.responseText.split("|") != null){
+    			var activities = xhr.responseText.split("|");
+    			var innerPage  = "";
+    			var index 	   = "";
+    			var indexSmall = "";
+	    		for(var i=0;i<=activities.length; i++){
+	    			if(i%3 == 0){ // 0：串內頁
+	    				innerPage += activities[i];
+	    			}else if(i%3 == 1){ // 1：串首頁大月曆
+	    				index += activities[i];
+	    			}else if(i%3 == 2){ // 2：串首頁小月曆
+	    				indexSmall += activities[i];
+	    			}
+	    			$("#showRowUnitWrapper").html(innerPage);
+		    		$("#activity").html(index);
+		    		$(".content").html(indexSmall);
+	    		}
+    		}else{
+    			console.log("進來了");
+    			$("#showRowUnitWrapper").html("xhr.responseText");
+		    	$("#activity").html("xhr.responseText"+"from js");
+		    	$(".content").html("xhr.responseText"+"from js");
+			}
 		}
 	}
 	var url = "show_activity.php?activity_date=" + activity_date;
