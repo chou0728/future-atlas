@@ -199,8 +199,8 @@ if(isset($_SESSION["login_error"]) === true){
 
     </div>
 
+<!-- 登入燈箱 -->
 <div id="all-page"></div><!-- 叫出時背景-->
-        <!-- 登入燈箱 ==============-->
         <div id="lightBox">
             <div id="cancel">
                 <div class="leftLine"></div>
@@ -220,6 +220,9 @@ if(isset($_SESSION["login_error"]) === true){
                             <input type="submit" name="" id="submit" value="登入">
                         </div>
             </form>
+            <div id="orRegister">
+                    <span>還沒有帳號嗎？<a href="register.html">註冊</a>一個吧！</span>
+            </div>
         </div>
         <!-- 登入燈箱 ==end============-->
 

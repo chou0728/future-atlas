@@ -19,6 +19,22 @@
     z-index: 9999;
     padding: 20px;
 }
+#orRegister{
+    width: 100%;
+    height: 30px;
+    text-align: center;
+    display: block;
+    margin: 20px auto 0 auto;
+}
+#orRegister span{
+    font-size: 14px;
+    color: azure;
+    font-family: 微軟正黑體;
+}
+#orRegister span a{
+    color: #ff6600;
+    text-decoration: underline;
+}
 @media screen and (min-width:415px) and (max-width:1024px){
     #lightBox{
         width: 70%;
