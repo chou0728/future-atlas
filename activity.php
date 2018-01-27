@@ -527,6 +527,9 @@ body.fadeout::after {
 				            <input type="submit" name="" id="submit" value="登入">
         				</div>
 			</form>
+			<div id="orRegister">
+        		<span>還沒有帳號嗎？<a href="register.html">註冊</a>一個吧！</span>
+        	</div>
 		</div>
 		<!-- 登入燈箱 ==end============-->
 <script src="js/00nav.js"></script>

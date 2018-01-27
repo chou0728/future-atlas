@@ -329,7 +329,7 @@ $(document).ready(function(){
 		$("#mem_password_verify_text").val(psw_verify);
 	});
 	// 看密碼
-	$("#see_psw").mousedown(function(){
+	$("#see_psw").mouseenter(function(){
 		$(".ps_show").addClass("ps_hidden");
 		$(".ps_verify").addClass("ps_verify_show");
 		if($(this).hasClass("fa-eye-slash")){
@@ -338,7 +338,7 @@ $(document).ready(function(){
 			$(this).removeClass("fa-eye").addClass("fa-eye-slash");
 		}
 	});
-	$("#see_psw").mouseup(function(){
+	$("#see_psw").mouseleave(function(){
 		$(".ps_show").removeClass("ps_hidden");
 		$(".ps_verify").removeClass("ps_verify_show");
 		if($(this).hasClass("fa-eye-slash")){
