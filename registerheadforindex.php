@@ -31,7 +31,7 @@ values( :mem_nick,:password,:mem_name,:mem_mail,:mem_phone);";
 	$member -> execute();
 	$_SESSION["log_register"] = 1;
 	$_SESSION["mem_id"] = $pdo->lastInsertId();
-	header("location:====index.php");
+	header("location:home.php");
 } catch (Exception $ex) {
 	echo "資料庫操作失敗,原因：",$ex->getMessage(),"<br>";
 	echo "行號：",$ex->getLine(),"<br>";

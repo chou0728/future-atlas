@@ -37,7 +37,6 @@ body::-webkit-scrollbar-track {
 }
 body::-webkit-scrollbar-thumb {
   background-color: rgba(100,255,243,1);
- /* outline: 1px solid rgba(100,255,243,1);*/
 }
 #all-page{
 	position: absolute;
@@ -209,10 +208,6 @@ body::-webkit-scrollbar-thumb {
 		<table id="cartContent" border="1" cellspacing="0">
 			<tr id="cart_header">
 				<th id="fn_th" colspan="5">設施票券資訊</th>
-				<!-- <th id="icon_th">圖示</th> -->
-				<!-- <th id="fname_th">名稱</th> -->
-				<!-- <th id="tt_th">票種</th> -->
-				<!-- <th id="fare_th">票價</th> -->
 				<th id="tn_th" style='text-align: right'>張數</th>
 				<th id="subtotal_th" style='text-align: right'>小計</th
 				>
