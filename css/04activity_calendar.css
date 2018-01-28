@@ -846,7 +846,7 @@ body {
 	border-bottom: 1px solid lightgray;
 	padding-bottom: 3px;
 }
-#smallActivityRow .content{
+#smallActivityRow .smallCalContent{
 	/*background-color: red;*/
 	position: absolute;
 	width: 100%;
@@ -856,18 +856,18 @@ body {
 	font-size: 16px;
 	color: white;
 }
-#smallActivityRow .content span{
+#smallActivityRow .smallCalContent span{
 	display: block;
 	margin: 3px 0;
 	font-family: 微軟正黑體;
 
-}#smallActivityRow .content .name{
+}#smallActivityRow .smallCalContent .name{
 	font-size: 18px;
 	color: #ffcc00;
 	margin-top: 20px;
 }
-#smallActivityRow .content .time,
-#smallActivityRow .content .location{
+#smallActivityRow .smallCalContent .time,
+#smallActivityRow .smallCalContent .location{
 	display: inline-block;
 	font-size: 14px;
 }
