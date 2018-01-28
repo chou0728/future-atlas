@@ -205,15 +205,15 @@ if(isset($_SESSION["login_error"]) === true){
                         <div class="records">
                             <h3>未使用票券</h3>
                             <div class="records_info">
-                                <p>全票：<?php echo $order_item_row["full_remain"] ?>張<span>/</span></p>
-                                <p>半票：<?php echo $order_item_row["half_remain"] ?>張<span>/</span></p>
-                                <p class="unused">共：<?php echo $order_item_row["full_remain"] + $order_item_row["half_remain"] ?>張</p>
+                                <p>全票：<span class="unmbers"><?php echo $order_item_row["full_remain"] ?></span>張<span>/</span></p>
+                                <p>半票：<span class="unmbers"><?php echo $order_item_row["half_remain"] ?></span>張<span>/</span></p>
+                                <p class="unused">共：<span class="unmbers"><?php echo $order_item_row["full_remain"] + $order_item_row["half_remain"] ?></span>張</p>
                             </div>
                             <h3>已使用張數</h3>
                             <div class="records_info">
-                                <p>全票：<?php echo $order_item_row["full_fare_num_used"] ?>張<span>/</span></p>
-                                <p>半票：<?php echo $order_item_row["half_fare_num_used"] ?>張<span>/</span></p>
-                                <p>共：<?php echo $order_item_row["full_fare_num_used"] + $order_item_row["half_fare_num_used"] ?>張</p>
+                                <p>全票：<span class="unmbers"><?php echo $order_item_row["full_fare_num_used"] ?></span>張<span>/</span></p>
+                                <p>半票：<span class="unmbers"><?php echo $order_item_row["half_fare_num_used"] ?></span>張<span>/</span></p>
+                                <p>共：<span class="unmbers"><?php echo $order_item_row["full_fare_num_used"] + $order_item_row["half_fare_num_used"] ?></span>張</p>
                             </div>
                         </div>
                          <a href="see_tickets.php" class="backbtn">回到查看票券</a>

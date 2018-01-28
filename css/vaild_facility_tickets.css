@@ -200,6 +200,12 @@ body {
         margin-bottom: 20px;
 
       }
+      .records .records_info .unmbers{
+        color: #fff;
+        font-weight: bold;
+        opacity: 1;
+      }
+
 @media screen and (max-width: 480px) {
 
   .wrapper .content .info_used_record {

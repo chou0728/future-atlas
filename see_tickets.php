@@ -242,8 +242,8 @@ if(isset($_SESSION["login_error"]) === true){
                             <span class="order_num"><?php echo $order_item_row["order_no"] ?></span>
                         </p>
                         <p>未使用：
-                            <span class="unused"><?php echo $order_item_row["full_remain"] + $order_item_row["half_remain"] ?>張</span>　已使用：
-                            <span class="used"><?php echo $order_item_row["full_fare_num_used"] + $order_item_row["half_fare_num_used"] ?>張</span>
+                            <span class="unused"><?php echo $order_item_row["full_remain"] + $order_item_row["half_remain"] ?></span>　張　已使用：
+                            <span class="used"><?php echo $order_item_row["full_fare_num_used"] + $order_item_row["half_fare_num_used"] ?></span>　張
                         </p>
                         <div class="button_area">
                             <a class="more_info" href="facility_tickets_detail.php?order_no=<?php echo $order_item_row["order_no"] ?>&facility_no=<?php echo $order_item_row["facility_no"] ?>">詳細資訊</a>
@@ -348,8 +348,8 @@ if(isset($_SESSION["login_error"]) === true){
                             </p>
 
                             <p>未使用：
-                                <span class="unused"><?php echo $remain ?>張</span>　已使用：
-                                <span class="used"><?php echo $order_item_row["used_ticket"] ?>張</span>
+                                <span class="unused"><?php echo $remain ?></span>　張　已使用：
+                                <span class="used"><?php echo $order_item_row["used_ticket"] ?></span>　張
                             </p>
                             <a class="more_info_theater" href="theater_tickets_detail.php?theater_ticket_no=<?php echo $order_item_row["theater_ticket_no"] ?>&session_no=<?php echo $order_item_row["session_no"] ?>&program_no=<?php echo $order_item_row["program_no"] ?>" >詳細資訊</a>
                         </div>

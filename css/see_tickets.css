@@ -281,7 +281,14 @@ body::-webkit-scrollbar-thumb {
   padding: 10px;
   color: #37fff3;
 }
-
+.wrapper .content .tickets_area .tickets .ticket_info .unused{
+  color: #fff;
+  font-weight: bold;
+}
+.wrapper .content .tickets_area .tickets .ticket_info .used{
+  color: #fff;
+  font-weight: bold;
+}
 @media screen and (min-width: 415px) and (max-width: 1024px) {
   .wrapper .content .tickets_area .tickets .ticket_info {
     width: 70%;
