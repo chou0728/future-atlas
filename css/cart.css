@@ -95,17 +95,6 @@ body{
 	border: none;
 	color: #5AE6DB;
 }
-/*#fn_th{
-	width: 56%;
-}#fare_th{
-	text-align: right;
-	width: 8%;
-}#tn_th{
-	width: 14%;
-	min-width: 50px;
-}#subtotal_th{
-	width: 95%;
-}*/
 @media screen and (max-width: 550px){
 	#cartWrapper th{
 		font-size: 16px;
@@ -361,6 +350,7 @@ body{
 	text-align: right;
 }.facility_name_hidden{
 	display: none;
+	opacity: 0;
 }
 .sub_total{
 	width: 10%;
