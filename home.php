@@ -346,7 +346,11 @@ if(isset($_SESSION["login_error"]) === true){
 			<canvas id="e_light"></canvas>
 			</div>
 			<div id="robo">
+				<span class="robo_notice"><img src="img/firstSection/kaminari.png"></span>
+				<span class="robo_notice"><img src="img/firstSection/kaminari2.png"></span>
 				<img src="img/firstSection/robo.png">
+				<span class="notice_after"><img src="img/firstSection/robo_tell.png"></span>
+				<!-- <span class="go"><img src="img/firstSection/kaminari2.png"></span> -->
 			</div>
 			<img src="img/firstSection/entrance.png" class="entrance">
 			<div class="mobileBannerOpenBtn"></div><!--在大門口的圓圈位置-->
@@ -507,7 +511,7 @@ if(isset($_SESSION["login_error"]) === true){
 									</p>
 								</div>
 
-								<div class="parameter">
+								<div class="parameter restrict_block">
 									<h5>限制</h5>
 									<p class="paraContent middleLinehight">
 
@@ -632,7 +636,7 @@ if(isset($_SESSION["login_error"]) === true){
 									</p>
 								</div>
 
-								<div class="parameter">
+								<div class="parameter restrict_block">
 									<h5>限制</h5>
 									<p class="paraContent middleLinehight">
 
@@ -755,7 +759,7 @@ if(isset($_SESSION["login_error"]) === true){
 									</p>
 								</div>
 
-								<div class="parameter">
+								<div class="parameter restrict_block">
 									<h5>限制</h5>
 									<p class="paraContent middleLinehight">
 
@@ -875,7 +879,7 @@ if(isset($_SESSION["login_error"]) === true){
 									</p>
 								</div>
 
-								<div class="parameter">
+								<div class="parameter restrict_block">
 									<h5>限制</h5>
 									<p class="paraContent middleLinehight">
 
@@ -997,7 +1001,7 @@ if(isset($_SESSION["login_error"]) === true){
 									</p>
 								</div>
 
-								<div class="parameter">
+								<div class="parameter restrict_block">
 									<h5>限制</h5>
 									<p class="paraContent middleLinehight">
 
@@ -1119,7 +1123,7 @@ if(isset($_SESSION["login_error"]) === true){
 									</p>
 								</div>
 
-								<div class="parameter">
+								<div class="parameter restrict_block">
 									<h5>限制</h5>
 									<p class="paraContent middleLinehight">
 
@@ -1236,7 +1240,7 @@ if(isset($_SESSION["login_error"]) === true){
 									</p>
 								</div>
 
-								<div class="parameter">
+								<div class="parameter restrict_block">
 									<h5>限制</h5>
 									<p class="paraContent middleLinehight">
 
@@ -1353,7 +1357,7 @@ if(isset($_SESSION["login_error"]) === true){
 									</p>
 								</div>
 
-								<div class="parameter">
+								<div class="parameter restrict_block">
 									<h5>限制</h5>
 									<p class="paraContent middleLinehight">
 
@@ -1395,7 +1399,7 @@ if(isset($_SESSION["login_error"]) === true){
 			<ul class="TheaterArea">
 				<li class="Theater current" id="intro">
 					<div class="cover"></div>
-					<div class="label">File01</div>
+					<div class="label"></div>
 					<div class="theaterInfo" id="info">
 						<h2 class="theatertitle">劇場介紹</h2>
 						<div class="theatercontent">
@@ -1406,7 +1410,7 @@ if(isset($_SESSION["login_error"]) === true){
 				</li>
 				<li class="Theater notcurrent">
 					<div class="cover"></div>
-					<div class="label">File02</div>
+					<div class="label"></div>
 					<!-- <img src="img/thirdSection/spaceship.png" width="300px" height="300px;"> -->
 					<div class="theaterInfo" id="info">
 						<h2 class="theatertitle">尋找星生命</h2>
@@ -1419,7 +1423,7 @@ if(isset($_SESSION["login_error"]) === true){
 				</li>
 				<li class="Theater notcurrent">
 					<div class="cover"></div>
-					<div class="label">File03</div>
+					<div class="label"></div>
 					<!-- <img src="img/thirdSection/spaceman.png" width="300px" height="300px;"> -->
 					<div class="theaterInfo" id="info">
 						<h2 class="theatertitle">末世決戰</h2>
