@@ -301,7 +301,7 @@ try {
 				<input type="text" name="facility_subname" maxlength="25">
 				<span class="caution">*最多25字</span>
 			</div>
-			<div class="lightBox-row">
+			<div class="lightBox-row" style="display:none;">
 				<span class="subtitle">行銷用語：</span>
 				<textarea name="facility_phrase" maxlength="50"></textarea>
 			</div>
@@ -375,7 +375,7 @@ try {
 					<img src="" id="facility_mphoto">
 				</div>
 			</div>
-			<div class="lightBox-row">
+			<div class="lightBox-row" style="display: none;">
 				<span class="subtitle">行銷用語：</span>
 				<textarea name="facility_phrase" maxlength="200" id="facility_phrase"></textarea>
 			</div>
