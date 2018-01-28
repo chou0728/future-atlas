@@ -553,7 +553,7 @@
 	pointer-events: auto;
   	cursor: pointer;
   	transform: translateY(50%);
-  	transition: bottom 4.5s linear,transform 2s ease;
+  	transition: bottom 4.5s linear,transform 1.5s ease;
   	filter: drop-shadow(-2px -1px 1px rgba(25, 25, 25, 0.5));
 }
 .silhouette #robo.robolight{
@@ -579,8 +579,26 @@
 .silhouette #robo .notice_after{
 	position: absolute;
 	top:-40%;
-	right:-20%;
-	width: 75%;	
+	right:-25%;
+	width: 200px;
+	height: 0;
+	overflow: hidden;
+	transition: .2s linear;
+}
+.silhouette #robo .notice_after a{
+	position: absolute;
+	filter: drop-shadow(1px 1px 1px rgba(0,0,0,0.8));
+	display: block;
+	width: 100%;
+	height: 100%;
+	padding-top: 15%;
+	top:0;
+	left: 0;
+	opacity: 0;
+	line-height: 1.8;
+	color: rgb(247, 180, 9);
+	font-weight: bold;
+	transition: .2s linear;
 }
 .silhouette #robo .notice_after img,.silhouette #robo .robo_notice img{
 	width: 100%;
