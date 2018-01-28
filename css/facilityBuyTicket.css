@@ -31,6 +31,11 @@ body::-webkit-scrollbar-thumb {
 }
 @media screen and (max-width:480px){
   #rwd_gocart{
+    background-color: black;
+    top:45px;
+    left:0;
+    position: fixed;
+    z-index: 50;
     display: block;
     width: 100%;
     padding: 20px 1.5%;
@@ -47,10 +52,13 @@ body::-webkit-scrollbar-thumb {
     width: 100%;
   }
    #rwd_gocart a{
+    border: 1px solid rgba(255, 193, 22,0.8);
     width: 25%;
+    font-size: 16px;
     vertical-align: middle;
     display: inline-block;
-    color: rgba(100,255,243,0.8);
+    color: rgba(255, 193, 22,0.8);
+    padding: 5px 0;
     font-weight: bold;
    }
   #rwd_gocart span.arrowbar{
@@ -216,7 +224,7 @@ body::-webkit-scrollbar-thumb {
   .fbtWrapper{
     width:95%;
     max-width: 1440px;
-    padding: 50px 1% 1% 1%;
+    padding: 100px 1% 1% 1%;
     margin: 0 auto;
   }
 
