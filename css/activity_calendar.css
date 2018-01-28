@@ -725,6 +725,12 @@ body{
     margin: 5px 0 8px 3px;
 }
 
+
+@media screen and (max-width:650px){
+	#wrapper .actHr:first-child{
+		margin-top: 200px;
+	}
+}
 @media screen and (max-width:900px){
 	#showRow,#showDate,.recommendAct,.actHr{
 		width: 90%;
@@ -735,12 +741,7 @@ body{
 		margin: 0 auto;
 	}
 }
-@media screen and (max-width:650px){
-	#wrapper .actHr:first-child{
-		margin-top: 200px;
-	}
-}
-@media screen and (min-width:900px) and (max-width:1300px){
+@media screen and (min-width:900px) and (max-width:1400px){
 	#showRow,#showDate{
 		width: 90%;	
 		margin: 0 auto;
@@ -774,7 +775,7 @@ img { border: 0; }
 	display: inline-block;
 	width: 589.2px;
 	height: 320px;
-	/*float: right;*/
+	margin: 0 50px;
 	position: relative;
 	overflow-x: hidden;
 	-webkit-background-size: auto;
@@ -812,6 +813,7 @@ img { border: 0; }
 	#rotatescrollBox{
 		width: 240px;
 		height: 130.35px;
+		margin: 0 0;
 	}
 	#rotatescrollWrapper{
 		height: 240px;
@@ -827,12 +829,13 @@ img { border: 0; }
 	#rotatescrollBox{
 		width: 360px;
 		height: 195.525px;
+		margin: 0 0;
 	}
 	#rotatescrollWrapper{
 		height: 300px;
 	}
 }
-@media screen and (min-width:600px) and (max-width:1000px){
+@media screen and (min-width:600px) and (max-width:1200px){
 	#rotatescroll{
 		display: none;
 	}
@@ -842,27 +845,28 @@ img { border: 0; }
 	#rotatescrollBox{
 		width: 600px;
 		height: 325.875px;
+		margin: 0 0;
 	}
 	#rotatescrollWrapper{
 		height: 420px;
 	}
 }
-@media screen and (min-width:1000px) and (max-width:1300px){
+@media screen and (min-width:1200px) and (max-width:1400px){
 	#rotatescroll{
-		display: none;
+		transform: scale(0.95);
 	}
 	#rotatescrollWrapper{
 		width: 90%;
-		height: 500px;
+		height: 450px;
 		text-align: center;
 		margin: 0 auto;
 	}
 	#rotatescrollBox{
-		width: 750px;
-		height: 407.34375px;
+		width: 662.8308400460299px;
+		height: 360px;
 	}
 	#rotatescrollBoxWrapper{
-		height: 407.34375px;
+		height: 360px;
 	}
 }
 

@@ -192,9 +192,7 @@ if(isset($_REQUEST["filename"])){
 <div class="nav">
     <div class="ul_box">
         <h1 style="display: none">FutureAtlas_未來主題樂園</h1>
-        <a href="index.html#page1" class="logo_a">
             <img src="img/LOGO.png" class="logo">
-        </a>
     </div>
 </div>
 <img src="img/manager_login_bg.jpg" class="bgi">

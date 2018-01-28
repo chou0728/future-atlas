@@ -106,12 +106,12 @@ if(isset($_SESSION["login_error"]) === true){
             </li>
         </ul>
         <h1 style="display: none">FutureAtlas_未來主題樂園</h1>
-        <a href="====index.php" class="logo_a">
+        <a href="home.php" class="logo_a">
             <img src="img/LOGO.png" class="logo">
         </a>
         <ul class="ul_right">
             <li>
-                <a href="====index.php#page2" id="NavClose">園區地圖</a>
+                <a href="home.php#page2" id="NavClose">園區地圖</a>
             </li>
             <li>
                 <a href="activity.php">活動月曆</a>

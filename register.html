@@ -33,39 +33,43 @@ body{
 }
 
 #signupwrapper{
-	width: 370px;
-	margin: 100px auto 0 auto;
+	width: 320px;
 	height: 480px;
-	background-color: rgba(11,51,50,0.4);
+	margin : 130px auto 0 auto;
+	background-color: rgba(11,51,50,0.7);
 	box-shadow: 0 0 1px rgba(55,255,243,0.8),0 0 3px rgba(55,255,243,0.5),0 0 5px rgba(55,255,243,0.3);
 	text-align: center;
 	padding: 20px;
 }.title{
 	font-size: 28px;
-	margin: 20px auto;
+	margin: 20px auto 0 auto;
 }
 .subtitle{
 	font-size: 14px;
 	color: #dedede;
 }
 .inputdiv{
+	width: 95%;
 	height: 30px;
 	position: relative;
-	width: 100%;
 	margin: 20px auto 10px auto;
-	text-align: center;
 }.inputTitle,.inputbox,.hint{
 	vertical-align: middle;
-}.inputTitle{
-	display: block;
-	width: 40px;
+}
+.inputTitle{
+	display: inline-block;
+	width: 15%;
+	height:100%;
 	font-size: 16px;
-	margin: 0 auto;
+	text-align: left;
 }.inputbox{
-	width: 100%;
-}.inputbox input{
+	display: inline-block;
+	float: right;
+	width: 85%;
+	height:100%;
+}.inputbox input:first-child{
 	color: #222;
-	width: 240px;
+	width: 100%;
 	height: 23px;
 	font-size: 16px;
 	background-color: #cdcdcd;
@@ -81,24 +85,27 @@ body{
 	color: #ffc116;
 	height: 30px;
 	position: absolute;
-	top: 160%;
-	right: 18%;
-}.float_right{
+	right: 5%;
+}
+.hint:nth-of-child(2){
+	right:10%;
+}
+.float_right{
 	color: azure;
 	font-size: 12px;
 	line-height: 35px;
 	width: 35px;
 	height: 35px;
 	position: absolute;
-	top: 50%;
-	right: 8%;
+	top: 15px;
+	right: 4%;
 	border-radius: 100%;
 	cursor: pointer;
 }.float_right_gray_back{
 	background-color: #999;
 }
 #btn{
-	margin: 40px 0;
+	margin: 25px 0;
 }
 		/*統一按鈕外觀*/
 		.btn{
@@ -140,57 +147,25 @@ body{
 			border: 2px solid rgba(255, 193, 22,0.8);
 		}
 
-@media screen and (max-width: 414px){
+@media screen and (max-width: 413px){
 	#signupwrapper{
 		width: 80%;
-		min-width: 320px;
-	}
-	.title{
-		margin: 25px auto;
-	}
-	.inputTitle{
-		right:83%;
-		font-size: 16px;
-	}
-	.inputbox{
-		left:0;
-		right:0;
-		margin:0 auto;
-	}
-	.inputdiv{
-		width: 100%;
-		height: 30px;
-		position: relative;
-		margin: 25px auto;
-	}
-	.hint{
-		right:20px;
+		height:500px;
+		margin-top: 80px;
 	}
 	.btn{
-		width: 120px;
+		width: 100px;
 		margin: 0;
 	}
 }
-@media screen and (min-width: 414px) and (max-width: 550px){
 
-}
-@media screen and (min-width: 550px) and (max-width: 767px){
-	#signupwrapper{
-		width: 85%;
-	}.inputTitle,.inputbox{
-		font-size: 16px;
-	}.inputTitle{
-		top:10%;
-		right: 75%;
-	}.inputbox{
-		left: 25%;
-	}
-}
-@media screen and (min-width: 1200px){
 
-}
 .fa{
-	transform: scale(1.3);
+	transform: scale(1);
+	position: relative;
+	top:3px;
+	right:-10px;
+	color: #ff6600;
 }
 .ps_show{
 	visibility: visible;
@@ -200,49 +175,69 @@ body{
 }
 .ps_verify{
 	position: absolute;
-	height: 22px;
-	top:22px;
-	left:0;
-	right:0;
-	bottom:0;
-	margin:auto;
+	top:0;
+	left: 20%;
 	visibility: hidden;
-}.ps_verify:last-child{
-	top:0px;
-}
-.ps_verify_show{
+	width: 256px;
+	height: 23px;
+	float: right;
+	color: #222;
+	font-size: 16px;
+	background-color: #cdcdcd;
+	border-radius: 10px;
+	text-indent: 20px;
+	box-shadow: none;
+	border: none;
+	outline: none;
+	margin: 0 auto;
+}.ps_verify_show{
 	visibility: visible;
+}.show_icon{
+	position: absolute;
+	top:3px;
+	right:-5px;
+	width: 100px;
+	color: #ff6600;
 }
 
 
 
 </style>
 <body>
+
+<!-- ==========================PHP部分更改到此/以下只需追加園區地圖id====================== -->
+
 <div class="nav">
     <div class="ul_box">
         <ul class="ul_left">
             <li>
+            	<img src="img/hover-tri.png" class="nav_hover">
                 <a href="Theaterbuyticket.php">劇場購票</a>
             </li>
             <li>
+            	<img src="img/hover-tri.png" class="nav_hover">
                 <a href="facilityBuyTicket.php">設施購票</a>
             </li>
             <li>
+            	<img src="img/hover-tri.png" class="nav_hover">
                 <a href="facilityInfo.php">設施介紹</a>
             </li>
         </ul>
         <h1 style="display: none">FutureAtlas_未來主題樂園</h1>
-        <a href="====index.php" class="logo_a">
+        <a href="home.php" class="logo_a">
             <img src="img/LOGO.png" class="logo">
         </a>
         <ul class="ul_right">
-            <li>
-                <a href="====index.php#page2" id="NavClose">園區地圖</a>
+            <li id="nav_here">
+            	<img src="img/hover-tri.png" class="nav_hover">
+                <a href="#page2" id="NavClose">園區地圖</a>
             </li>
             <li>
+            	<img src="img/hover-tri.png" class="nav_hover">
                 <a href="activity.php">活動月曆</a>
             </li>
             <li>
+            	<img src="img/hover-tri.png" class="nav_hover">
                 <a href="robot.php">諮詢專區</a>
             </li>
         </ul>
@@ -266,9 +261,10 @@ body{
 
 <div id="signupwrapper">
 <div class="title">註冊會員</div>
-<div class="subtitle">立即享受50分積分，可<span style="color:white">折抵票券消費</span>！<br>對設施進行評價後可的到積分，繼續玩透透！</div>
+<div class="subtitle">立即享受50分積分，可<span style="color:white">折抵票券消費</span>！<br>對設施進行評價後可得到積分，繼續玩透透！</div>
 
 <form action="registerheadforindex.php" method="post">
+
 <div class="inputdiv">
 	<div class="inputTitle">帳號</div>
 	<div class="inputbox">
@@ -279,14 +275,14 @@ body{
 <div class="inputdiv">
 	<div class="inputTitle">暱稱</div>
 	<div class="inputbox">
-		<input type="text" name="mem_nick" id="mem_nick" placeholder="英數最多20字" placeholder="顯示於設施評價的名稱" required>
+		<input type="text" name="mem_nick" id="mem_nick" placeholder="英數最多20字" required>
 	</div>
 </div>
 <div class="inputdiv">
 	<div class="inputTitle">密碼</div>
 	<div class="inputbox">
-		<input type="password" class="ps_show" name="password" id="mem_password" maxlength="20" placeholder="英數最多20字" required>
-		<input type="text" class="ps_verify" id="mem_password_text" maxlength="20" placeholder="6-20碼英數">
+		<input type="password" class="ps_show" name="password" id="mem_password" maxlength="20" required>
+		<input type="text" class="ps_verify" id="mem_password_text" maxlength="20">
 		<div id="check_mem_id" class="float_right">
 			<i class="fa fa-eye-slash" id="see_psw"></i>
 		</div>
@@ -295,11 +291,11 @@ body{
 <div class="inputdiv">
 	<div class="inputbox">
 		<input type="password" class="ps_show" id="mem_password_verify" maxlength="20" placeholder="再次輸入密碼" required>
-		<input type="text" class="ps_verify" id="mem_password_verify_text" maxlength="20" placeholder="再次輸入密碼">
+		<input type="text" class="ps_verify" id="mem_password_verify_text" maxlength="20">
 	</div>
 </div>
 <div class="inputdiv">
-	<div class="inputTitle" style="margin-top: -20px">信箱</div>
+	<div class="inputTitle">信箱</div>
 	<div class="inputbox">
 		<input type="email" name="mem_mail" maxlength="20" required></div>
 </div>
@@ -337,6 +333,7 @@ $(document).ready(function(){
 		}else{
 			$(this).removeClass("fa-eye").addClass("fa-eye-slash");
 		}
+		$(".fa").css("color","#35ffea").css("filter","brightness(2)");
 	});
 	$("#see_psw").mouseleave(function(){
 		$(".ps_show").removeClass("ps_hidden");
@@ -346,6 +343,7 @@ $(document).ready(function(){
 		}else{
 			$(this).removeClass("fa-eye").addClass("fa-eye-slash");
 		}
+		$(".fa").css("color","#ff6600").css("filter","brightness(1)");;
 	});
 })
 // 密碼驗證正確

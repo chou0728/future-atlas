@@ -49,7 +49,7 @@ function init(){
 
 // 使用者輸入積點
 $(document).ready(function(){
-	$("#points").keyup(function(){
+	$("#points").change(function(){
 		$(this).val();
 		total = initial_total;
 		var member_points = document.getElementById("mem_points").innerHTML;
