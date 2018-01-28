@@ -1453,8 +1453,8 @@ body::-webkit-scrollbar-thumb {
 	line-height: 1.5;
 }
 .memScore .points_cover{
-	width: 131px;/*550*/
-	height: 24px;/*100*/
+	width: 132px;/*179*/
+	height: 26px;/*36*/
 	position: relative;
 
 	cursor: pointer;
