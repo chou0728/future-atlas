@@ -8,9 +8,9 @@
 body{
 	background-color: black;
   font-family: "微軟正黑體";
-}
-body{
-  background: black;
+ /* background-image: url("../img/damibg.png");
+  background-repeat: no-repeat;
+  background-size: contain;*/
 }
 body::-webkit-scrollbar {
     width: 10px;

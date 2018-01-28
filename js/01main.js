@@ -18,8 +18,8 @@ function init() {
   		var parallaxInstance = new Parallax(scene);
 
   	//load_up
-  		setTimeout(loadUp, 3000);
-  		setTimeout(loadUpSecond, 3580);
+  		setTimeout(loadUp, 2900);
+  		setTimeout(loadUpSecond, 3380);
   	//target_appear
 
   	//NeonLight
