@@ -149,7 +149,7 @@ body::-webkit-scrollbar-thumb {
 
 .wrapper .content .tickets_area .no_ticket{
   border: 2px solid #37fff3;
-  width:90%;
+  width:95%;
   height: 220px;
   margin: 15px auto;
   color: #37fff3;
@@ -291,7 +291,7 @@ body::-webkit-scrollbar-thumb {
 }
 @media screen and (min-width: 415px) and (max-width: 1024px) {
   .wrapper .content .tickets_area .tickets .ticket_info {
-    width: 70%;
+    width: 80%;
     margin: 0 auto;
     padding: 0  0 10px 0;
   }
@@ -299,7 +299,7 @@ body::-webkit-scrollbar-thumb {
 
 @media screen and (max-width: 414px) {
   .wrapper .content .tickets_area .tickets .ticket_info {
-    width: 70%;
+    width: 80%;
     margin: 0 auto;
     padding: 0  0 10px 0;
   }

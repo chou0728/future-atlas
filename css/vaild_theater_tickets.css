@@ -81,14 +81,37 @@ body {
       width: 100%;
       display: flex;
       flex-direction: row;
-      justify-content: space-around; }
+      justify-content: space-around; 
+      position: relative;
+    }
 
       .wrapper .content .info_ticket_QR .QR {
         width: 40%;
         height: auto;
         padding: 10px;
+        position: relative;
       
       }
+      .wrapper .content .info_ticket_QR .QR .ticket_used_up{
+        width: 70%;
+        height: 50px;
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left:0;
+        margin: auto;
+        border: #f00 4px solid;
+        text-align: center;
+        line-height: 50px;
+        font-size: 20px;
+        font-weight: bold;
+        color: #f00;
+        background: rgba(105, 105, 105, 0.9);
+        display: none;
+        transform: rotate(-5deg);
+      }
+
 
        .wrapper .content .info_ticket_QR .ticket_info {
           width: 60%;

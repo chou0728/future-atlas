@@ -170,8 +170,11 @@ if(isset($_SESSION["login_error"]) === true){
 
                 <h2>節目名稱：<?php echo $order_item_row["program_name"] ?></h2>
                 <div class="info_ticket_QR">
-                    
-                <img class="QR" src="https://chart.googleapis.com/chart?chs=200x200&cht=qr&chl=http://140.115.236.72/demo-projects/BD103/BD103G3/back_check_theater_tickets.php?<?php echo $order_item_row["theater_ticket_no"] ?>.<?php echo $order_item_row["session_no"] ?>.<?php echo $order_item_row["program_no"] ?>.ticket=theater"></img>
+                <div class="QR">
+                    <img  src="https://chart.googleapis.com/chart?chs=200x200&cht=qr&chl=http://140.115.236.72/demo-projects/BD103/BD103G3/back_check_theater_tickets.php?<?php echo $order_item_row["theater_ticket_no"] ?>.<?php echo $order_item_row["session_no"] ?>.<?php echo $order_item_row["program_no"] ?>.ticket=theater"></img>
+                    <div class="ticket_used_up">已全數用盡</div>
+                </div>
+               
                     
                     <div class="ticket_info">
                         
@@ -189,7 +192,7 @@ if(isset($_SESSION["login_error"]) === true){
                 <h2>使用狀況</h2>
                 <div class="info_used_record">
                         <div class="records">
-                            <p>未使用：<span class="unmbers"><?php echo $order_item_row["remain_ticket"] ?></span>張</p>
+                            <p>未使用：<span class="unmbers total_unused"><?php echo $order_item_row["remain_ticket"] ?></span>張</p>
                             
                             <p>已使用：<span class="unmbers"><?php echo $order_item_row["used_ticket"] ?></span>張</p>
                             
@@ -217,15 +220,33 @@ if(isset($_SESSION["login_error"]) === true){
     <script src="js/00nav.js"></script>
     
     <script>
-    window.onload = function(){
 
 
+        window.addEventListener('load',checkUsedUp);
 
-        var screen_width = document.documentElement.clientWidth;
+        function checkUsedUp(){
+            var unused_amount = document.getElementsByClassName('total_unused');
+            var ticket_used_up = document.getElementsByClassName('ticket_used_up');
+            var screen_width = document.documentElement.clientWidth;
 
-                if (screen.width <= 414){
-                    scaleQR();
-                };
+            for (let i = 0; i < unused_amount.length; i++){
+
+                    if(unused_amount[i].innerHTML == "0"){//用盡後不給放大
+                        ticket_used_up[i].style.display = "block";
+                        
+                    }else{
+
+                        if (screen.width <= 414){
+                            scaleQR();
+                        };
+        
+                    }
+
+
+            }
+          }
+
+
 
                 
                 function scaleQR(){
@@ -238,7 +259,7 @@ if(isset($_SESSION["login_error"]) === true){
 
 
 
-        };
+    
     
     
     

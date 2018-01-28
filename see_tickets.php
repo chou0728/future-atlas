@@ -448,7 +448,7 @@ window.onload = function(){
 
         for (let i = 0; i < unused_amount.length; i++){
 
-            if(unused_amount[i].innerHTML == "0張"){
+            if(unused_amount[i].innerHTML == 0){
                 ticket_used_up[i].style.display = "block";
             }
             

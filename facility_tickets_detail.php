@@ -207,7 +207,7 @@ if(isset($_SESSION["login_error"]) === true){
                             <div class="records_info">
                                 <p>全票：<span class="unmbers"><?php echo $order_item_row["full_remain"] ?></span>張<span>/</span></p>
                                 <p>半票：<span class="unmbers"><?php echo $order_item_row["half_remain"] ?></span>張<span>/</span></p>
-                                <p class="unused">共：<span class="unmbers"><?php echo $order_item_row["full_remain"] + $order_item_row["half_remain"] ?></span>張</p>
+                                <p class="unused">共：<span class="unmbers total_unused"><?php echo $order_item_row["full_remain"] + $order_item_row["half_remain"] ?></span>張</p>
                             </div>
                             <h3>已使用張數</h3>
                             <div class="records_info">
@@ -268,11 +268,11 @@ if(isset($_SESSION["login_error"]) === true){
         
         
         function checkUsedUp(){
-            var unused_amount = document.getElementsByClassName('unused');
+            var unused_amount = document.getElementsByClassName('total_unused');
               var ticket_used_up = document.getElementsByClassName('ticket_used_up');
               for (let i = 0; i < unused_amount.length; i++){
 
-                    if(unused_amount[i].innerHTML == "共：0張"){//用盡後不給放大
+                    if(unused_amount[i].innerHTML == "0"){//用盡後不給放大
                         ticket_used_up[i].style.display = "block";
                         
                     }else{
