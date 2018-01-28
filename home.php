@@ -352,7 +352,7 @@ $_SESSION["php_self"] = $_SERVER["PHP_SELF"];
 				<img src="img/firstSection/robo.png">
 				<span class="notice_after">
 					<img src="img/firstSection/robo_tell.png">
-					<a href="robot.php" id="robo_tell_appear">請問有任何問題嗎?<br>→立即前往諮詢專區</a>
+					<a href="robot.php" id="robo_tell_appear">請問有任何問題嗎?<br>《立即前往諮詢專區》</a>
 				</span>
 				<!-- <span class="go"><img src="img/firstSection/kaminari2.png"></span> -->
 			</div>
@@ -1896,9 +1896,9 @@ $_SESSION["php_self"] = $_SERVER["PHP_SELF"];
 
 		<!-- LOADING畫面 -->
 
-<!-- 	<div id="loading">
+	<div id="loading">
 			<div class="loading">Loading</div>
-		</div> -->
+		</div>
 
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/parallax/3.1.0/parallax.min.js"></script>
@@ -1920,36 +1920,36 @@ $_SESSION["php_self"] = $_SERVER["PHP_SELF"];
 			});
 
 			// LOADING畫面js--------------------------------------
-			// var originTime = new Date().getTime();
+			var originTime = new Date().getTime();
 
-			// function loading(){
-			// 	var now = new Date().getTime();
-			// 	console.log(originTime,now);
-			// if (now-originTime<=2000) {
-			//   	setTimeout('stopload()',3000-(now-originTime));
-			//     return;
-			//   } else {
-			//     stopload();
-			//   }
-			// }
-			// setTimeout('stopload()',3300);
+			function loading(){
+				var now = new Date().getTime();
+				console.log(originTime,now);
+			if (now-originTime<=2000) {
+			  	setTimeout('stopload()',3000-(now-originTime));
+			    return;
+			  } else {
+			    stopload();
+			  }
+			}
+			setTimeout('stopload()',3300);
 
-			// function stopload(){
-			// 	loading = document.getElementById('loading');
-			// 	loading.style.opacity="0";
-			// 	setTimeout("loadDisplay()",600);
-			// 	if(location.hash=="#page1"||location.hash==""){
-			// 		e_light();
-			// 	}
+			function stopload(){
+				loading = document.getElementById('loading');
+				loading.style.opacity="0";
+				setTimeout("loadDisplay()",600);
+				if(location.hash=="#page1"||location.hash==""){
+					e_light();
+				}
 
-			// 	//canvas重新讀取:因scrollbar寬度影響需要resize
-			// }
-			// function loadDisplay(){
-			// 	if(loading.style.opacity== 0){
-			// 		loading.style.display="none";
-			// 	}
-			// }
-			// window.addEventListener('load', loading);
+				//canvas重新讀取:因scrollbar寬度影響需要resize
+			}
+			function loadDisplay(){
+				if(loading.style.opacity== 0){
+					loading.style.display="none";
+				}
+			}
+			window.addEventListener('load', loading);
 
 			//theater---------------------------------------------------
 			//theater---------------------------------------------------
