@@ -1495,7 +1495,7 @@ $_SESSION["php_self"] = $_SERVER["PHP_SELF"];
 		    <!-- main codes end -->
 			<div id="smallActivityRow">
 				<div class="title">今日活動</div>
-				<div class="content">
+				<div class="smallCalContent">
 					<span class="name"></span>
 					<span class="time"></span>
 					<span class="location"></span>

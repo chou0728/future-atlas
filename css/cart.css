@@ -282,7 +282,7 @@ body{
       line-height: 28px;
       text-align: center;
       color: #000;
-      cursor: pointer;
+      cursor: default;
       background-color: #5AE6DB;
       -webkit-transition: background-color 100ms ease-in;
       transition: background-color 100ms ease-in;

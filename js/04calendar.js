@@ -176,12 +176,12 @@ function show_activity(activity_date){
 	    			}
 	    			$("#showRowUnitWrapper").html(innerPage);
 		    		$("#activity").html(index);
-		    		$(".content").html(indexSmall);
+		    		$(".smallCalContent").html(indexSmall);
 	    		}
     		}else{
     			$("#showRowUnitWrapper").html("xhr.responseText");
 		    	$("#activity").html("xhr.responseText");
-		    	$(".content").html("xhr.responseText");
+		    	$(".smallCalContent").html("xhr.responseText");
 			}
 		}
 	}
