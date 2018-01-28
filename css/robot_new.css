@@ -80,9 +80,9 @@ body {
       margin-bottom: 40px;
       text-align: left;
       color: white;
-      font-size: 20px;
+      font-size: 22px;
       letter-spacing: 4px;
-      line-height: 1.5; }
+      line-height: 2; }
       @media screen and (min-width: 415px) and (max-width: 1024px) {
         .wrapper .conversation #robot_greet {
           letter-spacing: 2px;
@@ -96,30 +96,35 @@ body {
       margin-bottom: 40px;
       text-align: right;
       color:#2ED4FF;
-      font-size: 20px;
-      letter-spacing: 4px; }
+      font-size: 22px;
+      letter-spacing: 4px;
+      line-height: 2; }
       @media screen and (min-width: 415px) and (max-width: 1024px) {
         .wrapper .conversation #user_message {
           font-size: 16px;
+          letter-spacing: 2px
          } }
       @media screen and (max-width: 414px) {
         .wrapper .conversation #user_message {
-          font-size: 16px; } }
+          font-size: 16px; 
+          letter-spacing: 2px} }
     .wrapper .conversation #robot_answer {
       width: 100%;
       margin-bottom: 40px;
       text-align: left;
       color: white;
-      font-size: 20px;
+      font-size: 22px;
       letter-spacing: 4px;
-      line-height: 30px;
+      line-height: 2;
     }
       @media screen and (min-width: 415px) and (max-width: 1024px) {
         .wrapper .conversation #robot_answer {
-          font-size: 16px; } }
+          font-size: 16px;
+          letter-spacing: 2px } }
       @media screen and (max-width: 414px) {
         .wrapper .conversation #robot_answer {
-          font-size: 16px; } }
+          font-size: 16px;
+          letter-spacing: 2px } }
     .wrapper .conversation .chat_area {
       width: 75%; }
       @media screen and (min-width: 415px) and (max-width: 1024px) {

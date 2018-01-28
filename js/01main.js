@@ -155,6 +155,16 @@ function mobileOpenB3(){
 function roboAppear(){
   	this.style.bottom="0";
   	this.setAttribute("class","robolight");
+    var robo_notice = document.getElementsByClassName("robo_notice")[0];
+    var robo_notice2 = document.getElementsByClassName("robo_notice")[1];
+
+    setTimeout(function(){
+      robo_notice.style.display="none";
+      robo_notice2.style.display="none";
+    },1200);
+    setTimeout(function(){
+      
+    },1500);
 }
 
 

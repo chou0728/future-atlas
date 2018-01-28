@@ -209,7 +209,7 @@ if(isset($_SESSION["login_error"]) === true){
                         require_once("connectBooks.php");
                         $sql = "SELECT c.facility_name,b.order_date,a.facility_no,a.comment_status,a.order_no,(a.full_fare_num - a.full_fare_num_used) full_remain,(a.half_fare_num-a.half_fare_num_used) half_remain,a.full_fare_num_used,a.half_fare_num_used
                         FROM facility_order_item a JOIN facility_order b ON a.order_no = b.order_no JOIN facility c ON a.facility_no = c.facility_no
-                        WHERE a.mem_id = ?";
+                        WHERE a.mem_id = ? ORDER BY `a`.`order_no` DESC";
                         $order_item_PDO = $pdo->prepare($sql);
                         $order_item_PDO->bindValue(1,$_SESSION["mem_id"]); 
                         $order_item_PDO->execute();
@@ -308,7 +308,7 @@ if(isset($_SESSION["login_error"]) === true){
                         require_once("connectBooks.php");
                         $sql = "SELECT b.program_name,b.program_no,c.session_no, c.time_date,c.session_time,a.theater_ticket_no,a.number_purchase,a.used_ticket
                                 FROM theater_order_list a JOIN theater_program b ON a.program_no = b.program_no JOIN theater_session_list c ON a.session_no = c.session_no
-                                WHERE a.mem_id = ?;";
+                                WHERE a.mem_id = ? ORDER BY `a`.`theater_ticket_no` DESC;";
                         $order_item_PDO = $pdo->prepare($sql);
                         $order_item_PDO->bindValue(1,$_SESSION["mem_id"]); //先寫死
                         $order_item_PDO->execute();
@@ -343,7 +343,7 @@ if(isset($_SESSION["login_error"]) === true){
                             <p>演出時間：
                                 <span class="perform_time"><?php echo $order_item_row["session_time"] ?></span>
                             </p>
-                            <p>票券編號：
+                            <p>訂單編號：
                                 <span class="theaterticket_no"><?php echo $order_item_row["theater_ticket_no"] ?></span>
                             </p>
 
@@ -403,6 +403,7 @@ window.onload = function(){
     function checkRateOrNot(){
 
         var rate_faci = document.getElementsByClassName('rate_faci');
+        
 
         for (let i = 0; i < rate_faci.length; i++){
 
