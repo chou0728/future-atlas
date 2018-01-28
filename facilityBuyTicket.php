@@ -179,6 +179,10 @@ if(isset($_SESSION["login_error"]) === true){
 
     <!-- header end-->
 <div class="fbtWrapper">
+	<div id="rwd_gocart">
+		<span><span class="arrowbar"></span><span class="arrowbar_d"></span><img src="img/facilityBuyTicket/gocartbar.png"></span>
+		<a href="input_cart.php">前往購物車</a>
+	</div>
 
 <?php
 $icon= array("","roller_coaster_hover.png","ferris_wheel_hover.png","ferris_wheel_hover.png","robot_hover.png","blimp_hover_for_facility.png","time_travel_hover.png","","disco_hover.png","coffee.png","coffee.png");

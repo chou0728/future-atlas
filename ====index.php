@@ -209,6 +209,8 @@ if(isset($_SESSION["login_error"]) === true){
 					<div class="balloon"></div>
 					<div class="balloon"></div>
 					<div class="balloon"></div>
+					<div class="balloon"></div>
+					<div class="balloon"></div>
 				
 				<div id="scene">
 					<div data-depth="0.28">
