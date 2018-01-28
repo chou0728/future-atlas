@@ -108,15 +108,15 @@ function minusNumPanel(){
 				// 更改localStorage內容
 				// 修改為全票
 				if( this.id.search("full") == 0){
-					var cc = storage.getItem(this.id.substr(this.id.length-1,1)).split("/");
+					var cc = localStorage.getItem(this.id.substr(this.id.length-1,1)).split("/");
 					cc[1] = newNum;
-					storage.setItem(this.id.substr(this.id.length-1,1),cc.join("/"));
+					localStorage.setItem(this.id.substr(this.id.length-1,1),cc.join("/"));
 				}
 				// 修改為半票
 				else{
-					var cc = storage.getItem(this.id.substr(this.id.length-1,1)).split("/");
+					var cc = localStorage.getItem(this.id.substr(this.id.length-1,1)).split("/");
 					cc[3] = newNum;
-					storage.setItem(this.id.substr(this.id.length-1,1),cc.join("/"));
+					localStorage.setItem(this.id.substr(this.id.length-1,1),cc.join("/"));
 				}
 			}else if( newNum < 1){
 				var confirm_status = confirm("您確定要刪除這張票券？");

@@ -1,6 +1,7 @@
 <?php
-    ob_start();
-    session_start();
+ob_start();
+session_start();
+$_SESSION["php_self"] = $_SERVER["PHP_SELF"];
 ?> 
 <!DOCTYPE html>
 <html lang="en">

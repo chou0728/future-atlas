@@ -119,13 +119,13 @@ $(document).ready(function(){
 			"height":"180px",
 			"top":"25px",
 			"opacity":"0"
-		},1600);
+		},1200);
 		$(".highlight3").animate({
 			"width" :"180px",
 			"height":"180px",
 			"top":"25px",
 			"opacity":"0"
-		},2400);
+		},1600);
 
 		var showDate = $(this).text();
 		// 預備透過ajax抓取當日活動的param
@@ -179,10 +179,9 @@ function show_activity(activity_date){
 		    		$(".content").html(indexSmall);
 	    		}
     		}else{
-    			console.log("進來了");
     			$("#showRowUnitWrapper").html("xhr.responseText");
-		    	$("#activity").html("xhr.responseText"+"from js");
-		    	$(".content").html("xhr.responseText"+"from js");
+		    	$("#activity").html("xhr.responseText");
+		    	$(".content").html("xhr.responseText");
 			}
 		}
 	}
@@ -223,8 +222,10 @@ function autoIconLoop1(){
 	$(".thu").html("");
 	$(".fri").html("尋找星生命");
 	$(".sat").html("末世決戰");
-	$("#icon1").css("background-color","orange").fadeIn();
-	$(".icons").not("#icon1").css("background-color","transparent");
+	$("#icon1").css("background-color","orange");
+	$(".icons span").css("color","black");
+	$(".icons span").not("#icon1 span").css("color","white");
+	$(".icons").not("#icon1").css("background-color","transparent").css("color","white");
 };
 function autoIconLoop2(){
 	$(".claContent").html("");
@@ -234,8 +235,10 @@ function autoIconLoop2(){
 	$(".claContent:eq(8)").append("FA飛行船");
 	$(".claContent:eq(12)").append("時空探險");
 	$(".claContent:eq(26)").append("未來遊園車");
-	$("#icon2").css("background-color","orange").fadeIn();
-	$(".icons").not("#icon2").css("background-color","transparent");
+	$("#icon2").css("background-color","orange");
+	$(".icons span").css("color","black");
+	$(".icons span").not("#icon2 span").css("color","white");
+	$(".icons").not("#icon2").css("background-color","transparent").css("color","white");
 };
 function autoIconLoop3(){
 	$(".claContent").html("");
@@ -246,8 +249,10 @@ function autoIconLoop3(){
 	$(".thu").html("10-22");
 	$(".fri").html("10-24");
 	$(".sat").html("9-24");
-	$("#icon3").css("background-color","orange").fadeIn();
-	$(".icons").not("#icon3").css("background-color","transparent");
+	$("#icon3").css("background-color","orange");
+	$(".icons span").css("color","black");
+	$(".icons span").not("#icon3 span").css("color","white");
+	$(".icons").not("#icon3").css("background-color","transparent").css("color","white");
 };
 function autoIconLoop4(){
 	$(".claContent").html("-");
@@ -266,8 +271,10 @@ function autoIconLoop4(){
 		xhr.open("get",url, true);
 		xhr.send(null);
 	}
-	$("#icon4").css("background-color","orange").fadeIn();
-	$(".icons").not("#icon4").css("background-color","transparent");
+	$("#icon4").css("background-color","orange");
+	$(".icons span").css("color","black");
+	$(".icons span").not("#icon4 span").css("color","white");
+	$(".icons").not("#icon4").css("background-color","transparent").css("color","white");
 };
 
 // 手動點選月曆模式時，停掉輪播

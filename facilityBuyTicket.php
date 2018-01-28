@@ -8,6 +8,7 @@ if(isset($_SESSION["login_error"]) === true){
 	echo "<script>alert('註冊成功，歡迎你~~');</script>";
 	unset($_SESSION["log_register"]);
 }
+$_SESSION["php_self"] = $_SERVER["PHP_SELF"];
 ?>
 <!DOCTYPE html>
 <html lang="en">

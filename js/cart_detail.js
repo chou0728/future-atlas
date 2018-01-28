@@ -37,11 +37,14 @@ function init(){
 	var sql_order_item = "insert into facility_order_item (order_no, facility_no, mem_id, facility_name, full_fare_num, full_fare_num_used, half_fare_num, half_fare_num_used, subtotal, comment_content, comment_grade, comment_timestamp) values ";
 	for(var i=1;i<11;i++)
 	if(storage.getItem(i) != null){
-		var info = storage.getItem(i).split("/");
-		var subtotal = info[0]*info[1] + info[2]*info[3];
-		// (2,2,"碰碰車",5,0,5,0,800,"尚未評分",0,"2018-01-16-20-20-20"),
-		var sql_increment = "/,"+i+","+storage.getItem("mem_id")+","+"'"+info[4]+"'"+","+info[1]+",0,"+info[3]+",0,"+subtotal+",'尚未評分',0,'0000-00-00-00-00-00'),";
-		sql_order_item += sql_increment;
+		info = storage.getItem(i).split("/");
+		if(info[1] != 0 || info[3] != 0){
+			var info = storage.getItem(i).split("/");
+			var subtotal = info[0]*info[1] + info[2]*info[3];
+			// (2,2,"碰碰車",5,0,5,0,800,"尚未評分",0,"2018-01-16-20-20-20"),
+			var sql_increment = "/,"+i+","+storage.getItem("mem_id")+","+"'"+info[4]+"'"+","+info[1]+",0,"+info[3]+",0,"+subtotal+",'尚未評分',0,'0000-00-00-00-00-00'),";
+			sql_order_item += sql_increment;
+		}
 	}
 	// console.log(sql_order_item);
 	document.getElementById("sql_order_item").value = (sql_order_item.substring(0, sql_order_item.length-1)+";");

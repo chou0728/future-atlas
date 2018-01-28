@@ -8,7 +8,7 @@ try{
 	$activity -> execute();
 
 	if( $activity->rowCount() == 0 ){
-    	echo "本日無活動 from php";
+    	echo "本日無活動";
   	}else{
     	$activityRow = $activity->fetchAll(PDO::FETCH_ASSOC);
 		$str="";

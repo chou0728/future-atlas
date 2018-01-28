@@ -1,7 +1,8 @@
 <?php
 ob_start();
 session_start();
-// $pre_url=$_SERVER['HTTP_REFERER'];
+$pre_url = $_SESSION["php_self"];
+
 ?>
 <!DOCTYPE html>
 <head>
@@ -31,7 +32,7 @@ values( :mem_nick,:password,:mem_name,:mem_mail,:mem_phone);";
 	$member -> execute();
 	$_SESSION["log_register"] = 1;
 	$_SESSION["mem_id"] = $pdo->lastInsertId();
-	header("location:home.php");
+	header("location:$pre_url");
 } catch (Exception $ex) {
 	echo "資料庫操作失敗,原因：",$ex->getMessage(),"<br>";
 	echo "行號：",$ex->getLine(),"<br>";

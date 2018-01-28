@@ -26,6 +26,7 @@ if(isset($_SESSION["login_error"]) === true){
 	unset($_SESSION["no_getticket"]);
 	header("Refresh:0");
 }
+$_SESSION["php_self"] = $_SERVER["PHP_SELF"];
 ?>
 <!DOCTYPE html>
 <meta charset="utf-8">
