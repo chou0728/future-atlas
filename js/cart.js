@@ -119,14 +119,9 @@ function minusNumPanel(){
 					localStorage.setItem(this.id.substr(this.id.length-1,1),cc.join("/"));
 				}
 			}else if( newNum < 1){
-				var confirm_status = confirm("您確定要刪除這張票券？");
-				if( confirm_status == true){
-					var delete_row_id = this.id.replace("_decrement","");
-					document.getElementById(delete_row_id).remove();
-				}else{
-					newNum = 1;
-					this.nextElementSibling.children[0].value = 1;
-				}
+				alert("不能再少囉！若要刪除，可按最右側叉叉")
+				newNum = 1;
+				this.nextElementSibling.children[0].value = newNum;
 			}
 	// 檢查facility_list
 	var storage = localStorage;
