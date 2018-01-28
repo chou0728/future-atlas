@@ -101,7 +101,7 @@ if(isset($_SESSION["top_manager"])===false||isset($_SESSION["manager_name"])===f
 <?php 
 try {
 	require_once("php/connectBooks.php");
-	$sql = "select * from question_and_answer where unsolved_question is null";
+	$sql = "select * from question_and_answer where unsolved_question is null order by key_word_no DESC ";
 	$qa = $pdo->query($sql);
 
 	while($qaRow = $qa->fetchObject()){
@@ -143,7 +143,7 @@ try {
 <?php 
 try {
 	require_once("php/connectBooks.php");
-	$sql = "select * from question_and_answer where unsolved_question is not null";
+	$sql = "select * from question_and_answer where unsolved_question is not null order by key_word_no DESC ";
 	$qa = $pdo->query($sql);
 
 	while($qaRow = $qa->fetchObject()){

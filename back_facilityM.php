@@ -287,14 +287,14 @@ try {
 				</div>
 				</div>
 <div id="facility_new" class="tabcontent">
-	<div class="facility_new_table">
+	<div class="facility_new_table" style="text-align:center;">
 		<form action="update_facility_info.php" method="post" enctype="multipart/form-data">
 			<input type="file" name="facility_mphoto" value="0" style="display: none;">
 			<input type="hidden" name="info_already">
 			<div class="lightBox-row">
 				<span class="subtitle">設施名稱：</span>
 				<input type="text" name="facility_name" maxlength="10" required>
-				<span class="caution">*必填-最多10字</span>
+				<span class="caution">*最多10字</span>
 			</div>
 			<div class="lightBox-row">
 				<span class="subtitle">英文名稱：</span>
@@ -305,29 +305,29 @@ try {
 				<span class="subtitle">行銷用語：</span>
 				<textarea name="facility_phrase" maxlength="50"></textarea>
 			</div>
-			<div class="lightBox-row">
+			<div class="lightBox-row" style="display:none;">
 				<span class="subtitle">適合對象：</span>
 				<input type="text" name="facility_suit" maxlength="15">
 			</div>
-			<div class="lightBox-row">
+			<div class="lightBox-row" style="display:none;">
 				<span class="subtitle">限制：</span>
 				<input type="text" name="facility_limit" maxlength="15">
 			</div>
-			<div class="lightBox-row">
+			<div class="lightBox-row" style="display:none;">
 				<span class="subtitle">完整介紹：</span>
 				<textarea name="facility_description" maxlength="200"></textarea>
 				<span class="caution">*用於設施介紹頁面-最多200字</span>
 			</div>
-			<div class="lightBox-row">
+			<div class="lightBox-row" style="display:none;">
 				<span class="subtitle">設施簡介：</span>
 				<textarea name="facility_intro" maxlength="20"></textarea>
 				<span class="caution">*用於設施購票頁面-最多20字</span>
 			</div>
-			<div class="lightBox-row">
+			<div class="lightBox-row" style="display:none;">
 				<span class="subtitle">全票票價：</span>
 				<input type="text" name="full_fare" value="0">
 			</div>
-			<div class="lightBox-row">
+			<div class="lightBox-row" style="display:none;">
 				<span class="subtitle">半票票價：</span>
 				<input type="text" name="half_fare" value="0">
 			</div>

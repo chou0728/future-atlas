@@ -13,7 +13,7 @@ try{
   $facility_PDO->bindValue(":facility_no",$no); 
   $facility_PDO->execute();
 
-  $sql = "select mem_id,comment_grade,comment_content,comment_timestamp from facility_comment where facility_no =:facility_no;";
+  $sql = "select mem_id,comment_grade,comment_content,comment_timestamp from facility_comment where facility_no =:facility_no ORDER BY comment_timestamp  DESC ; ";
   $rating_PDO = $pdo->prepare($sql);
   $rating_PDO->bindValue(":facility_no",$no); 
   $rating_PDO->execute();
