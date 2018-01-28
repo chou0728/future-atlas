@@ -189,9 +189,9 @@ if(isset($_SESSION["login_error"]) === true){
                 <h2>使用狀況</h2>
                 <div class="info_used_record">
                         <div class="records">
-                            <p>未使用：<?php echo $order_item_row["remain_ticket"] ?>張</p>
+                            <p>未使用：<span class="unmbers"><?php echo $order_item_row["remain_ticket"] ?></span>張</p>
                             
-                            <p>已使用：<?php echo $order_item_row["used_ticket"] ?>張</p>
+                            <p>已使用：<span class="unmbers"><?php echo $order_item_row["used_ticket"] ?></span>張</p>
                             
                         </div>
                         <a href="see_tickets.php" class="backbtn">回到查看票券</a>
