@@ -157,14 +157,22 @@ function roboAppear(){
   	this.setAttribute("class","robolight");
     var robo_notice = document.getElementsByClassName("robo_notice")[0];
     var robo_notice2 = document.getElementsByClassName("robo_notice")[1];
+    var notice_after = document.getElementsByClassName("notice_after")[0];
+    var robo_tell_appear = document.getElementById("robo_tell_appear");
 
-    setTimeout(function(){
+    if(robo_notice.style.display!="none"){
+      setTimeout(function(){
       robo_notice.style.display="none";
       robo_notice2.style.display="none";
-    },1200);
-    setTimeout(function(){
-      
-    },1500);
+      },2000);
+      setTimeout(function(){
+        notice_after.style.height="148px";
+      },2800);
+      setTimeout(function(){
+        robo_tell_appear.style.opacity="1";
+      },3500);
+    }
+    
 }
 
 

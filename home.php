@@ -73,7 +73,7 @@ $_SESSION["php_self"] = $_SERVER["PHP_SELF"];
             	if(isset($_SESSION["mem_id"])===true){
                 			echo "'javascript:void(0)'";
                 		}else{
-                			echo "'register.html'";
+                			echo "'register.php'";
                 		}
             ?> id="registerUser">
                 <img src=<?php
@@ -352,7 +352,7 @@ $_SESSION["php_self"] = $_SERVER["PHP_SELF"];
 				<img src="img/firstSection/robo.png">
 				<span class="notice_after">
 					<img src="img/firstSection/robo_tell.png">
-					<p></p>
+					<a href="robot.php" id="robo_tell_appear">請問有任何問題嗎?<br>→立即前往諮詢專區</a>
 				</span>
 				<!-- <span class="go"><img src="img/firstSection/kaminari2.png"></span> -->
 			</div>
