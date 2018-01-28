@@ -357,7 +357,7 @@
             display: block;
             clear: both; }
         .map_wrapper .info .info_container .info_content .main_content {
-          width: 60%;
+          width: 58%;
           float: left; }
           .map_wrapper .info .info_container .info_content .main_content:before, .map_wrapper .info .info_container .info_content .main_content:after {
             content: '';
@@ -423,9 +423,9 @@
             flex-direction: row;
             justify-content: space-around; }
             .map_wrapper .info .info_container .info_content .main_content .information .parameter {
-              width: 175px;
+              width: 24%;
               position: relative;
-              top: 50px; }
+							top: 50px; }
               .map_wrapper .info .info_container .info_content .main_content .information .parameter:before, .map_wrapper .info .info_container .info_content .main_content .information .parameter:after {
                 content: '';
                 display: block;
@@ -462,15 +462,23 @@
 										.map_wrapper .info .info_container .info_content .faci_suit{
 											display:none;
 										}
+										.map_wrapper .info .info_container .info_content .restrict_block{
+											display:none;
+										}
+
 									}
                 @media screen and (max-width: 414px) {
                   .map_wrapper .info .info_container .info_content .main_content .information .parameter h5 {
                     font-size: 16px;
 										top: -25px; }
 										.map_wrapper .info .info_container .info_content .main_content .information .parameter{
-											width:105px;
+											width:40%;
+											margin-top: 5%;
 										}
 										.map_wrapper .info .info_container .info_content .faci_suit{
+											display:none;
+										}
+										.map_wrapper .info .info_container .info_content .restrict_block{
 											display:none;
 										}
 									 }
@@ -527,11 +535,11 @@
           top: 100px; }
           @media screen and (min-width: 415px) and (max-width: 767px) {
             .map_wrapper .info .info_container .info_content .open_iframe {
-              width: 80%;
+              width: 90%;
               top: 87px; } }
           @media screen and (max-width: 414px) {
             .map_wrapper .info .info_container .info_content .open_iframe {
-              width: 80%;
+              width: 90%;
               top: 60px; } }
         .map_wrapper .info .info_container .info_content .open_iframe:hover {
           background-color: rgba(255, 193, 22, 0.8);
