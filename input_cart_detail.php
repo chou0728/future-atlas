@@ -228,7 +228,6 @@ function checkLength(){
 	var id  = $(this).attr("id").substr(-1);
 	if(num.length < 4){
 		alert("數字長度不對！請重新輸入");
-		alert(num.length);
 		$(this).val("");
 	}
 }
