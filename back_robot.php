@@ -22,7 +22,7 @@ if(isset($_SESSION["top_manager"])===false||isset($_SESSION["manager_name"])===f
         <img src="img/back_menu_default.png" id="ham">
         <h1 class="logo">
             <img src="img/LOGO.png" alt="FA">
-            <span>FA後台管理系統</span>
+            <span>後台管理系統</span>
         </h1>
         <ul class="nav">
             <li class="navList">
