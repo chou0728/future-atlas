@@ -346,7 +346,11 @@ if(isset($_SESSION["login_error"]) === true){
 			<canvas id="e_light"></canvas>
 			</div>
 			<div id="robo">
+				<span class="robo_notice"><img src="img/firstSection/kaminari.png"></span>
+				<span class="robo_notice"><img src="img/firstSection/kaminari2.png"></span>
 				<img src="img/firstSection/robo.png">
+				<span class="notice_after"><img src="img/firstSection/robo_tell.png"></span>
+				<!-- <span class="go"><img src="img/firstSection/kaminari2.png"></span> -->
 			</div>
 			<img src="img/firstSection/entrance.png" class="entrance">
 			<div class="mobileBannerOpenBtn"></div><!--在大門口的圓圈位置-->
