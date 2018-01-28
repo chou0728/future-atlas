@@ -670,6 +670,18 @@
 	color: #1a417a;
 	font-family: monospace;
 }
+@media screen and (min-width:1025px) and (max-width:1300px){
+	.silhouette .ferris_cover #center .fw_motobox{
+		width:210%;
+		left:-55%;
+		bottom: -15%;
+		/*outline: 1px solid red;*/
+	}
+	.silhouette .ferris_cover #center .fw_motobox .fw_motoword{
+		font-size: 26px;
+	}
+}
+
 
 .silhouette .ferris_cover #center #fw_wordbox{ /*----點擊後:摩天輪上ㄉ文字區塊---*/
   	animation: huge-flicker 10s infinite;

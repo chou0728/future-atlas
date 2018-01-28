@@ -358,7 +358,7 @@ try {
 					</div>
 				</div>
 				<div class="mobile375_points">
-					分數:<span><?php echo $av ?>/5</span>
+					分數:<span><?php echo round($av,1) ?>/5</span>
 				</div>
 
 				<div class="category">
