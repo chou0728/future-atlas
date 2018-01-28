@@ -301,7 +301,7 @@ body{
 <div class="inputdiv">
 	<div class="inputTitle">信箱</div>
 	<div class="inputbox">
-		<input type="email" name="mem_mail" maxlength="20" required></div>
+		<input type="email" name="mem_mail" required></div>
 </div>
 <div class="inputdiv">
 	<div class="inputTitle">手機</div>

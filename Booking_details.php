@@ -80,7 +80,7 @@ $_SESSION["php_self"] = $_SERVER["PHP_SELF"];
                     if(isset($_SESSION["mem_id"])===true){
                         echo "'javascript:void(0)'";
                     }else{
-                        echo "'SignUp.html'";
+                        echo "'register.php'";
                     }
                 ?> id="registerUser">
                     <img src=<?php
