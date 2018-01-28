@@ -505,7 +505,7 @@ if(isset($_SESSION["login_error"]) === true){
 									</p>
 								</div>
 
-								<div class="parameter">
+								<div class="parameter restrict_block">
 									<h5>限制</h5>
 									<p class="paraContent middleLinehight">
 
@@ -630,7 +630,7 @@ if(isset($_SESSION["login_error"]) === true){
 									</p>
 								</div>
 
-								<div class="parameter">
+								<div class="parameter restrict_block">
 									<h5>限制</h5>
 									<p class="paraContent middleLinehight">
 
@@ -753,7 +753,7 @@ if(isset($_SESSION["login_error"]) === true){
 									</p>
 								</div>
 
-								<div class="parameter">
+								<div class="parameter restrict_block">
 									<h5>限制</h5>
 									<p class="paraContent middleLinehight">
 
@@ -873,7 +873,7 @@ if(isset($_SESSION["login_error"]) === true){
 									</p>
 								</div>
 
-								<div class="parameter">
+								<div class="parameter restrict_block">
 									<h5>限制</h5>
 									<p class="paraContent middleLinehight">
 
@@ -995,7 +995,7 @@ if(isset($_SESSION["login_error"]) === true){
 									</p>
 								</div>
 
-								<div class="parameter">
+								<div class="parameter restrict_block">
 									<h5>限制</h5>
 									<p class="paraContent middleLinehight">
 
@@ -1117,7 +1117,7 @@ if(isset($_SESSION["login_error"]) === true){
 									</p>
 								</div>
 
-								<div class="parameter">
+								<div class="parameter restrict_block">
 									<h5>限制</h5>
 									<p class="paraContent middleLinehight">
 
@@ -1234,7 +1234,7 @@ if(isset($_SESSION["login_error"]) === true){
 									</p>
 								</div>
 
-								<div class="parameter">
+								<div class="parameter restrict_block">
 									<h5>限制</h5>
 									<p class="paraContent middleLinehight">
 
@@ -1351,7 +1351,7 @@ if(isset($_SESSION["login_error"]) === true){
 									</p>
 								</div>
 
-								<div class="parameter">
+								<div class="parameter restrict_block">
 									<h5>限制</h5>
 									<p class="paraContent middleLinehight">
 

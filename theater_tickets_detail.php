@@ -177,7 +177,7 @@ if(isset($_SESSION["login_error"]) === true){
                         
                         
                         <p>購買日期：<?php echo $order_item_row["order_date"] ?> </p>
-                        <p>票券編號：<?php echo $order_item_row["theater_ticket_no"] ?></p>
+                        <p>訂單編號：<?php echo $order_item_row["theater_ticket_no"] ?></p>
                         <p>訂單總額：<?php echo $order_item_row["original_amount"] ?></p>
                         <p>票券數量：<?php echo $order_item_row["number_purchase"] ?>張</p>
                         <p>節目時間：<?php echo $order_item_row["time_date"] ?>　<?php echo $order_item_row["session_time"] ?></p>
