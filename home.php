@@ -8,6 +8,7 @@ if(isset($_SESSION["login_error"]) === true){
 	echo "<script>alert('註冊成功，歡迎你~~');</script>";
 	unset($_SESSION["log_register"]);
 }
+$_SESSION["php_self"] = $_SERVER["PHP_SELF"];
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -349,7 +350,10 @@ if(isset($_SESSION["login_error"]) === true){
 				<span class="robo_notice"><img src="img/firstSection/kaminari.png"></span>
 				<span class="robo_notice"><img src="img/firstSection/kaminari2.png"></span>
 				<img src="img/firstSection/robo.png">
-				<span class="notice_after"><img src="img/firstSection/robo_tell.png"></span>
+				<span class="notice_after">
+					<img src="img/firstSection/robo_tell.png">
+					<p></p>
+				</span>
 				<!-- <span class="go"><img src="img/firstSection/kaminari2.png"></span> -->
 			</div>
 			<img src="img/firstSection/entrance.png" class="entrance">
