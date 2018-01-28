@@ -1,5 +1,5 @@
 *{
-/*	outline: 1px solid red;*/
+	/*outline: 1px solid red;*/
 	box-sizing: border-box;
   text-decoration: none;
   color: white;
@@ -25,6 +25,70 @@ body::-webkit-scrollbar-thumb {
   background-color: rgba(100,255,243,1);
  /* outline: 1px solid rgba(100,255,243,1);*/
 }
+
+#rwd_gocart{
+  display: none;
+}
+@media screen and (max-width:480px){
+  #rwd_gocart{
+    background-color: black;
+    top:45px;
+    left:0;
+    position: fixed;
+    z-index: 50;
+    display: block;
+    width: 100%;
+    padding: 20px 1.5%;
+    text-align: center;
+  }
+  
+  #rwd_gocart span{
+    width: 70%;
+    vertical-align: middle;
+    display: inline-block;
+    position: relative;
+  }
+  #rwd_gocart img{
+    width: 100%;
+  }
+   #rwd_gocart a{
+    border: 1px solid rgba(255, 193, 22,0.8);
+    width: 25%;
+    font-size: 16px;
+    vertical-align: middle;
+    display: inline-block;
+    color: rgba(255, 193, 22,0.8);
+    padding: 5px 0;
+    font-weight: bold;
+   }
+  #rwd_gocart span.arrowbar{
+    position: absolute;
+    display: block;
+    top:0;
+    left: 0;
+    width: 0%;
+    height: 90%;
+    background-color: rgba(100,255,243,0.8);
+    z-index: -1;
+    animation: gocart 1.5s ease infinite;
+  }
+  #rwd_gocart span.arrowbar_d{
+    position: absolute;
+    display: block;
+    top:0;
+    left: 0;
+    width: 99%;
+    height: 90%;
+    background-color: rgba(100,255,243,0.5);
+    z-index: -1;
+  }
+  @keyframes gocart{
+    0%{width: 0;}
+    100%{width: 99%;}
+  }
+ 
+}
+
 
  /* input-number*/
   .ctrl {
@@ -160,7 +224,7 @@ body::-webkit-scrollbar-thumb {
   .fbtWrapper{
     width:95%;
     max-width: 1440px;
-    padding: 50px 1% 1% 1%;
+    padding: 100px 1% 1% 1%;
     margin: 0 auto;
   }
 

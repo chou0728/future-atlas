@@ -62,7 +62,7 @@ body::-webkit-scrollbar-thumb {
 }
 @media screen and (max-width:480px){
 	.fi_wrapper{
-		margin:100px auto 0 auto;
+		margin:120px auto 0 auto;
 	}
 	.fi_wrapper .icon_subnav{
 		position: fixed;
@@ -79,6 +79,11 @@ body::-webkit-scrollbar-thumb {
 		margin: 0 3.2%;
 	}
 
+}
+@media screen and (max-width:414px){
+	.fi_wrapper{
+		margin:100px auto 0 auto;
+	}
 }
 /*============================*/
 .fi_wrapper .icon_subnav .i_info .i_box{
@@ -492,7 +497,7 @@ body::-webkit-scrollbar-thumb {
 	.fi_wrapper .fi_panel .f_box .bcover_border .points .points_cover{
 		width: 110px;
 		height: 20px;
-		margin-left: 10px;
+		margin-left: 15px;
 
 	}
 	.fi_wrapper .fi_panel .f_box .bcover_border .points img{
@@ -594,11 +599,18 @@ body::-webkit-scrollbar-thumb {
 @media screen and (max-width:375px){
 	.fi_wrapper .fi_panel .f_box .marquee_crowds{
 		width: 280px;
-		margin-left: -25%;
+		margin-left: -27%;
 		padding: 5px 0;
 	}
 	.fi_wrapper .marquee_crowds .marquee:before, .marquee_c .marquee:after{
 		font-size:14px;
+	}
+}
+@media screen and (max-width:320px){
+	.fi_wrapper .fi_panel .f_box .marquee_crowds{
+		width: 280px;
+		margin-left: -31%;
+		padding: 5px 0;
 	}
 }
 /*==========================================lightbox====================================================*/
@@ -1453,8 +1465,8 @@ body::-webkit-scrollbar-thumb {
 	line-height: 1.5;
 }
 .memScore .points_cover{
-	width: 131px;/*550*/
-	height: 24px;/*100*/
+	width: 132px;/*179*/
+	height: 26px;/*36*/
 	position: relative;
 
 	cursor: pointer;

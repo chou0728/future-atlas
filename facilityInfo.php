@@ -165,13 +165,13 @@ if(isset($_SESSION["login_error"]) === true){
             </li>
         </ul>
         <h1 style="display: none">FutureAtlas_未來主題樂園</h1>
-        <a href="====index.php" class="logo_a">
+        <a href="home.php" class="logo_a">
             <img src="img/LOGO.png" class="logo">
         </a>
         <ul class="ul_right">
             <li>
             	<img src="img/hover-tri.png" class="nav_hover">
-                <a href="====index.php#page2" id="NavClose">園區地圖</a>
+                <a href="home.php#page2" id="NavClose">園區地圖</a>
             </li>
             <li>
             	<img src="img/hover-tri.png" class="nav_hover">
@@ -358,7 +358,7 @@ try {
 					</div>
 				</div>
 				<div class="mobile375_points">
-					分數:<span><?php echo $av ?>/5</span>
+					分數:<span><?php echo round($av,1) ?>/5</span>
 				</div>
 
 				<div class="category">
@@ -511,6 +511,9 @@ try {
 				            <input type="submit" name="" id="submit" value="登入">
         				</div>
 			</form>
+			<div id="orRegister">
+        		<span>還沒有帳號嗎？<a href="register.html">註冊</a>一個吧！</span>
+        	</div>
 		</div>
 		<!-- 登入燈箱 ==end============-->
 

@@ -138,6 +138,7 @@
 			left: 50%;
 			bottom:1%;
 			transform: translateX(-50%);
+			font-family: "微軟正黑體";
 		}
 		@media screen and (max-width:1024px) and (min-width:415px){
 			.TheaterArea .buy a span{
@@ -206,10 +207,12 @@
 			line-height:2;
 			letter-spacing: 3px;
 			font-size:24px;
+			font-family: "微軟正黑體";
 		}
 		.TheaterArea .theaterInfo .theatercontent{
 			letter-spacing: 2px;
 			line-height:2;	
+			font-family: "微軟正黑體";
 		}
 		@media screen and (max-width:414px){
 			.TheaterArea .theaterInfo .theatercontent{
@@ -265,8 +268,8 @@
 			top:5px;
 			padding:8px;
 			font-size: 16px;
-			background-color: rgba(0,0,0,1);
-			box-shadow: 1px 1px 0px #35ffea;
+			/*background-color: rgba(0,0,0,1);
+			box-shadow: 1px 1px 0px #35ffea;*/
 			color:white;
 		}
 		.Theater img{

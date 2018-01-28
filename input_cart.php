@@ -37,7 +37,6 @@ body::-webkit-scrollbar-track {
 }
 body::-webkit-scrollbar-thumb {
   background-color: rgba(100,255,243,1);
- /* outline: 1px solid rgba(100,255,243,1);*/
 }
 #all-page{
 	position: absolute;
@@ -142,13 +141,13 @@ body::-webkit-scrollbar-thumb {
             </li>
         </ul>
         <h1 style="display: none">FutureAtlas_未來主題樂園</h1>
-        <a href="====index.php" class="logo_a">
+        <a href="home.php" class="logo_a">
             <img src="img/LOGO.png" class="logo">
         </a>
         <ul class="ul_right">
             <li>
                 <img src="img/hover-tri.png" class="nav_hover">
-                <a href="====index.php#page2" id="NavClose">園區地圖</a>
+                <a href="home.php#page2" id="NavClose">園區地圖</a>
             </li>
             <li>
                 <img src="img/hover-tri.png" class="nav_hover">
@@ -175,8 +174,8 @@ body::-webkit-scrollbar-thumb {
 
     <!-- header end-->
 
+<!-- 登入燈箱 -->
 <div id="all-page"></div><!-- 叫出時背景-->
-        <!-- 登入燈箱 ==============-->
         <div id="lightBox">
             <div id="cancel">
                 <div class="leftLine"></div>
@@ -196,6 +195,9 @@ body::-webkit-scrollbar-thumb {
                             <input type="submit" name="" id="submit" value="登入">
                         </div>
             </form>
+            <div id="orRegister">
+                    <span>還沒有帳號嗎？<a href="register.html">註冊</a>一個吧！</span>
+            </div>
         </div>
         <!-- 登入燈箱 ==end============-->
 
@@ -206,10 +208,6 @@ body::-webkit-scrollbar-thumb {
 		<table id="cartContent" border="1" cellspacing="0">
 			<tr id="cart_header">
 				<th id="fn_th" colspan="5">設施票券資訊</th>
-				<!-- <th id="icon_th">圖示</th> -->
-				<!-- <th id="fname_th">名稱</th> -->
-				<!-- <th id="tt_th">票種</th> -->
-				<!-- <th id="fare_th">票價</th> -->
 				<th id="tn_th" style='text-align: right'>張數</th>
 				<th id="subtotal_th" style='text-align: right'>小計</th
 				>

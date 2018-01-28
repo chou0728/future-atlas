@@ -146,13 +146,13 @@ if(isset($_SESSION["login_error"]) === true){
             </li>
         </ul>
         <h1 style="display: none">FutureAtlas_未來主題樂園</h1>
-        <a href="====index.php" class="logo_a">
+        <a href="home.php" class="logo_a">
             <img src="img/LOGO.png" class="logo">
         </a>
         <ul class="ul_right">
             <li>
             	<img src="img/hover-tri.png" class="nav_hover">
-                <a href="====index.php#page2" id="NavClose">園區地圖</a>
+                <a href="home.php#page2" id="NavClose">園區地圖</a>
             </li>
             <li>
             	<img src="img/hover-tri.png" class="nav_hover">
@@ -179,6 +179,10 @@ if(isset($_SESSION["login_error"]) === true){
 
     <!-- header end-->
 <div class="fbtWrapper">
+	<div id="rwd_gocart">
+		<span><span class="arrowbar"></span><span class="arrowbar_d"></span><img src="img/facilityBuyTicket/gocartbar.png"></span>
+		<a href="input_cart.php">前往購物車</a>
+	</div>
 
 <?php
 $icon= array("","roller_coaster_hover.png","ferris_wheel_hover.png","ferris_wheel_hover.png","robot_hover.png","blimp_hover_for_facility.png","time_travel_hover.png","","disco_hover.png","coffee.png","coffee.png");
@@ -279,6 +283,9 @@ $a+=2;
 				            <input type="submit" name="" id="submit" value="登入">
         				</div>
 			</form>
+			<div id="orRegister">
+        		<span>還沒有帳號嗎？<a href="register.html">註冊</a>一個吧！</span>
+        	</div>
 		</div>
 		<!-- 登入燈箱 ==end============-->
 

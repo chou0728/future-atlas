@@ -40,7 +40,7 @@ window.onload = function(){
 		var sub_total = parseInt(document.getElementsByClassName("sub_total")[i].innerHTML);
 		total += sub_total;
 	}
-		$("table#cartContent").append("<tr id='cart_total_row'><td colspan='6' id='cart_total_prev'>"+"總計："+"</td><td name='cart_total' id='cart_total' colspan='1'>"+total+"</td></tr>");
+		$("table#cartContent").append("<tr id='cart_total_row'><td colspan='6' id='cart_total_prev'>"+"總計："+"</td><td name='cart_total' id='cart_total' colspan='1'>"+total+"</td><td class='delete_btn_td'></td></tr>");
 		document.getElementById("cart_total").innerHTML = total;
 
 // 原始購物車外觀
