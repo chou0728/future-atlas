@@ -180,11 +180,11 @@ body{
 .ps_verify{
 	position: absolute;
 	top:0;
-	left: 20%;
+	left: 15%;
 	visibility: hidden;
-	width: 256px;
+	width: 258.4px;
 	height: 23px;
-	float: right;
+	float: left;
 	color: #222;
 	font-size: 16px;
 	background-color: #cdcdcd;
@@ -301,7 +301,7 @@ body{
 <div class="inputdiv">
 	<div class="inputTitle">信箱</div>
 	<div class="inputbox">
-		<input type="email" name="mem_mail" maxlength="20" required></div>
+		<input type="email" name="mem_mail" required></div>
 </div>
 <div class="inputdiv">
 	<div class="inputTitle">手機</div>

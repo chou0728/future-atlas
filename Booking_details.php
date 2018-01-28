@@ -80,7 +80,7 @@ $_SESSION["php_self"] = $_SERVER["PHP_SELF"];
                     if(isset($_SESSION["mem_id"])===true){
                         echo "'javascript:void(0)'";
                     }else{
-                        echo "'SignUp.html'";
+                        echo "'register.php'";
                     }
                 ?> id="registerUser">
                     <img src=<?php
@@ -147,7 +147,7 @@ $_SESSION["php_self"] = $_SERVER["PHP_SELF"];
                 </li>
             </ul>
             <h1 style="display: none">FutureAtlas_未來主題樂園</h1>
-            <a href="home.html" class="logo_a">
+            <a href="home.php" class="logo_a">
                 <img src="img/LOGO.png" class="logo">
             </a>
             <ul class="ul_right">
