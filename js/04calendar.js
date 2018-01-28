@@ -176,7 +176,7 @@ function show_activity(activity_date){
 	    			}
 	    			$("#showRowUnitWrapper").html(innerPage);
 		    		$("#activity").html(index);
-		    		$(".smallCalContent").html(indexSmall);
+		    		$("#smallActivityRow .smallCalContent").html(indexSmall);
 	    		}
     		}else{
     			$("#showRowUnitWrapper").html("xhr.responseText");
@@ -217,9 +217,9 @@ function autoIconLoop1(){
 	$(".claContent").html("");
 	$(".sun").html("尋找星生命");
 	$(".mon").html("末世決戰");
-	$(".tue").html("");
+	$(".tue").html("【休園】");
 	$(".wed").html("尋找星生命");
-	$(".thu").html("");
+	$(".thu").html("【劇場保養】");
 	$(".fri").html("尋找星生命");
 	$(".sat").html("末世決戰");
 	$("#icon1").css("background-color","orange");
