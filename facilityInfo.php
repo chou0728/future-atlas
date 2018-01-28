@@ -303,7 +303,7 @@ try {
 			$a_icon = "<img src='img/facilityInfo/child.png'><img src='img/facilityInfo/love.png'><img src='img/facilityInfo/umbrella.png'>";
 			break;
 		case '8':
-			$a = "34";
+			$a = "134";
 			$a_icon = "<img src='img/facilityInfo/love.png'><img src='img/facilityInfo/umbrella.png'>";
 			break;
 		case '9':
