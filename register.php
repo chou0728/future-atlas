@@ -180,11 +180,11 @@ body{
 .ps_verify{
 	position: absolute;
 	top:0;
-	left: 20%;
+	left: 15%;
 	visibility: hidden;
-	width: 256px;
+	width: 258.4px;
 	height: 23px;
-	float: right;
+	float: left;
 	color: #222;
 	font-size: 16px;
 	background-color: #cdcdcd;
