@@ -32,7 +32,10 @@
 @media screen and (max-width:414px){
     .cont{
         box-sizing: border-box;
-        padding-top: 50px;
+        margin-top: 50px;
+        padding-top:10px;
+        padding-bottom: 10px;
+        height: 85vh;
     }
     .cont .bar{
         display: none;

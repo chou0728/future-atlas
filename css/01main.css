@@ -297,7 +297,7 @@
 		display: block;
 		position: absolute;
 		opacity: 0;
-		box-shadow: 0 0 3px rgba(255, 148, 0,0.6),0 0 2px rgba(255, 148, 0,0.9);
+		/*box-shadow: 0 0 3px rgba(255, 148, 0,0.6),0 0 2px rgba(255, 148, 0,0.9);*/
 		transition: .5s linear;
 	}
 	#mobileOpenBanner.mobileSizeBanner{

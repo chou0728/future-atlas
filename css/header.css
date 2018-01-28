@@ -325,7 +325,7 @@
 	color: azure;
 	text-decoration: none;
 	color: #fff;
-	font-size: 14px;
+	font-size: 20px;
 	vertical-align: middle;
 	text-align: center;
 }
@@ -340,7 +340,7 @@
 .header .ul_top li a .login,
 .header .ul_top li a #howmanytickets,
 .header .ul_top li a .tkt{
-	font-size: 14px;
+	font-size: 20px;
 	color: azure;
 	display: inline-block;
 	vertical-align: middle;
