@@ -738,7 +738,7 @@ body::-webkit-scrollbar-thumb {
 	display: inline-block;
 	text-align: center;
 	position: relative;
-	width: 10%;
+	width: 18%;
 	letter-spacing: 2px;
 	right: -8%;
 	color: #5AE6DB;
