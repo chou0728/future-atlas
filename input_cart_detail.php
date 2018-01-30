@@ -43,7 +43,7 @@ body::-webkit-scrollbar-thumb {
             </li>
             <li>
                 <img src="img/hover-tri-now.png" class="nav_here">
-                <a href="facilityInfo.php" style="color: rgb(55,222,255);font-weight: bold;">設施介紹</a>
+                <a href="facilityInfo.php">設施介紹</a>
             </li>
         </ul>
         <h1 style="display: none">FutureAtlas_未來主題樂園</h1>
