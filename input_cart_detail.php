@@ -42,7 +42,7 @@ body::-webkit-scrollbar-thumb {
                 <a href="facilityBuyTicket.php">設施購票</a>
             </li>
             <li>
-                <img src="img/hover-tri-now.png" class="nav_here">
+                <img src="img/hover-tri-now.png" class="nav_hover">
                 <a href="facilityInfo.php">設施介紹</a>
             </li>
         </ul>
